@@ -664,17 +664,17 @@ function get_sets()
     right_ring="Menelaus's Ring",
     back="Tempered Cape +1",
 	}
-	sets.midcast.regen = {
+	sets.midcast.regen = { --, +55SIRD, +15 Regen, +10% Potency, +57% Duration, = Regen II, 28/Tic
 	ammo="Staunch Tathlum",
     sub="Bolelabunga",
-    head={ name="Taeon Chapeau", augments={'"Regen" potency+3',}},
+    head={ name="Taeon Chapeau", augments={'Mag. Evasion+16','Spell interruption rate down -9%','"Regen" potency+3',}},
     body={ name="Telchine Chas.", augments={'"Regen" potency+3',}},
-    hands={ name="Taeon Gloves", augments={'"Cure" potency +5%','"Regen" potency+3',}},
-    legs={ name="Taeon Tights", augments={'"Regen" potency+3',}},
-    feet={ name="Taeon Boots", augments={'"Regen" potency+3',}},
+    hands={ name="Taeon Gloves", augments={'Mag. Evasion+15','Spell interruption rate down -10%','"Regen" potency+3',}},
+    legs={ name="Taeon Tights", augments={'Mag. Evasion+17','Spell interruption rate down -9%','"Regen" potency+3',}},
+    feet={ name="Taeon Boots", augments={'Mag. Evasion+18','Spell interruption rate down -9%','"Regen" potency+3',}},
 	waist="Embla Sash",
     neck={ name="Dls. Torque +1", augments={'Path: A',}},
-    left_ear="Mimir Earring",
+    left_ear="Magnetic Earring",
     right_ear={ name="Lethargy Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
