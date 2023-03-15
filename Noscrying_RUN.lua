@@ -646,21 +646,21 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back="Moonbeam Cape",
 	}
-	sets.midcast.sird = {	
-    ammo="Impatiens",
-	head="Erilaz Galea +2",
+	sets.midcast.sird = { --Merit+5	== 	93% (Cap 102%)
+    ammo="Impatiens", --10
+	head="Erilaz Galea +2", --15
     body="Erilaz Surcoat +2",
-    hands="Rawhide Gloves",
-    legs="Carmine Cuisses +1",
+    hands="Rawhide Gloves", --15
+    legs="Carmine Cuisses +1", --20
     feet="Erilaz Greaves +2",
-    neck="Willpower Torque",
-    waist="Resolute Belt",
-    left_ear="Halasz Earring",
-    right_ear="Magnetic Earring",
+    neck="Willpower Torque", --5
+    waist="Resolute Belt", --8
+    left_ear="Halasz Earring", --5
+    right_ear="Magnetic Earring", --5 
     left_ring="Stikini Ring +1",
-    right_ring="Evanescence Ring",
+    right_ring="Evanescence Ring", --5
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Enmity+10',}},
-	}	
+	}		
     sets.midcast.MACC = {	
     ammo="Impatiens",
 	head="Erilaz Galea +2",
