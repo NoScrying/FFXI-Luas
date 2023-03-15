@@ -36,7 +36,7 @@ function get_sets()
 	sets.TwoHandedTP.index = { 'Normal', 'Hybrid'}
 	TwoHandedTP_ind = 1
 
-	sets.TwoHandedTP.Normal = { -- 26TA, 30DA, -22PDT, -4MDT
+	sets.TwoHandedTP.Normal = { -- 26TA, 30DA Temper+20-25 - 50-55DA, Embolden +10-12, 60-67DA, -22PDT, -4MDT
     ammo="Yamarang",
     head="Adhemar Bonnet +1",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -53,7 +53,7 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 
-	sets.TwoHandedTP.Hybrid = { -- 11TA, 30DA, -26PDT, -16MDT, +11 Inquartata, missing ambu cape
+	sets.TwoHandedTP.Hybrid = { -- 11TA, 30DA Temper+20-25 - 50-55DA, Embolden +10-12, 60-67DA, -26PDT, -16MDT, +11 Inquartata, missing ambu cape
     ammo="Yamarang",
     head="Adhemar Bonnet +1",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
