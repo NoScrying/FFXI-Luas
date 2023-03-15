@@ -468,10 +468,10 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 	sets.ws['Armor Break']	= {
 	ammo="Knobkierrie",
     head="Sakpata's Helm",
-    body="Sakpata's Breastplate",
+    body="Heath. Cuirass +2",
     hands="Sakpata's Gauntlets",
-    legs="Sakpata's Cuisses",
-    feet="Sakpata's Leggings",
+legs="Heath. Flanchard +2",
+    feet="Heathen's Sollerets +2",
     neck="Erra Pendant",
     waist="Eschan Stone",
     left_ear="Crepuscular Earring",
