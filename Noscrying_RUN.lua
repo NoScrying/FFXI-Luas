@@ -613,14 +613,14 @@ function get_sets()
     right_ring="Provocare Ring", --5
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Enmity+10',}}, --10
 	}
-	sets.midcast.regen = {	-- +19 Regen, +39 seconds, +20% Potency, = Regen IV 59/tic, Embolden = 79/tic
+	sets.midcast.regen = {	--, +46SIRD +19 Regen, +39 seconds, +20% Potency, = Regen IV 59/tic, Embolden = 79/tic
 	ammo="Staunch Tathlum",
     head="Runeist Bandeau +2",
-    body={ name="Taeon Tabard", augments={'"Regen" potency+3',}},
-    hands={ name="Taeon Gloves", augments={'"Cure" potency +5%','"Regen" potency+3',}},
-    --legs={ name="Taeon Tights", augments={'"Regen" potency+3',}},
+    body={ name="Taeon Tabard", augments={'Mag. Evasion+19','Spell interruption rate down -9%','"Regen" potency+3',}},
+    hands={ name="Taeon Gloves", augments={'Mag. Evasion+15','Spell interruption rate down -10%','"Regen" potency+3',}},
+    --legs={ name="Taeon Tights", augments={'Mag. Evasion+17','Spell interruption rate down -9%','"Regen" potency+3',}},
     legs={ name="Futhark Trousers +1", augments={'Enhances "Inspire" effect',}},	
-    feet={ name="Taeon Boots", augments={'"Regen" potency+3',}},
+    feet={ name="Taeon Boots", augments={'Mag. Evasion+18','Spell interruption rate down -9%','"Regen" potency+3',}},
     neck="Sacro Gorget",
     waist="Sroda Belt",
     left_ear="Magnetic Earring",
@@ -628,7 +628,7 @@ function get_sets()
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
     back="Moonbeam Cape",
-	}	
+	}		
 	sets.midcast.phalanx = { -- ML25 = Skill 502 = Phalanx Tier 8, -35 Damage, +17 = -52 Damage
 	ammo="Staunch Tathlum",
     head={ name="Fu. Bandeau +1", augments={'Enhances "Battuta" effect',}},
