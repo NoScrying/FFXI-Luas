@@ -293,7 +293,7 @@ function get_sets()
     legs="Leth. Fuseau +2",
     feet="Leth. Houseaux +2",
     neck="Sibyl Scarf",
-    waist="Orpheus's Sash Stone",
+    waist="Orpheus's Sash",
     left_ear="Regal Earring",
     right_ear="Malignance Earring",
     left_ring="Archon Ring",
