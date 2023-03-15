@@ -844,7 +844,7 @@ function self_command(command)
 	if command == 'toggle Apoc set' then
         Apoc_Index = Apoc_Index +1
         if Apoc_Index > #Apoc_Set_Names then Apoc_Index = 1 end
-        windower.add_to_chat('Apoc Armor is now: '....Apoc_Set_Names[Apoc_Index])
+        windower.add_to_chat('Apoc Armor is now: '..Apoc_Set_Names[Apoc_Index])
 		equip(sets.Apoc[Apoc_Set_Names[Apoc_Index]])
 	end
 	if command == 'toggle Sub_Weapons set' then
