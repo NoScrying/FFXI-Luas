@@ -38,7 +38,7 @@ send_command('bind !f9 gs c toggle TankingTP') --! turns tanking tp off
 	sets.TwoHandedTP.index = { 'Normal', 'Hybrid'}
 	TwoHandedTP_ind = 1
 
-	sets.TwoHandedTP.Normal = {
+	sets.TwoHandedTP.Normal = { -- 26TA, 30DA, -22PDT, -4MDT
     ammo="Yamarang",
     head="Adhemar Bonnet +1",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -55,7 +55,7 @@ send_command('bind !f9 gs c toggle TankingTP') --! turns tanking tp off
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 
-	sets.TwoHandedTP.Hybrid = {
+	sets.TwoHandedTP.Hybrid = { -- 11TA, 30DA, -26PDT, -16MDT, +11 Inquartata, missing ambu cape
     ammo="Yamarang",
     head="Adhemar Bonnet +1",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -81,7 +81,7 @@ send_command('bind !f9 gs c toggle TankingTP') --! turns tanking tp off
 	sets.TankingTP.index = { 'DT','Parry'}
 	TankingTP_ind = 1
 	
-	sets.TankingTP.DT = {
+	sets.TankingTP.DT = { --, -50PDT, -42MDT
     ammo="Staunch Tathlum",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
@@ -96,8 +96,8 @@ send_command('bind !f9 gs c toggle TankingTP') --! turns tanking tp off
     left_ring="Moonbeam Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
-	--Capped DT with DD Gear
-	sets.TankingTP.Parry = {
+
+	sets.TankingTP.Parry = { --, -36PDT, -24MDT, +11 Inquartata, missing ambu cape
     ammo="Staunch Tathlum",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body="Erilaz Surcoat +2",
@@ -900,33 +900,15 @@ function idle()
 	if player.status =="Engaged" then
 		if TankingTP == true then
 			equip(sets.TankingTP[sets.TankingTP.index[TankingTP_ind]])
-				-- if buffactive['Battuta'] then
-					-- equip(sets.TankingTP.Inquartata)
 		elseif TwoHandedTP == true then
 			equip(sets.TwoHandedTP[sets.TwoHandedTP.index[TwoHandedTP_ind]])
-				-- if buffactive['Battuta'] then
-					-- equip(sets.TwoHandedTP.Inquartata)
-			-- end
-		-- end
 	end
 end
-	if player.status=='Engaged'  then 
+	if player.status=='Engaged' then 
 		if buffactive['Battuta'] then
 			equip(sets.TankingTP.Inquartata)
 		end
 	end
-    -- if player.status=='Engaged'  then 
-        -- equip(sets.melee[Melee_Set_Names[Melee_Index]])
-			-- if buffactive['Battuta'] then
-				-- equip(sets.melee.Inquartata)
-			-- end
-		-- end
-	-- if player.status=="Engaged" then
-		-- equip(sets.DT[DT_Set_Names[DT_Index]])
-			-- if buffactive['Battuta'] then
-				-- equip(sets.melee.Inquartata)
-			-- end
-		-- end	
 	if player.status =='Idle' then
 		equip(sets.idle.normal)
 	end
@@ -986,18 +968,6 @@ function self_command(command)
 		end
 		status_change(player.status)
 	end
-	-- if command == 'toggle melee set' then
-        -- Melee_Index = Melee_Index +1
-        -- if Melee_Index > #Melee_Set_Names then Melee_Index = 1 end
-        -- windower.add_to_chat('Melee mode is now: '..Melee_Set_Names[Melee_Index])
-        -- equip(sets.melee[Melee_Set_Names[Melee_Index]])
-    -- end
-	-- if command == 'toggle DT set' then
-        -- DT_Index = DT_Index +1
-        -- if DT_Index > #DT_Set_Names then DT_Index = 1 end
-        -- windower.add_to_chat('DT mode is now: '..DT_Set_Names[DT_Index])
-        -- equip(sets.DT[DT_Set_Names[DT_Index]])
-    -- end
 	if command == 'toggle run set' then
         Run_Index = Run_Index +1
         if Run_Index > #Run_Set_Names then Run_Index = 1 end
