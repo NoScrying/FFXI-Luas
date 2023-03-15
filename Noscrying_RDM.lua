@@ -825,7 +825,7 @@ function buff_change(buff,gain)
              disable('ring1','ring2','waist','neck','feet')
         else
             enable('ring1','ring2','waist','neck','feet')
-            handle_equipping_gear(player.status)
+			idle()
         end
     end
 end
