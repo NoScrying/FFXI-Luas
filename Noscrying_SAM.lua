@@ -509,7 +509,7 @@ function self_command(command)
     end
 end
 
-function user_unload()
+function file_unload()
 send_command('unbind f9')
 send_command('unbind !f9')
 send_command('unbind f10')
@@ -518,4 +518,5 @@ send_command('unbind f12')
 send_command('unbind !f12')
 send_command('unbind f7')
 send_command('unbind !f7')
+send_command('unbind numpad1')
 end
