@@ -117,9 +117,9 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}	
 	
-	Run_Set_Names = {'Refresh'}
+	Run_Set_Names = {'Refresh','Regen','DT'}
 	sets.run = {}
-	sets.run.Refresh =  {
+	sets.run.Refresh =  { -- Refresh 7/Tic
     ammo="Homiliary",
     head="Rawhide Mask",
     body="Runeist Coat +1",
@@ -130,9 +130,39 @@ function get_sets()
     waist="Platinum Moogle Belt",
     left_ear="Sherida Earring",
     right_ear="Cessance Earring",
-    left_ring="Epona's Ring",
-    right_ring="Defending Ring",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
     back="Moonbeam Cape",
+	}
+	sets.run.Regen =  { -- Refresh 4/Tic, Regen 18/Tic
+    ammo="Homiliary",
+    head="Rawhide Mask",
+    body="Runeist Coat +1",
+    hands="Turms Mittens +1",
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    feet="Turms Leggings +1",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Sherida Earring",
+    right_ear="Infused Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring",
+    back="Moonbeam Cape",
+	}
+	sets.run.DT =  { --, -40PDT, -28MDT
+    ammo="Staunch Tathlum",
+    head="Erilaz Galea +2",
+    body="Erilaz Surcoat +2",
+    hands="Erilaz Gauntlets +2",
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    feet="Erilaz Greaves +2",
+    neck="Warder's Charm",
+    waist="Flume Belt",
+    left_ear="Odnowa Earring +1",
+    right_ear="Tuisto Earring",
+    left_ring="Moonbeam Ring",
+    left_ring="Moonbeam Ring",
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
 	TH_Set_Names = {'TH'}
