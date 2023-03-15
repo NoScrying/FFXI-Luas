@@ -819,7 +819,7 @@ function buff_change(buff,gain)
             equip(sets.Idle)
         end
 	end
-    if buff == "doom" then
+    if buff == "doom" then --Auto equip Holywater set, cause farming Shinryu VD is a pain in the ass
         if gain then
             equip(sets.buff.Holywater)
              disable('ring1','ring2','waist','neck','feet')
