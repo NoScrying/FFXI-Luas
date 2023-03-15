@@ -662,20 +662,20 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     right_ring="Moonbeam Ring",
     back="Moonbeam Cape",	
 	}
-	sets.midcast.sird = {	
-    ammo="Staunch Tathlum",
+	sets.midcast.sird = {	--merits+5 == 106% (Cap 102%)
+    ammo="Staunch Tathlum", --10
     head="Ratri Sallet",
     body="Heathen's Cuirass +2",
     hands="Ratri Gadlings",
-    legs={ name="Founder's Hose", augments={'MND+6','Mag. Acc.+10','Attack+7','Breath dmg. taken -2%',}},
-    feet="Odyssean Greaves",
-    neck="Willpower Torque",
-    waist="Resolute Belt",
-    left_ear="Halasz Earring",
-    right_ear="Magnetic Earring",
+    legs={ name="Founder's Hose", augments={'MND+6','Mag. Acc.+10','Attack+7','Breath dmg. taken -2%',}}, --30
+    feet="Odyssean Greaves", --20
+    neck="Willpower Torque", --5
+    waist="Resolute Belt", --8
+    left_ear="Halasz Earring", --5
+    right_ear="Magnetic Earring", --8
     left_ring="Moonbeam Ring",
-    right_ring="Evanescence Ring",
-    back={ name="Ankou's Mantle", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}},
+    right_ring="Evanescence Ring", --5
+    back={ name="Ankou's Mantle", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}}, --10
 	}
     sets.midcast.Macc = {	
     ammo="Impatiens",
