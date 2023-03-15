@@ -36,7 +36,7 @@ function get_sets()
 	sets.TwoHandedTP.index = { 'Normal', 'Hybrid'}
 	TwoHandedTP_ind = 1
 
-	sets.TwoHandedTP.Normal = { -- 26TA, 30DA Temper+20-25 - 50-55DA, Embolden +10-12, 60-67DA, -22PDT, -4MDT
+	sets.TwoHandedTP.Normal = { -- 26TA, 30DA, Temper+25 = 55DA, Embolden +12 = 67DA, -22PDT, -4MDT
     ammo="Yamarang",
     head="Adhemar Bonnet +1",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -53,7 +53,7 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 
-	sets.TwoHandedTP.Hybrid = { -- 11TA, 30DA Temper+20-25 - 50-55DA, Embolden +10-12, 60-67DA, -26PDT, -16MDT, +11 Inquartata, missing ambu cape
+	sets.TwoHandedTP.Hybrid = { -- 11TA, 30DA, Temper+25 = 55DA, Embolden +12 = 67DA, -26PDT, -16MDT, +11 Inquartata, missing Parry on Enmity cape
     ammo="Yamarang",
     head="Adhemar Bonnet +1",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -79,7 +79,7 @@ function get_sets()
 	sets.TankingTP.index = { 'DT','Parry'}
 	TankingTP_ind = 1
 	
-	sets.TankingTP.DT = { --, -50PDT, -42MDT
+	sets.TankingTP.DT = { --, -50PDT, -42MDT, missing Parry on Enmity cape
     ammo="Staunch Tathlum",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
@@ -95,7 +95,7 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 
-	sets.TankingTP.Parry = { --, -36PDT, -24MDT, +11 Inquartata, missing ambu cape
+	sets.TankingTP.Parry = { --, -36PDT, -24MDT, +11 Inquartata, missing Parry on Enmity cape
     ammo="Staunch Tathlum",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body="Erilaz Surcoat +2",
@@ -524,39 +524,52 @@ function get_sets()
 	}
 	
 	sets.precast = {}               -- leave this empty
-	sets.precast.fastcast = {
+	sets.precast.fastcast = { -- 51% (Cap 80%) Inspiration 3 = 36% Fast Cast on Valiance or Vallation
     ammo="Impatiens",
-    head="Runeist Bandeau +2",
+    head="Runeist Bandeau +2", --12
     body="Erilaz Surcoat +2",
-    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
-    legs="Aya. Cosciales +2",
-    feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}},
-    neck="Voltsurge Torque",
+    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}}, --8
+    legs="Aya. Cosciales +2", --6
+    feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}}, --7
+    neck="Voltsurge Torque", --4
     waist="Siegel Sash",
-    left_ear="Loquacious Earring",
+    left_ear="Loquacious Earring", --2
     right_ear="Magnetic Earring",
-    left_ring="Kishar Ring",
-    right_ring="Lebeche Ring",
-    back={ name="Ogma's Cape", augments={'"Fast Cast"+10',}},
+    left_ring="Kishar Ring", --4
+    right_ring="Weatherspoon Ring", --5
+    back={ name="Ogma's Cape", augments={'"Fast Cast"+10',}}, --10
 	} 
-	sets.precast.enhancing = {
+	sets.precast.enhancing = { -- 52% (Cap 80%) Inspiration 3 = 36% Fast Cast on Valiance or Vallation, +45 SIRD
     ammo="Impatiens",
-    head="Runeist Bandeau +2",
+    head="Runeist Bandeau +2",--12
     body="Erilaz Surcoat +2",
-    hands={ name="Taeon Gloves", augments={'"Fast Cast"+5','Phalanx +3',}},
-    legs={ name="Futhark Trousers +1", augments={'Enhances "Inspire" effect',}},
-    feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}},
-    neck="Enhancing Torque",
-    waist="Siegel Sash",
-    left_ear="Loquacious Earring",
+    hands="Rawhide Gloves",
+    legs="Carmine Cuisses +1",
+    feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}}, --7
+    neck="Voltsurge Torque", --4
+    waist="Siegel Sash", --8
+    left_ear="Loquacious Earring", --2
     right_ear="Magnetic Earring",
-    left_ring="Kishar Ring",
-    right_ring="Lebeche Ring",
-    back={ name="Ogma's Cape", augments={'"Fast Cast"+10',}},
+    left_ring="Kishar Ring", --4
+    right_ring="Weatherspoon Ring", --5
+    back={ name="Ogma's Cape", augments={'"Fast Cast"+10',}}, --10
 	}
 
     sets.midcast = {}               -- leave this empty  
-	sets.midcast.enmity = {
+	sets.midcast.sird = set_combine(sets.ja.Enmity, {--Merit+5	== 	108% (Cap 102%), Missing SIRD on FC Cape, to remove low level feet
+    ammo="Impatiens", --10
+	head="Erilaz Galea +2", --15
+    hands="Rawhide Gloves", --15
+    legs="Carmine Cuisses +1", --20
+	feet="Karasutengu Kogake", --15
+    neck="Moonbeam Necklace", --10
+    waist="Resolute Belt", --8
+    left_ear="Halasz Earring", --5
+    right_ear="Magnetic Earring", --8 
+    right_ring="Defending Ring",
+	})
+	
+	sets.midcast.enmity = { -- +53 Enmity
     head="Runeist Bandeau +2", --0
     body="Emet Harness", --9
 	hands="Erilaz Gauntlets +2", --0
@@ -570,7 +583,7 @@ function get_sets()
     right_ring="Provocare Ring", --5
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Enmity+10',}}, --10
 	}
-	sets.midcast.regen = {	
+	sets.midcast.regen = {	-- +19 Regen, +39 seconds, +20% Potency, = Regen IV 59/tic, Embolden = 79/tic
 	ammo="Staunch Tathlum",
     head="Runeist Bandeau +2",
     body={ name="Taeon Tabard", augments={'"Regen" potency+3',}},
@@ -586,7 +599,7 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back="Moonbeam Cape",
 	}	
-	sets.midcast.phalanx = {	
+	sets.midcast.phalanx = { -- ML25 = Skill 502 = Phalanx Tier 8, -35 Damage, +17 = -52 Damage
 	ammo="Staunch Tathlum",
     head={ name="Fu. Bandeau +1", augments={'Enhances "Battuta" effect',}},
     body={ name="Taeon Tabard", augments={'"Fast Cast"+5','Phalanx +3',}},
@@ -601,13 +614,13 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back="Moonbeam Cape",
 	}
-	sets.midcast.enhancingduration = {	
+	sets.midcast.enhancingduration = {	-- +40% Duration,
 	ammo="Staunch Tathlum",
     head="Erilaz Galea +2",
-    body="Runeist Coat +1",
+    body="Erilaz Surcoat +2",
     hands="Runeist Mitons",
     legs={ name="Futhark Trousers +1", augments={'Enhances "Inspire" effect',}},
-    feet="Aya. Gambieras +2",
+    feet="Erilaz Greaves +2",
     neck="Melic Torque",
 	waist="Olympus Sash",
     left_ear="Augmenting Earring",
@@ -616,13 +629,13 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back="Moonbeam Cape",
 	}
-	sets.midcast.enhancingskill = {	
+	sets.midcast.enhancingskill = {	--ML25 = Skill 552 = Temper +25 Double Attack
 	ammo="Staunch Tathlum",
     head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
-    body="Runeist Coat +1",
+    body="Erilaz Surcoat +2",
     hands="Runeist Mitons",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet="Aya. Gambieras +2",
+    feet="Erilaz Greaves +2",
     neck="Melic Torque",
 	waist="Olympus Sash",
     left_ear="Augmenting Earring",
@@ -634,10 +647,10 @@ function get_sets()
 	sets.midcast.refresh = {	
 	ammo="Staunch Tathlum",
     head="Erilaz Galea +2",
-    body="Runeist Coat +1",
-    hands="Runeist Mitons",
+    body="Erilaz Surcoat +2",
+    hands="Erilaz Gauntlets +2",
     legs={ name="Futhark Trousers +1", augments={'Enhances "Inspire" effect',}},
-    feet="Aya. Gambieras +2",
+    feet="Erilaz Greaves +2",
     neck="Elite Royal Collar",
     waist="Gishdubar Sash",
     left_ear="Sherida Earring",
@@ -646,24 +659,10 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back="Moonbeam Cape",
 	}
-	sets.midcast.sird = { --Merit+5	== 	93% (Cap 102%)
-    ammo="Impatiens", --10
-	head="Erilaz Galea +2", --15
-    body="Erilaz Surcoat +2",
-    hands="Rawhide Gloves", --15
-    legs="Carmine Cuisses +1", --20
-    feet="Erilaz Greaves +2",
-    neck="Willpower Torque", --5
-    waist="Resolute Belt", --8
-    left_ear="Halasz Earring", --5
-    right_ear="Magnetic Earring", --5 
-    left_ring="Stikini Ring +1",
-    right_ring="Evanescence Ring", --5
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Enmity+10',}},
-	}		
-    sets.midcast.MACC = {	
+
+    sets.midcast.MACC = { 
     ammo="Impatiens",
-	head="Erilaz Galea +2",
+	head="Erilaz Galea +2", 
     body="Erilaz Surcoat +2",
     hands="Erilaz Gauntlets +2",
     legs="Erilaz Leg Guards +2",
