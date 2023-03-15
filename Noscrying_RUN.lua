@@ -1,8 +1,6 @@
 function get_sets()
-send_command('bind f9 gs c toggle TP set') --This means if you hit f9 it toggles the sets
-send_command('bind !f9 gs c toggle TankingTP') --! turns tanking tp off
-	-- send_command('bind f9 gs c toggle melee set') -- F9 = Cycle through
-	-- send_command('bind !f9 gs c toggle DT set')
+	send_command('bind f9 gs c toggle TP set') --This means if you hit f9 it toggles the sets
+	send_command('bind !f9 gs c toggle TankingTP') --! turns tanking tp off
 	send_command('bind f10 gs c toggle run set') 
 	send_command('bind f12 gs c toggle TH set') 
 	send_command('bind f7 gs c toggle Weapons set') 
@@ -118,104 +116,6 @@ send_command('bind !f9 gs c toggle TankingTP') --! turns tanking tp off
     feet="Turms Leggings +1",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}	
-	
-	-- Melee_Set_Names = {'Normal','Hybrid','DT','Parry'}
-	-- sets.melee = {}                 -- Leave this empty
-	-- sets.melee.Normal = {
-    -- ammo="Yamarang",
-    -- head="Adhemar Bonnet +1",
-    -- body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    -- hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-	-- legs="Meghanada Chausses +2",
-    -- feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
-    -- neck="Anu Torque",
-    -- waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    -- left_ear="Sherida Earring",
-    -- right_ear="Cessance Earring",
-    -- left_ring="Epona's Ring",
-    -- right_ring="Moonbeam Ring",
-    -- back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-	-- }
-	-- sets.melee.Hybrid = {
-    -- ammo="Yamarang",
-    -- head="Adhemar Bonnet +1",
-    -- body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    -- hands="Turms Mittens +1",
-    -- legs="Eri. Leg Guards +2",
-    -- feet="Turms Leggings +1",
-    -- neck="Elite Royal Collar",
-    -- waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    -- left_ear="Sherida Earring",
-    -- right_ear="Cessance Earring",
-    -- left_ring="Epona's Ring",
-    -- right_ring="Moonbeam Ring",
-    -- back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-	-- }
-	-- sets.melee.DT = {
-    -- ammo="Staunch Tathlum",
-    -- head="Erilaz Galea +2",
-    -- body="Erilaz Surcoat +2",
-    -- hands="Erilaz Gauntlets +2",
-    -- legs="Erilaz Leg Guards +2",
-    -- feet="Erilaz Greaves +2",
-    -- neck="Warder's Charm",
-    -- waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    -- left_ear="Odnowa Earring +1",
-    -- right_ear="Tuisto Earring",
-    -- left_ring="Moonbeam Ring",
-    -- left_ring="Moonbeam Ring",
-    -- back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-	-- }
-	-- sets.melee.Parry = {
-    -- ammo="Staunch Tathlum",
-    -- head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    -- body="Erilaz Surcoat +2",
-    -- hands="Turms Mittens +1",
-    -- legs="Eri. Leg Guards +2",
-    -- feet="Turms Leggings +1",
-    -- neck="Unmoving Collar +1",
-    -- waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    -- left_ear="Odnowa Earring +1",
-    -- right_ear="Tuisto Earring",
-    -- left_ring="Moonbeam Ring",
-    -- right_ring="Defending Ring",
-    -- back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-	-- }	
-	
-	-- DT_Set_Names = {'DT','Parry'}
-	-- sets.DT = {}                 -- Leave this empty
-	-- sets.DT.DT = {
-    -- ammo="Staunch Tathlum",
-    -- head="Erilaz Galea +2",
-    -- body="Erilaz Surcoat +2",
-    -- hands="Erilaz Gauntlets +2",
-    -- legs="Erilaz Leg Guards +2",
-    -- feet="Erilaz Greaves +2",
-    -- neck="Warder's Charm",
-    -- waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    -- left_ear="Odnowa Earring +1",
-    -- right_ear="Tuisto Earring",
-    -- left_ring="Moonbeam Ring",
-    -- left_ring="Moonbeam Ring",
-    -- back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
--- }
-	-- sets.DT.Parry = {
-    -- ammo="Staunch Tathlum",
-    -- head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    -- body="Erilaz Surcoat +2",
-    -- hands="Turms Mittens +1",
-    -- legs="Eri. Leg Guards +2",
-    -- feet="Turms Leggings +1",
-    -- neck="Unmoving Collar +1",
-    -- waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    -- left_ear="Odnowa Earring +1",
-    -- right_ear="Tuisto Earring",
-    -- left_ring="Moonbeam Ring",
-    -- right_ring="Defending Ring",
-    -- back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-	-- }
-	
-
 	
 	Run_Set_Names = {'Refresh'}
 	sets.run = {}
