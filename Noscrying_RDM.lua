@@ -740,7 +740,7 @@ function precast(spell)
 
 end
 
-function midcast(spell)
+function midcast(spell) --, THIS MIDCAST IS HELD TOGETHER WITH MAGIC AND GLUE, CHANGING ANY POSITION MAY BREAK THIS POS
 	if spell.name:match ('Sleep') or spell.name:match ('Blind') or spell.name =="Frazzle II" or spell.name:match ('Gravity') or spell.name:match ('Dispel')or spell.name:match ('Break')or spell.name:match ('Bind')then
 			equip(sets.midcast.Macc)
 	elseif spell.skill == 'Enfeebling Magic' or spell.name =="Frazzle III" then
