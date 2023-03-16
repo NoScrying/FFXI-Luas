@@ -5,10 +5,8 @@ function get_sets()
 	send_command('bind f12 gs c toggle TH set') 
 	send_command('bind f7 gs c toggle Weapons set') 
 	send_command('bind !f7 gs c toggle Sub_Weapons set') 
-	send_command('bind numpad1 gs c toggle Buff set') -- F12 = Cycle through
-	Melee_Index = 1
-	DT_Index = 1
-	Run_Index = 1
+	send_command('bind numpad1 gs c toggle Buff set')
+	Run_Index = 1 --, Index for gearsets, needed for when there is more than 1 in a set and you wish you toggle beween them
 	TH_Index = 1
 	Weapons_Index = 1
 	Sub_Weapons_Index = 1	
@@ -175,7 +173,7 @@ function get_sets()
 	}
 	
 	sets.ws = {} 					-- Leave this empty.
-	sets.ws['Resolution']	= {
+	sets.ws['Resolution']	= { --FTP Replicating WS, Prefer Multi Attack to WSD
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Adhemar Bonnet +1",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -218,7 +216,22 @@ function get_sets()
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epona's Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+	}
+	sets.ws['Shockwave']	= { --, Use MACC to ensure additional effect proc, Sleepga
+    ammo="Knobkierrie",
+	head="Erilaz Galea +2", 
+    body="Erilaz Surcoat +2",
+    hands="Erilaz Gauntlets +2",
+    legs="Erilaz Leg Guards +2",
+    feet="Erilaz Greaves +2",
+    neck="Erra Pendant",
+    waist="Eschan Stone",
+    left_ear="Crepuscular Earring",
+    right_ear={ name="Erilaz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Stikini Ring +1",
+    back="Moonbeam Cape",
 	}
 	sets.ws['Ground Strike']	= {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -282,7 +295,7 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}	
 	
-	sets.ws['Sanguine Blade']	= {
+	sets.ws['Sanguine Blade']	= { --, Mix MACC and MAB for high Drain rate
 	ammo="Knobkierrie",
     head="Pixie Hairpin +1",
     body={ name="Carm. Scale Mail", augments={'Attack+15','"Mag.Atk.Bns."+10','"Dbl.Atk."+2',}},
@@ -343,7 +356,7 @@ function get_sets()
     right_ring="Refuscent Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
-	sets.ws['Armor Break']	= { --Use MACC to ensure additional effect proc
+	sets.ws['Armor Break']	= { --, Use MACC to ensure additional effect proc, Defense Down
     ammo="Knobkierrie",
 	head="Erilaz Galea +2", 
     body="Erilaz Surcoat +2",
@@ -424,7 +437,7 @@ function get_sets()
 	body="Runeist Coat +1",
 	legs="Futhark Trousers +1",
 	})
-	sets.ja['Embolden'] = set_combine(sets.ja.Enmity, {
+	sets.ja['Embolden'] = set_combine(sets.ja.Enmity, { --, Adoulin cape lowers Embolden Duration penalty, from 50% -> 35%
 	body="Runeist Coat +1",
 	legs="Futhark Trousers +1",
     back={ name="Evasionist's Cape", augments={'Enmity+4','"Embolden"+15','"Dbl.Atk."+1',}},
@@ -433,7 +446,7 @@ function get_sets()
 	body="Runeist Coat +1",
 	legs="Futhark Trousers +1",
 	})
-	sets.ja['Vivacious Pulse'] = {
+	sets.ja['Vivacious Pulse'] = { --, Higher Divine Magic skill provides more HP, More of the same Runes provides more HP
     head="Erilaz Galea +2",
     body="Runeist Coat +1",
 	hands="Erilaz Gauntlets +2",
@@ -462,7 +475,7 @@ function get_sets()
 	})
 	sets.ja['Swordplay'] = set_combine(sets.ja.Enmity, {
 	})
-	sets.ja['One for All'] = {
+	sets.ja['One for All'] = { --, Higher HP provides higher Magic Stoneskin
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
     hands="Turms Mittens +1",
@@ -537,24 +550,24 @@ function get_sets()
     back="Argocham. Mantle",
 	}	
 	sets.idle = {} 					-- Leave this empty
-	sets.idle.normal = {
-    ammo="Homiliary",
-    head="Rawhide Mask",
-    body="Runeist Coat +1",
-    hands="Erilaz Gauntlets +2",
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet="Erilaz Greaves +2",
-    neck="Sibyl Scarf",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
-    right_ear="Cessance Earring",
-    left_ring="Epona's Ring",
-    right_ring="Defending Ring",
-    back="Moonbeam Cape",
-	}
+	--sets.idle.normal = {
+    --ammo="Homiliary",
+    --head="Rawhide Mask",
+    --body="Runeist Coat +1",
+    --hands="Erilaz Gauntlets +2",
+    --legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    --feet="Erilaz Greaves +2",
+    --neck="Sibyl Scarf",
+    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --left_ear="Sherida Earring",
+    --right_ear="Cessance Earring",
+    --left_ring="Epona's Ring",
+    --right_ring="Defending Ring",
+    --back="Moonbeam Cape",
+	--}
 	
 	sets.precast = {}               -- leave this empty
-	sets.precast.fastcast = { -- 51% (Cap 80%) Inspiration 3 = 36% Fast Cast on Valiance or Vallation
+	sets.precast.fastcast = { --, 51% (Cap 80%) Inspiration 3 = 36% Fast Cast on Valiance or Vallation
     ammo="Impatiens",
     head="Runeist Bandeau +2", --12
     body="Erilaz Surcoat +2",
@@ -569,7 +582,7 @@ function get_sets()
     right_ring="Weatherspoon Ring", --5
     back={ name="Ogma's Cape", augments={'"Fast Cast"+10',}}, --10
 	} 
-	sets.precast.enhancing = { -- 52% (Cap 80%) Inspiration 3 = 36% Fast Cast on Valiance or Vallation, +45 SIRD
+	sets.precast.enhancing = { --, 52% (Cap 80%) Inspiration 3 = 36% Fast Cast on Valiance or Vallation, +45 SIRD
     ammo="Impatiens",
     head="Runeist Bandeau +2",--12
     body="Erilaz Surcoat +2",
@@ -586,7 +599,7 @@ function get_sets()
 	}
 
     sets.midcast = {}               -- leave this empty  
-	sets.midcast.sird = set_combine(sets.ja.Enmity, {--Merit+5	== 	108% (Cap 102%), Missing SIRD on FC Cape, to remove low level feet
+	sets.midcast.sird = set_combine(sets.ja.Enmity, {--, Merit+5	== 	108% (Cap 102%), Missing SIRD on FC Cape (+10), Evanescence Ring (+5), to remove low level feet
     ammo="Impatiens", --10
 	head="Erilaz Galea +2", --15
     hands="Rawhide Gloves", --15
@@ -599,7 +612,7 @@ function get_sets()
     right_ring="Defending Ring",
 	})
 	
-	sets.midcast.enmity = { -- +53 Enmity
+	sets.midcast.enmity = { --, +53 Enmity
     head="Runeist Bandeau +2", --0
     body="Emet Harness", --9
 	hands="Erilaz Gauntlets +2", --0
@@ -613,7 +626,7 @@ function get_sets()
     right_ring="Provocare Ring", --5
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Enmity+10',}}, --10
 	}
-	sets.midcast.regen = {	--, +46SIRD +19 Regen, +39 seconds, +20% Potency, = Regen IV 59/tic, Embolden = 79/tic
+	sets.midcast.regen = {	--, +46 SIRD +19 Regen, +39 seconds, +20% Potency, = Regen IV 59/tic, Embolden = 79/tic
 	ammo="Staunch Tathlum",
     head="Runeist Bandeau +2",
     body={ name="Taeon Tabard", augments={'Mag. Evasion+19','Spell interruption rate down -9%','"Regen" potency+3',}},
@@ -629,7 +642,7 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back="Moonbeam Cape",
 	}		
-	sets.midcast.phalanx = { -- ML25 = Skill 502 = Phalanx Tier 8, -35 Damage, +17 = -52 Damage
+	sets.midcast.phalanx = { --, ML25 = Skill 502 = Phalanx Tier 8, -35 Damage, +17 = -52 Damage
 	ammo="Staunch Tathlum",
     head={ name="Fu. Bandeau +1", augments={'Enhances "Battuta" effect',}},
     body={ name="Taeon Tabard", augments={'"Fast Cast"+5','Phalanx +3',}},
@@ -644,7 +657,7 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back="Moonbeam Cape",
 	}
-	sets.midcast.enhancingduration = {	-- +40% Duration,
+	sets.midcast.enhancingduration = {	--, +40% Duration,
 	ammo="Staunch Tathlum",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
@@ -659,7 +672,7 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back="Moonbeam Cape",
 	}
-	sets.midcast.enhancingskill = {	--ML25 = Skill 552 = Temper +25 Double Attack
+	sets.midcast.enhancingskill = {	--, ML25 = Skill 552 = Temper +25 Double Attack
 	ammo="Staunch Tathlum",
     head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
     body="Erilaz Surcoat +2",
@@ -674,7 +687,7 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back="Moonbeam Cape",
 	}
-	sets.midcast.refresh = {	
+	sets.midcast.refresh = { --, +20 Seconds, +20% Duration, +3 Refresh Potency, 32DT
 	ammo="Staunch Tathlum",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
@@ -690,19 +703,19 @@ function get_sets()
     back="Moonbeam Cape",
 	}
 
-    sets.midcast.MACC = { 
+    sets.midcast.MACC = { --, +326 MACC
     ammo="Impatiens",
-	head="Erilaz Galea +2", 
-    body="Erilaz Surcoat +2",
-    hands="Erilaz Gauntlets +2",
-    legs="Erilaz Leg Guards +2",
-    feet="Erilaz Greaves +2",
-    neck="Erra Pendant",
-    waist="Eschan Stone",
-    left_ear="Crepuscular Earring",
-    right_ear={ name="Erilaz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
-    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    right_ring="Stikini Ring +1",
+	head="Erilaz Galea +2", --51
+    body="Erilaz Surcoat +2", --54
+    hands="Erilaz Gauntlets +2", --52
+    legs="Erilaz Leg Guards +2", --53
+    feet="Erilaz Greaves +2", --50
+    neck="Erra Pendant", --17
+    waist="Eschan Stone", --7
+    left_ear="Crepuscular Earring", --10
+    right_ear={ name="Erilaz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}}, --6
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}}, --15
+    right_ring="Stikini Ring +1", --11
     back="Moonbeam Cape",
 	}
 	Buff_Set_Names = {'Holywater'}
@@ -714,13 +727,6 @@ function get_sets()
     neck="Nicander's Necklace",
     left_ring="Blenmot's Ring",
     right_ring="Purity Ring",
-	}
-
-	sets.buff.Inquartata = {
-    hands="Turms Mittens +1",
-    legs="Eri. Leg Guards +2",
-    feet="Turms Leggings +1",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
 	ElementalGear = {}
@@ -734,18 +740,18 @@ function get_sets()
 
 end
 
-function precast(spell)
+function precast(spell) --, "==" indicates "Is", "~=" indicates "Is not"
 
     if  spell.type == 'JobAbility' then
         equip(sets.ja.enmity)
     end	
-    if  spell.action_type == 'Magic' then
+    if  spell.action_type == 'Magic' then --, All magic types uses assigned set
         equip(sets.precast.fastcast)
 	end 
-	if spell.skill == 'Enhancing Magic' then		
+	if spell.skill == 'Enhancing Magic' then --, If specifically Enhancing magic, then uses this set instead	
 		equip(sets.precast.enhancing)
 	end
-    if sets.ja[spell.name] then
+    if sets.ja[spell.name] then --, When set is setup as specified, then uses the preassigned set
         equip(sets.ja[spell.name])
 	end
     if sets.ws[spell.name] then
@@ -760,14 +766,14 @@ function precast(spell)
 end
 
 
-function midcast(spell)
+function midcast(spell) --, Midcast works in hierachy. The higher on the list the higher priority when using lazy If/End statements, otherwise when using If/Else/End, "Else" takes priority. See RDM lua for examples
 	if spell.name:match('Refresh') then
 		equip(sets.midcast.refresh)
 	end
 	if spell.skill == 'Enhancing Magic' then
 		equip(sets.midcast.enhancingduration)
 	end
-	if spell.name == 'Temper' or spell.name:match('Bar') then
+	if spell.name == 'Temper' or spell.name:match('Bar') then --,Spell.name == "xx" has to match name exactly, Spell.name:match ('xx') is like a variable that matches any prefix
 		equip(sets.midcast.enhancingskill)
 	end
 	if spell.name:match('Regen') then
@@ -777,24 +783,24 @@ function midcast(spell)
 		equip(sets.midcast.phalanx)
 	end
 	if spell.name =='Flash' or spell.name =='Foil'or spell.name =='Crusade' or spell.name =='Stun' or spell.name:match('Poison') or spell.name:match('Absorb') then  
-		equip(sets.midcast.enmity)
-			if player.status == "Engaged" then
+		equip(sets.midcast.enmity) --, When unengaged, uses Enmity set
+			if player.status == "Engaged" then --, If engaged, uses SIRD set
 			equip(sets.midcast.sird)
 		end
 	end
 	if buffactive['Tenebrae'] and spell.name:match('Lunge') or spell.name:match('Swipe')then
-        equip(sets.ja.Dark)
+        equip(sets.ja.Dark) --
     end
 	if buffactive['Lux'] and spell.name:match('Lunge') or spell.name:match('Swipe')then
         equip(sets.ja.Light)
     end
 end
 
-function aftercast(spell)
+function aftercast(spell) --, idle() makes the aftercast use the "Idle ()" states.
 	idle()
 end
 
-function buff_change(buff,gain)
+function buff_change(buff,gain) --, See list of buff names under Gearswap libraries, or just check name in-game when they are active
     if buff == 'Reive Mark' then
         if gain then
             equip(sets.buff.reive)
@@ -805,18 +811,18 @@ function buff_change(buff,gain)
         end
 	end
     --Embolden cape lock--
-    if buff == 'Embolden' then
-        if gain then 
+    if buff == 'Embolden' then --, Checks for the name of the Buff/Debuff to look out for
+        if gain then --, Checks whether or not it is Active
             equip(sets.ja['Embolden'])
-            disable('head','legs','back')
+            disable('head','legs','back') --, Locks specific armor slots so they cannot change.
             add_to_chat(158,'[Embolden] ON -- Back Locked')
         else
-            enable('head','legs','back')
+            enable('head','legs','back') --, re-enables armor slots, when the buff/debuff is gone
             add_to_chat(123,'[Embolden] OFF -- Back Unlocked')
             status_change(player.status)
         end
     end
-    if buff == 'Battuta' then
+    if buff == 'Battuta' then --Extra spot for Battuta buff change just to be sure, does not conflict with engaged 
 		if buffactive['Battuta'] then
 			equip(sets.TankingTP.Inquartata)
 	else
@@ -825,38 +831,38 @@ function buff_change(buff,gain)
 end
 end
 
-function idle()
-	if player.status =="Engaged" then
+function idle() --, Does not have to be here, can also be under self_command or anywhere really.
+	if player.status =="Engaged" then --, When drawing weapon
 		if TankingTP == true then
-			equip(sets.TankingTP[sets.TankingTP.index[TankingTP_ind]])
+			equip(sets.TankingTP[sets.TankingTP.index[TankingTP_ind]]) --, Equips the last gearset you changed to, is not static
 		elseif TwoHandedTP == true then
 			equip(sets.TwoHandedTP[sets.TwoHandedTP.index[TwoHandedTP_ind]])
 	end
 end
-	if player.status=='Engaged' then 
+	if player.status=='Engaged' then --allows you to use gear based on buffs, without locking equipment slots, so WS sets still change appropriately
 		if buffactive['Battuta'] then
 			equip(sets.TankingTP.Inquartata)
 		end
 	end
-	if player.status =='Idle' then
+	if player.status =='Idle' then --, When holstering weapon
 		equip(sets.run[Run_Set_Names[Run_Index]])
 	end
 end
 
 
-function status_change(new,old)
+function status_change(new,old) --, Checks player status when changing, is necessary to auto-equip from Idle mode to Engaged
 	idle()
 end
 
-TankingTP = true -- If true, default set is tanking TP array.
-TwoHandedTP = true -- TP set order, looks for Tanking TP set before 2H TP
+TankingTP = true --, If true, default set is tanking TP array.
+TwoHandedTP = true --, TP set order, looks for Tanking TP set before 2H TP
 
-function self_command(command)
-	if command == 'toggle TP set' then
-		if TankingTP == true then
-			TankingTP_ind = TankingTP_ind + 1
-			if TankingTP_ind > #sets.TankingTP.index then TankingTP_ind = 1 end
-			windower.add_to_chat('TankingTP Set changed to ' .. sets.TankingTP.index[TankingTP_ind] ..'')
+function self_command(command) --, Allows of use of various commands
+	if command == 'toggle TP set' then --, When using the command as specified at the top of this lua, then executes these functions
+		if TankingTP == true then --, Checks whether or not the TankingTP Mode is active,
+			TankingTP_ind = TankingTP_ind + 1 --, Cycles through the Index, starts at 1 when switching or starting game
+			if TankingTP_ind > #sets.TankingTP.index then TankingTP_ind = 1 end 
+			windower.add_to_chat('TankingTP Set changed to ' .. sets.TankingTP.index[TankingTP_ind] ..'') --, Sends a message ingame, not visible to others.
 			if player.status == 'Engaged' then
 				equip(sets.TankingTP[sets.TankingTP.index[TankingTP_ind]])
 			end
@@ -932,7 +938,7 @@ end
 --windower.add_to_chat('DT mode is now: '..DT_mode)
 
 
-function file_unload()
+function file_unload() --, Unbinds defined keybinds, can also use "send_command('clearbinds')" to wipe any and all
 send_command('unbind f9')
 send_command('unbind !f9')
 send_command('unbind f10')
