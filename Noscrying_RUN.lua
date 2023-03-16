@@ -626,7 +626,7 @@ function get_sets()
     right_ring="Provocare Ring", --5
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Enmity+10',}}, --10
 	}
-	sets.midcast.regen = {	--, +46 SIRD +19 Regen, +30% Potency, +39 seconds, +20% Duration +25% MP Cost  = Regen IV 61/tic, 168 Seconds = 3416 HP, Embolden = 76/tic
+	sets.midcast.regen = {	--, +46 SIRD +19 Regen, +30% Potency, +39 seconds, +20% Duration +25% Healing/Enhancing MP Cost  = Regen IV 61/tic, 168 Seconds = 3416 HP, Embolden = 76/tic
 	ammo="Staunch Tathlum",
     head="Runeist Bandeau +2",
     body={ name="Taeon Tabard", augments={'Mag. Evasion+19','Spell interruption rate down -9%','"Regen" potency+3',}},
@@ -641,7 +641,35 @@ function get_sets()
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
     back="Moonbeam Cape",
-	}		
+	}	
+	sets.midcast.Cure = {	--, +45% Cure Potency, +5% Cure Self, +81 SIRD, +25% Healing MP cost, ML45 /BLU gets Magic Fruit, which is Cure IV Potency but without extra MP cost as it is Blue Magic.
+	head="Erilaz Galea +2",
+    hands="Rawhide Gloves",
+    legs="Carmine Cuisses +1",
+	feet="Karasutengu Kogake",
+    left_ear="Halasz Earring",
+    right_ear="Magnetic Earring",
+    left_ring="Kunaji Ring", --, +5
+    right_ring="Evanescence Ring",
+    neck="Sacro Gorget", --, +10
+    waist="Sroda Belt", --, +35
+    back="Moonbeam Cape",
+	}
+	
+	sets.midcast.WhiteWind = {	--, +45% Cure Potency, +5% Cure Self, WhiteWind is affected by Cure Potency, Max HP and Light Weather
+    head="Erilaz Galea +2",
+    body="Erilaz Surcoat +2",
+    hands="Turms Mittens +1",
+    legs="Eri. Leg Guards +2",
+    feet="Turms Leggings +1",
+    left_ear="Odnowa Earring +1",
+    right_ear="Tuisto Earring",
+    left_ring="Kunaji Ring", --, +5
+    right_ring="Moonbeam Ring",
+    neck="Sacro Gorget", --, +10
+    waist="Sroda Belt", --, +35
+    back="Moonbeam Cape",
+	}
 	sets.midcast.phalanx = { --, ML25 = Skill 502 = Phalanx Tier 8, -35 Damage, +17 = -52 Damage
 	ammo="Staunch Tathlum",
     head={ name="Fu. Bandeau +1", augments={'Enhances "Battuta" effect',}},
