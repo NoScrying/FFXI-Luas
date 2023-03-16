@@ -755,9 +755,9 @@ function midcast(spell) --, THIS MIDCAST IS HELD TOGETHER WITH MAGIC AND GLUE, C
 				equip(sets.midcast.regen) else
 					if spell.name:match('Refresh') or spell.name:match('Aquaveil') then
 						equip(sets.midcast.refresh) else
-									if buffactive['Composure'] and spell.skill == 'Enhancing Magic' and spell.target.type == 'PLAYER' or spell.target.type == 'NPC' then
+									if buffactive['Composure'] and spell.skill == 'Enhancing Magic' and spell.target.type == 'PLAYER' or spell.target.type == 'NPC' then --, If Composure is up, then checks whether your target is someone else or a NPC
 										equip(sets.midcast.enhancingdurationPT) else
-											if spell.skill == 'Enhancing Magic' and spell.target.type == 'SELF' or spell.target.type == 'PLAYER' or spell.target.type == 'NPC' then
+											if spell.skill == 'Enhancing Magic' and spell.target.type == 'SELF' or spell.target.type == 'PLAYER' or spell.target.type == 'NPC' then --, If Composure is not up and taget is self, someone else or an NPC
 												equip(sets.midcast.enhancingduration)
 										
 									end
@@ -781,7 +781,7 @@ function midcast(spell) --, THIS MIDCAST IS HELD TOGETHER WITH MAGIC AND GLUE, C
     if spell.action_type == 'Magic' then
         if spell.skill == 'Elemental Magic' then
             equip(sets.Nuke[Nuke_Set_Names[Nuke_Index]])
-            if world.weather_element == spell.element or world.day_element == spell.element then
+            if world.weather_element == spell.element or world.day_element == spell.element then --, Checks for local weather and day, if magic element matches either, then changes back and waist to Elemental Cape/Obi
                 equip(sets.midcast.NukeWithMatchingWeather)
 			end
 		end
@@ -831,9 +831,9 @@ function buff_change(buff,gain)
 end
 
 function idle()
-	if player.status=='Engaged' and player.sub_job ~='NIN' or player.sub_job ~= 'DNC'then
+	if player.status=='Engaged' and player.sub_job ~='NIN' or player.sub_job ~= 'DNC'then --, If subjob is not, NIN or DNC then uses this set
 		equip(sets.SW[SW_Set_Names[SW_Index]])
-			if player.equipment.main ~= "Crocea Mors" then
+			if player.equipment.main ~= "Crocea Mors" then --, If main weapon is not Crocea then changes to hand slot
 				equip(sets.malig.hands)	
 		end
 	end
