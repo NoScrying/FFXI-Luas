@@ -1,5 +1,5 @@
 function get_sets()
-	send_command('bind f9 gs c toggle TP set') --This means if you hit f9 it toggles the sets
+	send_command('bind f9 gs c toggle TP set') --, Loads when changing job, this means if you hit f9 it toggles the sets
 	send_command('bind !f9 gs c toggle TankingTP') --! turns tanking tp off
 	send_command('bind f10 gs c toggle run set') 
 	send_command('bind f12 gs c toggle TH set') 
@@ -567,12 +567,12 @@ function get_sets()
 	--}
 	
 	sets.precast = {}               -- leave this empty
-	sets.precast.fastcast = { --, 61% (Cap 80%) Inspiration 3 = 36% Fast Cast on Valiance or Vallation
+	sets.precast.fastcast = { --, 62% (Cap 80%) Inspiration 3 = 36% Fast Cast on Valiance or Vallation
     ammo="Impatiens",
     head="Runeist Bandeau +2", --12
     body="Erilaz Surcoat +2", --10
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}}, --8
-    legs="Aya. Cosciales +2", --6
+    legs="Carmine Cuisses +1",
     feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}}, --7
     neck="Voltsurge Torque", --4
     waist="Siegel Sash",
@@ -590,7 +590,7 @@ function get_sets()
     legs="Carmine Cuisses +1",
     feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}}, --7
     neck="Voltsurge Torque", --4
-    waist="Siegel Sash", --8
+    waist="Siegel Sash", --8 (Only works for Enhancing Magic)
     left_ear="Loquacious Earring", --2
     right_ear="Magnetic Earring",
     left_ring="Kishar Ring", --4
@@ -656,7 +656,7 @@ function get_sets()
     back="Moonbeam Cape",
 	}
 	
-	sets.midcast.WhiteWind = {	--, +45% Cure Potency, +5% Cure Self, WhiteWind is affected by Cure Potency, Max HP and Light Weather
+	sets.midcast.WhiteWind = { --, +45% Cure Potency, +5% Cure Self, WhiteWind is affected by Cure Potency, Max HP and Light Weather
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
     hands="Turms Mittens +1",
@@ -685,7 +685,7 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back="Moonbeam Cape",
 	}
-	sets.midcast.enhancingduration = {	--, +40% Duration,
+	sets.midcast.enhancingduration = {	--, +40% Duration, Skill 502 
 	ammo="Staunch Tathlum",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
@@ -859,7 +859,7 @@ function buff_change(buff,gain) --, See list of buff names under Gearswap librar
 end
 end
 
-function idle() --, Does not have to be here, can also be under self_command or anywhere really.
+function idle() --, Engaged/Idle sets do not have to be here, can also be under self_command or anywhere really.
 	if player.status =="Engaged" then --, When drawing weapon
 		if TankingTP == true then
 			equip(sets.TankingTP[sets.TankingTP.index[TankingTP_ind]]) --, Equips the last gearset you changed to, is not static
@@ -966,7 +966,7 @@ end
 --windower.add_to_chat('DT mode is now: '..DT_mode)
 
 
-function file_unload() --, Unbinds defined keybinds, can also use "send_command('clearbinds')" to wipe any and all
+function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
 send_command('unbind f9')
 send_command('unbind !f9')
 send_command('unbind f10')
