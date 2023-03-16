@@ -655,20 +655,6 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
-	sets.midcast.WhiteWind = { --, +45% Cure Potency, +5% Cure Self, WhiteWind is affected by Cure Potency, Max HP and Light Weather
-    head="Erilaz Galea +2",
-    body="Erilaz Surcoat +2",
-    hands="Turms Mittens +1",
-    legs="Eri. Leg Guards +2",
-    feet="Turms Leggings +1",
-    left_ear="Odnowa Earring +1",
-    right_ear="Tuisto Earring",
-    left_ring="Kunaji Ring", --, +5
-    right_ring="Moonbeam Ring",
-    neck="Sacro Gorget", --, +10
-    waist="Sroda Belt", --, +35
-    back="Moonbeam Cape",
-	}
 	sets.midcast.phalanx = { --, ML25 = Skill 502 = Phalanx Tier 8, -35 Damage, +17 = -52 Damage
 	ammo="Staunch Tathlum",
     head={ name="Fu. Bandeau +1", augments={'Enhances "Battuta" effect',}},
@@ -757,9 +743,15 @@ function get_sets()
 	}
 	
 	ElementalGear = {}
-	ElementalGear.Ring = "Archon Ring"
+	ElementalGear.Obi = "Hachirin-no-Obi"
+	ElementalGear.Cape = "Twilight Cape"
+	ElementalGear.RingDark = "Archon Ring"
+	ElementalGear.RingLight = "Weatherspoon Ring"
 	ElementalGear.Head = "Pixie Hairpin +1"
-	sets.midcast.Darknuke = {head=ElementalGear.Head,right_ring=ElementalGear.Ring}
+	sets.midcast.CureWithLightWeather = {back=ElementalGear.Cape,waist=ElementalGear.Obi}
+	sets.midcast.NukeWithMatchingWeather = {back=ElementalGear.Cape,waist=ElementalGear.Obi}
+	sets.midcast.DarkNukes = {back=ElementalGear.Cape,waist=ElementalGear.Obi,head=ElementalGear.Head,ring2=ElementalGear.RingDark}
+	sets.midcast.LightNukes = {back=ElementalGear.Cape,waist=ElementalGear.Obi,ring2=ElementalGear.RingLight}
 	
 	sets.adoulin = {}
 	sets.adoulin.movement = {body="Councilor's Garb",}   --auto swaps when in adoulin 
@@ -784,11 +776,23 @@ function precast(spell) --, "==" indicates "Is", "~=" indicates "Is not", See ex
     if sets.ws[spell.name] then
         equip(sets.ws[spell.name])        
     end
-	if buffactive['Tenebrae'] and spell.name:match('Lunge') or spell.name:match('Swipe')then
-        equip(sets.ja.Dark)
-    end
+	if spell.name:match('Lunge') or spell.name:match('Swipe')then
+		equip(sets.ja[spell.name])
+            if world.weather_element == spell.element or world.day_element == spell.element then
+                equip(sets.midcast.NukeWithMatchingWeather)
+			end
 	if buffactive['Lux'] and spell.name:match('Lunge') or spell.name:match('Swipe')then
-        equip(sets.ja.Light)
+		equip(sets.ja[spell.name])
+			if world.weather_element == spell.element or world.day_element == spell.element then
+				equip(sets.midcast.LightNukes)
+			end
+	if buffactive['Tenebrae'] and spell.name:match('Lunge') or spell.name:match('Swipe')then
+		equip(sets.ja[spell.name])
+			if world.weather_element == spell.element or world.day_element == spell.element then
+				equip(sets.midcast.DarkNukes)
+				end
+			end
+		end
     end
 end
 
@@ -815,17 +819,8 @@ function midcast(spell) --, Midcast works in hierachy. The higher on the list th
 			equip(sets.midcast.sird)
 		end
 	end
-	if buffactive['Tenebrae'] and spell.name:match('Lunge') or spell.name:match('Swipe')then
-        equip(sets.ja.Dark) --
-    end
-	if buffactive['Lux'] and spell.name:match('Lunge') or spell.name:match('Swipe')then
-        equip(sets.ja.Light)
-    end
-    if spell.name:match('Magic Fruit') or spell.name:match('Cure') then
+    if spell.name:match('Magic Fruit') or spell.name:match('Cure') or spell.name:match('Healing Breeze')or spell.name:match('Wild Carrot')then
         equip(sets.midcast.Cure)
-	end
-   if spell.name:match('White Wind') then
-        equip(sets.midcast.WhiteWind)
 	end
 end
 
