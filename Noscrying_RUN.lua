@@ -567,10 +567,10 @@ function get_sets()
 	--}
 	
 	sets.precast = {}               -- leave this empty
-	sets.precast.fastcast = { --, 51% (Cap 80%) Inspiration 3 = 36% Fast Cast on Valiance or Vallation
+	sets.precast.fastcast = { --, 61% (Cap 80%) Inspiration 3 = 36% Fast Cast on Valiance or Vallation
     ammo="Impatiens",
     head="Runeist Bandeau +2", --12
-    body="Erilaz Surcoat +2",
+    body="Erilaz Surcoat +2", --10
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}}, --8
     legs="Aya. Cosciales +2", --6
     feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}}, --7
@@ -582,10 +582,10 @@ function get_sets()
     right_ring="Weatherspoon Ring", --5
     back={ name="Ogma's Cape", augments={'"Fast Cast"+10',}}, --10
 	} 
-	sets.precast.enhancing = { --, 52% (Cap 80%) Inspiration 3 = 36% Fast Cast on Valiance or Vallation, +45 SIRD
+	sets.precast.enhancing = { --, 62% (Cap 80%) Inspiration 3 = 36% Fast Cast on Valiance or Vallation, +45 SIRD
     ammo="Impatiens",
     head="Runeist Bandeau +2",--12
-    body="Erilaz Surcoat +2",
+    body="Erilaz Surcoat +2", --10
     hands="Rawhide Gloves",
     legs="Carmine Cuisses +1",
     feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}}, --7
@@ -626,7 +626,7 @@ function get_sets()
     right_ring="Provocare Ring", --5
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Enmity+10',}}, --10
 	}
-	sets.midcast.regen = {	--, +46 SIRD +19 Regen, +39 seconds, +20% Potency, = Regen IV 59/tic, Embolden = 79/tic
+	sets.midcast.regen = {	--, +46 SIRD +19 Regen, +30% Potency, +39 seconds, +20% Duration +25% MP Cost  = Regen IV 61/tic, 168 Seconds = 3416 HP, Embolden = 76/tic
 	ammo="Staunch Tathlum",
     head="Runeist Bandeau +2",
     body={ name="Taeon Tabard", augments={'Mag. Evasion+19','Spell interruption rate down -9%','"Regen" potency+3',}},
@@ -687,7 +687,7 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back="Moonbeam Cape",
 	}
-	sets.midcast.refresh = { --, +20 Seconds, +20% Duration, +3 Refresh Potency, 32DT
+	sets.midcast.refresh = { --, +20 Seconds, +20% Duration, +3 Refresh Potency, 32DT, Absorbs 7% Damage to MP
 	ammo="Staunch Tathlum",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
@@ -740,7 +740,7 @@ function get_sets()
 
 end
 
-function precast(spell) --, "==" indicates "Is", "~=" indicates "Is not"
+function precast(spell) --, "==" indicates "Is", "~=" indicates "Is not", See examples in RDM.lua
 
     if  spell.type == 'JobAbility' then
         equip(sets.ja.enmity)
