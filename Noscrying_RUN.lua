@@ -12,7 +12,7 @@ function get_sets()
 	Sub_Weapons_Index = 1	
 	Buff_Index = 1	
 
-	Weapons_Set_Names = {'Zantetsuken X','Aettir'}
+	Weapons_Set_Names = {'Zantetsuken X','Aettir'} --, Define set names, allows the lua to know what you are referring to.
 	sets.weapons = {}
 	sets.weapons["Zantetsuken X"] = {
     main="Zantetsuken X",
@@ -433,7 +433,7 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Enmity+10',}}, --10
 	}
 		
-	sets.ja['Vallation'] = set_combine(sets.ja.Enmity, {
+	sets.ja['Vallation'] = set_combine(sets.ja.Enmity, { --, When we define a set as as "sets.ja['xx'], then we can in our precast set, refer to all named in this way, while still specifying a single set.
 	body="Runeist Coat +1",
 	legs="Futhark Trousers +1",
 	})
