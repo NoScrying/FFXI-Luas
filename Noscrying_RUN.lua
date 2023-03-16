@@ -643,7 +643,7 @@ function get_sets()
     back="Moonbeam Cape",
 	}	
 	sets.midcast.Cure = {	--, +45% Cure Potency, +5% Cure Self, +81 SIRD, +25% Healing MP cost, ML45 /BLU gets Magic Fruit, which is Cure IV Potency but without extra MP cost as it is Blue Magic.
-	head="Erilaz Galea +2", --SIRD set
+	head="Erilaz Galea +2", --, SIRD set
     hands="Rawhide Gloves",
     legs="Carmine Cuisses +1",
 	feet="Karasutengu Kogake",
@@ -655,12 +655,14 @@ function get_sets()
     waist="Sroda Belt", --, +35
     back="Moonbeam Cape",
 		
-    --ammo="Staunch Tathlum", -- DT Set
+    --ammo="Staunch Tathlum", --, DT Set
     --head="Erilaz Galea +2",
     --body="Erilaz Surcoat +2",
     --hands="Erilaz Gauntlets +2",
     --legs="Erilaz Leg Guards +2",
     --feet="Erilaz Greaves +2",
+    --neck="Sacro Gorget", --, +10
+    --waist="Sroda Belt", --, +35
     --left_ear="Odnowa Earring +1",
     --right_ear="Tuisto Earring",
     --left_ring="Moonbeam Ring",
