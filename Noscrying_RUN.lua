@@ -343,20 +343,20 @@ function get_sets()
     right_ring="Refuscent Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
-	sets.ws['Armor Break']	= {
+	sets.ws['Armor Break']	= { --Use MACC to ensure additional effect proc
     ammo="Knobkierrie",
-    head="Erilaz Galea +2",
+	head="Erilaz Galea +2", 
     body="Erilaz Surcoat +2",
-    hands="Meg. Gloves +2",
-    legs="Eri. Leg Guards +2",
+    hands="Erilaz Gauntlets +2",
+    legs="Erilaz Leg Guards +2",
     feet="Erilaz Greaves +2",
-    neck="Rep. Plat. Medal",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
-    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Epona's Ring",
-    right_ring="Refuscent Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    neck="Erra Pendant",
+    waist="Eschan Stone",
+    left_ear="Crepuscular Earring",
+    right_ear={ name="Erilaz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Stikini Ring +1",
+    back="Moonbeam Cape",
 	}
 	sets.ws['Decimation']	= {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -839,7 +839,7 @@ end
 		end
 	end
 	if player.status =='Idle' then
-		equip(sets.idle.normal)
+		equip(sets.run[Run_Set_Names[Run_Index]])
 	end
 end
 
