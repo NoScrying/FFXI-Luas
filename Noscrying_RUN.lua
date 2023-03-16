@@ -550,24 +550,9 @@ function get_sets()
     back="Argocham. Mantle",
 	}	
 	sets.idle = {} 					-- Leave this empty
-	--sets.idle.normal = {
-    --ammo="Homiliary",
-    --head="Rawhide Mask",
-    --body="Runeist Coat +1",
-    --hands="Erilaz Gauntlets +2",
-    --legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    --feet="Erilaz Greaves +2",
-    --neck="Sibyl Scarf",
-    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    --left_ear="Sherida Earring",
-    --right_ear="Cessance Earring",
-    --left_ring="Epona's Ring",
-    --right_ring="Defending Ring",
-    --back="Moonbeam Cape",
-	--}
 	
 	sets.precast = {}               -- leave this empty
-	sets.precast.fastcast = { --, 62% (Cap 80%) Inspiration 3 = 36% Fast Cast on Valiance or Vallation
+	sets.precast.fastcast = { --, 62% (Cap 80%) Inspiration 3 = 36% Fast Cast on Valiance or Vallation, +28 SIRD
     ammo="Impatiens",
     head="Runeist Bandeau +2", --12
     body="Erilaz Surcoat +2", --10
@@ -643,31 +628,31 @@ function get_sets()
     back="Moonbeam Cape",
 	}	
 	sets.midcast.Cure = {	--, +45% Cure Potency, +5% Cure Self, +81 SIRD, +25% Healing MP cost, ML45 /BLU gets Magic Fruit, which is Cure IV Potency but without extra MP cost as it is Blue Magic.
-	head="Erilaz Galea +2", --, SIRD set
-    hands="Rawhide Gloves",
-    legs="Carmine Cuisses +1",
-	feet="Karasutengu Kogake",
-    left_ear="Halasz Earring",
-    right_ear="Magnetic Earring",
-    left_ring="Kunaji Ring", --, +5
-    right_ring="Evanescence Ring",
+	-- head="Erilaz Galea +2", --, SIRD set
+    -- hands="Rawhide Gloves",
+    -- legs="Carmine Cuisses +1",
+	-- feet="Karasutengu Kogake",
+    -- left_ear="Halasz Earring",
+    -- right_ear="Magnetic Earring",
+    -- left_ring="Kunaji Ring", --, +5
+    -- right_ring="Evanescence Ring",
+    -- neck="Sacro Gorget", --, +10
+    -- waist="Sroda Belt", --, +35
+    -- back="Moonbeam Cape",
+		
+    ammo="Staunch Tathlum", --, DT Set
+    head="Erilaz Galea +2",
+    body="Erilaz Surcoat +2",
+    hands="Erilaz Gauntlets +2",
+    legs="Erilaz Leg Guards +2",
+    feet="Erilaz Greaves +2",
     neck="Sacro Gorget", --, +10
     waist="Sroda Belt", --, +35
-    back="Moonbeam Cape",
-		
-    --ammo="Staunch Tathlum", --, DT Set
-    --head="Erilaz Galea +2",
-    --body="Erilaz Surcoat +2",
-    --hands="Erilaz Gauntlets +2",
-    --legs="Erilaz Leg Guards +2",
-    --feet="Erilaz Greaves +2",
-    --neck="Sacro Gorget", --, +10
-    --waist="Sroda Belt", --, +35
-    --left_ear="Odnowa Earring +1",
-    --right_ear="Tuisto Earring",
-    --left_ring="Moonbeam Ring",
-    --left_ring="Defending Ring",
-    --back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    left_ear="Odnowa Earring +1",
+    right_ear="Tuisto Earring",
+    left_ring="Moonbeam Ring",
+    left_ring="Defending Ring",
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.midcast.WhiteWind = { --, +45% Cure Potency, +5% Cure Self, WhiteWind is affected by Cure Potency, Max HP and Light Weather
@@ -839,7 +824,7 @@ function midcast(spell) --, Midcast works in hierachy. The higher on the list th
     if spell.name:match('Magic Fruit') or spell.name:match('Cure') then
         equip(sets.midcast.Cure)
 	end
-    if spell.name:match('White Wind') then
+   if spell.name:match('White Wind') then
         equip(sets.midcast.WhiteWind)
 	end
 end
@@ -855,7 +840,7 @@ function buff_change(buff,gain) --, See list of buff names under Gearswap librar
             disable("neck")
         else
             enable("neck")
-            equip(sets.idle.normal)
+            status_change(player.status)
         end
 	end
     --Embolden cape lock--
@@ -874,7 +859,7 @@ function buff_change(buff,gain) --, See list of buff names under Gearswap librar
 		if buffactive['Battuta'] then
 			equip(sets.TankingTP.Inquartata)
 	else
-		idle()
+            status_change(player.status)
 	end
 end
 end
