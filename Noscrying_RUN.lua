@@ -626,7 +626,7 @@ function get_sets()
     right_ring="Provocare Ring", --5
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Enmity+10',}}, --10
 	}
-	sets.midcast.regen = {	--, +46 SIRD +19 Regen, +30% Potency, +39 seconds, +20% Duration +25% Healing/Enhancing MP Cost  = Regen IV 61/tic, 168 Seconds = 3416 HP, Embolden = 76/tic
+	sets.midcast.regen = {	--, +46 SIRD +19 Regen, +30% Potency, +39 seconds, +20% Duration +25% Healing/Enhancing MP Cost  = Regen IV 58/tic, 168 Seconds = 3248 HP, Embolden 73/Tic, 110 Seconds = 2628, don't do it.
 	ammo="Staunch Tathlum",
     head="Runeist Bandeau +2",
     body={ name="Taeon Tabard", augments={'Mag. Evasion+19','Spell interruption rate down -9%','"Regen" potency+3',}},
@@ -836,6 +836,12 @@ function midcast(spell) --, Midcast works in hierachy. The higher on the list th
 	if buffactive['Lux'] and spell.name:match('Lunge') or spell.name:match('Swipe')then
         equip(sets.ja.Light)
     end
+    if spell.name:match('Magic Fruit') or spell.name:match('Cure') then
+        equip(sets.midcast.Cure)
+	end
+    if spell.name:match('White Wind') then
+        equip(sets.midcast.WhiteWind)
+	end
 end
 
 function aftercast(spell) --, idle() makes the aftercast use the "Idle ()" states.
