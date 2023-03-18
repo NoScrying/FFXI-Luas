@@ -465,7 +465,7 @@ function get_sets()
 	
 	Nuke_Set_Names = {'elemental','MB'}
 	sets.Nuke = {}
-	sets.Nuke.elemental = { --, MAB 277, MACC 326, Magic Burst 18 (Cap 40), MB II 6 (no cap), Magic Damage +326
+	sets.Nuke.elemental = { --, MAB 277, MACC 326, Magic Burst 18 (Cap 40), MB II 6 (no cap), Magic Damage +326, Magic Crit Hit II +10% (+25% Damage)
     ammo="Sroda Tathlum",
     head="Ea Hat",
     body="Lethargy Sayon +2",
@@ -481,7 +481,7 @@ function get_sets()
     back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+7',}},
 	}
 	
-	sets.Nuke.MB = { --, MAB 262, MACC 274, Magic Burst 41 (Cap 40), MB II 25 (no cap), Magic Damage +260
+	sets.Nuke.MB = { --, MAB 262, MACC 274, Magic Burst 41 (Cap 40), MB II 25 (no cap), Magic Damage +260, Magic Crit Hit II +10% (+25% Damage)
     ammo="Sroda Tathlum",
     head="Ea Hat",
     body="Ea Houppelande",
