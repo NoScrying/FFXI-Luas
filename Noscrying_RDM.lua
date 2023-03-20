@@ -65,7 +65,7 @@ function get_sets()
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     feet="Malignance Boots",
     neck="Anu Torque",
-    waist="Orpheus's Sash",
+    waist="Orpheus's Sash", --, +1-15% Elemental Damage
     left_ear="Sherida Earring",
     --right_ear="Cessance Earring",
 	right_ear="Suppanomimi",
@@ -97,14 +97,14 @@ function get_sets()
 	}	
 	
 	sets.DW.DT = { --,-51PDT, -41MDT, +9DW, 10DA, 60STP, +30 Elemental Resist, 5% Magic Damage Absorb chance
-	ammo="Aurgelmir Orb",
+	ammo="Staunch Tathlum",
     head="Malignance Chapeau",
     body="Malignance Tabard",
 	hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
     --neck="Anu Torque",
-    neck="Warder's Charm",
+    neck="Warder's Charm +1",
     waist="Carrier's Sash",
 	--waist="Orpheus's Sash",
     --left_ear="Sherida Earring",
@@ -153,15 +153,14 @@ function get_sets()
     back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.SW.DT = { --, -51PDT, -41MDT, 18DA, 2TA, 68STP, +10% Counter
-	ammo="Aurgelmir Orb",
+	ammo="Staunch Tathlum",
     head="Malignance Chapeau",
     body="Malignance Tabard",
 	hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    waist="Orpheus's Sash",
+    neck="Warder's Charm +1",
+    waist="Carrier's Sash",
     left_ear="Sherida Earring",
     right_ear="Cessance Earring",
     left_ring="Chirich Ring +1",
@@ -465,7 +464,7 @@ function get_sets()
 	
 	Nuke_Set_Names = {'elemental','MB'}
 	sets.Nuke = {}
-	sets.Nuke.elemental = { --, MAB 277, MACC 326, Magic Burst 18 (Cap 40), MB II 6 (no cap), Magic Damage +326, Magic Crit Hit II +10% (+25% Damage)
+	sets.Nuke.elemental = { --, MAB 277, MACC 327, Magic Burst 18 (Cap 40), MB II 6 (no cap), Magic Damage +326, Magic Crit Hit II +10%
     ammo="Sroda Tathlum",
     head="Ea Hat",
     body="Lethargy Sayon +2",
@@ -473,7 +472,7 @@ function get_sets()
     legs="Leth. Fuseau +2",
     feet="Leth. Houseaux +2",
     neck="Sibyl Scarf",
-    waist="Eschan Stone",
+	waist="Sacro Cord",
     left_ear="Malignance Earring",
     right_ear="Regal Earring",
     left_ring="Jhakri Ring",
@@ -481,7 +480,7 @@ function get_sets()
     back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+7',}},
 	}
 	
-	sets.Nuke.MB = { --, MAB 262, MACC 274, Magic Burst 41 (Cap 40), MB II 25 (no cap), Magic Damage +260, Magic Crit Hit II +10% (+25% Damage)
+	sets.Nuke.MB = { --, MAB 262, MACC 275, Magic Burst 41 (Cap 40), MB II 25 (no cap), Magic Damage +260, Magic Crit Hit II +10%
     ammo="Sroda Tathlum",
     head="Ea Hat",
     body="Ea Houppelande",
@@ -489,7 +488,7 @@ function get_sets()
     legs="Leth. Fuseau +2",
     feet="Jhakri Pigaches +2",
     neck="Mizu. Kubikazari",
-    waist="Eschan Stone",
+	waist="Sacro Cord",
     left_ear="Malignance Earring",
     right_ear="Regal Earring",
     left_ring="Mujin Band",
@@ -499,7 +498,7 @@ function get_sets()
 	
 	
     sets.midcast = {}               -- leave this empty  
-	sets.midcast.enfeebling = { --, MACC+398, Enfeebling Skill +63, Enfeebling Potency +53, Enfeebling Duration +40%, Saboteur +13, Immunobreak +1
+	sets.midcast.enfeebling = { --, MACC+399, Enfeebling Skill +63, Enfeebling Potency +53, Enfeebling Duration +40%, Saboteur +13, Immunobreak +1
 	ammo="Regal Gem",
     head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
     body="Lethargy Sayon +2",
@@ -507,7 +506,7 @@ function get_sets()
     legs={ name="Chironic Hose", augments={'Mag. Acc.+21 "Mag.Atk.Bns."+21','INT+10','Mag. Acc.+11','"Mag.Atk.Bns."+5',}},
     feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
     neck={ name="Dls. Torque +1", augments={'Path: A',}},
-    waist="Eschan Stone",
+	waist="Sacro Cord",
     left_ear="Malignance Earring",
     right_ear="Snotra Earring",
     --left_ring="Kishar Ring", --, +5 Enfeebling Duration, +5 MACC
@@ -516,7 +515,7 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+7',}},
 }
-	sets.midcast.Macc = { --, +417 MACC, Enfeebling Skill +53, Enfeebling Potency +43, Enfeebling Duration +40%, Saboteur +13, Immunobreak +1, 
+	sets.midcast.Macc = { --, +418 MACC, Enfeebling Skill +53, Enfeebling Potency +43, Enfeebling Duration +40%, Saboteur +13, Immunobreak +1, 
 	ammo="Regal Gem",
     head="Jhakri Coronal +2",
     --hands="Jhakri Cuffs +2",
@@ -525,10 +524,10 @@ function get_sets()
     legs={ name="Chironic Hose", augments={'Mag. Acc.+21 "Mag.Atk.Bns."+21','INT+10','Mag. Acc.+11','"Mag.Atk.Bns."+5',}},
     feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
     neck={ name="Dls. Torque +1", augments={'Path: A',}},
-    waist="Eschan Stone",
+	waist="Sacro Cord",
     left_ear="Malignance Earring",
     right_ear="Snotra Earring",
-    left_ring="Stikini Ring +1",
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Stikini Ring +1",
     back={ name="Aurist's Cape +1", augments={'Path: A',}}, --, +30 MACC, +25 INT/MND (25 MACC'ish)
 }	
@@ -668,7 +667,7 @@ function get_sets()
     right_ring="Menelaus's Ring",
     back="Tempered Cape +1",
 	}
-	sets.midcast.regen = { --, +55SIRD, +15 Regen, +10% Potency, +57% Duration, = Regen II, 28/Tic
+	sets.midcast.regen = { --, +55SIRD, +15 Regen, +10% Potency, +57% Duration, = Regen II, 28/Tic = 1568 HP
 	ammo="Staunch Tathlum",
     sub="Bolelabunga",
     head={ name="Taeon Chapeau", augments={'Mag. Evasion+16','Spell interruption rate down -9%','"Regen" potency+3',}},
