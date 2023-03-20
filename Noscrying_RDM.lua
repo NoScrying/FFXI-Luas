@@ -704,7 +704,7 @@ function get_sets()
 	sets.buff.reive = {
 	neck="Ygnas\'s Resolve +1",
 	}
-	sets.buff.Holywater = {
+	sets.buff.Holywater = { --, +42% Holy Water (Doom removal chance), 33 Base +42 = 75% Chance, + Cursna received +37c
     neck="Nicander's Necklace",
     left_ring="Blenmot's Ring",
     right_ring="Purity Ring",
