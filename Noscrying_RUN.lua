@@ -418,14 +418,14 @@ function get_sets()
 	}	
 
 	sets.ja = {} 					-- Leave this empty
-	sets.ja.Enmity = {
-    head="Runeist Bandeau +2", --0
+	sets.ja.Enmity = { --, +69% Enmity (Enmity gear is a percentage increase or decrease, not an addition
+    head="Halitus Helm", --8
     body="Emet Harness", --9
-	hands="Erilaz Gauntlets +2", --0
+	hands="Nilas Gloves", --5
     legs="Erilaz Leg Guards +2", --12
     feet="Erilaz Greaves +2", --8
     neck="Unmoving Collar +1", --10
-    waist="Flume Belt", --0
+    waist="Warwolf Belt", --3
     left_ear="Friomisi Earring", --2
     right_ear="Eris' Earring", --2
     left_ring="Supershear Ring", --5
@@ -597,14 +597,14 @@ function get_sets()
     right_ring="Defending Ring",
 	})
 	
-	sets.midcast.enmity = { --, +53 Enmity
-    head="Runeist Bandeau +2", --0
+	sets.midcast.enmity = { --, +69% Enmity (Enmity gear is a percentage increase or decrease, not an addition
+    head="Halitus Helm", --8
     body="Emet Harness", --9
-	hands="Erilaz Gauntlets +2", --0
+	hands="Nilas Gloves", --5
     legs="Erilaz Leg Guards +2", --12
     feet="Erilaz Greaves +2", --8
     neck="Unmoving Collar +1", --10
-    waist="Flume Belt", --0
+    waist="Warwolf Belt", --3
     left_ear="Friomisi Earring", --2
     right_ear="Eris' Earring", --2
     left_ring="Supershear Ring", --5
@@ -781,19 +781,13 @@ function precast(spell) --, "==" indicates "Is", "~=" indicates "Is not", See ex
             if world.weather_element == spell.element or world.day_element == spell.element then
                 equip(sets.midcast.NukeWithMatchingWeather)
 			end
-	if buffactive['Lux'] and spell.name:match('Lunge') or spell.name:match('Swipe')then
-		equip(sets.ja[spell.name])
-			if world.weather_element == spell.element or world.day_element == spell.element then
-				equip(sets.midcast.LightNukes)
-			end
-	if buffactive['Tenebrae'] and spell.name:match('Lunge') or spell.name:match('Swipe')then
-		equip(sets.ja[spell.name])
-			if world.weather_element == spell.element or world.day_element == spell.element then
-				equip(sets.midcast.DarkNukes)
-				end
-			end
+		if buffactive['Lux'] and spell.name:match('Lunge') or spell.name:match('Swipe')then
+			equip(sets.midcast.LightNukes)
 		end
-    end
+		if buffactive['Tenebrae'] and spell.name:match('Lunge') or spell.name:match('Swipe')then
+			equip(sets.midcast.DarkNukes)
+		end
+	end
 end
 
 
@@ -812,17 +806,17 @@ function midcast(spell) --, Midcast works in hierachy. The higher on the list th
 	end	
 	if spell.name:match('Phalanx') then
 		equip(sets.midcast.phalanx)
-	end
-	if spell.name =='Flash' or spell.name =='Foil'or spell.name =='Crusade' or spell.name =='Stun' or spell.name:match('Poison') or spell.name:match('Absorb') then  
-		equip(sets.midcast.enmity) --, When unengaged, uses Enmity set
 			if player.status == "Engaged" then --, If engaged, uses SIRD set
-			equip(sets.midcast.sird)
+				equip(sets.midcast.sird)
+			end
 		end
+	if spell.name =='Flash' or spell.name =='Stun' or spell.name:match('Poison') or spell.name:match('Absorb') or spell.name =='Foil' then  
+		equip(sets.midcast.enmity) 
 	end
     if spell.name:match('Magic Fruit') or spell.name:match('Cure') or spell.name:match('Healing Breeze')or spell.name:match('Wild Carrot')then
         equip(sets.midcast.Cure)
+		end
 	end
-end
 
 function aftercast(spell) --, idle() makes the aftercast use the "Idle ()" states.
 	idle()
