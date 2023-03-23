@@ -5,7 +5,8 @@ function get_sets()
 	send_command('bind f12 gs c toggle TH set') 
 	send_command('bind f7 gs c toggle Weapons set') 
 	send_command('bind !f7 gs c toggle Sub_Weapons set') 
-	send_command('bind numpad1 gs c toggle Buff set')
+	send_command('bind !numpad1 gs c toggle Buff set')
+	send_command('bind !numpad0 gs c toggle Emergency MEVA')
 	Run_Index = 1 --, Index for gearsets, needed for when there is more than 1 in a set and you wish you toggle beween them
 	TH_Index = 1
 	Weapons_Index = 1
@@ -77,25 +78,26 @@ function get_sets()
 	sets.TankingTP.index = { 'DT','Parry'}
 	TankingTP_ind = 1
 	
-	sets.TankingTP.DT = { --, -50PDT, -42MDT, missing Parry on Enmity cape
+	sets.TankingTP.DT = { --, -45PDT, -47MDT, Inquartata +6, Parry +5%, 3850HP
     ammo="Staunch Tathlum",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
     hands="Erilaz Gauntlets +2",
     legs="Erilaz Leg Guards +2",
     feet="Erilaz Greaves +2",
-    neck="Warder's Charm",
-    waist="Ioskeha Belt +1",
+    neck="Unmoving Collar +1",
+    -- waist="Engraved Belt",
+	waist="Platinum Moogle Belt",
     left_ear="Odnowa Earring +1",
     right_ear="Tuisto Earring",
     left_ring="Moonbeam Ring",
-    left_ring="Moonbeam Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    right_ring="Moonbeam Ring",
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}},
 	}
 
-	sets.TankingTP.Parry = { --, -36PDT, -24MDT, +11 Inquartata, missing Parry on Enmity cape
+	sets.TankingTP.Parry = { --, -36PDT, -24MDT, +11 Inquartata, Parry +5%
     ammo="Staunch Tathlum",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
     hands="Turms Mittens +1",
     legs="Eri. Leg Guards +2",
@@ -106,13 +108,31 @@ function get_sets()
     right_ear="Tuisto Earring",
     left_ring="Moonbeam Ring",
     right_ring="Defending Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}},
 	}
 	sets.TankingTP.Inquartata = {
     hands="Turms Mittens +1",
     legs="Eri. Leg Guards +2",
     feet="Turms Leggings +1",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	}	
+
+	MEVA_Set_Name = {'MEVA'}
+	sets.MEVA = { --, +40-50 Elemental Resist, +10 Status Resist, +5% Magic Absorb chance, +5% Negate Magic Damage chance, +634 MEVA, -44% PDT, -34% MDT
+    ammo="Staunch Tathlum", --, +10 Status Resist, -2% DT
+    head="Erilaz Galea +2", --, +109 MEVA
+    body="Erilaz Surcoat +2", --, +120  MEVA
+    hands="Turms Mittens +1", --, +101 MEVA
+    legs="Eri. Leg Guards +2", --, +147 MEVA, -12% DT
+    feet="Erilaz Greaves +2", --, +147 MEVA, -10% DT
+    neck="Warder's Charm +1", --, +20 Element Resist, +5% Magic Absorb chance
+    waist="Engraved Belt", --, +20-30 Element Resist
+    left_ear="Tuisto Earring", 
+    right_ear="Eabani Earring", --, +8 Meva
+    left_ring="Archon Ring", --, +5% Negate Magic Damage chance
+    right_ring="Defending Ring", --, -10% DT
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, -10% PDT
+    --back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, Missing MEVA/DT Cape
 	}	
 	
 	Run_Set_Names = {'Refresh','Regen','DT'}
@@ -430,7 +450,7 @@ function get_sets()
     right_ear="Eris' Earring", --2
     left_ring="Supershear Ring", --5
     right_ring="Provocare Ring", --5
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Enmity+10',}}, --10
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}}, --10
 	}
 		
 	sets.ja['Vallation'] = set_combine(sets.ja.Enmity, { --, When we define a set as as "sets.ja['xx'], then we can in our precast set, refer to all named in this way, while still specifying a single set.
@@ -722,7 +742,7 @@ function get_sets()
     right_ear="Eris' Earring", --2
     left_ring="Supershear Ring", --5
     right_ring="Provocare Ring", --5
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Enmity+10',}}, --10
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}}, --10
 	}
 	sets.midcast.regen = {	--, +46 SIRD +19 Regen, +30% Potency, +39 seconds, +20% Duration +25% Healing/Enhancing MP Cost  = Regen IV 58/tic, 168 Seconds = 3248 HP, Embolden 73/Tic, 110 Seconds = 2628, don't do it.
 	ammo="Staunch Tathlum",
@@ -1068,6 +1088,10 @@ function self_command(command) --, Allows of use of various commands
         windower.add_to_chat('Buff mode is now: '..Buff_Set_Names[Buff_Index])
         equip(sets.buff[Buff_Set_Names[Buff_Index]])
     end
+	if command == 'toggle Emergency MEVA' then
+        windower.add_to_chat('Equipping Emergency MEVA/DT')
+		equip(sets.MEVA)
+	end
 end
 
 --windower.add_to_chat('DT mode is now: '..DT_mode)
@@ -1082,5 +1106,6 @@ send_command('unbind f12')
 send_command('unbind !f12')
 send_command('unbind f7')
 send_command('unbind !f7')
-send_command('unbind numpad1')
+send_command('unbind !numpad1')
+send_command('unbind !numpad0')
 end
