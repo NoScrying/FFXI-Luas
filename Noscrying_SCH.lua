@@ -16,9 +16,8 @@ function get_sets()
     ammo="Homiliary",
     head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
-    hands="Jhakri Cuffs +2",
-	--legs="Arbatel Pants +2",
-	legs="Jhakri Slops +2",
+    hands="Arbatel Bracers +2",
+    legs="Arbatel Pants +2",
     feet="Jhakri Pigaches +2",
     neck="Lissome Necklace",
     waist="Cornelia's Belt",
@@ -32,9 +31,8 @@ function get_sets()
     ammo="Homiliary",
     head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
-    hands="Jhakri Cuffs +2",
-	--legs="Arbatel Pants +2",
-	legs="Jhakri Slops +2",
+    hands="Arbatel Bracers +2",
+    legs="Arbatel Pants +2",
     feet="Battlecast Gaiters",
     neck="Warder's Charm",
     waist="Carrier's Sash",
@@ -48,9 +46,8 @@ function get_sets()
     ammo="Homiliary",
     head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
-    hands="Jhakri Cuffs +2",
-	--legs="Arbatel Pants +2",
-	legs="Jhakri Slops +2",
+    hands="Arbatel Bracers +2",
+    legs="Arbatel Pants +2",
     feet="Jhakri Pigaches +2",
     neck="Sibyl Scarf",
 	waist="Embla Sash",
@@ -67,9 +64,8 @@ function get_sets()
     ammo="Homiliary",
     head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
-    hands="Jhakri Cuffs +2",
-	--legs="Arbatel Pants +2",
-	legs="Jhakri Slops +2",
+    hands="Arbatel Bracers +2",
+    legs="Arbatel Pants +2",
     feet="Herald's Gaiters",
     neck="Warder's Charm",
 	waist="Embla Sash",
@@ -202,8 +198,6 @@ function get_sets()
 	
 	sets.idle = {} 					-- Leave this empty.
 	sets.idle.normal = {
-    main="Malignance Pole",
-    sub="Enki Strap",
     ammo="Homiliary",
     head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
@@ -241,12 +235,10 @@ function get_sets()
 	
     sets.midcast = {}               -- leave this empty  
 	sets.midcast.enfeebling = {
-    main="Daybreak",
-    sub="Culminus",
 	ammo="Impatiens",
     head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
-    hands="Jhakri Cuffs +2",
+    hands="Arbatel Bracers +2",
     legs={ name="Chironic Hose", augments={'Mag. Acc.+21 "Mag.Atk.Bns."+21','INT+10','Mag. Acc.+11','"Mag.Atk.Bns."+5',}},
     feet="Jhakri Pigaches +2",
     neck="Erra Pendant",
@@ -258,12 +250,10 @@ function get_sets()
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
 	sets.midcast.MACC = {
-    main="Daybreak",
-    sub="Culminus",
     ammo="Impatiens",
     head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
-    hands="Jhakri Cuffs +2",
+    hands="Arbatel Bracers +2",
     legs={ name="Chironic Hose", augments={'Mag. Acc.+21 "Mag.Atk.Bns."+21','INT+10','Mag. Acc.+11','"Mag.Atk.Bns."+5',}},
     feet="Jhakri Pigaches +2",
     neck="Erra Pendant",
@@ -279,7 +269,7 @@ function get_sets()
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
-    hands="Jhakri Cuffs +2",
+    hands="Arbatel Bracers +2",
     legs={ name="Chironic Hose", augments={'Mag. Acc.+21 "Mag.Atk.Bns."+21','INT+10','Mag. Acc.+11','"Mag.Atk.Bns."+5',}},
     feet="Jhakri Pigaches +2",
     neck="Erra Pendant",
@@ -292,14 +282,11 @@ function get_sets()
 	}
 	
 	sets.midcast.elemental = {
-    main="Daybreak",
-    sub="Culminus",
     ammo="Sroda Tathlum",
     head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
-    hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-	--legs="Arbatel Pants +2",
-	legs="Jhakri Slops +2",
+    hands="Arbatel Bracers +2",
+    legs="Arbatel Pants +2",
     feet="Jhakri Pigaches +2",
     neck="Mizu. Kubikazari",
     waist="Orpheus's Sash",
@@ -392,8 +379,6 @@ function get_sets()
 	}
 
 	sets.midcast.dark = {
-    main="Daybreak",
-    sub="Culminus",
     ammo="Sroda Tathlum",
     head="Pixie Hairpin +1",
     body="Arbatel Gown +2",
@@ -410,8 +395,6 @@ function get_sets()
     back="Seshaw Cape",
 	}
 	sets.midcast.light = {
-    main="Daybreak",
-    sub="Culminus",
     ammo="Sroda Tathlum",
     head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
@@ -582,7 +565,7 @@ function self_command(command)
 	if command == 'toggle weapon set' then
         Weapon_Index = Weapon_Index +1
     if Weapon_Index > #Weapon_Set_Names then Weapon_Index = 1 end
-        windower.add_to_chat('Weapon is now: '..Weapons_Set_Names[Weapons_Index])
+        windower.add_to_chat('Weapon is now: '..Weapon_Set_Names[Weapon_Index])
         equip(sets.weapon[Weapon_Set_Names[Weapon_Index]])
     end
 	if command == 'toggle TH set' then
