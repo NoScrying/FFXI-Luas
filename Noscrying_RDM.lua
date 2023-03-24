@@ -19,21 +19,21 @@ function get_sets()
 	Dagger_Index = 1
 	Nuke_Index = 1
 	
-	Crocea_Set_Names = {'Daybreak','Ternion Dagger','Kaja Knife'} --'Odin', 'Crocea_TPBonus' --, must define set names, so it knows what to switch to
+	Crocea_Set_Names = {'Daybreak','Tauret'} --'Odin', 'Crocea_TPBonus','Ternion Dagger' --, must define set names, so it knows what to switch to
 	sets.Crocea = {}
 	sets.Crocea.Daybreak = {
     main={ name="Crocea Mors", augments={'Path: C',}},
     sub="Daybreak",
 	}
+	sets.Crocea['Tauret'] = {
+    main={ name="Crocea Mors", augments={'Path: C',}},
+    sub="Tauret",
+	}		
 	sets.Crocea['Ternion Dagger'] = {
     main={ name="Crocea Mors", augments={'Path: C',}},
     sub={ name="Ternion Dagger +1", augments={'Path: A',}},
-	}
-	sets.Crocea['Kaja Knife'] = {
-    main={ name="Crocea Mors", augments={'Path: C',}},
-    sub="Kaja Knife",
 	}	
-	
+
 	Sword_Set_Names = {'Naegling', 'Excalibur','Excalibur_TPbonus'} --'Odin'
 	sets.Sword = {}
 	sets.Sword.Naegling = {
