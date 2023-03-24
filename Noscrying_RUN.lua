@@ -752,6 +752,22 @@ function get_sets()
     right_ring="Provocare Ring", --5 Enmity
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}}, --10 Enmity, (Missing Meva/Enmity/PDT Cape)
 	}
+	sets.midcast.MaxEnmity = { --, +69% Enmity (Enmity gear is a percentage increase or decrease, not an addition), Merit+5 = +25 SIRD, -27% DT (-37% PDT, -22 MDT)
+	ammo="Impatiens", --10 SIRD
+    head="Halitus Helm", --8 Enmity
+    body="Emet Harness", --9 Enmity, -5 PDT
+    hands="Nilas Gloves", --5 Enmity
+    legs="Erilaz Leg Guards +2", --12 Enmity, -12% DT
+    feet="Erilaz Greaves +2", --8 Enmity, -10% DT
+    neck="Moonbeam Necklace", --10 Enmity, +10 SIRD
+    --neck="Unmoving Collar +1", --10 Enmity
+    waist="Warwolf Belt", --3 Enmity
+    left_ear="Friomisi Earring", --2 Enmity
+    right_ear="Eris' Earring", --2 Enmity
+    left_ring="Supershear Ring", --5 Enmity
+    right_ring="Provocare Ring", --5 Enmity
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}}, --10 Enmity, (Missing Meva/Enmity/PDT Cape)
+	}
 	sets.midcast.regen = {	--, Merit+5 = +60 SIRD +19 Regen, +30% Potency, +39 seconds, +20% Duration +25% Healing/Enhancing MP Cost  = Regen IV 58/tic, 168 Seconds = 3248 HP, Embolden 73/Tic, 110 Seconds = 2628, don't do it.
 	ammo="Staunch Tathlum",
     head="Runeist Bandeau +2",
@@ -951,8 +967,11 @@ function midcast(spell) --, Midcast works in hierachy. The higher on the list th
 				equip(sets.midcast.sird)
 			end
 		end
-	if spell.name =='Flash' or spell.name =='Stun' or spell.name:match('Poison') or spell.name:match('Absorb') or spell.name =='Foil' then  
-		equip(sets.midcast.enmity) 
+	if  spell.name:match('Poison') or spell.name:match('Absorb') or spell.name =='Foil' then  
+		equip(sets.midcast.enmity)
+			if spell.name =='Flash' or spell.name =='Stun' then
+				equip(sets.midcast.MaxEnmity)
+		end
 	end
     if spell.name:match('Magic Fruit') or spell.name:match('Cure') or spell.name:match('Healing Breeze')or spell.name:match('Wild Carrot')then
         equip(sets.midcast.Cure)
