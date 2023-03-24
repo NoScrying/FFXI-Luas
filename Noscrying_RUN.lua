@@ -686,7 +686,7 @@ function get_sets()
 	sets.idle = {} 					-- Leave this empty
 	
 	sets.precast = {}               -- leave this empty
-	sets.precast.fastcast = { --, 62% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+5 = +53 SIRD
+	sets.precast.fastcast = { --, 58% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+5 = +53 SIRD
     ammo="Impatiens",
     head="Runeist Bandeau +2", --12
     body="Erilaz Surcoat +2", --10
@@ -701,7 +701,7 @@ function get_sets()
     right_ring="Weatherspoon Ring", --5
     back={ name="Ogma's Cape", augments={'"Fast Cast"+10',}}, --10
 	} 
-	sets.precast.enhancing = { --, 62% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+5 = +68 SIRD
+	sets.precast.enhancing = { --, 58% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+5 = +68 SIRD
     ammo="Impatiens",
     head="Runeist Bandeau +2",--12
     body="Erilaz Surcoat +2", --10
