@@ -768,6 +768,21 @@ function get_sets()
     right_ring="Provocare Ring", --5 Enmity
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}}, --10 Enmity, (Missing Meva/Enmity/PDT Cape)
 	}
+	sets.midcast.Foil = { --, +37% Enmity, Merit+5 = +76 SIRD, -15% DT, +40% Duration
+	ammo="Impatiens", --10 SIRD
+	head="Erilaz Galea +2", --15 SIRD, +20% Duration
+    body="Emet Harness", --9 Enmity, -5 PDT
+    hands="Rawhide Gloves", --15 SIRD
+    legs={ name="Futhark Trousers +1", augments={'Enhances "Inspire" effect',}}, --+20% Duration
+    feet="Erilaz Greaves +2", --8 Enmity, -10% DT
+    neck="Moonbeam Necklace", --10 Enmity, +10 SIRD
+    waist="Resolute Belt", --8 SIRD (Missing Audumbla Sash, +10 SIRD, -4 PDT)
+    left_ear="Halasz Earring", --5 SIRD
+    right_ear="Magnetic Earring", --8 SIRD
+    left_ring="Supershear Ring", --5 Enmity
+    right_ring="Provocare Ring", --5 Enmity
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}}, --10 Enmity, (Missing Meva/Enmity/PDT Cape)
+	}	
 	sets.midcast.regen = {	--, Merit+5 = +60 SIRD +19 Regen, +30% Potency, +39 seconds, +20% Duration +25% Healing/Enhancing MP Cost  = Regen IV 58/tic, 168 Seconds = 3248 HP, Embolden 73/Tic, 110 Seconds = 2628, don't do it.
 	ammo="Staunch Tathlum",
     head="Runeist Bandeau +2",
@@ -948,13 +963,22 @@ function precast(spell) --, "==" indicates "Is", "~=" indicates "Is not", See ex
 end
 
 
-function midcast(spell) --, Midcast works in hierachy. The higher on the list the higher priority when using lazy If/End statements, otherwise when using If/Else/End, "Else" takes priority. See RDM lua for examples
-	if spell.name:match('Refresh') then
-		equip(sets.midcast.refresh)
-	end
+function midcast(spell) --, Midcast works in hierachy. The lower on the list the higher priority when using lazy If/End statements, otherwise when using If/Else/End, "Else" takes priority. See RDM lua for examples
 	if spell.skill == 'Enhancing Magic' then
 		equip(sets.midcast.enhancingduration)
 	end
+	if spell.name:match('Refresh') then
+		equip(sets.midcast.refresh)
+	end
+	if spell.name:match('Poison') or spell.name:match('Absorb') then  
+		equip(sets.midcast.enmity)
+	end
+	if spell.name =='Flash' or spell.name =='Stun' then
+		equip(sets.midcast.MaxEnmity)
+	end
+	if spell.name =='Foil' then
+		equip(sets.midcast.Foil)
+	end	
 	if spell.name == 'Temper' or spell.name:match('Bar') then --,Spell.name == "xx" has to match name exactly, Spell.name:match ('xx') is like a variable that matches any prefix
 		equip(sets.midcast.enhancingskill)
 	end
@@ -967,12 +991,7 @@ function midcast(spell) --, Midcast works in hierachy. The higher on the list th
 				equip(sets.midcast.sird)
 			end
 		end
-	if  spell.name:match('Poison') or spell.name:match('Absorb') or spell.name =='Foil' then  
-		equip(sets.midcast.enmity)
-			if spell.name =='Flash' or spell.name =='Stun' then
-				equip(sets.midcast.MaxEnmity)
-		end
-	end
+
     if spell.name:match('Magic Fruit') or spell.name:match('Cure') or spell.name:match('Healing Breeze')or spell.name:match('Wild Carrot')then
         equip(sets.midcast.Cure)
 		end
