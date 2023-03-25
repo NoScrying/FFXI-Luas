@@ -35,7 +35,7 @@ function get_sets()
 	sets.TwoHandedTP.index = { 'Normal', 'Hybrid'}
 	TwoHandedTP_ind = 1
 
-	sets.TwoHandedTP.Normal = { -- 26TA, 30DA, Temper+25 = 55DA, Embolden +12 = 67DA, -22PDT, -4MDT
+	sets.TwoHandedTP.Normal = { -- 26TA, 30DA, Temper+28 = 58DA, Embolden +14 = 72DA, -22PDT, -4MDT
     ammo="Yamarang",
     head="Adhemar Bonnet +1",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -52,7 +52,7 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 
-	sets.TwoHandedTP.Hybrid = { -- 11TA, 30DA, Temper+25 = 55DA, Embolden +12 = 67DA, -26PDT, -16MDT, +11 Inquartata, missing Parry on Enmity cape
+	sets.TwoHandedTP.Hybrid = { -- 11TA, 30DA, Temper+28 = 58DA, Embolden +14 = 72DA, -26PDT, -16MDT, +11 Inquartata, missing Parry on Enmity cape
     ammo="Yamarang",
     head="Adhemar Bonnet +1",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -78,7 +78,7 @@ function get_sets()
 	sets.TankingTP.index = { 'DT','Parry'}
 	TankingTP_ind = 1
 	
-	sets.TankingTP.DT = { --, -45PDT (PDT should be as close to 50 as possible, Protect adds to defense which is separate from PDT), -47MDT (MDT only need to be -21% in any set, Shell V is -29% MDT), Inquartata +6, Parry +5%, 3850HP
+	sets.TankingTP.DT = { --, -45PDT (PDT should be as close to 50 as possible, Protect adds to defense which is separate from PDT), -47MDT (MDT only need to be -21% in any set, Shell V is -29% MDT), Inquartata +6, Parry +5%, 3850HP, +28 DA
     ammo="Staunch Tathlum",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
@@ -95,7 +95,7 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}},
 	}
 
-	sets.TankingTP.Parry = { --, -36PDT, -24MDT, +11 Inquartata, Parry +5%
+	sets.TankingTP.Parry = { --, -36PDT, -24MDT, +11 Inquartata, Parry +5%, +37 DA
     ammo="Staunch Tathlum",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
@@ -842,35 +842,35 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back="Moonbeam Cape",
 	}
-	sets.midcast.enhancingduration = {	--, +40% Duration, Skill 502 
+	sets.midcast.enhancingduration = {	--, +40% Duration, Skill 553
 	ammo="Staunch Tathlum",
     head="Erilaz Galea +2",
-    body="Erilaz Surcoat +2",
+    body="Manasa Chasuble",
     hands="Runeist Mitons",
     legs={ name="Futhark Trousers +1", augments={'Enhances "Inspire" effect',}},
     feet="Erilaz Greaves +2",
     neck="Melic Torque",
 	waist="Olympus Sash",
-    left_ear="Augmenting Earring",
+    left_ear="Andoaa Earring",
     right_ear="Mimir Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
-    back="Moonbeam Cape",
+    back="Merciful Cape",
 	}
-	sets.midcast.enhancingskill = {	--, ML25 = Skill 552 = Temper +25 Double Attack
+	sets.midcast.enhancingskill = {	--, Enhancing Skill +106, ML35 = Skill 581 = Temper +28 Double Attack
 	ammo="Staunch Tathlum",
     head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
-    body="Erilaz Surcoat +2",
+    body="Manasa Chasuble",
     hands="Runeist Mitons",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     feet="Erilaz Greaves +2",
     neck="Melic Torque",
 	waist="Olympus Sash",
-    left_ear="Augmenting Earring",
+    left_ear="Andoaa Earring",
     right_ear="Mimir Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
-    back="Moonbeam Cape",
+    back="Merciful Cape",
 	}
 	sets.midcast.refresh = { --, +20 Seconds, +20% Duration, +3 Refresh Potency, 32DT, Absorbs 7% Damage to MP
 	ammo="Staunch Tathlum",
