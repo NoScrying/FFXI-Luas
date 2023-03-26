@@ -36,7 +36,7 @@ function get_sets()
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.melee.DT = {
-    ammo="Aurgelmir Orb",
+    ammo="Crepuscular Pebble",
     head="Malignance Chapeau",
     body="Malignance Tabard",
 	hands="Malignance Gloves",
@@ -51,38 +51,24 @@ function get_sets()
     right_ring="Epona's Ring",
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 }
-	sets.melee.Hybrid = {
-    ammo="Aurgelmir Orb",
-    head="Adhemar Bonnet +1",
-    body="Ken. Samue +1",
-	hands="Malignance Gloves",
-    --hands="Mummu Wrists +2",
+	sets.melee.Hybrid = { 
+    ammo="Crepuscular Pebble",
+    head="Malignance Chapeau",
+    -- body="Ken. Samue +1",
+    hands="Ken. Tekko +1",
+    body="Malignance Tabard",
+	--hands="Malignance Gloves",
+	--legs="Ken. Hakama +1",
 	legs="Bhikku Hose +2",
-    feet="Malignance Boots",
-    --neck="Moonbeam Nodowa",
+    feet="Ken. Sune-Ate +1",
     neck={ name="Mnk. Nodowa +1", augments={'Path: A',}},
     waist="Moonbow Belt +1",
     left_ear="Sherida Earring",
-    right_ear="Crepuscular Earring",
+    right_ear="Cessance Earring",
     left_ring="Gere Ring",
     right_ring="Epona\'s Ring",
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 }
-	-- sets.melee.HybridMalig = {
-    -- ammo="Aurgelmir Orb",
-    -- head="Malignance Chapeau",
-    -- body="Malignance Tabard",
-	-- hands="Malignance Gloves",
-	-- legs="Malignance Tights",
-    -- feet="Malignance Boots",
-    -- neck={ name="Mnk. Nodowa +1", augments={'Path: A',}},
-    -- waist="Moonbow Belt",
-    -- left_ear="Sherida Earring",
-    -- right_ear="Odr Earring",
-    -- left_ring="Gere Ring",
-    -- right_ring="Epona\'s Ring",
-    -- back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
--- }
 	counter_Set_Names = {'Stance',}	
 	sets.counter = {}
 	sets.counter.Stance = set_combine(sets.melee.Hybrid,{
@@ -98,7 +84,7 @@ function get_sets()
 	Run_Set_Names = {'DT','Regen'}
 	sets.run = {}
 	sets.run.DT = {
-    ammo="Aurgelmir Orb",
+    ammo="Crepuscular Pebble",
     head="Malignance Chapeau",
     body="Malignance Tabard",
 	hands="Malignance Gloves",
@@ -113,7 +99,7 @@ function get_sets()
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.run.Regen = {
-    ammo="Aurgelmir Orb",
+    ammo="Crepuscular Pebble",
     head={ name="Rao Kabuto", augments={'Pet: HP+100','Pet: Accuracy+15','Pet: Damage taken -3%',}},
     body="Hiza. Haramaki +2",
     hands={ name="Rao Kote", augments={'Pet: HP+100','Pet: Accuracy+15','Pet: Damage taken -3%',}},
@@ -305,6 +291,7 @@ function get_sets()
 	}  
 	sets.ja['Impetus'] = {	
 	body="Bhikku Cyclas +2",
+	ring2="Defending Ring",
 	} 
 	sets.ja['Dodge'] = {	
     feet="Anch. Gaiters +3",
@@ -430,11 +417,11 @@ end
 function buff_change(buff,gain)
     if buff == 'Impetus' then
         if gain then
-           equip(sets.ja['Impetus'])
-           disable("body")
-       else
-            enable("body")
-            equip(sets.idle.normal)
+			if player.status == "Engaged" then
+				equip(sets.ja['Impetus'])
+			else
+				status_change(player.status)
+			end
         end
 	end
     if buff == 'Boost' then
@@ -443,23 +430,35 @@ function buff_change(buff,gain)
            disable("waist")
        else
             enable("waist")
-            equip(sets.idle.normal)
+            status_change(player.status)
         end
 	end	
+    if buff == 'Footwork' then
+		if gain then
+			if player.status == "Engaged" then
+				equip(sets.ja.footwork)
+			else
+				status_change(player.status)
+			end
+		end	
+	end
 end
 
 function idle()
 	if player.status =='Engaged' then
 		equip(sets.melee[Melee_Set_Names[Melee_Index]])
 			if buffactive['Footwork']then
-				equip(sets.ja.footwork)
+				equip(sets.ja.footwork) 
+					elseif buffactive['Impetus'] then
+					equip(sets.ja['Impetus'])
+				
 			end	
 		end
 	if player.status=='Engaged' and player.equipment.main == 'Jolt Counter' then
 		equip(sets.counter.Stance)
 	end
 	if player.status =='Idle' then
-        equip(sets.idle.normal) 
+        equip(sets.run[Run_Set_Names[Run_Index]]) 
     end
 end
  
