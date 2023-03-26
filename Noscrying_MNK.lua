@@ -279,9 +279,24 @@ function get_sets()
 	} 	
 
 	sets.ja = {} 					-- Leave this empty.
-	sets.ja['Counterstance'] = {
+	sets.ja.Enmity = {
+    ammo="Crepuscular Pebble",
+    head="Halitus Helm",
+    body="Emet Harness",
+    hands="Nilas Gloves",
+    legs="Bhikku Hose +2",
+    feet="Bhikku Gaiters +2",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Moonbow Belt +1",
+    left_ear="Eris' Earring",
+    right_ear="Friomisi Earring",
+    left_ring="Supershear Ring",
+    right_ring="Provocare Ring",
+    back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},	
+	}
+	sets.ja['Counterstance'] = set_combine(sets.ja.Enmity,{
     feet={ name="Hes. Gaiters +1", augments={'Enhances "Mantra" effect',}},
-	}  
+	})   
 	sets.ja['Mantra'] = {
     feet={ name="Hes. Gaiters +1", augments={'Enhances "Mantra" effect',}},
 	} 
@@ -324,21 +339,23 @@ function get_sets()
 	sets.ja['Hundred Fists'] = {
     legs={ name="Hes. Hose +1", augments={'Enhances "Hundred Fists" effect',}},
 	}
-	sets.ja['Provoke'] = {
-    body="Emet Harness",
-    feet="Hermes' Sandals",
-    neck="Warder's Charm",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Friomisi Earring",
-    right_ear="Eris' Earring",
-    left_ring="Supershear Ring",
-    right_ring="Provocare Ring",
-	}
+	sets.ja['Provoke'] = set_combine(sets.ja.Enmity,{
+	})
+	sets.ja['Vallation'] = set_combine(sets.ja.Enmity, { 
+	})
+	sets.ja['Valiance'] = set_combine(sets.ja.Enmity, {
+	})
+	sets.ja['Pflug'] = set_combine(sets.ja.Enmity, {
+	})	
+	sets.ja['Swordplay'] = set_combine(sets.ja.Enmity, {
+	})
+	
 	Buff_Set_Names = {'Holywater'}
 	sets.buff = {} 					-- Leave this empty.
 	sets.buff.reive = {
 	neck="Ygnas\'s Resolve +1",
 	}
+	
 	sets.buff.Holywater = {
     neck="Nicander's Necklace",
     left_ring="Blenmot's Ring",
@@ -356,9 +373,10 @@ function get_sets()
 	
     sets.precast = {}               -- leave this empty  
 	sets.precast.fastcast = {
-    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+	ammo="Impatiens",
+    head={ name="Herculean Helm", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','Weapon skill damage +5%','STR+9','Mag. Acc.+1',}},
     body={ name="Taeon Tabard", augments={'"Fast Cast"+5','Phalanx +3',}},
-    hands={ name="Taeon Gloves", augments={'"Fast Cast"+5','Phalanx +3',}},
+    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}}, --8
     legs={ name="Taeon Tights", augments={'"Fast Cast"+5','Phalanx +3',}},
     feet={ name="Taeon Boots", augments={'"Fast Cast"+5','Phalanx +3',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
