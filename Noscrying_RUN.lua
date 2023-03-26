@@ -842,35 +842,35 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back="Moonbeam Cape",
 	}
-	sets.midcast.enhancingduration = {	--, +40% Duration, Skill 553
+	sets.midcast.enhancingduration = {	--, Enhancing Skill +78, +40% Duration, Skill 553
 	ammo="Staunch Tathlum",
-    head="Erilaz Galea +2",
-    body="Manasa Chasuble",
-    hands="Runeist Mitons",
-    legs={ name="Futhark Trousers +1", augments={'Enhances "Inspire" effect',}},
+    head="Erilaz Galea +2", --, +20%
+    body="Manasa Chasuble", --12
+    hands="Runeist Mitons", --15
+    legs={ name="Futhark Trousers +1", augments={'Enhances "Inspire" effect',}}, --, 20%
     feet="Erilaz Greaves +2",
-    neck="Melic Torque",
-	waist="Olympus Sash",
-    left_ear="Andoaa Earring",
-    right_ear="Mimir Earring",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    back="Merciful Cape",
+    neck="Melic Torque", --10
+	waist="Olympus Sash", --5
+    left_ear="Andoaa Earring", --5
+    right_ear="Mimir Earring", --10
+    left_ring="Stikini Ring +1", --8
+    right_ring="Stikini Ring +1", --8
+    back="Merciful Cape", --5
 	}
 	sets.midcast.enhancingskill = {	--, Enhancing Skill +106, ML35 = Skill 581 = Temper +28 Double Attack
 	ammo="Staunch Tathlum",
-    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
-    body="Manasa Chasuble",
-    hands="Runeist Mitons",
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}}, --10
+    body="Manasa Chasuble", --12
+    hands="Runeist Mitons", --15
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}}, --18
     feet="Erilaz Greaves +2",
-    neck="Melic Torque",
-	waist="Olympus Sash",
-    left_ear="Andoaa Earring",
-    right_ear="Mimir Earring",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    back="Merciful Cape",
+    neck="Melic Torque", --10
+	waist="Olympus Sash", --5
+    left_ear="Andoaa Earring", --5
+    right_ear="Mimir Earring", --10
+    left_ring="Stikini Ring +1", --8
+    right_ring="Stikini Ring +1", --8
+    back="Merciful Cape", --5
 	}
 	sets.midcast.refresh = { --, +20 Seconds, +20% Duration, +3 Refresh Potency, 32DT, Absorbs 7% Damage to MP
 	ammo="Staunch Tathlum",
