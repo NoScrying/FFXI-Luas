@@ -111,7 +111,13 @@ function get_sets()
     right_ring="Chirich Ring +1",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
-
+	sets.Apoc.NotSAMSJ = {
+	ear2="Brutal Earring",
+	ear1={ name="Lugra Earring +1", augments={'Path: A',}},
+    hands="Sakpata's Gauntlets",
+    legs="Sakpata's Cuisses",
+	}
+	
 	Melee_Set_Names = {'normal', 'DT'}
 	sets.melee = {} 					-- Leave this empty.
 	sets.melee.normal = {
@@ -836,7 +842,7 @@ function idle()
 		if player.equipment.main == "Apocalypse" then
 			equip(equip(sets.Apoc[Apoc_Set_Names[Apoc_Index]]))
 				if player.sub_job ~= "SAM" then
-					equip(sets.melee.NotSAMSJ)
+					equip(sets.Apoc.NotSAMSJ)
 				end
 			end
 		end
