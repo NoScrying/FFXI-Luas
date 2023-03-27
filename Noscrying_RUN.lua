@@ -701,12 +701,12 @@ function get_sets()
     right_ring="Weatherspoon Ring", --5
     back={ name="Ogma's Cape", augments={'"Fast Cast"+10',}}, --10
 	} 
-	sets.precast.enhancing = { --, 58% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+5 = +68 SIRD
+	sets.precast.enhancing = { --, 71% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+5 = +48 SIRD
     ammo="Impatiens",
     head="Runeist Bandeau +2",--12
     body="Erilaz Surcoat +2", --10
     hands="Rawhide Gloves",
-    legs="Carmine Cuisses +1",
+    legs="Futhark Trousers +1", --13
     feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}}, --7
     neck="Moonbeam Necklace", --10 Enmity, +10 SIRD
     waist="Siegel Sash", --8 (Only works for Enhancing Magic)
