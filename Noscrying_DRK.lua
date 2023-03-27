@@ -5,7 +5,8 @@ function get_sets()
 	send_command('bind f12 gs c toggle TH set') -- F10 = Cycle through
 	send_command('bind f7 gs c toggle Weapons set') -- F10 = Cycle through
 	send_command('bind !f7 gs c toggle Sub_Weapons set') -- F10 = Cycle through
-	send_command('bind numpad1 gs c toggle Buff set')
+	send_command('bind !numpad1 gs c toggle Buff set')
+	send_command('bind !numpad0 gs c toggle Emergency MEVA')
 	send_command('bind !f9 gs c toggle Apoc set')
 	Melee_Index = 1
 	Niche_Index = 1
@@ -41,6 +42,23 @@ function get_sets()
     main="Lycurgos",
 	sub="Utu Grip",
 	}	
+	
+	MEVA_Set_Name = {'MEVA'}
+	sets.MEVA = {
+    ammo="Staunch Tathlum",
+    head="Sakpata's Helm",
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets",
+    legs="Sakpata's Cuisses",
+    feet="Sakpata's Leggings",
+    neck="Warder's Charm +1",
+    waist="Carrier's Sash",
+    left_ear="Tuisto Earring",
+    right_ear="Eabani Earring",
+    left_ring="Archon Ring",
+    right_ring="Purity Ring",
+    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	}
 	
 	Niche_Set_Names = {'Subtle_Blow'}
 	sets.niche = {}
@@ -127,23 +145,11 @@ function get_sets()
     right_ring="Chirich Ring +1",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
-	
-
-	sets.melee.Aftermath = {
-    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head="Hjarrandi Helm",
-    body="Hjarrandi Breastplate",
-    hands="Sakpata's Gauntlets",
-    legs="Sakpata's Cuisses",
-    feet="Flam. Gambieras +2",
-    neck={ name="Abyssal Beads +1", augments={'Path: A',}},
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Cessance Earring",
-    right_ear="Brutal Earring",
-    left_ring="Chirich Ring",
-    right_ring="Chirich Ring +1",
-    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	sets.melee.NotSAMSJ = {
+	ear2="Brutal Earring",
+	ear1={ name="Lugra Earring +1", augments={'Path: A',}},
 	}
+	
 	Run_Set_Names = {'Refresh','Regen'}
 	sets.run = {}
 	sets.run.Refresh =  {
@@ -527,6 +533,18 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 	}	
 
 	sets.ja = {} 					-- Leave this empty
+	sets.ja.enmity = {
+    head="Sakpata's Helm",
+    body="Emet Harness",
+    hands="Yorium Gauntlets",
+    legs="Odyssean Cuisses",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Flume Belt",
+    left_ear="Eris' Earring",
+    right_ear="Friomisi Earring",
+    left_ring="Supershear Ring",
+    right_ring="Provocare Ring",
+	}
 	sets.ja['Nethervoid'] = {
 	legs="Heath. Flanchard +2",
 	}
@@ -552,7 +570,15 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     right_ear="Eris' Earring",
     left_ring="Supershear Ring",
     right_ring="Provocare Ring",
-	}	
+	}
+	sets.ja['Vallation'] = set_combine(sets.ja.enmity, { 
+	})
+	sets.ja['Valiance'] = set_combine(sets.ja.enmity, {
+	})
+	sets.ja['Pflug'] = set_combine(sets.ja.enmity, {
+	})	
+	sets.ja['Swordplay'] = set_combine(sets.ja.enmity, {
+	})	
 	
 	sets.idle = {} 					-- Leave this empty
 	sets.idle.normal = {
@@ -743,6 +769,9 @@ function precast(spell)
 end
 
 function midcast(spell)
+	if spell.action_type == 'Magic' then
+		equip(sets.MEVA)
+	end
 	if spell.skill == 'Dark Magic' then
 		equip(sets.midcast.DarkMagic)
 	end
@@ -796,12 +825,19 @@ function buff_change(buff,gain)
     end
 end
 
-
 function idle()
     if player.status=='Engaged' then
         equip(sets.melee[Melee_Set_Names[Melee_Index]])
-			if player.equipment.main == "Apocalypse" then
-				equip(equip(sets.Apoc[Apoc_Set_Names[Apoc_Index]]))
+			if player.sub_job ~= "SAM" then
+				equip(sets.melee.NotSAMSJ)
+			end
+		end
+    if player.status=='Engaged' then
+		if player.equipment.main == "Apocalypse" then
+			equip(equip(sets.Apoc[Apoc_Set_Names[Apoc_Index]]))
+				if player.sub_job ~= "SAM" then
+					equip(sets.melee.NotSAMSJ)
+				end
 			end
 		end
 	if player.status =='Idle' then
@@ -865,6 +901,10 @@ function self_command(command)
         windower.add_to_chat('Niche mode is now: '..Niche_Set_Names[Niche_Index])
 		equip(sets.niche[Niche_Set_Names[Niche_Index]])
 	end
+	if command == 'toggle Emergency MEVA' then
+        windower.add_to_chat('Equipping Emergency MEVA/DT')
+		equip(sets.MEVA)
+	end
 end
 
 function file_unload()
@@ -876,5 +916,6 @@ send_command('unbind f12')
 send_command('unbind !f12')
 send_command('unbind f7')
 send_command('unbind !f7')
-send_command('unbind numpad1')
+send_command('unbind !numpad1')
+send_command('unbind !numpad0')
 end
