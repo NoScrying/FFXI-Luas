@@ -805,10 +805,10 @@ function get_sets()
     -- waist="Sroda Belt", 		--, +35
     -- back="Moonbeam Cape",
 		
-    ammo="Staunch Tathlum", 		--, DT Set -46% PDT, -36% MDT, +45% Cure Potency, +25% Healing MP cost, Merit+5 = +20 SIRD
+    ammo="Staunch Tathlum", 		--, DT Set -56% PDT, -46% MDT, +45% Cure Potency, +25% Healing MP cost, Merit+5 = +20 SIRD
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
-    hands="Erilaz Gauntlets +2",
+    hands="Erilaz Gauntlets +2",	--, -10% DT
     legs="Erilaz Leg Guards +2", 	--, -12% DT
     feet="Erilaz Greaves +2", 		--, -10% DT
     neck="Sacro Gorget", 		--, +10
