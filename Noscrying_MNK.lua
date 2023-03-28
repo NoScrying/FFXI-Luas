@@ -4,7 +4,8 @@ function get_sets()
 	send_command('bind f7 gs c toggle weapons set') -- F9 = Cycle through
 	send_command('bind f12 gs c toggle TH set') -- F10 = Cycle through
 	send_command('bind f10 gs c toggle run set') -- F10 = Cycle through
-	send_command('bind numpad1 gs c toggle Buff set') -- F12 = Cycle through
+	send_command('bind !numpad1 gs c toggle Buff set') -- F12 = Cycle through
+	send_command('bind !numpad0 gs c toggle Emergency MEVA')
 	
 	Buff_Index = 1	
 	Melee_Index = 1
@@ -113,6 +114,24 @@ function get_sets()
     right_ring="Chirich Ring +1",
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}	
+	
+	MEVA_Set_Name = {'MEVA'}
+	sets.MEVA = {
+    ammo="Staunch Tathlum",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+	hands="Malignance Gloves",
+	legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Warder's Charm +1",
+    waist="Engraved Belt",
+    left_ear="Sherida Earring",
+    right_ear="Eabani Earring",
+    left_ring="Archon Ring",
+    right_ring="Defending Ring",
+    back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	}
+	
 	TH_Set_Names = {'TH'}
 	sets.TH = {} 					-- Leave this empty.
 	sets.TH.TH = {
