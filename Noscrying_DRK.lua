@@ -78,7 +78,7 @@ function get_sets()
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 }
 	Apoc_Set_Names = {'Apoc','DT'} 	--, Apoc Delay = 513 + 10% Job Ability Haste Aftermath
-	sets.Apoc = {} 			--, SAM-SJ = 77 STP = 251 TP (6 Hit) & +44% Haste
+	sets.Apoc = {} 			--, SAM-SJ = 77 STP = 251 TP (4 Hit) & +44% Haste
 	sets.Apoc.Apoc = { 		--,  +62 STP = 230 TP (5 Hit), +34% Haste, -32% PDT, -22% MDT, +41 DA
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}}, --, +5% Haste
     head="Hjarrandi Helm",		--, -10DT, +7 STP, +6 DA
