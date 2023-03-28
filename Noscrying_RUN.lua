@@ -118,18 +118,18 @@ function get_sets()
 	}	
 
 	MEVA_Set_Name = {'MEVA'}
-	sets.MEVA = { --, +40-50 Elemental Resist, +10 Status Resist, +5% Magic Absorb chance, +5% Negate Magic Damage chance, +634 MEVA, -44% PDT, -34% MDT
-    ammo="Staunch Tathlum", --, +10 Status Resist, -2% DT
-    head="Erilaz Galea +2", --, +109 MEVA
-    body="Erilaz Surcoat +2", --, +120  MEVA
-    hands="Turms Mittens +1", --, +101 MEVA
-    legs="Eri. Leg Guards +2", --, +147 MEVA, -12% DT
-    feet="Erilaz Greaves +2", --, +147 MEVA, -10% DT
-    neck="Warder's Charm +1", --, +20 Element Resist, +5% Magic Absorb chance
-    waist="Engraved Belt", --, +20-30 Element Resist
+	sets.MEVA = { 		--, +40-50 Elemental Resist, +10 Status Resist, +5% Magic Absorb chance, +5% Negate Magic Damage chance, +634 MEVA, -44% PDT, -34% MDT
+    ammo="Staunch Tathlum", 	--, +10 Status Resist, -2% DT
+    head="Erilaz Galea +2", 	--, +109 MEVA
+    body="Erilaz Surcoat +2", 	--, +120  MEVA
+    hands="Turms Mittens +1", 	--, +101 MEVA
+    legs="Eri. Leg Guards +2", 	--, +147 MEVA, -12% DT
+    feet="Erilaz Greaves +2", 	--, +147 MEVA, -10% DT
+    neck="Warder's Charm +1", 	--, +20 Element Resist, +5% Magic Absorb chance
+    waist="Engraved Belt", 	--, +20-30 Element Resist
     left_ear="Tuisto Earring", 
     right_ear="Eabani Earring", --, +8 Meva
-    left_ring="Archon Ring", --, +5% Negate Magic Damage chance
+    left_ring="Archon Ring", 	--, +5% Negate Magic Damage chance
     right_ring="Defending Ring", --, -10% DT
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, -10% PDT
     --back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, Missing MEVA/DT Cape
@@ -438,19 +438,19 @@ function get_sets()
 	}	
 
 	sets.ja = {} 					-- Leave this empty
-	sets.ja.Enmity = { --, +69% Enmity (Enmity gear is a percentage increase or decrease, not an addition
-    head="Halitus Helm", --8
-    body="Emet Harness", --9
-	hands="Nilas Gloves", --5
-    legs="Erilaz Leg Guards +2", --12
-    feet="Erilaz Greaves +2", --8
-    neck="Unmoving Collar +1", --10
-    waist="Warwolf Belt", --3
-    left_ear="Friomisi Earring", --2
-    right_ear="Eris' Earring", --2
-    left_ring="Supershear Ring", --5
-    right_ring="Provocare Ring", --5
-    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}}, --10
+	sets.ja.Enmity = { 		--, +69% Enmity (Enmity gear is a percentage increase or decrease, not an addition
+    head="Halitus Helm", 		--, 8
+    body="Emet Harness", 		--, 9
+	hands="Nilas Gloves", 		--, 5
+    legs="Erilaz Leg Guards +2", 	--, 12
+    feet="Erilaz Greaves +2",		--, 8
+    neck="Unmoving Collar +1", 		--, 10
+    waist="Warwolf Belt", 		--, 3
+    left_ear="Friomisi Earring", 	--, 2
+    right_ear="Eris' Earring", 		--, 2
+    left_ring="Supershear Ring", 	--, 5
+    right_ring="Provocare Ring", 	--, 5
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}}, --, 10
 	}
 		
 	sets.ja['Vallation'] = set_combine(sets.ja.Enmity, { --, When we define a set as as "sets.ja['xx'], then we can in our precast set, refer to all named in this way, while still specifying a single set.
@@ -686,102 +686,95 @@ function get_sets()
 	sets.idle = {} 					-- Leave this empty
 	
 	sets.precast = {}               -- leave this empty
-	sets.precast.fastcast = { --, 58% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+5 = +53 SIRD
+	sets.precast.fastcast = { 	--, 58% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+5 = +53 SIRD
     ammo="Impatiens",
-    head="Runeist Bandeau +2", --12
-    body="Erilaz Surcoat +2", --10
+    head="Runeist Bandeau +2", 		--, 12
+    body="Erilaz Surcoat +2", 		--, 10
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}}, --8
     legs="Carmine Cuisses +1",
     feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}}, --7
-    neck="Moonbeam Necklace", --10 Enmity, +10 SIRD
+    neck="Moonbeam Necklace", 		--, 10 Enmity, +10 SIRD
     waist="Siegel Sash",
-    left_ear="Loquacious Earring", --2
+    left_ear="Loquacious Earring", 	--, 2
     right_ear="Magnetic Earring",
-    left_ring="Kishar Ring", --4
-    right_ring="Weatherspoon Ring", --5
-    back={ name="Ogma's Cape", augments={'"Fast Cast"+10',}}, --10
+    left_ring="Kishar Ring", 		--, 4
+    right_ring="Weatherspoon Ring", 	--, 5
+    back={ name="Ogma's Cape", augments={'"Fast Cast"+10',}}, --, 10
 	} 
-	sets.precast.enhancing = { --, 71% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+5 = +48 SIRD
+	sets.precast.enhancing = { 	--, 71% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+5 = +48 SIRD
     ammo="Impatiens",
-    head="Runeist Bandeau +2",--12
-    body="Erilaz Surcoat +2", --10
+    head="Runeist Bandeau +2",		--, 12
+    body="Erilaz Surcoat +2", 		--, 10
     hands="Rawhide Gloves",
-    legs="Futhark Trousers +1", --13
+    legs="Futhark Trousers +1", 	--, 13
     feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}}, --7
-    neck="Moonbeam Necklace", --10 Enmity, +10 SIRD
-    waist="Siegel Sash", --8 (Only works for Enhancing Magic)
-    left_ear="Loquacious Earring", --2
+    neck="Moonbeam Necklace", 		--, 10 Enmity, +10 SIRD
+    waist="Siegel Sash", 		--, 8 (Only works for Enhancing Magic)
+    left_ear="Loquacious Earring", 	--, 2
     right_ear="Magnetic Earring",
-    left_ring="Kishar Ring", --4
-    right_ring="Weatherspoon Ring", --5
+    left_ring="Kishar Ring", 		--, 4
+    right_ring="Weatherspoon Ring", 	--, 5
     back={ name="Ogma's Cape", augments={'"Fast Cast"+10',}}, --10
 	}
 
     sets.midcast = {}               -- leave this empty  
 	sets.midcast.sird = set_combine(sets.ja.Enmity, {--, Merit+5	== 	108% (Cap 102%), Missing SIRD on FC Cape (+10), Evanescence Ring (+5), to remove low level feet
-    ammo="Impatiens", --10
-	head="Erilaz Galea +2", --15
-    hands="Rawhide Gloves", --15
-    legs="Carmine Cuisses +1", --20
-	feet="Karasutengu Kogake", --15
-    neck="Moonbeam Necklace", --10
-    waist="Resolute Belt", --8
-    left_ear="Halasz Earring", --5
-    right_ear="Magnetic Earring", --8 
+    ammo="Impatiens", 			--10
+	head="Erilaz Galea +2", 	--15
+    hands="Rawhide Gloves", 		--15
+    legs="Carmine Cuisses +1", 		--20
+	feet="Karasutengu Kogake", 	--15
+    neck="Moonbeam Necklace", 		--10
+    waist="Resolute Belt", 		--8
+    left_ear="Halasz Earring", 		--5
+    right_ear="Magnetic Earring", 	--8 
     right_ring="Defending Ring",
 	})
 	
-	sets.midcast.enmity = { --, +49% Enmity (Enmity gear is a percentage increase or decrease, not an addition), Merit+5 = +76 SIRD, -27% DT ( +78 SIRD, -41% PDT, -22% MDT)
-	ammo="Impatiens", --10 SIRD
-	head="Erilaz Galea +2", --15 SIRD
-    --head="Halitus Helm", --8 Enmity
-    body="Emet Harness", --9 Enmity, -5 PDT
-    --hands="Nilas Gloves", --5 Enmity
-    hands="Rawhide Gloves", --15 SIRD
-    legs="Erilaz Leg Guards +2", --12 Enmity, -12% DT
-    feet="Erilaz Greaves +2", --8 Enmity, -10% DT
-    neck="Moonbeam Necklace", --10 Enmity, +10 SIRD
-    --neck="Unmoving Collar +1", --10 Enmity
-    --waist="Warwolf Belt", --3 Enmity
-    waist="Resolute Belt", --8 SIRD (Missing Audumbla Sash, +10 SIRD, -4 PDT)
-    left_ear="Halasz Earring", --5 SIRD
-    right_ear="Magnetic Earring", --8 SIRD
-    --left_ear="Friomisi Earring", --2 Enmity
-    --right_ear="Eris' Earring", --2 Enmity
-    left_ring="Supershear Ring", --5 Enmity
-    right_ring="Provocare Ring", --5 Enmity
-    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}}, --10 Enmity, (Missing Meva/Enmity/PDT Cape)
+	sets.midcast.enmity = { 	--, +49% Enmity (Enmity gear is a percentage increase or decrease, not an addition), Merit+5 = +76 SIRD, -27% DT ( +78 SIRD, -41% PDT, -22% MDT)
+	ammo="Impatiens", 		--, 10 SIRD
+	head="Erilaz Galea +2", 	--, 15 SIRD
+    body="Emet Harness", 		--, 9 Enmity, -5 PDT
+    hands="Rawhide Gloves", 		--, 15 SIRD
+    legs="Erilaz Leg Guards +2", 	--, 12 Enmity, -12% DT
+    feet="Erilaz Greaves +2",		--, 8 Enmity, -10% DT
+    neck="Moonbeam Necklace", 		--, 10 Enmity, +10 SIRD
+    waist="Resolute Belt", 		--, 8 SIRD (Missing Audumbla Sash, +10 SIRD, -4 PDT)
+    left_ear="Halasz Earring", 		--, 5 SIRD
+    right_ear="Magnetic Earring", 	--, 8 SIRD
+    left_ring="Supershear Ring", 	--, 5 Enmity
+    right_ring="Provocare Ring", 	--, 5 Enmity
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}}, --, 10 Enmity, (Missing Meva/Enmity/PDT Cape)
 	}
-	sets.midcast.MaxEnmity = { --, +69% Enmity (Enmity gear is a percentage increase or decrease, not an addition), Merit+5 = +25 SIRD, -27% DT (-37% PDT, -22 MDT)
-	ammo="Impatiens", --10 SIRD
-    head="Halitus Helm", --8 Enmity
-    body="Emet Harness", --9 Enmity, -5 PDT
-    hands="Nilas Gloves", --5 Enmity
-    legs="Erilaz Leg Guards +2", --12 Enmity, -12% DT
-    feet="Erilaz Greaves +2", --8 Enmity, -10% DT
-    neck="Moonbeam Necklace", --10 Enmity, +10 SIRD
-    --neck="Unmoving Collar +1", --10 Enmity
-    waist="Warwolf Belt", --3 Enmity
-    left_ear="Friomisi Earring", --2 Enmity
-    right_ear="Eris' Earring", --2 Enmity
-    left_ring="Supershear Ring", --5 Enmity
-    right_ring="Provocare Ring", --5 Enmity
-    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}}, --10 Enmity, (Missing Meva/Enmity/PDT Cape)
+	sets.midcast.MaxEnmity = { 	--, +69% Enmity, Merit+5 = +25 SIRD, -27% DT (-37% PDT, -22 MDT)
+	ammo="Impatiens", 		--, 10 SIRD
+    head="Halitus Helm", 		--, 8 Enmity
+    body="Emet Harness", 		--, 9 Enmity, -5 PDT
+    hands="Nilas Gloves", 		--, 5 Enmity
+    legs="Erilaz Leg Guards +2", 	--, 12 Enmity, -12% DT
+    feet="Erilaz Greaves +2", 		--, 8 Enmity, -10% DT
+    neck="Moonbeam Necklace", 		--, 10 Enmity, +10 SIRD
+    waist="Warwolf Belt", 		--, 3 Enmity
+    left_ear="Friomisi Earring", 	--, 2 Enmity
+    right_ear="Eris' Earring", 		--, 2 Enmity
+    left_ring="Supershear Ring", 	--, 5 Enmity
+    right_ring="Provocare Ring", 	--, 5 Enmity
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}}, --, 10 Enmity, (Missing Meva/Enmity/PDT Cape)
 	}
-	sets.midcast.Foil = { --, +37% Enmity, Merit+5 = +76 SIRD, -15% DT, +40% Duration
-	ammo="Impatiens", --10 SIRD
-	head="Erilaz Galea +2", --15 SIRD, +20% Duration
-    body="Emet Harness", --9 Enmity, -5 PDT
-    hands="Rawhide Gloves", --15 SIRD
-    legs={ name="Futhark Trousers +1", augments={'Enhances "Inspire" effect',}}, --+20% Duration
-    feet="Erilaz Greaves +2", --8 Enmity, -10% DT
-    neck="Moonbeam Necklace", --10 Enmity, +10 SIRD
-    waist="Resolute Belt", --8 SIRD (Missing Audumbla Sash, +10 SIRD, -4 PDT)
-    left_ear="Halasz Earring", --5 SIRD
-    right_ear="Magnetic Earring", --8 SIRD
-    left_ring="Supershear Ring", --5 Enmity
-    right_ring="Provocare Ring", --5 Enmity
-    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}}, --10 Enmity, (Missing Meva/Enmity/PDT Cape)
+	sets.midcast.Foil = { 		--, +37% Enmity, Merit+5 = +76 SIRD, -15% DT, +40% Duration
+	ammo="Impatiens", 		--, 10 SIRD
+	head="Erilaz Galea +2", 	--, 15 SIRD, +20% Duration
+    body="Emet Harness", 		--, 9 Enmity, -5 PDT
+    hands="Rawhide Gloves", 		--, 15 SIRD
+    legs={ name="Futhark Trousers +1", augments={'Enhances "Inspire" effect',}}, --, +20% Duration
+    feet="Erilaz Greaves +2", 		--, 8 Enmity, -10% DT
+    neck="Moonbeam Necklace", 		--, 10 Enmity, +10 SIRD
+    waist="Resolute Belt", 		--, 8 SIRD (Missing Audumbla Sash, +10 SIRD, -4 PDT)
+    left_ear="Halasz Earring", 		--, 5 SIRD
+    right_ear="Magnetic Earring", 	--, 8 SIRD
+    left_ring="Supershear Ring", 	--, 5 Enmity
+    right_ring="Provocare Ring", 	--, 5 Enmity
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}}, --, 10 Enmity, (Missing Meva/Enmity/PDT Cape)
 	}	
 	sets.midcast.regen = {	--, Merit+5 = +60 SIRD +19 Regen, +30% Potency, +39 seconds, +20% Duration +25% Healing/Enhancing MP Cost  = Regen IV 58/tic, 168 Seconds = 3248 HP, Embolden 73/Tic, 110 Seconds = 2628, don't do it.
 	ammo="Staunch Tathlum",
