@@ -79,7 +79,7 @@ function get_sets()
 }
 	Apoc_Set_Names = {'Apoc','DT'} 	--, Apoc Delay = 513 + 10% Job Ability Haste Aftermath
 	sets.Apoc = {} 			--, SAM-SJ = 77 STP = 251 TP (4 Hit) & +44% Haste
-	sets.Apoc.Apoc = { 		--,  +62 STP = 230 TP (5 Hit), +34% Haste, -32% PDT, -22% MDT, +41 DA
+	sets.Apoc.Apoc = { 		--,  +62 STP = 230 TP (5 Hit), +24% Haste + 10% = 34%, -32% PDT, -22% MDT, +41 DA
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}}, --, +5% Haste
     head="Hjarrandi Helm",		--, -10DT, +7 STP, +6 DA
     body="Hjarrandi Breastplate", 	--, -12DT, +10 STP
@@ -94,7 +94,7 @@ function get_sets()
     right_ring="Chirich Ring +1", 	--, +6 STP
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, +10 DA, -10 PDT
 	}
-	sets.Apoc.DT = { 		--, +29% Haste (Cap 25%), -50 PDT, -40 MDT, +57 DA
+	sets.Apoc.DT = { 		--, +29% Haste (Cap 25%) +10% = 35%, -50 PDT, -40 MDT, +57 DA
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}}, --, +5% Haste
     head="Sakpata's Helm", 		--, +4% Haste -7DT, +5 DA
     body="Sakpata's Plate", 		--, +2% Haste -10DT, +8 DA
