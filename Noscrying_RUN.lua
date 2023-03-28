@@ -306,8 +306,8 @@ function get_sets()
     hands="Meg. Gloves +2",
     legs="Meg. Chausses +2",
     feet="Meg. Jam. +2",
-    neck="Rep. Plat. Medal",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epona's Ring",
@@ -372,8 +372,8 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Epona's Ring",
-    right_ring="Refuscent Ring",
+    left_ring="Sroda Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
 	sets.ws['Armor Break']	= { --, Use MACC to ensure additional effect proc, Defense Down
@@ -718,7 +718,7 @@ function get_sets()
 	}
 
     sets.midcast = {}               -- leave this empty  
-	sets.midcast.sird = set_combine(sets.ja.Enmity, {--, Merit+5 == 100% (Cap 102%), Missing SIRD on FC Cape (+10)
+	sets.midcast.sird = set_combine(sets.ja.Enmity, {--, Merit+5 == 98% (Cap 102%), Missing SIRD on FC Cape (+10)
     ammo="Impatiens", 			--, 10
 	head="Erilaz Galea +2", 	--, 15
     hands="Rawhide Gloves", 		--, 15
