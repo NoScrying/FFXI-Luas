@@ -186,7 +186,7 @@ function get_sets()
     right_ring="Chirich Ring +1",	--, 2 Regen
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, -10PDT
 	}
-	sets.run.DT = {			--, +542 MEVA, +15-35 Elemental Resist, +5% Negate Magic, +10 Status Resist, -43 PDT, -33 MDT, +18% Movement Speed
+	sets.run.DT = {			--, +532 MEVA, +15-35 Elemental Resist, +5% Negate Magic, +10 Status Resist, -53 PDT (Cap 50), -43 MDT, +18% Movement Speed
     ammo="Staunch Tathlum", 		--, +10 Status Resist, -2DT
     head="Sakpata's Helm", 		--, 123, -7DT
     body="Sakpata's Plate", 		--, 139, -10DT
@@ -198,7 +198,7 @@ function get_sets()
     left_ear="Tuisto Earring", 		--, +150HP
     right_ear="Eabani Earring", 	--, +8
     left_ring="Archon Ring", 		--, +5% Negate Magic
-    right_ring="Purity Ring", 		--, +10
+    right_ring="Defending Ring", 	--, -10DT
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, -10PDT
 	}
 	
