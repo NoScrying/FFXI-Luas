@@ -811,7 +811,7 @@ function midcast(spell)
 	if spell.skill == 'Dark Magic' then
 		equip(sets.midcast.DarkMagic)
 	end
-	if spell.name:match('Aspir') or spell.name:match('Drain') or spell.name:match('Sleep') or spell.name:match('Poison')then
+	if spell.name:match('Aspir') or spell.name:match('Drain') then
 		equip(sets.midcast.Drain)
 	end
 	if spell.name:match('Absorb-')then	
@@ -821,7 +821,7 @@ function midcast(spell)
 			end
 		end
 
-	if spell.name:match('Poisonga') then
+	if spell.name:match('Poison') then
 		equip(sets.midcast.enmity)
 	end
 	
