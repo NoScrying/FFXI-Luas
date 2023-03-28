@@ -686,7 +686,7 @@ function get_sets()
 	sets.idle = {} 					-- Leave this empty
 	
 	sets.precast = {}               -- leave this empty
-	sets.precast.fastcast = { 	--, 58% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+5 = +53 SIRD
+	sets.precast.fastcast = { 	--, 58% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+5 = +55 SIRD
     ammo="Impatiens",
     head="Runeist Bandeau +2", 		--, 12
     body="Erilaz Surcoat +2", 		--, 10
@@ -694,7 +694,7 @@ function get_sets()
     legs="Carmine Cuisses +1",
     feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}}, --7
     neck="Moonbeam Necklace", 		--, 10 Enmity, +10 SIRD
-    waist="Siegel Sash",
+    waist="Audumbla Sash",  		--, 10 SIRD, -4 PDT
     left_ear="Loquacious Earring", 	--, 2
     right_ear="Magnetic Earring",
     left_ring="Kishar Ring", 		--, 4
@@ -718,20 +718,20 @@ function get_sets()
 	}
 
     sets.midcast = {}               -- leave this empty  
-	sets.midcast.sird = set_combine(sets.ja.Enmity, {--, Merit+5	== 	108% (Cap 102%), Missing SIRD on FC Cape (+10), Evanescence Ring (+5), to remove low level feet
-    ammo="Impatiens", 			--10
-	head="Erilaz Galea +2", 	--15
-    hands="Rawhide Gloves", 		--15
-    legs="Carmine Cuisses +1", 		--20
-	feet="Karasutengu Kogake", 	--15
-    neck="Moonbeam Necklace", 		--10
-    waist="Resolute Belt", 		--8
-    left_ear="Halasz Earring", 		--5
-    right_ear="Magnetic Earring", 	--8 
+	sets.midcast.sird = set_combine(sets.ja.Enmity, {--, Merit+5 == 100% (Cap 102%), Missing SIRD on FC Cape (+10)
+    ammo="Impatiens", 			--, 10
+	head="Erilaz Galea +2", 	--, 15
+    hands="Rawhide Gloves", 		--, 15
+    legs="Carmine Cuisses +1", 		--, 20
+    neck="Moonbeam Necklace", 		--, 10
+    waist="Audumbla Sash",  		--, 10
+    left_ear="Halasz Earring", 		--, 5
+    right_ear="Magnetic Earring", 	--, 8 
+	left_ring="Evanescence Ring",	--, 5
     right_ring="Defending Ring",
 	})
 	
-	sets.midcast.enmity = { 	--, +49% Enmity (Enmity gear is a percentage increase or decrease, not an addition), Merit+5 = +76 SIRD, -27% DT ( +78 SIRD, -41% PDT, -22% MDT)
+	sets.midcast.enmity = { 	--, +49% Enmity (Enmity gear is a percentage increase or decrease, not an addition), Merit+5 = +78 SIRD, -31% PDT ( +78 SIRD, -41% PDT, -22% MDT)
 	ammo="Impatiens", 		--, 10 SIRD
 	head="Erilaz Galea +2", 	--, 15 SIRD
     body="Emet Harness", 		--, 9 Enmity, -5 PDT
@@ -739,7 +739,7 @@ function get_sets()
     legs="Erilaz Leg Guards +2", 	--, 12 Enmity, -12% DT
     feet="Erilaz Greaves +2",		--, 8 Enmity, -10% DT
     neck="Moonbeam Necklace", 		--, 10 Enmity, +10 SIRD
-    waist="Resolute Belt", 		--, 8 SIRD (Missing Audumbla Sash, +10 SIRD, -4 PDT)
+    waist="Audumbla Sash",  		--, 10 SIRD, -4 PDT
     left_ear="Halasz Earring", 		--, 5 SIRD
     right_ear="Magnetic Earring", 	--, 8 SIRD
     left_ring="Supershear Ring", 	--, 5 Enmity
@@ -761,7 +761,7 @@ function get_sets()
     right_ring="Provocare Ring", 	--, 5 Enmity
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}}, --, 10 Enmity, (Missing Meva/Enmity/PDT Cape)
 	}
-	sets.midcast.Foil = { 		--, +37% Enmity, Merit+5 = +76 SIRD, -15% DT, +40% Duration
+	sets.midcast.Foil = { 		--, +37% Enmity, Merit+5 = +78 SIRD, -19% PDT, -10% MDT, +40% Duration
 	ammo="Impatiens", 		--, 10 SIRD
 	head="Erilaz Galea +2", 	--, 15 SIRD, +20% Duration
     body="Emet Harness", 		--, 9 Enmity, -5 PDT
@@ -769,7 +769,7 @@ function get_sets()
     legs={ name="Futhark Trousers +1", augments={'Enhances "Inspire" effect',}}, --, +20% Duration
     feet="Erilaz Greaves +2", 		--, 8 Enmity, -10% DT
     neck="Moonbeam Necklace", 		--, 10 Enmity, +10 SIRD
-    waist="Resolute Belt", 		--, 8 SIRD (Missing Audumbla Sash, +10 SIRD, -4 PDT)
+    waist="Audumbla Sash",  		--, 10 SIRD, -4 PDT
     left_ear="Halasz Earring", 		--, 5 SIRD
     right_ear="Magnetic Earring", 	--, 8 SIRD
     left_ring="Supershear Ring", 	--, 5 Enmity
