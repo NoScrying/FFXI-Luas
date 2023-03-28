@@ -792,31 +792,31 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back="Moonbeam Cape",
 	}	
-	sets.midcast.Cure = {	--, +45% Cure Potency, +5% Cure Self, Merit+5 = +86 SIRD, +25% Healing MP cost, -5% DT ML45 /BLU gets Magic Fruit, which is Cure IV Potency but without extra MP cost as it is Blue Magic.
-	-- head="Erilaz Galea +2", --, SIRD set
+	sets.midcast.Cure = {		--, +45% Cure Potency, +5% Cure Self, Merit+5 = +86 SIRD, +25% Healing MP cost, -5% DT ML45 /BLU gets Magic Fruit, which is Cure IV Potency but without extra MP cost as it is Blue Magic.
+	-- head="Erilaz Galea +2", 	--, SIRD set
     -- hands="Rawhide Gloves",
     -- legs="Carmine Cuisses +1",
 	-- feet="Karasutengu Kogake",
     -- left_ear="Halasz Earring",
     -- right_ear="Magnetic Earring",
-    -- left_ring="Kunaji Ring", --, +5
+    -- left_ring="Kunaji Ring", 	--, +5
     -- right_ring="Evanescence Ring",
-    -- neck="Sacro Gorget", --, +10
-    -- waist="Sroda Belt", --, +35
+    -- neck="Sacro Gorget", 		--, +10
+    -- waist="Sroda Belt", 		--, +35
     -- back="Moonbeam Cape",
 		
-    ammo="Staunch Tathlum", --, DT Set -46% PDT, -36% MDT, +45% Cure Potency, +25% Healing MP cost, Merit+5 = +20 SIRD
+    ammo="Staunch Tathlum", 		--, DT Set -46% PDT, -36% MDT, +45% Cure Potency, +25% Healing MP cost, Merit+5 = +20 SIRD
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
     hands="Erilaz Gauntlets +2",
-    legs="Erilaz Leg Guards +2", -- -12% DT
-    feet="Erilaz Greaves +2", -- -10% DT
-    neck="Sacro Gorget", --, +10
-    waist="Sroda Belt", --, +35
+    legs="Erilaz Leg Guards +2", 	--, -12% DT
+    feet="Erilaz Greaves +2", 		--, -10% DT
+    neck="Sacro Gorget", 		--, +10
+    waist="Sroda Belt", 		--, +35
     left_ear="Odnowa Earring +1",
     right_ear="Tuisto Earring",
-    left_ring="Moonbeam Ring", -- -4% DT
-    left_ring="Defending Ring", -- -10% DT
+    left_ring="Moonbeam Ring", 		--, -4% DT
+    left_ring="Defending Ring", 	--, -10% DT
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, -- -10% PDT
 	}
 	
@@ -837,33 +837,33 @@ function get_sets()
 	}
 	sets.midcast.enhancingduration = {	--, Enhancing Skill +78, +40% Duration, Skill 553
 	ammo="Staunch Tathlum",
-    head="Erilaz Galea +2", --, +20%
-    body="Manasa Chasuble", --12
-    hands="Runeist Mitons", --15
+    head="Erilaz Galea +2", 			--, +20%
+    body="Manasa Chasuble", 			--, 12
+    hands="Runeist Mitons", 			--, 15
     legs={ name="Futhark Trousers +1", augments={'Enhances "Inspire" effect',}}, --, 20%
     feet="Erilaz Greaves +2",
-    neck="Melic Torque", --10
-	waist="Olympus Sash", --5
-    left_ear="Andoaa Earring", --5
-    right_ear="Mimir Earring", --10
-    left_ring="Stikini Ring +1", --8
-    right_ring="Stikini Ring +1", --8
-    back="Merciful Cape", --5
+    neck="Melic Torque", 			--, 10
+	waist="Olympus Sash", 			--, 5
+    left_ear="Andoaa Earring", 			--, 5
+    right_ear="Mimir Earring", 			--, 10
+    left_ring="Stikini Ring +1",		--, 8
+    right_ring="Stikini Ring +1", 		--, 8
+    back="Merciful Cape", 			--, 5
 	}
-	sets.midcast.enhancingskill = {	--, Enhancing Skill +106, ML35 = Skill 581 = Temper +28 Double Attack
+	sets.midcast.enhancingskill = {		--, Enhancing Skill +106, ML35 = Skill 581 = Temper +28 Double Attack
 	ammo="Staunch Tathlum",
     head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}}, --10
-    body="Manasa Chasuble", --12
-    hands="Runeist Mitons", --15
+    body="Manasa Chasuble", 			--, 12
+    hands="Runeist Mitons", 			--, 15
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}}, --18
     feet="Erilaz Greaves +2",
-    neck="Melic Torque", --10
-	waist="Olympus Sash", --5
-    left_ear="Andoaa Earring", --5
-    right_ear="Mimir Earring", --10
-    left_ring="Stikini Ring +1", --8
-    right_ring="Stikini Ring +1", --8
-    back="Merciful Cape", --5
+    neck="Melic Torque", 			--, 10
+	waist="Olympus Sash", 			--, 5
+    left_ear="Andoaa Earring", 			--, 5
+    right_ear="Mimir Earring", 			--, 10
+    left_ring="Stikini Ring +1", 		--, 8
+    right_ring="Stikini Ring +1", 		--, 8
+    back="Merciful Cape", 			--, 5
 	}
 	sets.midcast.refresh = { --, +20 Seconds, +20% Duration, +3 Refresh Potency, 32DT, Absorbs 7% Damage to MP
 	ammo="Staunch Tathlum",
