@@ -16,7 +16,7 @@ function get_sets()
 
 	Melee_Set_Names = {'normal', 'DT', 'Hybrid'}
 	sets.melee = {} 					-- Leave this empty.
-	sets.melee.normal = { 		--, 34 TA, 21 DA, 14 + 50 = 64 Kick attacks, SB 28 (63) (Cap 50), SBII 20 (No cap), 28STP (13 hit), Crit Chance +14%, Crit Damage +6%
+	sets.melee.normal = { 		--, 34 TA, 18 DA, 14 + 50 = 64 Kick attacks, SB 28 (63) (Cap 50), SBII 20 (No cap), 25STP (13 hit), Crit Chance +19%, Crit Damage +6%
     ammo="Aurgelmir Orb", 		--, 4STP
     head="Adhemar Bonnet +1", 		--, 4TA, 8SB, Crit Damage +6%
     body="Ken. Samue +1", 		--, 6TA, 12SB, Crit+9%
@@ -26,7 +26,8 @@ function get_sets()
     neck={ name="Mnk. Nodowa +1", augments={'Path: A',}}, --, 15KA
     waist="Moonbow Belt +1", 		--, 8TA, 15SBII, -6DT
     left_ear="Sherida Earring", 	--, 5DA, 5STP, 5SBII
-    right_ear="Cessance Earring", 	--, 3DA, 3STP
+    right_ear="Odr Earring",		--, Crit+5%
+    --right_ear="Cessance Earring", 	    --, 3DA, 3STP
     left_ring="Gere Ring", 		--, 5TA, 
     right_ring="Epona's Ring",		--, 3TA, 3DA
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, 10KA, 10DA, -10PDT
