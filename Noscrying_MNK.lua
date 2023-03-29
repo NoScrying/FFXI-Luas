@@ -16,7 +16,7 @@ function get_sets()
 
 	Melee_Set_Names = {'normal', 'DT', 'Hybrid'}
 	sets.melee = {} 					-- Leave this empty.
-	sets.melee.normal = { 		--, 34 TA, 18 DA, 14 + 50 = 64 Kick attacks, SB 28 (63) (Cap 50), SBII 20 (No cap), 25STP (13 hit), Crit Chance +19%, Crit Damage +6%
+	sets.melee.normal = { 		--, -29 PDT, -19MDT, 34 TA, 18 DA, 14 + 50 = 64 Kick attacks, SB 28 (63) (Cap 50), SBII 20 (No cap), 25STP (13 hit), Crit Chance +19%, Crit Damage +6%
     ammo="Aurgelmir Orb", 		--, 4STP
     head="Adhemar Bonnet +1", 		--, 4TA, 8SB, Crit Damage +6%
     body="Ken. Samue +1", 		--, 6TA, 12SB, Crit+9%
