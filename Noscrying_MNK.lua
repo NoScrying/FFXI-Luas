@@ -336,20 +336,9 @@ function get_sets()
 	sets.ja['Chi Blast'] = {	
     head={ name="Mel. Crown +2", augments={'Enhances "Penance" effect',}},
 	}
-	sets.ja['Boost'] = {	
+	sets.ja['Boost'] = set_combine(sets.MEVA, {	
     waist="Ask Sash",
-    ammo="Aurgelmir Orb",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-	hands="Malignance Gloves",
-	legs="Bhikku Hose +2",
-    neck={ name="Mnk. Nodowa +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
-    right_ear="Odr Earring",
-    left_ring="Gere Ring",
-    right_ring="Defending Ring",
-    back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-	}
+	})
 	sets.ja.footwork = {
     feet="Anch. Gaiters +3",
 	legs="Bhikku Hose +2",
