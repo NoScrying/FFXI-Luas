@@ -16,34 +16,29 @@ function get_sets()
 
 	Melee_Set_Names = {'normal', 'DT', 'Hybrid'}
 	sets.melee = {} 					-- Leave this empty.
-	sets.melee.normal = { 			--, 32 TA, 21 DA, 14 + 50 = 64 Kick attacks, SB 22 (57) (Cap 50), SBII 20 (No cap), 28STP (13 hit), Crit Chance +10%, Crit Damage +6%
-    ammo="Aurgelmir Orb", 			--, 4STP
-    head="Adhemar Bonnet +1", 			--, 4TA, 8SB, Crit Damage +6%
-    body="Ken. Samue +1", 			--, 5TA, 9SB, Crit+7%
+	sets.melee.normal = { 		--, 34 TA, 21 DA, 14 + 50 = 64 Kick attacks, SB 28 (63) (Cap 50), SBII 20 (No cap), 28STP (13 hit), Crit Chance +14%, Crit Damage +6%
+    ammo="Aurgelmir Orb", 		--, 4STP
+    head="Adhemar Bonnet +1", 		--, 4TA, 8SB, Crit Damage +6%
+    body="Ken. Samue +1", 		--, 6TA, 12SB, Crit+9%
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --, 4TA, 7STP
-	--legs="Ken. Hakama +1",
-    legs="Bhikku Hose +2", 			--, 25KA, 9STP, -13DT
-    feet="Ken. Sune-Ate +1", 			--, 3TA, 5SB, Crit+3%
+    legs="Bhikku Hose +2", 		--, 25KA, 9STP, -13DT
+    feet="Ken. Sune-Ate +1", 		--, 4TA, 8SB, Crit+5%
     neck={ name="Mnk. Nodowa +1", augments={'Path: A',}}, --, 15KA
-    waist="Moonbow Belt +1", 			--, 8TA, 15SBII, -6DT
-    left_ear="Sherida Earring", 		--, 5DA, 5STP, 5SBII
-    right_ear="Cessance Earring", 		--, 3DA, 3STP
-    	--right_ear="Brutal Earring",
-	--right_ear="Dedition Earring",
-    left_ring="Gere Ring", 			--, 5TA, 
-    right_ring="Epona's Ring",			--, 3TA, 3DA
-	--right_ring="Chirich Ring +1",
+    waist="Moonbow Belt +1", 		--, 8TA, 15SBII, -6DT
+    left_ear="Sherida Earring", 	--, 5DA, 5STP, 5SBII
+    right_ear="Cessance Earring", 	--, 3DA, 3STP
+    left_ring="Gere Ring", 		--, 5TA, 
+    right_ring="Epona's Ring",		--, 3TA, 3DA
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, 10KA, 10DA, -10PDT
 	}
-	sets.melee.DT = {		--, -56 PDT, -46 MDT, 65STP (10 Hit), 18TA, 8DA, 72KA, Physical Damage Limit +18%, SB (35), SBII 20
+	sets.melee.DT = {		--, -52 PDT, -42 MDT, 56STP (11 Hit), 22TA, 8DA, 72KA, Physical Damage Limit +16%, SB 8(43), SBII 20, Crit Chance +5%
     ammo="Crepuscular Pebble", 		--, -3DT, PDL+3
     head="Malignance Chapeau", 		--, -6DT, 8STP, PDL+3
     body="Malignance Tabard", 		--, -9DT, 11STP, PDL+6
     hands="Malignance Gloves",		--, -5DT, 12STP, PLD+4
     legs="Bhikku Hose +2", 		--, -13DT, 25KA, 9STP,
-	--legs="Malignance Tights", 		--, -7DT, 10STP, PDL+5
-    feet="Malignance Boots", 		--, -4DT, 9STP, PDL+2
-    	--neck="Moonbeam Nodowa",
+    feet="Ken. Sune-Ate +1", 		--, 4TA, 8SB, Crit+5%
+    --feet="Malignance Boots", 		--, -4DT, 9STP, PDL+2
     neck={ name="Mnk. Nodowa +1", augments={'Path: A',}}, --, 15KA
     waist="Moonbow Belt +1", 		--, -6DT, 8TA, 15SBII
     left_ear="Sherida Earring", 	--, 5DA, 5STP, 5SBII
@@ -52,13 +47,13 @@ function get_sets()
     right_ring="Chirich Ring +1",	--, 6STP
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, 10KA, 10DA, -10PDT
 }
-	sets.melee.Hybrid = {		--, -47PDT, -37MDT, 36STP(13 Hit), 22TA, 21DA, 72KA, SB 10(45), SBII 20, Crit+6%
+	sets.melee.Hybrid = {		--, -47PDT, -37MDT, 36STP(13 Hit), 22TA, 21DA, 72KA, SB 16(51), SBII 20, Crit+10%
     ammo="Crepuscular Pebble", 		--, -3DT, PDL+3
     head="Malignance Chapeau", 		--, -6DT, 8STP, PDL+3
-    hands="Ken. Tekko +1",		--, 3TA, 5SB, Crit +3%
+    hands="Ken. Tekko +1",		--, 4TA, 8SB, Crit +5%
     body="Malignance Tabard", 		--, -9DT, 11STP, PDL+6
     legs="Bhikku Hose +2", 		--, -13DT, 25KA, 9STP, 
-    feet="Ken. Sune-Ate +1", 		--, 3TA, 5SB, Crit+3%
+    feet="Ken. Sune-Ate +1", 		--, 4TA, 8SB, Crit+5%
     neck={ name="Mnk. Nodowa +1", augments={'Path: A',}}, --, 15KA
     waist="Moonbow Belt +1", 		--, -6DT, 8TA, 15SBII
     left_ear="Sherida Earring", 	--, 5DA, 5STP, 5SBII
