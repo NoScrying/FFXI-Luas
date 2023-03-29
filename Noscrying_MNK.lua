@@ -31,7 +31,7 @@ function get_sets()
     right_ring="Epona's Ring",		--, 3TA, 3DA
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, 10KA, 10DA, -10PDT
 	}
-	sets.melee.DT = {		--, -52 PDT, -42 MDT, 56STP (11 Hit), 22TA, 8DA, 72KA, Physical Damage Limit +16%, SB 8(43), SBII 20, Crit Chance +5%
+	sets.melee.DT = {		--, -52 PDT, -42 MDT, 56STP (11 Hit), 22TA, 8DA, 64KA, Physical Damage Limit +16%, SB 8(43), SBII 20, Crit Chance +5%
     ammo="Crepuscular Pebble", 		--, -3DT, PDL+3
     head="Malignance Chapeau", 		--, -6DT, 8STP, PDL+3
     body="Malignance Tabard", 		--, -9DT, 11STP, PDL+6
@@ -47,7 +47,7 @@ function get_sets()
     right_ring="Chirich Ring +1",	--, 6STP
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, 10KA, 10DA, -10PDT
 }
-	sets.melee.Hybrid = {		--, -47PDT, -37MDT, 36STP(13 Hit), 22TA, 21DA, 72KA, SB 16(51), SBII 20, Crit+10%
+	sets.melee.Hybrid = {		--, -47PDT, -37MDT, 36STP(13 Hit), 22TA, 21DA, 64KA, SB 16(51), SBII 20, Crit+10%
     ammo="Crepuscular Pebble", 		--, -3DT, PDL+3
     head="Malignance Chapeau", 		--, -6DT, 8STP, PDL+3
     hands="Ken. Tekko +1",		--, 4TA, 8SB, Crit +5%
