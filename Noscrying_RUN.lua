@@ -195,11 +195,11 @@ function get_sets()
 	sets.ws = {} 					-- Leave this empty.
 	sets.ws['Resolution']	= { --FTP Replicating WS, Prefer Multi Attack to WSD
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head="Adhemar Bonnet +1",
+    head={ name="Lustratio Cap +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},
     legs="Meg. Chausses +2",
-    feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
+    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Sherida Earring",
@@ -210,11 +210,11 @@ function get_sets()
 	}
 	sets.ws['Spinning Slash']	= {
     ammo="Knobkierrie",
-    head="Erilaz Galea +2",
+    head={ name="Lustratio Cap +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
     body="Erilaz Surcoat +2",
     hands="Meg. Gloves +2",
-    legs="Eri. Leg Guards +2",
-    feet="Erilaz Greaves +2",
+    legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
+    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
@@ -254,12 +254,12 @@ function get_sets()
     back="Moonbeam Cape",
 	}
 	sets.ws['Ground Strike']	= {
-    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head="Adhemar Bonnet +1",
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    ammo="Knobkierrie",
+    head={ name="Lustratio Cap +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
+    body="Erilaz Surcoat +2",
     hands="Meg. Gloves +2",
-    legs="Meg. Chausses +2",
-    feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
+    legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
+    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
@@ -270,7 +270,7 @@ function get_sets()
 	}	
 	sets.ws['Dimidiation']	= {
     ammo="Knobkierrie",
-    head="Erilaz Galea +2",
+    head={ name="Lustratio Cap +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
     body="Erilaz Surcoat +2",
     hands="Meg. Gloves +2",
     legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
