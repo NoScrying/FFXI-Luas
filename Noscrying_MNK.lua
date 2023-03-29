@@ -65,7 +65,7 @@ function get_sets()
 }
 	counter_Set_Names = {'Stance',}	
 	sets.counter = {}
-	sets.counter.Stance = {		--, -48DT, 36STP(13 Hit), 13TA, 15DA, PDL+16%, Counter +32 (52) - (Add Spharai/Jolt Counter for 14-15, Mpaca Doublet adds 10, Rao Kote +1 adds 5)
+	sets.counter.Stance = {		--, -48DT, 36STP(13 Hit), 13TA, 15DA, PDL+16%, Counter +32, Merit +5 (59) - (Add Spharai/Jolt Counter for 14-15, Mpaca Doublet adds 10, Rao Kote +1 adds 5)
     ammo="Crepuscular Pebble", 		--, -3DT, PDL+3
     head="Malignance Chapeau", 		--, -6DT, 8STP, PDL+3
     body="Malignance Tabard", 		--, -9DT, 11STP, PDL+6
