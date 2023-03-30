@@ -16,7 +16,7 @@ function get_sets()
 
 	Melee_Set_Names = {'normal', 'DT', 'Hybrid'}
 	sets.melee = {} 					-- Leave this empty.
-	sets.melee.normal = { 		--, -29 PDT, -19MDT, 34 TA, 18 DA, 14 + 50 = 64 Kick attacks, SB 28 (63) (Cap 50), SBII 20 (No cap), 25STP (13 hit), Crit Chance +19% Merit +5% = 24%, Crit Damage +6%
+	sets.melee.normal = { 		--, -29 PDT, -19MDT, 34 TA, 18 DA, 14 + 50 = 64 Kick attacks, SB 28 (63) (Cap 50), SBII 20 (No cap), 25STP (14 hit), Crit Chance +19% Merit +5% = 24%, Crit Damage +6%
     ammo="Aurgelmir Orb", 		--, 4STP
     head="Adhemar Bonnet +1", 		--, 4TA, 8SB, Crit Damage +6%
     body="Ken. Samue +1", 		--, 6TA, 12SB, Crit+9%
@@ -48,7 +48,7 @@ function get_sets()
     right_ring="Chirich Ring +1",	--, 6STP
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, 10KA, 10DA, -10PDT
 }
-	sets.melee.Hybrid = {		--, -47PDT, -37MDT, 36STP(13 Hit), 22TA, 18DA, 64KA, SB 16(51), SBII 20, Crit Chance +15% (20%)
+	sets.melee.Hybrid = {		--, -47PDT, -37MDT, 33STP(13 Hit), 22TA, 18DA, 64KA, SB 16(51), SBII 20, Crit Chance +15% (20%)
     ammo="Crepuscular Pebble", 		--, -3DT, PDL+3
     head="Malignance Chapeau", 		--, -6DT, 8STP, PDL+3
     hands="Ken. Tekko +1",		--, 4TA, 8SB, Crit +5%
