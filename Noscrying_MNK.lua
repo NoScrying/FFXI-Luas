@@ -540,4 +540,6 @@ send_command('unbind f12')
 send_command('unbind !f12')
 send_command('unbind f7')
 send_command('unbind !f7')
+send_command('unbind !numpad1')
+send_command('unbind !numpad0')
 end
