@@ -195,7 +195,7 @@ function get_sets()
 	sets.ws = {} 					-- Leave this empty.
 	sets.ws['Resolution']	= { --FTP Replicating WS, Prefer Multi Attack to WSD
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head={ name="Lustratio Cap +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
+    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','"Crit.hit rate"+3',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},
     legs="Meg. Chausses +2",
@@ -210,7 +210,7 @@ function get_sets()
 	}
 	sets.ws['Spinning Slash']	= {
     ammo="Knobkierrie",
-    head={ name="Lustratio Cap +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
+    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','"Crit.hit rate"+3',}},
     body="Erilaz Surcoat +2",
     hands="Meg. Gloves +2",
     legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
@@ -255,7 +255,7 @@ function get_sets()
 	}
 	sets.ws['Ground Strike']	= {
     ammo="Knobkierrie",
-    head={ name="Lustratio Cap +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
+    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','"Crit.hit rate"+3',}},
     body="Erilaz Surcoat +2",
     hands="Meg. Gloves +2",
     legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
@@ -270,7 +270,7 @@ function get_sets()
 	}	
 	sets.ws['Dimidiation']	= {
     ammo="Knobkierrie",
-    head={ name="Lustratio Cap +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
+    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','"Crit.hit rate"+3',}},
     body="Erilaz Surcoat +2",
     hands="Meg. Gloves +2",
     legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
@@ -286,16 +286,16 @@ function get_sets()
 
 	sets.ws['Savage Blade']	= {
     ammo="Knobkierrie",
-    head="Erilaz Galea +2",
+    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','"Crit.hit rate"+3',}},
     body="Erilaz Surcoat +2",
     hands="Meg. Gloves +2",
-    legs="Eri. Leg Guards +2",
-    feet="Erilaz Greaves +2",
+    legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
+    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Sroda Ring",
+    left_ring="Ilabrat Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
@@ -348,31 +348,31 @@ function get_sets()
 	}
 	sets.ws['Steel Cyclone']	= {
     ammo="Knobkierrie",
-    head="Erilaz Galea +2",
+    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','"Crit.hit rate"+3',}},
     body="Erilaz Surcoat +2",
     hands="Meg. Gloves +2",
-    legs="Eri. Leg Guards +2",
-    feet="Erilaz Greaves +2",
+    legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
+    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Sroda Ring",
+    left_ring="Ilabrat Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
 	sets.ws['Fell Cleave']	= {
     ammo="Knobkierrie",
-    head="Erilaz Galea +2",
+    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','"Crit.hit rate"+3',}},
     body="Erilaz Surcoat +2",
     hands="Meg. Gloves +2",
-    legs="Eri. Leg Guards +2",
-    feet="Erilaz Greaves +2",
+    legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
+    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Sroda Ring",
+    left_ring="Ilabrat Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
@@ -398,8 +398,8 @@ function get_sets()
     hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},
     legs="Meg. Chausses +2",
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
-    neck="Rep. Plat. Medal",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epona's Ring",
