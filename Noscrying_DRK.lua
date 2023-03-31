@@ -694,7 +694,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     right_ring="Stikini Ring +1", 	--, +8 Skill, +11 MACC
     back="Chuparrosa Mantle", 		--, Absorb +10%, +20 Seconds
 	}
-	sets.midcast.Drain = { 		--, +44% Drain/Aspir Potency, +95% Potency under Nethervoid, +1-15% Damage increase, +20% Duration, +257 MACC, +78 Dark Magic
+	sets.midcast.Drain = { 		--, +48% Drain/Aspir Potency, +95% Potency under Nethervoid, +1-15% Damage increase, +20% Duration, +257 MACC, +78 Dark Magic
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}}, 
     head="Sakpata's Helm", 		--, +40 MACC
 	body="Heathen's Cuirass +2", 	--, +54 MACC
