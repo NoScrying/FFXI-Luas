@@ -634,7 +634,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 	sets.idle = {} 					-- Leave this empty
 	
 	sets.precast = {}
-	sets.precast.fastcast = { 	--, QM+5%, + 61 FC
+	sets.precast.fastcast = { 	--, QM+5%, + 66 FC
 	ammo="Impatiens", 		--, Quick Magic +2% (cap 10%)
     head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}}, --, 12
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}}, --, 8
