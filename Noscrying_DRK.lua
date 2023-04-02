@@ -62,24 +62,24 @@ function get_sets()
 	
 	Niche_Set_Names = {'Subtle_Blow'}
 	sets.niche = {}
-	sets.niche.Subtle_Blow = {
+	sets.niche.Subtle_Blow = { 		-- 46 SB, 5 SBII
 	ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Hjarrandi Helm",
-    body="Sacro Breastplate",
-    hands="Sakpata's Gauntlets",
+    body="Flamma Korazin +2", 		--, 17 SB
+    hands="Sakpata's Gauntlets",  	--, 8 SB
     legs="Sakpata's Cuisses",
     feet="Flam. Gambieras +2",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    neck={ name="Bathy Choker +1", augments={'Path: A',}}, --, 11 SB
     waist="Ioskeha Belt +1",
     left_ear="Cessance Earring",
     right_ear="Crep. Earring",
-    left_ring="Chirich Ring",
-    right_ring="Chirich Ring +1",
+    left_ring="Niqmaddu Ring",  	--, 5 SBII
+    right_ring="Chirich Ring +1", 	--, 10 SB
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 }
 	Apoc_Set_Names = {'Apoc','DT'} 	--, Apoc Delay = 513 + 10% Job Ability Haste Aftermath
-	sets.Apoc = {} 			--, SAM-SJ = 77 STP = 251 TP (4 Hit) & +44% Haste
-	sets.Apoc.Apoc = { 		--,  +62 STP = 230 TP (5 Hit), +24% Haste + 10% = 34%, -32% PDT, -22% MDT, +41 DA
+	sets.Apoc = {} 			--, SAM-SJ = 72 STP = 244 TP (5 Hit) & +44% Haste
+	sets.Apoc.Apoc = { 		--,  +57 STP = 222 TP (5 Hit), +34% Haste, -32% PDT, -22% MDT, +41 DA
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}}, --, +5% Haste
     head="Hjarrandi Helm",		--, -10DT, +7 STP, +6 DA
     body="Hjarrandi Breastplate", 	--, -12DT, +10 STP
@@ -90,11 +90,11 @@ function get_sets()
     waist="Ioskeha Belt +1", 		--, +8% Haste, +9 DA
     left_ear="Brutal Earring", 		--, +1 STP, +5 DA
 	right_ear="Cessance Earring", 	--, +3 STP, +3 DA
-    left_ring="Chirich Ring", 		--, +5 STP
+    left_ring="Niqmaddu Ring",		--, 3QA, 5SBII 
     right_ring="Chirich Ring +1", 	--, +6 STP
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, +10 DA, -10 PDT
 	}
-	sets.Apoc.DT = { 		--, +29% Haste (Cap 25%) +10% = 35%, -50 PDT, -40 MDT, +57 DA
+	sets.Apoc.DT = { 		--, +29% Haste (Cap 25%), -50 PDT, -40 MDT, +57 DA
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}}, --, +5% Haste
     head="Sakpata's Helm", 		--, +4% Haste -7DT, +5 DA
     body="Sakpata's Plate", 		--, +2% Haste -10DT, +8 DA
@@ -105,7 +105,7 @@ function get_sets()
     waist="Ioskeha Belt +1", 		--, +8% Haste +9 DA
     left_ear="Cessance Earring", 	--, +3 DA
 	right_ear="Brutal Earring", 	--, +5 DA
-    left_ring="Chirich Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Chirich Ring +1",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, +10 DA, -10 PDT
 	}
@@ -129,7 +129,7 @@ function get_sets()
     waist="Ioskeha Belt +1", 		--, +8% Haste, +9 DA
     left_ear="Cessance Earring", 	--, +3 STP, +3 DA 
     right_ear="Crep. Earring", 		--, +5 STP
-    left_ring="Chirich Ring", 		--, +5 STP
+    left_ring="Niqmaddu Ring",
     right_ring="Chirich Ring +1", 	--, +6 STP
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, +10 DA, -10 PDT
 	}
@@ -144,7 +144,7 @@ function get_sets()
     waist="Ioskeha Belt +1", 		--, +8% Haste +9 DA
     left_ear="Brutal Earring", 		--, +5 DA
 	right_ear="Cessance Earring", 	--, +3 DA
-    left_ring="Chirich Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Chirich Ring +1",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, +10 DA, -10 PDT
 	}
@@ -230,7 +230,7 @@ function get_sets()
     waist="Fotia Belt",
     left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
 	right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Refuscent Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Sroda Ring",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
@@ -245,8 +245,8 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
 right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
-    left_ring="Epaminondas's Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},
 	}	
 	sets.ws['Torcleaver']	= {
@@ -261,8 +261,8 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Thrud Earring",
-    left_ring="Epaminondas's Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},
 	}
 	sets.ws['Shockwave']	= {
@@ -324,8 +324,8 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
 	right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
-    left_ring="Epaminondas's Ring",
-    right_ring="Sroda Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},	
 	
     -- ammo="Knobkierrie",
@@ -355,8 +355,8 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
 	right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
-    left_ring="Epaminondas's Ring",
-    right_ring="Sroda Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},	
 	
     -- ammo="Knobkierrie",
@@ -384,8 +384,8 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     waist="Fotia Belt",
     left_ear="Cessance Earring",
     right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
-    left_ring="Epaminondas's Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Spiral Hell']	= {
@@ -401,8 +401,8 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
 	right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
-    left_ring="Epaminondas's Ring",
-    right_ring="Sroda Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},	
 	}
 	sets.ws['Insurgency']	= {
@@ -418,8 +418,8 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
 	right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
-    left_ring="Epaminondas's Ring",
-    right_ring="Sroda Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},	
 	}
 	sets.ws['Guillotine']	= {
@@ -433,8 +433,8 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
 right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
-    left_ring="Epaminondas's Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},	
 	}
 	sets.ws['Savage Blade']	= {
@@ -448,8 +448,8 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
 right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
-    left_ring="Epaminondas's Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},		
 
 	}
@@ -464,8 +464,8 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     waist="Fotia Belt",
     left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
 right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
-    left_ring="Epaminondas's Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},
 	}	
 	sets.ws['Upheaval']	= {
@@ -479,8 +479,8 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
 right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
-    left_ring="Epaminondas's Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},	
 
 	}
@@ -495,8 +495,8 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
 right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
-    left_ring="Epaminondas's Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},	
 
 	}
@@ -511,8 +511,8 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
 right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
-    left_ring="Epaminondas's Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},
 	}
 	sets.ws['Fell Cleave']	= {
@@ -526,8 +526,8 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
 right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
-    left_ring="Epaminondas's Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},	
 
 	}
@@ -557,8 +557,8 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
 right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
-    left_ring="Epaminondas's Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},	
 	}	
 	sets.ws['Smash Axe']	= {
@@ -572,8 +572,8 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Epaminondas's Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},
 	}
 	sets.ws['Ruinator']	= {
@@ -587,8 +587,8 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
 right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
-    left_ring="Epaminondas's Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},
 	}	
 
