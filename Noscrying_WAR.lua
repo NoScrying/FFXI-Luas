@@ -79,7 +79,7 @@ function get_sets()
     waist="Ioskeha Belt +1",
     left_ear="Brutal Earring",
     right_ear={ name="Boii Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
-    left_ring="Chirich Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Chirich Ring +1",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
@@ -94,7 +94,7 @@ function get_sets()
     waist="Ioskeha Belt +1",
     right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     left_ear="Cessance Earring",
-    left_ring="Chirich Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Chirich Ring +1",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
@@ -112,8 +112,8 @@ function get_sets()
     waist="Cornelia's Belt",
     left_ear="Dedition Earring",
     right_ear="Crep. Earring",
-	left_ring="Defending Ring",
-    right_ring="Chirich Ring +1",
+	left_ring="Niqmaddu Ring",
+    right_ring="Defending Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.melee.Sword_and_board = set_combine(sets.melee.normal,{
@@ -177,7 +177,7 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Petrov Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Sroda Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
@@ -193,7 +193,7 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     right_ear="Moonshade Earring",
-    left_ring="Petrov Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Rufescent Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
@@ -209,8 +209,8 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Epaminondas's Ring",
-    right_ring="Sroda Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Upheaval']	= {
@@ -224,8 +224,8 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Epaminondas's Ring",
-    right_ring="Sroda Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Ukko\'s Fury']	= {
@@ -239,8 +239,8 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Epaminondas's Ring",
-    right_ring="Sroda Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Armor Break']	= {
@@ -269,8 +269,8 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Epaminondas's Ring",
-    right_ring="Sroda Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Fell Cleave']	= {
@@ -284,8 +284,8 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Epaminondas's Ring",
-    right_ring="Sroda Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Decimation']	= {
@@ -299,8 +299,8 @@ function get_sets()
     waist="Fotia Belt",
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Sroda Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Sroda Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Mistral Axe']	= {
@@ -314,23 +314,23 @@ function get_sets()
     waist="Fotia Belt",
     left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     right_ear="Moonshade Earring",
-    left_ring="Epaminondas's Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Rampage']	= {
 	ammo="Knobkierrie",
     head="Flamma Zucchetto +2",
     body="Sakpata\'s Breastplate",
-    hands="Sakpata\'s Gauntlets",
-    legs={ name="Tatenashi Haidate +1", augments={'Path: A',}},
+    hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+    legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
     feet="Sulevia's Leggings +2",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist="Fotia Belt",
     left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     right_ear="Moonshade Earring",
-    left_ring="Flamma Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Ruinator']	= {
@@ -344,8 +344,8 @@ function get_sets()
     waist="Fotia Belt",
     left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     right_ear="Moonshade Earring",
-    left_ring="Flamma Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Calamity']	= {
@@ -359,8 +359,8 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Epaminondas's Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	
@@ -375,8 +375,8 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Epaminondas's Ring",
-    right_ring="Sroda Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Vorpal Blade']	= {
@@ -390,8 +390,8 @@ function get_sets()
     waist="Fotia Belt",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
-    left_ring="Rajas Ring",
-    right_ring="Petrov Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Requiescat']	= {
@@ -405,8 +405,8 @@ function get_sets()
     waist="Fotia Belt",
     left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     right_ear="Moonshade Earring",
-    left_ring="Epaminondas's Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Sanguine Blade']	= {
@@ -436,7 +436,7 @@ function get_sets()
     waist="Fotia Belt",
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Flamma Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Sroda Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
@@ -451,8 +451,8 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Epaminondas's Ring",
-    right_ring="Sroda Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Impulse Drive']	= {
@@ -467,8 +467,8 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Epaminondas's Ring",
-    right_ring="Sroda Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Judgment']	= {
@@ -482,8 +482,8 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Epaminondas's Ring",
-    right_ring="Sroda Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Realmrazer']	= {
@@ -497,8 +497,8 @@ function get_sets()
     waist="Fotia Belt",
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    right_ring="Rufescent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}	
 	sets.ws['Flash Nova']	= {
@@ -527,8 +527,8 @@ function get_sets()
     waist="Fotia Belt",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
-    left_ring="Rajas Ring",
-    right_ring="Petrov Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ja = {} 					-- Leave this empty
