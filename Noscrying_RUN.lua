@@ -47,8 +47,8 @@ function get_sets()
     --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear="Cessance Earring",
-    left_ring="Epona's Ring",
-    right_ring="Moonbeam Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epona's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 
@@ -63,8 +63,8 @@ function get_sets()
     waist="Ioskeha Belt +1",
     left_ear="Sherida Earring",
     right_ear="Cessance Earring",
-    left_ring="Epona's Ring",
-    right_ring="Moonbeam Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epona's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.TwoHandedTP.Inquartata = {
@@ -201,11 +201,12 @@ function get_sets()
     legs="Meg. Chausses +2",
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Fotia Gorget",
-    waist="Fotia Belt",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Fotia Belt",
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Epona's Ring",
-    right_ring="Sroda Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epona's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Spinning Slash']	= {
@@ -219,7 +220,7 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Sroda Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}	
@@ -234,7 +235,7 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Epona's Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
@@ -264,7 +265,7 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Epona's Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}	
@@ -279,8 +280,9 @@ function get_sets()
     waist="Fotia Belt",
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Ilabrat Ring",
-    right_ring="Epaminondas's Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Ilabrat Ring",
+    --right_ring="Epaminondas's Ring",	
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
 
@@ -295,7 +297,7 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Ilabrat Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
@@ -310,8 +312,8 @@ function get_sets()
     waist="Fotia Belt",
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Epona's Ring",
-    right_ring="Refuscent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epona's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}	
 	
@@ -342,7 +344,7 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Epona's Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
@@ -357,8 +359,8 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Ilabrat Ring",
-    right_ring="Epaminondas's Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Sroda Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
 	sets.ws['Fell Cleave']	= {
@@ -372,7 +374,7 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Ilabrat Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
@@ -402,8 +404,8 @@ function get_sets()
     waist="Fotia Belt",
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Epona's Ring",
-    right_ring="Refuscent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epona's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}	
 	sets.ws['Smash Axe']	= {
