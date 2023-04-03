@@ -498,22 +498,22 @@ function get_sets()
 	
 	
     sets.midcast = {}               -- leave this empty  
-	sets.midcast.enfeebling = { --, MACC+399, Enfeebling Skill +63, Enfeebling Potency +53, Enfeebling Duration +40%, Saboteur +13, Immunobreak +1
-	ammo="Regal Gem",
+	sets.midcast.enfeebling = { 	--, MACC+399, Enfeebling Skill +63, Enfeebling Potency +53, Enfeebling Duration +60%, Saboteur +13, Immunobreak +1
+	ammo="Regal Gem",		--, Enfeebling Potency +10
     head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
-    body="Lethargy Sayon +2",
-    hands="Lethargy Gantherots +2",
+    body="Lethargy Sayon +2", 		--, Enfeebling Duration +10%| Combined, Enfeebling Potency +16
+    hands="Lethargy Gantherots +2", 	--, Enfeebling Duration +10%| Combined, Saboteur +13 
     legs={ name="Chironic Hose", augments={'Mag. Acc.+21 "Mag.Atk.Bns."+21','INT+10','Mag. Acc.+11','"Mag.Atk.Bns."+5',}},
-    feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
-    neck={ name="Dls. Torque +1", augments={'Path: A',}},
+    feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}}, --, Enfeebling Potency +10
+    neck={ name="Dls. Torque +1", augments={'Path: A',}}, --, Enfeebling Potency +7, Enfeebling Duration +20%
 	waist="Sacro Cord",
     left_ear="Malignance Earring",
-    right_ear="Snotra Earring",
-    --left_ring="Kishar Ring", --, +5 Enfeebling Duration, +5 MACC
+    right_ear="Snotra Earring", 	--, , Enfeebling Duration +10%
+    --left_ring="Kishar Ring", 			--, Enfeebling Duration +5%, +5 MACC
     left_ring="Stikini Ring +1",
     --right_ring={ name="Metamor. Ring +1", augments={'Path: A',}}, --, +15 MACC, +16 MND/INT
     right_ring="Stikini Ring +1",
-    back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+7',}},
+    back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+7',}}, --,  Enfeebling Potency +10, Enfeebling Duration +20%
 }
 	sets.midcast.Macc = { --, +418 MACC, Enfeebling Skill +53, Enfeebling Potency +43, Enfeebling Duration +40%, Saboteur +13, Immunobreak +1, 
 	ammo="Regal Gem",
