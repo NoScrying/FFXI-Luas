@@ -71,7 +71,7 @@ function get_sets()
     hands="Turms Mittens +1",
     legs="Eri. Leg Guards +2",
     feet="Turms Leggings +1",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Parrying rate+5%',}},
 	}
 	
 	sets.TankingTP = {}
@@ -114,26 +114,26 @@ function get_sets()
     hands="Turms Mittens +1",
     legs="Eri. Leg Guards +2",
     feet="Turms Leggings +1",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}},
 	}	
 
 	MEVA_Set_Name = {'MEVA'}
-	sets.MEVA = { 		--, +40-50 Elemental Resist, +10 Status Resist, +5% Magic Absorb chance, +5% Negate Magic Damage chance, +634 MEVA, -44% PDT, -34% MDT
+	sets.MEVA = { 				--, +40-50 Elemental Resist, +10 Status Resist, +5% Magic Absorb chance, +5% Negate Magic Damage chance, +646 MEVA, -51% PDT, -40% MDT
     ammo="Staunch Tathlum", 	--, +10 Status Resist, -2% DT
     head="Erilaz Galea +2", 	--, +109 MEVA
-    body="Erilaz Surcoat +2", 	--, +120  MEVA
+    body="Erilaz Surcoat +2", 	--, +120 MEVA
     hands="Turms Mittens +1", 	--, +101 MEVA
     legs="Eri. Leg Guards +2", 	--, +147 MEVA, -12% DT
     feet="Erilaz Greaves +2", 	--, +147 MEVA, -10% DT
     neck="Warder's Charm +1", 	--, +20 Element Resist, +5% Magic Absorb chance
-    waist="Engraved Belt", 	--, +20-30 Element Resist
-    left_ear="Tuisto Earring", 
-    right_ear="Eabani Earring", --, +8 Meva
-    left_ring="Archon Ring", 	--, +5% Negate Magic Damage chance
+    waist="Engraved Belt", 		--, +20-30 Element Resist
+    left_ear="Odnowa Earring +1",	--, -5% MDT, -3% PDT
+    right_ear="Tuisto Earring", 
+    --left_ring="Archon Ring", 	--, +5% Negate Magic Damage chance
+    left_ring="Moonbeam Ring",
     right_ring="Defending Ring", --, -10% DT
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, -10% PDT
-    --back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, Missing MEVA/DT Cape
-	}	
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, -10% PDT
+}
 	
 	Run_Set_Names = {'Refresh','Regen','DT'}
 	sets.run = {}
@@ -452,7 +452,7 @@ function get_sets()
     right_ear="Eris' Earring", 		--, 2
     left_ring="Supershear Ring", 	--, 5
     right_ring="Provocare Ring", 	--, 5
-    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}}, --, 10
+	back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, 10
 	}
 		
 	sets.ja['Vallation'] = set_combine(sets.ja.Enmity, { --, When we define a set as as "sets.ja['xx'], then we can in our precast set, refer to all named in this way, while still specifying a single set.
@@ -688,7 +688,7 @@ function get_sets()
 	sets.idle = {} 					-- Leave this empty
 	
 	sets.precast = {}               -- leave this empty
-	sets.precast.fastcast = { 	--, 58% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+5 = +55 SIRD
+	sets.precast.fastcast = { 	--, 58% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+5 = +65 SIRD
     ammo="Impatiens",
     head="Runeist Bandeau +2", 		--, 12
     body="Erilaz Surcoat +2", 		--, 10
@@ -701,9 +701,10 @@ function get_sets()
     right_ear="Magnetic Earring",
     left_ring="Kishar Ring", 		--, 4
     right_ring="Weatherspoon Ring", 	--, 5
-    back={ name="Ogma's Cape", augments={'"Fast Cast"+10',}}, --, 10
-	} 
-	sets.precast.enhancing = { 	--, 71% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+5 = +48 SIRD
+    back={ name="Ogma's Cape", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}}, --,10
+}
+	
+	sets.precast.enhancing = { 	--, 71% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+5 = +58 SIRD
     ammo="Impatiens",
     head="Runeist Bandeau +2",		--, 12
     body="Erilaz Surcoat +2", 		--, 10
@@ -716,39 +717,39 @@ function get_sets()
     right_ear="Magnetic Earring",
     left_ring="Kishar Ring", 		--, 4
     right_ring="Weatherspoon Ring", 	--, 5
-    back={ name="Ogma's Cape", augments={'"Fast Cast"+10',}}, --10
+    back={ name="Ogma's Cape", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}}, --10
 	}
 
     sets.midcast = {}               -- leave this empty  
-	sets.midcast.sird = set_combine(sets.ja.Enmity, {--, Merit+5 == 98% (Cap 102%), Missing SIRD on FC Cape (+10)
+	sets.midcast.sird = set_combine(sets.ja.Enmity, {--, Merit+5 == 103% (Cap 102%)
     ammo="Impatiens", 			--, 10
 	head="Erilaz Galea +2", 	--, 15
     hands="Rawhide Gloves", 		--, 15
     legs="Carmine Cuisses +1", 		--, 20
     neck="Moonbeam Necklace", 		--, 10
     waist="Audumbla Sash",  		--, 10
-    left_ear="Halasz Earring", 		--, 5
     right_ear="Magnetic Earring", 	--, 8 
 	left_ring="Evanescence Ring",	--, 5
     right_ring="Defending Ring",
+    back={ name="Ogma's Cape", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}}, --, 10
 	})
 	
-	sets.midcast.enmity = { 	--, +49% Enmity (Enmity gear is a percentage increase or decrease, not an addition), Merit+5 = +78 SIRD, -31% PDT ( +78 SIRD, -41% PDT, -22% MDT)
+	sets.midcast.enmity = { 	--, +49% Enmity (Enmity gear is a percentage increase or decrease, not an addition), Merit+5 = +78 SIRD, -41% PDT, -22% MDT
 	ammo="Impatiens", 		--, 10 SIRD
 	head="Erilaz Galea +2", 	--, 15 SIRD
     body="Emet Harness", 		--, 9 Enmity, -5 PDT
     hands="Rawhide Gloves", 		--, 15 SIRD
     legs="Erilaz Leg Guards +2", 	--, 12 Enmity, -12% DT
     feet="Erilaz Greaves +2",		--, 8 Enmity, -10% DT
-    neck="Moonbeam Necklace", 		--, 10 Enmity, +10 SIRD
+    neck="Moonbeam Necklace", 		--, 10 Enmity, 10 SIRD
     waist="Audumbla Sash",  		--, 10 SIRD, -4 PDT
     left_ear="Halasz Earring", 		--, 5 SIRD
     right_ear="Magnetic Earring", 	--, 8 SIRD
     left_ring="Supershear Ring", 	--, 5 Enmity
     right_ring="Provocare Ring", 	--, 5 Enmity
-    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}}, --, 10 Enmity, (Missing Meva/Enmity/PDT Cape)
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, 10 Enmity, 10PDT
 	}
-	sets.midcast.MaxEnmity = { 	--, +69% Enmity, Merit+5 = +25 SIRD, -27% DT (-37% PDT, -22 MDT)
+	sets.midcast.MaxEnmity = { 	--, +69% Enmity, Merit+5 = +25 SIRD, -37% PDT, -22 MDT
 	ammo="Impatiens", 		--, 10 SIRD
     head="Halitus Helm", 		--, 8 Enmity
     body="Emet Harness", 		--, 9 Enmity, -5 PDT
@@ -761,9 +762,9 @@ function get_sets()
     right_ear="Eris' Earring", 		--, 2 Enmity
     left_ring="Supershear Ring", 	--, 5 Enmity
     right_ring="Provocare Ring", 	--, 5 Enmity
-    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}}, --, 10 Enmity, (Missing Meva/Enmity/PDT Cape)
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, 10 Enmity, 10PDT
 	}
-	sets.midcast.Foil = { 		--, +37% Enmity, Merit+5 = +78 SIRD, -19% PDT, -10% MDT, +40% Duration
+	sets.midcast.Foil = { 		--, +37% Enmity, Merit+5 = +78 SIRD, -29% PDT, -10% MDT, +40% Duration
 	ammo="Impatiens", 		--, 10 SIRD
 	head="Erilaz Galea +2", 	--, 15 SIRD, +20% Duration
     body="Emet Harness", 		--, 9 Enmity, -5 PDT
@@ -776,7 +777,7 @@ function get_sets()
     right_ear="Magnetic Earring", 	--, 8 SIRD
     left_ring="Supershear Ring", 	--, 5 Enmity
     right_ring="Provocare Ring", 	--, 5 Enmity
-    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}}, --, 10 Enmity, (Missing Meva/Enmity/PDT Cape)
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, 10 Enmity, 10PDT
 	}	
 	sets.midcast.regen = {	--, Merit+5 = +60 SIRD +19 Regen, +30% Potency, +39 seconds, +20% Duration +25% Healing/Enhancing MP Cost  = Regen IV 58/tic, 168 Seconds = 3248 HP, Embolden 73/Tic, 110 Seconds = 2628, don't do it.
 	ammo="Staunch Tathlum",
@@ -792,22 +793,22 @@ function get_sets()
     right_ear={ name="Erilaz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
-    back="Moonbeam Cape",
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, 10 Enmity, 10PDT
 	}	
-	sets.midcast.Cure = {		--, +45% Cure Potency, +5% Cure Self, Merit+5 = +86 SIRD, +25% Healing MP cost, -5% DT ML45 /BLU gets Magic Fruit, which is Cure IV Potency but without extra MP cost as it is Blue Magic.
-	-- head="Erilaz Galea +2", 	--, SIRD set
+	sets.midcast.Cure = {			--, +45% Cure Potency, +5% Cure Self, Merit+5 = +96 SIRD, +25% Healing MP cost, ML45 /BLU gets Magic Fruit, which is Cure IV Potency but without extra MP cost as it is Blue Magic.
+	-- head="Erilaz Galea +2", 		--, SIRD set
     -- hands="Rawhide Gloves",
     -- legs="Carmine Cuisses +1",
 	-- feet="Karasutengu Kogake",
     -- left_ear="Halasz Earring",
     -- right_ear="Magnetic Earring",
-    -- left_ring="Kunaji Ring", 	--, +5
+    -- left_ring="Kunaji Ring", 		--, +5
     -- right_ring="Evanescence Ring",
-    -- neck="Sacro Gorget", 		--, +10
-    -- waist="Sroda Belt", 		--, +35
-    -- back="Moonbeam Cape",
+    -- neck="Sacro Gorget", 			--, +10
+    -- waist="Sroda Belt", 			--, +35
+    -- back={ name="Ogma's Cape", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}},
 		
-    ammo="Staunch Tathlum", 		--, DT Set -56% PDT, -46% MDT, +45% Cure Potency, +25% Healing MP cost, Merit+5 = +20 SIRD
+    ammo="Staunch Tathlum", 		--, DT Set -49% PDT, -41% MDT, +45% Cure Potency, +25% Healing MP cost, Merit+5 = +30 SIRD
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
     hands="Erilaz Gauntlets +2",	--, -10% DT
@@ -815,11 +816,11 @@ function get_sets()
     feet="Erilaz Greaves +2", 		--, -10% DT
     neck="Sacro Gorget", 		--, +10
     waist="Sroda Belt", 		--, +35
-    left_ear="Odnowa Earring +1",
+    left_ear="Odnowa Earring +1",	--, -3% DT -2% MDT
     right_ear="Tuisto Earring",
     left_ring="Moonbeam Ring", 		--, -4% DT
     left_ring="Defending Ring", 	--, -10% DT
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, -- -10% PDT
+    back={ name="Ogma's Cape", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}},
 	}
 	
 	sets.midcast.phalanx = { --, ML25 = Skill 502 = Phalanx Tier 8, -35 Damage, +17 = -52 Damage
@@ -1018,13 +1019,15 @@ function buff_change(buff,gain) --, See list of buff names under Gearswap librar
             status_change(player.status)
         end
     end
-    if buff == 'Battuta' then --Extra spot for Battuta buff change just to be sure, does not conflict with engaged 
+    if buff == 'Battuta' then 
 		if buffactive['Battuta'] then
-			equip(sets.TankingTP.Inquartata)
-	else
-            status_change(player.status)
+			if TankingTP == true then
+				equip(sets.TankingTP.Inquartata)
+			elseif TwoHandedTP == true then
+				equip(sets.TwoHandedTP.Inquartata)
+			end
+		end
 	end
-end
 end
 
 function idle() --, Engaged/Idle sets do not have to be here, can also be under self_command or anywhere really.
@@ -1035,11 +1038,6 @@ function idle() --, Engaged/Idle sets do not have to be here, can also be under 
 			equip(sets.TwoHandedTP[sets.TwoHandedTP.index[TwoHandedTP_ind]])
 	end
 end
-	if player.status=='Engaged' then --allows you to use gear based on buffs, without locking equipment slots, so WS sets still change appropriately
-		if buffactive['Battuta'] then
-			equip(sets.TankingTP.Inquartata)
-		end
-	end
 	if player.status =='Idle' then --, When holstering weapon
 		equip(sets.run[Run_Set_Names[Run_Index]])
 	end
