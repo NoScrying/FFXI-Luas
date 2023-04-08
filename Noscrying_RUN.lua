@@ -1021,10 +1021,8 @@ function buff_change(buff,gain) --, See list of buff names under Gearswap librar
         end
     end
     if buff == 'Battuta' then 
-		if buffactive['Battuta'] then
-			if TankingTP == true then
-				equip(sets.TankingTP.Inquartata)
-			elseif TwoHandedTP == true then
+		if gain then
+			if TwoHandedTP == true then
 				equip(sets.TwoHandedTP.Inquartata)
 			end
 		end
@@ -1037,6 +1035,13 @@ function idle() --, Engaged/Idle sets do not have to be here, can also be under 
 			equip(sets.TankingTP[sets.TankingTP.index[TankingTP_ind]]) --, Equips the last gearset you changed to, is not static
 		elseif TwoHandedTP == true then
 			equip(sets.TwoHandedTP[sets.TwoHandedTP.index[TwoHandedTP_ind]])
+	end
+end
+if player.status =="Engaged" then
+	if buffactive['Battuta'] then
+		if TwoHandedTP == true then
+			equip(sets.TwoHandedTP.Inquartata)
+		end
 	end
 end
 	if player.status =='Idle' then --, When holstering weapon
@@ -1131,6 +1136,11 @@ function self_command(command) --, Allows of use of various commands
 	if command == 'toggle Emergency MEVA' then
         windower.add_to_chat('Equipping Emergency MEVA/DT')
 		equip(sets.MEVA)
+	end
+	if buffactive['Battuta'] then
+		if TwoHandedTP == true then
+			equip(sets.TwoHandedTP.Inquartata)
+		end
 	end
 end
 
