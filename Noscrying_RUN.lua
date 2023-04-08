@@ -1020,13 +1020,14 @@ function buff_change(buff,gain) --, See list of buff names under Gearswap librar
             status_change(player.status)
         end
     end
-    if buff == 'Battuta' then 
-		if gain then
-			if TwoHandedTP == true then
-				equip(sets.TwoHandedTP.Inquartata)
-			end
-		end
+	if buffactive['Battuta'] then
+		if TankingTP == false then
+		equip(sets.TwoHandedTP.Inquartata)
+	else if TankingTP == true then
+		equip(sets.TankingTP[sets.TankingTP.index[TankingTP_ind]])
 	end
+	end
+end
 end
 
 function idle() --, Engaged/Idle sets do not have to be here, can also be under self_command or anywhere really.
@@ -1037,12 +1038,14 @@ function idle() --, Engaged/Idle sets do not have to be here, can also be under 
 			equip(sets.TwoHandedTP[sets.TwoHandedTP.index[TwoHandedTP_ind]])
 	end
 end
-if player.status =="Engaged" then
 	if buffactive['Battuta'] then
-		if TwoHandedTP == true then
-			equip(sets.TwoHandedTP.Inquartata)
-		end
+		if TankingTP == false then
+		equip(sets.TwoHandedTP.Inquartata)
+	else if TankingTP == true then
+		equip(sets.TankingTP[sets.TankingTP.index[TankingTP_ind]])
 	end
+	end
+end
 end
 	if player.status =='Idle' then --, When holstering weapon
 		equip(sets.run[Run_Set_Names[Run_Index]])
