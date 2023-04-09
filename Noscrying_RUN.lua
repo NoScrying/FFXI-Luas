@@ -192,13 +192,19 @@ function get_sets()
     feet={ name="Herculean Boots", augments={'"Dual Wield"+1','Attack+5','"Treasure Hunter"+1',}},
 	}
 	
-	sets.RegenHP = {
+	sets.CureHP = {
     	left_ear="Odnowa Earring +1", 	--, +110HP
     	right_ear="Tuisto Earring", 	--, +150HP
 	left_ring="Moonbeam Ring",	--, +100HP
 	right_ring="Moonbeam Ring",	--, +100HP
 	back="Moonbeam Cape",		--, +250HP
-	}	
+	}
+	sets.RegenHP = {
+    	left_ear="Tuisto Earring", 	--, +150HP
+	left_ring="Moonbeam Ring",	--, +100HP
+	right_ring="Moonbeam Ring",	--, +100HP
+	back="Moonbeam Cape",		--, +250HP
+	}		
 	sets.TankWS = {
     	neck="Unmoving Collar +1", 	--, +200HP
 	waist="Platinum Moogle Belt", 	--, +270HP'ish
@@ -1038,7 +1044,7 @@ function midcast(spell) --, Midcast works in hierachy. The lower on the list the
 		if TankingTP == false then
 			equip(sets.midcast.Cure)
 				elseif TankingTP == true then
-					equip(set_combine(sets.midcast.Cure, sets.RegenHP))
+					equip(set_combine(sets.midcast.Cure, sets.CureHP))
 			end
 		end
 	end 
