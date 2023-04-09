@@ -1080,6 +1080,7 @@ function buff_change(buff,gain) --, See list of buff names under Gearswap librar
 		equip(sets.TwoHandedTP.Inquartata)
 	else if TankingTP == true then
 		equip(sets.TankingTP[sets.TankingTP.index[TankingTP_ind]])
+		idle()
 	end
 	end
 end
@@ -1098,9 +1099,9 @@ end
 		equip(sets.TwoHandedTP.Inquartata)
 	else if TankingTP == true then
 		equip(sets.TankingTP[sets.TankingTP.index[TankingTP_ind]])
+		idle()
 	end
 	end
-end
 end
 	if player.status =='Idle' then --, When holstering weapon
 		equip(sets.run[Run_Set_Names[Run_Index]])
