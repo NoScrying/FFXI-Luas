@@ -45,7 +45,6 @@ function get_sets()
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
     neck="Anu Torque",
     waist="Ioskeha Belt +1",
-    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Cessance Earring",
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
@@ -53,9 +52,9 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 
-	sets.TwoHandedTP.Hybrid = { -- 3QA, 4TA, 34DA, Temper+28 = 62DA, Embolden +14 = 76DA, -49PDT, -41MDT, +11 Inquartata, missing Parry on Enmity cape
+	sets.TwoHandedTP.Hybrid = { -- 3QA, 37DA, Temper+28 = 65DA, Embolden +14 = 79DA, -42PDT, -41MDT, +11 Inquartata, Parry+5%
     ammo="Crepuscular Pebble",
-    head="Adhemar Bonnet +1",
+    head="Blistering Sallet +1",
     body="Ayanmo Corazza +2",
     hands="Turms Mittens +1",
     legs="Eri. Leg Guards +2",
@@ -66,7 +65,7 @@ function get_sets()
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Defending Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Parrying rate+5%',}},
 	}
 	sets.TwoHandedTP.Inquartata = {
     hands="Turms Mittens +1",
