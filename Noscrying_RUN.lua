@@ -192,6 +192,13 @@ function get_sets()
     feet={ name="Herculean Boots", augments={'"Dual Wield"+1','Attack+5','"Treasure Hunter"+1',}},
 	}
 	
+	sets.TankWS = {
+    	neck="Unmoving Collar +1", 	--, +200HP
+	waist="Platinum Moogle Belt", 	--, +270HP'ish
+    	left_ear="Odnowa Earring +1", 	--, +110HP
+    	right_ear="Tuisto Earring", 	--, +150HP
+	}
+	
 	sets.ws = {} 					-- Leave this empty.
 	sets.ws['Resolution']	= { --FTP Replicating WS, Prefer Multi Attack to WSD
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -942,8 +949,12 @@ function precast(spell) --, "==" indicates "Is", "~=" indicates "Is not", See ex
         equip(sets.ja[spell.name])
 	end
     if sets.ws[spell.name] then
-        equip(sets.ws[spell.name])        
-    end
+		if TankingTP == false then --, WS in DD mode, 
+			equip(sets.ws[spell.name]) --, 2700 HP
+				elseif TankingTP == true then --, WS in Tank mode
+					equip(set_combine(sets.ws[spell.name]), sets.TankWS) --, 3500 HP
+			end
+		end
 	if spell.name:match('Lunge') or spell.name:match('Swipe')then
 		equip(sets.ja[spell.name])
             if world.weather_element == spell.element or world.day_element == spell.element then
