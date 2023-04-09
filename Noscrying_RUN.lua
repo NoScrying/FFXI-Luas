@@ -192,6 +192,13 @@ function get_sets()
     feet={ name="Herculean Boots", augments={'"Dual Wield"+1','Attack+5','"Treasure Hunter"+1',}},
 	}
 	
+	sets.RegenHP = {
+    	left_ear="Odnowa Earring +1", 	--, +110HP
+    	right_ear="Tuisto Earring", 	--, +150HP
+	left_ring="Moonbeam Ring",	--, +100HP
+	right_ring="Moonbeam Ring",	--, +100HP
+	back="Moonbeam Cape",		--, +250HP
+	}	
 	sets.TankWS = {
     	neck="Unmoving Collar +1", 	--, +200HP
 	waist="Platinum Moogle Belt", 	--, +270HP'ish
@@ -786,7 +793,7 @@ function get_sets()
     right_ring="Provocare Ring", 	--, 5 Enmity
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, 10 Enmity, 10PDT
 	}	
-	sets.midcast.regen = {	--, Merit+5 = +60 SIRD +19 Regen, +30% Potency, +39 seconds, +20% Duration +25% Healing/Enhancing MP Cost  = Regen IV 58/tic, 168 Seconds = 3248 HP, Embolden 73/Tic, 110 Seconds = 2628, don't do it.
+	sets.midcast.regen = {	--, Merit+5 = +65 SIRD +19 Regen, +30% Potency, +39 seconds, +20% Duration +25% Healing/Enhancing MP Cost  = Regen IV 58/tic, 168 Seconds = 3248 HP, Embolden 73/Tic, 110 Seconds = 2628, don't do it.
 	ammo="Staunch Tathlum",
     head="Runeist Bandeau +2",
     body={ name="Taeon Tabard", augments={'Mag. Evasion+19','Spell interruption rate down -9%','"Regen" potency+3',}},
@@ -798,8 +805,8 @@ function get_sets()
     waist="Sroda Belt",
     left_ear="Magnetic Earring",
     right_ear={ name="Erilaz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring="Evanescence Ring",
+    right_ring="Defending Ring",
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, 10 Enmity, 10PDT
 	}	
 	sets.midcast.Cure = {			--, +45% Cure Potency, +5% Cure Self, Merit+5 = +96 SIRD, +25% Healing MP cost, ML45 /BLU gets Magic Fruit, which is Cure IV Potency but without extra MP cost as it is Blue Magic.
@@ -886,8 +893,8 @@ function get_sets()
     waist="Gishdubar Sash",
     left_ear="Sherida Earring",
     right_ear="Magnetic Earring",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring="Evanescence Ring",
+    right_ring="Defending Ring",
     back="Moonbeam Cape",
 	}
 
@@ -972,37 +979,69 @@ end
 
 function midcast(spell) --, Midcast works in hierachy. The lower on the list the higher priority when using lazy If/End statements, otherwise when using If/Else/End, "Else" takes priority. See RDM lua for examples
 	if spell.skill == 'Enhancing Magic' then
-		equip(sets.midcast.enhancingduration)
-	end
-	if spell.name:match('Refresh') then
-		equip(sets.midcast.refresh)
-	end
-	if spell.name:match('Poison') or spell.name:match('Absorb') then  
-		equip(sets.midcast.enmity)
-	end
-	if spell.name =='Flash' or spell.name =='Stun' then
-		equip(sets.midcast.MaxEnmity)
-	end
-	if spell.name =='Foil' then
-		equip(sets.midcast.Foil)
-	end	
-	if spell.name == 'Temper' or spell.name:match('Bar') then --,Spell.name == "xx" has to match name exactly, Spell.name:match ('xx') is like a variable that matches any prefix
-		equip(sets.midcast.enhancingskill)
-	end
-	if spell.name:match('Regen') then
-		equip(sets.midcast.regen)
-	end	
-	if spell.name:match('Phalanx') then
-		equip(sets.midcast.phalanx)
-			if player.status == "Engaged" then --, If engaged, uses SIRD set
-				equip(sets.midcast.sird)
+		if TankingTP == false then
+			equip(sets.midcast.enhancingduration)
+				elseif TankingTP == true then
+					equip(set_combine(sets.midcast.enhancingduration, sets.TankHP))
 			end
 		end
-
-    if spell.name:match('Magic Fruit') or spell.name:match('Cure') or spell.name:match('Healing Breeze')or spell.name:match('Wild Carrot')then
-        equip(sets.midcast.Cure)
+	if spell.name:match('Refresh') then
+		if TankingTP == false then
+			equip(sets.midcast.refresh)
+				elseif TankingTP == true then
+					equip(set_combine(sets.midcast.refresh, sets.TankHP))
+			end
 		end
-	end
+	if spell.name:match('Poison') or spell.name:match('Absorb') then  
+		if TankingTP == false then
+			equip(sets.midcast.enmity)
+				elseif TankingTP == true then
+					equip(set_combine(sets.midcast.enmity, sets.TankHP))
+			end
+		end	
+	if spell.name =='Flash' or spell.name =='Stun' then
+		if TankingTP == false then
+			equip(sets.midcast.MaxEnmity)
+				elseif TankingTP == true then
+					equip(set_combine(sets.midcast.MaxEnmity, sets.TankHP))
+			end
+		end
+	if spell.name =='Foil' or spell.name =="Crusade" then
+		if TankingTP == false then
+			equip(sets.midcast.Foil)
+				elseif TankingTP == true then
+					equip(set_combine(sets.midcast.Foil, sets.TankHP))
+			end
+		end
+	if spell.name == 'Temper' or spell.name:match('Bar') then --,Spell.name == "xx" has to match name exactly, Spell.name:match ('xx') is like a variable that matches any prefix
+		if TankingTP == false then
+			equip(sets.midcast.enhancingskill)
+				elseif TankingTP == true then
+					equip(set_combine(sets.midcast.enhancingskill, sets.TankHP))
+			end
+		end	
+	if spell.name:match('Regen') then
+		if TankingTP == false then
+			equip(sets.midcast.regen)
+				elseif TankingTP == true then
+					equip(set_combine(sets.midcast.regen, sets.RegenHP))
+			end
+		end	
+	if spell.name:match('Phalanx') then
+		if TankingTP == false then
+			equip(sets.midcast.phalanx)
+				elseif TankingTP == true then
+					equip(set_combine(sets.midcast.phalanx, sets.TankHP))
+			end
+		end
+    if spell.name:match('Magic Fruit') or spell.name:match('Cure') or spell.name:match('Healing Breeze')or spell.name:match('Wild Carrot')then
+		if TankingTP == false then
+			equip(sets.midcast.Cure)
+				elseif TankingTP == true then
+					equip(set_combine(sets.midcast.Cure, sets.RegenHP))
+			end
+		end
+	end 
 
 function aftercast(spell) --, idle() makes the aftercast use the "Idle ()" states.
 	idle()
