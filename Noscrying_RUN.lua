@@ -146,8 +146,8 @@ function get_sets()
     feet="Erilaz Greaves +2",
     neck="Sibyl Scarf",
     waist="Platinum Moogle Belt",
-    left_ear="Sherida Earring",
-    right_ear="Cessance Earring",
+    left_ear="Odnowa Earring +1",
+    right_ear="Infused Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
     back="Moonbeam Cape",
@@ -161,7 +161,7 @@ function get_sets()
     feet="Turms Leggings +1",
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
+    left_ear="Odnowa Earring +1",
     right_ear="Infused Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring",
@@ -215,7 +215,7 @@ function get_sets()
 	sets.ws = {} 					-- Leave this empty.
 	sets.ws['Resolution']	= { --FTP Replicating WS, Prefer Multi Attack to WSD
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','"Crit.hit rate"+3',}},
+    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},
     legs="Meg. Chausses +2",
@@ -223,38 +223,55 @@ function get_sets()
     neck="Fotia Gorget",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     --waist="Fotia Belt",
-    left_ear="Sherida Earring",
-    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Epona's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
+	
 	sets.ws['Spinning Slash']	= {
     ammo="Knobkierrie",
-    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','"Crit.hit rate"+3',}},
+    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     body="Erilaz Surcoat +2",
     hands="Meg. Gloves +2",
     legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
-    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}	
+	
+	sets.ws['Freezebite']	= {
+	ammo="Knobkierrie",
+    head={ name="Herculean Helm", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','Weapon skill damage +5%','STR+9','Mag. Acc.+1',}},
+    body={ name="Carm. Scale Mail", augments={'Attack+15','"Mag.Atk.Bns."+10','"Dbl.Atk."+2',}},
+    hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
+    legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
+    feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
+    neck="Sibyl Scarf",
+    waist="Orpheus's Sash",
+	left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Friomisi Earring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+	}
 	sets.ws['Herculean Slash']	= {
-    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head="Adhemar Bonnet +1",
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    hands="Meg. Gloves +2",
-    legs="Meg. Chausses +2",
-    feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
-    neck="Rep. Plat. Medal",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
-    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+	ammo="Knobkierrie",
+    head={ name="Herculean Helm", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','Weapon skill damage +5%','STR+9','Mag. Acc.+1',}},
+    body={ name="Carm. Scale Mail", augments={'Attack+15','"Mag.Atk.Bns."+10','"Dbl.Atk."+2',}},
+    hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
+    legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
+    feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
+    neck="Sibyl Scarf",
+    waist="Orpheus's Sash",
+	left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Friomisi Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
@@ -276,48 +293,53 @@ function get_sets()
 	}
 	sets.ws['Ground Strike']	= {
     ammo="Knobkierrie",
-    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','"Crit.hit rate"+3',}},
-    body="Erilaz Surcoat +2",
-    hands="Meg. Gloves +2",
-    legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
-    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
-    neck="Rep. Plat. Medal",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
-    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Niqmaddu Ring",
-    right_ring="Epaminondas's Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
-	}	
-	sets.ws['Dimidiation']	= {
-    ammo="Knobkierrie",
-    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','"Crit.hit rate"+3',}},
+    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     body="Erilaz Surcoat +2",
     hands="Meg. Gloves +2",
     legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Fotia Gorget",
     waist="Fotia Belt",
-    left_ear="Sherida Earring",
-    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Sherida Earring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epaminondas's Ring",
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+	}	
+	
+	sets.ws['Dimidiation']	= {
+    ammo="Knobkierrie",
+    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
+	body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    --body="Erilaz Surcoat +2",
+    hands="Meg. Gloves +2",
+    legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
+    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Ilabrat Ring",
     --right_ring="Epaminondas's Ring",	
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
 
+	sets.ws.epami = {
+	right_ring="Epaminondas's Ring",	
+	}
 	sets.ws['Savage Blade']	= {
     ammo="Knobkierrie",
-    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','"Crit.hit rate"+3',}},
+    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     body="Erilaz Surcoat +2",
     hands="Meg. Gloves +2",
     legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
-    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Niqmaddu Ring",
+    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Sherida Earring",
+    left_ring="Sroda Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
@@ -330,8 +352,8 @@ function get_sets()
     feet="Meg. Jam. +2",
     neck="Fotia Gorget",
     waist="Fotia Belt",
-    left_ear="Sherida Earring",
-    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Epona's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
@@ -355,19 +377,20 @@ function get_sets()
 	
 	sets.ws['Upheaval']	= {
 	ammo="Knobkierrie",
-    head="Adhemar Bonnet +1",
+    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands="Meg. Gloves +2",
-    legs="Meg. Chausses +2",
-    feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
+    legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
+    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
-    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
+	
 	sets.ws['Steel Cyclone']	= {
     ammo="Knobkierrie",
     head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','"Crit.hit rate"+3',}},
@@ -377,12 +400,13 @@ function get_sets()
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
-    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Sroda Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
+
 	sets.ws['Fell Cleave']	= {
     ammo="Knobkierrie",
     head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','"Crit.hit rate"+3',}},
@@ -392,12 +416,13 @@ function get_sets()
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
-    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
-    right_ring="Epaminondas's Ring",
+    right_ring="Sroda Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
+	
 	sets.ws['Armor Break']	= { --, Use MACC to ensure additional effect proc, Defense Down
     ammo="Knobkierrie",
 	head="Erilaz Galea +2", 
@@ -420,12 +445,12 @@ function get_sets()
     hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},
     legs="Meg. Chausses +2",
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
-    neck="Fotia Gorget",
-    waist="Fotia Belt",
-    left_ear="Sherida Earring",
-    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Niqmaddu Ring",
-    right_ring="Epona's Ring",
+    neck="Rep. Plat. Medal",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Sherida Earring",
+    left_ring="Epona's Ring",
+    right_ring="Refuscent Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}	
 	sets.ws['Smash Axe']	= {
@@ -437,8 +462,8 @@ function get_sets()
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
-    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Sherida Earring",
     left_ring="Epona's Ring",
     right_ring="Refuscent Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
@@ -452,8 +477,8 @@ function get_sets()
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
-    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Sherida Earring",
     left_ring="Epona's Ring",
     right_ring="Refuscent Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
@@ -948,24 +973,39 @@ function get_sets()
 end
 
 function precast(spell) --, "==" indicates "Is", "~=" indicates "Is not", See examples in RDM.lua
-
     if  spell.type == 'JobAbility' then
-        equip(sets.ja.enmity)
-    end	
+        if TankingTP == false then
+			equip(sets.ja.enmity)
+				elseif TankingTP == true then
+					equip(set_combine(sets.ja.enmity, sets.TankHP))
+			end
+		end	
     if  spell.action_type == 'Magic' then --, All magic types uses assigned set
-        equip(sets.precast.fastcast)
-	end 
+		if TankingTP == false then
+			equip(sets.precast.fastcast)
+				elseif TankingTP == true then
+					equip(set_combine(sets.precast.fastcast, sets.TankHP))
+			end
+		end
 	if spell.skill == 'Enhancing Magic' then --, If specifically Enhancing magic, then uses this set instead	
-		equip(sets.precast.enhancing)
-	end
+		if TankingTP == false then
+			equip(sets.precast.enhancing)
+				elseif TankingTP == true then
+					equip(set_combine(sets.precast.enhancing, sets.TankHP))
+			end
+		end
     if sets.ja[spell.name] then --, When set is setup as specified, then uses the preassigned set
-        equip(sets.ja[spell.name])
-	end
+        if TankingTP == false then
+			equip(sets.ja[spell.name])
+				elseif TankingTP == true then
+					equip(set_combine(sets.ja[spell.name], sets.TankHP))
+			end
+		end
     if sets.ws[spell.name] then
-		if TankingTP == false then --, WS in DD mode, 
-			equip(sets.ws[spell.name]) --, 2700 HP
-				elseif TankingTP == true then --, WS in Tank mode
-					equip(set_combine(sets.ws[spell.name]), sets.TankWS) --, 3500 HP
+		if TankingTP == false then
+			equip(sets.ws[spell.name])
+				elseif TankingTP == true then
+					equip(set_combine(sets.ws[spell.name], sets.TankHP))
 			end
 		end
 	if spell.name:match('Lunge') or spell.name:match('Swipe')then
