@@ -35,7 +35,7 @@ function get_sets()
 	sets.TwoHandedTP.index = { 'Normal', 'Hybrid'}
 	TwoHandedTP_ind = 1
 
-	sets.TwoHandedTP.Normal = { -- 3QA, 22TA, 37DA, Temper+28 = 65DA, Embolden +14 = 79DA, -24PDT, -6MDT
+	sets.TwoHandedTP.Normal = { -- 3QA, 22TA, 36DA, Temper+28 = 64DA, Embolden +12 = 77DA, -24PDT, -6MDT
     ammo="Yamarang",
     head="Adhemar Bonnet +1",
     --body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -52,7 +52,7 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 
-	sets.TwoHandedTP.Hybrid = { -- 3QA, 37DA, Temper+28 = 65DA, Embolden +14 = 79DA, -42PDT, -41MDT, +11 Inquartata, Parry+5%
+	sets.TwoHandedTP.Hybrid = { -- 3QA, 37DA, Temper+28 = 65DA, Embolden +12 = 77DA, -42PDT, -41MDT, +11 Inquartata, Parry+5%
     ammo="Crepuscular Pebble",
     head="Blistering Sallet +1",
     body="Ayanmo Corazza +2",
@@ -78,11 +78,12 @@ function get_sets()
 	sets.TankingTP.index = { 'DT','Parry'}
 	TankingTP_ind = 1
 	
-	sets.TankingTP.DT = { --, -49PDT (PDT should be as close to 50 as possible, Protect adds to defense which is separate from PDT), -49MDT (MDT only need to be -21% in any set, Shell V is -29% MDT), Inquartata +6, Parry +5%, 3750HP, +28 DA
+	sets.TankingTP.DT = { --, -45PDT (PDT should be as close to 50 as possible, Protect adds to defense which is separate from PDT), -47MDT (MDT only need to be -21% in any set, Shell V is -29% MDT), Inquartata +6, Parry +5%, 3850HP, +28 DA
     ammo="Crepuscular Pebble",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
-    hands="Erilaz Gauntlets +2",
+    hands="Turms Mittens +1",
+    --hands="Erilaz Gauntlets +2",
     legs="Erilaz Leg Guards +2",
     feet="Erilaz Greaves +2",
     neck="Unmoving Collar +1",
@@ -91,7 +92,8 @@ function get_sets()
     left_ear="Odnowa Earring +1",
     right_ear="Tuisto Earring",
     left_ring="Moonbeam Ring",
-    right_ring="Moonbeam Ring",
+    right_ring="Defending Ring",
+    --right_ring="Moonbeam Ring",
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}},
 	}
 
@@ -898,7 +900,7 @@ function get_sets()
     right_ring="Stikini Ring +1", 		--, 8
     back="Merciful Cape", 			--, 5
 	}
-	sets.midcast.enhancingskill = {		--, Enhancing Skill +106, ML35 = Skill 581 = Temper +28 Double Attack
+	sets.midcast.enhancingskill = {		--, Enhancing Skill +106, ML35 = Skill 581 = Temper +28 Double Attack, Embolden +37 (Head & Legs locked, +40% Duration)
 	ammo="Staunch Tathlum",
     head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}}, --10
     body="Manasa Chasuble", 			--, 12
