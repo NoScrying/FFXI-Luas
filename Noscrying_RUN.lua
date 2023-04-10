@@ -1060,7 +1060,7 @@ function buff_change(buff,gain) --, See list of buff names under Gearswap librar
             disable("neck")
         else
             enable("neck")
-            status_change(player.status)
+			
         end
 	end
     --Embolden cape lock--
@@ -1068,22 +1068,25 @@ function buff_change(buff,gain) --, See list of buff names under Gearswap librar
         if gain then --, Checks whether or not it is Active
             equip(sets.ja['Embolden'])
             disable('head','legs','back') --, Locks specific armor slots so they cannot change.
-            add_to_chat(158,'[Embolden] ON -- Back Locked')
+            add_to_chat(123,'[Embolden] ON -- Back Locked')
         else
             enable('head','legs','back') --, re-enables armor slots, when the buff/debuff is gone
-            add_to_chat(123,'[Embolden] OFF -- Back Unlocked')
-            status_change(player.status)
+            add_to_chat(158,'[Embolden] OFF -- Back Unlocked')
+			
         end
     end
-	if buffactive['Battuta'] then
+	if buff =='Battuta' then
+	if gain then
 		if TankingTP == false then
 		equip(sets.TwoHandedTP.Inquartata)
 	else if TankingTP == true then
 		equip(sets.TankingTP[sets.TankingTP.index[TankingTP_ind]])
-		idle()
+		
 	end
 	end
 end
+end
+	idle()
 end
 
 function idle() --, Engaged/Idle sets do not have to be here, can also be under self_command or anywhere really.
@@ -1094,15 +1097,7 @@ function idle() --, Engaged/Idle sets do not have to be here, can also be under 
 			equip(sets.TwoHandedTP[sets.TwoHandedTP.index[TwoHandedTP_ind]])
 	end
 end
-	if buffactive['Battuta'] then
-		if TankingTP == false then
-		equip(sets.TwoHandedTP.Inquartata)
-	else if TankingTP == true then
-		equip(sets.TankingTP[sets.TankingTP.index[TankingTP_ind]])
-		idle()
-	end
-	end
-end
+ 
 	if player.status =='Idle' then --, When holstering weapon
 		equip(sets.run[Run_Set_Names[Run_Index]])
 	end
