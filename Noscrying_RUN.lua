@@ -1,10 +1,10 @@
 function get_sets()
-	send_command('bind f9 gs c toggle TP set') --, Loads when changing job, this means if you hit f9 it toggles the sets
-	send_command('bind !f9 gs c toggle TankingTP') --! turns tanking tp off
-	send_command('bind f10 gs c toggle run set') 
-	send_command('bind f12 gs c toggle TH set') 
 	send_command('bind f7 gs c toggle Weapons set') 
 	send_command('bind !f7 gs c toggle Sub_Weapons set') 
+	send_command('bind f9 gs c toggle TP set') --, Loads when changing job, this means if you hit f9 it toggles the sets
+	send_command('bind !f9 gs c toggle Tank_Mode') --! turns tanking tp off
+	send_command('bind f10 gs c toggle run set') 
+	send_command('bind f12 gs c toggle TH set') 
 	send_command('bind !numpad1 gs c toggle Buff set')
 	send_command('bind !numpad0 gs c toggle Emergency MEVA')
 	Run_Index = 1 --, Index for gearsets, needed for when there is more than 1 in a set and you wish you toggle beween them
@@ -31,11 +31,11 @@ function get_sets()
 	sub="Utu Grip",
 	}	
 	
-	sets.TwoHandedTP = {}
-	sets.TwoHandedTP.index = { 'Normal', 'Hybrid'}
-	TwoHandedTP_ind = 1
+	sets.DD_Mode = {}
+	sets.DD_Mode.index = {'Normal: 30PDT', 'Hybrid: 43PDT'}
+	DD_Mode_ind = 1
 
-	sets.TwoHandedTP.Normal = { -- 3QA, 22TA, 36DA, Temper+28 = 64DA, Embolden +12 = 76DA, -24PDT, -6MDT
+	sets.DD_Mode["Normal: 30PDT"] = { -- 3QA, 22TA, 36DA, Temper+28 = 64DA, Embolden +12 = 76DA, -30PDT, -12MDT
     ammo="Yamarang",
     head="Adhemar Bonnet +1",
     --body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -43,7 +43,8 @@ function get_sets()
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 	legs="Meghanada Chausses +2",
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
-    neck="Anu Torque",
+    --neck="Anu Torque",
+	neck="Futhark Torque +2",
     waist="Ioskeha Belt +1",
     left_ear="Cessance Earring",
     right_ear="Sherida Earring",
@@ -52,14 +53,14 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 
-	sets.TwoHandedTP.Hybrid = { -- 3QA, 33DA, Temper+28 = 61DA, Embolden +12 = 73DA, -42PDT, -41MDT, +11 Inquartata, Parry+5%
-    ammo="Crepuscular Pebble",
+	sets.DD_Mode["Hybrid: 43PDT"] = { -- 3QA, 33DA, Temper+28 = 61DA, Embolden +12 = 73DA, -43PDT, -45MDT, +11 Inquartata, Parry+5%
+    ammo="Staunch Tathlum +1",
     head="Blistering Sallet +1",
     body="Ayanmo Corazza +2",
     hands="Turms Mittens +1",
     legs="Eri. Leg Guards +2",
     feet="Turms Leggings +1",
-    neck="Elite Royal Collar",
+    neck="Futhark Torque +2",
     waist="Ioskeha Belt +1",
     left_ear="Odnowa Earring +1",
     right_ear="Sherida Earring",
@@ -67,52 +68,53 @@ function get_sets()
     right_ring="Defending Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Parrying rate+5%',}},
 	}
-	sets.TwoHandedTP.Inquartata = {
+	sets.DD_Mode.Inquartata = {
     hands="Turms Mittens +1",
+	body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     legs="Eri. Leg Guards +2",
     feet="Turms Leggings +1",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Parrying rate+5%',}},
 	}
 	
-	sets.TankingTP = {}
-	sets.TankingTP.index = { 'DT','Parry'}
-	TankingTP_ind = 1
+	sets.Tank_Mode = {}
+	sets.Tank_Mode.index = { 'DT: 49PDT','Parry: 42PDT'}
+	Tank_Mode_ind = 1
 	
-	sets.TankingTP.DT = { --, -45PDT (PDT should be as close to 50 as possible, Protect adds to defense which is separate from PDT), -47MDT (MDT only need to be -21% in any set, Shell V is -29% MDT), Inquartata +6, Parry +5%, 3750HP, +28 DA
-    ammo="Crepuscular Pebble",
+	sets.Tank_Mode["DT: 49PDT"] = { --, -49PDT (PDT should be as close to 50 as possible, Protect adds to defense which is separate from PDT), -43MDT (MDT only need to be -21% in any set, Shell V is -29% MDT), Inquartata +6, Parry +5%, 3750HP, +28 DA
+    ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
     hands="Turms Mittens +1",
     --hands="Erilaz Gauntlets +2",
     legs="Erilaz Leg Guards +2",
     feet="Erilaz Greaves +2",
-    neck="Unmoving Collar +1",
+    neck="Futhark Torque +2",
     -- waist="Engraved Belt",
 	waist="Platinum Moogle Belt",
     left_ear="Odnowa Earring +1",
     right_ear="Tuisto Earring",
-    left_ring="Moonbeam Ring",
-    right_ring="Defending Ring",
-    --right_ring="Moonbeam Ring",
+    left_ring="Moonlight Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    --right_ring="Moonlight Ring",
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}},
 	}
 
-	sets.TankingTP.Parry = { --, -48PDT, -35MDT, +11 Inquartata, Parry +5%, +37 DA
-    ammo="Crepuscular Pebble",
+	sets.Tank_Mode["Parry: 42PDT"] = { --, -42PDT, -44MDT, +11 Inquartata, Parry +5%, +37 DA
+    ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
     hands="Turms Mittens +1",
     legs="Eri. Leg Guards +2",
     feet="Turms Leggings +1",
-    neck="Elite Royal Collar",
+    neck="Futhark Torque +2",
 	waist="Platinum Moogle Belt",
     left_ear="Odnowa Earring +1",
     right_ear="Tuisto Earring",
-    left_ring="Moonbeam Ring",
+    left_ring="Moonlight Ring",
     right_ring="Defending Ring",
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}},
 	}
-	sets.TankingTP.Inquartata = {
+	sets.Tank_Mode.Inquartata = {
     hands="Turms Mittens +1",
     legs="Eri. Leg Guards +2",
     feet="Turms Leggings +1",
@@ -120,27 +122,27 @@ function get_sets()
 	}	
 
 	MEVA_Set_Name = {'MEVA'}
-	sets.MEVA = { 				--, +40-50 Elemental Resist, +10 Status Resist, +5% Magic Absorb chance, +5% Negate Magic Damage chance, +646 MEVA, -51% PDT, -40% MDT
-    ammo="Staunch Tathlum", 	--, +10 Status Resist, -2% DT
+	sets.MEVA = { 		--, +20-30 Elemental Resist, +10 Status Resist, +5% Negate Magic Damage chance, +676 MEVA, -51% PDT, -32% MDT
+    ammo="Staunch Tathlum +1", 	--, +10 Status Resist, -2% DT
     head="Erilaz Galea +2", 	--, +109 MEVA
-    body="Erilaz Surcoat +2", 	--, +120  MEVA
+    body="Erilaz Surcoat +2", 	--, +120 MEVA
     hands="Turms Mittens +1", 	--, +101 MEVA
     legs="Eri. Leg Guards +2", 	--, +147 MEVA, -12% DT
     feet="Erilaz Greaves +2", 	--, +147 MEVA, -10% DT
-    neck="Warder's Charm +1", 	--, +20 Element Resist, +5% Magic Absorb chance
+    neck="Futhark Torque +2",
     waist="Engraved Belt", 	--, +20-30 Element Resist
-    left_ear="Odnowa Earring +1", --, -5% MDT, -3% PDT
+    left_ear="Odnowa Earring +1",--, -5% MDT, -3% PDT
     right_ear="Tuisto Earring", 
     --left_ring="Archon Ring", 	--, +5% Negate Magic Damage chance
-    left_ring="Moonbeam Ring",
-    right_ring="Defending Ring", --, -10% DT
-	back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, +20 MEVA, -10% PDT
+    left_ring="Moonlight Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}}, --, -7% PDT, +1% MDT
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Phys. dmg. taken-10%',}}, --, +30 MEVA, -10% PDT
 	}	
 	
 	Run_Set_Names = {'DT','Regen','Refresh'}
 	sets.run = {}
-	sets.run.DT =  { --, -50PDT, -38MDT
-    ammo="Staunch Tathlum",
+	sets.run.DT =  { --, -51PDT, -32MDT
+    ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
     hands="Erilaz Gauntlets +2",
@@ -150,8 +152,8 @@ function get_sets()
 	waist="Platinum Moogle Belt",
     left_ear="Odnowa Earring +1",
     right_ear="Tuisto Earring",
-    left_ring="Moonbeam Ring",
-    right_ring="Defending Ring",
+    left_ring="Moonlight Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},
 	}
 	sets.run.Regen =  { -- Refresh 4/Tic, Regen 18/Tic
@@ -197,14 +199,14 @@ function get_sets()
 	sets.CureHP = {
     left_ear="Odnowa Earring +1", 	--, +110HP
     right_ear="Tuisto Earring", 	--, +150HP
-	left_ring="Moonbeam Ring",	--, +100HP
-	right_ring="Moonbeam Ring",	--, +100HP
+	left_ring="Moonlight Ring",	--, +110HP
+	right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},	--, +135HP
 	back="Moonbeam Cape",		--, +250HP
 	}
 	sets.RegenHP = {
     left_ear="Tuisto Earring", 		--, +150HP
-	left_ring="Moonbeam Ring",	--, +100HP
-	right_ring="Moonbeam Ring",	--, +100HP
+	left_ring="Moonlight Ring",	--, +110HP
+	right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},	--, +135HP
 	back="Moonbeam Cape",		--, +250HP
 	}		
 	sets.TankHP = {
@@ -212,6 +214,12 @@ function get_sets()
 	waist="Platinum Moogle Belt", 	--, +270HP'ish
     left_ear="Odnowa Earring +1", 	--, +110HP
     right_ear="Tuisto Earring", 	--, +150HP
+	}
+	sets.TankWS = {
+    neck="Unmoving Collar +1", 		--, +200HP
+	waist="Platinum Moogle Belt", 	--, +270HP'ish
+    right_ear="Tuisto Earring", 	--, +150HP
+	left_ring="Moonlight Ring",	--, +110HP
 	}
 	
 	sets.ws = {} 					-- Leave this empty.
@@ -229,7 +237,7 @@ function get_sets()
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Epona's Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Ogma's Cape", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
 	}
 	
 	sets.ws['Spinning Slash']	= {
@@ -237,7 +245,7 @@ function get_sets()
     head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     body="Erilaz Surcoat +2",
     hands="Meg. Gloves +2",
-    legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
+    legs="Meg. Chausses +2",
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -245,7 +253,7 @@ function get_sets()
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}},
 	}	
 	
 	sets.ws['Freezebite']	= {
@@ -261,7 +269,7 @@ function get_sets()
     right_ear="Friomisi Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}},
 	}
 	sets.ws['Herculean Slash']	= {
 	ammo="Knobkierrie",
@@ -276,7 +284,7 @@ function get_sets()
     right_ear="Friomisi Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}},
 	}
 	sets.ws['Shockwave']	= { --, Use MACC to ensure additional effect proc, Sleepga
     ammo="Knobkierrie",
@@ -298,7 +306,7 @@ function get_sets()
     head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     body="Erilaz Surcoat +2",
     hands="Meg. Gloves +2",
-    legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
+    legs="Meg. Chausses +2",
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Fotia Gorget",
     waist="Fotia Belt",
@@ -306,7 +314,7 @@ function get_sets()
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}},
 	}	
 	
 	sets.ws['Dimidiation']	= {
@@ -318,13 +326,13 @@ function get_sets()
     legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Fotia Gorget",
-    waist="Fotia Belt",
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
-    right_ring="Ilabrat Ring",
-    --right_ring="Epaminondas's Ring",	
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+    --right_ring="Ilabrat Ring",
+    right_ring="Epaminondas's Ring",	
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}},
 	}
 
 	sets.ws.epami = {
@@ -335,18 +343,18 @@ function get_sets()
     head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     body="Erilaz Surcoat +2",
     hands="Meg. Gloves +2",
-    legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
+    legs="Meg. Chausses +2",
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
-    left_ring="Sroda Ring",
+    left_ring="Ifrit Ring +1",
     right_ring="Epaminondas's Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}},
 	}
 	sets.ws['Chant du Cygne']	= {
-    ammo="Oshasha's Treatise",
+    ammo="Knobkierrie",
     head="Adhemar Bonnet +1",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands="Meg. Gloves +2",
@@ -374,7 +382,7 @@ function get_sets()
     right_ear="Friomisi Earring",
     left_ring="Archon Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}},
 	}
 	
 	sets.ws['Upheaval']	= {
@@ -390,7 +398,7 @@ function get_sets()
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}},
 	}
 	
 	sets.ws['Steel Cyclone']	= {
@@ -405,8 +413,8 @@ function get_sets()
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
-    right_ring="Sroda Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+    right_ring="Ifrit Ring +1",
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}},
 	}
 
 	sets.ws['Fell Cleave']	= {
@@ -421,8 +429,8 @@ function get_sets()
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
-    right_ring="Sroda Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+    right_ring="Ifrit Ring +1",
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}},
 	}
 	
 	sets.ws['Armor Break']	= { --, Use MACC to ensure additional effect proc, Defense Down
@@ -486,14 +494,14 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}	
 
-	sets.ja = {} 					-- Leave this empty
-	sets.ja.Enmity = { 		--, +69% Enmity (Enmity gear is a percentage increase or decrease, not an addition
+	sets.ja = {} 			-- Leave this empty
+	sets.ja.Enmity = { 		--, +74% Enmity (Enmity gear is a percentage increase or decrease, not an addition
     head="Halitus Helm", 		--, 8
     body="Emet Harness", 		--, 9
 	hands="Nilas Gloves", 		--, 5
     legs="Erilaz Leg Guards +2", 	--, 12
     feet="Erilaz Greaves +2",		--, 8
-    neck="Unmoving Collar +1", 		--, 10
+    neck="Moonlight Necklace", 		--, 15 Enmity
     waist="Warwolf Belt", 		--, 3
     left_ear="Friomisi Earring", 	--, 2
     right_ear="Eris' Earring", 		--, 2
@@ -551,12 +559,12 @@ function get_sets()
     waist="Platinum Moogle Belt",
     left_ear="Odnowa Earring +1",
     right_ear="Tuisto Earring",
-    left_ring="Moonbeam Ring",
-    right_ring="Moonbeam Ring",
+    left_ring="Moonlight Ring",
+    right_ring="Moonlight Ring",
     back="Moonbeam Cape",	
 	}
 	sets.ja['Ignis'] = {
-    ammo="Staunch Tathlum",
+    ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
     hands="Turms Mittens +1",
@@ -571,7 +579,7 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},	
 	}
 	sets.ja['Gelus'] = {
-    ammo="Staunch Tathlum",
+    ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
     hands="Turms Mittens +1",
@@ -586,7 +594,7 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},	
 	}
 	sets.ja['Tellus'] = {
-    ammo="Staunch Tathlum",
+    ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
     hands="Turms Mittens +1",
@@ -601,7 +609,7 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},	
 	}
 	sets.ja['Sulpor'] = {
-    ammo="Staunch Tathlum",
+    ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
     hands="Turms Mittens +1",
@@ -616,7 +624,7 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},	
 	}
 	sets.ja['Unda'] = {
-    ammo="Staunch Tathlum",
+    ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
     hands="Turms Mittens +1",
@@ -631,7 +639,7 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},	
 	}
 	sets.ja['Flabra'] = {
-    ammo="Staunch Tathlum",
+    ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
     hands="Turms Mittens +1",
@@ -646,7 +654,7 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},	
 	}
 	sets.ja['Lux'] = {
-    ammo="Staunch Tathlum",
+    ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
     hands="Turms Mittens +1",
@@ -661,7 +669,7 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},	
 	}
 	sets.ja['Tenebrae'] = {
-    ammo="Staunch Tathlum",
+    ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
     hands="Turms Mittens +1",
@@ -738,14 +746,14 @@ function get_sets()
 	sets.idle = {} 					-- Leave this empty
 	
 	sets.precast = {}               -- leave this empty
-	sets.precast.fastcast = { 	--, 58% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+10 = +70 SIRD
+	sets.precast.fastcast = { 	--, 58% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+10 = +75 SIRD
     ammo="Impatiens",
     head="Runeist Bandeau +2", 		--, 12
     body="Erilaz Surcoat +2", 		--, 10
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}}, --8
     legs="Carmine Cuisses +1",
     feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}}, --7
-    neck="Moonbeam Necklace", 		--, 10 Enmity, +10 SIRD
+    neck="Moonlight Necklace", 		--, 15 Enmity, +15 SIRD
     waist="Audumbla Sash",  		--, 10 SIRD, -4 PDT
     left_ear="Loquacious Earring", 	--, 2
     right_ear="Magnetic Earring",
@@ -753,14 +761,14 @@ function get_sets()
     right_ring="Weatherspoon Ring", 	--, 5
     back={ name="Ogma's Cape", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}}, --,10
 	} 
-	sets.precast.enhancing = { 	--, 71% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+10 = +63 SIRD
+	sets.precast.enhancing = { 	--, 71% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+10 = +68 SIRD
     ammo="Impatiens",
     head="Runeist Bandeau +2",		--, 12
     body="Erilaz Surcoat +2", 		--, 10
     hands="Rawhide Gloves",
     legs="Futhark Trousers +1", 	--, 13
     feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}}, --7
-    neck="Moonbeam Necklace", 		--, 10 Enmity, +10 SIRD
+    neck="Moonlight Necklace", 		--, 15 Enmity, +15 SIRD
     waist="Siegel Sash", 		--, 8 (Only works for Enhancing Magic)
     left_ear="Loquacious Earring", 	--, 2
     right_ear="Magnetic Earring",
@@ -770,27 +778,26 @@ function get_sets()
 	}
 
     sets.midcast = {}               -- leave this empty  
-	sets.midcast.sird = set_combine(sets.ja.Enmity, {--, Merit+10 == 108% (Cap 102%)
+	sets.midcast.sird = set_combine(sets.ja.Enmity, {--, Merit+10 == 105% (Cap 102%)
     ammo="Impatiens", 			--, 10
 	head="Erilaz Galea +2", 	--, 15
     hands="Rawhide Gloves", 		--, 15
     legs="Carmine Cuisses +1", 		--, 20
-    neck="Moonbeam Necklace", 		--, 10
+    neck="Moonlight Necklace", 		--, 15
     waist="Audumbla Sash",  		--, 10
-    right_ear="Magnetic Earring", 	--, 8 
-	left_ring="Moonbeam Ring",
+	left_ring="Moonlight Ring",
     right_ring="Defending Ring",
     back={ name="Ogma's Cape", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}}, --, 10
 	})
 
-	sets.midcast.enmity = { 	--, +49% Enmity (Enmity gear is a percentage increase or decrease, not an addition), Merit+10 = +83 SIRD, -41% PDT, -22% MDT
+	sets.midcast.enmity = { 	--, +54% Enmity (Enmity gear is a percentage increase or decrease, not an addition), Merit+10 = +88 SIRD, -41% PDT, -22% MDT
 	ammo="Impatiens", 		--, 10 SIRD
 	head="Erilaz Galea +2", 	--, 15 SIRD
     body="Emet Harness", 		--, 9 Enmity, -5 PDT
     hands="Rawhide Gloves", 		--, 15 SIRD
     legs="Erilaz Leg Guards +2", 	--, 12 Enmity, -12% DT
     feet="Erilaz Greaves +2",		--, 8 Enmity, -10% DT
-    neck="Moonbeam Necklace", 		--, 10 Enmity, 10 SIRD
+    neck="Moonlight Necklace", 		--, 15 Enmity, 15 SIRD
     waist="Audumbla Sash",  		--, 10 SIRD, -4 PDT
     left_ear="Halasz Earring", 		--, 5 SIRD
     right_ear="Magnetic Earring", 	--, 8 SIRD
@@ -798,14 +805,14 @@ function get_sets()
     right_ring="Provocare Ring", 	--, 5 Enmity
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, 10 Enmity, 10PDT
 	}
-	sets.midcast.MaxEnmity = { 	--, +69% Enmity, Merit+10 = +30 SIRD, -37% PDT, -22 MDT
+	sets.midcast.MaxEnmity = { 	--, +74% Enmity, Merit+10 = +35 SIRD, -37% PDT, -22 MDT
 	ammo="Impatiens", 		--, 10 SIRD
     head="Halitus Helm", 		--, 8 Enmity
     body="Emet Harness", 		--, 9 Enmity, -5 PDT
     hands="Nilas Gloves", 		--, 5 Enmity
     legs="Erilaz Leg Guards +2", 	--, 12 Enmity, -12% DT
     feet="Erilaz Greaves +2", 		--, 8 Enmity, -10% DT
-    neck="Moonbeam Necklace", 		--, 10 Enmity, +10 SIRD
+    neck="Moonlight Necklace", 		--, 15 Enmity, +15 SIRD
     waist="Warwolf Belt", 		--, 3 Enmity
     left_ear="Friomisi Earring", 	--, 2 Enmity
     right_ear="Eris' Earring", 		--, 2 Enmity
@@ -813,14 +820,14 @@ function get_sets()
     right_ring="Provocare Ring", 	--, 5 Enmity
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, 10 Enmity, 10PDT
 	}
-	sets.midcast.Foil = { 		--, +37% Enmity, Merit+10 = +83 SIRD, -29% PDT, -10% MDT, +40% Duration
+	sets.midcast.Foil = { 		--, +42% Enmity, Merit+10 = +88 SIRD, -29% PDT, -10% MDT, +40% Duration
 	ammo="Impatiens", 		--, 10 SIRD
 	head="Erilaz Galea +2", 	--, 15 SIRD, +20% Duration
     body="Emet Harness", 		--, 9 Enmity, -5 PDT
     hands="Rawhide Gloves", 		--, 15 SIRD
     legs={ name="Futhark Trousers +1", augments={'Enhances "Inspire" effect',}}, --, +20% Duration
     feet="Erilaz Greaves +2", 		--, 8 Enmity, -10% DT
-    neck="Moonbeam Necklace", 		--, 10 Enmity, +10 SIRD
+    neck="Moonlight Necklace", 		--, 10 Enmity, +10 SIRD
     waist="Audumbla Sash",  		--, 10 SIRD, -4 PDT
     left_ear="Halasz Earring", 		--, 5 SIRD
     right_ear="Magnetic Earring", 	--, 8 SIRD
@@ -828,7 +835,7 @@ function get_sets()
     right_ring="Provocare Ring", 	--, 5 Enmity
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, 10 Enmity, 10PDT
 	}	
-	sets.midcast.regen = {		--, Merit+10 = +800 SIRD +18 Regen, +30% Potency, +39 seconds, +20% Duration +25% Healing/Enhancing MP Cost  = Regen IV 58/tic, 168 Seconds = 3248 HP, Embolden 73/Tic, 110 Seconds = 2628, don't do it.
+	sets.midcast.regen = {		--, Merit+10 = +80 SIRD +18 Regen, +30% Potency, +39 seconds, +20% Duration +25% Healing/Enhancing MP Cost  = Regen IV 58/tic, 168 Seconds = 3248 HP, Embolden 73/Tic, 110 Seconds = 2628, don't do it.
 	ammo="Impatiens",
     head="Runeist Bandeau +2",
     body={ name="Taeon Tabard", augments={'Mag. Evasion+19','Spell interruption rate down -9%','"Regen" potency+3',}},
@@ -858,7 +865,7 @@ function get_sets()
     -- waist="Sroda Belt", 		--, +35
     -- back={ name="Ogma's Cape", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}},
 		
-    ammo="Impatiens", 			--, DT Set -47% PDT, -39% MDT, +45% Cure Potency, +25% Healing MP cost, Merit+10 = +50 SIRD
+    ammo="Impatiens", 			--, DT Set -48% PDT, -40% MDT, +45% Cure Potency, +25% Healing MP cost, Merit+10 = +50 SIRD
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
     hands="Erilaz Gauntlets +2",	--, -10% DT
@@ -868,7 +875,7 @@ function get_sets()
     waist="Sroda Belt", 		--, +35
     left_ear="Odnowa Earring +1",	--, -3% DT -2% MDT
     right_ear="Tuisto Earring",
-    left_ring="Moonbeam Ring", 		--, -4% DT
+    left_ring="Moonlight Ring", 	--, -4% DT
     left_ring="Defending Ring", 	--, -10% DT
     back={ name="Ogma's Cape", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}},
 	}
@@ -903,7 +910,8 @@ function get_sets()
     right_ring="Stikini Ring +1", 		--, 8
     back="Merciful Cape", 			--, 5
 	}
-	sets.midcast.enhancingskill = {		--, Enhancing Skill +106, ML35 = Skill 581 = Temper +28 Double Attack, Embolden +37
+	sets.midcast.enhancingskill = {		--, DD Mode: 	Enhancing Skill +106, ML40 = Skill 586 = Temper +28 Double Attack, Embolden +42,
+						--, Tank Mode: 	Enhancing Skill +76, ML40 = Skill 556 = Temper +25 Double Attack, Embolden +37,
 	ammo="Impatiens",
     head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}}, --10
     body="Manasa Chasuble", 			--, 12
@@ -918,7 +926,7 @@ function get_sets()
     right_ring="Stikini Ring +1", 		--, 8
     back="Merciful Cape", 			--, 5
 	}
-	sets.midcast.refresh = { 		--, +20 Seconds, +20% Duration, +3 Refresh Potency, 32DT, Absorbs 7% Damage to MP
+	sets.midcast.refresh = { 	--, +20 Seconds, +20% Duration, +3 Refresh Potency, 32DT, Absorbs 7% Damage to MP
 	ammo="Impatiens",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
@@ -936,17 +944,17 @@ function get_sets()
 	
     sets.midcast.MACC = { 		--, +326 MACC
     ammo="Impatiens",
-	head="Erilaz Galea +2", 	 --, 51
-    body="Erilaz Surcoat +2", 	 	 --, 54
-    hands="Erilaz Gauntlets +2", 	 --, 52
-    legs="Erilaz Leg Guards +2", 	 --, 53
-    feet="Erilaz Greaves +2", 	 	 --, 50
-    neck="Erra Pendant", 		 --, 17
-    waist="Eschan Stone", 		 --, 7
-    left_ear="Crepuscular Earring", 	 --, 10
+	head="Erilaz Galea +2", 	--, 51
+    body="Erilaz Surcoat +2", 	 	--, 54
+    hands="Erilaz Gauntlets +2", 	--, 52
+    legs="Erilaz Leg Guards +2", 	--, 53
+    feet="Erilaz Greaves +2", 	 	--, 50
+    neck="Erra Pendant", 		--, 17
+    waist="Eschan Stone", 		--, 7
+    left_ear="Crepuscular Earring", 	--, 10
     right_ear={ name="Erilaz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}}, --, 6
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}}, --, 15
-    right_ring="Stikini Ring +1", 	 --, 11
+    right_ring="Stikini Ring +1", 	--, 11
     back="Moonbeam Cape",
 	}
 	Buff_Set_Names = {'Holywater'}
@@ -954,7 +962,7 @@ function get_sets()
 	sets.buff.reive = {
 	neck="Ygnas\'s Resolve +1",
 	}
-	sets.buff.Holywater = { 	--, +42% Holy Water (Doom removal chance), 33% Base +42% = 75% Chance
+	sets.buff.Holywater = { --, +42% Holy Water (Doom removal chance), 33% Base +42% = 75% Chance
     neck="Nicander's Necklace",
     left_ring="Blenmot's Ring",
     right_ring="Purity Ring",
@@ -979,38 +987,38 @@ end
 
 function precast(spell) --, "==" indicates "Is", "~=" indicates "Is not", See examples in RDM.lua
     if  spell.type == 'JobAbility' then
-        if TankingTP == false then
+        if Tank_Mode == false then
 			equip(sets.ja.enmity)
-				elseif TankingTP == true then
+				elseif Tank_Mode == true then
 					equip(set_combine(sets.ja.enmity, sets.TankHP))
 			end
 		end	
     if  spell.action_type == 'Magic' then --, All magic types uses assigned set
-		if TankingTP == false then
+		if Tank_Mode == false then
 			equip(sets.precast.fastcast)
-				elseif TankingTP == true then
+				elseif Tank_Mode == true then
 					equip(set_combine(sets.precast.fastcast, sets.TankHP))
 			end
 		end
 	if spell.skill == 'Enhancing Magic' then --, If specifically Enhancing magic, then uses this set instead	
-		if TankingTP == false then
+		if Tank_Mode == false then
 			equip(sets.precast.enhancing)
-				elseif TankingTP == true then
+				elseif Tank_Mode == true then
 					equip(set_combine(sets.precast.enhancing, sets.TankHP))
 			end
 		end
     if sets.ja[spell.name] then --, When set is setup as specified, then uses the preassigned set
-        if TankingTP == false then
+        if Tank_Mode == false then
 			equip(sets.ja[spell.name])
-				elseif TankingTP == true then
+				elseif Tank_Mode == true then
 					equip(set_combine(sets.ja[spell.name], sets.TankHP))
 			end
 		end
     if sets.ws[spell.name] then
-		if TankingTP == false then
+		if Tank_Mode == false then
 			equip(sets.ws[spell.name])
-				elseif TankingTP == true then
-					equip(set_combine(sets.ws[spell.name], sets.TankHP))
+				elseif Tank_Mode == true then
+					equip(set_combine(sets.ws[spell.name], sets.TankWS))
 			end
 		end
 	if spell.name:match('Lunge') or spell.name:match('Swipe')then
@@ -1030,65 +1038,65 @@ end
 
 function midcast(spell) --, Midcast works in hierachy. The lower on the list the higher priority when using lazy If/End statements, otherwise when using If/Else/End, "Else" takes priority. See RDM lua for examples
 	if spell.skill == 'Enhancing Magic' then
-		if TankingTP == false then
+		if Tank_Mode == false then
 			equip(sets.midcast.enhancingduration)
-				elseif TankingTP == true then
+				elseif Tank_Mode == true then
 					equip(set_combine(sets.midcast.enhancingduration, sets.TankHP))
 			end
 		end
 	if spell.name:match('Refresh') then
-		if TankingTP == false then
+		if Tank_Mode == false then
 			equip(sets.midcast.refresh)
-				elseif TankingTP == true then
+				elseif Tank_Mode == true then
 					equip(set_combine(sets.midcast.refresh, sets.TankHP))
 			end
 		end
-	if spell.name:match('Poison') or spell.name:match('Absorb') then  
-		if TankingTP == false then
+	if spell.name:match('Poison') or spell.name:match('Absorb') or spell.skill == 'Blue Magic' then  
+		if Tank_Mode == false then
 			equip(sets.midcast.enmity)
-				elseif TankingTP == true then
+				elseif Tank_Mode == true then
 					equip(set_combine(sets.midcast.enmity, sets.TankHP))
 			end
 		end	
 	if spell.name =='Flash' or spell.name =='Stun' then
-		if TankingTP == false then
+		if Tank_Mode == false then
 			equip(sets.midcast.MaxEnmity)
-				elseif TankingTP == true then
+				elseif Tank_Mode == true then
 					equip(set_combine(sets.midcast.MaxEnmity, sets.TankHP))
 			end
 		end
 	if spell.name =='Foil' or spell.name =="Crusade" then
-		if TankingTP == false then
+		if Tank_Mode == false then
 			equip(sets.midcast.Foil)
-				elseif TankingTP == true then
+				elseif Tank_Mode == true then
 					equip(set_combine(sets.midcast.Foil, sets.TankHP))
 			end
 		end
 	if spell.name == 'Temper' or spell.name:match('Bar') then --,Spell.name == "xx" has to match name exactly, Spell.name:match ('xx') is like a variable that matches any prefix
-		if TankingTP == false then
+		if Tank_Mode == false then
 			equip(sets.midcast.enhancingskill)
-				elseif TankingTP == true then
+				elseif Tank_Mode == true then
 					equip(set_combine(sets.midcast.enhancingskill, sets.TankHP))
 			end
 		end	
 	if spell.name:match('Regen') then
-		if TankingTP == false then
+		if Tank_Mode == false then
 			equip(sets.midcast.regen)
-				elseif TankingTP == true then
+				elseif Tank_Mode == true then
 					equip(set_combine(sets.midcast.regen, sets.RegenHP))
 			end
 		end	
 	if spell.name:match('Phalanx') then
-		if TankingTP == false then
+		if Tank_Mode == false then
 			equip(sets.midcast.phalanx)
-				elseif TankingTP == true then
+				elseif Tank_Mode == true then
 					equip(set_combine(sets.midcast.phalanx, sets.TankHP))
 			end
 		end
     if spell.name:match('Magic Fruit') or spell.name:match('Cure') or spell.name:match('Healing Breeze')or spell.name:match('Wild Carrot')then
-		if TankingTP == false then
+		if Tank_Mode == false then
 			equip(sets.midcast.Cure)
-				elseif TankingTP == true then
+				elseif Tank_Mode == true then
 					equip(set_combine(sets.midcast.Cure, sets.CureHP))
 		end
 	end
@@ -1122,10 +1130,10 @@ function buff_change(buff,gain) --, See list of buff names under Gearswap librar
     end
 	if buff =='Battuta' then
 	if gain then
-		if TankingTP == false then
-		equip(sets.TwoHandedTP.Inquartata)
-	else if TankingTP == true then
-		equip(sets.TankingTP[sets.TankingTP.index[TankingTP_ind]])
+		if Tank_Mode == false then
+		equip(sets.DD_Mode.Inquartata)
+	else if Tank_Mode == true then
+		equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
 		end
 	end
 end
@@ -1135,17 +1143,17 @@ end
 
 function idle() --, Engaged/Idle sets do not have to be here, can also be under self_command or anywhere really.
 	if player.status =="Engaged" then --, When drawing weapon
-		if TankingTP == true then
-			equip(sets.TankingTP[sets.TankingTP.index[TankingTP_ind]]) --, Equips the last gearset you changed to, is not static
-		elseif TwoHandedTP == true then
-			equip(sets.TwoHandedTP[sets.TwoHandedTP.index[TwoHandedTP_ind]])
+		if Tank_Mode == true then
+			equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]]) --, Equips the last gearset you changed to, is not static
+		elseif DD_Mode == true then
+			equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
 	end
 end
 	if buffactive['Battuta'] then
-		if TankingTP == false then
-		equip(sets.TwoHandedTP.Inquartata)
-	else if TankingTP == true then
-		equip(sets.TankingTP[sets.TankingTP.index[TankingTP_ind]])
+		if Tank_Mode == false then
+		equip(sets.DD_Mode.Inquartata)
+	else if Tank_Mode == true then
+		equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
 	end
 	end
 end
@@ -1159,58 +1167,58 @@ function status_change(new,old) --, Checks player status when changing, is neces
 	idle()
 end
 
-TankingTP = true --, If true, default set is tanking TP array.
-TwoHandedTP = true --, TP set order, looks for Tanking TP set before 2H TP
+Tank_Mode = true --, If true, default set is tanking TP array.
+DD_Mode = true --, TP set order, looks for Tanking TP set before 2H TP
 
 function self_command(command) --, Allows of use of various commands
 	if command == 'toggle TP set' then --, When using the command as specified at the top of this lua, then executes these functions
-		if TankingTP == true then --, Checks whether or not the TankingTP Mode is active,
-			TankingTP_ind = TankingTP_ind + 1 --, Cycles through the Index, starts at 1 when switching or starting game
-			if TankingTP_ind > #sets.TankingTP.index then TankingTP_ind = 1 end 
-			windower.add_to_chat('TankingTP Set changed to ' .. sets.TankingTP.index[TankingTP_ind] ..'') --, Sends a message ingame, not visible to others.
+		if Tank_Mode == true then --, Checks whether or not the Tank_Mode Mode is active,
+			Tank_Mode_ind = Tank_Mode_ind + 1 --, Cycles through the Index, starts at 1 when switching or starting game
+			if Tank_Mode_ind > #sets.Tank_Mode.index then Tank_Mode_ind = 1 end 
+			windower.add_to_chat('Tank mode --> ' .. sets.Tank_Mode.index[Tank_Mode_ind] ..'') --, Sends a message ingame, not visible to others.
 			if player.status == 'Engaged' then
-				equip(sets.TankingTP[sets.TankingTP.index[TankingTP_ind]])
+				equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
 			end
-		elseif TankingTP == false then
-			if TwoHandedTP == true then
-				TwoHandedTP_ind = TwoHandedTP_ind + 1
-				if TwoHandedTP_ind > #sets.TwoHandedTP.index then TwoHandedTP_ind = 1 end
-				windower.add_to_chat('2H TP Set changed to ' .. sets.TwoHandedTP.index[TwoHandedTP_ind] ..'')
+		elseif Tank_Mode == false then
+			if DD_Mode == true then
+				DD_Mode_ind = DD_Mode_ind + 1
+				if DD_Mode_ind > #sets.DD_Mode.index then DD_Mode_ind = 1 end
+				windower.add_to_chat('DD mode --> ' .. sets.DD_Mode.index[DD_Mode_ind] ..'')
 				if player.status == 'Engaged' then
-						equip(sets.TwoHandedTP[sets.TwoHandedTP.index[TwoHandedTP_ind]])
+						equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
 					end
 				end
 			end		
 		end
-	if command == 'toggle TankingTP set' then
-		TankingTP_ind = TankingTP_ind + 1
-		if TankingTP_ind > #sets.TankingTP.index then TankingTP_ind = 1 end
-		windower.add_to_chat('TankingTP Set changed to ' .. sets.TankingTP.index[TankingTP_ind] ..'')
+	if command == 'toggle Tank_Mode set' then
+		Tank_Mode_ind = Tank_Mode_ind + 1
+		if Tank_Mode_ind > #sets.Tank_Mode.index then Tank_Mode_ind = 1 end
+		windower.add_to_chat('Tank mode --> ' .. sets.Tank_Mode.index[Tank_Mode_ind] ..'')
 		if player.status == 'Engaged' then
-			equip(sets.TankingTP[sets.TankingTP.index[TankingTP_ind]])
+			equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
 		end
-	elseif command == 'toggle TankingTP' then
-		if TankingTP == true then
-			TankingTP = false
-			windower.add_to_chat('<----- Tanking TP: [Off] ----->')
+	elseif command == 'toggle Tank_Mode' then
+		if Tank_Mode == true then
+			Tank_Mode = false
+			windower.add_to_chat('<----- Tanking Mode: [Off] ----->')
         else
-			TankingTP = true
-			windower.add_to_chat('<----- Tanking TP: [On] ----->')
+			Tank_Mode = true
+			windower.add_to_chat('<----- Tanking Mode: [On] ----->')
 		end
 		status_change(player.status)
-	elseif command == 'toggle TwoHandedTP' then
-		if TwoHandedTP == true then
-			TwoHandedTP = false
-			windower.add_to_chat('<----- 2H TP: [Off] ----->')
+	elseif command == 'toggle DD_Mode' then
+		if DD_Mode == true then
+			DD_Mode = false
+			windower.add_to_chat('<----- DD Mode: [Off] ----->')
         else
-			TwoHandedTP = true
-			windower.add_to_chat('<----- 2H TP: [On] ----->')
+			DD_Mode = true
+			windower.add_to_chat('<----- DD Mode: [On] ----->')
 		end
 	end
 	if command == 'toggle run set' then
         Run_Index = Run_Index +1
         if Run_Index > #Run_Set_Names then Run_Index = 1 end
-        windower.add_to_chat('Movement is now: '..Run_Set_Names[Run_Index])
+        windower.add_to_chat('Movement is now: '..Run_Set_Names[Run_Index]..' mode')
 		equip(sets.run[Run_Set_Names[Run_Index]])
 	end
 	if command == 'toggle TH set' then
@@ -1234,11 +1242,11 @@ function self_command(command) --, Allows of use of various commands
 	if command == 'toggle Buff set' then
         Buff_Index = Buff_Index +1
     if Buff_Index > #Buff_Set_Names then Buff_Index = 1 end
-        windower.add_to_chat('Buff mode is now: '..Buff_Set_Names[Buff_Index])
+        windower.add_to_chat(Buff_Set_Names[Buff_Index]..'+75% equipped')
         equip(sets.buff[Buff_Set_Names[Buff_Index]])
     end
 	if command == 'toggle Emergency MEVA' then
-        windower.add_to_chat('Equipping Emergency MEVA/DT')
+        windower.add_to_chat('Emergency MEVA/DT On')
 		equip(sets.MEVA)
 	end
 end
@@ -1247,14 +1255,14 @@ end
 
 
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
+send_command('unbind f7')
+send_command('unbind !f7')
 send_command('unbind f9')
 send_command('unbind !f9')
 send_command('unbind f10')
 send_command('unbind !f10')
 send_command('unbind f12')
 send_command('unbind !f12')
-send_command('unbind f7')
-send_command('unbind !f7')
 send_command('unbind !numpad1')
 send_command('unbind !numpad0')
 end
