@@ -399,9 +399,6 @@ function get_sets()
 end
 
 function precast(spell)
-    if  spell.type ~= 'JobAbility' then
-        equip(sets.ja[spell.name])
-	end
     if  spell.action_type == 'Magic' then
         equip(sets.precast.fastcast)
 	end 
@@ -417,6 +414,9 @@ function precast(spell)
 end
 
 function midcast(spell)
+    if  spell.action_type == 'Magic' then
+        equip(sets.MEVA)
+	end 
 	if spell.name:match('Phalanx') then
 		equip(sets.midcast.phalanx)
 	end
