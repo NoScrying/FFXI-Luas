@@ -746,34 +746,34 @@ function get_sets()
 	sets.idle = {} 					-- Leave this empty
 	
 	sets.precast = {}               -- leave this empty
-	sets.precast.fastcast = { 	--, 58% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+10 = +75 SIRD
-    ammo="Impatiens",
-    head="Runeist Bandeau +2", 		--, 12
+	sets.precast.fastcast = { 	--, QM+3%, 75% (Cap 80%) Inspiration 1 = 12% Fast Cast on Valiance or Vallation, Merit+10 = +52 SIRD
+    ammo="Sapience Orb",		--, 2
+    head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}}, --, 14
     body="Erilaz Surcoat +2", 		--, 10
-    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}}, --8
-    legs="Carmine Cuisses +1",
-    feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}}, --7
-    neck="Moonlight Necklace", 		--, 15 Enmity, +15 SIRD
+    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}}, --, 8
+    legs="Aya. Cosciales +2",		--, 6
+    feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}}, --, 8
+    neck="Voltsurge Torque", 		--, 4
     waist="Audumbla Sash",  		--, 10 SIRD, -4 PDT
     left_ear="Loquacious Earring", 	--, 2
-    right_ear="Magnetic Earring",
+    right_ear="Enchanter's Earring +1", --, 2
     left_ring="Kishar Ring", 		--, 4
-    right_ring="Weatherspoon Ring", 	--, 5
+    right_ring="Weatherspoon Ring", --, 5, QM+3%
     back={ name="Ogma's Cape", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}}, --,10
 	} 
-	sets.precast.enhancing = { 	--, 71% (Cap 80%) Inspiration 2 = 24% Fast Cast on Valiance or Vallation, Merit+10 = +68 SIRD
-    ammo="Impatiens",
-    head="Runeist Bandeau +2",		--, 12
+	sets.precast.enhancing = { 	--, QM+5%, 80% (Cap 80%) Inspiration 1 = 12% Fast Cast on Valiance or Vallation, Merit+10 = +30 SIRD
+    ammo="Impatiens",			--, QM+2%
+    head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}}, --, 14
     body="Erilaz Surcoat +2", 		--, 10
-    hands="Rawhide Gloves",
-    legs="Futhark Trousers +1", 	--, 13
-    feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}}, --7
-    neck="Moonlight Necklace", 		--, 15 Enmity, +15 SIRD
+    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}}, --, 8
+    legs="Futhark Trousers +1", 	--, 13 (Only works for Enhancing Magic)
+    feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}}, --, 8
+    neck="Futhark Torque +2",
     waist="Siegel Sash", 		--, 8 (Only works for Enhancing Magic)
     left_ear="Loquacious Earring", 	--, 2
-    right_ear="Magnetic Earring",
-    left_ring="Kishar Ring", 		--, 4
-    right_ring="Weatherspoon Ring", 	--, 5
+    right_ear="Enchanter's Earring +1", --, 2
+    left_ring="Weatherspoon Ring", 	--, 5, QM+3%
+    right_ring="Defending Ring",
     back={ name="Ogma's Cape", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}}, --10
 	}
 
