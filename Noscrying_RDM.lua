@@ -508,7 +508,7 @@ function get_sets()
 	Cure_Index = 1
 	Cure_Set_Names = {'Potency','Enmity'}
 	sets.Cure = {}	
-	sets.Cure.Potency = { 		--,  +58 Cure Potency (Cap 50), +55 Healing Skill, +19% Self Potency = Cure IV 1000+ HP
+	sets.Cure.Potency = { 		--,  +58% Cure Potency (Cap 50%), +55 Healing Skill, +19% Self Potency = Cure IV 1000+ HP
 	ammo="Staunch Tathlum +1",
 	head={ name="Telchine Cap", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
     body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
@@ -523,7 +523,7 @@ function get_sets()
     right_ring="Menelaus's Ring",
     back="Tempered Cape +1",
 	}
-	sets.Cure.Enmity = { 		--, +51% Enmity
+	sets.Cure.Enmity = { 		--, +51% Enmity, +19% Cure Potency
 	ammo="Sapience Orb", 		--, 2 Enmity
     head="Halitus Helm", 		--, 8 Enmity
     body="Emet Harness", 		--, 9 Enmity, -5 PDT
@@ -712,8 +712,8 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}},
 	}
-	sets.midcast.Enmity = { 	--, +49% Enmity
-	ammo="Impatiens", 		--, 10 SIRD
+	sets.midcast.Enmity = { 	--, +51% Enmity
+	ammo="Sapience Orb", 		--, 2 Enmity
     head="Halitus Helm", 		--, 8 Enmity
     body="Emet Harness", 		--, 9 Enmity, -5 PDT
     hands="Nilas Gloves", 		--, 5 Enmity
@@ -723,7 +723,6 @@ function get_sets()
     right_ear="Eris' Earring", 		--, 2 Enmity
     left_ring="Supershear Ring", 	--, 5 Enmity
     right_ring="Provocare Ring", 	--, 5 Enmity
-    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, 10 Enmity, 10PDT
 	}	
 
 
