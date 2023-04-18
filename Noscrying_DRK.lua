@@ -634,20 +634,20 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 	sets.idle = {} 					-- Leave this empty
 	
 	sets.precast = {}
-	sets.precast.fastcast = { 	--, QM+5%, + 66 FC
-	ammo="Impatiens", 		--, Quick Magic +2% (cap 10%)
-    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}}, --, 12
-    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}}, --, 8
-    neck="Voltsurge Torque", 		--, 4
-    body="Sacro Breastplate", 		--, 10
+	sets.precast.fastcast = { 	--, QM+3%, + 71 FC
+	ammo="Sapience Orb", 		--, 2% (cap 10%)
+   	head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}}, --, 14
+    	hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}}, --, 8
+    	neck="Voltsurge Torque", 	--, 4
+    	body="Sacro Breastplate", 	--, 10
 	legs="Carmine Cuisses +1",
-	feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}}, --, 7
+	feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}}, --, 8
 	left_ring="Kishar Ring", 	--, 4
 	right_ring="Weatherspoon Ring", --, 5 + QM +3%
-    left_ear="Malignance Earring",	--, 4
-    right_ear="Loquacious Earring", 	--, 2
-    back={ name="Ankou's Mantle", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}}, --, 10
-	} 
+    	left_ear="Malignance Earring",	--, 4
+    	right_ear="Loquacious Earring", --, 2
+    	back={ name="Ankou's Mantle", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}}, --, 10
+	}  
 		
 		
     sets.midcast = {}
