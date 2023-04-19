@@ -1094,19 +1094,21 @@ function midcast(spell) --, Midcast works in hierachy. The lower on the list the
 			end
 		end	
 	if spell.name:match('Regen') then
-		if Tank_Mode == false then
-			equip(sets.midcast.regen)
-				elseif Tank_Mode == true then
-					equip(set_combine(sets.midcast.regen, sets.RegenHP))
-			end
-		end	
-	if spell.name:match('Phalanx') then
-		if Tank_Mode == false then
-			equip(sets.midcast.phalanx)
-				elseif Tank_Mode == true then
-					equip(sets.midcast.phalanxSIRD)
+		equip(sets.midcast.regen)
+			if Tank_Mode == true then
+				if	player.status == "Engaged" then
+				equip(set_combine(sets.midcast.regen, sets.RegenHP))
 			end
 		end
+	end	
+	if spell.name:match('Phalanx') then
+		equip(sets.midcast.phalanx)
+			if Tank_Mode == true then
+				if	player.status == "Engaged" then
+				equip(sets.midcast.phalanxSIRD)
+			end
+		end
+	end
     if spell.name:match('Magic Fruit') or spell.name:match('Cure') or spell.name:match('Healing Breeze')or spell.name:match('Wild Carrot')then
 		if Tank_Mode == false then
 			equip(sets.midcast.Cure)
