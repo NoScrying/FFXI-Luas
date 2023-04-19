@@ -880,13 +880,13 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}},
 	}
 	
-	sets.midcast.phalanx = { 	--, ML35 = Skill 521 = Phalanx Tier 8, -35 Damage, +17 = -52 Damage, Merit+10 = +20 SIRD
+	sets.midcast.phalanx = { 	--, ML41 = Skill 527 = Phalanx Tier 8, -35 Damage, +17 = -52 Damage, Merit+10 = 60% SIRD
 	ammo="Impatiens",
     head={ name="Fu. Bandeau +1", augments={'Enhances "Battuta" effect',}},
-    body={ name="Taeon Tabard", augments={'"Fast Cast"+5','Phalanx +3',}},
-    hands={ name="Taeon Gloves", augments={'"Fast Cast"+5','Phalanx +3',}},
-    legs={ name="Taeon Tights", augments={'"Fast Cast"+5','Phalanx +3',}},
-    feet={ name="Taeon Boots", augments={'"Fast Cast"+5','Phalanx +3',}},
+    body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    feet={ name="Taeon Boots", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     neck="Melic Torque",
 	waist="Olympus Sash",
     left_ear="Andoaa Earring",
@@ -895,7 +895,22 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back="Moonbeam Cape",
 	}
-	sets.midcast.enhancingduration = {	--, Enhancing Skill +78, +40% Duration, Skill 553
+	sets.midcast.phalanxSIRD = {	--, ML41 = Skill 481 = Phalanx Tier 7 , -34 Damage, +12 = -46 Damage, Merit+10 = 105% SIRD
+	ammo="Impatiens",		--, 10
+    head="Erilaz Galea +2", 		--, 15
+    body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}}, 	--, 10
+    hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},	--, 10
+    legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},	--, 10
+    feet={ name="Taeon Boots", augments={'Spell interruption rate down -10%','Phalanx +3',}},	--, 10
+    neck="Moonlight Necklace", 		--, 15
+    waist="Audumbla Sash",  		--, 10
+    left_ear="Odnowa Earring +1",
+    right_ear="Tuisto Earring",
+	left_ring="Evanescence Ring",	--, 5
+    right_ring="Defending Ring",
+    back={ name="Ogma's Cape", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}}, --, 10
+	}
+	sets.midcast.enhancingduration = {	--, Enhancing Skill +84, +40% Duration, Skill 553
 	ammo="Impatiens",
     head="Erilaz Galea +2", 			--, +20%
     body="Manasa Chasuble", 			--, 12
@@ -910,9 +925,8 @@ function get_sets()
     right_ring="Stikini Ring +1", 		--, 8
     back="Merciful Cape", 			--, 5
 	}
-	sets.midcast.enhancingskill = {		--, DD Mode: 	Enhancing Skill +106, ML40 = Skill 586 = Temper +28 Double Attack, Embolden +42,
-						--, Tank Mode: 	Enhancing Skill +76, ML40 = Skill 556 = Temper +25 Double Attack, Embolden +37,
-	ammo="Impatiens",
+	sets.midcast.enhancingskill = {		--, DD Mode: 	Enhancing Skill +106, ML40 = Skill 588 = Temper +28 Double Attack, Embolden +42,	
+	ammo="Impatiens",			--, Tank Mode: 	Enhancing Skill +76,  ML40 = Skill 558 = Temper +25 Double Attack, Embolden +37,
     head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}}, --10
     body="Manasa Chasuble", 			--, 12
     hands="Runeist Mitons", 			--, 15
@@ -1090,7 +1104,7 @@ function midcast(spell) --, Midcast works in hierachy. The lower on the list the
 		if Tank_Mode == false then
 			equip(sets.midcast.phalanx)
 				elseif Tank_Mode == true then
-					equip(set_combine(sets.midcast.phalanx, sets.TankHP))
+					equip(sets.midcast.phalanxSIRD)
 			end
 		end
     if spell.name:match('Magic Fruit') or spell.name:match('Cure') or spell.name:match('Healing Breeze')or spell.name:match('Wild Carrot')then
