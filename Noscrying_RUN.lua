@@ -41,14 +41,14 @@ function get_sets()
 	}
 	
 	sets.DD_Mode = {}
-	sets.DD_Mode.index = {'Normal: 35PDT', 'Hybrid: 43PDT'}
+	sets.DD_Mode.index = {'Normal: 35PDT', 'Hybrid: 45PDT'}
 	DD_Mode_ind = 1
 
-	sets.DD_Mode["Normal: 35PDT"] = { -- 3QA, 19TA, 34DA, Temper+28 = 62DA, Embolden +12 = 74DA, -35PDT, -17MDT
+	sets.DD_Mode["Normal: 35PDT"] = { -- 3QA, 19TA, 34DA, Temper+28 = 62DA, Embolden +12 = 74DA, -38PDT, -17MDT
     ammo="Yamarang",
     head="Adhemar Bonnet +1",
-    --body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body="Ayanmo Corazza +2",
+    --body="Nyame Mail",
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
 	legs="Meghanada Chausses +2",
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
@@ -62,10 +62,10 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 
-	sets.DD_Mode["Hybrid: 43PDT"] = { -- 3QA, 33DA, Temper+28 = 61DA, Embolden +12 = 73DA, -43PDT, -45MDT, +11 Inquartata, Parry+5%
+	sets.DD_Mode["Hybrid: 45PDT"] = { -- 3QA, 23DA, Temper+28 = 54DA, Embolden +12 = 66DA, -45PDT, -45MDT, +11 Inquartata, Parry+5%
     ammo="Staunch Tathlum +1",
-    head="Blistering Sallet +1",
-    body="Ayanmo Corazza +2",
+    head="Nyame Helm",
+    body="Nyame Mail",
     hands="Turms Mittens +1",
     legs="Eri. Leg Guards +2",
     feet="Turms Leggings +1",
@@ -74,7 +74,7 @@ function get_sets()
     left_ear="Odnowa Earring +1",
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
-    right_ring="Defending Ring",
+    right_ring="Moonlight Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Parrying rate+5%',}},
 	}
 	sets.DD_Mode.Inquartata = {
@@ -88,31 +88,29 @@ function get_sets()
 	}
 	
 	sets.Tank_Mode = {}
-	sets.Tank_Mode.index = { 'DT: 49PDT','Parry: 42PDT'}
+	sets.Tank_Mode.index = {'Parry: 49PDT','Hybrid'} --, 'Hybrid'
 	Tank_Mode_ind = 1
 	
-	sets.Tank_Mode["DT: 49PDT"] = { --, -49PDT (PDT should be as close to 50 as possible, Protect adds to defense which is separate from PDT), -43MDT (MDT only need to be -21% in any set, Shell V is -29% MDT), Inquartata +6, Parry +5%, 3750HP, +28 DA
+	sets.Tank_Mode["Hybrid"] = { --, -56PDT, -49MDT, +43 DA, +8 TA, +3 QA, 3400 HP
     ammo="Staunch Tathlum +1",
-    head="Erilaz Galea +2",
-    body="Erilaz Surcoat +2",
-    hands="Turms Mittens +1",
-    --hands="Erilaz Gauntlets +2",
+    head="Nyame Helm",
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     legs="Erilaz Leg Guards +2",
     feet="Erilaz Greaves +2",
     neck="Futhark Torque +2",
     -- waist="Engraved Belt",
 	waist="Platinum Moogle Belt",
-    left_ear="Odnowa Earring +1",
-    right_ear="Tuisto Earring",
-    left_ring="Moonlight Ring",
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    --right_ring="Moonlight Ring",
-    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}},
+    left_ear="Cessance Earring",
+    right_ear="Sherida Earring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Moonlight Ring",
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 
-	sets.Tank_Mode["Parry: 42PDT"] = { --, -42PDT, -44MDT, +11 Inquartata, Parry +5%, +37 DA
+	sets.Tank_Mode["Parry: 49PDT"] = { --, -49PDT, -51MDT, +11 Inquartata, Parry +5%, +25 DA, 3900 HP
     ammo="Staunch Tathlum +1",
-    head="Erilaz Galea +2",
+    head="Nyame Helm",
     body="Erilaz Surcoat +2",
     hands="Turms Mittens +1",
     legs="Eri. Leg Guards +2",
@@ -133,20 +131,20 @@ function get_sets()
 	}	
 
 	MEVA_Set_Name = {'MEVA'}
-	sets.MEVA = { 				--, +20-30 Elemental Resist, +10 Status Resist, +5% Negate Magic Damage chance, +676 MEVA, -51% PDT, -32% MDT
-    ammo="Staunch Tathlum +1", 	--, +10 Status Resist, -2% DT
-    head="Erilaz Galea +2", 	--, +109 MEVA
-    body="Erilaz Surcoat +2", 	--, +120 MEVA
-    hands="Turms Mittens +1", 	--, +101 MEVA
-    legs="Eri. Leg Guards +2", 	--, +147 MEVA, -12% DT
-    feet="Erilaz Greaves +2", 	--, +147 MEVA, -10% DT
-    neck="Futhark Torque +2",
+	sets.MEVA = { 				--, +20-30 Elemental Resist, +10 Status Resist, +5% Negate Magic Damage chance, +744 MEVA, -61-% PDT, -44% MDT
+    ammo="Staunch Tathlum +1", 	--, +10 Status Resist, -3% DT
+    head="Nyame Helm",			--, +123, -7% DT
+    body="Nyame Mail",	 		--, +139, -9% DT
+    hands="Nyame Gauntlets",	--, +112, -7% DT
+    legs="Nyame Flanchard",		--, +150, -8% DT
+    feet="Nyame Sollerets",		--, +150, -7% DT
+    neck="Futhark Torque +2",	--, +30
     waist="Engraved Belt", 		--, +20-30 Element Resist
     left_ear="Odnowa Earring +1",	--, -5% MDT, -3% PDT
     right_ear="Tuisto Earring", 
     --left_ring="Archon Ring", 	--, +5% Negate Magic Damage chance
     left_ring="Moonlight Ring",
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}}, --, -7% PDT, +1% MDT
+    right_ring="Purity Ring", 	--, +10
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Phys. dmg. taken-10%',}}, --, +30 MEVA, -10% PDT
 	}	
 	
@@ -154,11 +152,11 @@ function get_sets()
 	sets.run = {}
 	sets.run.DT =  { --, -51PDT, -32MDT
     ammo="Staunch Tathlum +1",
-    head="Erilaz Galea +2",
-    body="Erilaz Surcoat +2",
-    hands="Erilaz Gauntlets +2",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet="Erilaz Greaves +2",
+    feet="Nyame Sollerets",
     neck="Warder's Charm +1",
 	waist="Platinum Moogle Belt",
     left_ear="Odnowa Earring +1",
@@ -186,9 +184,9 @@ function get_sets()
     ammo="Homiliary",
     head="Rawhide Mask",
     body="Runeist Coat +1",
-    hands="Erilaz Gauntlets +2",
+    hands="Nyame Gauntlets",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet="Erilaz Greaves +2",
+    feet="Nyame Sollerets",
     neck="Sibyl Scarf",
     waist="Engraved Belt",
     left_ear="Odnowa Earring +1",
@@ -253,7 +251,7 @@ function get_sets()
 
 	sets.ws['Dimidiation']	= {
     ammo="Knobkierrie",
-    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
+    head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
 	body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     --body="Erilaz Surcoat +2",
     hands="Meg. Gloves +2",
@@ -353,10 +351,10 @@ function get_sets()
 
 	sets.ws['Savage Blade']	= {
     ammo="Knobkierrie",
-    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
+    head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
     body="Erilaz Surcoat +2",
     hands="Meg. Gloves +2",
-    legs="Meg. Chausses +2",
+    legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -525,7 +523,6 @@ function get_sets()
 		
 	sets.ja['Vallation'] = set_combine(sets.ja.Enmity, { --, When we define a set as as "sets.ja['xx'], then we can in our precast set, refer to all named in this way, while still specifying a single set.
 	body="Runeist Coat +1",
-	legs="Futhark Trousers +3",
 	})
 	sets.ja['Embolden'] = set_combine(sets.ja.Enmity, { --, Adoulin cape lowers Embolden Duration penalty, from 50% -> 35%
     head="Erilaz Galea +2",
@@ -534,14 +531,12 @@ function get_sets()
 	})
 	sets.ja['Valiance'] = set_combine(sets.ja.Enmity, {
 	body="Runeist Coat +1",
-	legs="Futhark Trousers +3",
 	})
 	sets.ja['Vivacious Pulse'] = set_combine(sets.ja.Enmity,{ --, Higher Divine Magic skill provides more HP, More of the same Runes provides more HP
     head="Erilaz Galea +2",
 	legs="Runeist Trousers +1",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
-    back="Moonbeam Cape",
 	})
 	sets.ja['Pflug'] = set_combine(sets.ja.Enmity, {
 	})
@@ -580,7 +575,7 @@ function get_sets()
     ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
-    hands="Turms Mittens +1",
+    hands="Nyame Gauntlets",
     legs="Eri. Leg Guards +2",
     feet="Erilaz Greaves +2",
     neck="Warder's Charm +1",
@@ -595,7 +590,7 @@ function get_sets()
     ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
-    hands="Turms Mittens +1",
+    hands="Nyame Gauntlets",
     legs="Eri. Leg Guards +2",
     feet="Erilaz Greaves +2",
     neck="Warder's Charm +1",
@@ -610,7 +605,7 @@ function get_sets()
     ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
-    hands="Turms Mittens +1",
+    hands="Nyame Gauntlets",
     legs="Eri. Leg Guards +2",
     feet="Erilaz Greaves +2",
     neck="Warder's Charm +1",
@@ -625,7 +620,7 @@ function get_sets()
     ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
-    hands="Turms Mittens +1",
+    hands="Nyame Gauntlets",
     legs="Eri. Leg Guards +2",
     feet="Erilaz Greaves +2",
     neck="Warder's Charm +1",
@@ -640,7 +635,7 @@ function get_sets()
     ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
-    hands="Turms Mittens +1",
+    hands="Nyame Gauntlets",
     legs="Eri. Leg Guards +2",
     feet="Erilaz Greaves +2",
     neck="Warder's Charm +1",
@@ -655,7 +650,7 @@ function get_sets()
     ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
-    hands="Turms Mittens +1",
+    hands="Nyame Gauntlets",
     legs="Eri. Leg Guards +2",
     feet="Erilaz Greaves +2",
     neck="Warder's Charm +1",
@@ -670,7 +665,7 @@ function get_sets()
     ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
-    hands="Turms Mittens +1",
+    hands="Nyame Gauntlets",
     legs="Eri. Leg Guards +2",
     feet="Erilaz Greaves +2",
     neck="Warder's Charm +1",
@@ -685,7 +680,7 @@ function get_sets()
     ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",
     body="Erilaz Surcoat +2",
-    hands="Turms Mittens +1",
+    hands="Nyame Gauntlets",
     legs="Eri. Leg Guards +2",
     feet="Erilaz Greaves +2",
     neck="Warder's Charm +1",
@@ -698,11 +693,11 @@ function get_sets()
 	}
 	sets.ja['Lunge'] = {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head={ name="Herculean Helm", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','Weapon skill damage +5%','STR+9','Mag. Acc.+1',}},
-    body={ name="Carm. Scale Mail", augments={'Attack+15','"Mag.Atk.Bns."+10','"Dbl.Atk."+2',}},
-    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
-    legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
-    feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
@@ -713,11 +708,11 @@ function get_sets()
 	}
 	sets.ja['Swipe'] = {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head={ name="Herculean Helm", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','Weapon skill damage +5%','STR+9','Mag. Acc.+1',}},
-    body={ name="Carm. Scale Mail", augments={'Attack+15','"Mag.Atk.Bns."+10','"Dbl.Atk."+2',}},
-    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
-    legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
-    feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
@@ -729,10 +724,10 @@ function get_sets()
 	sets.ja.Dark = {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Pixie Hairpin +1",
-    body={ name="Carm. Scale Mail", augments={'Attack+15','"Mag.Atk.Bns."+10','"Dbl.Atk."+2',}},
-    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
-    legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
-    feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
@@ -743,11 +738,11 @@ function get_sets()
 	}
 	sets.ja.Light = {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head={ name="Herculean Helm", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','Weapon skill damage +5%','STR+9','Mag. Acc.+1',}},
-    body={ name="Carm. Scale Mail", augments={'Attack+15','"Mag.Atk.Bns."+10','"Dbl.Atk."+2',}},
-    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
-    legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
-    feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
@@ -793,7 +788,7 @@ function get_sets()
 	}
 
     sets.midcast = {}               -- leave this empty  
-	sets.midcast.sird = set_combine(sets.ja.Enmity, {--, Merit+10 == 106% (Cap 102%)
+	sets.midcast.sird = set_combine(sets.ja.Enmity, {--, Merit+10 == 106% (Cap 104%)
     ammo="Staunch Tathlum +1", 		--, 11
 	head="Erilaz Galea +2", 		--, 15
     hands="Rawhide Gloves", 		--, 15
@@ -821,7 +816,7 @@ function get_sets()
     right_ring="Provocare Ring", 	--, 5 Enmity
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, 10 Enmity, 10PDT
 	}
-	sets.midcast.enmity = { 		--, +54% Enmity (Enmity gear is a percentage increase or decrease, not an addition), Merit+10 = +89 SIRD, -41% PDT, -22% MDT
+	sets.midcast.enmity = { 		--, +64% Enmity (Enmity gear is a percentage increase or decrease, not an addition), Merit+10 = +89 SIRD, -41% PDT, -22% MDT
 	ammo="Staunch Tathlum +1", 		--, 11 SIRD
 	head="Erilaz Galea +2", 		--, 15 SIRD
     body="Emet Harness", 			--, 9 Enmity, -5 PDT
@@ -836,7 +831,7 @@ function get_sets()
     right_ring="Provocare Ring", 	--, 5 Enmity
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, 10 Enmity, 10PDT
 	}
-	sets.midcast.MaxEnmity = { 		--, +76% Enmity, Merit+10 = +26 SIRD, -37% PDT, -22 MDT
+	sets.midcast.MaxEnmity = { 		--, +86% Enmity, Merit+10 = +26 SIRD, -37% PDT, -22 MDT
 	ammo="Sapience Orb", 			--, 2 Enmity
     head="Halitus Helm", 			--, 8 Enmity
     body="Emet Harness", 			--, 9 Enmity, -5 PDT
@@ -851,7 +846,7 @@ function get_sets()
     right_ring="Provocare Ring", 	--, 5 Enmity
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, 10 Enmity, 10PDT
 	}
-	sets.midcast.Foil = { 			--, +42% Enmity, Merit+10 = +88 SIRD, -29% PDT, -10% MDT, +50% Duration
+	sets.midcast.Foil = { 			--, +52% Enmity, Merit+10 = +88 SIRD, -29% PDT, -10% MDT, +50% Duration
 	ammo="Staunch Tathlum +1", 		--, 11 SIRD
 	head="Erilaz Galea +2", 		--, 15 SIRD, +20% Duration
     body="Emet Harness", 			--, 9 Enmity, -5 PDT
@@ -1090,7 +1085,7 @@ end
 function midcast(spell) --, Midcast works in hierachy. The lower on the list the higher priority when using lazy If/End statements, otherwise when using If/Else/End, "Else" takes priority. See RDM lua for examples
 	if spell.skill == "Blue Magic" then	
 			equip(sets.midcast.BLUEnmitySIRD)
-		end		
+		end	
 	if spell.skill == 'Enhancing Magic' then
 		if Tank_Mode == false then
 			equip(sets.midcast.enhancingduration)
@@ -1126,7 +1121,7 @@ function midcast(spell) --, Midcast works in hierachy. The lower on the list the
 					equip(set_combine(sets.midcast.Foil, sets.TankHP))
 			end
 		end
-	if spell.name == 'Temper' or spell.name:match('Bar') then --,Spell.name == "xx" has to match name exactly, Spell.name:match ('xx') is like a variable that matches any prefix
+	if spell.name == 'Temper'  then --,Spell.name == "xx" has to match name exactly, Spell.name:match ('xx') is like a variable that matches any prefix
 		if Tank_Mode == false then
 			equip(sets.midcast.enhancingskill)
 				elseif Tank_Mode == true then
@@ -1157,6 +1152,7 @@ function midcast(spell) --, Midcast works in hierachy. The lower on the list the
 	if spell.name:match('Stoneskin') then
 			equip(sets.midcast.sird)
 		end
+
 	if spell.action_type == 'Ranged Attack' then
 		equip (sets.ranged.precast)
 	end
