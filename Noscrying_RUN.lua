@@ -806,7 +806,21 @@ function get_sets()
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back={ name="Ogma's Cape", augments={'HP+60','"Fast Cast"+10','Spell interruption rate down-10%',}}, --, 10
 	})
-
+	sets.midcast.BLUEnmitySIRD = { 		--, +52% Enmity (Enmity gear is a percentage increase or decrease, not an addition), Merit+10 = +104 SIRD, -32% PDT, -15% MDT
+	ammo="Staunch Tathlum +1", 		--, 11 SIRD
+	head="Erilaz Galea +2", 		--, 15 SIRD
+    body="Emet Harness", 			--, 9 Enmity, -5 PDT
+    hands="Rawhide Gloves", 		--, 15 SIRD
+     legs="Carmine Cuisses +1", 	--, 20 SIRD
+    feet="Erilaz Greaves +2",		--, 8 Enmity, -10% DT
+    neck="Moonlight Necklace", 		--, 15 Enmity, 15 SIRD
+    waist="Audumbla Sash",  		--, 10 SIRD, -4 PDT
+    left_ear="Odnowa Earring +1",	--, -3% DT -2% MDT
+    right_ear="Magnetic Earring", 	--, 8 SIRD
+    left_ring="Supershear Ring", 	--, 5 Enmity
+    right_ring="Provocare Ring", 	--, 5 Enmity
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, 10 Enmity, 10PDT
+	}
 	sets.midcast.enmity = { 		--, +54% Enmity (Enmity gear is a percentage increase or decrease, not an addition), Merit+10 = +89 SIRD, -41% PDT, -22% MDT
 	ammo="Staunch Tathlum +1", 		--, 11 SIRD
 	head="Erilaz Galea +2", 		--, 15 SIRD
@@ -1074,6 +1088,9 @@ end
 
 
 function midcast(spell) --, Midcast works in hierachy. The lower on the list the higher priority when using lazy If/End statements, otherwise when using If/Else/End, "Else" takes priority. See RDM lua for examples
+	if spell.skill == "Blue Magic" then	
+			equip(sets.midcast.BLUEnmitySIRD)
+		end		
 	if spell.skill == 'Enhancing Magic' then
 		if Tank_Mode == false then
 			equip(sets.midcast.enhancingduration)
