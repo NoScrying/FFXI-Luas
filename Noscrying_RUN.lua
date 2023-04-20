@@ -1172,8 +1172,25 @@ function buff_change(buff,gain) --, See list of buff names under Gearswap librar
 		end
 	end
 end
+	if buff == "doom" then --, Auto equips doom set, cause I'm lazy from killing Shinryu
+        	if gain then
+            		equip(sets.buff.Holywater)
+             		disable('ring1','ring2','waist','neck','feet')
+        	else
+            		enable('ring1','ring2','waist','neck','feet')
+            	status_change(player.status)
+        end
+    end
 end
-
+	if buff == "sleep" then
+        	if gain then
+            		equip(Head="Frenzy Sallet",)
+             		disable('head')
+        	else
+            		enable('head')
+            	status_change(player.status)
+	end
+    end
 end
 
 function idle() --, Engaged/Idle sets do not have to be here, can also be under self_command or anywhere really.
