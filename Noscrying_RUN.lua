@@ -833,7 +833,7 @@ function get_sets()
     right_ring="Provocare Ring", 	--, 5 Enmity
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, 10 Enmity, 10PDT
 	}
-	sets.midcast.Foil = { 			--, +42% Enmity, Merit+10 = +88 SIRD, -29% PDT, -10% MDT, +50% Duration
+	sets.midcast.Foil = { 			--, +29% Enmity, Merit+10 = +103 SIRD, -29% PDT, -10% MDT, +50% Duration
 	ammo="Staunch Tathlum +1", 		--, 11 SIRD
 	head="Erilaz Galea +2", 		--, 15 SIRD, +20% Duration
     body="Emet Harness", 			--, 9 Enmity, -5 PDT
@@ -845,8 +845,10 @@ function get_sets()
     left_ear="Halasz Earring", 		--, 5 SIRD
     right_ear="Magnetic Earring", 	--, 8 SIRD
     left_ring="Supershear Ring", 	--, 5 Enmity
-    right_ring="Provocare Ring", 	--, 5 Enmity
-    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, 10 Enmity, 10PDT
+    right_ring="Evanescence Ring",	--, 5 SIRD
+    back={ name="Ogma's Cape", augments={'HP+60','"Fast Cast"+10','Spell interruption rate down-10%',}}, --, 10 SIRD
+    --right_ring="Provocare Ring", 	--, 5 Enmity
+    --back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, 10 Enmity, 10PDT
 	}	
 	sets.midcast.regen = {	--, Merit+10 = +72 SIRD +18 Regen, +30% Potency, +39 seconds, +30% Duration +25% Healing/Enhancing MP Cost  = Regen IV 58/tic, 168 Seconds = 3248 HP, Embolden 73/Tic, 110 Seconds = 2628, don't do it.
 	ammo="Staunch Tathlum +1",
