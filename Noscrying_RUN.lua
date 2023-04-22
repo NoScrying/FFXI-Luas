@@ -2,6 +2,7 @@ function get_sets()
 	send_command('bind f9 gs c toggle TP set') --, Loads when changing job, this means if you hit f9 it toggles the sets
 	send_command('bind !f9 gs c toggle Tank_Mode') --! turns tanking tp off
 	send_command('bind f10 gs c toggle run set') 
+	send_command('bind !f10 gs c toggle Supertank')
 	send_command('bind f12 gs c toggle TH set') 
 	send_command('bind f7 gs c toggle Weapons set') 
 	send_command('bind !f7 gs c toggle Sub_Weapons set') 
@@ -150,6 +151,21 @@ function get_sets()
 	
 	Run_Set_Names = {'DT','Regen','Refresh'}
 	sets.run = {}
+	sets.run.Supertank =  { --, +60-70 Elemental Resist, +665 MEVA, +7% Damage to MP, +4% Chance Damage to HP , +5% Magic Annul Chance, +5% Chance Magic to HP, -50% PDT, -42% MDT
+    ammo="Staunch Tathlum +1",	--, -3% DT, +11 Status Resist
+    head="Erilaz Galea +2", 	--, 109, Erilaz Set +4% Damage to HP Chance,
+    body="Erilaz Surcoat +2", 	--, 120, +7% Damage to MP
+    hands="Nyame Gauntlets", 	--, 112, -7% DT
+    legs="Eri. Leg Guards +2", 	--, 147, -12% DT
+    feet="Erilaz Greaves +2", 	--, 147, +30 Ele, -10% DT
+    neck="Warder's Charm +1", 	--, +20 Ele, +5% Magic Absorb Chance,
+    waist="Engraved Belt", 	--, +20-30 Ele
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}}, --, -3% DT, -2% MDT
+    right_ear="Tuisto Earring",
+    left_ring="Moonlight Ring", --, -5% DT
+    right_ring="Archon Ring",	--, +5% Magic Annul Chance,
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Phys. dmg. taken-10%',}}, 	--, 30, -10% PDT
+	}
 	sets.run.DT =  { --, -51PDT, -32MDT
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",
@@ -1284,6 +1300,10 @@ function self_command(command) --, Allows of use of various commands
         if Run_Index > #Run_Set_Names then Run_Index = 1 end
         windower.add_to_chat('Movement is now: '..Run_Set_Names[Run_Index]..' mode')
 		equip(sets.run[Run_Set_Names[Run_Index]])
+	end
+	if command == 'toggle Supertank' then
+        windower.add_to_chat('Supertank idle set equipped')
+		equip(sets.run.Supertank)
 	end
 	if command == 'toggle TH set' then
         TH_Index = TH_Index +1
