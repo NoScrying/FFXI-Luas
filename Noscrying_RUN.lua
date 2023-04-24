@@ -92,17 +92,19 @@ function get_sets()
 	sets.Tank_Mode.index = {'Parry: 49PDT','Hybrid'} --, 'Hybrid'
 	Tank_Mode_ind = 1
 	
-	sets.Tank_Mode["Hybrid"] = { --, -56PDT, -49MDT, +43 DA, +8 TA, +3 QA, 3400 HP
+	sets.Tank_Mode["Hybrid"] = { --, -45PDT, -29MDT, +34 DA, +9 TA, +3 QA, 3100 HP
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    body="Nyame Mail",
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    legs="Erilaz Leg Guards +2",
+    legs="Meghanada Chausses +2",
     feet="Erilaz Greaves +2",
-    neck="Futhark Torque +2",
+    neck="Anu Torque",
+    -- neck="Futhark Torque +2",
     -- waist="Engraved Belt",
-	waist="Platinum Moogle Belt",
-    left_ear="Cessance Earring",
+	--waist="Platinum Moogle Belt",
+    waist="Ioskeha Belt +1",
+    left_ear="Crepuscular Earring",
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Moonlight Ring",
