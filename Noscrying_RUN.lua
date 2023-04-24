@@ -907,18 +907,18 @@ function get_sets()
     right_ring="Defending Ring",
     back={ name="Ogma's Cape", augments={'HP+60','"Fast Cast"+10','Spell interruption rate down-10%',}},
 	}	
-    sets.midcast.Cure = {			--, +45% Cure Potency, Merit+10 = +104 SIRD, +25% Healing MP cost, ML45 /BLU gets Magic Fruit, which is Cure IV Potency but without extra MP cost as it is Blue Magic, -22% PDT
-    -- ammo="Staunch Tathlum +1",		--, SIRD set
+    sets.midcast.Cure = {		--, +35% Cure Potency, Merit+10 = +109 SIRD, +25% Healing MP cost, -39% PDT
+    -- ammo="Staunch Tathlum +1",	--, SIRD set
     -- head="Erilaz Galea +2", 
-    -- body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    -- body="Nyame Mail",
     -- hands="Rawhide Gloves",
     -- legs="Carmine Cuisses +1",
     -- feet="Erilaz Greaves +2",
     -- left_ear="Halasz Earring",
     -- right_ear="Magnetic Earring",
-    -- left_ring="Moonlight Ring",
+    -- left_ring="Defending Ring",
     -- right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    -- neck="Sacro Gorget", 		--, +10
+    -- neck="Moonlight Necklace",
     -- waist="Sroda Belt", 		--, +35
     --     back={ name="Ogma's Cape", augments={'HP+60','"Fast Cast"+10','Spell interruption rate down-10%',}},
 		
