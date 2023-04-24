@@ -802,7 +802,8 @@ function get_sets()
 	}
 
     sets.midcast = {}               -- leave this empty  
-	sets.midcast.sird = set_combine(sets.ja.Enmity, {--, Merit+10 == 106% (Cap 104%)
+	sets.midcast.sird = set_combine(sets.ja.Enmity, {
+	--, +106% SIRD, +HP swaps
     ammo="Staunch Tathlum +1", 		--, 11
 	head="Erilaz Galea +2", 	--, 15
     hands="Rawhide Gloves", 		--, 15
@@ -814,6 +815,21 @@ function get_sets()
     left_ring="Moonlight Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back={ name="Ogma's Cape", augments={'HP+60','"Fast Cast"+10','Spell interruption rate down-10%',}}, --, 10
+	
+	--, Full DT set +104% SIRD
+    -- ammo="Staunch Tathlum +1", 		--, 11
+    -- head="Erilaz Galea +2", 	--, 15
+    -- body="Nyame Mail",
+    -- hands="Rawhide Gloves", 		--, 15
+    -- legs="Carmine Cuisses +1", 		--, 20
+    -- feet="Erilaz Greaves +2",
+    -- neck="Moonlight Necklace", 		--, 15
+    -- waist="Audumbla Sash",  		--, 10
+    -- left_ear="Odnowa Earring +1",
+    -- right_ear="Magnetic Earring",	--, 8
+    -- left_ring="Defending Ring",
+    -- right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    -- back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},
 	})
 	sets.midcast.BLUEnmitySIRD = { 	--, +52% Enmity (Enmity gear is a percentage increase or decrease, not an addition), Merit+10 = +104 SIRD, -32% PDT, -15% MDT
 	ammo="Staunch Tathlum +1", 	--, 11 SIRD
