@@ -89,10 +89,10 @@ function get_sets()
 	}
 	
 	sets.Tank_Mode = {}
-	sets.Tank_Mode.index = {'Parry: 49PDT','Hybrid'} --, 'Hybrid'
+	sets.Tank_Mode.index = {'Parry: 49PDT','Hybrid: 45PDT'} --, 'Hybrid'
 	Tank_Mode_ind = 1
 	
-	sets.Tank_Mode["Hybrid"] = { --, -45PDT, -29MDT, +34 DA, +9 TA, +3 QA, 3100 HP
+	sets.Tank_Mode["Hybrid: 45PDT"] = { --, -45PDT, -29MDT, +49 DA, +9 TA, +3 QA, 3100 HP
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",
     body="Nyame Mail",
