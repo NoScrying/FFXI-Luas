@@ -263,7 +263,7 @@ function get_sets()
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
-    right_ring="Epona's Ring",
+    right_ring="Ifrit's Ring",
     back={ name="Ogma's Cape", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
 	}
 
@@ -283,10 +283,6 @@ function get_sets()
     --right_ring="Ilabrat Ring",
     right_ring="Epaminondas's Ring",	
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%',}},
-	}
-
-	sets.ws.epami = {
-	right_ring="Epaminondas's Ring",	
 	}
 	
 	sets.ws['Spinning Slash']	= {
@@ -895,18 +891,19 @@ function get_sets()
     right_ring="Defending Ring",
     back={ name="Ogma's Cape", augments={'HP+60','"Fast Cast"+10','Spell interruption rate down-10%',}},
 	}	
-	sets.midcast.Cure = {			--, +45% Cure Potency, +5% Cure Self, Merit+10 = +107 SIRD, +25% Healing MP cost, ML45 /BLU gets Magic Fruit, which is Cure IV Potency but without extra MP cost as it is Blue Magic.
-	-- ammo="Staunch Tathlum +1",		--, SIRD set
-	-- head="Erilaz Galea +2", 		
+    sets.midcast.Cure = {			--, +45% Cure Potency, Merit+10 = +104 SIRD, +25% Healing MP cost, ML45 /BLU gets Magic Fruit, which is Cure IV Potency but without extra MP cost as it is Blue Magic, -22% PDT
+    -- ammo="Staunch Tathlum +1",		--, SIRD set
+    -- head="Erilaz Galea +2", 
+    -- body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     -- hands="Rawhide Gloves",
     -- legs="Carmine Cuisses +1",
-	-- feet="Karasutengu Kogake",
+    -- feet="Erilaz Greaves +2",
     -- left_ear="Halasz Earring",
     -- right_ear="Magnetic Earring",
-    -- left_ring="Kunaji Ring", 	--, +5
-    -- right_ring="Defending Ring",
+    -- left_ring="Moonlight Ring",
+    -- right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     -- neck="Sacro Gorget", 		--, +10
-    -- waist="Sroda Belt", 			--, +35
+    -- waist="Sroda Belt", 		--, +35
     --     back={ name="Ogma's Cape", augments={'HP+60','"Fast Cast"+10','Spell interruption rate down-10%',}},
 		
     ammo="Staunch Tathlum +1", 		--, DT Set -50% PDT, -52% MDT, +45% Cure Potency, +25% Healing MP cost, Merit+10 = +51 SIRD
@@ -939,7 +936,7 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back={ name="Ogma's Cape", augments={'HP+60','"Fast Cast"+10','Spell interruption rate down-10%',}}, --, 10
 	}
-	sets.midcast.phalanxSIRD = {	--, ML41 = Skill 481 = Phalanx Tier 7 , -34 Damage, +15 = -49 Damage, Merit+10 = 104% SIRD
+	sets.midcast.phalanxSIRD = {	--, ML41 = Skill 481 = Phalanx Tier 7 , -34 Damage, +15 = -49 Damage, Merit+10 = 104% SIRD, -22% PDT
 	ammo="Staunch Tathlum +1",	--, 11
     head={ name="Taeon Chapeau", augments={'Spell interruption rate down -8%','Phalanx +3',}},	--, 8
     body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}}, 	--, 10
