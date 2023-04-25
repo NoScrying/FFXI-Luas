@@ -3,7 +3,7 @@ function get_sets()
 	send_command('bind f10 gs c toggle Run set') -- F10 = Cycle through
 	send_command('bind f7 gs c toggle weapon set') -- F10 = Cycle through
 	send_command('bind f12 gs c toggle TH set') -- F12 = Cycle through
-	send_command('bind numpad1 gs c toggle Buff set') -- F12 = Cycle through
+	send_command('bind !numpad1 gs c toggle Buff set') -- F12 = Cycle through
 	Melee_Index = 1
 	Weapon_Index = 1
 	Run_Index = 1
@@ -16,14 +16,14 @@ function get_sets()
     ammo="Homiliary",
     head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
-    hands="Arbatel Bracers +2",
+    hands="Nyame Gauntlets",
     legs="Arbatel Pants +2",
-    feet="Jhakri Pigaches +2",
+    feet="Nyame Sollerets",
     neck="Lissome Necklace",
     waist="Cornelia's Belt",
     left_ear="Cessance Earring",
     right_ear="Brutal Earring",
-    left_ring="Chirich Ring",
+    left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
@@ -31,13 +31,13 @@ function get_sets()
     ammo="Homiliary",
     head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
-    hands="Arbatel Bracers +2",
-    legs="Arbatel Pants +2",
-    feet="Battlecast Gaiters",
-    neck="Warder's Charm",
+    hands="Nyame Gauntlets",
+	legs="Arbatel Pants +2",
+    feet="Nyame Sollerets",
+    neck="Warder's Charm +1",
     waist="Carrier's Sash",
-    left_ear="Infused Earring",
-    right_ear="Malignance Earring",
+    left_ear="Odnowa Earring +1",
+    right_ear="Regal Earring",
     left_ring="Defending Ring",
     right_ring={ name="Dark Ring", augments={'Phys. dmg. taken -6%','Magic dmg. taken -3%',}},
     back="Moonbeam Cape",
@@ -46,13 +46,13 @@ function get_sets()
     ammo="Homiliary",
     head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
-    hands="Arbatel Bracers +2",
-    legs="Arbatel Pants +2",
-    feet="Jhakri Pigaches +2",
+    hands="Nyame Gauntlets",
+	legs="Arbatel Pants +2",
+    feet="Nyame Sollerets",
     neck="Sibyl Scarf",
 	waist="Embla Sash",
     left_ear="Infused Earring",
-    right_ear="Malignance Earring",
+    right_ear="Regal Earring",
     left_ring="Defending Ring",
     right_ring={ name="Dark Ring", augments={'Phys. dmg. taken -6%','Magic dmg. taken -3%',}},
     back="Moonbeam Cape",
@@ -64,13 +64,13 @@ function get_sets()
     ammo="Homiliary",
     head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
-    hands="Arbatel Bracers +2",
-    legs="Arbatel Pants +2",
+    hands="Nyame Gauntlets",
+	legs="Arbatel Pants +2",
     feet="Herald's Gaiters",
-    neck="Warder's Charm",
+    neck="Warder's Charm +1",
 	waist="Embla Sash",
     left_ear="Infused Earring",
-    right_ear="Malignance Earring",
+    right_ear="Regal Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
     back="Moonbeam Cape",
@@ -81,14 +81,14 @@ function get_sets()
 	sets.TH.TH3 = {
 	ammo="Perfect Lucky Egg",
 	head="White Rarab Cap +1",
-    waist={ name="Tarutaru Sash", augments={'"Treasure Hunter"+1','MND+2',}},
-    body="Mallquis Saio +1",
-    hands="Jhakri Cuffs +2",
-    legs="Jhakri Slops +2",
-    feet="Battlecast Gaiters",
+    waist="Chaac Belt",
+    body="Arbatel Gown +2",
+    hands="Nyame Gauntlets",
+	legs="Arbatel Pants +2",
+    feet="Nyame Sollerets",
     neck="Elite Royal Collar",
     left_ear="Friomisi Earring",
-    right_ear="Malignance Earring",
+    right_ear="Regal Earring",
     left_ring="Defending Ring",
     right_ring={ name="Dark Ring", augments={'Phys. dmg. taken -6%','Magic dmg. taken -3%',}},
     back="Lugh's Cape",
@@ -167,7 +167,7 @@ function get_sets()
     body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
     hands={ name="Telchine Gloves", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +9',}},
     legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
-	feet="Arbatel Loafers +1",
+    feet="Arbatel Loafers +2",
 	waist="Embla Sash",
     neck="Sibyl Scarf",
     left_ear="Malignance Earring",
@@ -190,10 +190,10 @@ function get_sets()
     feet={ name="Telchine Pigaches", augments={'Enh. Mag. eff. dur. +10',}},
 	}
 	sets.ja['Penury'] = {
-	legs="Arbatel Pants +1",
+	legs="Arbatel Pants +2",
 	}
 	sets.ja['Parsimony'] = {
-	legs="Arbatel Pants +1",
+	legs="Arbatel Pants +2",
 	}
 	
 	sets.idle = {} 					-- Leave this empty.
@@ -201,11 +201,10 @@ function get_sets()
     ammo="Homiliary",
     head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
-    hands="Jhakri Cuffs +2",
-	--legs="Arbatel Pants +2",
-	legs="Jhakri Slops +2",
+    hands="Arbatel Bracers +2",
+	legs="Arbatel Pants +2",
     feet="Herald's Gaiters",
-    neck="Warder's Charm",
+    neck="Warder's Charm +1",
 	waist="Embla Sash",
     left_ear="Infused Earring",
     right_ear="Malignance Earring",
@@ -220,9 +219,8 @@ function get_sets()
     head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
     hands="Arbatel Bracers +1",
-	--legs="Arbatel Pants +2",
-	legs="Gyve Trousers",
-    feet="Arbatel Loafers +1",
+	legs="Arbatel Pants +2",
+    feet="Arbatel Loafers +2",
     waist="Witful Belt",
     neck="Voltsurge Torque",
     left_ear="Malignance Earring",
@@ -240,7 +238,7 @@ function get_sets()
     body="Arbatel Gown +2",
     hands="Arbatel Bracers +2",
     legs={ name="Chironic Hose", augments={'Mag. Acc.+21 "Mag.Atk.Bns."+21','INT+10','Mag. Acc.+11','"Mag.Atk.Bns."+5',}},
-    feet="Jhakri Pigaches +2",
+    feet="Arbatel Loafers +2",
     neck="Erra Pendant",
     waist="Eschan Stone",
     left_ear="Malignance Earring",
@@ -255,7 +253,7 @@ function get_sets()
     body="Arbatel Gown +2",
     hands="Arbatel Bracers +2",
     legs={ name="Chironic Hose", augments={'Mag. Acc.+21 "Mag.Atk.Bns."+21','INT+10','Mag. Acc.+11','"Mag.Atk.Bns."+5',}},
-    feet="Jhakri Pigaches +2",
+    feet="Arbatel Loafers +2",
     neck="Erra Pendant",
     waist="Eschan Stone",
     left_ear="Malignance Earring",
@@ -266,12 +264,12 @@ function get_sets()
 	}
 	
 	sets.midcast.Drain = {	
-    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+    ammo="Ghastly Tathlum +1",
     head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
     hands="Arbatel Bracers +2",
-    legs={ name="Chironic Hose", augments={'Mag. Acc.+21 "Mag.Atk.Bns."+21','INT+10','Mag. Acc.+11','"Mag.Atk.Bns."+5',}},
-    feet="Jhakri Pigaches +2",
+	legs="Arbatel Pants +2",
+    feet="Arbatel Loafers +2",
     neck="Erra Pendant",
     waist="Orpheus's Sash",
     left_ear="Malignance Earring",
@@ -282,16 +280,16 @@ function get_sets()
 	}
 	
 	sets.midcast.elemental = {
-    ammo="Sroda Tathlum",
+    ammo="Ghastly Tathlum +1",
     head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
     hands="Arbatel Bracers +2",
     legs="Arbatel Pants +2",
-    feet="Jhakri Pigaches +2",
+    feet="Arbatel Loafers +2",
     neck="Mizu. Kubikazari",
     waist="Orpheus's Sash",
     left_ear="Malignance Earring",
-    right_ear="Arbatel Earring +1",
+    right_ear={ name="Arbatel Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Enmity-3',}},
     left_ring="Mujin Band",
     right_ring="Freke Ring",
     back="Seshaw Cape",
@@ -383,9 +381,8 @@ function get_sets()
     head="Pixie Hairpin +1",
     body="Arbatel Gown +2",
     hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-	--legs="Arbatel Pants +2",
-	legs="Jhakri Slops +2",
-    feet="Jhakri Pigaches +2",
+	legs="Arbatel Pants +2",
+    feet="Arbatel Loafers +2",
     neck="Mizu. Kubikazari",
     waist="Eschan Stone",
     left_ear="Malignance Earring",
@@ -399,9 +396,8 @@ function get_sets()
     head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
     hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-	--legs="Arbatel Pants +2",
-	legs="Jhakri Slops +2",
-    feet="Jhakri Pigaches +2",
+	legs="Arbatel Pants +2",
+    feet="Arbatel Loafers +2",
     neck="Mizu. Kubikazari",
     waist="Eschan Stone",
     left_ear="Malignance Earring",
@@ -571,7 +567,7 @@ function self_command(command)
 	if command == 'toggle TH set' then
         TH_Index = TH_Index +1
     if TH_Index > #TH_Set_Names then TH_Index = 1 end
-        windower.add_to_chat('TH mode is now: '..TH_Set_Names[TH_Index])
+        windower.add_to_chat('TH4 equipped')
         equip(sets.TH[TH_Set_Names[TH_Index]])
     end
 	if command == 'toggle Buff set' then
@@ -591,5 +587,5 @@ send_command('unbind f12')
 send_command('unbind !f12')
 send_command('unbind f7')
 send_command('unbind !f7')
-send_command('unbind numpad1')
+send_command('unbind !numpad1')
 end
