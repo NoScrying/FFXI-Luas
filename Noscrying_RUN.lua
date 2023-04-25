@@ -825,10 +825,10 @@ function get_sets()
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back={ name="Ogma's Cape", augments={'HP+60','"Fast Cast"+10','Spell interruption rate down-10%',}}, --, 10
 	})
-	sets.midcast.BLUEnmitySIRD = { 	--, +52% Enmity (Enmity gear is a percentage increase or decrease, not an addition), Merit+10 = +104 SIRD, -32% PDT, -15% MDT
+	sets.midcast.BLUEnmitySIRD = { 	--, +38% Enmity (Enmity gear is a percentage increase or decrease, not an addition), Merit+10 = +104 SIRD, -41% PDT, -29% MDT, 3300 HP
 	ammo="Staunch Tathlum +1", 	--, 11 SIRD
 	head="Erilaz Galea +2", 	--, 15 SIRD
-    body="Emet Harness", 		--, 9 Enmity, -5 PDT
+    body="Nyame Mail",			--, -9% DT
     hands="Rawhide Gloves", 		--, 15 SIRD
      legs="Carmine Cuisses +1", 	--, 20 SIRD
     feet="Erilaz Greaves +2",		--, 8 Enmity, -10% DT
@@ -836,7 +836,7 @@ function get_sets()
     waist="Audumbla Sash",  		--, 10 SIRD, -4 PDT
     left_ear="Odnowa Earring +1",	--, -3% DT -2% MDT
     right_ear="Magnetic Earring", 	--, 8 SIRD
-    left_ring="Supershear Ring", 	--, 5 Enmity
+    left_ring="Moonlight Ring", 	--, -5% DT
     right_ring="Provocare Ring", 	--, 5 Enmity
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}}, --, 10 Enmity, 10PDT
 	}
@@ -905,9 +905,9 @@ function get_sets()
     right_ring="Defending Ring",
     back={ name="Ogma's Cape", augments={'HP+60','"Fast Cast"+10','Spell interruption rate down-10%',}},
 	}	
-    sets.midcast.Cure = {			--, DD Mode;	+35% Cure Potency, Merit+10 = +109 SIRD, +25% Healing MP cost, -39% PDT, -31% MDT, 3150 HP
-						--, Tank Mode;	+35% Cure Potency, Merit+10 = +104 SIRD, +25% Healing MP Cost, -34% PDT, -26% MDT, 3400 HP
-    ammo="Staunch Tathlum +1",		--, SIRD set
+    sets.midcast.Cure = {		--, DD Mode;	+35% Cure Potency, Merit+10 = +109 SIRD, +25% Healing MP cost, -39% PDT, -31% MDT, 3150 HP
+					--, Tank Mode;	+35% Cure Potency, Merit+10 = +104 SIRD, +25% Healing MP Cost, -34% PDT, -26% MDT, 3400 HP
+    ammo="Staunch Tathlum +1",	--, SIRD set
     head="Erilaz Galea +2", 
     body="Nyame Mail",
     hands="Rawhide Gloves",
@@ -1123,14 +1123,14 @@ function midcast(spell) --, Midcast works in hierachy. The lower on the list the
 					equip(set_combine(sets.midcast.enhancingduration, sets.TankHP))
 			end
 		end
-	if spell.name:match('Refresh') then
+	if spell.name:match('Refresh') then --,Spell.name == "xx" has to match name exactly, Spell.name:match ('xx') is like a variable that matches any prefix
 		if Tank_Mode == false then
 			equip(sets.midcast.refresh)
 				elseif Tank_Mode == true then
 					equip(set_combine(sets.midcast.refresh, sets.TankHP))
 			end
 		end
-	if spell.name:match('Poison') or spell.name:match('Absorb') or spell.skill == 'Blue Magic' then  
+	if spell.name:match('Poison') or spell.name:match('Absorb') then  
 		if Tank_Mode == false then
 			equip(sets.midcast.enmity)
 				elseif Tank_Mode == true then
@@ -1141,17 +1141,17 @@ function midcast(spell) --, Midcast works in hierachy. The lower on the list the
 		if Tank_Mode == false then
 			equip(sets.midcast.MaxEnmity)
 				elseif Tank_Mode == true then
-					equip(set_combine(sets.midcast.MaxEnmity, sets.TankHP))
+					equip(set_combine(sets.midcast.MaxEnmity, sets.TankEnmity))
 			end
 		end
 	if spell.name =='Foil' or spell.name =="Crusade" then
 		if Tank_Mode == false then
 			equip(sets.midcast.Foil)
 				elseif Tank_Mode == true then
-					equip(set_combine(sets.midcast.Foil, sets.TankHP))
+					equip(set_combine(sets.midcast.Foil, sets.TankFoil))
 			end
 		end
-	if spell.name == 'Temper'  then --,Spell.name == "xx" has to match name exactly, Spell.name:match ('xx') is like a variable that matches any prefix
+	if spell.name == 'Temper'  then 
 		if Tank_Mode == false then
 			equip(sets.midcast.enhancingskill)
 				elseif Tank_Mode == true then
@@ -1179,14 +1179,14 @@ function midcast(spell) --, Midcast works in hierachy. The lower on the list the
 					equip(set_combine(sets.midcast.Cure, sets.CureHP))
 		end
 	end
-	if spell.name:match('Stoneskin') then
+	if spell.name:match('Stoneskin') or spell.name:match('Aquaveil') then
 			equip(sets.midcast.sird)
 		end
 
 	if spell.action_type == 'Ranged Attack' then
 		equip (sets.ranged.precast)
 	end
-end 
+end  
 
 
 
