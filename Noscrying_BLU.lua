@@ -10,7 +10,7 @@ function get_sets()
 	Sword_Index = 1
 	Buff_Index = 1
 
-	Melee_Set_Names = {'normal','DT','Hybrid'}
+	Melee_Set_Names = {'normal','Hybrid'}--,'DT'
 	sets.melee = {} 					-- Leave this empty.
 	sets.melee.normal = {
     ammo="Aurgelmir Orb",
@@ -19,10 +19,10 @@ function get_sets()
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     legs={ name="Herculean Trousers", augments={'Accuracy+28','"Triple Atk."+4','AGI+5',}},
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
-    neck="Lissome Necklace",
+    neck="Mirage Stole +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Crep. Earring",
-    right_ear="Cessance Earring",
+    right_ear="Suppanomimi",
     left_ring="Chirich Ring +1",
     right_ring="Epona's Ring",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
@@ -31,28 +31,28 @@ function get_sets()
     ammo="Aurgelmir Orb",
     head="Malignance Chapeau",
     body="Malignance Tabard",
-	hands="Malignance Gloves",
+    hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Lissome Necklace",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Eabani Earring",
-    right_ear="Suppanomimi",
-    left_ring="Defending Ring",
-    right_ring="Epona's Ring",
+    neck="Warder's Charm +1",
+    waist="Carrier's Sash",
+    left_ear="Crep. Earring",
+    right_ear="Cessance Earring",
+    left_ring="Archon Ring",
+    right_ring="Defending Ring",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.melee.Hybrid = {
-    ammo="Aurgelmir Orb",
+    ammo="Crepuscular Pebble",
     head="Malignance Chapeau",
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    body="Hashishin Mintan +2",
+    hands="Malignance Gloves",
     legs="Malignance Tights",
-    feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
-    neck="Lissome Necklace",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    feet="Nyame Sollerets",
+    neck="Mirage Stole +1",
+    waist="Shetal Stone",
     left_ear="Crep. Earring",
-    right_ear="Cessance Earring",
+    right_ear="Suppanomimi",
     left_ring="Chirich Ring +1",
     right_ring="Epona's Ring",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
@@ -60,18 +60,18 @@ function get_sets()
 	Refresh_Set_Names = {'battle'}
 	sets.refresh = {}
 	sets.refresh.battle = {
-	ammo="Aurgelmir Orb",
+    ammo="Staunch Tathlum +1",
     head="Rawhide Mask",
     body="Hashishin Mintan +2",
-	hands="Hashishin Bazubands +2",
+    hands="Hashi. Bazu. +2",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet="Malignance Boots",
+    feet="Nyame Sollerets",
     neck="Sibyl Scarf",
     waist="Flume Belt",
-    left_ear="Eabani Earring",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     right_ear="Suppanomimi",
-    left_ring="Defending Ring",
-    right_ring={ name="Dark Ring", augments={'Phys. dmg. taken -6%','Magic dmg. taken -3%',}},
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
@@ -84,7 +84,7 @@ function get_sets()
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},	
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     feet={ name="Herculean Boots", augments={'"Dual Wield"+1','Attack+5','"Treasure Hunter"+1',}},
-    neck="Lissome Necklace",
+    neck="Mirage Stole +1",
     waist="Chaac Belt",
     left_ear="Eabani Earring",
     right_ear="Suppanomimi",
@@ -113,11 +113,11 @@ function get_sets()
     hands="Jhakri Cuffs +2",
    legs="Jhakri Slops +2",
     feet="Jhakri Pigaches +2",
-    neck="Rep. Plat. Medal",
+    neck="Mirage Stole +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Ishvara Earring",
-    left_ring="Sroda Ring",
+    left_ring="Ifrit Ring +1",
     right_ring="Epaminondas's Ring",
     back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
 	}
@@ -130,7 +130,7 @@ function get_sets()
     hands="Jhakri Cuffs +2",
     legs="Jhakri Slops +2",
     feet="Jhakri Pigaches +2",
-    neck="Rep. Plat. Medal",
+    neck="Mirage Stole +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Ishvara Earring",
@@ -146,7 +146,7 @@ function get_sets()
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
-    neck="Rep. Plat. Medal",
+    neck="Mirage Stole +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Ishvara Earring",
@@ -162,7 +162,7 @@ function get_sets()
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     legs="Hashishin Tayt +2",
     feet="Malignance Boots",
-    neck="Fotia Gorget",
+    neck="Mirage Stole +1",
     waist="Fotia Belt",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Ishvara Earring",
@@ -178,7 +178,7 @@ function get_sets()
     hands="Hashi. Bazu. +2",
     legs="Hashishin Tayt +2",
     feet="Aya. Gambieras +2",
-    neck="Sibyl Scarf",
+    neck="Mirage Stole +1",
     waist="Fotia Belt",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Ishvara Earring",
@@ -188,7 +188,7 @@ function get_sets()
 	}
 	
 	sets.ws['Sanguine Blade']	= {
-    ammo="Oshasha's Treatise",
+    ammo="Ghastly Tathlum +1",
     head="Pixie Hairpin +1",
     body="Hashishin Mintan +2",
     hands="Hashi. Bazu. +2",
@@ -224,27 +224,27 @@ function get_sets()
     hands="Jhakri Cuffs +2",
     legs="Hashishin Tayt +2",
     feet="Jhakri Pigaches +2",
-    neck="Rep. Plat. Medal",
+    neck="Mirage Stole +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Ishvara Earring",
-    left_ring="Sroda Ring",
+    left_ring="Ifrit Ring +1",
     right_ring="Epaminondas's Ring",
     back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
 	}
-	sets.ws['Realmrazer']	= {
+	sets.ws['Judgment']	= {
 	ammo="Oshasha's Treatise",
     head="Hashishin Kavuk +2",
     body="Jhakri Robe +2",
     hands="Jhakri Cuffs +2",
     legs="Hashishin Tayt +2",
     feet="Jhakri Pigaches +2",
-    neck="Fotia Gorget",
-    waist="Fotia Belt",
+    neck="Mirage Stole +1",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Ishvara Earring",
-    left_ring="Epaminondas's Ring",
-    right_ring="Epona\'s Ring",
+    left_ring="Ifrit Ring +1",
+    right_ring="Epaminondas's Ring",
     back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
 	}
 	
@@ -274,10 +274,10 @@ function get_sets()
 	}
 	sets.Buff.Phalanx = {	
     head={ name="Taeon Chapeau", augments={'"Fast Cast"+5','Phalanx +3',}},
-    body={ name="Taeon Tabard", augments={'"Fast Cast"+5','Phalanx +3',}},
-    hands={ name="Taeon Gloves", augments={'"Fast Cast"+5','Phalanx +3',}},
-    legs={ name="Taeon Tights", augments={'"Fast Cast"+5','Phalanx +3',}},
-    feet={ name="Taeon Boots", augments={'"Fast Cast"+5','Phalanx +3',}},
+    body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    feet={ name="Taeon Boots", augments={'Spell interruption rate down -10%','Phalanx +3',}},
 	}
 
 	sets.Buff.Diffusion = {
@@ -292,51 +292,36 @@ function get_sets()
 	
 	Idle_Set_Names = {'Normal'}
 	sets.idle = {} 					-- Leave this empty.
-	sets.idle.normal = {
-	ammo="Oshasha's Treatise",
-    head="Rawhide Mask",
-    body="Hashishin Mintan +2",
-    hands="Serpentes Cuffs",
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet="Serpentes Sabots",
-    neck="Sibyl Scarf",
-    waist="WindBuffet Belt",
-    left_ear="Mache Earring",
-    right_ear="Ishvara Earring",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-	}
 	
 	sets.precast = {}               -- leave this empty
 	sets.precast.bluFC = {
 	ammo="Impatiens",
-    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
+    head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
     body="Hashishin Mintan +2",
-    hands={ name="Taeon Gloves", augments={'"Fast Cast"+5','Phalanx +3',}},
+    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}}, --8
     legs="Ayanmo Cosciales +2",
-    feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}},
+    feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}},
     waist="Witful Belt",
-    left_ear="Magnetic Earring",
     neck="Voltsurge Torque",
     right_ear="Loquacious Earring",
-    left_ring="Lebeche Ring",
+	left_ear="Enchanter's Earring +1",
+    left_ring="Kishar Ring",
     right_ring="Weatherspoon Ring",
     back="Ogapepo Cape",
 	}
 	sets.precast.magicFC = {
 	ammo="Impatiens",
-    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
-    body={ name="Taeon Tabard", augments={'"Fast Cast"+5','Phalanx +3',}},
-    hands={ name="Taeon Gloves", augments={'"Fast Cast"+5','Phalanx +3',}},
+    head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
+    body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}}, --8
     legs="Ayanmo Cosciales +2",
-    feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}},
+    feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}},
     waist="Witful Belt",
-    left_ear="Magnetic Earring",
     neck="Voltsurge Torque",
     right_ear="Loquacious Earring",
-    left_ring="Lebeche Ring",
-    right_ring="Kishar Ring",
+	left_ear="Enchanter's Earring +1",
+    left_ring="Kishar Ring",
+    right_ring="Weatherspoon Ring",
     back="Ogapepo Cape",
 	}
 	
@@ -384,7 +369,7 @@ function get_sets()
 	hands="Hashishin Bazubands +2",
     legs="Hashishin Tayt +2",
     feet="Jhakri Pigaches +2",
-    neck="Mirage Stole",
+    neck="Mirage Stole +1",
     waist="Eschan Stone",
     left_ear="Njordr Earring",
     right_ear="Hashishin Earring +1",
@@ -399,7 +384,7 @@ function get_sets()
 	hands="Hashishin Bazubands +2",
     legs="Hashishin Tayt +2",
     feet="Luhlaza Charuqs",
-    neck="Mirage Stole",
+    neck="Mirage Stole +1",
     waist="Eschan Stone",
     left_ear="Njordr Earring",
     right_ear="Hashishin Earring +1",
@@ -448,8 +433,9 @@ function get_sets()
      legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
     feet={ name="Telchine Pigaches", augments={'Enh. Mag. eff. dur. +10',}},
 	waist="Gishdubar Sash",
-    neck="Mirage Stole",
-    left_ear="Magnetic Earring",
+    neck="Mirage Stole +1",
+    left_ear="Halasz Earring",
+    right_ear="Magnetic Earring",
     back={ name="Cornflower Cape", augments={'MP+21','DEX+1','Blue Magic skill +10',}},
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
@@ -463,37 +449,38 @@ function get_sets()
      legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
     feet={ name="Telchine Pigaches", augments={'Enh. Mag. eff. dur. +10',}},
 	waist="Gishdubar Sash",
-    neck="Mirage Stole",
-    left_ear="Magnetic Earring",
-    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    neck="Mirage Stole +1",
+    left_ear="Andoaa Earring",
+    right_ear="Mimir Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
+    back="Merciful Cape",
 	}
 	sets.midcast.phalanx = {
 	ammo="Staunch Tathlum",
     head={ name="Taeon Chapeau", augments={'"Fast Cast"+5','Phalanx +3',}},
-    body={ name="Taeon Tabard", augments={'"Fast Cast"+5','Phalanx +3',}},
-    hands={ name="Taeon Gloves", augments={'"Fast Cast"+5','Phalanx +3',}},
-    legs={ name="Taeon Tights", augments={'"Fast Cast"+5','Phalanx +3',}},
-    feet={ name="Taeon Boots", augments={'"Fast Cast"+5','Phalanx +3',}},
+    body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    feet={ name="Taeon Boots", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     neck="Melic Torque",
 	waist="Olympus Sash",
-    left_ear="Augmenting Earring",
+    left_ear="Andoaa Earring",
     right_ear="Mimir Earring",
-    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
+    back="Merciful Cape",
 	}
 
-	sets.midcast.regen = {
-	ammo="Staunch Tathlum",
-    head={ name="Taeon Chapeau", augments={'"Regen" potency+3',}},
-    body={ name="Taeon Tabard", augments={'"Regen" potency+3',}},
-    hands={ name="Taeon Gloves", augments={'"Cure" potency +5%','"Regen" potency+3',}},
-    legs={ name="Taeon Tights", augments={'"Regen" potency+3',}},
-    feet={ name="Taeon Boots", augments={'"Regen" potency+3',}},
-	waist="Gishdubar Sash",
-    neck="Mirage Stole",
+	sets.midcast.regen = { --72 SIRD, +15 Regen
+	ammo="Staunch Tathlum", 
+    head={ name="Taeon Chapeau", augments={'Mag. Evasion+16','Spell interruption rate down -9%','"Regen" potency+3',}},
+    body={ name="Taeon Tabard", augments={'Mag. Evasion+19','Spell interruption rate down -9%','"Regen" potency+3',}},
+    hands={ name="Taeon Gloves", augments={'Mag. Evasion+15','Spell interruption rate down -10%','"Regen" potency+3',}},
+    legs={ name="Taeon Tights", augments={'Mag. Evasion+17','Spell interruption rate down -9%','"Regen" potency+3',}},
+    feet={ name="Taeon Boots", augments={'Mag. Evasion+18','Spell interruption rate down -9%','"Regen" potency+3',}},
+	waist="Resolute Belt",
+    neck="Mirage Stole +1",
     left_ear="Magnetic Earring",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     left_ring="Stikini Ring +1",
@@ -618,6 +605,7 @@ function Buff_change(Buff,gain)
             disable("feet")
         else
             enable("feet")
+            status_change(player.status)
         end
     end
     if Buff == 'Efflux' then
@@ -626,6 +614,7 @@ function Buff_change(Buff,gain)
             disable("legs")
         else
             enable("legs")
+            status_change(player.status)
         end
     end
     if Buff == 'Chain Affinity' then
@@ -634,6 +623,7 @@ function Buff_change(Buff,gain)
             disable("head")
         else
             enable("head")
+            status_change(player.status)
         end
     end
 end
@@ -642,10 +632,10 @@ function idle()
     if player.status=='Engaged' then
         equip(sets.melee[Melee_Set_Names[Melee_Index]]) 
 	else
-		equip(sets.refresh.battle)
+		equip(sets.refresh[Refresh_Set_Names[Refresh_Index]])
 	end
 end
-  function status_change(new,old)
+function status_change(new,old)
 	idle()
 end
 
@@ -665,7 +655,7 @@ function self_command(command)
 	if command == 'toggle TH set' then
         TH_Index = TH_Index +1
     if TH_Index > #TH_Set_Names then TH_Index = 1 end
-        windower.add_to_chat('TH mode is now: '..TH_Set_Names[TH_Index])
+        windower.add_to_chat('TH4 equipped')
         equip(sets.TH[TH_Set_Names[TH_Index]])
     end
 	if command == 'toggle Sword set' then
@@ -682,7 +672,7 @@ function self_command(command)
     end
 end
 
-function user_unload()
+function file_unload()
 send_command('unbind f9')
 send_command('unbind !f9')
 send_command('unbind f10')
@@ -691,4 +681,5 @@ send_command('unbind f12')
 send_command('unbind !f12')
 send_command('unbind f7')
 send_command('unbind !f7')
+send_command('unbind !numpad1')
 end
