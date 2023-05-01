@@ -161,10 +161,10 @@ function get_sets()
     legs="Malignance Tights",
     feet="Malignance Boots",
     neck="Anu Torque",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    waist="Orpheus's Sash",
     left_ear="Sherida Earring",
-    right_ear="Cessance Earring",
-    left_ring="Defending Ring",
+    right_ear="Lethargy Earring +1",
+    left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
     back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
@@ -178,7 +178,7 @@ function get_sets()
     neck="Warder's Charm +1",
     waist="Platinum Moogle Belt",
     left_ear="Sherida Earring",
-    right_ear="Cessance Earring",
+    right_ear="Lethargy Earring +1",
     left_ring="Chirich Ring +1",
     right_ring="Defending Ring",
     back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
@@ -207,9 +207,9 @@ function get_sets()
     ammo="Oshasha's Treatise",
     head="Jhakri Coronal +2",
     body="Nyame Mail",
-    hands="Jhakri Cuffs +2",
+    hands="Atrophy Gloves +3",
     legs="Nyame Flanchard",
-    feet="Leth. Houseaux +2",
+    feet="Leth. Houseaux +3",
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
@@ -222,9 +222,9 @@ function get_sets()
     ammo="Oshasha's Treatise",
     head="Jhakri Coronal +2",
     body="Nyame Mail",
-    hands="Jhakri Cuffs +2",
+    hands="Atrophy Gloves +3",
     legs="Nyame Flanchard",
-    feet="Leth. Houseaux +2",
+    feet="Leth. Houseaux +3",
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
@@ -240,7 +240,7 @@ function get_sets()
 	body="Jhakri Robe +2",
     hands="Atrophy Gloves +3",
     legs="Jhakri Slops +2",
-    feet="Leth. Houseaux +2",
+    feet="Leth. Houseaux +3",
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
@@ -257,13 +257,13 @@ function get_sets()
     hands="Atrophy Gloves +3",
     legs="Jhakri Slops +2",
     feet="Ayanmo Gambieras +2",
-    neck="Rep. Plat. Medal",
+    neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Sherida Earring",
-    right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
+    right_ear="Lethargy Earring +1",
     left_ring="Epaminondas's Ring",
-    right_ring="Rajas Ring",
-    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    right_ring="Ilabrat Ring",
+    back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 
 	sets.ws['Death Blossom']	= {
@@ -287,7 +287,7 @@ function get_sets()
     body="Nyame Mail",
     hands="Jhakri Cuffs +2",
     legs="Nyame Flanchard",
-    feet="Leth. Houseaux +2",
+    feet="Leth. Houseaux +3",
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
@@ -304,7 +304,7 @@ function get_sets()
     --hands="Leth. Ganth. +2",
     hands="Jhakri Cuffs +2",
     legs="Leth. Fuseau +2",
-    feet="Leth. Houseaux +2",
+    feet="Leth. Houseaux +3",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
     left_ear="Regal Earring",
@@ -322,7 +322,7 @@ function get_sets()
     --hands="Leth. Ganth. +2",
     hands="Jhakri Cuffs +2",
     legs="Leth. Fuseau +2",
-    feet="Leth. Houseaux +2",
+    feet="Leth. Houseaux +3",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
     left_ear="Malignance Earring",
@@ -340,7 +340,7 @@ function get_sets()
     --hands="Leth. Ganth. +2",
     hands="Jhakri Cuffs +2",
     legs="Leth. Fuseau +2",
-    feet="Leth. Houseaux +2",
+    feet="Leth. Houseaux +3",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
     left_ear="Malignance Earring",
@@ -358,7 +358,7 @@ function get_sets()
     --hands="Leth. Ganth. +2",
     hands="Jhakri Cuffs +2",
     legs="Leth. Fuseau +2",
-    feet="Leth. Houseaux +2",
+    feet="Leth. Houseaux +3",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
     left_ear="Malignance Earring",
@@ -373,9 +373,9 @@ function get_sets()
     ammo="Oshasha's Treatise",
     head="Jhakri Coronal +2",
     body="Nyame Mail",
-    hands="Jhakri Cuffs +2",
+    hands="Atrophy Gloves +3",
     legs="Nyame Flanchard",
-    feet="Leth. Houseaux +2",
+    feet="Leth. Houseaux +3",
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
@@ -390,7 +390,7 @@ function get_sets()
     body="Jhakri Robe +2",
     hands="Atrophy Gloves +3",
     legs={ name="Taeon Tights", augments={'Accuracy+25','"Triple Atk."+2','STR+5 DEX+5',}},
-    feet="Leth. Houseaux +2",
+    feet="Leth. Houseaux +3",
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Sherida Earring",
@@ -406,7 +406,7 @@ function get_sets()
     -- waist="Chaac Belt",
 	
     ammo="Oshasha's Treatise",
-    feet="Leth. Houseaux +2",
+    feet="Leth. Houseaux +3",
     waist="Orpheus's Sash",
 	
     head="Jhakri Coronal +2",
@@ -431,7 +431,7 @@ function get_sets()
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Sherida Earring",
-    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Lethargy Earring +1",
     left_ring="Epaminondas's Ring",
     right_ring="Rajas Ring",
     back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
@@ -439,10 +439,11 @@ function get_sets()
 	sets.ws['Mercy Stroke'] = {
     ammo="Oshasha's Treatise",
     head="Jhakri Coronal +2",
-    body="Nyame Mail",
-    hands="Jhakri Cuffs +2",
+	body="Lethargy Sayon +2",
+    --body="Nyame Mail",
+    hands="Atrophy Gloves +3",
     legs="Nyame Flanchard",
-    feet="Leth. Houseaux +2",
+    feet="Leth. Houseaux +3",
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
@@ -478,13 +479,13 @@ function get_sets()
 	
 	Nuke_Set_Names = {'MB','Nukes'}
 	sets.Nuke = {}
-	sets.Nuke.Nukes = { --, MAB 277, MACC 327, Magic Burst 18 (Cap 40), MB II 6 (no cap), Magic Damage +326, Magic Crit Hit II +10%
+	sets.Nuke.Nukes = { --, MAB 283, MACC 343, Magic Burst 18 (Cap 40), MB II 6 (no cap), Magic Damage +502, Magic Crit Hit II +10%
     ammo="Ghastly Tathlum +1",
     head="Ea Hat",
     body="Lethargy Sayon +2",
     hands="Lethargy Gantherots +2",
     legs="Leth. Fuseau +2",
-    feet="Leth. Houseaux +2",
+    feet="Leth. Houseaux +3",
     neck="Sibyl Scarf",
 	waist="Sacro Cord",
     left_ear="Malignance Earring",
@@ -494,13 +495,13 @@ function get_sets()
     back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+7',}},
 	}
 	
-	sets.Nuke.MB = { --, MAB 262, MACC 275, Magic Burst 41 (Cap 40), MB II 25 (no cap), Magic Damage +260, Magic Crit Hit II +10%
+	sets.Nuke.MB = { --, MAB 256, MACC 312, Magic Burst 40 (Cap 40), MB II 25 (no cap), Magic Damage +445, Magic Crit Hit II +10%
     ammo="Sroda Tathlum",
     head="Ea Hat",
     body="Ea Houppelande",
-    hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+    hands="Ea Cuffs +1",
     legs="Leth. Fuseau +2",
-    feet="Jhakri Pigaches +2",
+    feet="Leth. Houseaux +3",
     neck="Mizu. Kubikazari",
 	waist="Sacro Cord",
     left_ear="Malignance Earring",
@@ -547,7 +548,8 @@ function get_sets()
     sets.midcast = {}               -- leave this empty  
 	sets.midcast.enfeebling = { --, MACC+399, Enfeebling Skill +63, Enfeebling Potency +53, Enfeebling Duration +60%, Saboteur +13, Immunobreak +1
 	ammo="Regal Gem",				--, Enfeebling Potency +10
-        head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
+    --head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
+	head="Befouled Crown",
     body="Lethargy Sayon +2", 		--, Enfeebling Duration +10%| Combined, Enfeebling Potency +16
     hands="Lethargy Gantherots +2", --, Enfeebling Duration +10%| Combined, Saboteur +13 
     legs={ name="Chironic Hose", augments={'Mag. Acc.+21 "Mag.Atk.Bns."+21','INT+10','Mag. Acc.+11','"Mag.Atk.Bns."+5',}},
@@ -583,12 +585,12 @@ function get_sets()
 	sets.midcast.enhancingskill = { --, ML35 Skill = 644, Enhancing Skill +127 - Temper II = 34 TA
 	ammo="Staunch Tathlum +1",
     --sub="Pukulatmuj +1",
-        head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
+    head="Befouled Crown",
     --body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
 	body="Vitiation Tabard +1",
-    hands="Vitiation Gloves +2",
+    hands="Vitiation Gloves +3",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet="Leth. Houseaux +2",
+    feet="Leth. Houseaux +3",
     neck="Melic Torque",
 	waist="Olympus Sash",
     left_ear="Andoaa Earring",
@@ -597,15 +599,15 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}},
 	}
-	sets.midcast.barspell = { --, Enhancing Skill +127, BarAilment +20, Duration+5%
+	sets.midcast.barspell = { --, Enhancing Skill +127, BarAilment +20, Duration+15%
 	ammo="Staunch Tathlum +1",
     --sub="Pukulatmuj +1",
-        head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
+    head="Befouled Crown",
     --body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
 	body="Vitiation Tabard +1",
-    hands="Vitiation Gloves +2",
+    hands="Vitiation Gloves +3",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet="Leth. Houseaux +2",
+    feet="Leth. Houseaux +3",
     neck="Sroda Necklace",
 	waist="Olympus Sash",
     left_ear="Andoaa Earring",
@@ -615,7 +617,7 @@ function get_sets()
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}},
 	}
 
-	sets.midcast.phalanx = { --, Skill 522 = Phalanx Tier 8 = -35 Damage, +20 = -55 Damage, +37% Duration, +20% Ghostfyre Duration
+	sets.midcast.phalanx = { --, Skill 522 = Phalanx Tier 8 = -35 Damage, +20 = -55 Damage, +38% Duration, +20% Ghostfyre Duration, Merits+30 Seconds
 	ammo="Staunch Tathlum +1",
 	sub="Sakpata's Sword", --, self Phalanx +5
     head={ name="Taeon Chapeau", augments={'"Fast Cast"+5','Phalanx +3',}},
@@ -632,14 +634,14 @@ function get_sets()
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}}, --, Ghostfyre Cape Duration is separate from normal Duration gear, 
 	}		
 	
-	sets.midcast.enhancingskillPT = { --, +84 Enhancing Skill, +92% Duration, +20% Ghostfyre Duration
+	sets.midcast.enhancingskillPT = { --, +84 Enhancing Skill, +93% Duration, +20% Ghostfyre Duration, Merits+30 Seconds, Gloves+15 Seconds
 	sub="",
 	ammo="Staunch Tathlum +1",
-        head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
+    head="Befouled Crown",
     body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
-    hands="Vitiation Gloves +2",
+    hands="Vitiation Gloves +3",
     legs="Leth. Fuseau +2",
-    feet="Leth. Houseaux +2", 
+    feet="Leth. Houseaux +3", 
     neck={ name="Dls. Torque +1", augments={'Path: A',}},
     waist="Embla Sash",
     left_ear="Mimir Earring",
@@ -651,13 +653,13 @@ function get_sets()
 	
 
 	
-	sets.midcast.enhancingduration = { --, +122% Duration, +20% Ghostfyre Duration, 12 Minute Self Haste, 30 Minute with Composure
+	sets.midcast.enhancingduration = { --, +133% Duration, +20% Ghostfyre Duration, Merits+30 Seconds
 	ammo="Staunch Tathlum +1",
     head={ name="Telchine Cap", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
     body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
     hands="Atrophy Gloves +3",
      legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
-    feet="Leth. Houseaux +2",
+    feet="Leth. Houseaux +3",
     neck={ name="Dls. Torque +1", augments={'Path: A',}},
 	waist="Embla Sash",
     left_ear="Mimir Earring",
@@ -667,13 +669,13 @@ function get_sets()
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}},
 	}
 	
-	sets.midcast.enhancingdurationPT = { --, +122% Duration, +20% Ghostfyre Duration = 12 Minute Haste II
+	sets.midcast.enhancingdurationPT = { --, +133% Duration, +20% Ghostfyre Duration, Merits+30 Seconds, = 12 Minute Haste II
 	ammo="Staunch Tathlum +1",
     head="Lethargy Chappel",
     body="Lethargy Sayon +2",
     hands="Lethargy Gantherots +2",
     legs="Leth. Fuseau +2",
-    feet="Leth. Houseaux +2",
+    feet="Leth. Houseaux +3",
     neck={ name="Dls. Torque +1", augments={'Path: A',}},
 	waist="Embla Sash",
     left_ear="Mimir Earring",
@@ -683,13 +685,13 @@ function get_sets()
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}},
 	}
 	
-	sets.midcast.refresh = { --, +5 Refresh Potency, +82% Duration, +20% Ghostfyre Duration, +20 Seconds
+	sets.midcast.refresh = { --, +5 Refresh Potency, +103% Duration, +20% Ghostfyre Duration, Merits+30 Seconds, Sash+20 Seconds
 	ammo="Staunch Tathlum +1",
 	head="Amalric Coif",
     body="Atrophy Tabard +2",
     hands="Atrophy Gloves +3",
     legs="Leth. Fuseau +2",
-    feet="Leth. Houseaux +2",
+    feet="Leth. Houseaux +3",
     neck={ name="Dls. Torque +1", augments={'Path: A',}},
 	waist="Gishdubar Sash",
     left_ear="Aredan Earring",
@@ -700,7 +702,7 @@ function get_sets()
 	}
 	
 
-	sets.midcast.regen = { --, +55SIRD, +15 Regen, +10% Potency, +57% Duration, = Regen II, 28/Tic = 1568 HP
+	sets.midcast.regen = { --, +55SIRD, +15 Regen, +10% Potency, +38% Duration, +20% Ghostfyre Duration, Merits+30 Seconds, Telchine +12 Seconds = Regen II, 28/Tic = 1568 HP
 	ammo="Staunch Tathlum +1",
     sub="Bolelabunga",
     head={ name="Taeon Chapeau", augments={'Mag. Evasion+16','Spell interruption rate down -9%','"Regen" potency+3',}},
