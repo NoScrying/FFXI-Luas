@@ -16,69 +16,69 @@ function get_sets()
 
 	Melee_Set_Names = {'normal', 'DT', 'Hybrid'}
 	sets.melee = {}
-	sets.melee.normal = { 			--, -29 PDT, -19MDT, 3QA, 31 TA, 15 DA, 14 + 50 = 64 Kick attacks, SB 28 (63) (Cap 50), SBII 25 (No cap), 25STP (14 hit), Crit Chance +19% Merit +5% = 24%, Crit Damage +6%
+	sets.melee.normal = { 			--, -29 PDT, -19MDT, 3QA, 26 TA, 15 DA, 14 + 50 = 64 Kick attacks, SB 28 (63) (Cap 50), SBII 25 (No cap), 35STP (13 hit), Crit Chance +29% Merit +5% = 34%, Crit Damage +6%
     ammo="Aurgelmir Orb", 			--, 4STP
-    head="Adhemar Bonnet +1", 		--, 4TA, 8SB, Crit Damage +6%
+    head="Adhemar Bonnet +1", 			--, 4TA, 8SB, Crit Damage +6%
     body="Ken. Samue +1", 			--, 6TA, 12SB, Crit+9%
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --, 4TA, 7STP
 	legs="Bhikku Hose +2", 			--, 25KA, 9STP, -13DT
-    feet="Ken. Sune-Ate +1", 		--, 4TA, 8SB, Crit+5%
+    feet="Ken. Sune-Ate +1", 			--, 4TA, 8SB, Crit+5%
     neck={ name="Mnk. Nodowa +1", augments={'Path: A',}}, --, 15KA
-    waist="Moonbow Belt +1", 		--, 8TA, 15SBII, -6DT
-    left_ear="Sherida Earring", 	--, 5DA, 5STP, 5SBII
+    waist="Moonbow Belt +1", 			--, 8TA, 15SBII, -6DT
+    left_ear="Sherida Earring", 		--, 5DA, 5STP, 5SBII
 	right_ear="Odr Earring",		--, Crit+5%
 	--right_ear="Cessance Earring", 	--, 3DA, 3STP
-    left_ring="Niqmaddu Ring",		--, 3QA, 5SBII 
-    right_ring="Gere Ring", 			--, 5TA, 
+    left_ring="Niqmaddu Ring",			--, 3QA, 5SBII 
+    right_ring="Lehko's Ring",			--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, 10KA, 10DA, -10PDT
 	}
-	sets.melee.DT = {				--, -52 PDT, -42 MDT, 50STP (12 Hit), 3QA, 22TA, 15DA, 64KA, Physical Damage Limit +16%, SB 8(43), SBII 25, Crit Chance +5% (10%)
-    ammo="Staunch Tathlum +1", 		--, -3DT, PDL+3
-    head="Malignance Chapeau", 		--, -6DT, 8STP, PDL+3
-    body="Malignance Tabard", 		--, -9DT, 11STP, PDL+6
+	sets.melee.DT = {			--, -52 PDT, -42 MDT, 60STP (11 Hit), 3QA, 17TA, 15DA, 64KA, Physical Damage Limit +16%, SB 8(43), SBII 25, Crit Chance +15% (20%)
+    ammo="Staunch Tathlum +1", 			--, -3DT, PDL+3
+    head="Malignance Chapeau", 			--, -6DT, 8STP, PDL+3
+    body="Malignance Tabard", 			--, -9DT, 11STP, PDL+6
 	hands="Malignance Gloves",		--, -5DT, 12STP, PLD+4
 	legs="Bhikku Hose +2", 			--, -13DT, 25KA, 9STP,
-    feet="Ken. Sune-Ate +1", 		--, 4TA, 8SB, Crit+5%
+    feet="Ken. Sune-Ate +1", 			--, 4TA, 8SB, Crit+5%
     --feet="Malignance Boots", 			--, -4DT, 9STP, PDL+2
     neck={ name="Mnk. Nodowa +1", augments={'Path: A',}}, --, 15KA
-    waist="Moonbow Belt +1", 		--, -6DT, 8TA, 15SBII
-    left_ear="Sherida Earring", 	--, 5DA, 5STP, 5SBII
-    right_ear="Crepuscular Earring",--, 5STP
-    left_ring="Niqmaddu Ring",		--, 3QA, 5SBII 
-    right_ring="Gere Ring", 		--, 5TA, 
+    waist="Moonbow Belt +1", 			--, -6DT, 8TA, 15SBII
+    left_ear="Sherida Earring", 		--, 5DA, 5STP, 5SBII
+    right_ear="Crepuscular Earring",		--, 5STP
+    left_ring="Niqmaddu Ring",			--, 3QA, 5SBII 
+    right_ring="Lehko's Ring",			--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, 10KA, 10DA, -10PDT
 }
-	sets.melee.Hybrid = {			--, -47PDT, -37MDT, 33STP(13 Hit),3QA, 21TA, 15DA, 64KA, SB 16(51), SBII 25, Crit Chance +15% (20%)
-    ammo="Staunch Tathlum +1", 		--, -3DT, PDL+3
-    head="Malignance Chapeau", 		--, -6DT, 8STP, PDL+3
+	sets.melee.Hybrid = {			--, -47PDT, -37MDT, 43STP(12 Hit),3QA, 16TA, 15DA, 64KA, SB 16(51), SBII 25, Crit Chance +25% (30%)
+    ammo="Staunch Tathlum +1", 			--, -3DT, PDL+3
+    head="Malignance Chapeau", 			--, -6DT, 8STP, PDL+3
     hands="Ken. Tekko +1",			--, 4TA, 8SB, Crit +5%
-    body="Malignance Tabard", 		--, -9DT, 11STP, PDL+6
+    body="Malignance Tabard", 			--, -9DT, 11STP, PDL+6
 	legs="Bhikku Hose +2", 			--, -13DT, 25KA, 9STP, 
-    feet="Ken. Sune-Ate +1", 		--, 4TA, 8SB, Crit+5%
+    feet="Ken. Sune-Ate +1", 			--, 4TA, 8SB, Crit+5%
     neck={ name="Mnk. Nodowa +1", augments={'Path: A',}}, --, 15KA
-    waist="Moonbow Belt +1", 		--, -6DT, 8TA, 15SBII
-    left_ear="Sherida Earring", 	--, 5DA, 5STP, 5SBII
+    waist="Moonbow Belt +1", 			--, -6DT, 8TA, 15SBII
+    left_ear="Sherida Earring", 		--, 5DA, 5STP, 5SBII
 	right_ear="Odr Earring",		--, Crit+5%
 	--right_ear="Cessance Earring", 	--, 3DA, 3STP
-    left_ring="Niqmaddu Ring",		--, 3QA, 5SBII 
-    right_ring="Gere Ring", 			--, 5TA, 
+    left_ring="Niqmaddu Ring",			--, 3QA, 5SBII 
+    right_ring="Lehko's Ring",			--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, 10KA, 10DA, -10PDT
 }
 	counter_Set_Names = {'Stance',}	
 	sets.counter = {}
 	sets.counter.Stance = {			--, -48DT, 36STP(13 Hit),3QA, 8TA, 15DA, PDL+16%, Counter +32, Merit +5 (59) - (Add Spharai/Jolt Counter for 14-15, Mpaca Doublet adds 10, Rao Kote +1 adds 5)
-    ammo="Staunch Tathlum +1", 		--, -3DT, PDL+3
-    head="Malignance Chapeau", 		--, -6DT, 8STP, PDL+3
-    body="Malignance Tabard", 		--, -9DT, 11STP, PDL+6
+    ammo="Staunch Tathlum +1", 			--, -3DT, PDL+3
+    head="Malignance Chapeau", 			--, -6DT, 8STP, PDL+3
+    body="Malignance Tabard", 			--, -9DT, 11STP, PDL+6
 	hands="Malignance Gloves",		--, -5DT, 12STP, PLD+4
     legs="Anch. Hose +2",			--, Counter +5
-    feet="Bhikku Gaiters +2",		--, -9DT,
+    feet="Bhikku Gaiters +2",			--, -9DT,
     neck={ name="Bathy Choker +1", augments={'Path: A',}}, --, Counter +10
-    waist="Moonbow Belt +1", 		--, -6DT, 8TA, 15SBII
-    left_ear="Sherida Earring", 	--, 5DA, 5STP, 5SBII
+    waist="Moonbow Belt +1", 			--, -6DT, 8TA, 15SBII
+    left_ear="Sherida Earring", 		--, 5DA, 5STP, 5SBII
     right_ear={ name="Bhikku Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}}, --, Counter +7
-    left_ring="Niqmaddu Ring",		--, 3QA, 5SBII  
-    right_ring="Defending Ring",	--, -10DT
+    left_ring="Niqmaddu Ring",			--, 3QA, 5SBII  
+    right_ring="Defending Ring",		--, -10DT
     back={ name="Segomo's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','System: 1 ID: 640 Val: 4',}}, --, 10DA, Counter +10
 	}
 	
@@ -116,19 +116,19 @@ function get_sets()
 	}	
 	
 	MEVA_Set_Name = {'MEVA'}
-	sets.MEVA = {					--, +682 MEVA, 40-50 Elemental Resist, +5% Negate Magic Damage chance, -51% PDT, -41% MDT
-    ammo="Staunch Tathlum +1",		--, Status Resistance +11, -3 DT,
-    head="Malignance Chapeau", 		--, 123 MEVA, -6 DT, 8STP, PDL+3
-    body="Malignance Tabard", 		--, 139 MEVA, -9 DT, 11STP, PDL+6
+	sets.MEVA = {				--, +682 MEVA, 40-50 Elemental Resist, +5% Negate Magic Damage chance, -51% PDT, -41% MDT
+    ammo="Staunch Tathlum +1",			--, Status Resistance +11, -3 DT,
+    head="Malignance Chapeau", 			--, 123 MEVA, -6 DT, 8STP, PDL+3
+    body="Malignance Tabard", 			--, 139 MEVA, -9 DT, 11STP, PDL+6
 	hands="Malignance Gloves",		--, 112 MEVA, -5 DT, 12STP, PLD+4
 	legs="Malignance Tights", 		--, 150 MEVA, -7 DT, 10STP, PDL+5
-    feet="Malignance Boots", 		--, 150 MEVA, -4 DT, 9STP, PDL+2
-    neck="Warder's Charm +1", 		--, +20 Element Resist, +5% Magic Absorb chance
+    feet="Malignance Boots", 			--, 150 MEVA, -4 DT, 9STP, PDL+2
+    neck="Warder's Charm +1", 			--, +20 Element Resist, +5% Magic Absorb chance
     waist="Engraved Belt", 			--, +20-30 Element Resist
     left_ear="Sherida Earring",
-    right_ear="Eabani Earring",		--, +8 Meva
-    left_ring="Archon Ring", 		--, +5% Negate Magic Damage chance
-    right_ring="Defending Ring", 	--, -10% DT
+    right_ear="Eabani Earring",			--, +8 Meva
+    left_ring="Archon Ring", 			--, +5% Negate Magic Damage chance
+    right_ring="Defending Ring", 		--, -10% DT
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, 10 KA, 10 DA, -10 PDT 
 	}
 
@@ -182,7 +182,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear="Odr Earring",
     left_ring="Niqmaddu Ring",
-    right_ring="Gere Ring",
+    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 	
@@ -205,7 +205,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear="Odr Earring",
     left_ring="Niqmaddu Ring",
-    right_ring="Gere Ring",
+    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Shijin Spiral'] = {
@@ -224,6 +224,21 @@ function get_sets()
 	back="Sacro Mantle",
 	}
 	sets.ws['Tornado Kick'] = {
+	ammo="Knobkierrie",
+    head="Adhemar Bonnet +1",
+    body="Bhikku Cyclas +2",
+    hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},
+    legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+    feet="Anch. Gaiters +3",
+    neck={ name="Mnk. Nodowa +1", augments={'Path: A',}},	
+    waist="Moonbow Belt +1",
+    left_ear="Sherida Earring",
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ring="Niqmaddu Ring",
+    right_ring="Gere Ring",
+    back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	} 
+	sets.ws['Dragon Kick'] = {
 	ammo="Knobkierrie",
     head="Adhemar Bonnet +1",
     body="Bhikku Cyclas +2",
