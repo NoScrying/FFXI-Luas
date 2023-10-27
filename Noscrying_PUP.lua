@@ -1,16 +1,16 @@
 function get_sets()
-	send_command('bind f9 gs c toggle melee set') -- F9 = Cycle through
-	send_command('bind !f9 gs c toggle puppet set') -- F10 = Cycle through
-	--send_command('bind !f9 gs c toggle DT set') -- F10 = Cycle through
+	send_command('bind f9 gs c toggle TP set') -- F9 = Cycle through
+	send_command('bind !f9 gs c toggle puppet mode') -- F10 = Cycle through
+	send_command('bind f10 gs c toggle run set')
 	send_command('bind f12 gs c toggle TH set') -- F12 = Cycle through
 	send_command('bind f7 gs c toggle weapons set') -- F9 = Cycle through
-	Melee_Index = 1
-	Puppet_Index = 1
+
+	
 	TH_Index = 1
 	DT_Index = 1
-	weapons_Index = 1
+	Weapons_Index = 1
 
-	weapons_Set_Names = {'Verethragna', 'Sakpata','Ohtas'}
+	Weapons_Set_Names = {'Verethragna', 'Sakpata','Ohtas'}
 	sets.weapons = {} 					-- Leave this empty.
 	sets.weapons.Verethragna = {
 	main = "Verethragna",
@@ -22,9 +22,12 @@ function get_sets()
     main ={ name="Ohtas", augments={'Accuracy+70','Pet: Accuracy+70','Pet: Haste+10%',}},
 	} 
 	
-	Melee_Set_Names = {'normal','DT','Hybrid'}
-	sets.melee = {} 					-- Leave this empty.
-	sets.melee.normal = {
+	
+	sets.Master_Mode = {} 					-- Leave this empty.
+	sets.Master_Mode.index = {'normal','DT','Hybrid'}
+	Master_Mode_Index = 1
+	
+	sets.Master_Mode["normal"] = {
 		ammo="Automat. Oil +3",
     head={ name="Herculean Helm", augments={'Accuracy+15','"Triple Atk."+4','Attack+14',}},
     body="Tali'ah Manteel +2",
@@ -35,11 +38,11 @@ function get_sets()
     waist="Moonbow Belt +1",
     left_ear="Cessance Earring",
     right_ear="Sroda Earring",
-    left_ring="Epona's Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Gere Ring",
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
-	sets.melee.Hybrid = {
+	sets.Master_Mode["Hybrid"] = {
 	     ammo="Automat. Oil +3",
     head="Tali\'ah Turban +2",
     body="Tali\'ah Manteel +2",
@@ -50,30 +53,31 @@ function get_sets()
     waist="Moonbow Belt +1",
     left_ear="Crepuscular Earring",
     right_ear="Sroda Earring",
-    left_ring="Epona\'s Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Gere Ring",
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}	
-	sets.melee.DT = {
+	sets.Master_Mode["DT"] = {
 	     ammo="Automat. Oil +3",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-	hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     neck="Shulmanu Collar",
 	waist="Moonbow Belt",
     left_ear="Crepuscular Earring",
 	right_ear="Sroda Earring",
-    left_ring="Epona's Ring",
+    left_ring="Niqmaddu Ring",
 	right_ring="Cath Palug Ring",
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
+	sets.Puppet_Mode = {}
+	sets.Puppet_Mode.index = {'PUPDA', 'PUPDT','PUPHaste'}
+	Puppet_Mode_Index = 1
 	
-	Puppet_Set_Names = {'PUPDA', 'PUPDT','PUPHaste'}
-	sets.puppet = {}
-	sets.puppet.PUPDA = {
+	sets.Puppet_Mode["PUPDA"] = {
 	ammo="Automat. Oil +3",
     head={ name="Taeon Chapeau", augments={'Pet: Accuracy+19 Pet: Rng. Acc.+19','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     body={ name="Taeon Tabard", augments={'Pet: Accuracy+19 Pet: Rng. Acc.+19','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
@@ -89,7 +93,7 @@ function get_sets()
     back={ name="Visucius\'s Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Haste+10','Pet: Damage Taken -5%'}},	
 }	
 
-	sets.puppet.PUPDT = {
+	sets.Puppet_Mode["PUPDT"] = {
     ammo="Automat. Oil +3",
     head={ name="Rao Kabuto", augments={'Pet: HP+100','Pet: Accuracy+15','Pet: Damage taken -3%',}},
     body={ name="Rao Togi", augments={'Pet: HP+100','Pet: Accuracy+15','Pet: Damage taken -3%',}},
@@ -104,7 +108,7 @@ function get_sets()
     right_ring="Cath Palug Ring",
     back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Haste+10','Pet: Damage taken -5%',}},
 }
-	sets.puppet.PUPHaste = {
+	sets.Puppet_Mode["PUPHaste"] = {
 	ammo="Automat. Oil +3",
     head={ name="Taeon Chapeau", augments={'Pet: Accuracy+19 Pet: Rng. Acc.+19','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     body={ name="Taeon Tabard", augments={'Pet: Accuracy+19 Pet: Rng. Acc.+19','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
@@ -140,7 +144,7 @@ function get_sets()
 	legs="Hizamaru Hizayoroi +2",
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
     waist="Moonbow Belt +1",
-    left_ring="Chirich Ring +1",
+    left_ring="Niqmaddu Ring",
     right_ring="Gere Ring",
 	left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+9','Mag. Acc.+9',}},
@@ -157,7 +161,7 @@ function get_sets()
     waist="Moonbow Belt +1",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sroda Earring",
-    left_ring="Epona's Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Gere Ring",
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
@@ -169,7 +173,7 @@ function get_sets()
     waist="Moonbow Belt +1",
     legs="Hizamaru Hizayoroi +2",
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
-    left_ring="Epona\'s Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Gere Ring",
 	left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sroda Earring",
@@ -183,7 +187,7 @@ function get_sets()
     waist="Moonbow Belt +1",
     legs="Hizamaru Hizayoroi +2",
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
-    left_ring="Epona\'s Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Gere Ring",
 	left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sroda Earring",
@@ -197,8 +201,8 @@ function get_sets()
     waist="Moonbow Belt +1",
     legs="Hizamaru Hizayoroi +2",
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
-	left_ring="Gere Ring",
-    right_ring="Refuscent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Gere Ring",
 	left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sroda Earring",
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},	
@@ -211,8 +215,8 @@ function get_sets()
     waist="Moonbow Belt +1",
     legs="Hizamaru Hizayoroi +2",
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
-	left_ring="Epona\'s Ring",
-    right_ring="Refuscent Ring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Gere Ring",
 	left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sroda Earring",
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},	
@@ -225,7 +229,7 @@ function get_sets()
     waist="Fotia Belt",
     legs="Hizamaru Hizayoroi +2",
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
-	left_ring="Refuscent Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Gere Ring",
 	left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Ishvara Earring",
@@ -239,7 +243,7 @@ function get_sets()
     waist="Moonbow Belt +1",
     legs="Hizamaru Hizayoroi +2",
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
-    left_ring="Epona\'s Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Gere Ring",
 	left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sroda Earring",
@@ -253,7 +257,7 @@ function get_sets()
     waist="Moonbow Belt +1",
     legs="Hizamaru Hizayoroi +2",
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
-	left_ring="Refuscent Ring",
+    left_ring="Niqmaddu Ring",
     right_ring="Gere Ring",
 	left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sroda Earring",
@@ -347,17 +351,17 @@ function get_sets()
 
 	sets.idle.normal = {	
     ammo="Automat. Oil +3",
-    head="Malignance Chapeau",
-    body="Hizamaru Haramaki +2",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
+    head="Nyame Helm",
+    body="Hiza. Haramaki +2",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
     feet="Hermes' Sandals",
-    neck="Elite Royal Collar",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
     waist="Moonbow Belt +1",
     left_ear="Enmerkar Earring",
     right_ear="Sroda Earring",
     left_ring="Defending Ring",
-	right_ring="Cath Palug Ring",
+    right_ring="C. Palug Ring",
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
@@ -379,7 +383,7 @@ function get_sets()
     feet={ name="Taeon Boots", augments={'"Fast Cast"+5','Phalanx +3',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ring="Lebeche Ring",
-	right_ring="Weatherspoon Ring",
+	right_ring="Weatherspoon Ring +1",
 	neck="Voltsurge Torque",
     right_ear="Loquacious Earring",
 	}	
@@ -430,11 +434,12 @@ end
 
 
 function idle()
-	if player.status =='Engaged' and player.equipment.main == "Verethragna" then
-		equip(sets.melee[Melee_Set_Names[Melee_Index]])
-	end
-	if player.status=='Engaged' and player.equipment.main == "Sakpata's Fists" or player.equipment.main == "Ohtas" then
-		equip(sets.puppet[Puppet_Set_Names[Puppet_Index]])
+	if player.status =="Engaged" then --, When drawing weapon
+		if Puppet_Mode == true then
+			equip(sets.Puppet_Mode[sets.Puppet_Mode.index[Puppet_Mode_Index]])
+		elseif Master_Mode == true then
+			equip(sets.Master_Mode[sets.Master_Mode.index[Master_Mode_Index]])
+		end
 	end
 	if player.status =='Idle' then
         equip(sets.idle.normal) 
@@ -445,24 +450,53 @@ function status_change(new,old)
  idle()
 end  
 
-function self_command(command)
-	if command == 'toggle melee set' then
-        Melee_Index = Melee_Index +1
-        if Melee_Index > #Melee_Set_Names then Melee_Index = 1 end
-        windower.add_to_chat('TP mode is now: '..Melee_Set_Names[Melee_Index])
-        equip(sets.melee[Melee_Set_Names[Melee_Index]])
-    end
-	if command == 'toggle puppet set' then
-        Puppet_Index = Puppet_Index +1
-        if Puppet_Index > #Puppet_Set_Names then Puppet_Index = 1 end
-                windower.add_to_chat('Puppet mode is now: '..Puppet_Set_Names[Puppet_Index])
-		equip(sets.puppet[Puppet_Set_Names[Puppet_Index]])
-	end
-	if command == 'toggle DT set' then
-        DT_Index = DT_Index +1
-        if DT_Index > #DT_Set_Names then DT_Index = 1 end
-                windower.add_to_chat('DT mode is now: '..DT_Set_Names[DT_Index])
-		equip(sets.DT[DT_Set_Names[DT_Index]])
+
+Puppet_Mode = true --, If true, default set is tanking TP array.
+Master_Mode = true --, TP set order, looks for Tanking TP set before 2H TP
+
+function self_command(command) --, Allows of use of various commands
+	if command == 'toggle TP set' then --, When using the command as specified at the top of this lua, then executes these functions
+		if Puppet_Mode == true then --, Checks whether or not the Tank_Mode Mode is active,
+			Puppet_Mode_Index = Puppet_Mode_Index + 1 --, Cycles through the Index, starts at 1 when switching or starting game
+			if Puppet_Mode_Index > #sets.Puppet_Mode.index then Puppet_Mode_Index = 1 end 
+			windower.add_to_chat('Puppet mode --> ' .. sets.Puppet_Mode.index[Puppet_Mode_Index] ..'') --, Sends a message ingame, not visible to others.
+			--if player.status == 'Engaged' then
+				equip(sets.Puppet_Mode[sets.Puppet_Mode.index[Puppet_Mode_Index]])
+			--end
+		elseif Puppet_Mode == false then
+			if Master_Mode == true then
+				Master_Mode_Index = Master_Mode_Index + 1
+				if Master_Mode_Index > #sets.Master_Mode.index then Master_Mode_Index = 1 end
+				windower.add_to_chat('Master mode --> ' .. sets.Master_Mode.index[Master_Mode_Index] ..'')
+				--if player.status == 'Engaged' then
+						equip(sets.Master_Mode[sets.Master_Mode.index[Master_Mode_Index]])
+				end
+			end		
+		end
+	if command == 'toggle puppet mode set' then
+		Puppet_Mode_Index = Puppet_Mode_Index + 1
+		if Puppet_Mode_Index > #sets.Puppet_Mode.index then Puppet_Mode_Index = 1 end
+		windower.add_to_chat('Puppet mode --> ' .. sets.Puppet_Mode.index[Puppet_Mode_Index] ..'')
+		if player.status == 'Engaged' then
+			equip(sets.Puppet_Mode[sets.Puppet_Mode.index[Puppet_Mode_Index]])
+		end
+	elseif command == 'toggle puppet mode' then
+		if Puppet_Mode == true then
+			Puppet_Mode = false
+			windower.add_to_chat('<----- Puppet Mode: [Off] ----->')
+        else
+			Puppet_Mode = true
+			windower.add_to_chat('<----- Puppet Mode: [On] ----->')
+		end
+		status_change(player.status)
+	elseif command == 'toggle master mode' then
+		if Master_Mode == true then
+			Master_Mode = false
+			windower.add_to_chat('<----- Master Mode: [Off] ----->')
+        else
+			Master_Mode = true
+			windower.add_to_chat('<----- Master Mode: [On] ----->')
+		end
 	end
 	if command == 'toggle TH set' then
         TH_Index = TH_Index +1
@@ -470,11 +504,15 @@ function self_command(command)
         windower.add_to_chat('TH mode is now: '..TH_Set_Names[TH_Index])
         equip(sets.TH[TH_Set_Names[TH_Index]])
     end
+	if command == 'toggle run set' then
+        windower.add_to_chat('Movement set equipped')
+		equip(sets.idle.normal)
+	end
 	if command == 'toggle weapons set' then
-        weapons_Index = weapons_Index +1
-        if weapons_Index > #weapons_Set_Names then weapons_Index = 1 end
+        Weapons_Index = Weapons_Index +1
+        if Weapons_Index > #Weapons_Set_Names then Weapons_Index = 1 end
         windower.add_to_chat('Weapon is now: '..Weapons_Set_Names[Weapons_Index])
-        equip(sets.weapons[weapons_Set_Names[weapons_Index]])
+        equip(sets.weapons[Weapons_Set_Names[Weapons_Index]])
     end
 end
 
