@@ -795,7 +795,7 @@ function precast(spell)
 end
 
 function midcast(spell)
-	if spell.name:match ('Sleep') or spell.name:match ('Blind') or spell.name =="Frazzle II" or spell.name:match ('Dispel')or spell.name:match ('Break')or spell.name:match ('Bind')then
+	if spell.name:match ('Sleep') or spell.name:match ('Blind') or spell.name =="Frazzle II" or spell.name:match ('Dispel')or spell.name:match ('Break')or spell.name:match ('Bind')or spell.name:match ('Silence')then
 			equip(sets.midcast.Macc) --, Macc Spells, are not affected by Potency or are more important to land quickly, Gravity can get over -80% Movement speed, Frazzle II added to MACC set, to allow Frazzle III to be cast with Max Potency
 	elseif spell.skill == 'Enfeebling Magic' or spell.name =="Frazzle III" then
 			equip(sets.midcast.enfeebling)
@@ -805,30 +805,28 @@ function midcast(spell)
 		end	
 	if spell.name:match('Refresh') or spell.name:match('Aquaveil') then
 		equip(sets.midcast.refresh) else
-			if spell.name:match('Regen') then
-				equip(sets.midcast.regen) else
-					if spell.name:match('Refresh') or spell.name:match('Aquaveil') then
-						equip(sets.midcast.refresh) else
-									if buffactive['Composure'] and spell.skill == 'Enhancing Magic' and spell.target.type == 'PLAYER' or spell.target.type == 'NPC' then
-										equip(sets.midcast.enhancingdurationPT) else --, If Composure buff is active then uses this set when targeting others players or NPCs
-											if spell.skill == 'Enhancing Magic' and spell.target.type == 'SELF' or spell.target.type == 'PLAYER' or spell.target.type == 'NPC' then
-												equip(sets.midcast.enhancingduration) --, if Composure is not on, then uses this Duration set instead, for self, other players and NPCs
-										
-									end
+				if spell.name:match('Refresh') or spell.name:match('Aquaveil') then
+					equip(sets.midcast.refresh) else
+						if buffactive['Composure'] and spell.skill == 'Enhancing Magic' and spell.target.type == 'PLAYER' or spell.target.type == 'NPC' then
+							equip(sets.midcast.enhancingdurationPT) else --, If Composure buff is active then uses this set when targeting others players or NPCs
+								if spell.skill == 'Enhancing Magic' and spell.target.type == 'SELF' or spell.target.type == 'PLAYER' or spell.target.type == 'NPC' then
+									equip(sets.midcast.enhancingduration) --, if Composure is not on, then uses this Duration set instead, for self, other players and NPCs
 								end
 							end
 						end
 					end
-				
 	if spell.name:match('Bar') then
 		equip(sets.midcast.barspell)
 	end
 	if spell.name:match('Phalanx') then
-		equip(sets.midcast.phalanx)
+		equip(sets.midcast.phalanxEngaged)
+			if player.status=="Idle" then
+				equip(sets.midcast.phalanx)
 			if spell.name:match('Phalanx II') then
 				equip(sets.midcast.enhancingskillPT) else
 			end
 		end
+	end
 	if spell.target.type == 'SELF' and spell.name:match('Temper') or spell.name:match('En') or spell.name:match('Gain-') or spell.name:match('Stoneskin') then
 		equip(sets.midcast.enhancingskill)		
 	end	
@@ -853,6 +851,12 @@ elseif 	spell.name:match('Cursna') and spell.target.type == 'PLAYER' then
 end
 	if spell.name:match("Enfire II") or spell.name:match("Enthunder II") or spell.name:match("Enaero II") or spell.name:match("Enblizzard II") or spell.name:match("Enstone II") or spell.name:match("Enwater II") then
 		equip (sets.midcast.Enmity)
+	end
+	if spell.name:match('Regen') then
+			equip(sets.midcast.regenEngaged)
+				if player.status =='Idle' then
+			equip(sets.midcast.regen)
+		end
 	end
 end
 
