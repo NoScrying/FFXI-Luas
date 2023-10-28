@@ -1,4 +1,6 @@
 # FFXI-Luas
 Job Luas
 
-RUN lua for teaching/learning.
+DRK, RUN, RDM, PUP, MNK, SAM more advanced than the rest.
+
+RUN lua for teaching/learning, and is the most advanced
