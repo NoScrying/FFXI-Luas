@@ -18,7 +18,7 @@ function get_sets()
 	Sub_Weapons_Index = 1	
 	Buff_Index = 1	
 
-	Weapons_Set_Names = {'Aettir',"Epeolatry"} --, 'Montante','Zantetsuken X', "Peord Claymore - Double Damage","Peord Claymore - Double Attack"Define set names, allows the lua to know what you are referring to.
+	Weapons_Set_Names = {'Epeolatry',"Aettir"} --, 'Montante','Zantetsuken X', "Peord Claymore - Double Damage","Peord Claymore - Double Attack"Define set names, allows the lua to know what you are referring to.
 	sets.weapons = {}
 
 	sets.weapons["Peord Claymore - Double Attack"] = {
@@ -35,7 +35,7 @@ function get_sets()
 }
 
 	
-	Sub_Weapons_Set_Names = {'Lycurgos', 'Loxotic'}
+	Sub_Weapons_Set_Names = {'Loxotic', 'Lycurgos'}
 	sets.sub_weapons = {}
 	sets.sub_weapons.Lycurgos = {
     main="Lycurgos",
@@ -43,7 +43,6 @@ function get_sets()
 	}	
 	sets.sub_weapons.Loxotic = {
     main={ name="Loxotic Mace +1", augments={'Path: A',}},
-	sub="Blurred Shield +1",
 	}
 	sets.ranged = {}
 	sets.ranged.precast = {
@@ -57,7 +56,7 @@ function get_sets()
 	sets.DD_Mode["Normal: 32PDT"] = { -- 3QA, 19TA, 34DA, Temper+28 = 62DA, Embolden +12 = 74DA, -29PDT, -17MDT
     ammo="Yamarang",
     head="Adhemar Bonnet +1",priority=16,
-    body="Ayanmo Corazza +2",priority=17,
+    body="Ashera Harness",priority=17,
     --body="Nyame Mail",
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},priority=195,
 	legs="Meghanada Chausses +2",priority=18,
@@ -75,7 +74,7 @@ function get_sets()
 	sets.DD_Mode["Hybrid: 45PDT"] = { -- 3QA, 24DA, Temper+28 = 52DA, Embolden +12 = 64DA, -45PDT, -45MDT, +11 Inquartata, Parry+5%
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",priority=13,
-    body="Nyame Mail",priority=17,
+    body="Ashera Harness",priority=17,
     hands="Turms Mittens +1",priority=14,
     legs="Eri. Leg Guards +2",priority=16,
     feet="Turms Leggings +1",priority=15,
@@ -97,21 +96,20 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Parrying rate+5%',}},priority=15,
 	}
 	
-	sets.Aftermath = { -- 15TA, 20DA, Temper+28 = 48DA, Embolden +12 = 60DA, -32PDT, -14MDT
+	sets.Aftermath = { 
     ammo="Yamarang",
     head="Aya. Zucchetto +2",priority=16,
-    body="Ayanmo Corazza +2",priority=17,
+    body="Ashera Harness",priority=17,
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},priority=15,
     legs="Meg. Chausses +2",priority=18,
 	feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
-    -- feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}},
-    neck="Anu Torque",
+    neck={ name="Futhark Torque +2", augments={'Path: A',}},
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Crep. Earring",
-    right_ear="Dedition Earring",
+    right_ear="Sherida Earring",
     left_ring="Moonlight Ring",priority=19,
     right_ring="Lehko's Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},priority=14,
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},priority=14,
 	}
 	sets.Tank_Mode = {}
 	sets.Tank_Mode.index = {'Parry: 49PDT','Hybrid: 49PDT'} --, 
@@ -120,11 +118,11 @@ function get_sets()
 	sets.Tank_Mode["Hybrid: 49PDT"] = { --, -49PDT, -42MDT, +43 DA, +12 TA, +3 QA, 3300 HP
     ammo="Staunch Tathlum +1",
     head="Adhemar Bonnet +1",priority=13,
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},priority=15,
+    body="Ashera Harness",priority=18,
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},priority=14,
-    legs="Erilaz Leg Guards +2",priority=18,
-    feet="Erilaz Greaves +2",priority=17,
-    neck="Futhark Torque +2",priority=16,
+    legs="Erilaz Leg Guards +2",priority=17,
+    feet="Erilaz Greaves +2",priority=16,
+    neck="Futhark Torque +2",priority=15,
     -- waist="Engraved Belt",
 	waist="Platinum Moogle Belt",priority=20,
     left_ear="Cessance Earring",
@@ -194,7 +192,7 @@ function get_sets()
 	sets.run.DT =  { 			--, -53% PDT, -35% MDT
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",priority=12, 
-    body="Nyame Mail",priority=16, 
+    body="Futhark Coat +3",priority=16, 
     hands="Nyame Gauntlets",priority=10, 
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},priority=8, 
     feet="Erilaz Greaves +2",priority=11, 
@@ -208,8 +206,8 @@ function get_sets()
 	}
 	sets.run.Regen =  { 		-- Refresh 4/Tic, Regen 18/Tic
     ammo="Homiliary",
-    head="Nyame Helm",priority=18, 
-    body="Futhark Coat +1",priority=15, 
+    head="Turms Cap +1",priority=18, 
+    body="Futhark Coat +3",priority=15, 
     hands="Turms Mittens +1",priority=16, 
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},priority=14, 
     feet="Turms Leggings +1",priority=17, 
@@ -310,8 +308,8 @@ function get_sets()
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
-    left_ring="Lehko's Ring",
-    --right_ring="Ilabrat Ring",
+	left_ring="Epaminondas's Ring",
+    --left_ring="Lehko's Ring",
     right_ring="Niqmaddu Ring",	
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
@@ -323,7 +321,7 @@ function get_sets()
 	sets.ws['Spinning Slash']	= {
     ammo="Knobkierrie",
     head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
-    body="Erilaz Surcoat +2",priority=19, 
+    body="Futhark Coat +3",priority=19, 
     hands="Meg. Gloves +2",priority=17, 
     legs="Meg. Chausses +2",priority=18, 
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
@@ -384,7 +382,7 @@ function get_sets()
 	sets.ws['Ground Strike']	= {
     ammo="Knobkierrie",
     head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
-    body="Nyame Mail",priority=19, 
+    body="Futhark Coat +3",priority=19, 
     hands="Meg. Gloves +2",priority=17, 
     legs="Meg. Chausses +2",priority=18, 
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
@@ -401,7 +399,7 @@ function get_sets()
 	sets.ws['Savage Blade']	= {
     ammo="Knobkierrie",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Nyame Mail",priority=19, 
+    body="Futhark Coat +3",priority=19, 
     hands="Meg. Gloves +2",priority=18, 
     legs="Lustr. Subligar +1",
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
@@ -448,7 +446,7 @@ function get_sets()
 	sets.ws['Upheaval']	= {
     ammo="Knobkierrie",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Nyame Mail",
+    body="Futhark Coat +3",
     hands="Meg. Gloves +2",
     legs="Eri. Leg Guards +2",
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
@@ -464,7 +462,7 @@ function get_sets()
 	sets.ws['Steel Cyclone']	= {
     ammo="Knobkierrie",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Nyame Mail",
+    body="Futhark Coat +3",
     hands="Meg. Gloves +2",
     legs="Eri. Leg Guards +2",
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
@@ -480,7 +478,7 @@ function get_sets()
 	sets.ws['Fell Cleave']	= {
     ammo="Knobkierrie",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Nyame Mail",
+    body="Futhark Coat +3",
     hands="Meg. Gloves +2",
     legs="Eri. Leg Guards +2",
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
@@ -557,7 +555,7 @@ function get_sets()
 	sets.ws['Judgment']	= {
     ammo="Knobkierrie",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Nyame Mail",priority=19, 
+    body="Futhark Coat +3",priority=19, 
     hands="Meg. Gloves +2",priority=18, 
     legs="Lustr. Subligar +1",
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
@@ -632,7 +630,7 @@ function get_sets()
 	sets.ja['Pflug'] = set_combine(sets.ja.Enmity, {
 	})
 	sets.ja['Liement'] = set_combine(sets.ja.Enmity, {
-	body="Futhark Coat +1",
+	body="Futhark Coat +3",
 	})
 	sets.ja['Gambit'] = set_combine(sets.ja.Enmity, {
 	hands="Runeist Mitons +2",
@@ -644,7 +642,7 @@ function get_sets()
 	feet="Futhark Boots",
 	})
 	sets.ja['Elemental Sforzo'] = set_combine(sets.ja.Enmity, {
-	body="Futhark Coat +1",
+	body="Futhark Coat +3",
 	})
 	sets.ja['Weapon Bash'] = set_combine(sets.ja.Enmity, {
 	})
@@ -672,7 +670,7 @@ function get_sets()
 	sets.ja['Ignis'] = {
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",priority=15,
-    body="Nyame Mail",priority=18,
+    body="Futhark Coat +3",priority=18,
     hands="Nyame Gauntlets",priority=14,
     legs="Eri. Leg Guards +2",priority=17,
     feet="Erilaz Greaves +2",priority=16,
@@ -687,7 +685,7 @@ function get_sets()
 	sets.ja['Gelus'] = {
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",priority=15,
-    body="Nyame Mail",priority=18,
+    body="Futhark Coat +3",priority=18,
     hands="Nyame Gauntlets",priority=14,
     legs="Eri. Leg Guards +2",priority=17,
     feet="Erilaz Greaves +2",priority=16,
@@ -702,7 +700,7 @@ function get_sets()
 	sets.ja['Tellus'] = {
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",priority=15,
-    body="Nyame Mail",priority=18,
+    body="Futhark Coat +3",priority=18,
     hands="Nyame Gauntlets",priority=14,
     legs="Eri. Leg Guards +2",priority=17,
     feet="Erilaz Greaves +2",priority=16,
@@ -717,7 +715,7 @@ function get_sets()
 	sets.ja['Sulpor'] = {
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",priority=15,
-    body="Nyame Mail",priority=18,
+    body="Futhark Coat +3",priority=18,
     hands="Nyame Gauntlets",priority=14,
     legs="Eri. Leg Guards +2",priority=17,
     feet="Erilaz Greaves +2",priority=16,
@@ -732,7 +730,7 @@ function get_sets()
 	sets.ja['Unda'] = {
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",priority=15,
-    body="Nyame Mail",priority=18,
+    body="Futhark Coat +3",priority=18,
     hands="Nyame Gauntlets",priority=14,
     legs="Eri. Leg Guards +2",priority=17,
     feet="Erilaz Greaves +2",priority=16,
@@ -747,7 +745,7 @@ function get_sets()
 	sets.ja['Flabra'] = {
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",priority=15,
-    body="Nyame Mail",priority=18,
+    body="Futhark Coat +3",priority=18,
     hands="Nyame Gauntlets",priority=14,
     legs="Eri. Leg Guards +2",priority=17,
     feet="Erilaz Greaves +2",priority=16,
@@ -762,7 +760,7 @@ function get_sets()
 	sets.ja['Lux'] = {
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",priority=15,
-    body="Nyame Mail",priority=18,
+    body="Futhark Coat +3",priority=18,
     hands="Nyame Gauntlets",priority=14,
     legs="Eri. Leg Guards +2",priority=17,
     feet="Erilaz Greaves +2",priority=16,
@@ -777,7 +775,7 @@ function get_sets()
 	sets.ja['Tenebrae'] = {
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",priority=15,
-    body="Nyame Mail",priority=18,
+    body="Futhark Coat +3",priority=18,
     hands="Nyame Gauntlets",priority=14,
     legs="Eri. Leg Guards +2",priority=17,
     feet="Erilaz Greaves +2",priority=16,
@@ -965,6 +963,11 @@ function get_sets()
 	right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},priority=18,	--, +135HP
     back={ name="Ogma's Cape", augments={'HP+60','"Fast Cast"+10','Spell interruption rate down-10%',}},priority=14,
 	}	
+	
+	sets.midcast.regenPeord = {
+    main={ name="Peord Claymore", augments={'Path: C',}},
+	}
+
 	sets.midcast.RegenReceived = {				--, Merit+10 = +72% SIRD +18 Regen, +30% Potency, +39 seconds, +30% Duration, +3HP JT = Regen IV 62/tic, 168 Seconds = 3472 HP. Peord +20HP = 4592 HP.
 	ammo="Staunch Tathlum +1",
     head="Nyame Helm",priority=11,
@@ -1014,7 +1017,7 @@ function get_sets()
 	
 	sets.midcast.phalanx = { 		--, ML41 = Skill 527 = Phalanx Tier 8, -35 Damage, +18 = -53 Damage, Merit+10 = +31% SIRD, 2850 HP
 	ammo="Staunch Tathlum +1",
-    head={ name="Fu. Bandeau +2", augments={'Enhances "Battuta" effect',}},priority=15,
+    head={ name="Fu. Bandeau +3", augments={'Enhances "Battuta" effect',}},priority=15,
     body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},
@@ -1029,7 +1032,7 @@ function get_sets()
 	}
 	sets.midcast.phalanxSIRD = {	--, ML41 = Skill 481 = Phalanx Tier 7 , -34 Damage, +18 = -52 Damage, Merit+10 = 104% SIRD, -22% PDT, 3350 HP
 	ammo="Staunch Tathlum +1",		--, 11
-    head={ name="Fu. Bandeau +2", augments={'Enhances "Battuta" effect',}},priority=15,
+    head={ name="Fu. Bandeau +3", augments={'Enhances "Battuta" effect',}},priority=15,
     body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}}, 	--, 10
     hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},	--, 10
     legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},	--, 10
@@ -1233,12 +1236,15 @@ function midcast(spell) --, Midcast works in hierachy. The lower on the list the
 			end
 		end	
 	if spell.name:match('Regen') then
+		if player.status == "Idle" and player.tp < 500 then
+			equip(sets.midcast.regenPeord)
 		if Tank_Mode == false then
 			equip(sets.midcast.regen)
 				elseif Tank_Mode == true then
 					equip(set_combine(sets.midcast.regen, sets.RegenHP))
 			end
 		end
+	end
 	if spell.name:match('Phalanx') then
 			equip(sets.midcast.phalanxSIRD)
 		end
@@ -1269,6 +1275,9 @@ end
 
 function aftercast(spell) --, idle() makes the aftercast use the "Idle ()" states.
 	idle()
+	if spell.name:match('Regen') then
+		equip(sets.weapons[Weapons_Set_Names[Weapons_Index]])
+	end
 end
 
 function buff_change(buff,gain) --, See list of buff names under Gearswap libraries, or just check name in-game when they are active
@@ -1295,6 +1304,7 @@ function buff_change(buff,gain) --, See list of buff names under Gearswap librar
 	if gain then
 		if Tank_Mode == false then
 				equip(sets.DD_Mode.Inquartata)
+				
 		else if Tank_Mode == true then
 				equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
 			end
