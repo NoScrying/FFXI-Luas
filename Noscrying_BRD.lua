@@ -26,13 +26,13 @@ function get_sets()
     main="Carnwenhan",
 	}
 	
-	Sub_Weapons_Set_Names = {'Ternion','TP_Bonus','Kali' } --''
+	Sub_Weapons_Set_Names = {'Gleti','TP_Bonus','Kali' } --''
 	sets.Sub_Weapons = {}	
 	sets.Sub_Weapons.Kali = {
 	sub="Kali",
 	}
-	sets.Sub_Weapons.Ternion = {
-	sub="Ternion Dagger +1",
+	sets.Sub_Weapons.Gleti = {
+    sub="Gleti's Knife",
 	}
 	sets.Sub_Weapons.TP_Bonus = {
 	sub="Fusetto +2",
@@ -82,7 +82,7 @@ function get_sets()
     neck={ name="Bard's Charm +1", augments={'Path: A',}},
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Crep. Earring",
-    right_ear="Dedition Earring",
+    right_ear="Cessance Earring",
     left_ring="Moonlight Ring",
     right_ring="Lehko's Ring",
     back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
@@ -142,7 +142,7 @@ function get_sets()
 	Run_Set_Names = {"DT/Regen","EVA/DT"}
 	sets.run = {}
 	sets.run["DT/Regen"] =  {
-    range={ name="Linos", augments={'Evasion+15','"Fast Cast"+4','AGI+8',}},
+    range={ name="Linos", augments={'Evasion+15','"Regen"+1','AGI+8',}},
     head="Nyame Helm",
     body="Fili Hongreline +2",
     hands="Nyame Gauntlets",
@@ -157,7 +157,7 @@ function get_sets()
     back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
 	}
 	sets.run["EVA/DT"] = {
-    range={ name="Linos", augments={'Evasion+15','"Fast Cast"+4','AGI+8',}},
+    range={ name="Linos", augments={'Evasion+15','"Regen"+1','AGI+8',}},
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -225,13 +225,15 @@ function get_sets()
     hands="Nyame Gauntlets",
     legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
-    neck={ name="Bard's Charm +1", augments={'Path: A',}},
+	neck="Rep. Plat. Medal",
+    --neck={ name="Bard's Charm +1", augments={'Path: A',}},
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
-    right_ring="Lehko's Ring",
-    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+    right_ring="Ilabrat Ring",
+	back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%','STR+10'}},
+    --back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}	
 	sets.ws['Evisceration']	= {
     range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
@@ -266,11 +268,11 @@ function get_sets()
 	}		
 	sets.ws['Aeolian Edge']	= {
     range={ name="Linos", augments={'Attack+20','Weapon skill damage +3%','Quadruple Attack +3',}},
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+    head="Bunzi's Hat",
+    body="Bunzi's Robe",
+    hands="Bunzi's Gloves",
+    legs="Bunzi's Pants",
+    feet="Bunzi's Sabots",
     neck="Sibyl Scarf",
     waist="Eschan Stone",
     left_ear="Ishvara Earring",
@@ -308,7 +310,7 @@ function get_sets()
 	
 	sets.idle = {}
 	sets.idle.normal = {
-    range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},  
+    range={ name="Linos", augments={'Evasion+15','"Regen"+1','AGI+8',}},
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -326,7 +328,7 @@ function get_sets()
 	
 	sets.precast = {}               -- leave this empty
 	sets.precast.fastcast = {
-    range={ name="Linos", augments={'Evasion+12','"Fast Cast"+4','VIT+6',}},
+    range={ name="Linos", augments={'Evasion+15','"Regen"+1','AGI+8',}},
 	head="Bunzi's Hat",
     body="Inyanga Jubbah +2",
     hands="Leyline Gloves",
@@ -342,67 +344,6 @@ function get_sets()
 	}
 	
     sets.midcast = {}               -- leave this empty
-	sets.midcast.enemysongs = {
-    range="Gjallarhorn",
-    head="Fili Calot +2",
-    body="Fili Hongreline +2",
-    hands="Fili Manchettes +2",
-    legs="Inyanga Shalwar +2",
-    feet="Brioso Slippers +2",
-    neck="Mnbw. Whistle +1",
-    waist="Harfner's Sash",
-    left_ear="Enchntr. Earring +1",
-    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
-	}
-	sets.midcast.selfsongs = {
-    range="Gjallarhorn",
-    head="Fili Calot +2",
-    body="Fili Hongreline +2",
-    hands="Fili Manchettes +2",
-    legs="Inyanga Shalwar +2",
-    feet="Brioso Slippers +2",
-    neck="Mnbw. Whistle +1",
-    waist="Plat. Mog. Belt",
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
-    left_ring="Defending Ring",
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
-	}
-	sets.midcast.Ballad = {
-    range="Gjallarhorn",
-    head="Fili Calot +2",
-    body="Fili Hongreline +2",
-    hands="Fili Manchettes +2",
-    legs="Fili Rhingrave +2",
-    feet="Brioso Slippers +2",
-    neck="Mnbw. Whistle +1",
-    waist="Plat. Mog. Belt",
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
-    left_ring="Defending Ring",
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
-	}
-	sets.midcast.Minuet = {
-    range="Gjallarhorn",
-	--range="Daurdabla",
-    head="Fili Calot +2",
-    body="Fili Hongreline +2",
-    hands="Fili Manchettes +2",
-    legs="Inyanga Shalwar +2",
-    feet="Brioso Slippers +2",
-    neck="Mnbw. Whistle +1",
-    waist="Harfner's Sash",
-    left_ear="Enchntr. Earring +1",
-    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
-	}
 	sets.midcast.macc = {
     range="Gjallarhorn",
     head="Fili Calot +2",
@@ -411,7 +352,7 @@ function get_sets()
     legs="Inyanga Shalwar +2",
     feet="Fili Cothurnes +2",
     neck="Mnbw. Whistle +1",
-    waist="Harfner's Sash",
+    waist="Eschan Stone",
     left_ear="Enchntr. Earring +1",
     right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
     left_ring="Stikini Ring +1",
@@ -428,102 +369,51 @@ function get_sets()
     neck="Warder's Charm +1",
     waist="Flume Belt",
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    right_ear="Tuisto Earring",
-    left_ring="Moonlight Ring",
+    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
+    left_ring="Defending Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back="Moonbeam Cape",
 	}
-	sets.midcast.Minne = {
+	sets.midcast.selfsongs = {
     range="Gjallarhorn",
+	--range="Daurdabla",
     head="Fili Calot +2",
     body="Fili Hongreline +2",
     hands="Fili Manchettes +2",
-    legs="Mousai Seraweels +1",
+    legs="Inyanga Shalwar +2",
     feet="Brioso Slippers +2",
     neck="Mnbw. Whistle +1",
-    waist="Harfner's Sash",
-    left_ear="Enchntr. Earring +1",
+    waist="Flume Belt",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring="Defending Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
 	}
-	sets.midcast.Mambo = {
-    range="Gjallarhorn",
-    head="Fili Calot +2",
+	sets.midcast.Ballad = set_combine(sets.midcast.selfsongs, {
+	legs="Fili Rhingrave +2",
+	})
+	sets.midcast.Minuet = set_combine(sets.midcast.selfsongs, {
     body="Fili Hongreline +2",
-    hands="Fili Manchettes +2",
-    legs="Inyanga Shalwar +2",
+	})
+	sets.midcast.Minne = set_combine(sets.midcast.selfsongs, {
+    legs="Mousai Seraweels +1",
+	})
+	sets.midcast.Mambo = set_combine(sets.midcast.selfsongs, {
     feet="Mousai Crackows +1",
-    neck="Mnbw. Whistle +1",
-    waist="Harfner's Sash",
-    left_ear="Enchntr. Earring +1",
-    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
-	}
-	sets.midcast.Scherzo = {
-    range="Gjallarhorn",
-    head="Fili Calot +2",
-    body="Fili Hongreline +2",
-    hands="Fili Manchettes +2",
-    legs="Inyanga Shalwar +2",
+	})
+	sets.midcast.Scherzo = set_combine(sets.midcast.selfsongs, {
     feet="Fili Cothurnes +2",
-    neck="Mnbw. Whistle +1",
-    waist="Harfner's Sash",
-    left_ear="Enchntr. Earring +1",
-    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
-	}
-	sets.midcast.Threnody = {
-    range="Gjallarhorn",
-    head="Fili Calot +2",
+	})
+	sets.midcast.Threnody = set_combine(sets.midcast.selfsongs, {
     body="Mousai Manteel +1",
-    hands="Fili Manchettes +2",
-    legs="Inyanga Shalwar +2",
-    feet="Fili Cothurnes +2",
-    neck="Mnbw. Whistle +1",
-    waist="Harfner's Sash",
-    left_ear="Enchntr. Earring +1",
-    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
-	}
-	sets.midcast.Carol = {
-    range="Gjallarhorn",
-    head="Fili Calot +2",
-    body="Fili Hongreline +2",
+	})
+	sets.midcast.Carol = set_combine(sets.midcast.selfsongs, {
     hands="Mousai Gages +1",
-    legs="Inyanga Shalwar +2",
-    feet="Fili Cothurnes +2",
-    neck="Mnbw. Whistle +1",
-    waist="Harfner's Sash",
-    left_ear="Enchntr. Earring +1",
-    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
-	}
-	sets.midcast.HordeLullaby = {
+	})
+	sets.midcast.HordeLullaby = set_combine(sets.midcast.macc, {
     range="Blurred Harp +1",
-    head="Fili Calot +2",
-    body="Fili Hongreline +2",
-    hands="Fili Manchettes +2",
-    legs="Inyanga Shalwar +2",
-    --feet="Mousai Crackows +1",
-	feet="Brioso Slippers +2",
-    neck="Mnbw. Whistle +1",
-    waist="Harfner's Sash",
-    left_ear="Enchntr. Earring +1",
-    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
-	}
+	})
 	
 	sets.midcast.cure = {
     head="Vanya Hood",
@@ -554,7 +444,6 @@ function get_sets()
     back="Merciful Cape",
 	}
 	sets.midcast.enhancingduration = {
-    range={ name="Linos", augments={'Evasion+12','"Fast Cast"+4','VIT+6',}},
     head={ name="Telchine Cap", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
     body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
     hands={ name="Telchine Gloves", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +9',}},
@@ -594,9 +483,9 @@ function midcast(spell)
 	if spell.type == 'BardSong' and spell.target.type == 'SELF' or spell.target.type == 'PLAYER'then
         equip(sets.midcast.selfsongs)
 			elseif spell.type == 'BardSong' and spell.target.type == 'MONSTER' then
-				equip(sets.midcast.enemysongs)
+				equip(sets.midcast.macc)
 	end	
-	if spell.name:match("Valor Minuet") then
+	if spell.name:match("Valor Minuet") or spell.name:match("Blade Madrigal") then
         equip(sets.midcast.Minuet)
 	end	
 	if spell.name:match("Mage's Ballad") then
@@ -605,21 +494,21 @@ function midcast(spell)
 	if spell.name == "Army's Paeon" or spell.name == "Army's Paeon II" then
         equip(sets.midcast.MultiSong)
 	end	
-	-- if spell.name:match("Knight's Minne") then
-        -- equip(sets.midcast.Minne)
-	-- end	
-	-- if spell.name:match("Dragonfoe Mambo") or spell.name:match("Sheepfoe Mambo") then
-        -- equip(sets.midcast.Mambo)
-	-- end	
+	if spell.name:match("Knight's Minne") then
+        equip(sets.midcast.Minne)
+	end	
+	if spell.name:match("Dragonfoe Mambo") or spell.name:match("Sheepfoe Mambo") then
+        equip(sets.midcast.Mambo)
+	end	
 	if spell.name:match("Horde Lullaby") then
         equip(sets.midcast.HordeLullaby)
 	end	
-	-- if string.find(spell.english,'Carol') then
-        -- equip(sets.midcast.Carol)
-	-- end	
-	-- if string.find(spell.english,'Threnody') then
-        -- equip(sets.midcast.Threnody)
-	-- end	
+	if string.find(spell.english,'Carol') then
+        equip(sets.midcast.Carol)
+	end	
+	if string.find(spell.english,'Threnody') then
+        equip(sets.midcast.Threnody)
+	end	
 	if spell.name:match("Sentinel's Scherzo") then
         equip(sets.midcast.Scherzo)
 	end	
@@ -638,7 +527,7 @@ end
 
 
 function aftercast(spell)
-	idle()
+	--idle()
 end
 
 function buff_change(buff,gain)
