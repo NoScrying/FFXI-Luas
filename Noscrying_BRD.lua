@@ -2,7 +2,7 @@ function get_sets()
 	send_command('bind f7 gs c toggle Weapons set') -- F10 = Cycle through
 	send_command('bind !f7 gs c toggle Sub Weapons') -- F10 = Cycle through
 	send_command('bind f9 gs c toggle TP set')
-	send_command('bind !f9 gs c toggle DW_Mode') 
+	send_command('bind !f9 gs c toggle DD_Mode') 
 	send_command('bind f10 gs c toggle run set') -- F10 = Cycle through	
 	send_command('bind f12 gs c toggle TH set') -- F10 = Cycle through	
 	
@@ -38,11 +38,11 @@ function get_sets()
 	sub="Fusetto +2",
 	}
 	
-	sets.SW_Mode = {} 				-- Leave this empty.
-	sets.SW_Mode.index = {"Single Wield",'DT'}
-	SW_Mode_Index = 1
+	sets.Enmity_Mode = {} 				-- Leave this empty.
+	sets.Enmity_Mode.index = {"STP/MA",'DT'}
+	Enmity_Mode_Index = 1
 	
-	sets.SW_Mode["Single Wield"]  = {	
+	sets.Enmity_Mode["STP/MA"]  = {	
     range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
     head="Aya. Zucchetto +2",
     body="Ashera Harness",
@@ -57,7 +57,7 @@ function get_sets()
     right_ring="Lehko's Ring",
     back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
 	}
-	sets.SW_Mode.DT = {
+	sets.Enmity_Mode.DT = {
     range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
     head="Fili Calot +2",
     body="Ashera Harness",
@@ -88,11 +88,11 @@ function get_sets()
     back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
 	}	
 
-	sets.DW_Mode = {}
-	sets.DW_Mode.index = {"Dual Wield",'DT'}
-	DW_Mode_Index = 1
+	sets.DD_Mode = {}
+	sets.DD_Mode.index = {"STP/MA",'DT'}
+	DD_Mode_Index = 1
 	
-	sets.DW_Mode["Dual Wield"] = {
+	sets.DD_Mode["STP/MA"] = {
     range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
     head="Aya. Zucchetto +2",
     body="Ashera Harness",
@@ -106,24 +106,8 @@ function get_sets()
     left_ring="Moonlight Ring",
     right_ring="Lehko's Ring",
     back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
-	
-    -- range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
-    -- head={ name="Blistering Sallet +1", augments={'Path: A',}},
-    -- body="Ayanmo Corazza +2",
-    -- hands="Bunzi's Gloves",
-    -- legs="Fili Rhingrave +2",
-    -- feet="Nyame Sollerets",
-    -- neck="Bard's Charm +1",
-    -- waist="Shetal Stone",
-    -- left_ear="Suppanomimi",
-    -- right_ear="Eabani Earring",
-    -- -- left_ear="Brutal Earring",
-    -- -- right_ear="Cessance Earring",
-    -- left_ring="Chirich Ring +1",
-    -- right_ring="Lehko's Ring",
-    -- back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
-	sets.DW_Mode.DT = {
+	sets.DD_Mode.DT = {
     range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
     head="Fili Calot +2",
     body="Ashera Harness",
@@ -178,14 +162,14 @@ function get_sets()
     head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     body={ name="Bihu Jstcorps. +2", augments={'Enhances "Troubadour" effect',}},
     hands="Nyame Gauntlets",
-    legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
+    legs="Nyame Flanchard",
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
-    right_ring="Ifrit Ring +1",
+    right_ring="Sroda Ring",
     back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%','STR+10'}},
 	}
 	sets.ws['Circle Blade']	= {
@@ -200,7 +184,7 @@ function get_sets()
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
-    right_ring="Ifrit Ring +1",
+    right_ring="Sroda Ring",
     back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%','STR+10'}},
 	}
 	sets.ws['Mercy Stroke']	= {
@@ -208,14 +192,14 @@ function get_sets()
     head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     body={ name="Bihu Jstcorps. +2", augments={'Enhances "Troubadour" effect',}},
     hands="Nyame Gauntlets",
-    legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
+    legs="Nyame Flanchard",
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
-    right_ring="Ifrit Ring +1",
+    right_ring="Sroda Ring",
     back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%','STR+10'}},
 	}
 	sets.ws["Rudra's Storm"]	= {
@@ -374,9 +358,22 @@ function get_sets()
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back="Moonbeam Cape",
 	}
+	sets.midcast.enmity = {
+    head="Halitus Helm",
+    body="Emet Harness",
+    hands="Fili Manchettes +2",
+    legs="Fili Rhingrave +2",
+    feet="Fili Cothurnes +2",
+    neck="Unmoving Collar +1",
+    waist="Warwolf Belt",
+    left_ear="Eris' Earring",
+    right_ear="Friomisi Earring",
+    left_ring="Supershear Ring",
+    right_ring="Provocare Ring",
+	}
 	sets.midcast.selfsongs = {
-    range="Gjallarhorn",
-	--range="Daurdabla",
+    --range="Gjallarhorn",
+	range="Daurdabla",
     head="Fili Calot +2",
     body="Fili Hongreline +2",
     hands="Fili Manchettes +2",
@@ -481,10 +478,21 @@ end
 
 function midcast(spell)
 	if spell.type == 'BardSong' and spell.target.type == 'SELF' or spell.target.type == 'PLAYER'then
+		if DD_Mode == true then
         equip(sets.midcast.selfsongs)
-			elseif spell.type == 'BardSong' and spell.target.type == 'MONSTER' then
-				equip(sets.midcast.macc)
+			elseif  Enmity_Mode == true then
+			equip(set_combine (sets.midcast.selfsongs, sets.midcast.enmity))
+		end
+	end
+	if spell.type == 'BardSong' and spell.target.type == 'MONSTER' then
+		if DD_Mode == true then
+		equip(sets.midcast.macc)
+			if Enmity_Mode == true then
+			equip(set_combine (sets.midcast.macc, sets.midcast.enmity))	
+			end
+		end
 	end	
+
 	if spell.name:match("Valor Minuet") or spell.name:match("Blade Madrigal") then
         equip(sets.midcast.Minuet)
 	end	
@@ -522,12 +530,13 @@ function midcast(spell)
 		end
 	end
 end
+
 	
 
 
 
 function aftercast(spell)
-	--idle()
+	idle()
 end
 
 function buff_change(buff,gain)
@@ -536,12 +545,15 @@ end
 
 function idle() --, Engaged/Idle sets do not have to be here, can also be under self_command or anywhere really.
 	if player.status =="Engaged" then --, When drawing weapon
-		if DW_Mode == true then
-			equip(sets.DW_Mode[sets.DW_Mode.index[DW_Mode_Index]]) --, Equips the last gearset you changed to, is not static
+		if DD_Mode == true then
+			equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_Index]]) --, Equips the last gearset you changed to, is not static
 				if buffactive["Aftermath: Lv.3"] then
-					equip(sets.Aftermath)				
-		elseif SW_Mode == true then
-			equip(sets.SW_Mode[sets.SW_Mode.index[SW_Mode_Index]])
+					equip(sets.Aftermath)
+				end
+			end
+	if player.status =="Engaged" then	
+		if Enmity_Mode == true then
+			equip(sets.Enmity_Mode[sets.Enmity_Mode.index[Enmity_Mode_Index]])
 		end
 	end
 end
@@ -555,51 +567,51 @@ function status_change(new,old)
 	idle()
 end
 
-SW_Mode = true
-DW_Mode = true
+Enmity_Mode = true
+DD_Mode = true
 
 function self_command(command)
 	if command == 'toggle TP set' then --, When using the command as specified at the top of this lua, then executes these functions
-		if DW_Mode == true then --, Checks whether or not the DW_Mode Mode is active,
-			DW_Mode_Index = DW_Mode_Index + 1 --, Cycles through the Index, starts at 1 when switching or starting game
-			if DW_Mode_Index > #sets.DW_Mode.index then DW_Mode_Index = 1 end 
-			windower.add_to_chat('DW mode --> ' .. sets.DW_Mode.index[DW_Mode_Index] ..'') --, Sends a message ingame, not visible to others.
+		if DD_Mode == true then --, Checks whether or not the DD_Mode Mode is active,
+			DD_Mode_Index = DD_Mode_Index + 1 --, Cycles through the Index, starts at 1 when Enmityitching or starting game
+			if DD_Mode_Index > #sets.DD_Mode.index then DD_Mode_Index = 1 end 
+			windower.add_to_chat('DD mode --> ' .. sets.DD_Mode.index[DD_Mode_Index] ..'') --, Sends a message ingame, not visible to others.
 			--if player.status == 'Engaged' then
-				equip(sets.DW_Mode[sets.DW_Mode.index[DW_Mode_Index]])
+				equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_Index]])
 			--end
-		elseif DW_Mode == false then
-			if SW_Mode == true then
-				SW_Mode_Index = SW_Mode_Index + 1
-				if SW_Mode_Index > #sets.SW_Mode.index then SW_Mode_Index = 1 end
-				windower.add_to_chat('SW mode --> ' .. sets.SW_Mode.index[SW_Mode_Index] ..'')
+		elseif DD_Mode == false then
+			if Enmity_Mode == true then
+				Enmity_Mode_Index = Enmity_Mode_Index + 1
+				if Enmity_Mode_Index > #sets.Enmity_Mode.index then Enmity_Mode_Index = 1 end
+				windower.add_to_chat('Enmity mode --> ' .. sets.Enmity_Mode.index[Enmity_Mode_Index] ..'')
 				--if player.status == 'Engaged' then
-					equip(sets.SW_Mode[sets.SW_Mode.index[SW_Mode_Index]])
+					equip(sets.Enmity_Mode[sets.Enmity_Mode.index[Enmity_Mode_Index]])
 				end
 			end		
 		end
-	if command == 'toggle DDW_Mode set' then
-		DW_Mode_Index = DW_Mode_Index + 1
-		if DW_Mode_Index > #sets.DW_Mode.index then DW_Mode_Index = 1 end
-		windower.add_to_chat('DW mode --> ' .. sets.DW_Mode.index[DW_Mode_Index] ..'')
+	if command == 'toggle DD_Mode set' then
+		DD_Mode_Index = DD_Mode_Index + 1
+		if DD_Mode_Index > #sets.DD_Mode.index then DD_Mode_Index = 1 end
+		windower.add_to_chat('DD mode --> ' .. sets.DD_Mode.index[DD_Mode_Index] ..'')
 		if player.status == 'Engaged' then
-			equip(sets.DW_Mode[sets.DW_Mode.index[DW_Mode_Index]])
+			equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_Index]])
 		end
-	elseif command == 'toggle DW_Mode' then
-		if DW_Mode == true then
-			DW_Mode = false
-			windower.add_to_chat('<----- DW Mode: [Off] ----->')
+	elseif command == 'toggle DD_Mode' then
+		if DD_Mode == true then
+			DD_Mode = false
+			windower.add_to_chat('<----- Enmity Mode: [On] ----->')
         else
-			DW_Mode = true
-			windower.add_to_chat('<----- DW Mode: [On] ----->')
+			DD_Mode = true
+			windower.add_to_chat('<----- DD Mode: [On] ----->')
 		end
 		status_change(player.status)
-	elseif command == 'toggle SW_Mode' then
-		if SW_Mode == true then
-			SW_Mode = false
-			windower.add_to_chat('<----- SW Mode: [Off] ----->')
+	elseif command == 'toggle Enmity_Mode' then
+		if Enmity_Mode == true then
+			Enmity_Mode = false
+			windower.add_to_chat('<----- Enmity Mode: [Off] ----->')
         else
-			SW_Mode = true
-			windower.add_to_chat('<----- SW Mode: [On] ----->')
+			Enmity_Mode = true
+			windower.add_to_chat('<----- Enmity Mode: [On] ----->')
 		end
 	end
 	if command == 'toggle run set' then
