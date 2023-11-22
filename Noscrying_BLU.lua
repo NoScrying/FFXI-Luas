@@ -13,7 +13,7 @@ function get_sets()
 	Melee_Set_Names = {'normal','Hybrid'}--,'DT'
 	sets.melee = {} 					-- Leave this empty.
 	sets.melee.normal = {
-    ammo="Aurgelmir Orb",
+    ammo="Coiste Bodhar",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -28,7 +28,7 @@ function get_sets()
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.melee.DT = {
-    ammo="Aurgelmir Orb",
+    ammo="Coiste Bodhar",
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
@@ -53,7 +53,7 @@ function get_sets()
     waist="Shetal Stone",
     left_ear="Crep. Earring",
     right_ear="Suppanomimi",
-    left_ring="Chirich Ring +1",
+    left_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     right_ring="Epona's Ring",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}	
@@ -61,11 +61,11 @@ function get_sets()
 	sets.refresh = {}
 	sets.refresh.battle = {
     ammo="Staunch Tathlum +1",
-    head="Rawhide Mask",
+    head="Gleti's Mask",
     body="Hashishin Mintan +2",
-    hands="Hashi. Bazu. +2",
+    hands="Gleti's Gauntlets",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet="Nyame Sollerets",
+    feet="Gleti's Boots",
     neck="Sibyl Scarf",
     waist="Flume Belt",
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
@@ -107,29 +107,29 @@ function get_sets()
 	
 	sets.ws = {} 					-- Leave this empty.
 	sets.ws['Savage Blade']	= {
-	ammo="Oshasha's Treatise",
+    ammo="Oshasha's Treatise",
     head="Hashishin Kavuk +2",
-    body="Jhakri Robe +2",
+    body="Gleti's Cuirass",
     hands="Jhakri Cuffs +2",
-   legs="Jhakri Slops +2",
-    feet="Jhakri Pigaches +2",
-    neck="Mirage Stole +1",
+    legs="Gleti's Breeches",
+    feet="Gleti's Boots",
+    neck={ name="Mirage Stole +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Ishvara Earring",
-    left_ring="Ifrit Ring +1",
+    left_ring="Sroda Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
 	}
 
 
 	sets.ws['Expiacion']	= {
-	ammo="Oshasha's Treatise",
-        head="Hashishin Kavuk +2",
-    body="Jhakri Robe +2",
+    ammo="Oshasha's Treatise",
+    head="Hashishin Kavuk +2",
+    body="Gleti's Cuirass",
     hands="Jhakri Cuffs +2",
-    legs="Jhakri Slops +2",
-    feet="Jhakri Pigaches +2",
+    legs="Gleti's Breeches",
+    feet="Gleti's Boots",
     neck="Mirage Stole +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
@@ -156,12 +156,12 @@ function get_sets()
 	}
 	
 	sets.ws['Chant du Cygne']	= {
-    ammo="Aurgelmir Orb",
-    head={ name="Blistering Sallet +1", augments={'Path: A',}},
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    legs="Hashishin Tayt +2",
-    feet="Malignance Boots",
+    ammo="Coiste Bodhar",
+    head="Adhemar Bonnet +1",
+    body="Gleti's Cuirass",
+	hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    feet="Gleti's Boots",
     neck="Mirage Stole +1",
     waist="Fotia Belt",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
@@ -213,7 +213,7 @@ function get_sets()
     waist="Orpheus's Sash",
     left_ear="Regal Earring",
     right_ear="Friomisi Earring",
-    left_ring="Weatherspoon Ring",
+    left_ring="Weatherspoon Ring +1",
     right_ring="Epaminondas's Ring",
     back="Seshaw Cape",
 	}
@@ -228,22 +228,22 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Ishvara Earring",
-    left_ring="Ifrit Ring +1",
+    left_ring="Sroda Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
 	}
 	sets.ws['Judgment']	= {
-	ammo="Oshasha's Treatise",
+    ammo="Oshasha's Treatise",
     head="Hashishin Kavuk +2",
-    body="Jhakri Robe +2",
+    body="Gleti's Cuirass",
     hands="Jhakri Cuffs +2",
-    legs="Hashishin Tayt +2",
-    feet="Jhakri Pigaches +2",
-    neck="Mirage Stole +1",
+    legs="Gleti's Breeches",
+    feet="Gleti's Boots",
+    neck={ name="Mirage Stole +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Ishvara Earring",
-    left_ring="Ifrit Ring +1",
+    left_ring="Sroda Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
 	}
@@ -297,31 +297,31 @@ function get_sets()
 	sets.precast.bluFC = {
 	ammo="Impatiens",
     head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
-    body="Hashishin Mintan +2",
+    body="Pinga Tunic",	
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}}, --8
-    legs="Ayanmo Cosciales +2",
+    legs="Pinga Pants",
     feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}},
     waist="Witful Belt",
     neck="Voltsurge Torque",
     right_ear="Loquacious Earring",
 	left_ear="Enchanter's Earring +1",
     left_ring="Kishar Ring",
-    right_ring="Weatherspoon Ring",
+    right_ring="Weatherspoon Ring +1",
     back="Ogapepo Cape",
 	}
 	sets.precast.magicFC = {
 	ammo="Impatiens",
     head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
-    body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    body="Pinga Tunic",	
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}}, --8
-    legs="Ayanmo Cosciales +2",
+    legs="Pinga Pants",
     feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}},
     waist="Witful Belt",
     neck="Voltsurge Torque",
     right_ear="Loquacious Earring",
 	left_ear="Enchanter's Earring +1",
     left_ring="Kishar Ring",
-    right_ring="Weatherspoon Ring",
+    right_ring="Weatherspoon Ring +1",
     back="Ogapepo Cape",
 	}
 	
@@ -401,7 +401,7 @@ function get_sets()
     legs="Hashishin Tayt +2",
     feet="Malignance Boots",
     neck="Erra Pendant",
-    waist="Eschan Stone",
+    waist={ name="Acuity Belt +1", augments={'Path: A',}},
     left_ear="Regal Earring",
     right_ear="Hashishin Earring +1",
     left_ring="Stikini Ring +1",
@@ -590,8 +590,8 @@ function aftercast(spell)
 	 idle()
 end
 
-function Buff_change(Buff,gain)
-    if Buff == 'Reive Mark' then
+function buff_change(buff,gain)
+    if buff == 'Reive Mark' then
         if gain then
             equip(sets.Buff.reive)
             disable("neck")
@@ -599,16 +599,16 @@ function Buff_change(Buff,gain)
             enable("neck")
         end
     end
-    if Buff == 'Diffusion' then
+    if buff == 'Diffusion' then
         if gain then
-            equip(sets.Buff.Diffusion)
+            equip(sets.ja['Diffusion'])
             disable("feet")
         else
             enable("feet")
             status_change(player.status)
         end
     end
-    if Buff == 'Efflux' then
+    if buff == 'Efflux' then
         if gain then
             equip(sets.ja['Efflux'])
             disable("legs")
@@ -617,7 +617,7 @@ function Buff_change(Buff,gain)
             status_change(player.status)
         end
     end
-    if Buff == 'Chain Affinity' then
+    if buff == 'Chain Affinity' then
         if gain then
             equip(sets.ja['Chain Affinity'])
             disable("head")
@@ -672,9 +672,10 @@ function self_command(command)
     end
 end
 
-function file_unload()
+function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
 send_command('unbind f9')
 send_command('unbind !f9')
+send_command('unbind ^f9')
 send_command('unbind f10')
 send_command('unbind !f10')
 send_command('unbind f12')
@@ -682,4 +683,7 @@ send_command('unbind !f12')
 send_command('unbind f7')
 send_command('unbind !f7')
 send_command('unbind !numpad1')
+send_command('unbind ^numpad1')
+send_command('unbind !numpad0')
+send_command('unbind !numpad7')
 end
