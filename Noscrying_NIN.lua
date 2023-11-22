@@ -19,26 +19,26 @@ function get_sets()
 	sets.melee = {} 					-- Leave this empty.
 	sets.melee.normal = {
     ammo="Togakushi Shuriken",
-    head="Adhemar Bonnet +1",
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
-    feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
+    head="Mpaca's Cap",
+    body="Mpaca's Doublet",
+    hands="Mpaca's Gloves",
+    legs="Mpaca's Hose",
+    feet="Mpaca's Boots",
     neck="Moonbeam Nodowa",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Dedition Earring",
     right_ear="Crepuscular Earring",
-    left_ring="Chirich Ring +1",
+    left_ring="Lehko's Ring",
     right_ring="Gere Ring",
     back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
 	}
 	sets.melee.Hybrid = {
     ammo="Togakushi Shuriken",
-    head="Adhemar Bonnet +1",
+    head="Mpaca's Cap",
     body="Malignance Tabard",
-    hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    hands="Mpaca's Gloves",
     legs="Malignance Tights",
-    feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
+    feet="Mpaca's Boots",
     neck="Moonbeam Nodowa",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Cessance Earring",
@@ -58,8 +58,8 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Cessance Earring",
     right_ear="Suppanomimi",
-    left_ring="Defending Ring",
-    right_ring={ name="Dark Ring", augments={'Phys. dmg. taken -6%','Magic dmg. taken -3%',}},
+    left_ring="Lehko's Ring",
+    right_ring="Defending Ring",
     back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
 	}
 
@@ -73,11 +73,11 @@ function get_sets()
     legs="Malignance Tights",
     feet="Hachiya Kyahan",
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Platinum Moogle Belt",
+    waist="Engraved Belt",
     left_ear="Infused Earring",
     right_ear="Cessance Earring",
-    left_ring="Chirich Ring +1",
-    right_ring="Chirich Ring",
+    left_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Moonbeam Cape",
 	}
 	sets.run.Day =  {
@@ -88,11 +88,11 @@ function get_sets()
     legs="Malignance Tights",
     feet="Danzo Sune-Ate",
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Platinum Moogle Belt",
+    waist="Engraved Belt",
     left_ear="Infused Earring",
     right_ear="Cessance Earring",
-    left_ring="Chirich Ring +1",
-    right_ring="Chirich Ring",
+    left_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Moonbeam Cape",
 
 	}
@@ -100,10 +100,10 @@ function get_sets()
 	sets.ws = {} -- Leave this empty.
 	sets.ws['Savage Blade']	= {
 	ammo="Oshasha's Treatise",
-    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    head="Mpaca's Cap",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+    legs="Mpaca's Hose",
     feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -116,7 +116,7 @@ function get_sets()
 	sets.ws['Sanguine Blade'] = {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Pixie Hairpin +1",
-    body="Rawhide Vest",
+    body="Nyame Mail",
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
@@ -131,10 +131,10 @@ function get_sets()
 
 	sets.ws['Blade: Ku'] = {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head="Adhemar Bonnet +1",
+    head="Mpaca's Cap",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+    legs="Mpaca's Hose",
     feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
     neck="Fotia Gorget",
     waist="Fotia Belt",
@@ -146,7 +146,7 @@ function get_sets()
 	}
 	sets.ws['Blade: Ten'] = {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head="Adhemar Bonnet +1",
+    head="Mpaca's Cap",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},
     legs="Hizamaru Hizayoroi +2",
@@ -161,40 +161,40 @@ function get_sets()
 	} 
 	sets.ws['Blade: Hi'] = {
     ammo="Oshasha's Treatise",
-    head="Adhemar Bonnet +1",
-    body="Ken. Samue +1",
-    hands="Ken. Tekko +1",
-    legs="Ken. Hakama +1",
-    feet="Ken. Sune-Ate +1",
+    head="Mpaca's Cap",
+    body="Mpaca's Doublet",
+    hands="Mpaca's Gloves",
+    legs="Mpaca's Hose",
+    feet="Mpaca's Boots",
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Odr Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Epaminondas's Ring",
+    left_ring="Lehko's Ring",
     right_ring="Gere Ring",
     back="Sacro Mantle",
 	} 
 	sets.ws['Blade: Jin'] = {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head="Adhemar Bonnet +1",
+    head="Mpaca's Cap",
     body="Mummu Jacket +2",
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+    legs="Mpaca's Hose",
     feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Epona\'s Ring",
+    left_ring="Epona's Ring",
     right_ring="Gere Ring",
     back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
 	}
 	sets.ws['Blade: Kamu'] = {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head="Adhemar Bonnet +1",
+    head="Mpaca's Cap",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+    legs="Mpaca's Hose",
     feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -206,10 +206,10 @@ function get_sets()
 	} 
 	sets.ws['Blade: Shun'] = {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head="Adhemar Bonnet +1",
+    head="Mpaca's Cap",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+    legs="Mpaca's Hose",
     feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
     neck="Fotia Gorget",
     waist="Fotia Belt",
@@ -221,23 +221,23 @@ function get_sets()
 	} 
 	sets.ws['Blade: Metsu'] = {
 	ammo="Oshasha's Treatise",
-    head="Adhemar Bonnet +1",
+    head="Mpaca's Cap",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     legs="Hizamaru Hizayoroi +2",
     feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
-    neck="Fotia Gorget",
-    waist="Fotia Belt",
+    neck="Rep. Plat. Medal",
+    waist="Kentarch Belt +1",
     left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     right_ear="Odr Earring",
-    left_ring="Epaminondas's Ring",
+    left_ring="Lehko's Ring",
     right_ring="Gere Ring",
     back="Sacro Mantle",
 	} 
 	sets.ws['Blade: Yu'] = {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head={ name="Herculean Helm", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','Weapon skill damage +5%','STR+9','Mag. Acc.+1',}},
-    body="Rawhide Vest",
+    body="Nyame Mail",
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
@@ -246,13 +246,13 @@ function get_sets()
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     left_ring="Epaminondas's Ring",
-    right_ring="Fenrir Ring",
+    right_ring="Dingir Ring",
     back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	} 
 	sets.ws['Blade: Chi'] = {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head={ name="Herculean Helm", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','Weapon skill damage +5%','STR+9','Mag. Acc.+1',}},
-    body="Rawhide Vest",
+    body="Nyame Mail",
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
@@ -260,14 +260,14 @@ function get_sets()
     waist="Orpheus's Sash",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
-    left_ring="Epaminondas's Ring",
+    left_ring="Dingir Ring",
     right_ring="Gere Ring",
     back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	} 
 	sets.ws['Blade: To'] = {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head={ name="Herculean Helm", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','Weapon skill damage +5%','STR+9','Mag. Acc.+1',}},
-    body="Rawhide Vest",
+    body="Nyame Mail",
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
@@ -275,14 +275,14 @@ function get_sets()
     waist="Orpheus's Sash",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
-    left_ring="Epaminondas's Ring",
+    left_ring="Dingir Ring",
     right_ring="Gere Ring",
     back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	} 
 	sets.ws['Blade: Ei'] = {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Pixie Hairpin +1",
-    body="Rawhide Vest",
+    body="Nyame Mail",
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
@@ -297,16 +297,16 @@ function get_sets()
 	
 	sets.ws['Evisceration'] = {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head="Adhemar Bonnet +1",
-    body="Mummu Jacket +2",
-    hands="Mummu Wrists +2",
-    legs="Mummu Kecks +2",
-    feet="Mummu Gamashes +2",
+    head="Mpaca's Cap",
+    body="Mpaca's Doublet",
+    hands={ name="Ryuo Tekko +1", augments={'DEX+12','Accuracy+25','"Dbl.Atk."+4',}},
+    legs="Mpaca's Hose",
+    feet="Mpaca's Boots",
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Epona\'s Ring",
+    left_ring="Lehko's Ring",
     right_ring="Gere Ring",
     back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
 	} 
@@ -315,7 +315,7 @@ function get_sets()
     feet={ name="Herculean Boots", augments={'"Dual Wield"+1','Attack+5','"Treasure Hunter"+1',}},
 	ammo="Perfect Lucky Egg",
 	--head={ name="Taeon Chapeau", augments={'"Mag.Atk.Bns."+18','Weapon Skill Acc.+18','AGI+10',}},
-    body="Rawhide Vest",
+    body="Nyame Mail",
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     --feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
@@ -324,7 +324,7 @@ function get_sets()
 	left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
-    right_ring="Fenrir Ring",
+    right_ring="Dingir Ring",
     back="Argochampsa Mantle",
 	}
 	sets.ja = {} 					-- Leave this empty.
@@ -390,12 +390,12 @@ function get_sets()
 	sets.precast.fastcast = {
     ammo="Impatiens",
     head={ name="Taeon Chapeau", augments={'"Fast Cast"+5','Phalanx +3',}},
-    body={ name="Taeon Tabard", augments={'"Fast Cast"+5','Phalanx +3',}},
+    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}}, --8
     hands={ name="Taeon Gloves", augments={'"Fast Cast"+5','Phalanx +3',}},
     legs={ name="Taeon Tights", augments={'"Fast Cast"+5','Phalanx +3',}},
     feet={ name="Taeon Boots", augments={'"Fast Cast"+5','Phalanx +3',}},
     left_ring="Lebeche Ring",
-	right_ring="Weatherspoon Ring",
+	right_ring="Weatherspoon Ring +1",
 	neck="Voltsurge Torque",
     right_ear="Loquacious Earring",
 	}
@@ -403,13 +403,13 @@ function get_sets()
     sets.midcast = {}               -- leave this empty  
 	sets.midcast.Utsusemi = {
     ammo="Impatiens",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    legs="Malignance Tights",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    legs="Nyame Flanchard",
 	hands="Rawhide Gloves",
 	feet="Hattori Kyahan +1",
     neck="Willpower Torque",
-    waist="Resolute Belt",
+    waist="Audumbla Sash",
     left_ear="Halasz Earring",
     right_ear="Magnetic Earring",
     left_ring="Meridian Ring",
@@ -421,7 +421,7 @@ function get_sets()
 	sets.midcast.damagespells = {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
 	head={ name="Herculean Helm", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','Weapon skill damage +5%','STR+9','Mag. Acc.+1',}},
-    body="Rawhide Vest",
+    body="Nyame Mail",
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs="Gyve Trousers",
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
@@ -497,7 +497,7 @@ function idle()
         equip(sets.melee[Melee_Set_Names[Melee_Index]]) 
 	end
 	if player.status =='Idle' then	
-		equip(sets.run.Day)
+		equip(sets.run[Run_Set_Names[Run_Index]])
 	end
 end
  
@@ -524,4 +524,20 @@ function self_command(command)
         windower.add_to_chat('TH mode is now: '..TH_Set_Names[TH_Index])
         equip(sets.TH[TH_Set_Names[TH_Index]])
     end
+end
+
+function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
+send_command('unbind f9')
+send_command('unbind !f9')
+send_command('unbind ^f9')
+send_command('unbind f10')
+send_command('unbind !f10')
+send_command('unbind f12')
+send_command('unbind !f12')
+send_command('unbind f7')
+send_command('unbind !f7')
+send_command('unbind !numpad1')
+send_command('unbind ^numpad1')
+send_command('unbind !numpad0')
+send_command('unbind !numpad7')
 end
