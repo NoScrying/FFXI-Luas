@@ -12,7 +12,7 @@ function get_sets()
 	Sub_Weapons_Index = 1
 	Buff_Index = 1	
 
-	Weapons_Set_Names = {'Carnwenhan','Naegling',"Gleti's Knife"} --'Tauret'
+	Weapons_Set_Names = {'Carnwenhan','Naegling',"Gleti"} --'Tauret'
 	sets.weapons = {}
 	sets.weapons.Tauret = {
     main="Tauret",
@@ -27,7 +27,7 @@ function get_sets()
     main="Carnwenhan",
 	}
 	
-	Sub_Weapons_Set_Names = {'Gleti','TP_Bonus','Ternion Dagger +1' } --'Kali'
+	Sub_Weapons_Set_Names = {'Gleti','TP_Bonus'} --'Kali'
 	sets.Sub_Weapons = {}	
 	sets.Sub_Weapons.Kali = {
 	sub="Kali",
@@ -40,7 +40,7 @@ function get_sets()
 	}
 	
 	sets.Enmity_Mode = {} 				-- Leave this empty.
-	sets.Enmity_Mode.index = {"STP/MA",'DT'}
+	sets.Enmity_Mode.index = {"STP/MA",'DT/Acc'}
 	Enmity_Mode_Index = 1
 	
 	sets.Enmity_Mode["STP/MA"]  = {	
@@ -58,20 +58,20 @@ function get_sets()
     right_ring="Lehko's Ring",
     back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
 	}
-	sets.Enmity_Mode.DT = {
+	sets.Enmity_Mode["DT/Acc"]  = {
     range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
     head="Fili Calot +2",
     body="Ashera Harness",
     hands="Fili Manchettes +2",
     legs="Fili Rhingrave +2",
     feet="Nyame Sollerets",
-    neck="Warder's Charm +1",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    right_ear="Tuisto Earring",
+    neck={ name="Bard's Charm +1", augments={'Path: A',}},
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
+    left_ear="Crep. Earring",
+    right_ear="Cessance Earring",
     left_ring="Moonlight Ring",
-    right_ring="Chirich Ring +1",
-    back="Moonbeam Cape",
+    right_ring="Lehko's Ring",
+    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
 	}  	
 	sets.Aftermath = {
     range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
@@ -90,7 +90,7 @@ function get_sets()
 	}	
 
 	sets.DD_Mode = {}
-	sets.DD_Mode.index = {"STP/MA",'DT'}
+	sets.DD_Mode.index = {"STP/MA",'DT/Acc'}
 	DD_Mode_Index = 1
 	
 	sets.DD_Mode["STP/MA"] = {
@@ -108,7 +108,7 @@ function get_sets()
     right_ring="Lehko's Ring",
     back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
 	}
-	sets.DD_Mode.DT = {
+	sets.DD_Mode["DT/Acc"] = {
     range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
     head="Fili Calot +2",
     body="Ashera Harness",
@@ -120,11 +120,11 @@ function get_sets()
     left_ear="Suppanomimi",
     right_ear="Eabani Earring",
     left_ring="Moonlight Ring",
-    right_ring="Chirich Ring +1",
-    back="Moonbeam Cape",
+    right_ring="Lehko's Ring",
+    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
 	}
 	
-	Run_Set_Names = {"DT/Regen","EVA/DT"}
+	Run_Set_Names = {"DT/Regen","EVA/DT","Refresh"}
 	sets.run = {}
 	sets.run["DT/Regen"] =  {
     range={ name="Linos", augments={'Evasion+15','"Regen"+1','AGI+8',}},
@@ -155,6 +155,21 @@ function get_sets()
     left_ring="Defending Ring",	--, 10
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}}, --, 7 
     back="Moonbeam Cape",
+	}
+	sets.run["Refresh"] =  {
+    range={ name="Linos", augments={'Evasion+15','"Regen"+1','AGI+8',}},
+    head="Fili Calot +2",
+    body="Artsieq Jubbah",
+    hands="Fili Manchettes +2",
+    legs="Fili Rhingrave +2",
+    feet="Fili Cothurnes +2",
+    neck="Sibyl Scarf",
+    waist="Flume Belt",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Eabani Earring",
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
 	}
 	
 	sets.ws = {} 					-- Leave this empty.
@@ -259,7 +274,7 @@ function get_sets()
     legs="Bunzi's Pants",
     feet="Bunzi's Sabots",
     neck="Sibyl Scarf",
-    waist="Eschan Stone",
+    waist={ name="Acuity Belt +1", augments={'Path: A',}},
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
@@ -330,6 +345,9 @@ function get_sets()
 	sets.precast.Hordelullaby = set_combine(sets.precast.fastcast, {
 	range="Blurred Harp +1",
 	})
+	sets.precast["Honor March"] = set_combine(sets.precast.fastcast, {
+	range="Marsyas",
+	})
 	
     sets.midcast = {}               -- leave this empty
 	sets.midcast.macc = {
@@ -340,7 +358,22 @@ function get_sets()
     legs="Inyanga Shalwar +2",
     feet="Fili Cothurnes +2",
     neck="Mnbw. Whistle +1",
-    waist="Eschan Stone",
+    waist={ name="Acuity Belt +1", augments={'Path: A',}},
+    left_ear="Crepuscular Earring",
+    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Stikini Ring +1",
+    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
+	}
+	sets.midcast.Banish = {
+    range="Gjallarhorn",
+    head="Ipoca Beret",
+    body="Fili Hongreline +2",
+    hands="Fili Manchettes +2",
+	legs="Fili Rhingrave +2",
+    feet="Fili Cothurnes +2",
+    neck="Mnbw. Whistle +1",
+    waist={ name="Acuity Belt +1", augments={'Path: A',}},
     left_ear="Crepuscular Earring",
     right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
@@ -376,8 +409,8 @@ function get_sets()
     right_ring="Provocare Ring",
 	}
 	sets.midcast.selfsongs = {
-    --range="Gjallarhorn",
-	range="Daurdabla",
+    range="Gjallarhorn",
+	--range="Daurdabla",
     head="Fili Calot +2",
     body="Fili Hongreline +2",
     hands="Fili Manchettes +2",
@@ -391,6 +424,9 @@ function get_sets()
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
 	}
+	sets.midcast["Honor March"] = set_combine(sets.midcast.selfsongs, {
+	range="Marsyas",
+	})
 	sets.midcast.Ballad = set_combine(sets.midcast.selfsongs, {
 	legs="Fili Rhingrave +2",
 	})
@@ -412,9 +448,37 @@ function get_sets()
 	sets.midcast.Carol = set_combine(sets.midcast.selfsongs, {
     hands="Mousai Gages +1",
 	})
+	sets.midcast.HordeLullabyII = set_combine(sets.midcast.macc, {
+    --range="Daurdabla",
+	range="Blurred Harp +1",
+    head="Fili Calot +2",
+    body="Fili Hongreline +2",
+    hands="Inyan. Dastanas +2",
+    legs="Inyanga Shalwar +2",
+    feet="Brioso Slippers +2",
+    neck="Mnbw. Whistle +1",
+    waist={ name="Acuity Belt +1", augments={'Path: A',}},
+    left_ear="Darkside Earring",
+	--left_ear="Crepuscular Earring",
+    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
+	})
 	sets.midcast.HordeLullaby = set_combine(sets.midcast.macc, {
     range="Blurred Harp +1",
-	feet="Brioso Slippers +2",
+    head="Fili Calot +2",
+    body="Nyame Mail",
+    hands="Fili Manchettes +2",
+    legs="Fili Rhingrave +2",
+    feet="Brioso Slippers +2",
+    neck="Mnbw. Whistle +1",
+    waist={ name="Acuity Belt +1", augments={'Path: A',}},
+    left_ear="Crep. Earring",
+    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Defending Ring",
+    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
 	})
 	
 	sets.midcast.cure = {
@@ -468,6 +532,14 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back="Merciful Cape",
 	}
+	sets.midcast.regen = set_combine(sets.run["EVA/DT"], {
+    head={ name="Taeon Chapeau", augments={'Mag. Evasion+16','Spell interruption rate down -9%','"Regen" potency+3',}},
+    body={ name="Taeon Tabard", augments={'Mag. Evasion+19','Spell interruption rate down -9%','"Regen" potency+3',}},
+    hands={ name="Taeon Gloves", augments={'Mag. Evasion+15','Spell interruption rate down -10%','"Regen" potency+3',}},
+    legs={ name="Taeon Tights", augments={'Mag. Evasion+17','Spell interruption rate down -9%','"Regen" potency+3',}},
+    feet={ name="Taeon Boots", augments={'Mag. Evasion+18','Spell interruption rate down -9%','"Regen" potency+3',}},
+    waist="Embla Sash",
+	})
 	sets.midcast.TreasureHunter = {
     head="Wh. Rarab Cap +1",
     feet={ name="Chironic Slippers", augments={'Mag. Acc.+1','Damage taken-1%','"Treasure Hunter"+2',}},
@@ -493,6 +565,9 @@ function precast(spell)
 		 if spell.name:match("Horde Lullaby") then
 			equip(sets.precast.Hordelullaby)
 		end
+	end
+	if spell.name == "Honor March" then
+		equip(sets.precast["Honor March"])
 	end
     if sets.ws[spell.name] then
         equip(sets.ws[spell.name])        
@@ -534,7 +609,10 @@ function midcast(spell)
 	if spell.name:match("Dragonfoe Mambo") or spell.name:match("Sheepfoe Mambo") then
         equip(sets.midcast.Mambo)
 	end	
-	if spell.name:match("Horde Lullaby") then
+	if spell.name == "Horde Lullaby II" then
+        equip(sets.midcast.HordeLullabyII)
+	end	
+	if spell.name == "Horde Lullaby" then
         equip(sets.midcast.HordeLullaby)
 	end	
 	if string.find(spell.english,'Carol') then
@@ -546,6 +624,9 @@ function midcast(spell)
 	if spell.name:match("Sentinel's Scherzo") then
         equip(sets.midcast.Scherzo)
 	end	
+	if spell.name:match("Honor March") then
+		equip(sets.midcast["Honor March"])
+	end
 	if spell.skill == 'Healing Magic' then
 		equip(sets.midcast.cure)
 	end
@@ -559,6 +640,12 @@ function midcast(spell)
 			if spell.name:match("Haste") or spell.name:match("Auspice") or spell.name:match("Reraise") or spell.name:match("Protect") or spell.name:match("Shell") or spell.name:match("Regen") then
 			equip(sets.midcast.enhancingduration)
 		end
+	end
+	if spell.name:match('Banish') then
+		equip(sets.midcast.Banish)
+	end
+	if spell.name:match('Regen') then
+		equip(sets.midcast.regen)
 	end
 end
 
