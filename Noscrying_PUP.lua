@@ -10,7 +10,7 @@ function get_sets()
 	DT_Index = 1
 	Weapons_Index = 1
 
-	Weapons_Set_Names = {'Verethragna', 'Sakpata','Ohtas'}
+	Weapons_Set_Names = {'Verethragna','Ohtas'}-- 'Sakpata'
 	sets.weapons = {} 					-- Leave this empty.
 	sets.weapons.Verethragna = {
 	main = "Verethragna",
@@ -29,11 +29,11 @@ function get_sets()
 	
 	sets.Master_Mode["normal"] = {
 		ammo="Automat. Oil +3",
-    head={ name="Herculean Helm", augments={'Accuracy+15','"Triple Atk."+4','Attack+14',}},
+    head="Mpaca's Cap",
     body="Tali'ah Manteel +2",
-    hands={ name="Herculean Gloves", augments={'Accuracy+27','"Triple Atk."+3','DEX+15',}},
-    legs={ name="Herculean Trousers", augments={'Accuracy+28','"Triple Atk."+4','AGI+5',}},
-    feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
+    hands="Mpaca's Gloves",
+    legs="Mpaca's Hose",
+    feet="Mpaca's Boots",
     neck="Shulmanu Collar",
     waist="Moonbow Belt +1",
     left_ear="Cessance Earring",
@@ -44,10 +44,10 @@ function get_sets()
 	}
 	sets.Master_Mode["Hybrid"] = {
 	     ammo="Automat. Oil +3",
-    head="Tali\'ah Turban +2",
+    head="Mpaca's Cap",
     body="Tali\'ah Manteel +2",
     hands="Foire Dastanas +2",
-    legs={ name="Herculean Trousers", augments={'Accuracy+28','"Triple Atk."+4','AGI+5',}},
+    legs="Mpaca's Hose",
     feet="Tali'ah Crackows +2",
     neck="Shulmanu Collar",
     waist="Moonbow Belt +1",
@@ -74,7 +74,7 @@ function get_sets()
 	}
 	
 	sets.Puppet_Mode = {}
-	sets.Puppet_Mode.index = {'PUPDA', 'PUPDT','PUPHaste'}
+	sets.Puppet_Mode.index = {'PUPDA', 'PUPDT','Master/Pet'}
 	Puppet_Mode_Index = 1
 	
 	sets.Puppet_Mode["PUPDA"] = {
@@ -108,13 +108,13 @@ function get_sets()
     right_ring="Cath Palug Ring",
     back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Haste+10','Pet: Damage taken -5%',}},
 }
-	sets.Puppet_Mode["PUPHaste"] = {
+	sets.Puppet_Mode["Master/Pet"] = {
 	ammo="Automat. Oil +3",
-    head={ name="Taeon Chapeau", augments={'Pet: Accuracy+19 Pet: Rng. Acc.+19','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-    body={ name="Taeon Tabard", augments={'Pet: Accuracy+19 Pet: Rng. Acc.+19','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-    hands={ name="Taeon Gloves", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-    legs={ name="Taeon Tights", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-    feet="Tali'ah Crackows +2",
+    head="Mpaca's Cap",
+    body="Mpaca's Doublet",
+    hands="Mpaca's Gloves",
+    legs="Mpaca's Hose",
+    feet="Mpaca's Boots",
     neck="Shulmanu Collar",
     waist="Klouskap Sash",
     left_ear="Enmerkar Earring",
@@ -137,130 +137,143 @@ function get_sets()
 	
 	sets.ws = {} -- Leave this empty.
 	sets.ws['Victory Smite'] = {
-    head={ name="Blistering Sallet +1", augments={'Path: A',}},
-    body="Tali\'ah Manteel +2",
+    head="Mpaca's Cap",
+    body="Mpaca's Doublet",
     hands={ name="Ryuo Tekko +1", augments={'DEX+12','Accuracy+25','"Dbl.Atk."+4',}},
-    neck="Rep. Plat. Medal",
-	legs="Hizamaru Hizayoroi +2",
-    feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
+    legs="Mpaca's Hose",
+    feet="Mpaca's Boots",
     waist="Moonbow Belt +1",
     left_ring="Niqmaddu Ring",
     right_ring="Gere Ring",
-	left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    right_ear={ name="Karagoz Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+9','Mag. Acc.+9',}},
+	left_ear="Cessance Earring",
+    right_ear="Schere Earring",
+	back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	
+	}
+	sets.ws["Evisceration"] = {
+    head="Mpaca's Cap",
+    body="Mpaca's Doublet",
+    hands={ name="Ryuo Tekko +1", augments={'DEX+12','Accuracy+25','"Dbl.Atk."+4',}},
+    legs="Mpaca's Hose",
+    feet="Mpaca's Boots",
+    waist="Moonbow Belt +1",
+    left_ring="Niqmaddu Ring",
+    right_ring="Lehko's Ring",
+	left_ear="Cessance Earring",
+    right_ear="Schere Earring",
 	back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	
 	}
 	sets.ws['Shijin Spiral'] = {
-    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    head="Mpaca's Cap",
     body="Tali'ah Manteel +2",
-    hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
-    legs="Hiza. Hizayoroi +2",
-    feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
+    hands="Mpaca's Gloves",
+    legs="Mpaca's Hose",
+    feet="Mpaca's Boots",
     neck="Fotia Gorget",
     waist="Moonbow Belt +1",
-    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    right_ear="Sroda Earring",
+	left_ear="Cessance Earring",
+    right_ear="Schere Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Gere Ring",
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Stringing Pummel'] = {
-    head={ name="Blistering Sallet +1", augments={'Path: A',}},	
-    body="Tali\'ah Manteel +2",
-    hands={ name="Ryuo Tekko +1", augments={'DEX+12','Accuracy+25','"Dbl.Atk."+4',}},
+    head="Mpaca's Cap",
+    body="Tali'ah Manteel +2",
+    hands="Mpaca's Gloves",
+    legs="Mpaca's Hose",
+    feet="Mpaca's Boots",
     neck="Rep. Plat. Medal",
     waist="Moonbow Belt +1",
-    legs="Hizamaru Hizayoroi +2",
-    feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
     left_ring="Niqmaddu Ring",
     right_ring="Gere Ring",
-	left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    right_ear="Sroda Earring",
+	left_ear="Cessance Earring",
+    right_ear="Schere Earring",
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},	
 	} 
 	sets.ws['Tornado Kick'] = {
-    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    head="Mpaca's Cap",
     body="Tali\'ah Manteel +2",
     hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},
-    neck="Rep. Plat. Medal",
-    waist="Moonbow Belt +1",
     legs="Hizamaru Hizayoroi +2",
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
+    neck="Rep. Plat. Medal",
+    waist="Moonbow Belt +1",
     left_ring="Niqmaddu Ring",
     right_ring="Gere Ring",
 	left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    right_ear="Sroda Earring",
+    right_ear="Schere Earring",
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},	
 	} 
 	sets.ws['Spinning Attack'] = {
-    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    head="Mpaca's Cap",
     body="Tali\'ah Manteel +2",
     hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},
-    neck="Rep. Plat. Medal",
-    waist="Moonbow Belt +1",
     legs="Hizamaru Hizayoroi +2",
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
+    neck="Rep. Plat. Medal",
+    waist="Moonbow Belt +1",
     left_ring="Niqmaddu Ring",
     right_ring="Gere Ring",
 	left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    right_ear="Sroda Earring",
+    right_ear="Schere Earring",
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},	
 	}
 	sets.ws['Shoulder Tackle'] = {
-    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    head="Mpaca's Cap",
     body="Tali\'ah Manteel +2",
     hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},
-    neck="Rep. Plat. Medal",
-    waist="Moonbow Belt +1",
     legs="Hizamaru Hizayoroi +2",
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
+    neck="Rep. Plat. Medal",
+    waist="Moonbow Belt +1",
     left_ring="Niqmaddu Ring",
     right_ring="Gere Ring",
 	left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    right_ear="Sroda Earring",
+    right_ear="Schere Earring",
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},	
 	}
 	sets.ws['Asuran Fists'] = {
-    head={ name="Blistering Sallet +1", augments={'Path: A',}},
-    body="Hizamaru Haramaki +1",
+    head="Mpaca's Cap",
+    body="Tali\'ah Manteel +2",
     hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},
-    neck="Rep. Plat. Medal",
-    waist="Fotia Belt",
     legs="Hizamaru Hizayoroi +2",
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
+    neck="Rep. Plat. Medal",
+    waist="Moonbow Belt +1",
     left_ring="Niqmaddu Ring",
     right_ring="Gere Ring",
 	left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    right_ear="Ishvara Earring",
+    right_ear="Schere Earring",
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},	
 	} 
 	sets.ws['Howling Fist'] = {
-    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    head="Mpaca's Cap",
     body="Tali\'ah Manteel +2",
     hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},
-    neck="Rep. Plat. Medal",
-    waist="Moonbow Belt +1",
     legs="Hizamaru Hizayoroi +2",
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
+    neck="Rep. Plat. Medal",
+    waist="Moonbow Belt +1",
     left_ring="Niqmaddu Ring",
     right_ring="Gere Ring",
 	left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    right_ear="Sroda Earring",
+    right_ear="Schere Earring",
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},	
 	} 	
 	sets.ws['Raging Fists'] = {
-    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    head="Mpaca's Cap",
     body="Tali\'ah Manteel +2",
     hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},
-    neck="Rep. Plat. Medal",
-    waist="Moonbow Belt +1",
     legs="Hizamaru Hizayoroi +2",
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
+    neck="Rep. Plat. Medal",
+    waist="Moonbow Belt +1",
     left_ring="Niqmaddu Ring",
     right_ring="Gere Ring",
 	left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    right_ear="Sroda Earring",
+    right_ear="Schere Earring",
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},	
 	} 	
 
@@ -517,13 +530,18 @@ function self_command(command) --, Allows of use of various commands
 end
 
 
-function user_unload()
+function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
 send_command('unbind f9')
 send_command('unbind !f9')
+send_command('unbind ^f9')
 send_command('unbind f10')
 send_command('unbind !f10')
 send_command('unbind f12')
 send_command('unbind !f12')
 send_command('unbind f7')
 send_command('unbind !f7')
+send_command('unbind !numpad1')
+send_command('unbind ^numpad1')
+send_command('unbind !numpad0')
+send_command('unbind !numpad7')
 end
