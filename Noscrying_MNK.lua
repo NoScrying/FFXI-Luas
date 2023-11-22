@@ -49,7 +49,7 @@ function get_sets()
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, 10KA, 10DA, -10PDT
 }
 	sets.melee.Counter = {			--, -54PDT, 36STP(13 Hit),3QA, 8TA, 15DA, PDL+6%, Counter +49, Merit +5, JT +22  (76)
-    ammo="Amar Cluster", 			--, 4
+    ammo="Amar Cluster", 			--, 
     head="Malignance Chapeau", 		--, -6DT, 8STP, PDL+3
     body="Mpaca's Doublet", 		--, -10PDT, Counter +10
 	hands="Rao Kote +1",			--, Counter +5
