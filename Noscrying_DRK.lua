@@ -1,5 +1,6 @@
 function get_sets()
-	send_command('bind f9 gs c toggle melee set') -- F9 = Cycle through
+	send_command('bind f9 gs c toggle TP set') 
+	send_command('bind !f9 gs c toggle Apocalypse') 
 	send_command('bind !f10 gs c toggle Niche set') -- F10 = Cycle through
 	send_command('bind f10 gs c toggle run set') -- F10 = Cycle through
 	send_command('bind f12 gs c toggle TH set') -- F10 = Cycle through
@@ -7,15 +8,16 @@ function get_sets()
 	send_command('bind !f7 gs c toggle Sub_Weapons set') -- F10 = Cycle through
 	send_command('bind !numpad1 gs c toggle Buff set')
 	send_command('bind !numpad0 gs c toggle Emergency MEVA')
-	send_command('bind !f9 gs c toggle Apoc set')
-	Melee_Index = 1
+	
+	Weapon_Index = 1
 	Niche_Index = 1
 	Run_Index = 1
 	TH_Index = 1
 	Weapons_Index = 1
 	Sub_Weapons_Index = 1
 	Buff_Index = 1	
-	Apoc_Index = 1
+	
+
 
 	Weapons_Set_Names = {'Caladbolg','Apocalypse'}
 	sets.weapons = {}
@@ -77,10 +79,13 @@ function get_sets()
     right_ring="Chirich Ring +1", 	--, 10 SB
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 }
-	Apoc_Set_Names = {'Apoc','DT'} 	--, Apoc Delay = 513 + 10% Job Ability Haste Aftermath
-	sets.Apoc = {} 					--, SAM-SJ = 72 STP = 243 TP (5 Hit) & +44% Haste
-	sets.Apoc.Apoc = { 				--,  +57 STP = 221 TP (5 Hit), +34% Haste, -37% PDT, -27% MDT, +41 DA
-    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}}, --, +5% Haste
+
+	sets.Apocalypse = {} 					--, SAM-SJ = 80 STP = 255 TP (4 Hit) & +45% Haste
+	sets.Apocalypse.index = {'TP','DT'} 	--, Apoc Delay = 513 + 10% Job Ability Haste Aftermath
+	Apocalypse_Index = 1
+	
+	sets.Apocalypse.TP = { 				--,  +65 STP = 234 TP (5 Hit), +25% Haste, -32% PDT, -22% MDT, +41 DA
+    ammo="Coiste Bodhar",
     head="Hjarrandi Helm",			--, -10DT, +7 STP, +6 DA
     body="Hjarrandi Breastplate", 	--, -12DT, +10 STP
     hands={ name="Valorous Mitts", augments={'"Store TP"+7','Accuracy+14',}}, --, +4% Haste, +10 Zanshin, +7 STP
@@ -91,11 +96,11 @@ function get_sets()
     left_ear="Brutal Earring", 		--, +1 STP, +5 DA
 	right_ear="Cessance Earring", 	--, +3 STP, +3 DA
     left_ring="Niqmaddu Ring",		--, 3QA, 5SBII 
-    right_ring="Moonlight Ring", 	--, +5 STP, -5DT
+    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, +10 DA, -10 PDT
 	}
-	sets.Apoc.DT = { 				--, +29% Haste (Cap 25%), -50 PDT, -40 MDT, +57 DA
-    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}}, --, +5% Haste
+	sets.Apocalypse.DT = { 				--, +25% Haste, -50 PDT, -40 MDT, +57 DA
+    ammo="Coiste Bodhar",
     head="Sakpata's Helm", 			--, +4% Haste -7DT, +5 DA
     body="Sakpata's Plate", 		--, +2% Haste -10DT, +8 DA
     hands="Sakpata's Gauntlets", 	--, +4% Haste -8DT, +6 DA
@@ -106,22 +111,25 @@ function get_sets()
     left_ear="Cessance Earring", 	--, +3 DA
 	right_ear="Brutal Earring", 	--, +5 DA
     left_ring="Niqmaddu Ring",
-    right_ring="Chirich Ring +1",
+    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, +10 DA, -10 PDT
 	}
-	sets.Apoc.NotSAMSJ = { 			--, +33% Haste, +41 STP = 200 TP, -49 PDT, -39 MDT, +54 DA
+	sets.Apocalypse.NotSAMSJ = { 			--, +33% Haste, +41 STP = 200 TP, -49 PDT, -39 MDT, +54 DA
 	ear2="Brutal Earring", 			--, +1 STP, +5 DA
 	ear1={ name="Lugra Earring +1", augments={'Path: A',}}, --, +3 DA
     hands="Sakpata's Gauntlets",  	--, -8DT, +6 DA
     legs="Sakpata's Cuisses", 		--, -9DT, +7 DA
 	}
 	
-	Melee_Set_Names = {'normal', 'DT'} --, Caladbolg, 430 Delay
-	sets.melee = {}					--, SAM-SJ = 50 STP = 182 TP (6 Hit) & +35% Haste
-	sets.melee.normal = { 			--, +35 STP = 163 TP (7 Hit), +25% Haste, -52 PDT, -42 MDT ,+55 DA
-    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}}, --, +5% Haste
+
+	sets.Caladbolg = {}					--, SAM-SJ = 66 STP = 202 TP (5 Hit) & +35% Haste
+	sets.Caladbolg.index = {'TP', 'DT'} --, Caladbolg, 430 Delay
+	Caladbolg_Index = 1
+	
+	sets.Caladbolg.TP = { 			--, +51 STP = 184 TP (6 Hit), +25% Haste, -49 PDT, -39 MDT ,+47 DA, +28 Crit
+    ammo="Coiste Bodhar",
     head="Hjarrandi Helm",			--, -10DT, +7 STP, +6 DA
-    body="Sakpata's Plate", 		--, +2% Haste, -10DT, +8 DA
+    body="Hjarrandi Breastplate", 	--, -12DT, +12 Crit, +10 STP
     hands="Sakpata's Gauntlets", 	--, +4% Haste, -8DT, +6 DA
     legs="Sakpata's Cuisses", 		--, +4% Haste, -9DT, +7 DA
     feet="Flamma Gambieras +2", 	--, +2% Haste, +6 STP, +6 DA
@@ -130,11 +138,11 @@ function get_sets()
     left_ear="Cessance Earring", 	--, +3 STP, +3 DA 
     right_ear="Crep. Earring", 		--, +5 STP
     left_ring="Niqmaddu Ring",
-    right_ring="Moonlight Ring", 	--, +5 STP
+    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, +10 DA, -10 PDT
 	}
-	sets.melee.DT = { 				--, +29% Haste (Cap 25%), -50 PDT, -40 MDT, +57 DA
-    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}}, --, +5% Haste
+	sets.Caladbolg.DT = { 				--, +34% Haste (Cap 25%), -50 PDT, -40 MDT, +57 DA
+    ammo="Coiste Bodhar",
     head="Sakpata's Helm",			--, +4% Haste -7DT, +5 DA
     body="Sakpata's Plate", 		--, +2% Haste -10DT, +8 DA
     hands="Sakpata's Gauntlets", 	--, +4% Haste -8DT, +6 DA
@@ -145,11 +153,11 @@ function get_sets()
     left_ear="Brutal Earring", 		--, +5 DA
 	right_ear="Cessance Earring", 	--, +3 DA
     left_ring="Niqmaddu Ring",
-    right_ring="Chirich Ring +1",
+    right_ring="Lehko's Ring",
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, +10 DA, -10 PDT
 	}
 
-	sets.melee.NotSAMSJ = { 		--, +28 STP = 156 TP (7 Hit), +29% Haste (Cap 25%), -47 PDT, -37 MDT ,+63 DA
+	sets.Caladbolg.NotSAMSJ = { 		--, +28 STP = 156 TP (7 Hit), +29% Haste (Cap 25%), -47 PDT, -37 MDT ,+63 DA
 	ear2="Brutal Earring", 			--, +1 STP, +5 DA
 	ear1={ name="Lugra Earring +1", augments={'Path: A',}}, --, +3 DA
 	}
@@ -222,18 +230,18 @@ function get_sets()
 	
 	sets.ws['Resolution']	= {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head="Sakpata's Helm",
+    head="Flam. Zucchetto +2",
     body="Sakpata's Plate",
     hands="Sakpata's Gauntlets",
-    legs="Sakpata's Cuisses",
-    feet="Sakpata's Leggings",
+    legs="Sulev. Cuisses +2",
+    feet="Flam. Gambieras +2",
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
-	right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Niqmaddu Ring",
-    right_ring="Ifrit Ring +1",
-    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    right_ring="Sroda Ring",
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
 	}
 	sets.ws['Spinning Slash']	= {
     ammo="Knobkierrie",
@@ -248,7 +256,7 @@ function get_sets()
     right_ear="Thrud Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}	
 	sets.ws['Torcleaver']	= {
     ammo="Knobkierrie",
@@ -263,7 +271,7 @@ function get_sets()
     right_ear="Thrud Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},
+    back={ name="Ankou's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Shockwave']	= {
     ammo="Knobkierrie",
@@ -278,14 +286,13 @@ function get_sets()
     right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Stikini Ring +1",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Cross Reaper']	= { -- WSD Set
 	ammo="Knobkierrie",
-	head="Ratri Sallet",
-    --head={ name="Odyssean Helm", augments={'Accuracy+3','Weapon skill damage +4%','STR+5','Attack+6',}},
+	head="Ratri Sallet +1",
     body="Ignominy Cuirass +3",
-    hands={ name="Odyssean Gauntlets", augments={'Accuracy+18','Weapon skill damage +5%','STR+6',}},
+    hands="Ratri Gadlings +1",
     legs="Fallen's Flanchard +3",
     feet="Heathen's Sollerets +2",
     neck={ name="Abyssal Beads +1", augments={'Path: A',}},
@@ -294,7 +301,7 @@ function get_sets()
 	right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},	
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},	
 	
     -- ammo="Knobkierrie", 		--, no DT+ set
     -- head={ name="Odyssean Helm", augments={'Accuracy+28','Weapon skill damage +4%','CHR+10','Attack+11',}},
@@ -312,10 +319,9 @@ function get_sets()
 	}
 	sets.ws['Catastrophe']	= { -- WSD Set
 	ammo="Knobkierrie",
-	head="Ratri Sallet",
-    --head={ name="Odyssean Helm", augments={'Accuracy+3','Weapon skill damage +4%','STR+5','Attack+6',}},
+	head="Ratri Sallet +1",
     body="Ignominy Cuirass +3",
-    hands={ name="Odyssean Gauntlets", augments={'Accuracy+18','Weapon skill damage +5%','STR+6',}},
+    hands="Ratri Gadlings +1",
     legs="Fallen's Flanchard +3",
     feet="Heathen's Sollerets +2",
     neck={ name="Abyssal Beads +1", augments={'Path: A',}},
@@ -324,7 +330,7 @@ function get_sets()
 	right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},	
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},	
 	
     -- ammo="Knobkierrie", 		--, no DT+ set
     -- head={ name="Odyssean Helm", augments={'Accuracy+28','Weapon skill damage +4%','CHR+10','Attack+11',}},
@@ -342,10 +348,9 @@ function get_sets()
 	}
 	sets.ws['Quietus']	= { 	-- WSD Set
 	ammo="Knobkierrie",
-	head="Ratri Sallet",
-    --head={ name="Odyssean Helm", augments={'Accuracy+3','Weapon skill damage +4%','STR+5','Attack+6',}},
+	head="Ratri Sallet +1",
     body="Ignominy Cuirass +3",
-    hands={ name="Odyssean Gauntlets", augments={'Accuracy+18','Weapon skill damage +5%','STR+6',}},
+    hands="Ratri Gadlings +1",
     legs="Fallen's Flanchard +3",
     feet="Heathen's Sollerets +2",
     neck={ name="Abyssal Beads +1", augments={'Path: A',}},
@@ -354,7 +359,7 @@ function get_sets()
 	right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},	
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},	
 	
     -- ammo="Knobkierrie", 		--, no DT+ set
     -- head={ name="Odyssean Helm", augments={'Accuracy+28','Weapon skill damage +4%','CHR+10','Attack+11',}},
@@ -371,26 +376,25 @@ function get_sets()
     -- back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},
 	}
 	sets.ws['Entropy']	= {
-    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    head="Flamma Zucchetto +2",
+    ammo="Coiste Bodhar",
+    head="Flam. Zucchetto +2",
     body="Ignominy Cuirass +3",
-    hands="Sakpata\'s Gauntlets",
-    legs="Fallen's Flanchard +3",
-    feet="Heathen's Sollerets +2",
+    hands="Sakpata's Gauntlets",
+    legs="Sulev. Cuisses +2",
+    feet="Sakpata's Leggings",
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Cessance Earring",
     right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
 	}
 	sets.ws['Spiral Hell']	= {
 	ammo="Knobkierrie",
-	head="Ratri Sallet",
-    --head={ name="Odyssean Helm", augments={'Accuracy+3','Weapon skill damage +4%','STR+5','Attack+6',}},
+	head="Ratri Sallet +1",
     body="Ignominy Cuirass +3",
-    hands={ name="Odyssean Gauntlets", augments={'Accuracy+18','Weapon skill damage +5%','STR+6',}},
+    hands="Ratri Gadlings +1",
     legs="Fallen's Flanchard +3",
     feet="Heathen's Sollerets +2",
     neck={ name="Abyssal Beads +1", augments={'Path: A',}},
@@ -399,14 +403,13 @@ function get_sets()
 	right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},	
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},	
 	}
 	sets.ws['Insurgency']	= {
 	ammo="Knobkierrie",
-	head="Ratri Sallet",
-    --head={ name="Odyssean Helm", augments={'Accuracy+3','Weapon skill damage +4%','STR+5','Attack+6',}},
+	head="Ratri Sallet +1",
     body="Ignominy Cuirass +3",
-    hands={ name="Odyssean Gauntlets", augments={'Accuracy+18','Weapon skill damage +5%','STR+6',}},
+    hands="Ratri Gadlings +1",
     legs="Fallen's Flanchard +3",
     feet="Heathen's Sollerets +2",
     neck={ name="Abyssal Beads +1", augments={'Path: A',}},
@@ -415,7 +418,7 @@ function get_sets()
 	right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},	
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},	
 	}
 	sets.ws['Guillotine']	= {
 	ammo="Knobkierrie",
@@ -430,7 +433,7 @@ function get_sets()
 right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},	
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
 	}
 	sets.ws['Savage Blade']	= {
 	ammo="Knobkierrie",
@@ -445,7 +448,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},		
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},		
 
 	}
 	sets.ws['Chant du Cygne']	= {
@@ -461,7 +464,22 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},
+    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	}	
+	sets.ws['Requiescat']	= {
+    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+    head="Flam. Zucchetto +2",
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets",
+    legs="Sulev. Cuisses +2",
+    feet="Flam. Gambieras +2",
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ring="Niqmaddu Ring",
+    right_ring="Sroda Ring",
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
 	}	
 	sets.ws['Upheaval']	= {
     ammo="Knobkierrie",
@@ -476,7 +494,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     right_ear="Thrud Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},
+    back={ name="Ankou's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 
 	}
 	sets.ws['Steel Cyclone']	= {
@@ -492,7 +510,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     right_ear="Thrud Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 
 	}
 	sets.ws['Sanguine Blade']	= {
@@ -508,7 +526,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Fell Cleave']	= {
     ammo="Knobkierrie",
@@ -523,7 +541,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     right_ear="Thrud Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 
 	}
 	sets.ws['Armor Break']	= {
@@ -539,7 +557,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Crepuscular Ring",
     right_ring="Rufescent Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},	
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},	
 	}
 	sets.ws['Decimation']	= {
 	ammo="Knobkierrie",
@@ -554,7 +572,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},	
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},	
 	}	
 	sets.ws['Smash Axe']	= {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -569,7 +587,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Ruinator']	= {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -584,7 +602,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Judgment']	= {
     ammo="Knobkierrie",
@@ -599,7 +617,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     right_ear="Thrud Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},	
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},	
 
 	}
 	sets.ws['Flash Nova']	= {
@@ -613,9 +631,9 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     waist="Orpheus's Sash", 		--, +1-15% Magic Damage
     left_ear="Malignance Earring", 	--, +8 MAB, +10 MACC
     right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
-    left_ring="Weatherspoon Ring",
+    left_ring="Weatherspoon Ring +1",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%',}},		
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},		
 	}		
 
 	sets.ja = {} 
@@ -669,7 +687,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 	legs="Carmine Cuisses +1",
 	feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}}, --, 8
 	left_ring="Kishar Ring", 	 	--, 4
-	right_ring="Weatherspoon Ring", --, 5 + QM +3%
+	right_ring="Weatherspoon Ring +1", --, 5 + QM +3%
     left_ear="Malignance Earring",	--, 4
     right_ear="Loquacious Earring", --, 2
     back={ name="Ankou's Mantle", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}}, --, 10
@@ -735,19 +753,19 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     right_ring="Stikini Ring +1", 	--, +11 MACC, +8 Skill
     back={ name="Niht Mantle", augments={'Attack+6','Dark magic skill +9','"Drain" and "Aspir" potency +24',}}, --, Drain +24, +9 Skill
 	}
-	sets.midcast.spikes = {			--, +10 DT, +10% HP, +2635 HP, Dread Spikes +45% = 82.5% Current HP Converted to Spikes.
+	sets.midcast.spikes = {			--, -6 PDT, +10% HP, +2635 HP, Dread Spikes +45% = 82.5% Current HP Converted to Spikes.
     ammo="Staunch Tathlum +1", 		--, +11 SIRD, -3DT
     head="Ratri Sallet", 			--, HP+410, +7DT
     body="Heath. Cuirass +2", 		--, HP+83, -12DT, Dread Spikes +45%
     hands="Ratri Gadlings", 		--, HP+399, +9DT
-    legs="Fallen's Flanchard +3", 			--, HP+421, +11DT
+    legs="Ratri Cuisses", 			--, HP+421, +11DT
     feet="Ratri Sollerets", 		--, HP+387, +5DT
     neck="Unmoving Collar +1", 		--, HP+200
     waist="Platinum Moogle Belt", 	--, HP+10%, -3DT
-    left_ear="Odnowa Earring +1", 	--, HP+110
+    left_ear="Odnowa Earring +1", 	--, HP+110, -3DT
     right_ear="Tuisto Earring",		--, HP+150
-    left_ring="Moonlight Ring", 	--, HP+110
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}}, --, HP+135
+    left_ring="Moonlight Ring", 	--, HP+110,	-5DT
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}}, --, HP+135, -7PDT
     back="Moonbeam Cape", 			--, HP+250, -5DT
 	}
 	sets.midcast.sird = {			--, merits+10 = 104% (Cap 104%), +4 DT, +10% HP, +1012 HP, Dread Spikes +45% = 82.5% Current HP Converted to Spikes.
@@ -762,6 +780,21 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     left_ear="Halasz Earring", 		--, 5 SIRD
     right_ear="Magnetic Earring",	--, 8 SIRD
     left_ring="Moonlight Ring", 	--, HP+100
+    right_ring="Evanescence Ring", 	--, 5 SIRD
+    back={ name="Ankou's Mantle", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}}, --, 10 SIRD
+	}
+	sets.midcast.EnmitySIRD = {		--, merits+10 = 104% (Cap 104%), +29% Enmity
+    ammo="Staunch Tathlum +1", 		--, 11 SIRD
+    head="Halitus Helm",			--, 8
+    body="Emet Harness", 			--, 9
+    hands="Yorium Gauntlets", 		--, 4
+    legs={ name="Founder's Hose", augments={'MND+6','Mag. Acc.+10','Attack+7','Breath dmg. taken -2%',}}, --, 30 SIRD, HP+54
+    feet="Odyssean Greaves", 		--, 20 SIRD
+    neck="Willpower Torque", 		--, 5 SIRD
+    waist="Warwolf Belt",			--, 3
+    left_ear="Halasz Earring", 		--, 5 SIRD
+    right_ear="Magnetic Earring",	--, 8 SIRD
+    left_ring="Supershear Ring",	--, 5
     right_ring="Evanescence Ring", 	--, 5 SIRD
     back={ name="Ankou's Mantle", augments={'"Fast Cast"+10','Spell interruption rate down-10%',}}, --, 10 SIRD
 	}
@@ -780,8 +813,8 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     right_ring="Stikini Ring +1", 	--, +11 MACC, +8 Skill
     back="Chuparrosa Mantle",		--, +5  MACC
 	}
-	sets.midcast.enmity = {			--, +42% Enmity
-    head="Sakpata's Helm",
+	sets.midcast.enmity = {			--, +50% Enmity
+    head="Halitus Helm",			--, 8
     body="Emet Harness", 			--, 9
     hands="Yorium Gauntlets", 		--, 4
     legs="Odyssean Cuisses", 		--, 5
@@ -845,12 +878,12 @@ function midcast(spell)
 	end
 	if spell.name:match('Absorb-')then	
 		equip(sets.midcast.Absorb)
-			if spell.name == "Absorb-Attri" or spell.name == "Absorb-TP" or spell.name == "Stun" or spell.name == "Absorb-ACC" or spell.name == "Sleep II" or spell.name == "Bind" or spell.name == "Break" then
+			if spell.name == "Absorb-Attri" or spell.name == "Absorb-TP" or spell.name == "Stun" or spell.name == "Absorb-ACC" or spell.name:match("Sleep") or spell.name == "Bind" or spell.name == "Break" then
 				equip(sets.midcast.Macc)
 			end
 		end
 
-	if spell.name:match('Poison') then
+	if spell.name:match('Poison') or spell.name:match('Flash') then
 		equip(sets.midcast.enmity)
 	end
 	
@@ -863,6 +896,9 @@ function midcast(spell)
         if spell.skill == 'Elemental Magic' then
             equip(sets.midcast.MAB)
 	end
+	if spell.skill == "Blue Magic"  then	
+			equip(sets.midcast.EnmitySIRD)
+	end	
 end
 
 function aftercast(spell)
@@ -902,16 +938,16 @@ end
 
 function idle()
     if player.status=='Engaged' then
-        equip(sets.melee[Melee_Set_Names[Melee_Index]])
+        equip(sets.Caladbolg[sets.Caladbolg.index[Caladbolg_Index]])
 			if player.sub_job ~= "SAM" then
-				equip(sets.melee.NotSAMSJ)
+				equip(sets.Caladbolg.NotSAMSJ)
 			end
 		end
     if player.status=='Engaged' then
 		if player.equipment.main == "Apocalypse" then
-			equip(equip(sets.Apoc[Apoc_Set_Names[Apoc_Index]]))
+			equip(sets.Apocalypse[sets.Apocalypse.index[Apocalypse_Index]])
 				if player.sub_job ~= "SAM" then
-					equip(sets.Apoc.NotSAMSJ)
+					equip(sets.Apocalypse.NotSAMSJ)
 				end
 			end
 		end
@@ -927,16 +963,53 @@ function idle()
 	idle()
 end
 
-MEVA = true
-Switch= true
+Apocalypse_Mode = true 
+Caladbolg_Mode = true 
 
 function self_command(command)
-	if command == 'toggle melee set' then
-        Melee_Index = Melee_Index +1
-        if Melee_Index > #Melee_Set_Names then Melee_Index = 1 end
-        windower.add_to_chat('TP mode is now: '..Melee_Set_Names[Melee_Index])
-        equip(sets.melee[Melee_Set_Names[Melee_Index]])
-    end
+	if command == 'toggle TP set' then --, When using the command as specified at the top of this lua, then executes these functions
+		if Apocalypse_Mode == true then --, Checks whether or not the Apocalypse Mode is active,
+			Apocalypse_Index = Apocalypse_Index + 1 --, Cycles through the Index, starts at 1 when switching or starting game
+			if Apocalypse_Index > #sets.Apocalypse.index then Apocalypse_Index = 1 end 
+			windower.add_to_chat('Apocalypse set --> ' .. sets.Apocalypse.index[Apocalypse_Index] ..'') --, Sends a message ingame, not visible to others.
+			--if player.status == 'Engaged' then
+				equip(sets.Apocalypse[sets.Apocalypse.index[Apocalypse_Index]])
+			--end
+		elseif Apocalypse_Mode == false then
+			if Caladbolg_Mode == true then
+				Caladbolg_Index = Caladbolg_Index + 1
+				if Caladbolg_Index > #sets.Caladbolg.index then Caladbolg_Index = 1 end
+				windower.add_to_chat('Caladbolg set --> ' .. sets.Caladbolg.index[Caladbolg_Index] ..'')
+				--if player.status == 'Engaged' then
+						equip(sets.Caladbolg[sets.Caladbolg.index[Caladbolg_Index]])
+				end
+			end		
+		end
+	if command == 'toggle Apocalypse set' then
+		Apocalypse_Index = Apocalypse_Index + 1
+		if Apocalypse_Index > #sets.Apocalypse.index then Apocalypse_Index = 1 end
+		windower.add_to_chat('Apocalypse set --> ' .. sets.Apocalypse.index[Apocalypse_Index] ..'')
+		if player.status == 'Engaged' then
+			equip(sets.Apocalypse[sets.Apocalypse.index[Apocalypse_Index]])
+		end
+	elseif command == 'toggle Apocalypse' then
+		if Apocalypse_Mode == true then
+			Apocalypse_Mode = false
+			windower.add_to_chat('<----- Apoc Mode: [Off] ----->')
+        else
+			Apocalypse_Mode = true
+			windower.add_to_chat('<----- Apoc Mode: [On] ----->')
+		end
+		status_change(player.status)
+	elseif command == 'toggle Caladbolg' then
+		if Caladbolg_Mode == true then
+			Caladbolg_Mode = false
+			windower.add_to_chat('<----- Cala Mode: [Off] ----->')
+        else
+			Caladbolg_Mode = true
+			windower.add_to_chat('<----- Cala Mode: [On] ----->')
+		end
+	end
 	if command == 'toggle run set' then
         Run_Index = Run_Index +1
         if Run_Index > #Run_Set_Names then Run_Index = 1 end
@@ -954,12 +1027,6 @@ function self_command(command)
         if Weapons_Index > #Weapons_Set_Names then Weapons_Index = 1 end
         windower.add_to_chat('Weapon is now: '..Weapons_Set_Names[Weapons_Index])
 		equip(sets.weapons[Weapons_Set_Names[Weapons_Index]])
-	end
-	if command == 'toggle Apoc set' then
-        Apoc_Index = Apoc_Index +1
-        if Apoc_Index > #Apoc_Set_Names then Apoc_Index = 1 end
-        windower.add_to_chat('Apoc Armor is now: '..Apoc_Set_Names[Apoc_Index])
-		equip(sets.Apoc[Apoc_Set_Names[Apoc_Index]])
 	end
 	if command == 'toggle Sub_Weapons set' then
         Sub_Weapons_Index = Sub_Weapons_Index +1
@@ -985,9 +1052,10 @@ function self_command(command)
 	end
 end
 
-function file_unload()
+function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
 send_command('unbind f9')
 send_command('unbind !f9')
+send_command('unbind ^f9')
 send_command('unbind f10')
 send_command('unbind !f10')
 send_command('unbind f12')
@@ -995,5 +1063,7 @@ send_command('unbind !f12')
 send_command('unbind f7')
 send_command('unbind !f7')
 send_command('unbind !numpad1')
+send_command('unbind ^numpad1')
 send_command('unbind !numpad0')
+send_command('unbind !numpad7')
 end
