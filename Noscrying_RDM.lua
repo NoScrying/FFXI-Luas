@@ -543,28 +543,28 @@ function get_sets()
 	Cure_Index = 1
 	Cure_Set_Names = {'Potency','Enmity'}
 	sets.Cure = {}	
-	sets.Cure.Potency = { 			--,  +58% Cure Potency (Cap 50%), +55 Healing Skill, +19% Self Potency = Cure IV 1000+ HP
+	sets.Cure.Potency = { 			--,  +52% Cure Potency (Cap 50%), +55 Healing Skill, +14% Self Potency = Cure IV 1000+ HP
 	--ammo="Staunch Tathlum +1",
-	head={ name="Telchine Cap", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
-    body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
-    hands={ name="Telchine Gloves", augments={'"Cure" potency +7%',}},
-    legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
-	feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
-	waist="Gishdubar Sash",
+    head="Bunzi's Hat",
+    body="Bunzi's Robe",
+    hands={ name="Telchine Gloves", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +9',}},
+    legs="Nyame Flanchard",
+    feet={ name="Kaykaus Boots", augments={'Mag. Acc.+15','"Cure" potency +5%','"Fast Cast"+3',}},
     neck="Phalaina Locket",
-    left_ear="Halasz Earring",
-    right_ear="Magnetic Earring",
-	left_ring="Kunaji Ring",
-    right_ring="Menelaus's Ring",
-    back="Tempered Cape +1",
+    waist="Gishdubar Sash",
+    left_ear="Magnetic Earring",
+    right_ear="Halasz Earring",
+    left_ring="Defending Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
-	sets.Cure.Enmity = { 			--, +51% Enmity, +19% Cure Potency
+	sets.Cure.Enmity = { 			--, +51% Enmity, +29% Cure Potency
 	--ammo="Sapience Orb", 			--, 2 Enmity
     head="Halitus Helm", 			--, 8 Enmity
     body="Emet Harness", 			--, 9 Enmity, -5 PDT
     hands="Nilas Gloves", 			--, 5 Enmity
     legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
-	feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+    feet={ name="Kaykaus Boots", augments={'Mag. Acc.+15','"Cure" potency +5%','"Fast Cast"+3',}},
     neck={ name="Unmoving Collar +1", augments={'Path: A',}}, --, 10 Enmity
     waist="Warwolf Belt", 			--, 3 Enmity
     left_ear="Friomisi Earring", 	--, 2 Enmity
