@@ -449,6 +449,13 @@ function get_sets()
     hands="Mousai Gages +1",
 	})
 	sets.midcast.HordeLullabyII = set_combine(sets.midcast.macc, {
+	-- String Skill 486+
+	-- Horde Lullaby II	Area of Effect
+	-- String 	Skill  	Radius (Yalms)
+	-- 		0~404 	4
+	-- 		405 	5
+	-- 		486 	6
+	-- 		567 	7
     --range="Daurdabla",
 	range="Blurred Harp +1",
     head="Fili Calot +2",
