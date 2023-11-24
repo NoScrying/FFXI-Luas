@@ -488,19 +488,19 @@ function get_sets()
     back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
 	})
 	
-	sets.midcast.cure = {
-    head="Vanya Hood",
-    body="Bunzi's Robe",
-    hands="Inyan. Dastanas +2",
-    legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
-    feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
-    neck="Phalaina Locket",
-    waist="Hachirin-no-Obi",
+	sets.midcast.cura = { 		--, +57% Cure (50% Cap), -50% PDT, -32% MDT
+    head={ name="Vanya Hood", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}}, --, +10
+    body="Bunzi's Robe", --, +15
+    hands={ name="Telchine Gloves", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +9',}}, --, +17
+    legs="Bunzi's Pants",
+    feet={ name="Kaykaus Boots", augments={'Mag. Acc.+15','"Cure" potency +5%','"Fast Cast"+3',}}, --, +15
+    neck="Willpower Torque",
+    waist="Flume Belt",
     left_ear="Magnetic Earring",
-    right_ear="Halasz Earring",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    back="Tempered Cape +1",
+    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
+    left_ring="Defending Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
 	}
 	sets.midcast.Cursna = {		--, 65
     head={ name="Vanya Hood", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
@@ -635,7 +635,7 @@ function midcast(spell)
 		equip(sets.midcast["Honor March"])
 	end
 	if spell.skill == 'Healing Magic' then
-		equip(sets.midcast.cure)
+		equip(sets.midcast.cura)
 	end
 	if spell.name:match("Paralyna") or spell.name:match("Silena") or spell.name:match("Stona") or spell.name:match("Viruna") or spell.name:match("Poisona") then
 		equip(sets.run["EVA/DT"])
@@ -644,7 +644,7 @@ function midcast(spell)
 	end
 	if spell.skill == 'Enhancing Magic' then
 		equip(sets.midcast.enhancing)
-			if spell.name:match("Haste") or spell.name:match("Auspice") or spell.name:match("Reraise") or spell.name:match("Protect") or spell.name:match("Shell") or spell.name:match("Regen") then
+			if spell.name:match("Haste") or spell.name:match("Auspice") or spell.name:match("Reraise") or spell.name:match("Protect") or spell.name:match("Shell") then
 			equip(sets.midcast.enhancingduration)
 		end
 	end
