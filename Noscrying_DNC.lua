@@ -1,11 +1,13 @@
 function get_sets()
 	send_command('bind f9 gs c toggle melee set') -- F9 = Cycle through
+	send_command('bind f10 gs c toggle run set') -- F10 = Cycle through	
 	Melee_Index = 1
+	Run_Index = 1
 
 	Melee_Set_Names = {'normal', 'DT'}
 	sets.melee = {} 				-- Leave this empty.
 	sets.melee.normal = {
-	ammo="Yamarang",
+	ammo="Coiste Bodhar",
     head="Adhemar Bonnet +1",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -20,7 +22,7 @@ function get_sets()
 	back="Sacro Mantle",
 	}
 	sets.melee.DT = {
-	ammo="Yamarang",
+	ammo="Coiste Bodhar",
     head="Malignance Chapeau",
     body="Malignance Tabard",
 	hands="Malignance Gloves",
@@ -67,6 +69,24 @@ function get_sets()
 	back="Sacro Mantle",
 	}
 	
+	Run_Set_Names = {"DT"}
+	sets.run = {}
+	sets.run["DT"] =  {
+    ammo="Staunch Tathlum +1",
+    head="Gleti's Mask",
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    feet="Tandava Crackows",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    waist="Engraved Belt",
+    left_ear="Infused Earring",
+    right_ear="Eabani Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Defending Ring",
+    back="Archon Cape",
+	}	
+	
 	
 	sets.ws = {} 					-- Leave this empty.
 	sets.ws['Aeolian Edge'] = {
@@ -84,7 +104,7 @@ function get_sets()
     right_ring="Fenrir Ring",
     back="Argocham. Mantle",
 }
-	sets.ws['Rudra\'s Storm'] = {
+	sets.ws["Rudra's Storm"] = {
     ammo="Oshasha's Treatise",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
     body="Meg. Cuirie +2",
@@ -100,7 +120,7 @@ function get_sets()
     back="Sacro Mantle",
 	}
 	sets.ws['Pyrrhic Kleos'] = {
-    ammo="Oshasha's Treatise",
+	ammo="Coiste Bodhar",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
     body="Meg. Cuirie +2",
     hands="Meg. Gloves +2",
@@ -115,7 +135,7 @@ function get_sets()
     back="Sacro Mantle",
 	}
 	sets.ws['Evisceration'] = {
-    ammo="Aurgelmir Orb",
+	ammo="Coiste Bodhar",
     head="Gleti's Mask",
     body="Gleti's Cuirass",
 	hands="Gleti's Gauntlets",
@@ -197,12 +217,28 @@ function get_sets()
 	back="Moonbeam Cape",
 	}
 	sets.precast = {}               -- leave this empty    
+	sets.precast.fastcast = {
+    ammo="Sapience Orb",
+    head={ name="Herculean Helm", augments={'Accuracy+15','"Triple Atk."+4','Attack+14',}},
+    body={ name="Taeon Tabard", augments={'"Snapshot"+5','AGI+10',}},
+    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+    neck="Voltsurge Torque",
+    waist="Engraved Belt",
+    left_ear="Loquac. Earring",
+    right_ear="Enchntr. Earring +1",
+    left_ring="Weather. Ring +1",
+    right_ring="Lebeche Ring",
+    back="Sacro Mantle",
+	}
     sets.midcast = {}               -- leave this empty    
     sets.aftercast = {}             -- leave this empty
 
 end
 
 function precast(spell)
+    if  spell.type ~= 'JobAbility' then
+        equip(sets.precast.fastcast)
+	end
     if spell.type == 'Flourishes I' then
         equip(sets.ja[spell.english])
     end
@@ -235,7 +271,7 @@ function idle()
     if player.status=='Engaged' then
         equip(sets.melee[Melee_Set_Names[Melee_Index]])
     else
-        equip(sets.idle.normal) 
+        equip(sets.run["DT"]) 
     end
 end
 
@@ -250,4 +286,10 @@ function self_command(command)
         windower.add_to_chat('TP mode is now: '..Melee_Set_Names[Melee_Index])
         equip(sets.melee[Melee_Set_Names[Melee_Index]])
     end
+	if command == 'toggle run set' then
+        Run_Index = Run_Index +1
+        if Run_Index > #Run_Set_Names then Run_Index = 1 end
+        windower.add_to_chat('Run mode is now: '..Run_Set_Names[Run_Index])
+		equip(sets.run[Run_Set_Names[Run_Index]])
+	end
 end
