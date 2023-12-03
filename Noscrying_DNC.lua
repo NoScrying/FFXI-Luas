@@ -135,7 +135,7 @@ function get_sets()
 }
 	sets.ws["Rudra's Storm"] = {
     ammo="Oshasha's Treatise",
-    head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
+    head="Maculele Tiara +2",
     body="Meg. Cuirie +2",
     hands="Meg. Gloves +2",
 	legs="Horos Tights +2",
@@ -181,7 +181,7 @@ function get_sets()
 	}
 	sets.ws['Shark Bite'] = {
     ammo="Oshasha's Treatise",
-    head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
+    head="Maculele Tiara +2",
     body="Meg. Cuirie +2",
     hands="Meg. Gloves +2",
 	legs="Horos Tights +2",
@@ -194,21 +194,7 @@ function get_sets()
     right_ring="Epaminondas's Ring",
     back="Sacro Mantle",
 	}
-	sets.ws['Savage Blade'] = {
-    ammo="Oshasha's Treatise",
-    head={ name="Blistering Sallet +1", augments={'Path: A',}},
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    hands="Meg. Gloves +2",
-	legs="Horos Tights +2",
-    feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
-    neck="Rep. Plat. Medal",
-    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
-    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Gere Ring",
-    right_ring="Epaminondas's Ring",
-	back="Sacro Mantle",
-	}
+
 	
 	
 	sets.ja = {} 					-- Leave this empty.
@@ -253,6 +239,8 @@ function get_sets()
 	back="Senuna's Mantle",
 	})	
 	
+	sets.ja["Animated Flourish"] = set_combine (sets.ja.enmity, {
+	})		
 	sets.ja['Violent Flourish'] = set_combine(sets.melee.DT, {
 	body="Horos Casaque +1",
 	})
@@ -272,7 +260,7 @@ function get_sets()
 	sets.ja['Box Step'] = set_combine(sets.steps, {		
 	})	
 	sets.ja['Stutter Step'] = set_combine(sets.steps, {		
-	})	
+	})
 	sets.steps = {
     ammo="Yamarang",
     head="Malignance Chapeau",
@@ -288,6 +276,22 @@ function get_sets()
     right_ring="Chirich Ring +1",
     back="Sacro Mantle",	
 	}
+
+	sets.ja.enmity = {
+    head="Halitus Helm",
+    body="Emet Harness",
+    hands="Nilas Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Unmoving Collar +1",
+    waist="Warwolf Belt",
+    left_ear="Eris' Earring",
+    right_ear="Friomisi Earring",
+    left_ring="Supershear Ring",
+    right_ring="Provocare Ring",
+	}
+	sets.ja["Provoke"] = set_combine (sets.ja.enmity, {
+	})
 	
 	sets.idle = {} 					-- Leave this empty.
 	sets.idle.normal = {
