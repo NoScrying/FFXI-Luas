@@ -1,9 +1,22 @@
 function get_sets()
+	send_command('bind f7 gs c toggle Weapons set') -- F10 = Cycle through
 	send_command('bind f9 gs c toggle melee set') -- F9 = Cycle through
 	send_command('bind f10 gs c toggle run set') -- F10 = Cycle through	
+	
 	Melee_Index = 1
 	Run_Index = 1
+	Weapons_Index = 1
 
+	Weapons_Set_Names = {'Gleti','Karambit'} --'Tauret'
+	sets.weapons = {}
+	sets.weapons.Gleti = {
+    main="Gleti's Knife",
+	sub="Fusetto +2",
+	}
+	sets.weapons.Karambit = {
+    main="Karambit",
+	}
+	
 	Melee_Set_Names = {'normal', 'Hybrid', 'DT'}
 	sets.melee = {} 				-- Leave this empty.
 	sets.melee.normal = {
@@ -36,6 +49,25 @@ function get_sets()
     right_ring="Defending Ring",
     back="Moonbeam Cape",
 	}
+
+	sets.melee.Hybrid = {	
+    ammo="Coiste Bodhar",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    legs="Meg. Chausses +2",
+    -- hands="Malignance Gloves",
+    -- legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Etoile Gorget +1",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    -- waist={ name="Kentarch Belt +1", augments={'Path: A',}},
+    left_ear="Sherida Earring",
+    right_ear="Cessance Earring",
+    left_ring="Moonlight Ring",
+    right_ring="Lehko's Ring",
+    back="Sacro Mantle",	
+	}
 	
 	sets.melee.TH = {
 	ammo="Perfect Lucky Egg",
@@ -51,44 +83,29 @@ function get_sets()
     left_ring="Gere Ring",
     right_ring="Epona's Ring",
 	back="Sacro Mantle",
-	}
-	sets.melee.Hybrid = {	
-    ammo="Coiste Bodhar",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    legs="Meg. Chausses +2",
-    feet="Malignance Boots",
-    neck="Etoile Gorget +1",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
-    right_ear="Odnowa Earring +1",
-    left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
-    back="Sacro Mantle",	
-	}
-	
+	}	
 	sets.ranged = {}
 	sets.ranged.normal = {
+	ammo="Dart",
     head="Malignance Chapeau",
     body="Malignance Tabard",
-	hands="Malignance Gloves",
-    legs="Maglignance Tights",
-	feet="Malignance Boots",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
     neck="Peacock Amulet",
     waist="Eschan Stone",
-    left_ear="Eabani Earring",
-	right_ear="Suppanomimi",
-    left_ring="Epona's Ring",
-    right_ring="Mummu Ring",
-	back="Sacro Mantle",
+    left_ear="Crep. Earring",
+    right_ear="Sherida Earring",
+    left_ring="Longshot Ring",
+    right_ring="Cacoethic Ring",
+    back="Sacro Mantle",
 	}
 	
 	Run_Set_Names = {"Regain", "EVA/DT"}
 	sets.run = {}
 	sets.run["Regain"] =  {
     ammo="Staunch Tathlum +1",
-    head="Gleti's Mask",
+    head="Turms Cap +1",
     body="Gleti's Cuirass",
     hands="Gleti's Gauntlets",
     legs="Gleti's Breeches",
@@ -135,7 +152,7 @@ function get_sets()
 }
 	sets.ws["Rudra's Storm"] = {
     ammo="Oshasha's Treatise",
-    head="Maculele Tiara +2",
+	head="Maculele Tiara +2",
     body="Meg. Cuirie +2",
     hands="Meg. Gloves +2",
 	legs="Horos Tights +2",
@@ -148,6 +165,10 @@ function get_sets()
     right_ring="Epaminondas's Ring",
     back="Sacro Mantle",
 	}
+	sets.ws.ClimacticRudra = {
+	ammo="Charis Feather",
+	}
+	
 	sets.ws['Pyrrhic Kleos'] = {
 	ammo="Coiste Bodhar",
     head="Blistering Sallet +1",
@@ -163,14 +184,43 @@ function get_sets()
     right_ring="Ilabrat Ring",
     back="Sacro Mantle",
 	}
-	sets.ws['Evisceration'] = {
+	sets.ws['Exenterator'] = {
 	ammo="Coiste Bodhar",
+    head="Blistering Sallet +1",
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    hands={ name="Herculean Gloves", augments={'Accuracy+27','"Triple Atk."+3','DEX+15',}},
+    legs="Meghanada Chausses +2",
+    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    left_ear="Sherida Earring",
+    right_ear="Brutal Earring",
+    left_ring="Gere Ring",
+    right_ring="Ilabrat Ring",
+    back="Sacro Mantle",
+	}
+	sets.ws.StrikingFlourish = {
+	ammo="Charis Feather",
     head="Adhemar Bonnet +1",
     body="Meg. Cuirie +2",
 	hands="Gleti's Gauntlets",
     legs="Gleti's Breeches",
 	feet="Gleti's Boots",
-    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    left_ear="Sherida Earring",
+    right_ear="Odr Earring",
+    left_ring="Lehko's Ring",
+    right_ring="Ilabrat Ring",
+    back="Sacro Mantle",	
+	}
+	sets.ws['Evisceration'] = {
+	ammo="Charis Feather",
+    head="Adhemar Bonnet +1",
+    body="Meg. Cuirie +2",
+	hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+	feet="Gleti's Boots",
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Sherida Earring",
@@ -181,7 +231,7 @@ function get_sets()
 	}
 	sets.ws['Shark Bite'] = {
     ammo="Oshasha's Treatise",
-    head="Maculele Tiara +2",
+	head="Maculele Tiara +2",
     body="Meg. Cuirie +2",
     hands="Meg. Gloves +2",
 	legs="Horos Tights +2",
@@ -194,8 +244,51 @@ function get_sets()
     right_ring="Epaminondas's Ring",
     back="Sacro Mantle",
 	}
-
-	
+	sets.ws['Spinning Attack'] = {
+	ammo="Coiste Bodhar",
+    head="Blistering Sallet +1",
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    hands={ name="Herculean Gloves", augments={'Accuracy+27','"Triple Atk."+3','DEX+15',}},
+    legs="Meghanada Chausses +2",
+    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    left_ear="Sherida Earring",
+    right_ear="Brutal Earring",
+    left_ring="Gere Ring",
+    right_ring="Ilabrat Ring",
+    back="Sacro Mantle",
+	} 
+	sets.ws['Asuran Fists'] = {
+    ammo="Oshasha's Treatise",
+    head="Blistering Sallet +1",
+    body="Meg. Cuirie +2",
+    hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},
+    legs="Meghanada Chausses +2",
+    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    left_ear="Sherida Earring",
+    right_ear="Ishwara Earring",
+    left_ring="Gere Ring",
+    right_ring="Ilabrat Ring",
+    back="Sacro Mantle",
+	} 
+	sets.ws['Tornado Kick'] = {
+    ammo="Oshasha's Treatise",
+	head="Maculele Tiara +2",
+    body="Meg. Cuirie +2",
+    hands="Meg. Gloves +2",
+	legs="Horos Tights +2",
+    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
+    neck="Rep. Plat. Medal",
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
+    left_ear="Sherida Earring",
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ring="Sroda Ring",
+    right_ring="Epaminondas's Ring",
+    back="Sacro Mantle",
+	}		
 	
 	sets.ja = {} 					-- Leave this empty.
 	sets.ja['Chocobo Jig II'] = set_combine(sets.melee.DT, {
@@ -211,7 +304,7 @@ function get_sets()
     head={ name="Horos Tiara +1", augments={'Enhances "Trance" effect',}},
     body="Maxixi Casaque +1",
     hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
+    legs="Dashing Subligar",
     feet="Maxixi Toe Shoes +1",
     neck={ name="Etoile Gorget +1", augments={'Path: A',}},
     waist="Shetal Stone",
@@ -240,7 +333,7 @@ function get_sets()
 	})	
 	
 	sets.ja["Animated Flourish"] = set_combine (sets.ja.enmity, {
-	})		
+	})	
 	sets.ja['Violent Flourish'] = set_combine(sets.melee.DT, {
 	body="Horos Casaque +1",
 	})
@@ -251,7 +344,7 @@ function get_sets()
 	hands="Maculele Bangles +1",
 	})
 	sets.ja['Climactic Flourish'] = set_combine(sets.melee.DT, {		
-	head="Maculele Tiara +1",
+	head="Maculele Tiara +2",
 	})
 	
 	sets.ja["Feather Step"] = set_combine(sets.steps, {		
@@ -260,22 +353,7 @@ function get_sets()
 	sets.ja['Box Step'] = set_combine(sets.steps, {		
 	})	
 	sets.ja['Stutter Step'] = set_combine(sets.steps, {		
-	})
-	sets.steps = {
-    ammo="Yamarang",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck={ name="Etoile Gorget +1", augments={'Path: A',}},
-    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
-    left_ear="Crep. Earring",
-    right_ear="Odr Earring",
-    left_ring="Chirich Ring +1",
-    right_ring="Chirich Ring +1",
-    back="Sacro Mantle",	
-	}
+	})	
 
 	sets.ja.enmity = {
     head="Halitus Helm",
@@ -292,23 +370,24 @@ function get_sets()
 	}
 	sets.ja["Provoke"] = set_combine (sets.ja.enmity, {
 	})
+
+	sets.steps = {
+    ammo="Yamarang",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck={ name="Etoile Gorget +1", augments={'Path: A',}},
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
+    left_ear="Crep. Earring",
+    right_ear="Odr Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+    back="Sacro Mantle",	
+	}
 	
 	sets.idle = {} 					-- Leave this empty.
-	sets.idle.normal = {
-	ammo="Yamarang",
-    head="Gleti's Mask",
-    body="Gleti's Cuirass",
-	hands="Gleti's Gauntlets",
-    legs="Gleti's Breeches",
-	feet="Gleti's Boots",
-    neck="Elite Royal Collar",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
-	right_ear="Cessance Earring",
-	left_ring="Epona\'s Ring",
-	right_ring="Defending Ring",
-	back="Moonbeam Cape",
-	}
 	sets.precast = {}               -- leave this empty    
 	sets.precast.fastcast = {
     ammo="Sapience Orb",
@@ -331,7 +410,7 @@ function get_sets()
 end
 
 function precast(spell)
-    if  spell.type == 'Magic' then
+    if  spell.action_type == 'Magic' then
         equip(sets.precast.fastcast)
 	end
     if sets.ja[spell.name] then
@@ -344,7 +423,12 @@ function precast(spell)
 		equip(sets.steps)
 	end	
     if sets.ws[spell.name] then
-        equip(sets.ws[spell.name])        
+        equip(sets.ws[spell.name])
+			if buffactive['Striking Flourish'] and spell.name == 'Pyrrhic Kleos' or spell.name == 'Exenterator' then
+				equip(sets.ws.StrikingFlourish)
+			elseif buffactive['Climactic Flourish'] and spell.name == "Rudra's Storm" or spell.name == "Shark Bite" then
+				equip(sets.ws.ClimacticRudra)
+		end        
     end
 	if spell.action_type == 'Ranged Attack' then
 	equip (sets.ranged.normal)
@@ -371,9 +455,10 @@ end
 function idle()
     if player.status=='Engaged' then
         equip(sets.melee[Melee_Set_Names[Melee_Index]])
-    else
-        equip(sets.run["DT"]) 
-    end
+	end
+	if player.status =='Idle' then --, When holstering weapon
+		equip(sets.run[Run_Set_Names[Run_Index]])
+	end
 end
 
 function status_change(new,old)
@@ -392,5 +477,11 @@ function self_command(command)
         if Run_Index > #Run_Set_Names then Run_Index = 1 end
         windower.add_to_chat('Run mode is now: '..Run_Set_Names[Run_Index])
 		equip(sets.run[Run_Set_Names[Run_Index]])
+	end
+	if command == 'toggle Weapons set' then
+        Weapons_Index = Weapons_Index +1
+        if Weapons_Index > #Weapons_Set_Names then Weapons_Index = 1 end
+        windower.add_to_chat('Weapon is now: '..Weapons_Set_Names[Weapons_Index])
+		equip(sets.weapons[Weapons_Set_Names[Weapons_Index]])
 	end
 end
