@@ -1,6 +1,6 @@
 function get_sets()
-	send_command('bind f9 gs c toggle melee set') -- F9 = Cycle through
-	send_command('bind !f9 gs c toggle counter set') -- F9 = Cycle through
+	send_command('bind f9 gs c toggle TP set') 
+	send_command('bind !f9 gs c toggle Tank_Mode') 
 	send_command('bind f7 gs c toggle Weapons set') -- F9 = Cycle through
 	send_command('bind f12 gs c toggle TH set') -- F10 = Cycle through
 	send_command('bind f10 gs c toggle run set') -- F10 = Cycle through
@@ -8,15 +8,14 @@ function get_sets()
 	send_command('bind !numpad0 gs c toggle Emergency MEVA')
 	
 	Buff_Index = 1	
-	Melee_Index = 1
 	TH_Index = 1
 	Run_Index = 1
 	Weapons_Index = 1
-	counter_Index = 1
 
-	Melee_Set_Names = {'normal', 'Counter', 'Hybrid'} --,DT
-	sets.melee = {}
-	sets.melee.normal = { 			--, 
+	sets.DD_Mode = {}
+	sets.DD_Mode.index = {'normal', 'Hybrid - SB+75'} --,DT
+	DD_Mode_ind = 1
+	sets.DD_Mode.normal = { 			--, 
     ammo="Coiste Bodhar",
     head="Mpaca's Cap",
     body="Mpaca's Doublet", 			
@@ -32,7 +31,7 @@ function get_sets()
     right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, 10KA, 10DA, -10PDT
 	}
-	sets.melee.DT = {				--, -52 PDT, -42 MDT, 60STP (11 Hit), 3QA, 17TA, 15DA, 64KA, Physical Damage Limit +16%, SB 8(43), SBII 30, Crit Chance +15% (20%)
+	sets.DD_Mode.DT = {				--, -52 PDT, -42 MDT, 60STP (11 Hit), 3QA, 17TA, 15DA, 64KA, Physical Damage Limit +16%, SB 8(43), SBII 30, Crit Chance +15% (20%)
     ammo="Staunch Tathlum +1", 		--, -3DT, PDL+3
     head="Malignance Chapeau", 		--, -6DT, 8STP, PDL+3
     body="Malignance Tabard", 		--, -9DT, 11STP, PDL+6
@@ -48,7 +47,7 @@ function get_sets()
     right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, 10KA, 10DA, -10PDT
 }
-	sets.melee.Counter = {			--, -54PDT, 36STP(13 Hit),3QA, 8TA, 15DA, PDL+6%, Counter +49, Merit +5, JT +22  (76)
+	sets.DD_Mode["Counter - 74"] = {			--, -54PDT, 36STP(13 Hit),3QA, 8TA, 15DA, PDL+6%, Counter +49, Merit +5, JT +22  (76)
     ammo="Amar Cluster", 			--, 
     head="Malignance Chapeau", 		--, -6DT, 8STP, PDL+3
     body="Mpaca's Doublet", 		--, -10PDT, Counter +10
@@ -63,7 +62,7 @@ function get_sets()
     right_ring="Defending Ring",	--, -10DT
     back={ name="Segomo's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','System: 1 ID: 640 Val: 4',}}, --, 10DA, Counter +10
 	}
-	sets.melee.Hybrid = {			--, 
+	sets.DD_Mode["Hybrid - SB+75"]= {			--, 
     ammo="Staunch Tathlum +1",
     head="Malignance Chapeau",
     body="Malignance Tabard",
@@ -78,12 +77,13 @@ function get_sets()
     right_ring="Lehko's Ring",
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 }
-	counter_Set_Names = {'Stance',}	
-	sets.counter = {}
-	sets.counter.Stance = {			--, -48DT, 36STP(13 Hit),3QA, 8TA, 15DA, PDL+16%, Counter +47, Merit +5, JT +22  (74)
-    ammo="Staunch Tathlum +1", 		--, -3DT, PDL+3
+	sets.Tank_Mode = {}
+	sets.Tank_Mode.index = {'Counter - 74', 'Hybrid - SB+75'} --, 
+	Tank_Mode_ind = 1
+	sets.Tank_Mode["Counter - 74"] = {			--, -54PDT, 36STP(13 Hit),3QA, 8TA, 15DA, PDL+6%, Counter +49, Merit +5, JT +22  (76)
+    ammo="Amar Cluster", 			--, 
     head="Malignance Chapeau", 		--, -6DT, 8STP, PDL+3
-    body="Mpaca's Doublet", 		--, 
+    body="Mpaca's Doublet", 		--, -10PDT, Counter +10
 	hands="Rao Kote +1",			--, Counter +5
     legs="Anch. Hose +2",			--, Counter +5
     feet="Bhikku Gaiters +2",		--, -9DT,
@@ -95,6 +95,21 @@ function get_sets()
     right_ring="Defending Ring",	--, -10DT
     back={ name="Segomo's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','System: 1 ID: 640 Val: 4',}}, --, 10DA, Counter +10
 	}
+	sets.Tank_Mode["Hybrid - SB+75"]= {			--, 
+    ammo="Staunch Tathlum +1",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Ken. Tekko +1",
+    legs="Mpaca's Hose",
+    feet="Ken. Sune-Ate +1",
+    neck={ name="Mnk. Nodowa +1", augments={'Path: A',}},
+    waist="Moonbow Belt +1",
+    left_ear="Sherida Earring",
+    right_ear="Odr Earring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Lehko's Ring",
+    back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+}
 	
 	Run_Set_Names = {'DT','Regen'}
 	sets.run = {}
@@ -366,7 +381,7 @@ function get_sets()
 	}  
 	sets.ja['Impetus'] = {	
 	body="Bhikku Cyclas +2",
-	ring2="Defending Ring",
+	ring1="Defending Ring",
 	} 
 	sets.ja['Dodge'] = {	
     feet="Anch. Gaiters +3",
@@ -482,36 +497,39 @@ end
 function buff_change(buff,gain)
     if buff == 'Impetus' then
         if gain then
+			if Tank_Mode == false then
 			if player.status == "Engaged" then
 				equip(sets.ja['Impetus'])
-			else
-				status_change(player.status)
+		elseif Tank_Mode == true then
+			if player.status == "Engaged" then
+				equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
 			end
         end
 	end
+end
     if buff == 'Boost' then
         if gain then
            equip(sets.ja['Boost'])
            disable("waist")
        else
-            enable("waist")
-            status_change(player.status)
+           enable("waist")
+           status_change(player.status)
         end
 	end	
     if buff == 'Footwork' then
 		if gain then
 			if player.status == "Engaged" then
 				equip(sets.ja.footwork)
-			else
 				status_change(player.status)
 			end
 		end	
 	end
+end
 	if buff == "sleep" then
 		if gain then
             equip(set_combine(sets.MEVA, sets.buff.Sleep))
              	disable('head')
-        	else
+				else
             	enable('head')
             status_change(player.status)
 		end
@@ -520,7 +538,7 @@ end
 
 function idle()
 	if player.status =='Engaged' then
-		equip(sets.melee[Melee_Set_Names[Melee_Index]])
+		equip(sets.DD_Mode[Melee_Set_Names[Melee_Index]])
 			if buffactive['Footwork']then
 				equip(sets.ja.footwork) 
 					elseif buffactive['Impetus'] then
@@ -540,13 +558,53 @@ function status_change(new,old)
  idle()
 end
 
+Tank_Mode = true --, If true, default set is tanking TP array.
+DD_Mode = true --, TP set order, looks for Tanking TP set before 2H TP
+
 function self_command(command)
-	if command == 'toggle melee set' then
-        Melee_Index = Melee_Index +1
-        if Melee_Index > #Melee_Set_Names then Melee_Index = 1 end
-        windower.add_to_chat('TP mode is now: '..Melee_Set_Names[Melee_Index])
-        equip(sets.melee[Melee_Set_Names[Melee_Index]])
-    end
+	if command == 'toggle TP set' then --, When using the command as specified at the top of this lua, then executes these functions
+		if Tank_Mode == true then --, Checks whether or not the Tank_Mode Mode is active,
+			Tank_Mode_ind = Tank_Mode_ind + 1 --, Cycles through the Index, starts at 1 when switching or starting game
+			if Tank_Mode_ind > #sets.Tank_Mode.index then Tank_Mode_ind = 1 end 
+			windower.add_to_chat('Tank mode --> ' .. sets.Tank_Mode.index[Tank_Mode_ind] ..'') --, Sends a message ingame, not visible to others.
+			--if player.status == 'Engaged' then
+				equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
+			--end
+		elseif Tank_Mode == false then
+			if DD_Mode == true then
+				DD_Mode_ind = DD_Mode_ind + 1
+				if DD_Mode_ind > #sets.DD_Mode.index then DD_Mode_ind = 1 end
+				windower.add_to_chat('DD mode --> ' .. sets.DD_Mode.index[DD_Mode_ind] ..'')
+				--if player.status == 'Engaged' then
+						equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
+				end
+			end		
+		end
+	if command == 'toggle Tank_Mode set' then
+		Tank_Mode_ind = Tank_Mode_ind + 1
+		if Tank_Mode_ind > #sets.Tank_Mode.index then Tank_Mode_ind = 1 end
+		windower.add_to_chat('Tank mode --> ' .. sets.Tank_Mode.index[Tank_Mode_ind] ..'')
+		if player.status == 'Engaged' then
+			equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
+		end
+	elseif command == 'toggle Tank_Mode' then
+		if Tank_Mode == true then
+			Tank_Mode = false
+			windower.add_to_chat('<----- Tanking Mode: [Off] ----->')
+        else
+			Tank_Mode = true
+			windower.add_to_chat('<----- Tanking Mode: [On] ----->')
+		end
+		status_change(player.status)
+	elseif command == 'toggle DD_Mode' then
+		if DD_Mode == true then
+			DD_Mode = false
+			windower.add_to_chat('<----- DD Mode: [Off] ----->')
+        else
+			DD_Mode = true
+			windower.add_to_chat('<----- DD Mode: [On] ----->')
+		end
+	end
 	if command == 'toggle Weapons set' then
         Weapons_Index = Weapons_Index +1
         if Weapons_Index > #Weapons_Set_Names then Weapons_Index = 1 end
@@ -564,12 +622,6 @@ function self_command(command)
         if Run_Index > #Run_Set_Names then Run_Index = 1 end
         windower.add_to_chat('Movement is now: '..Run_Set_Names[Run_Index])
 		equip(sets.run[Run_Set_Names[Run_Index]])
-	end
-	if command == 'toggle counter set' then
-        counter_Index = counter_Index +1
-        if counter_Index > #counter_Set_Names then counter_Index = 1 end
-        windower.add_to_chat('Counter set is now active')
-		equip(sets.counter[counter_Set_Names[counter_Index]])
 	end
 	if command == 'toggle Buff set' then
         Buff_Index = Buff_Index +1
