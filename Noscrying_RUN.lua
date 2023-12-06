@@ -53,7 +53,7 @@ function get_sets()
 	sets.DD_Mode.index = {'Normal: 32PDT', 'Hybrid: 45PDT'}
 	DD_Mode_ind = 1
 
-	sets.DD_Mode["Normal: 32PDT"] = { -- 3QA, 19TA, 34DA, Temper+28 = 62DA, Embolden +12 = 74DA, -29PDT, -17MDT
+	sets.DD_Mode["Normal: 30PDT - 12MDT"] = { -- 3QA, 19TA, 27DA, Temper+28 = 55DA, Embolden +12 = 74DA, -30PDT, -12MDT, 2850HP
     ammo="Yamarang",
     head="Adhemar Bonnet +1",priority=16,
     body="Ashera Harness",priority=17,
@@ -71,7 +71,7 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},priority=14,
 	}
 
-	sets.DD_Mode["Hybrid: 45PDT"] = { -- 3QA, 24DA, Temper+28 = 52DA, Embolden +12 = 64DA, -45PDT, -45MDT, +11 Inquartata, Parry+5%
+	sets.DD_Mode["Parry: 44PDT - 46MDT"] = { -- 3QA, 24DA, Temper+28 = 52DA, Embolden +12 = 64DA, -44PDT, -46MDT, +11 Inquartata, Parry+5%, 3300HP
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",priority=13,
     body="Ashera Harness",priority=17,
@@ -112,10 +112,10 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},priority=14,
 	}
 	sets.Tank_Mode = {}
-	sets.Tank_Mode.index = {'Parry: 49PDT','Hybrid: 49PDT'} --, 
+	sets.Tank_Mode.index = {"Parry: 50PDT - 52MDT","Hybrid: 57PDT - 47MDT"} --, 
 	Tank_Mode_ind = 1
 	
-	sets.Tank_Mode["Hybrid: 49PDT"] = { --, -49PDT, -42MDT, +43 DA, +12 TA, +3 QA, 3300 HP
+	sets.Tank_Mode["Hybrid: 57PDT - 47MDT"] = { --, -57PDT, -47MDT, +44 DA, +8 TA, +3 QA, 3300 HP
     ammo="Staunch Tathlum +1",
     head="Adhemar Bonnet +1",priority=13,
     body="Ashera Harness",priority=18,
@@ -132,7 +132,7 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},priority=12,
 	}
 
-	sets.Tank_Mode["Parry: 49PDT"] = { --, -49PDT, -51MDT, +11 Inquartata, Parry +5%, +25 DA, 3900 HP
+	sets.Tank_Mode["Parry: 50PDT - 52MDT"] = { --, -50PDT, -52MDT, +11 Inquartata, Parry +5%, +25 DA, 3600 HP
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",priority=16,
     body="Erilaz Surcoat +2",priority=15,
