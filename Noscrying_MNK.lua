@@ -537,25 +537,25 @@ end
 end
 
 function idle()
-	if player.status =='Engaged' then
-		equip(sets.DD_Mode[Melee_Set_Names[Melee_Index]])
-			if buffactive['Footwork']then
-				equip(sets.ja.footwork) 
-					elseif buffactive['Impetus'] then
-					equip(sets.ja['Impetus'])
-				
-			end	
-		end
-	if player.status=='Engaged' and player.equipment.main == 'Jolt Counter' then
-		equip(sets.counter.Stance)
-	end
+	if player.status =="Engaged" then --, When drawing weapon
+		if Tank_Mode == true then
+			equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]]) --, Equips the last gearset you changed to, is not static
+		elseif DD_Mode == true then
+			equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
+				if buffactive['Footwork']then
+					equip(sets.ja.footwork) 
+						elseif buffactive['Impetus'] then
+						equip(sets.ja['Impetus'])
+					end
+				end	
+			end
 	if player.status =='Idle' then
         equip(sets.run[Run_Set_Names[Run_Index]]) 
     end
 end
  
 function status_change(new,old)
- idle()
+	idle()
 end
 
 Tank_Mode = true --, If true, default set is tanking TP array.
