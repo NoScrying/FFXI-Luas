@@ -78,9 +78,9 @@ function get_sets()
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 }
 	sets.Tank_Mode = {}
-	sets.Tank_Mode.index = {'Counter - 74', 'Hybrid - SB+75'} --, 
+	sets.Tank_Mode.index = {'Counter - 76', 'Hybrid - SB+75'} --, 
 	Tank_Mode_ind = 1
-	sets.Tank_Mode["Counter - 74"] = {			--, -54PDT, 36STP(13 Hit),3QA, 8TA, 15DA, PDL+6%, Counter +49, Merit +5, JT +22  (76)
+	sets.Tank_Mode["Counter - 76"] = {			--, -54PDT, 36STP(13 Hit),3QA, 8TA, 15DA, PDL+6%, Counter +49, Merit +5, JT +22  (76)
     ammo="Amar Cluster", 			--, 
     head="Malignance Chapeau", 		--, -6DT, 8STP, PDL+3
     body="Mpaca's Doublet", 		--, -10PDT, Counter +10
