@@ -1,19 +1,33 @@
 function get_sets()
 	send_command('bind f7 gs c toggle Weapons set') -- F10 = Cycle through
+	send_command('bind !f7 gs c toggle H2H set') -- F10 = Cycle through
 	send_command('bind f9 gs c toggle melee set') -- F9 = Cycle through
+	send_command('bind !f9 gs c toggle Parrying set') -- F9 = Cycle through
 	send_command('bind f10 gs c toggle run set') -- F10 = Cycle through	
+	send_command('bind !f10 gs c toggle Regain set') -- F10 = Cycle through	
 	
 	Melee_Index = 1
 	Run_Index = 1
 	Weapons_Index = 1
+	H2H_Index = 1
 
-	Weapons_Set_Names = {'Gleti','Karambit'} --'Tauret'
+	Weapons_Set_Names = {"TP Bonus", "Blurred Knife +1", "Ternion Knife +1"} --'Tauret'
 	sets.weapons = {}
-	sets.weapons.Gleti = {
-    main="Gleti's Knife",
+	sets.weapons["TP Bonus"] = {
+	main="Gleti's Knife",
 	sub="Fusetto +2",
 	}
-	sets.weapons.Karambit = {
+	sets.weapons["Blurred Knife +1"] = {
+	main="Gleti's Knife",
+	sub="Blurred Knife +1",
+	}
+	sets.weapons["Ternion Knife +1"] = {
+	main="Gleti's Knife",
+	sub="Ternion Knife +1",
+	}
+	H2H_Set_Names = {"Karambit"}
+	sets.H2H = {}
+	sets.H2H.Karambit = {
     main="Karambit",
 	}
 	
@@ -25,7 +39,7 @@ function get_sets()
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     legs="Meghanada Chausses +2",
-    feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
+    feet="Horos Toe Shoes +3",
     neck="Etoile Gorget +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
@@ -49,16 +63,30 @@ function get_sets()
     right_ring="Defending Ring",
     back="Moonbeam Cape",
 	}
-
-	sets.melee.Hybrid = {	
-    ammo="Coiste Bodhar",
+	sets.melee.Parrying = {
+	ammo="Staunch Tathlum +1",
     head="Malignance Chapeau",
     body="Malignance Tabard",
-    hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    hands="Turms Mittens +1",
+    legs="Malignance Tights",
+    feet="Turms Leggings +1",
+    neck={ name="Etoile Gorget +1", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Sherida Earring",
+    right_ear="Hermodr Earring",
+    left_ring="Moonlight Ring",
+    right_ring="Defending Ring",
+    back="Moonbeam Cape",
+	}
+	sets.melee.Hybrid = {	
+    ammo="Staunch Tathlum +1",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
     legs="Meg. Chausses +2",
     -- hands="Malignance Gloves",
     -- legs="Malignance Tights",
-    feet="Malignance Boots",
+    feet="Horos Toe Shoes +3",
     neck="Etoile Gorget +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     -- waist={ name="Kentarch Belt +1", augments={'Path: A',}},
@@ -133,7 +161,21 @@ function get_sets()
     right_ring="Defending Ring",	--, 10 
     back="Archon Cape",
 	}	
-	
+	sets.run["Gleti's Boots"] = {
+    ammo="Staunch Tathlum +1",
+    head="Turms Cap +1",
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+	feet="Gleti's Boots",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    waist="Engraved Belt",
+    left_ear="Infused Earring",
+    right_ear="Eabani Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Defending Ring",
+    back="Archon Cape",
+	}
 	sets.ws = {} 					-- Leave this empty.
 	sets.ws['Aeolian Edge'] = {
     ammo="Oshasha's Treatise",
@@ -155,7 +197,7 @@ function get_sets()
 	head="Maculele Tiara +2",
     body="Meg. Cuirie +2",
     hands="Meg. Gloves +2",
-	legs="Horos Tights +2",
+	legs="Horos Tights +3",
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Etoile Gorget +1",
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
@@ -171,12 +213,12 @@ function get_sets()
 	
 	sets.ws['Pyrrhic Kleos'] = {
 	ammo="Coiste Bodhar",
-    head="Blistering Sallet +1",
+    head="Maculele Tiara +2",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Herculean Gloves", augments={'Accuracy+27','"Triple Atk."+3','DEX+15',}},
     legs="Meghanada Chausses +2",
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
-    neck="Fotia Gorget",
+    neck="Etoile Gorget +1",
     waist="Fotia Belt",
     left_ear="Sherida Earring",
     right_ear="Brutal Earring",
@@ -234,7 +276,7 @@ function get_sets()
 	head="Maculele Tiara +2",
     body="Meg. Cuirie +2",
     hands="Meg. Gloves +2",
-	legs="Horos Tights +2",
+	legs="Horos Tights +3",
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Etoile Gorget +1",
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
@@ -279,7 +321,7 @@ function get_sets()
 	head="Maculele Tiara +2",
     body="Meg. Cuirie +2",
     hands="Meg. Gloves +2",
-	legs="Horos Tights +2",
+	legs="Horos Tights +3",
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
@@ -288,37 +330,52 @@ function get_sets()
     left_ring="Sroda Ring",
     right_ring="Epaminondas's Ring",
     back="Sacro Mantle",
-	}		
+	}	
 	
 	sets.ja = {} 					-- Leave this empty.
 	sets.ja['Chocobo Jig II'] = set_combine(sets.melee.DT, {
-	legs="Horos Tights +2",
+	legs="Horos Tights +3",
 	feet="Maxixi Toe Shoes +1",
 	})
 	sets.ja['Spectral Jig'] = set_combine(sets.melee.DT, {
-	legs="Horos Tights +2",
+	legs="Horos Tights +3",
 	feet="Maxixi Toe Shoes +1",
 	})
-	sets.ja.waltz = set_combine(sets.melee.DT, {		
-    ammo="Yamarang",
+	sets.ja.Waltz = set_combine(sets.melee.DT, {		
+    ammo="Staunch Tathlum +1",
     head={ name="Horos Tiara +1", augments={'Enhances "Trance" effect',}},
     body="Maxixi Casaque +1",
-    hands="Nyame Gauntlets",
+    hands="Malignance Gloves",
     legs="Dashing Subligar",
-    feet="Maxixi Toe Shoes +1",
+    feet="Malignance Boots",
     neck={ name="Etoile Gorget +1", augments={'Path: A',}},
     waist="Shetal Stone",
-    left_ear="Enchntr. Earring +1",
-    right_ear="Handler's Earring",
-    left_ring="Defending Ring",
-    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    back="Sacro Mantle",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Sjofn Earring",
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Defending Ring",
+    back="Moonbeam Cape",
+	})
+	sets.ja.WaltzSelf = set_combine(sets.melee.DT, {	
+    ammo="Yamarang",
+    head="Mummu Bonnet +2",
+    body="Maxixi Casaque +1",
+    hands="Malignance Gloves",
+    legs="Dashing Subligar",
+    feet="Malignance Boots",
+    neck={ name="Etoile Gorget +1", augments={'Path: A',}},
+    waist="Shetal Stone",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Sjofn Earring",
+    left_ring="Asklepian Ring",
+    right_ring="Defending Ring",
+    back="Moonbeam Cape",
 	})
 	sets.ja['No Foot Rise'] = set_combine(sets.melee.DT, {
 	body="Horos Casaque +1",
 	})
 	sets.ja['Saber Dance'] = set_combine(sets.melee.DT, {
-	legs="Horos Tights +2",
+	legs="Horos Tights +3",
 	})
 	sets.ja['Trance'] = set_combine(sets.melee.DT, {		
 	head="Horos Tiara +1",
@@ -377,7 +434,7 @@ function get_sets()
     body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
-    feet="Malignance Boots",
+    feet="Horos Toe Shoes +3",
     neck={ name="Etoile Gorget +1", augments={'Path: A',}},
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Crep. Earring",
@@ -392,10 +449,10 @@ function get_sets()
 	sets.precast.fastcast = {
     ammo="Sapience Orb",
     head={ name="Herculean Helm", augments={'Accuracy+15','"Triple Atk."+4','Attack+14',}},
-    body={ name="Taeon Tabard", augments={'"Snapshot"+5','AGI+10',}},
+    body={ name="Taeon Tabard", augments={'"Fast Cast"+5',}},
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
-    legs="Enif Cosciales",
-    feet="Jute Boots +1",
+    legs={ name="Taeon Tights", augments={'"Fast Cast"+5',}},
+    feet={ name="Taeon Boots", augments={'"Fast Cast"+5',}},
     neck="Voltsurge Torque",
     waist="Engraved Belt",
     left_ear="Loquac. Earring",
@@ -437,8 +494,14 @@ end
 
 
 function midcast(spell)
+    if  spell.action_type == 'Magic' then
+        equip(sets.melee.DT)
+	end
     if spell.name:match('Curing') or spell.name:match('Divine') then
-        equip(sets.ja.waltz)
+        equip(sets.ja.Waltz)
+			if spell.name:match('Curing') and spell.target.type == 'SELF' then
+				equip(sets.ja.WaltzSelf)
+		end
 	end
 	if spell.name == "Feather Step" then
 		equip(sets.ja["Feather Step"])
@@ -472,16 +535,30 @@ function self_command(command)
         windower.add_to_chat('TP mode is now: '..Melee_Set_Names[Melee_Index])
         equip(sets.melee[Melee_Set_Names[Melee_Index]])
     end
+	if command == 'toggle Parrying set' then
+        windower.add_to_chat("Parrying Set equipped")
+        equip(sets.melee.Parrying)
+    end
 	if command == 'toggle run set' then
         Run_Index = Run_Index +1
         if Run_Index > #Run_Set_Names then Run_Index = 1 end
         windower.add_to_chat('Run mode is now: '..Run_Set_Names[Run_Index])
 		equip(sets.run[Run_Set_Names[Run_Index]])
 	end
+	if command == 'toggle Regain set' then
+		windower.add_to_chat("Full Regain set equipped")
+		equip(sets.run["Gleti's Boots"])
+	end
 	if command == 'toggle Weapons set' then
         Weapons_Index = Weapons_Index +1
         if Weapons_Index > #Weapons_Set_Names then Weapons_Index = 1 end
-        windower.add_to_chat('Weapon is now: '..Weapons_Set_Names[Weapons_Index])
+        windower.add_to_chat('Sub Weapon is now: '..Weapons_Set_Names[Weapons_Index])
 		equip(sets.weapons[Weapons_Set_Names[Weapons_Index]])
+	end
+	if command == 'toggle H2H set' then
+        H2H_Index = H2H_Index +1
+        if H2H_Index > #H2H_Set_Names then H2H_Index = 1 end
+        windower.add_to_chat("H2H - Karambit Equipped")
+		equip(sets.H2H[H2H_Set_Names[H2H_Index]])
 	end
 end
