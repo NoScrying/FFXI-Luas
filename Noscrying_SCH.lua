@@ -5,6 +5,8 @@ function get_sets()
 	send_command('bind !f7 gs c toggle Sub_Weapons set') 
 	send_command('bind f12 gs c toggle TH set') -- F12 = Cycle through
 	send_command('bind !numpad1 gs c toggle Buff set') -- F12 = Cycle through
+	send_command ("input //lua load SCH-hud")
+	
 	Melee_Index = 1
 	Weapon_Index = 1
 	Sub_Weapons_Index = 1
@@ -70,7 +72,7 @@ function get_sets()
     hands="Nyame Gauntlets",
 	legs="Arbatel Pants +2",
     feet="Herald's Gaiters",
-    neck="Warder's Charm +1",
+    neck="Sibyl Scarf",
 	waist="Embla Sash",
     left_ear="Infused Earring",
     right_ear="Regal Earring",
@@ -137,7 +139,7 @@ function get_sets()
 	sets.ws = {} 					-- Leave this empty.
 	sets.ws['Black Halo']	= {
     ammo="Oshasha's Treatise",
-    head="Nyame Helm",
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Nyame Mail",
     hands="Jhakri Cuffs +2",
     legs="Nyame Flanchard",
@@ -145,7 +147,7 @@ function get_sets()
     neck="Rep. Plat. Medal",
     waist="Cornelia's Belt",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    right_ear="Ishvara Earring",
+    right_ear="Regal Earring",
     left_ring="Epaminondas's Ring",
     right_ring="Ifrit Ring +1",
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
@@ -163,7 +165,7 @@ function get_sets()
     left_ear="Regal Earring",
     right_ear="Malignance Earring",
     left_ring="Strendu Ring",
-    right_ring="Weatherspoon Ring",
+    right_ring="Weatherspoon Ring +1",
     back="Argocham. Mantle",
 	}
 	
@@ -179,7 +181,7 @@ function get_sets()
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Ishvara Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Ifrit Ring +1",
+    right_ring="Sroda Ring",
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
 	
@@ -252,7 +254,7 @@ function get_sets()
     left_ear="Malignance Earring",	--4
     right_ear="Loquac. Earring",	--2
     left_ring="Kishar Ring",	--4
-    right_ring="Weather. Ring",	--5
+    right_ring="Weatherspoon Ring +1",	--5
     back={ name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10',}},
 	}
 	sets.precast['Dispelga'] = set_combine(sets.precast.fastcast,{ main = "Daybreak" })
@@ -353,8 +355,8 @@ function get_sets()
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}	
  	sets.midcast.regen = {
-	main="Bolelabunga",
-	sub="Culminus",
+	main="Pedagogy Staff",
+	sub="Enki Strap",
 	ammo="Impatiens",
     head="Arbatel Bonnet +2",
     body={ name="Telchine Chas.", augments={'"Regen" potency+3',}},
@@ -388,11 +390,11 @@ function get_sets()
 	
 	sets.midcast.cure = {
     ammo="Impatiens",
-    head={ name="Telchine Cap", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
-    body="Pinga Tunic",
-    hands="Pinga Mittens",
-    legs="Pinga Pants",
-    feet="Pinga Pumps",
+    head={ name="Telchine Cap", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}}, --, 8
+    body="Pinga Tunic", --, 13
+    hands={ name="Telchine Gloves", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +9',}}, --, 17
+    legs="Pinga Pants", --, 11
+    feet="Kaykaus Boots", --, 15
     neck="Phalaina Locket",
     waist="Gishdubar Sash",
     left_ear="Magnetic Earring",
@@ -429,7 +431,7 @@ function get_sets()
     left_ear="Malignance Earring",
     right_ear="Arbatel Earring +1",
     left_ring="Mujin Band",
-    right_ring="Weatherspoon Ring",
+    right_ring="Weatherspoon Ring +1",
     back={ name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10',}},
 	}
     sets.aftercast = {}             -- leave this empty
@@ -452,17 +454,17 @@ function get_sets()
     right_ring="Purity Ring",
 	}
 	sets.buff.CursnaOthers = {
-    neck="Malison Medallion",
+    neck="Debilis Medallion",
     waist="Gishdubar Sash",
     feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
-    left_ring="Ephedra Ring",
+    left_ring="Haoma's Ring",
     right_ring="Menelaus's Ring",
 	}
 	sets.buff.CursnaSelf = {
     neck="Nicander's Necklace",
     waist="Gishdubar Sash",
     feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
-    left_ring="Ephedra Ring",
+    left_ring="Haoma's Ring",
     right_ring="Menelaus's Ring",
 	}
 
@@ -616,9 +618,10 @@ function self_command(command)
     end
 end
 
-function file_unload()
+function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
 send_command('unbind f9')
 send_command('unbind !f9')
+send_command('unbind ^f9')
 send_command('unbind f10')
 send_command('unbind !f10')
 send_command('unbind f12')
@@ -626,4 +629,8 @@ send_command('unbind !f12')
 send_command('unbind f7')
 send_command('unbind !f7')
 send_command('unbind !numpad1')
+send_command('unbind ^numpad1')
+send_command('unbind !numpad0')
+send_command('unbind !numpad7')
+send_command ("input //lua u SCH-hud")
 end
