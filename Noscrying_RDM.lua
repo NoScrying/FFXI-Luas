@@ -6,7 +6,7 @@ function get_sets()
 	send_command('bind !f9 gs c toggle SW set')
 	send_command('bind f10 gs c toggle refresh set') 
 	send_command('bind f12 gs c toggle TH set') 
-	send_command('bind !f12 gs c toggle Nuke set') 
+	send_command('bind ^f12 gs c toggle Nuke set') 
 	--send_command('bind !f12 gs c toggle Dagger set') 
 	send_command('bind !numpad1 gs c toggle Buff set') 
 	send_command('bind !numpad0 gs c toggle Cure set')
@@ -22,51 +22,21 @@ function get_sets()
 	Dagger_Index = 1
 	Nuke_Index = 1
 	
-	Crocea_Set_Names = {'Daybreak','Tauret'} --'Odin', 'Crocea_TPBonus','Ternion Dagger' --, must define set names, so it knows what to switch to
+	Crocea_Set_Names = {'Daybreak','Tauret'} --'Odin', 'Crocea_TPBonus','Gleti' --, must define set names, so it knows what to switch to
 	sets.Crocea = {}
 	sets.Crocea.Daybreak = {
     main={ name="Crocea Mors", augments={'Path: C',}},
     sub="Daybreak",
 	}
-	sets.Crocea['Ternion Dagger'] = {
+	sets.Crocea['Gleti'] = {
     main={ name="Crocea Mors", augments={'Path: C',}},
-    sub={ name="Ternion Dagger +1", augments={'Path: A',}},
+    sub="Gleti's Knife",
 	}
 	sets.Crocea['Tauret'] = {
     main={ name="Crocea Mors", augments={'Path: C',}},
     sub="Tauret",
 	}	
-
-	Club_Set_Names = {'Dispelga','Maxentius'} --'Naegling', 'Excalibur','Excalibur_TPbonus'
-	sets.Club = {}
-	sets.Club.Naegling = {
-    main="Naegling",
-    sub="Machaera +2",
-	}
-	sets.Club.Dispelga = {
-    main="Daybreak",
-    sub="Tauret",
-	}
-	sets.Club.Maxentius = {
-    main="Maxentius",
-    sub="Tauret",
-	}
-	
-	Relic_Set_Names = {'Excalibur & TP Bonus','Excalibur & Tauret','Mandau & Tauret'} 
-	sets.Relic = {}
-	sets.Relic["Excalibur & TP Bonus"] = {
-    main="Excalibur",
-    sub="Machaera +2",
-	}
-	sets.Relic["Excalibur & Tauret"] = {
-    main="Excalibur",
-    sub="Tauret",
-	}
-	sets.Relic["Mandau & Tauret"] = {
-    main="Mandau",
-    sub="Tauret",
-	}	
-	-- sets.Sword.Odin = {
+	-- sets.Crocea.Odin = {
     -- main="Wind Knife",
     -- sub="Qutrub Knife",
     -- range="Kaja Bow",
@@ -83,11 +53,35 @@ function get_sets()
     -- right_ring="Supershear Ring",
     -- back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	-- }	
+
+
+	Club_Set_Names = {'Dispelga','Maxentius'}
+	sets.Club = {}
+	sets.Club.Dispelga = {
+    main="Daybreak",
+    sub="Tauret",
+	}
+	sets.Club.Maxentius = {
+    main="Maxentius",
+    sub="Tauret",
+	}
+	
+	Relic_Set_Names = {'Excalibur & TP Bonus','Mandau & Gleti'} --,'Excalibur & Gleti'
+	sets.Relic = {}
+	sets.Relic["Excalibur & TP Bonus"] = {
+    main="Excalibur",
+    sub="Machaera +2",
+	}
+	sets.Relic["Mandau & Gleti"] = {
+    main="Mandau",
+    sub="Gleti's Knife",
+	}	
+
 	
 	DW_Set_Names = {'DW','DT',}--'DA'
 	sets.DW = {} 					-- Leave this empty.
 	sets.DW.DW = { --, -32PDT, -22 MDT, +11DW, 15DA, 55STP, +1-15% Elemental Damage, +17 Enspell Damage
-	--ammo="Aurgelmir Orb",
+	ammo="Coise Bodhar",
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Ayanmo Manopolas +2",
@@ -104,7 +98,7 @@ function get_sets()
     back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 	sets.DW.DA = {
-	--ammo="Aurgelmir Orb",
+	ammo="Coise Bodhar",
     head="Malignance Chapeau",
     body="Ayanmo Corazza +2",
     hands="Ayanmo Manopolas +2",
@@ -122,20 +116,20 @@ function get_sets()
 	}
 	sets.malig = {}
 	sets.malig.hands = {
-	hands="Malignance Gloves",
+	hands="Bunzi's Gloves",
 	waist="Kentarch Belt +1",
 	}	
 	
 	sets.DW.DT = { --,-51PDT, -41MDT, +9DW, 10DA, 60STP, +30 Elemental Resist, 5% Magic Damage Absorb chance
-	--ammo="Staunch Tathlum +1",
+	ammo="Staunch Tathlum +1",
     head="Malignance Chapeau",
     body="Malignance Tabard",
-	hands="Malignance Gloves",
+	hands="Bunzi's Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
     --neck="Anu Torque",
     neck="Warder's Charm +1",
-    waist="Platinum Moogle Belt",
+    waist="Flume Belt",
 	--waist="Orpheus's Sash",
     --left_ear="Sherida Earring",
     --right_ear="Cessance Earring",
@@ -147,10 +141,10 @@ function get_sets()
 	}
 
 	
-	TH_Set_Names = {'TH3'}
+	TH_Set_Names = {'TH4'}
 	sets.TH = {}
-	sets.TH.TH3 = {
-	--ammo="Perfect Lucky Egg",
+	sets.TH.TH4 = {
+	ammo="Perfect Lucky Egg",
     head="Malignance Chapeau",
     body="Lethargy Sayon +2",
     hands="Leth. Ganth. +2",
@@ -168,7 +162,7 @@ function get_sets()
 	SW_Set_Names = {'SW', 'DT'}
 	sets.SW = {}
 	sets.SW.SW = { --, -49PDT, -39MDT, 23DA, 2TA, 63STP +17 Enspell Damage
-	--ammo="Aurgelmir Orb",
+	ammo="Coise Bodhar",
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Ayanmo Manopolas +2",
@@ -183,10 +177,10 @@ function get_sets()
     back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 	sets.SW.DT = { --, -51PDT, -41MDT, 18DA, 2TA, 68STP, +10% Counter
-	--ammo="Staunch Tathlum +1",
+	ammo="Coise Bodhar",
     head="Malignance Chapeau",
     body="Malignance Tabard",
-	hands="Malignance Gloves",
+	hands="Bunzi's Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
     neck="Warder's Charm +1",
@@ -201,7 +195,7 @@ function get_sets()
 	Refresh_Set_Names = {'battle'}
 	sets.refresh = {}
 	sets.refresh.battle = { --, -51PDT, -39MDT, +7 Passive Refresh, +15-35 Elemental Resist, +551 MEVA, +5% Magic Absorb chance
-    --ammo="Homiliary",
+    ammo="Homiliary",
     head={ name="Viti. Chapeau +1", augments={'Enfeebling Magic duration','Magic Accuracy',}},
     body="Lethargy Sayon +2",
     hands="Leth. Ganth. +2",
@@ -218,7 +212,7 @@ function get_sets()
 	
 	sets.ws = {} 					-- Leave this empty.
 	sets.ws['Savage Blade']	= {
-    --ammo="Oshasha's Treatise",
+    ammo="Oshasha's Treatise",
     head="Jhakri Coronal +2",
     body="Nyame Mail",
     hands="Atrophy Gloves +3",
@@ -228,12 +222,12 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Ifrit Ring +1",
+    left_ring="Sroda Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
 	}
 	sets.ws['Knights of Round']	= {
-    --ammo="Oshasha's Treatise",
+    ammo="Oshasha's Treatise",
     head="Jhakri Coronal +2",
     body="Nyame Mail",
     hands="Atrophy Gloves +3",
@@ -243,13 +237,13 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear="Ishvara Earring",
-    left_ring="Ifrit Ring +1",
+    left_ring="Sroda Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
 	}
 	
 	sets.ws['Circle Blade']	= {
-	--ammo="Aurgelmir Orb",
+	ammo="Aurgelmir Orb",
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
 	body="Jhakri Robe +2",
     hands="Atrophy Gloves +3",
@@ -260,15 +254,15 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
-    right_ring="Rajas Ring",
+    right_ring="Sroda Ring",
     back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
 	}
 	
 	sets.ws['Chant du Cygne']	= {
-	--ammo="Aurgelmir Orb",
+	ammo="Aurgelmir Orb",
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
 	body="Jhakri Robe +2",
-    hands="Atrophy Gloves +3",
+    hands="Bunzi's Gloves",
     legs="Jhakri Slops +2",
     feet="Ayanmo Gambieras +2",
     neck="Fotia Gorget",
@@ -281,7 +275,7 @@ function get_sets()
 	}
 
 	sets.ws['Death Blossom']	= {
-	--ammo="Oshasha's Treatise",
+	ammo="Oshasha's Treatise",
     head="Malignance Chapeau",
     body="Malignance Tabard",
 	hands="Malignance Gloves",
@@ -296,27 +290,26 @@ function get_sets()
     back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+7',}},
 	}
 	sets.ws['Requiescat']	= {
-    --ammo="Oshasha's Treatise",
+    ammo="Oshasha's Treatise",
     head="Jhakri Coronal +2",
     body="Nyame Mail",
-    hands="Jhakri Cuffs +2",
+    hands="Bunzi's Gloves",
     legs="Nyame Flanchard",
     feet="Leth. Houseaux +3",
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Ifrit Ring +1",
+    left_ring="Sroda Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
 	}
 	sets.ws['Sanguine Blade']	= {
-	----ammo="Regal Gem",
-	--ammo="Sroda Tathlum", --, Magic Critical Hit II, is a 25% Damage increase, Magic Crit Hit is only +10MAB
+	--ammo="Regal Gem",
+	ammo="Sroda Tathlum", --, Magic Critical Hit II, is a 25% Damage increase, Magic Crit Hit is only +10MAB
     head="Pixie Hairpin +1",
     body="Lethargy Sayon +2",
-    --hands="Leth. Ganth. +2",
-    hands="Jhakri Cuffs +2",
+    hands="Leth. Ganth. +2",
     legs="Leth. Fuseau +2",
     feet="Leth. Houseaux +3",
     neck="Sibyl Scarf",
@@ -329,11 +322,11 @@ function get_sets()
     back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
 	}
 	sets.ws['Seraph Blade']	= {
-	----ammo="Regal Gem",
-	--ammo="Sroda Tathlum",
+	--ammo="Regal Gem",
+	ammo="Sroda Tathlum",
     head="Jhakri Coronal +2",
     body="Lethargy Sayon +2",
-    --hands="Leth. Ganth. +2",
+    hands="Leth. Ganth. +2",
     hands="Jhakri Cuffs +2",
     legs="Leth. Fuseau +2",
     feet="Leth. Houseaux +3",
@@ -347,12 +340,11 @@ function get_sets()
     back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
 	}
 	sets.ws['Shining Blade']	= {
-	----ammo="Regal Gem",
-	--ammo="Sroda Tathlum",
+	--ammo="Regal Gem",
+	ammo="Sroda Tathlum",
     head="Jhakri Coronal +2",
     body="Lethargy Sayon +2",
-    --hands="Leth. Ganth. +2",
-    hands="Jhakri Cuffs +2",
+    hands="Leth. Ganth. +2",
     legs="Leth. Fuseau +2",
     feet="Leth. Houseaux +3",
     neck="Sibyl Scarf",
@@ -365,12 +357,11 @@ function get_sets()
     back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
 	}
 	sets.ws['Red Lotus Blade']	= {
-	----ammo="Regal Gem",
-	--ammo="Sroda Tathlum",
+	--ammo="Regal Gem",
+	ammo="Sroda Tathlum",
     head="Jhakri Coronal +2",
     body="Lethargy Sayon +2",
-    --hands="Leth. Ganth. +2",
-    hands="Jhakri Cuffs +2",
+    hands="Leth. Ganth. +2",
     legs="Leth. Fuseau +2",
     feet="Leth. Houseaux +3",
     neck="Sibyl Scarf",
@@ -384,7 +375,7 @@ function get_sets()
 	}
 	
 	sets.ws['Black Halo']	= {
-    --ammo="Oshasha's Treatise",
+    ammo="Oshasha's Treatise",
     head="Jhakri Coronal +2",
     body="Nyame Mail",
     hands="Atrophy Gloves +3",
@@ -394,12 +385,12 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Ifrit Ring +1",
+    left_ring="Sroda Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
 	}
 	sets.ws['Realmrazer']	= {
-	--ammo="Oshasha's Treatise",
+	ammo="Oshasha's Treatise",
     head="Jhakri Coronal +2",
     body="Jhakri Robe +2",
     hands="Atrophy Gloves +3",
@@ -415,17 +406,16 @@ function get_sets()
 	}
 	
 	sets.ws['Aeolian Edge'] = {
-	-- --ammo="Perfect Lucky Egg",
+	-- ammo="Perfect Lucky Egg",
     -- feet={ name="Chironic Slippers", augments={'Mag. Acc.+1','Damage taken-1%','"Treasure Hunter"+2',}},
     -- waist="Chaac Belt",
 	
-    --ammo="Oshasha's Treatise",
+    ammo="Oshasha's Treatise",
     feet="Leth. Houseaux +3",
     waist="Orpheus's Sash",
-	
     head="Jhakri Coronal +2",
     body="Lethargy Sayon +2",
-    hands="Jhakri Cuffs +2",
+    hands="Leth. Ganth. +2",
     legs="Leth. Fuseau +2",
     neck="Sibyl Scarf",
     left_ear="Regal Earring",
@@ -436,7 +426,7 @@ function get_sets()
 	}
 
 	sets.ws['Evisceration'] = {
-	--ammo="Oshasha's Treatise",
+	ammo="Oshasha's Treatise",
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Lethargy Sayon +2",
     hands="Nyame Gauntlets",
@@ -451,7 +441,7 @@ function get_sets()
     back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Mercy Stroke'] = {
-    --ammo="Oshasha's Treatise",
+    ammo="Oshasha's Treatise",
     head="Jhakri Coronal +2",
 	body="Lethargy Sayon +2",
     --body="Nyame Mail",
@@ -462,12 +452,12 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear="Ishvara Earring",
-    left_ring="Ifrit Ring +1",
+    left_ring="Sroda Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
 	}
 	sets.ws['Empyreal Arrow'] = {
-    --ammo="Oshasha's Treatise",
+    ammo="Oshasha's Treatise",
     head="Malignance Chapeau",
     body="Malignance Tabard",
 	hands="Malignance Gloves",
@@ -490,7 +480,7 @@ function get_sets()
 	sets.precast.SIRD = {}
 	
 	sets.precast.fastcast = { 		--, RDM JP2000 = 38% FC, = 83 FC (Cap 80%), 10 Quick Magic (Cap 10%), Merits+10 = 78 SIRD (cap 102%)
-	--ammo="Impatiens", 				--, Quick Magic +2% (cap 10%), 10SIRD
+	ammo="Impatiens", 				--, Quick Magic +2% (cap 10%), 10SIRD
     head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}}, --, 14
 	body="Vitiation Tabard +1", 	--, 13
     hands="Chironic Gloves", 		--, 20 SIRD
@@ -506,10 +496,10 @@ function get_sets()
 	}
 	sets.precast['Dispelga'] = set_combine(sets.precast.fastcast,{ main = "Daybreak" })
 	
-	Nuke_Set_Names = {'MB','Nukes'}
+	Nuke_Set_Names = {'Nukes','MB'}
 	sets.Nuke = {}
 	sets.Nuke.Nukes = { --, MAB 283, MACC 343, Magic Burst 18 (Cap 40), MB II 6 (no cap), Magic Damage +502, Magic Crit Hit II +10%
-    --ammo="Ghastly Tathlum +1",
+    ammo="Ghastly Tathlum +1",
     head="Ea Hat",
     body="Lethargy Sayon +2",
     hands="Lethargy Gantherots +2",
@@ -525,7 +515,7 @@ function get_sets()
 	}
 	
 	sets.Nuke.MB = { --, MAB 256, MACC 312, Magic Burst 40 (Cap 40), MB II 25 (no cap), Magic Damage +445, Magic Crit Hit II +10%
-    --ammo="Sroda Tathlum",
+    ammo="Sroda Tathlum",
     head="Ea Hat",
     body="Ea Houppelande",
     hands="Ea Cuffs +1",
@@ -539,12 +529,20 @@ function get_sets()
     right_ring="Freke Ring",
     back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+7',}},
 	}
+	sets.Nuke["Luminohelix"] = set_combine (sets.Nuke.MB, {
+	left_ring = "Weatherspoon Ring +1",
+	})
+	sets.Nuke["Noctohelix"] = set_combine (sets.Nuke.MB, {
+	head = "Pixie Hairpin +1",
+	left_ring = "Archon Ring",
+	})
+
 	
 	Cure_Index = 1
 	Cure_Set_Names = {'Potency','Enmity'}
 	sets.Cure = {}	
 	sets.Cure.Potency = { 			--,  +52% Cure Potency (Cap 50%), +55 Healing Skill, +14% Self Potency = Cure IV 1000+ HP
-	--ammo="Staunch Tathlum +1",
+	ammo="Staunch Tathlum +1",
     head="Bunzi's Hat",
     body="Bunzi's Robe",
     hands={ name="Telchine Gloves", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +9',}},
@@ -558,8 +556,8 @@ function get_sets()
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
-	sets.Cure.Enmity = { 			--, +51% Enmity, +29% Cure Potency
-	--ammo="Sapience Orb", 			--, 2 Enmity
+	sets.Cure.Enmity = { 			--, +53% Enmity, +29% Cure Potency
+	ammo="Sapience Orb", 			--, 2 Enmity
     head="Halitus Helm", 			--, 8 Enmity
     body="Emet Harness", 			--, 9 Enmity, -5 PDT
     hands="Nilas Gloves", 			--, 5 Enmity
@@ -567,7 +565,7 @@ function get_sets()
     feet={ name="Kaykaus Boots", augments={'Mag. Acc.+15','"Cure" potency +5%','"Fast Cast"+3',}},
     neck={ name="Unmoving Collar +1", augments={'Path: A',}}, --, 10 Enmity
     waist="Warwolf Belt", 			--, 3 Enmity
-    left_ear="Friomisi Earring", 	--, 2 Enmity
+    left_ear="Cryptic Earring",		--, 4
     right_ear="Eris' Earring", 		--, 2 Enmity
     left_ring="Supershear Ring", 	--, 5 Enmity
     right_ring="Provocare Ring", 	--, 5 Enmity
@@ -576,7 +574,7 @@ function get_sets()
 	
     sets.midcast = {}               -- leave this empty  
 	sets.midcast.enfeebling = { --, MACC+399, Enfeebling Skill +63, Enfeebling Potency +53, Enfeebling Duration +60%, Saboteur +13, Immunobreak +1
-	--ammo="Regal Gem",				--, Enfeebling Potency +10
+	ammo="Regal Gem",				--, Enfeebling Potency +10
     head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
 	--head="Befouled Crown",
     body="Lethargy Sayon +2", 		--, Enfeebling Duration +10%| Combined, Enfeebling Potency +16
@@ -584,7 +582,7 @@ function get_sets()
     legs={ name="Chironic Hose", augments={'Mag. Acc.+21 "Mag.Atk.Bns."+21','INT+10','Mag. Acc.+11','"Mag.Atk.Bns."+5',}},
     feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}}, --, Enfeebling Potency +10
     neck={ name="Dls. Torque +1", augments={'Path: A',}}, --, Enfeebling Potency +7, Enfeebling Duration +20%
-	waist="Sacro Cord",
+    waist={ name="Acuity Belt +1", augments={'Path: A',}},
     left_ear="Malignance Earring",
     right_ear="Snotra Earring", 	--, , Enfeebling Duration +10%
     --left_ring="Kishar Ring", 			--, Enfeebling Duration +5%, +5 MACC
@@ -594,8 +592,24 @@ function get_sets()
     back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+7',}}, --,  Enfeebling Potency +10, Enfeebling Duration +20%
 }
 	sets.midcast.Macc = { --, +418 MACC, Enfeebling Skill +53, Enfeebling Potency +43, Enfeebling Duration +40%, Saboteur +13, Immunobreak +1, 
-	--ammo="Regal Gem",
+	ammo="Regal Gem",
     head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
+    --hands="Jhakri Cuffs +2",
+    body="Lethargy Sayon +2",
+    hands="Lethargy Gantherots +2",
+    legs={ name="Chironic Hose", augments={'Mag. Acc.+21 "Mag.Atk.Bns."+21','INT+10','Mag. Acc.+11','"Mag.Atk.Bns."+5',}},
+    feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
+    neck={ name="Dls. Torque +1", augments={'Path: A',}},
+    waist={ name="Acuity Belt +1", augments={'Path: A',}},
+    left_ear="Malignance Earring",
+    right_ear="Snotra Earring",
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Stikini Ring +1",
+    back={ name="Aurist's Cape +1", augments={'Path: A',}}, --, +30 MACC, +25 INT/MND (25 MACC'ish)
+}	
+	sets.midcast.Banish = { 
+	ammo="Regal Gem",
+    head="Ipoca Beret",
     --hands="Jhakri Cuffs +2",
     body="Lethargy Sayon +2",
     hands="Lethargy Gantherots +2",
@@ -609,10 +623,9 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back={ name="Aurist's Cape +1", augments={'Path: A',}}, --, +30 MACC, +25 INT/MND (25 MACC'ish)
 }	
-
 	
 	sets.midcast.enhancingskill = { --, ML35 Skill = 658, Enhancing Skill +127 - Temper II = 35 TA
-	--ammo="Staunch Tathlum +1",
+	ammo="Staunch Tathlum +1",
     --sub="Pukulatmuj +1",
     head="Befouled Crown",
     --body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
@@ -629,7 +642,7 @@ function get_sets()
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}},
 	}
 	sets.midcast.barspell = { --, Enhancing Skill +127, BarAilment +20, Duration+15%
-	--ammo="Staunch Tathlum +1",
+	ammo="Staunch Tathlum +1",
     --sub="Pukulatmuj +1",
     head="Befouled Crown",
     --body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
@@ -647,7 +660,7 @@ function get_sets()
 	}
 
 	sets.midcast.phalanx = { --, Skill 522 = Phalanx Tier 8 = -35 Damage, +20 = -55 Damage, +38% Duration, +20% Ghostfyre Duration, Merits+30 Seconds
-	--ammo="Staunch Tathlum +1",
+	ammo="Staunch Tathlum +1",
 	sub="Sakpata's Sword", --, self Phalanx +5
     head={ name="Taeon Chapeau", augments={'Spell interruption rate down -8%','Phalanx +3',}},
     body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
@@ -663,7 +676,7 @@ function get_sets()
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}}, --, Ghostfyre Cape Duration is separate from normal Duration gear, 
 	}
 	sets.midcast.phalanxEngaged = { --, Skill 522 = Phalanx Tier 8 = -35 Damage, +15 = -50 Damage, +38% Duration, +20% Ghostfyre Duration, Merits+30 Seconds
-	--ammo="Staunch Tathlum +1",
+	ammo="Staunch Tathlum +1",
 	sub="",
     head={ name="Taeon Chapeau", augments={'Spell interruption rate down -8%','Phalanx +3',}},
     body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
@@ -681,7 +694,7 @@ function get_sets()
 	
 	sets.midcast.enhancingskillPT = { --, +84 Enhancing Skill, +93% Duration, +20% Ghostfyre Duration, Merits+30 Seconds, Gloves+15 Seconds
 	sub="",
-	--ammo="Staunch Tathlum +1",
+	ammo="Staunch Tathlum +1",
     head="Befouled Crown",
     body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
     hands="Vitiation Gloves +3",
@@ -699,7 +712,7 @@ function get_sets()
 
 	
 	sets.midcast.enhancingduration = { --, +133% Duration, +20% Ghostfyre Duration, Merits+30 Seconds, 12 Minute Self Haste, 30 Minute with Composure
-	--ammo="Staunch Tathlum +1",
+	ammo="Staunch Tathlum +1",
     head={ name="Telchine Cap", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
     body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
     hands="Atrophy Gloves +3",
@@ -715,7 +728,7 @@ function get_sets()
 	}
 	
 	sets.midcast.enhancingdurationPT = { --, +133% Duration, +20% Ghostfyre Duration, Merits+30 Seconds, = 12 Minute Haste II
-	--ammo="Staunch Tathlum +1",
+	ammo="Staunch Tathlum +1",
     head="Lethargy Chappel",
     body="Lethargy Sayon +2",
     hands="Lethargy Gantherots +2",
@@ -731,7 +744,7 @@ function get_sets()
 	}
 	
 	sets.midcast.refresh = { --, +5 Refresh Potency, +103% Duration, +20% Ghostfyre Duration, Merits+30 Seconds, +20 Seconds
-	--ammo="Staunch Tathlum +1",
+	ammo="Staunch Tathlum +1",
 	head="Amalric Coif",
     body="Atrophy Tabard +2",
     hands="Atrophy Gloves +3",
@@ -748,7 +761,7 @@ function get_sets()
 	
 
 	sets.midcast.regen = { --, +55SIRD, +15 Regen, +10% Potency, +38% Duration, +20%2/ Ghostfyre Duration, Merits+30 Seconds, Telchine +12 Seconds = Regen II, 28/Tic = 1984 HP
-	--ammo="Staunch Tathlum +1",
+	ammo="Staunch Tathlum +1",
     sub="Bolelabunga",
     head={ name="Taeon Chapeau", augments={'Mag. Evasion+16','Spell interruption rate down -9%','"Regen" potency+3',}},
     body={ name="Telchine Chas.", augments={'"Regen" potency+3',}},
@@ -763,8 +776,8 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}},
 	}
-	sets.midcast.regenEngaged = { --, +55SIRD, +15 Regen, +10% Potency, +38% Duration, +20%2/ Ghostfyre Duration, Merits+30 Seconds, Telchine +12 Seconds = Regen II, 28/Tic = 1984 HP
-	--ammo="Staunch Tathlum +1",
+	sets.midcast.regenEngaged = { --, +55SIRD, +15 Regen, +38% Duration, +20%2/ Ghostfyre Duration, Merits+30 Seconds, Telchine +12 Seconds = Regen II, 28/Tic = 1984 HP
+	ammo="Staunch Tathlum +1",
 	sub="",
     head={ name="Taeon Chapeau", augments={'Mag. Evasion+16','Spell interruption rate down -9%','"Regen" potency+3',}},
     body={ name="Telchine Chas.", augments={'"Regen" potency+3',}},
@@ -779,14 +792,14 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}},
 	}
-	sets.midcast.Enmity = { 		--, +51% Enmity
-	--ammo="Sapience Orb", 			--, 2 Enmity
+	sets.midcast.Enmity = { 		--, +52% Enmity
+	ammo="Sapience Orb", 			--, 2 Enmity
     head="Halitus Helm", 			--, 8 Enmity
     body="Emet Harness", 			--, 9 Enmity, -5 PDT
     hands="Nilas Gloves", 			--, 5 Enmity
     neck={ name="Unmoving Collar +1", augments={'Path: A',}}, --, 10 Enmity
     waist="Warwolf Belt", 			--, 3 Enmity
-    left_ear="Friomisi Earring", 	--, 2 Enmity
+    left_ear="Cryptic Earring",		--, 3
     right_ear="Eris' Earring", 		--, 2 Enmity
     left_ring="Supershear Ring", 	--, 5 Enmity
     right_ring="Provocare Ring", 	--, 5 Enmity
@@ -822,22 +835,23 @@ function get_sets()
     waist="Gishdubar Sash",	
     feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
 	}
-	sets.buff.CursnaOthers = { --, +107 Healing Skill, +45 Cursna, 
-    neck="Malison Medallion", --, +10
+	sets.buff.CursnaOthers = { --, +107 Healing Skill, +60 Cursna, 
+    neck="Debilis Medallion", --, +15
 	body="Vitiation Tabard +1",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     waist="Gishdubar Sash",
-    feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}}, --, +5
-    left_ring="Ephedra Ring", --, 10
+    feet="Gendewitha Galoshes +1", --, +10
+    left_ring="Haoma's Ring", --, 15
     right_ring="Menelaus's Ring", --, +20
+    back="Oretania's Cape +1", --, +5
 	}
-	sets.buff.CursnaSelf = { --, +107 Healing Skill, +35 Cursna, +30 Self Cursna
+	sets.buff.CursnaSelf = { --, +107 Healing Skill, +40 Cursna, +30 Self Cursna
     neck="Nicander's Necklace", --, +20 Self
 	body="Vitiation Tabard +1",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     waist="Gishdubar Sash", --, +10 Self
     feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}}, --, +5
-    left_ring="Ephedra Ring", --,+10 
+    left_ring="Haoma's Ring", --,+15 
     right_ring="Menelaus's Ring", --, +20
 	}
 end
@@ -845,6 +859,9 @@ end
 function precast(spell)
     if  spell.action_type == 'Magic' then
         equip(sets.precast.fastcast)
+	end
+	if spell.name == "Dispelga" then
+	equip(sets.precast['Dispelga'])
 	end
     if sets.ws[spell.name] then
         equip(sets.ws[spell.name])        
@@ -896,8 +913,14 @@ function midcast(spell)
             equip(sets.Nuke[Nuke_Set_Names[Nuke_Index]])
             if world.weather_element == spell.element or world.day_element == spell.element then --, If spell matches day or zone weather, then adds below set to above set
                 equip(sets.midcast.NukeWithMatchingWeather)
+
+					end
+				end
 			end
-		end
+	if spell.name == "Luminohelix" then
+		equip(sets.Nuke["Luminohelix"])
+	elseif spell.name == "Noctohelix" then
+		equip(sets.Nuke["Noctohelix"])
 	end
 
     if spell.action_type == 'Magic' then
@@ -918,6 +941,9 @@ end
 				if player.status =='Idle' then
 			equip(sets.midcast.regen)
 		end
+	end
+	if spell.name:match('Banish') then
+		equip(sets.midcast.Banish)
 	end
 end
 
@@ -1033,9 +1059,10 @@ function self_command(command)
 end
 
 
-function file_unload()
+function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
 send_command('unbind f9')
 send_command('unbind !f9')
+send_command('unbind ^f9')
 send_command('unbind f10')
 send_command('unbind !f10')
 send_command('unbind f12')
@@ -1043,4 +1070,7 @@ send_command('unbind !f12')
 send_command('unbind f7')
 send_command('unbind !f7')
 send_command('unbind !numpad1')
+send_command('unbind ^numpad1')
+send_command('unbind !numpad0')
+send_command('unbind !numpad7')
 end
