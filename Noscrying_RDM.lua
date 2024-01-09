@@ -1,7 +1,7 @@
 function get_sets()
-	send_command('bind f7 gs c toggle Crocea set') --, Sends a command to console, command is defined at bottom of Lua
-	send_command('bind !f7 gs c toggle Club set') 
-	send_command('bind ^f7 gs c toggle Relic set') 	
+	send_command('bind f7 gs c toggle Crocea set') 	--, Sends a command to console, command is defined at bottom of Lua
+	send_command('bind !f7 gs c toggle Club set') 	--, ! = ALT
+	send_command('bind ^f7 gs c toggle Relic set') 	--, ^ = CTRL
 	send_command('bind f9 gs c toggle DW set') 
 	send_command('bind !f9 gs c toggle SW set')
 	send_command('bind f10 gs c toggle refresh set') 
