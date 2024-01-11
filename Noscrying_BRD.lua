@@ -27,10 +27,10 @@ function get_sets()
     main="Carnwenhan",
 	}
 	
-	Sub_Weapons_Set_Names = {'Gleti','TP_Bonus'} --'Kali'
+	Sub_Weapons_Set_Names = {'Gleti','TP_Bonus','Ammurapi'} --'Kali'
 	sets.Sub_Weapons = {}	
-	sets.Sub_Weapons.Kali = {
-	sub="Kali",
+	sets.Sub_Weapons.Ammurapi = {
+	sub="Ammurapi Shield",
 	}
 	sets.Sub_Weapons.Gleti = {
     sub="Gleti's Knife",
