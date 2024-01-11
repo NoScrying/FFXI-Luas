@@ -81,7 +81,7 @@ function get_sets()
 	DW_Set_Names = {'DW','DT',}--'DA'
 	sets.DW = {} 					-- Leave this empty.
 	sets.DW.DW = { --, -32PDT, -22 MDT, +11DW, 15DA, 55STP, +1-15% Elemental Damage, +17 Enspell Damage
-	ammo="Coise Bodhar",
+	ammo="Coiste Bodhar",
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Ayanmo Manopolas +2",
@@ -98,7 +98,7 @@ function get_sets()
     back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 	sets.DW.DA = {
-	ammo="Coise Bodhar",
+	ammo="Coiste Bodhar",
     head="Malignance Chapeau",
     body="Ayanmo Corazza +2",
     hands="Ayanmo Manopolas +2",
@@ -162,7 +162,8 @@ function get_sets()
 	SW_Set_Names = {'SW', 'DT'}
 	sets.SW = {}
 	sets.SW.SW = { --, -49PDT, -39MDT, 23DA, 2TA, 63STP +17 Enspell Damage
-	ammo="Coise Bodhar",
+	sub="Ammurapi Shield",
+	ammo="Coiste Bodhar",
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Ayanmo Manopolas +2",
@@ -177,7 +178,8 @@ function get_sets()
     back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 	sets.SW.DT = { --, -51PDT, -41MDT, 18DA, 2TA, 68STP, +10% Counter
-	ammo="Coise Bodhar",
+	sub="Ammurapi Shield",
+	ammo="Coiste Bodhar",
     head="Malignance Chapeau",
     body="Malignance Tabard",
 	hands="Bunzi's Gloves",
