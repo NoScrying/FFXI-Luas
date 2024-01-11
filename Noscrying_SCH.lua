@@ -114,26 +114,33 @@ function get_sets()
     back={ name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10',}},
 	}
 	
-	Weapon_Set_Names = {'Daybreak', 'Malignance',}
+	Weapon_Set_Names = {'Daybreak',"Bunzi", 'Malignance',"Mpaca"}
 	sets.weapon = {}
 	sets.weapon.Daybreak = {
     main="Daybreak",
-    sub="Culminus",
+	sub="Ammurapi Shield",
+	}
+	sets.weapon.Bunzi = {
+    main="Bunzi's Rod",
+	sub="Ammurapi Shield",
 	}
 	sets.weapon.Malignance = {
     main="Malignance Pole",
     sub="Enki Strap",
 	}
-	
-	Sub_Weapons_Set_Names = {'Akademos', 'Maxentius'}
+	sets.weapon.Mpaca = {
+	main="Mpaca's Staff",
+	sub="Enki Strap",
+	}	
+	Sub_Weapons_Set_Names = {'Mpaca', 'Maxentius'}
 	sets.sub_weapons = {}
-	sets.sub_weapons.Akademos = {
-	main="Akademos",
+	sets.sub_weapons.Mpaca = {
+	main="Mpaca's Staff",
 	sub="Enki Strap",
 	}
 	sets.sub_weapons.Maxentius = {
     main="Maxentius",
-	sub="Culminus",
+	sub="Ammurapi Shield",
 	}
 	
 	sets.ws = {} 					-- Leave this empty.
