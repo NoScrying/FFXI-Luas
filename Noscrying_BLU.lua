@@ -155,7 +155,8 @@ function get_sets()
 	sets.ws['Savage Blade']	= {
     ammo="Oshasha's Treatise",
     head="Hashishin Kavuk +2",
-    body="Gleti's Cuirass",
+    --body="Gleti's Cuirass",
+	body="Assim. Jubbah +2",
     hands="Jhakri Cuffs +2",
     legs="Luhlaza Shalwar +3",
     feet="Gleti's Boots",
@@ -444,7 +445,7 @@ function get_sets()
 	sets.midcast.physical = {
     ammo="Mavi Tathlum",
     head="Hashishin Kavuk +2",
-    body="Hashishin Mintan +2",
+	body="Assim. Jubbah +2",
 	hands="Hashishin Bazubands +2",
     legs="Hashishin Tayt +2",
     feet="Hashishin Basmak +2",
@@ -459,7 +460,7 @@ function get_sets()
 	sets.midcast.Occultation = {
     ammo="Mavi Tathlum",
     head="Luhlaza Keffiyeh",
-    body="Hashishin Mintan +2",
+	body="Assim. Jubbah +2",
 	hands="Hashishin Bazubands +2",
     legs="Hashishin Tayt +2",
     feet="Luhlaza Charuqs",
