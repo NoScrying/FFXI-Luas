@@ -1,11 +1,11 @@
 function get_sets()
-	send_command('bind f9 gs c toggle melee set') -- F9 = Cycle through
-	send_command('bind f10 gs c toggle Run set') -- F10 = Cycle through
-	send_command('bind f7 gs c toggle weapon set') -- F10 = Cycle through
-	send_command('bind !f7 gs c toggle Sub_Weapons set') 
-	send_command('bind f12 gs c toggle TH set') -- F12 = Cycle through
-	send_command('bind !numpad1 gs c toggle Buff set') -- F12 = Cycle through
-	send_command('bind ^f12 gs c toggle Nuke set') 	
+	send_command('bind f9 gs c toggle melee set')
+	send_command('bind f10 gs c toggle Run set')
+	send_command('bind f7 gs c toggle weapon set')
+	send_command('bind !f7 gs c toggle Sub_Weapons set') --, ! = ALT
+	send_command('bind f12 gs c toggle TH set') 
+	send_command('bind !numpad1 gs c toggle Buff set')
+	send_command('bind ^f12 gs c toggle Nuke set') 	--, ^ = CTRL
 	send_command ("input //lua load SCH-hud")
 	
 	Melee_Index = 1
@@ -17,7 +17,7 @@ function get_sets()
 	Nuke_Index = 1
 	
 	Melee_Set_Names = {'melee','DT',"Refresh"}
-	sets.melee = {} 					-- Leave this empty.
+	sets.melee = {} 
 	sets.melee.melee = {
     ammo="Staunch Tathlum +1",
     head="Arbatel Bonnet +2",
@@ -160,7 +160,7 @@ function get_sets()
 	sub="Ammurapi Shield",
 	}
 	
-	sets.ws = {} 					-- Leave this empty.
+	sets.ws = {}
 	sets.ws['Black Halo']	= {
     ammo="Oshasha's Treatise",
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
@@ -223,7 +223,7 @@ function get_sets()
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
 	
-	sets.ja = {} 					-- Leave this empty.
+	sets.ja = {} 
 	sets.ja['Sublimation'] = {
 	waist="Embla Sash",
 	}
@@ -265,7 +265,7 @@ function get_sets()
 	legs="Arbatel Pants +2",
 	}
 	
-	sets.idle = {} 					-- Leave this empty.
+	sets.idle = {} 
 	sets.idle.normal = {
     ammo="Homiliary",
     head="Arbatel Bonnet +2",
