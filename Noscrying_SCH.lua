@@ -607,17 +607,25 @@ function midcast(spell)
 		end
 	end
         if spell.skill == 'Elemental Magic' then
-			equip(sets.Nuke[Nuke_Set_Names[Nuke_Index]])
+			equip(sets.Nuke.Nukes)
             if world.weather_element == spell.element or world.day_element == spell.element then
                 equip(sets.midcast.NukeWithMatchingWeather)
-		elseif spell.english:contains('helix II') or spell.english:contains('IV') or spell.english:contains('V') then
+			end
+		end
+		if spell.english:contains('helix II') or spell.english:contains('IV') or spell.english:contains('V') then
 			if player.equipment.main == "Bunzi's Rod" then
 				equip(sets.Nuke["MB - With Bunzi"])
-				elseif player.equipment.main ~= "Bunzi's Rod" then
-					equip(sets.Nuke["MB - Without Bunzi"])
+				    if world.weather_element == spell.element or world.day_element == spell.element then
+						equip(sets.midcast.NukeWithMatchingWeather)
 					end
 				end
 			end
+			if player.equipment.main ~= "Bunzi's Rod" then
+				equip(sets.Nuke["MB - Without Bunzi"])
+				    if world.weather_element == spell.element or world.day_element == spell.element then
+						equip(sets.midcast.NukeWithMatchingWeather)
+					end
+				end
 		if spell.name:match('Noctohelix') then 
 			equip(sets.Nuke["Noctohelix"])
 		end
