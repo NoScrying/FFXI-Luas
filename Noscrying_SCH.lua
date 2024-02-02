@@ -584,22 +584,22 @@ function midcast(spell)
 	end
 	if spell.name:match('Regen') then
 		equip(sets.midcast.regen) else
-			if spell.name:match('Refresh') or spell.name:match('Aquaveil') then
+			if spell.name:match('Refresh') or ('Aquaveil') then
 				equip(sets.midcast.refresh) else
 					if spell.skill == 'Enhancing Magic'  then
 						equip(sets.midcast.enhancingduration)
 					end
 				end
 			end
-	if spell.name:match("Phalanx") or spell.name:match("Bar") then
+	if spell.name:match("Phalanx") or ("Bar") then
 		equip(sets.midcast.enhancingskill)
 	end
 	if spell.name:match('Klimaform') then
 		equip(sets.ja['Klimaform'])
 	end
-	if spell.name:match("Sleep") or spell.name:match("Break") or spell.name:match("Dispel") or spell.name:match("Silence") then 
+	if spell.name:match("Sleep") or ("Break") or ("Dispel") or ("Silence") then 
 		equip (sets.midcast.MACC) else
-			if spell.name:match('Aspir') or spell.name:match('Drain') then
+			if spell.name:match('Aspir') or ('Drain') then
 				equip (sets.midcast.Drain) else
 			if spell.skill == 'Enfeebling Magic' then
 				equip(sets.midcast.enfeebling)
