@@ -678,8 +678,6 @@ function midcast(spell)
 
 	if spell.name:match('storm') or spell.name:match('Ice Spikes') or spell.name:match('En')  or spell.name:match('Bar')or spell.name:match('Protect')or spell.name:match('Shell')then
 		equip(sets.midcast.enhancingduration)	
-	elseif spell.name:match('Subduction') or spell.name:match('Spectral Floe') or spell.name:match('Stone II') or spell.name:match('Retinal Glare')or spell.name:match('Entomb')or spell.name:match('Blinding Fulgor') or spell.name:match('Dia') or spell.name:match('Molting Plumage') or spell.name:match('Anvil Lightning') then
-        equip(sets.midcast.elemental)
 	elseif spell.name:match('Jettatura') or spell.name:match('Absolute Terror') or spell.name:match('Osmosis') or spell.name:match('Blank Gaze') or spell.name:match('Geist Wall') or spell.name:match('Tourbillion')or spell.name:match('Sudden Lunge')or spell.name:match('Dream Flower') or spell.name:match('Sheep Song')or spell.name:match('Cruel Joke')or spell.name:match('Dispel')or spell.name:match('Whirl of Rage')or spell.name:match('Chaotic Eye')or spell.name:match('Feather Tickle') or spell.name =='Reaving Wind' or spell.name:match('Magic Hammer') then
 		equip(sets.midcast.magicacc)
 	end
@@ -693,19 +691,18 @@ function midcast(spell)
 		equip(sets.midcast.phalanx)
 	end
     if spell.action_type == 'Magic' then
-        if spell.name:match('Subduction') or spell.name:match('Spectral Floe') or spell.name:match('Stone II') or spell.name:match('Retinal Glare')or spell.name:match('Entomb')or spell.name:match('Blinding Fulgor') or spell.name:match('Dia') or spell.name:match('Molting Plumage') or spell.name:match('Anvil Lightning') then
-			equip(sets.midcast.elemental)
-            equip(sets.midcast['Elemental Magic'])
+        if spell.name:match('Subduction') or spell.name:match('Spectral Floe') or spell.name:match('Retinal Glare')or spell.name:match('Entomb')or spell.name:match('Blinding Fulgor') or spell.name:match('Dia') or spell.name:match('Molting Plumage') or spell.name:match('Anvil Lightning') then
+	equip(sets.midcast.elemental)
             if world.weather_element == spell.element or world.day_element == spell.element then
                 equip(sets.midcast.NukeWithMatchingWeather)
-				end
-			        elseif spell.skill == 'Healing Magic' and spell.english:startswith('Cur') and spell.english ~= 'Cursna' then
-						equip(sets.midcast.cure)
-						if world.weather_element == spell.element or world.day_element == spell.element then
-						equip(sets.midcast.CureWithLightWeather)
-				end
+			end
+	elseif spell.skill == 'Healing Magic' and spell.english:startswith('Cur') and spell.english ~= 'Cursna' then
+		equip(sets.midcast.cure)
+			if world.weather_element == spell.element or world.day_element == spell.element then
+				equip(sets.midcast.CureWithLightWeather)
 			end
 		end
+	end
 	if spell.skill == 'Elemental Magic' then
         equip(sets.midcast.elemental)
 			if world.weather_element == spell.element or world.day_element == spell.element then
