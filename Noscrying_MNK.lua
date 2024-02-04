@@ -78,23 +78,22 @@ function get_sets()
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 }
 	sets.Tank_Mode = {}
-	sets.Tank_Mode.index = {'Counter - 76', 'Hybrid - SB+75'} --, 
+	sets.Tank_Mode.index = {'Counter - 80', 'Hybrid - SB+75'} --, 
 	Tank_Mode_ind = 1
-	sets.Tank_Mode["Counter - 76"] = {			--, -54PDT, 36STP(13 Hit),3QA, 8TA, 15DA, PDL+6%, Counter +49, Merit +5, JT +22  (76)
-    ammo="Amar Cluster", 			--, 
-    head="Malignance Chapeau", 		--, -6DT, 8STP, PDL+3
-    body="Mpaca's Doublet", 		--, -10PDT, Counter +10
+	sets.Tank_Mode["Counter - 80"] = {	--, -54PDT, 36STP(13 Hit),3QA, 8TA, 10DA, PDL+6%, Counter +53, Merit +5, JT +22  (80)
+    ammo="Amar Cluster", 			--, Counter +2
+    head="Malignance Chapeau", 			--, -6DT, 8STP, PDL+3
+    body="Mpaca's Doublet", 			--, -10PDT, Counter +10
 	hands="Rao Kote +1",			--, Counter +5
     legs="Anch. Hose +2",			--, Counter +5
-    feet="Bhikku Gaiters +2",		--, -9DT,
+    feet="Bhikku Gaiters +2",			--, -9DT,
     neck={ name="Bathy Choker +1", augments={'Path: A',}}, --, Counter +10
-    waist="Moonbow Belt +1", 		--, -6DT, 8TA, 15SBII
-    left_ear="Sherida Earring", 	--, 5DA, 5STP, 5SBII
-    right_ear={ name="Bhikku Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}}, --, Counter +7
-    left_ring="Niqmaddu Ring",		--, 3QA, 5SBII  
-    right_ring="Defending Ring",	--, -10DT
+    waist="Moonbow Belt +1", 			--, -6DT, 8TA, 15SBII
+    left_ear="Cryptic Earring", 		--, Counter +3
+    right_ear="Bhikku Earring +1", 		--, Counter +8
+    left_ring="Niqmaddu Ring",			--, 3QA, 5SBII  
+    right_ring="Defending Ring",		--, -10DT
     back={ name="Segomo's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','System: 1 ID: 640 Val: 4',}}, --, 10DA, Counter +10
-	}
 	sets.Tank_Mode["Hybrid - SB+75"]= {			--, 
     ammo="Staunch Tathlum +1",
     head="Malignance Chapeau",
