@@ -562,16 +562,16 @@ function get_sets()
      legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
     feet={ name="Telchine Pigaches", augments={'Enh. Mag. eff. dur. +10',}},
 	waist="Gishdubar Sash",
-    neck="Mirage Stole +1",
-    left_ear="Halasz Earring",
-    right_ear="Magnetic Earring",
-    back={ name="Cornflower Cape", augments={'MP+21','DEX+1','Blue Magic skill +10',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    neck="Warder's Charm +1",
+    left_ear="Magnetic Earring",
+	right_ear="Odnowa Earring +1",
+    left_ring="Gelatinous Ring +1",
+    right_ring="Defending Ring",
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 
 	sets.midcast.enhancingduration = {
-	ammo="Staunch Tathlum",
+	ammo="Staunch Tathlum +1", 
 	head={ name="Telchine Cap", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
     body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
     hands={ name="Telchine Gloves", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +9',}},
@@ -586,7 +586,7 @@ function get_sets()
     back="Merciful Cape",
 	}
 	sets.midcast.phalanx = {
-	ammo="Staunch Tathlum",
+	ammo="Staunch Tathlum +1", 
     head={ name="Taeon Chapeau", augments={'Spell interruption rate down -8%','Phalanx +3',}},
     body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},
@@ -602,18 +602,19 @@ function get_sets()
 	}
 
 	sets.midcast.regen = { --72 SIRD, +15 Regen
-	ammo="Staunch Tathlum", 
+	ammo="Staunch Tathlum +1", 
     head={ name="Taeon Chapeau", augments={'Mag. Evasion+16','Spell interruption rate down -9%','"Regen" potency+3',}},
     body={ name="Taeon Tabard", augments={'Mag. Evasion+19','Spell interruption rate down -9%','"Regen" potency+3',}},
     hands={ name="Taeon Gloves", augments={'Mag. Evasion+15','Spell interruption rate down -10%','"Regen" potency+3',}},
     legs={ name="Taeon Tights", augments={'Mag. Evasion+17','Spell interruption rate down -9%','"Regen" potency+3',}},
     feet={ name="Taeon Boots", augments={'Mag. Evasion+18','Spell interruption rate down -9%','"Regen" potency+3',}},
-	waist="Resolute Belt",
-    neck="Mirage Stole +1",
+    waist="Flume Belt",
+    neck="Warder's Charm +1",
     left_ear="Magnetic Earring",
+	right_ear="Odnowa Earring +1",
+    left_ring="Gelatinous Ring +1",
+    right_ring="Defending Ring",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
 	}
 
 
