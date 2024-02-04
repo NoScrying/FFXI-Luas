@@ -279,6 +279,21 @@ function get_sets()
     right_ring="Epaminondas's Ring",
     back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
 	}
+	sets.ws['Realmrazer']	= {
+    ammo="Coiste Bodhar",
+    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    legs={ name="Herculean Trousers", augments={'Accuracy+28','"Triple Atk."+4','AGI+5',}},
+    feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
+    neck={ name="Mirage Stole +1", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Hashishin Earring +1",
+    left_ring="Sroda Ring",
+    right_ring="Epona's Ring",
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	}
 	sets.ws['Flash Nova']	= {
 	ammo="Oshasha's Treatise",
     head="Hashishin Kavuk +2",
@@ -409,7 +424,7 @@ function get_sets()
     -- feet={ name="Herculean Boots", augments={'"Dual Wield"+1','Attack+5','"Treasure Hunter"+1',}},
 	-- waist="Chaac Belt",
 	
-	ammo="Ghastly Tathlum +1", --, Normal, non TH
+
     head="Hashishin Kavuk +2",
     waist="Orpheus's Sash",
     feet="Hashishin Basmak +2",
@@ -417,14 +432,18 @@ function get_sets()
 	-- ammo="Staunch Tathlum +1", --, SIRD
     -- left_ear="Magnetic Earring",
     -- left_ring="Evanescence Ring",
-
-	-- ammo="Ghastly Tathlum +1", --, Normal MAB
-    -- left_ear="Friomisi Earring",
-    -- left_ring="Jhakri Ring",
 	
+	ammo="Ghastly Tathlum +1",
+    left_ear="Friomisi Earring",
+	left_ring="Arvina Ringlet +1",
+	
+
+	right_ear="Regal Earring",
+	right_ring="Metamor. Ring +1",
     body="Hashishin Mintan +2",
 	hands="Hashishin Bazubands +2",
-    legs="Luhlaza Shalwar +3",
+    --legs="Luhlaza Shalwar +3",
+	legs="Hashishin Tayt +2",
     back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
 	}
 	sets.midcast.pixie = {
@@ -432,7 +451,8 @@ function get_sets()
 	head="Pixie Hairpin +1",
     body="Hashishin Mintan +2",
 	hands="Hashishin Bazubands +2",
-    legs="Luhlaza Shalwar +3",
+    --legs="Luhlaza Shalwar +3",
+	legs="Hashishin Tayt +2",
     feet="Hashishin Basmak +2",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
