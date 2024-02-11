@@ -541,7 +541,7 @@ function get_sets()
     right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
-	sets.midcast.Recast = {			--, 34% FC + 15% JT = 24% Recast + 16% Recast = 40% Recast
+	sets.midcast.Recast = {			--, 34% FC + 15% JT = 24% Recast + 16% Recast = 40% Recast -- need Luhlaza Body for +9% FC
     ammo="Sapience Orb",			--, 2% FC
     head="Carmine Mask +1",			--, 14% FC
     body="Hashishin Mintan +2",
