@@ -28,7 +28,7 @@ function get_sets()
 	Master_Mode_Index = 1
 	
 	sets.Master_Mode["normal"] = {
-		ammo="Automat. Oil +3",
+		--ammo="Automat. Oil +3",
     head="Mpaca's Cap",
     body="Tali'ah Manteel +2",
     hands="Mpaca's Gloves",
@@ -43,7 +43,7 @@ function get_sets()
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.Master_Mode["Hybrid"] = {
-	     ammo="Automat. Oil +3",
+	     --ammo="Automat. Oil +3",
     head="Mpaca's Cap",
     body="Tali\'ah Manteel +2",
     hands="Foire Dastanas +2",
@@ -58,7 +58,7 @@ function get_sets()
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}	
 	sets.Master_Mode["DT"] = {
-	     ammo="Automat. Oil +3",
+	     --ammo="Automat. Oil +3",
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -78,7 +78,7 @@ function get_sets()
 	Puppet_Mode_Index = 1
 	
 	sets.Puppet_Mode["PUPDA"] = {
-	ammo="Automat. Oil +3",
+	--ammo="Automat. Oil +3",
     head={ name="Taeon Chapeau", augments={'Pet: Accuracy+19 Pet: Rng. Acc.+19','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     body={ name="Taeon Tabard", augments={'Pet: Accuracy+19 Pet: Rng. Acc.+19','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     hands={ name="Taeon Gloves", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
@@ -94,7 +94,7 @@ function get_sets()
 }	
 
 	sets.Puppet_Mode["PUPDT"] = {
-    ammo="Automat. Oil +3",
+    --ammo="Automat. Oil +3",
     head={ name="Rao Kabuto", augments={'Pet: HP+100','Pet: Accuracy+15','Pet: Damage taken -3%',}},
     body={ name="Rao Togi", augments={'Pet: HP+100','Pet: Accuracy+15','Pet: Damage taken -3%',}},
     hands={ name="Rao Kote", augments={'Pet: HP+100','Pet: Accuracy+15','Pet: Damage taken -3%',}},
@@ -109,7 +109,7 @@ function get_sets()
     back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Haste+10','Pet: Damage taken -5%',}},
 }
 	sets.Puppet_Mode["Master/Pet"] = {
-	ammo="Automat. Oil +3",
+	--ammo="Automat. Oil +3",
     head="Mpaca's Cap",
     body="Mpaca's Doublet",
     hands="Mpaca's Gloves",
@@ -363,7 +363,7 @@ function get_sets()
 	sets.idle = {} 					-- Leave this empty.
 
 	sets.idle.normal = {	
-    ammo="Automat. Oil +3",
+    --ammo="Automat. Oil +3",
     head="Nyame Helm",
     body="Hiza. Haramaki +2",
     hands="Nyame Gauntlets",

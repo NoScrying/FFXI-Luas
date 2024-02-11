@@ -44,7 +44,7 @@ function get_sets()
     main="Debahocho",
 	}
 	sets.weapons.GreatKatana = {
-    main="Xanmato",
+    main="Zanmato",
 	}
 	sets.weapons.Staff = {
     main="Caver's Shovel",
@@ -91,7 +91,7 @@ function get_sets()
     back="Thall Mantle",
 }
 
-	Melee_Set_Names = {'TH',"STP",} --, 'normal''DT'
+	Melee_Set_Names = {'TH',"STP","normal"} --, 'normal''DT'
 	sets.melee = {} 				-- Leave this empty.
 	sets.melee.normal = {
     ammo="Aurgelmir Orb",
@@ -156,7 +156,7 @@ function get_sets()
 	left_ring="Lehko's Ring",
 	}
 	
-	Run_Set_Names = {'DT'}
+	Run_Set_Names = {'DT', "Regen"}
 	sets.run = {}
 	sets.run.DT =  {
 	ammo="Perfect Lucky Egg",
@@ -173,7 +173,21 @@ function get_sets()
     right_ring="Defending Ring",
 	back="Sacro Mantle",
 	}
-		
+	sets.run.Regen =  {
+    ammo="Per. Lucky Egg",
+    head="Gleti's Mask",
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    feet="Jute Boots +1",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    waist="Engraved Belt",
+    left_ear="Infused Earring",
+    right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
+    left_ring="Chirich Ring +1",
+    right_ring="Chirich Ring +1",
+    back="Moonbeam Cape",
+	}	
 	sets.ws = {} 					-- Leave this empty.
 	sets.ws['Cyclone'] = {
     head="White Rarab Cap +1",
@@ -199,9 +213,9 @@ function get_sets()
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Fenrir Ring",
+    left_ring="Dingir Ring",
     right_ring="Epaminondas's Ring",
-    back="Argocham. Mantle",
+    back="Sacro Mantle",
 	}
 	sets.ws['Sanguine Blade'] = {
     ammo="Oshasha's Treatise",
@@ -216,7 +230,7 @@ function get_sets()
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Fenrir Ring",
     right_ring="Epaminondas's Ring",
-    back="Argocham. Mantle",
+    back="Sacro Mantle",
 	}
 
 	sets.ws["Rudra's Storm"] = {
@@ -311,49 +325,49 @@ function get_sets()
 	
 	sets.ja = {} 					-- Leave this empty.
 	sets.ja['Steal'] = {
-	ammo="Perfect Lucky Egg",
-    head="White Rarab Cap +1",
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
-    legs="Meghanada Chausses +2",
-    feet="Skulk. Poulaines",
-    neck="Lissome Necklace",
-    waist="Chaac Belt",
+    ammo="Aurgelmir Orb",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Iskur Gorget",
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
-    right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
-    left_ring="Epona's Ring",
-    right_ring="Mummu Ring",
-	back="Sacro Mantle",
+    right_ear="Crep. Earring",
+    left_ring="Moonlight Ring",
+    right_ring="Lehko's Ring",
+    back="Sacro Mantle",
 	}
 	sets.ja['Mug'] = {
-	ammo="Perfect Lucky Egg",
-    head="White Rarab Cap +1",
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
-    legs="Meghanada Chausses +2",
-    feet="Skulk. Poulaines",
-    neck="Lissome Necklace",
-    waist="Chaac Belt",
+    ammo="Aurgelmir Orb",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Iskur Gorget",
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
-    right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
-    left_ring="Epona's Ring",
-    right_ring="Mummu Ring",
-	back="Sacro Mantle",
+    right_ear="Crep. Earring",
+    left_ring="Moonlight Ring",
+    right_ring="Lehko's Ring",
+    back="Sacro Mantle",
 	}
 	sets.ja['Despoil'] = {
-	ammo="Perfect Lucky Egg",
-    head="White Rarab Cap +1",
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
-    legs="Meghanada Chausses +2",
-    feet="Skulk. Poulaines",
-    neck="Lissome Necklace",
-    waist="Chaac Belt",
+    ammo="Aurgelmir Orb",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Iskur Gorget",
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
-    right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
-    left_ring="Epona's Ring",
-    right_ring="Mummu Ring",
-	back="Sacro Mantle",
+    right_ear="Crep. Earring",
+    left_ring="Moonlight Ring",
+    right_ring="Lehko's Ring",
+    back="Sacro Mantle",
 	}
 		
 	sets.idle = {} 					-- Leave this empty.
@@ -374,16 +388,19 @@ function get_sets()
 	}
 	sets.precast = {}               -- leave this empty
 	sets.precast.fastcast = {
-	ammo="Impatiens",
+    ammo="Sapience Orb",
+    head={ name="Herculean Helm", augments={'Accuracy+15','"Triple Atk."+4','Attack+14',}},
+    body={ name="Taeon Tabard", augments={'"Snapshot"+5','AGI+10',}},
+    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+    legs="Enif Cosciales",
+    feet="Jute Boots +1",
     neck="Voltsurge Torque",
+    waist="Engraved Belt",
     left_ear="Loquac. Earring",
-    left_ring="Lebeche Ring",
-    right_ring="Weather. Ring",
-    head={ name="Taeon Chapeau", augments={'Spell interruption rate down -8%','Phalanx +3',}},	--, 8
-    body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}}, 	--, 10
-    hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},	--, 10
-    legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},	--, 10
-    feet={ name="Taeon Boots", augments={'Spell interruption rate down -10%','Phalanx +3',}},	--, 10
+    right_ear="Enchntr. Earring +1",
+    left_ring="Weather. Ring +1",
+    right_ring="Lebeche Ring",
+    back="Sacro Mantle",
 	}
 	
     sets.midcast = {}               -- leave this empty    
@@ -394,6 +411,20 @@ function get_sets()
     hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},	--, 10
     legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},	--, 10
     feet={ name="Taeon Boots", augments={'Spell interruption rate down -10%','Phalanx +3',}},	--, 10
+	}
+	sets.midcast.enhancingduration = {
+    head={ name="Telchine Cap", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
+    body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
+    hands={ name="Telchine Gloves", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +9',}},
+    legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
+    feet={ name="Telchine Pigaches", augments={'Enh. Mag. eff. dur. +10',}},
+    neck="Melic Torque",
+    waist="Embla Sash",
+    left_ear="Andoaa Earring",
+    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back="Merciful Cape",
 	}
 	sets.midcast['Diaga'] = {
 	ammo="Perfect Lucky Egg",
@@ -457,6 +488,9 @@ function midcast(spell)
 	end
 	if spell.action_type == 'Ranged Attack' then
 		equip(sets.ranged.normal)
+	end
+	if spell.skill == 'Enhancing Magic' then
+		equip(sets.midcast.enhancingduration)
 	end
 	if spell.name:match('Phalanx') then
 		equip(sets.midcast.phalanx)

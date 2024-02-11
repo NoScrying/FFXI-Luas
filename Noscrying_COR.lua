@@ -151,7 +151,7 @@ function get_sets()
 	}		
 
 	
-	CP_Set_Names = {'Run'}
+	CP_Set_Names = {'Run',"Regen"}
 	sets.CP = {}
 	sets.CP.Run = {
 	ammo="Eminent Bullet",
@@ -168,7 +168,20 @@ function get_sets()
     right_ring="Defending Ring",
     back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
-	
+	sets.CP.Regen = {
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    feet="Nyame Sollerets",
+    neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    waist="Flume Belt",
+    left_ear="Infused Earring",
+    right_ear="Suppanomimi",
+    left_ring="Chirich Ring +1",
+    right_ring="Defending Ring",
+    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	}	
 	Gun_Set_Names = {'Savage', 'Leaden'}
 	sets.Gun = {}
 	sets.Gun.Savage = {
@@ -264,9 +277,9 @@ function get_sets()
     hands="Meg. Gloves +2",
     legs="Meg. Chausses +2",
     feet="Meg. Jam. +2",
-    neck="Fotia Gorget",
-    waist="Fotia Belt",
-	left_ear="Crepuscular Earring",
+    neck="Iskur Gorget",
+    waist="Kwahu Kachina Belt",
+	left_ear="Beyla Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Ilabrat Ring",
     right_ring="Dingir Ring",
@@ -327,9 +340,9 @@ function get_sets()
     hands="Meg. Gloves +2",
     legs="Meg. Chausses +2",
     feet="Meg. Jam. +2",
-    neck="Fotia Gorget",
+    neck="Iskur Gorget",
     waist="Kwahu Kachina Belt",
-    left_ear="Crepuscular Earring",
+    left_ear="Beyla Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Ilabrat Ring",
     right_ring="Dingir Ring",

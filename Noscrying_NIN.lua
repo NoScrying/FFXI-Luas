@@ -479,6 +479,9 @@ function precast(spell)
 end
 
 function midcast(spell)
+    if  spell.action_type == 'Magic' then
+        equip(sets.melee.DT)
+	end
     if spell.name:match('Utsusemi')then
         equip(sets.midcast.Utsusemi)
 	end

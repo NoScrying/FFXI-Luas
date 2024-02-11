@@ -84,7 +84,7 @@ function get_sets()
 	sets.Run = {}
 	sets.Run.Refresh =  {
     ammo="Homiliary",
-    head="Volte Beret",
+    head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
     hands="Nyame Gauntlets",
 	legs="Assiduity Pants +1",
@@ -176,7 +176,21 @@ function get_sets()
     right_ring="Ifrit Ring +1",
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
-
+	sets.ws['Realmrazer']	= {
+    ammo="Oshasha's Treatise",
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    body="Nyame Mail",
+    hands="Jhakri Cuffs +2",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Rep. Plat. Medal",
+    waist="Cornelia's Belt",
+    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Regal Earring",
+    left_ring="Epaminondas's Ring",
+    right_ring="Ifrit Ring +1",
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+	}
 	sets.ws['Flash Nova']	= {
 	ammo="Ginsen",
     head="Jhakri Coronal +2",
@@ -228,8 +242,6 @@ function get_sets()
 	waist="Embla Sash",
 	}
 	sets.ja['Klimaform'] = {
-	main="Pedagogy Staff",
-	sub="Khonsu",
 	ammo="Impatiens",
 	head={ name="Telchine Cap", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
     body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
@@ -586,18 +598,20 @@ function midcast(spell)
 		equip(sets.midcast.regen) else
 			if spell.name:match('Refresh') or ('Aquaveil') then
 				equip(sets.midcast.refresh) else
+					if spell.name:match("Phalanx") or ("Bar") then
+						equip(sets.midcast.enhancingskill)
 					if spell.skill == 'Enhancing Magic'  then
 						equip(sets.midcast.enhancingduration)
+
 					end
 				end
 			end
-	if spell.name:match("Phalanx") or ("Bar") then
-		equip(sets.midcast.enhancingskill)
-	end
+		end
+		
 	if spell.name:match('Klimaform') then
 		equip(sets.ja['Klimaform'])
 	end
-	if spell.name:match("Sleep") or ("Break") or ("Dispel") or ("Silence") then 
+	if spell.name:match("Sleep") or ("Break") or ("Dispel") or ("Silence") or ("Bio")then 
 		equip (sets.midcast.MACC) else
 			if spell.name:match('Aspir') or ('Drain') then
 				equip (sets.midcast.Drain) else
@@ -606,26 +620,36 @@ function midcast(spell)
 			end
 		end
 	end
+        -- if spell.skill == 'Elemental Magic' or spell.name:match ("Burn") or ("Choke") or ("Shock") then
+			-- equip(sets.Nuke.Nukes)
+            -- if world.weather_element == spell.element or world.day_element == spell.element then
+                -- equip(sets.midcast.NukeWithMatchingWeather)
+			-- end
+		-- end
+		-- if spell.english:contains('helix II') or spell.english:contains('IV') or spell.english:contains('V') then
+			-- if player.equipment.main == "Bunzi's Rod" then
+				-- equip(sets.Nuke["MB - With Bunzi"])
+				    -- if world.weather_element == spell.element or world.day_element == spell.element then
+						-- equip(sets.midcast.NukeWithMatchingWeather)
+					-- end
+				-- end
+			-- end
+		-- if spell.english:contains('helix II') or spell.english:contains('IV') or spell.english:contains('V') then
+			-- if player.equipment.main ~= "Bunzi's Rod" then
+				-- equip(sets.Nuke["MB - Without Bunzi"])
+				    -- if world.weather_element == spell.element or world.day_element == spell.element then
+						-- equip(sets.midcast.NukeWithMatchingWeather)
+					-- end
+				-- end
+			-- end
+		if spell.action_type == 'Magic' then
         if spell.skill == 'Elemental Magic' then
-			equip(sets.Nuke.Nukes)
-            if world.weather_element == spell.element or world.day_element == spell.element then
+            equip(sets.Nuke[Nuke_Set_Names[Nuke_Index]])
+            if world.weather_element == spell.element or world.day_element == spell.element then --, If spell matches day or zone weather, then adds below set to above set
                 equip(sets.midcast.NukeWithMatchingWeather)
-			end
 		end
-		if spell.english:contains('helix II') or spell.english:contains('IV') or spell.english:contains('V') then
-			if player.equipment.main == "Bunzi's Rod" then
-				equip(sets.Nuke["MB - With Bunzi"])
-				    if world.weather_element == spell.element or world.day_element == spell.element then
-						equip(sets.midcast.NukeWithMatchingWeather)
-					end
-				end
-			end
-			if player.equipment.main ~= "Bunzi's Rod" then
-				equip(sets.Nuke["MB - Without Bunzi"])
-				    if world.weather_element == spell.element or world.day_element == spell.element then
-						equip(sets.midcast.NukeWithMatchingWeather)
-					end
-				end
+	end
+end
 		if spell.name:match('Noctohelix') then 
 			equip(sets.Nuke["Noctohelix"])
 		end
@@ -633,7 +657,6 @@ function midcast(spell)
 			equip(sets.Nuke["Luminohelix"])
 		end		
 
-		
 		if spell.skill == 'Healing Magic' then
 			equip(sets.midcast.cure)
 				if buffactive == "Rapture" then

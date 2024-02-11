@@ -22,7 +22,7 @@ function get_sets()
 	Dagger_Index = 1
 	Nuke_Index = 1
 	
-	Crocea_Set_Names = {'Daybreak','Tauret'} --'Odin', 'Crocea_TPBonus','Gleti' --, must define set names, so it knows what to switch to
+	Crocea_Set_Names = {'Daybreak','Tauret',"Bunzi","Ammurapi"} --'Odin', 'Crocea_TPBonus','Gleti' --, must define set names, so it knows what to switch to
 	sets.Crocea = {}
 	sets.Crocea.Daybreak = {
     main={ name="Crocea Mors", augments={'Path: C',}},
@@ -32,27 +32,37 @@ function get_sets()
     main={ name="Crocea Mors", augments={'Path: C',}},
     sub="Gleti's Knife",
 	}
+	sets.Crocea['Bunzi'] = {
+    main={ name="Crocea Mors", augments={'Path: C',}},
+    sub="Bunzi's Rod",
+	}
 	sets.Crocea['Tauret'] = {
     main={ name="Crocea Mors", augments={'Path: C',}},
     sub="Tauret",
 	}	
-	-- sets.Crocea.Odin = {
-    -- main="Wind Knife",
-    -- sub="Qutrub Knife",
-    -- range="Kaja Bow",
-    -- head="Malignance Chapeau",
-    -- body="Malignance Tabard",
-    -- hands="Aya. Manopolas +2",
-    -- legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    -- feet="Malignance Boots",
-    -- neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-    -- waist="Orpheus's Sash",
-    -- left_ear="Sherida Earring",
-    -- right_ear="Suppanomimi",
-    -- left_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
-    -- right_ring="Supershear Ring",
-    -- back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-	-- }	
+	sets.Crocea['Ammurapi'] = {
+    main={ name="Crocea Mors", augments={'Path: C',}},
+    sub="Ammurapi Shield",
+	}	
+	Sword_Set_Names = {"Odin"}
+	sets.Sword = {}
+	sets.Sword.Odin = {
+    main="Wind Knife",
+    sub="Qutrub Knife",
+    range="Kaja Bow",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Aya. Manopolas +2",
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    feet="Malignance Boots",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Orpheus's Sash",
+    left_ear="Sherida Earring",
+    right_ear="Suppanomimi",
+    left_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Supershear Ring",
+    back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	}
 
 
 	Club_Set_Names = {'Dispelga','Maxentius'}
@@ -63,7 +73,7 @@ function get_sets()
 	}
 	sets.Club.Maxentius = {
     main="Maxentius",
-    sub="Tauret",
+    sub="Machaera +2",
 	}
 	
 	Relic_Set_Names = {'Excalibur & TP Bonus','Mandau & Gleti'} --,'Excalibur & Gleti'
@@ -162,7 +172,7 @@ function get_sets()
 	SW_Set_Names = {'SW', 'DT'}
 	sets.SW = {}
 	sets.SW.SW = { --, -49PDT, -39MDT, 23DA, 2TA, 63STP +17 Enspell Damage
-	sub="Ammurapi Shield",
+	--sub="Ammurapi Shield",
 	ammo="Coiste Bodhar",
     head="Malignance Chapeau",
     body="Malignance Tabard",
@@ -178,7 +188,7 @@ function get_sets()
     back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 	sets.SW.DT = { --, -51PDT, -41MDT, 18DA, 2TA, 68STP, +10% Counter
-	sub="Ammurapi Shield",
+	--sub="Ammurapi Shield",
 	ammo="Coiste Bodhar",
     head="Malignance Chapeau",
     body="Malignance Tabard",
@@ -289,7 +299,7 @@ function get_sets()
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Crepuscular Ring",
     right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+7',}},
+    back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
 	}
 	sets.ws['Requiescat']	= {
     ammo="Oshasha's Treatise",
@@ -311,7 +321,7 @@ function get_sets()
 	ammo="Sroda Tathlum", --, Magic Critical Hit II, is a 25% Damage increase, Magic Crit Hit is only +10MAB
     head="Pixie Hairpin +1",
     body="Lethargy Sayon +2",
-    hands="Leth. Ganth. +2",
+    hands="Jhakri Cuffs +2",
     legs="Leth. Fuseau +2",
     feet="Leth. Houseaux +3",
     neck="Sibyl Scarf",
@@ -328,7 +338,6 @@ function get_sets()
 	ammo="Sroda Tathlum",
     head="Jhakri Coronal +2",
     body="Lethargy Sayon +2",
-    hands="Leth. Ganth. +2",
     hands="Jhakri Cuffs +2",
     legs="Leth. Fuseau +2",
     feet="Leth. Houseaux +3",
@@ -346,7 +355,7 @@ function get_sets()
 	ammo="Sroda Tathlum",
     head="Jhakri Coronal +2",
     body="Lethargy Sayon +2",
-    hands="Leth. Ganth. +2",
+    hands="Jhakri Cuffs +2",
     legs="Leth. Fuseau +2",
     feet="Leth. Houseaux +3",
     neck="Sibyl Scarf",
@@ -363,7 +372,7 @@ function get_sets()
 	ammo="Sroda Tathlum",
     head="Jhakri Coronal +2",
     body="Lethargy Sayon +2",
-    hands="Leth. Ganth. +2",
+    hands="Jhakri Cuffs +2",
     legs="Leth. Fuseau +2",
     feet="Leth. Houseaux +3",
     neck="Sibyl Scarf",
@@ -417,14 +426,14 @@ function get_sets()
     waist="Orpheus's Sash",
     head="Jhakri Coronal +2",
     body="Lethargy Sayon +2",
-    hands="Leth. Ganth. +2",
+    hands="Jhakri Cuffs +2",
     legs="Leth. Fuseau +2",
     neck="Sibyl Scarf",
     left_ear="Regal Earring",
     right_ear="Malignance Earring",
     left_ring="Freke Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+7',}},
+    back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
 	}
 
 	sets.ws['Evisceration'] = {
@@ -513,7 +522,7 @@ function get_sets()
     right_ear="Regal Earring",
     left_ring="Jhakri Ring",
     right_ring="Freke Ring",
-    back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+7',}},
+    back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
 	}
 	
 	sets.Nuke.MB = { --, MAB 256, MACC 312, Magic Burst 40 (Cap 40), MB II 25 (no cap), Magic Damage +445, Magic Crit Hit II +10%
@@ -529,7 +538,7 @@ function get_sets()
     right_ear="Regal Earring",
     left_ring="Mujin Band",
     right_ring="Freke Ring",
-    back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+7',}},
+    back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
 	}
 	sets.Nuke["Luminohelix"] = set_combine (sets.Nuke.MB, {
 	left_ring = "Weatherspoon Ring +1",
@@ -591,7 +600,7 @@ function get_sets()
     left_ring="Stikini Ring +1",
     --right_ring={ name="Metamor. Ring +1", augments={'Path: A',}}, --, +15 MACC, +16 MND/INT
     right_ring="Stikini Ring +1",
-    back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+7',}}, --,  Enfeebling Potency +10, Enfeebling Duration +20%
+    back={ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}}, --,  Enfeebling Potency +10, Enfeebling Duration +20%
 }
 	sets.midcast.Macc = { --, +418 MACC, Enfeebling Skill +53, Enfeebling Potency +43, Enfeebling Duration +40%, Saboteur +13, Immunobreak +1, 
 	ammo="Regal Gem",
@@ -626,7 +635,7 @@ function get_sets()
     back={ name="Aurist's Cape +1", augments={'Path: A',}}, --, +30 MACC, +25 INT/MND (25 MACC'ish)
 }	
 	
-	sets.midcast.enhancingskill = { --, ML35 Skill = 658, Enhancing Skill +127 - Temper II = 35 TA
+	sets.midcast.enhancingskill = { --, ML40 Skill = 664, Enhancing Skill +127 - Temper II = 36 TA
 	ammo="Staunch Tathlum +1",
     --sub="Pukulatmuj +1",
     head="Befouled Crown",

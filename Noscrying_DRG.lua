@@ -9,21 +9,39 @@ function get_sets()
 	Melee_Set_Names = {'normal', 'DT'}
 	sets.melee = {} 					-- Leave this empty.
 	sets.melee.normal = {
-    ammo="Aurgelmir Orb",
+    ammo="Coiste Bodhar",
     head="Flam. Zucchetto +2",
     body="Hjarrandi Breast.",
-    hands={ name="Valorous Mitts", augments={'"Store TP"+7','Accuracy+14',}},
-    legs="Nyame Flanchard",
+    hands="Flamma Manopolas +2",
+    --hands="Sulevia's Gauntlets +2",
+    legs="Sulevia's Cuisses +2",
+    feet="Flam. Gambieras +2",
+    neck="Shulmanu Collar",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Sroda Earring",
+    right_ear="Sherida Earring",
+    --left_ring="Niqmaddu Ring",
+	left_ring="Moonlight Ring",
+    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	}
+	sets.melee.SAMSJ = {
+    ammo="Coiste Bodhar",
+    head="Flam. Zucchetto +2",
+    body="Hjarrandi Breast.",
+    --hands="Flamma Manopolas +2",
+    hands="Sulevia's Gauntlets +2",
+    legs="Sulevia's Cuisses +2",
     feet="Flam. Gambieras +2",
     neck="Shulmanu Collar",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sroda Earring",
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
+	--left_ring="Moonlight Ring",
     right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
-    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
-
 	sets.melee.DT = {
     ammo="Crepuscular Pebble",
     head="Nyame Helm",
@@ -37,7 +55,7 @@ function get_sets()
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Defending Ring",
-    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
 	Run_Set_Names = {'DT'}
@@ -69,19 +87,19 @@ function get_sets()
 	
 	sets.ws = {} 					-- Leave this empty.
 	sets.ws['Stardiver']	= {
-    ammo="Knobkierrie",
+    ammo="Coiste Bodhar",
     head="Gleti's Mask",
     body="Hjarrandi Breast.",
     hands="Gleti's Gauntlets",
     legs="Sulev. Cuisses +2",
-    feet="Flamm Gambieras +2",
+    feet="Gleti's Boots",
     neck="Fotia Gorget",
     waist="Fotia Belt",
-    left_ear="Thrud Earring",
+    left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
-    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+    right_ring="Lehko's Ring",
+    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.ws['Impulse Drive']	= {
@@ -97,7 +115,7 @@ function get_sets()
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
     right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
-    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 
 	sets.ws['Drakesbane']	= {
@@ -113,7 +131,7 @@ function get_sets()
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
-    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.ws['Camlann\'s Torment']	= {
@@ -129,7 +147,7 @@ function get_sets()
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Niqmaddu Ring",
     right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
-    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.ws['Wheeling Thrust']	= {
@@ -145,7 +163,7 @@ function get_sets()
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Niqmaddu Ring",
     right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
-    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.ws['Sonic Thrust']	= {
@@ -161,9 +179,24 @@ function get_sets()
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
-    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
+	sets.ws['Savage Blade']	= {
+    ammo="Knobkierrie",
+    head="Gleti's Mask",
+    body="Hjarrandi Breast.",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    feet="Sulev. Leggings +2",
+    neck="Rep. Plat. Medal",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Thrud Earring",
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ring="Epaminondas's Ring",
+    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	}	
 	sets.ja = {} 					-- Leave this empty
 	sets.ja['Call Wyvern'] = {
 	body="Wyrm Mail",
@@ -172,21 +205,21 @@ function get_sets()
 	Ammo="Angon"
 	}
 	sets.ja['Jump'] = {
-    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     legs="Sulevia's Cuisses +2",
 	feet="Vishap Greaves +1",
 	}
 	sets.ja['High Jump'] = {
-    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     legs="Sulevia's Cuisses +2",
 	feet="Vishap Greaves +1",
 	}	
 	sets.ja['Spirit Jump'] = {
-    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     legs="Sulevia's Cuisses +2",
 	}
 	sets.ja['Soul Jump'] = {
-    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     legs="Sulevia's Cuisses +2",
 	}
 	
@@ -194,7 +227,7 @@ function get_sets()
 	sets.idle.normal = {
 	ammo="Oshasha's Treatise",
     head="Gleti's Mask",
-    body="Sulevia's Platemail +2",
+    body="Nyame Mail",
     hands="Sulevia's Gauntlets +2",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     feet="Sulevia's Leggings +2",
@@ -209,16 +242,19 @@ function get_sets()
 	
 	sets.precast = {}               -- leave this empty
 	sets.precast.fastcast = {
-	ammo="Impatiens",
-    head={ name="Carmine Mask", augments={'Accuracy+15','Mag. Acc.+10','"Fast Cast"+3',}},
-    neck="Voltsurge Torque",
+    ammo="Sapience Orb",
+    head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
     body="Sacro Breastplate",
-	legs="Carmine Cuisses +1",
-	feet={ name="Carmine Greaves", augments={'Accuracy+10','DEX+10','MND+15',}},
-	left_ring="Lebeche Ring",
-	right_ring="Weatherspoon Ring +1",
-    left_ear="Malignance Earring",	
-    right_ear="Loquacious Earring",
+    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+    legs="Enif Cosciales",
+    feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}},
+    neck="Voltsurge Torque",
+    waist="Flume Belt",
+    left_ear="Enchntr. Earring +1",
+    right_ear="Loquac. Earring",
+    left_ring="Lebeche Ring",
+    right_ring="Weather. Ring +1",
+    back="Moonbeam Cape",
 	} 	
     sets.midcast = {}               -- leave this empty  
 	
@@ -250,7 +286,9 @@ function precast(spell)
 end
 
 function midcast(spell)
-
+    if  spell.action_type == 'Magic' then
+        equip(sets.melee.DT)
+	end
 end
 
 function aftercast(spell)
@@ -271,11 +309,11 @@ end
 
 
 function idle()
-	if player.status=='Engaged' and player.sub_job ~='NIN' or player.sub_job ~= 'DNC'then --, "~=" means "Is Not", So if sub is not NIN or DNC, then uses this set
+	if player.status=='Engaged' then --, "~=" means "Is Not", So if sub is not NIN or DNC, then uses this set
 		equip(sets.melee[Melee_Set_Names[Melee_Index]])
-	end
-	if player.status=='Engaged' and player.sub_job =='NIN' or player.sub_job == 'DNC' then --, "==" means "Is", So if sub is NIN or DNC then uses this set
-        equip(sets.melee.Kraken)
+			if player.sub_job =='SAM' then
+				equip(sets.melee.SAMSJ)
+		end
 	end
 	if player.status =='Idle' then
 		equip(sets.run.DT)
