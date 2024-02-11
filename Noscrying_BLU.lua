@@ -39,8 +39,10 @@ function get_sets()
     feet="Malignance Boots",
 	neck="Mirage Stole +1",
 	waist="Kentarch Belt +1",
-    left_ear="Eabani Earring",
+	left_ear="Eabani Earring",
     right_ear="Suppanomimi",
+    -- left_ear="Cessance Earring",
+    -- right_ear="Hashishin Earring +1",
     left_ring="Lehko's Ring",
 	right_ring="Chirich Ring +1",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
@@ -54,24 +56,24 @@ function get_sets()
     feet="Nyame Sollerets",
 	neck="Mirage Stole +1",
 	waist="Kentarch Belt +1",
-    left_ear="Eabani Earring",
-    right_ear="Suppanomimi",
+    left_ear="Cessance Earring",
+    right_ear="Hashishin Earring +1",
     left_ring="Lehko's Ring",
 	right_ring="Chirich Ring +1",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.melee["Hybrid:HasteII only"] = {
-    ammo="Staunch Tathlum +1",
+    ammo="Coiste Bodhar",
     head="Malignance Chapeau",
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    body="Malignance Tabard",
     hands="Malignance Gloves",
     --legs="Malignance Tights",	
     legs="Carmine Cuisses +1",
     feet="Malignance Boots",
 	neck="Mirage Stole +1",
-	waist="Shetal Stone",
-    left_ear="Eabani Earring",
-    right_ear="Suppanomimi",
+	waist="Kentarch Belt +1",
+    left_ear="Cessance Earring",
+    right_ear="Hashishin Earring +1",
     left_ring="Lehko's Ring",
 	right_ring="Chirich Ring +1",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
@@ -241,8 +243,8 @@ function get_sets()
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    legs="Hashishin Tayt +2",
-    feet="Hashishin Basmak +2",
+    legs="Gleti's Breeches",
+    feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
@@ -376,30 +378,37 @@ function get_sets()
 	sets.ja['Mug'] = {
     head="White Rarab Cap +1",
 	}
-
+	sets.ja.waltz = {		
+    head="Nyame Helm",
+    body="Gleti's Cuirass",
+    hands="Nyame Gauntlets",
+    legs="Dashing Subligar",
+    feet="Nyame Sollerets",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Tuisto Earring",
+    left_ring="Asklepian Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
+	}
 	Buff_Set_Names = {'Phalanx','Holywater'}	
 	sets.Buff = {} 					-- Leave this empty.
 	sets.Buff.reive = {
 	neck="Ygnas\'s Resolve +1",
 	}
-	sets.Buff.Phalanx = {	
+	sets.Buff.Phalanx =  set_combine (sets.melee["DEF/DT"],	{
     head={ name="Taeon Chapeau", augments={'"Fast Cast"+5','Phalanx +3',}},
     body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     feet={ name="Taeon Boots", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+	})
+	sets.buff.Holywater = {
+    neck="Nicander's Necklace",
+    left_ring="Blenmot's Ring",
+    right_ring="Purity Ring",
 	}
-
-	sets.Buff.Diffusion = {
-	feet="Luhlaza Charuqs",	
-	}
-	sets.Buff.Efflux = {
-	feet="Luhlaza Charuqs",	
-	}
-	sets.Buff.ChainAffinity = {
-	legs="Hashishin Kavuk +1",
-	}
-	
 	Idle_Set_Names = {'Normal'}
 	sets.idle = {} 					-- Leave this empty.
 	
@@ -465,7 +474,7 @@ function get_sets()
     back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
 	}
 	sets.midcast.pixie = {
-	ammo="Mavi Tathlum",
+	ammo="Ghastly Tathlum +1",
 	head="Pixie Hairpin +1",
     body="Hashishin Mintan +2",
 	hands="Hashishin Bazubands +2",
@@ -478,6 +487,22 @@ function get_sets()
     right_ear="Regal Earring",
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Archon Ring",
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
+	}	
+	sets.midcast.Light = {
+	ammo="Ghastly Tathlum +1",
+	head="Hashishin Kavuk +2",
+    body="Hashishin Mintan +2",
+	hands="Hashishin Bazubands +2",
+    --legs="Luhlaza Shalwar +3",
+	legs="Hashishin Tayt +2",
+    feet="Hashishin Basmak +2",
+    neck="Sibyl Scarf",
+    waist="Orpheus's Sash",
+    left_ear="Friomisi Earring",
+    right_ear="Regal Earring",
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Weatherspoon Ring +1",
     back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
 	}	
 	sets.midcast.physical = {
@@ -556,22 +581,23 @@ function get_sets()
 	left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     --left_ring="Kishar Ring", 		--, 4% FC
     right_ring="Weather. Ring +1", 	--, 6% FC
-    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    back={ name="Aurist's Cape +1", augments={'Path: A',}}, --, need Ambu cape, +20 Int +30 MACC, +10% FC, +10 SIRD
 	}
-	sets.midcast.MaccSIRD = {	--, 64
+	sets.midcast.MaccSIRD = {	--, Merits 10 + 82 = 92%
     ammo="Staunch Tathlum +1", 	--, 11
     head="Hashishin Kavuk +2",
     body="Hashishin Mintan +2",
 	hands="Rawhide Gloves", 	--, 15
-    legs="Carmine Cuisses +1",	--,	20
-    feet="Hashishin Basmak +2",
+    legs="Carmine Cuisses +1",	--,	20 --, need Assimilator Shalwar +2-3 for MACC & 22-24% SIRD
+    feet="Amalric Nails +1",	--, 16
     neck="Mirage Stole +1",
-    waist={ name="Acuity Belt +1", augments={'Path: A',}},
+    --waist={ name="Acuity Belt +1", augments={'Path: A',}},
+	waist="Emphatikos Rope", 	--, 12
     left_ear="Magnetic Earring",--, 8
     right_ear="Hashishin Earring +1",
     left_ring="Stikini Ring +1",
     right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    back={ name="Aurist's Cape +1", augments={'Path: A',}}, --, need Ambu cape, +20 Int +30 MACC, +10% FC, +10 SIRD
 	}	
 	sets.midcast.cure = {
     ammo="Staunch Tathlum +1",
@@ -717,19 +743,19 @@ function precast(spell)
         equip(sets.ws[spell.name])        
     end     
     if spell.name:match('Curing') or spell.name:match('Divine') then
-        equip(sets.midcast.HP)
-	end    
+        equip(sets.ja.waltz)
+	end   
 end
 
 function midcast(spell)
     if  spell.action_type == 'Magic' then
-		equip(sets.melee.DT)
+		equip(sets.melee["DEF/DT"])
 	end
 	if spell.name:match('Occultation') then
 		equip(sets.midcast.Occultation)
 	end
     if spell.name:match('Magic Fruit') or spell.name:match('Protect') or spell.name:match('Shell') or spell.name:match('Cure') or spell.name:match('Healing Breeze') then
-        equip(sets.midcast.cure) --,(sets.midcast.HP)
+        equip(sets.midcast.HP) --,(sets.midcast.cure)
 	end
 	if spell.name:match("White Wind") then
 		equip(sets.midcast.WhiteWind)
@@ -746,12 +772,14 @@ function midcast(spell)
 
 	if spell.name:match('storm') or spell.name:match('Ice Spikes') or spell.name:match('En')  or spell.name:match('Bar')or spell.name:match('Protect')or spell.name:match('Shell')then
 		equip(sets.midcast.enhancingduration)	
-	elseif spell.name:match('Jettatura') or spell.name:match('Absolute Terror')  or spell.name:match('Blank Gaze') or spell.name:match('Geist Wall') or spell.name:match('Tourbillion')or spell.name:match('Sudden Lunge')or spell.name:match('Dream Flower') or spell.name:match('Sheep Song')or spell.name:match('Cruel Joke')or spell.name:match('Dispel')or spell.name:match('Whirl of Rage')or spell.name:match('Chaotic Eye') or spell.name:match('Magic Hammer') or spell.name:match("Stun") or spell.name:match("Sleep") then
+	elseif spell.name:match('Jettatura') or spell.name:match('Absolute Terror')  or spell.name:match('Blank Gaze') or spell.name:match('Geist Wall') or spell.name:match('Tourbillion')or spell.name:match('Sudden Lunge')or spell.name:match('Cruel Joke')or spell.name:match('Dispel')or spell.name:match('Whirl of Rage')or spell.name:match('Chaotic Eye') or spell.name:match('Magic Hammer') or spell.name:match("Stun") or spell.name:match("Sleep") then
 		equip(sets.midcast.MaccDT)
 		elseif spell.name:match('Feather Tickle') or spell.name:match('Reaving Wind') or spell.name:match('Osmosis') then
 			equip(sets.midcast.Recast)
-		end
-	if spell.name:match('Tenebral Crush') or spell.name:match('Eyes On Me')then
+				elseif spell.name:match('Dream Flower') or spell.name:match('Sheep Song') then
+					equip(sets.midcast.MaccSIRD)
+			end
+	if spell.name:match('Tenebral Crush') or spell.name:match('Eyes On Me') or spell.name:match("Evryone. Grudge") then
 		equip(sets.midcast.pixie)
 		    if world.weather_element == spell.element or world.day_element == spell.element then
 				equip(sets.midcast.NukeWithMatchingWeather)
@@ -761,15 +789,21 @@ function midcast(spell)
 		equip(sets.midcast.phalanx)
 	end
     if spell.action_type == 'Magic' then
-        if spell.name:match('Subduction') or spell.name:match('Spectral Floe') or spell.name:match('Retinal Glare')or spell.name:match('Entomb')or spell.name:match('Blinding Fulgor') or spell.name:match('Dia') or spell.name:match('Molting Plumage') or spell.name:match('Anvil Lightning') then
+        if spell.name:match('Subduction') or spell.name:match('Spectral Floe') or  spell.name:match('Entomb')or spell.name:match('Dia') or spell.name:match('Molting Plumage') or spell.name:match('Anvil Lightning') then
 			equip(sets.midcast.elemental)
             if world.weather_element == spell.element or world.day_element == spell.element then
                 equip(sets.midcast.NukeWithMatchingWeather)
 				end
+					elseif spell.name:match('Retinal Glare') or spell.name:match('Diffusion Ray') or spell.name:match('Rail Cannon') or spell.name:match('Blinding Fulgor') then
+						equip(sets.midcast.Light)
+						if world.weather_element == spell.element or world.day_element == spell.element then
+						equip(sets.midcast.NukeWithMatchingWeather)
 			        elseif spell.skill == 'Healing Magic' and spell.english:startswith('Cur') and spell.english ~= 'Cursna' then
 						equip(sets.midcast.cure)
 						if world.weather_element == spell.element or world.day_element == spell.element then
 						equip(sets.midcast.CureWithLightWeather)
+
+					end
 				end
 			end
 		end
