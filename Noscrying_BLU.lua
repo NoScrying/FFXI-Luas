@@ -420,6 +420,26 @@ function get_sets()
 	sets.ja['Mug'] = {
     head="White Rarab Cap +1",
 	}
+	sets.ja.Enmity = {
+    ammo="Sapience Orb",
+    head="Nyame Helm",
+    body="Emet Harness",
+    hands="Nilas Gloves",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear="Cryptic Earring",
+    right_ear="Trux Earring",
+    left_ring="Eihwaz Ring",
+    right_ring="Supershear Ring",
+    back="Moonbeam Cape",	
+	}
+	sets.ja["Vallation"] = set_combine (sets.ja.Enmity)
+	sets.ja["Valiance"] = set_combine (sets.ja.Enmity)
+	sets.ja["Pflug"] = set_combine (sets.ja.Enmity)
+	sets.ja["Swordplay"] = set_combine (sets.ja.Enmity)
+	
 	sets.ja.waltz = {		
     head="Nyame Helm",
     body="Gleti's Cuirass",
@@ -837,8 +857,13 @@ function precast(spell)
 	end
 end
     if sets.ja[spell.name] then
-        equip(sets.ja[spell.name])
+	if DD_Mode == true then
+        equip(sets.ja[spell.name]) else
+	if Tank_Mode == true then		
+		equip(sets.ja.Enmity)
+		end
 	end
+end   
 	if sets.ws[spell.name] then
 	if DD_Mode == true then
         equip(sets.ws[spell.name])  else
@@ -915,7 +940,7 @@ end
 	end
 end
 
-	if spell.name:match('Feather Tickle') or spell.name:match('Reaving Wind') or spell.name:match('Osmosis') then
+	if spell.name:match('Feather Tickle') or spell.name:match('Reaving Wind') or spell.name:match('Osmosis') or spell.name:match('Flash')then
 		if DD_Mode == true then
 			equip(sets.midcast.Recast) else
 		if Tank_Mode == true then	
@@ -1033,8 +1058,8 @@ function status_change(new,old)
 	idle()
 end
 
-Tank_Mode = true --, If true, default set is tanking TP array.
-DD_Mode = true --, TP set order, looks for Tanking TP set before 2H TP
+Tank_Mode = true
+DD_Mode = true
 
 function self_command(command)
 	if command == 'toggle TP set' then --, When using the command as specified at the top of this lua, then executes these functions
