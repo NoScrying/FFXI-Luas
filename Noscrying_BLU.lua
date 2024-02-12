@@ -1,21 +1,24 @@
 function get_sets()
-	send_command('bind f9 gs c toggle melee set') -- F9 = Cycle through
-	send_command('bind f10 gs c toggle refresh set') -- F9 = Cycle through
-	send_command('bind f12 gs c toggle TH set') -- F12 = Cycle through
-	send_command('bind f7 gs c toggle Main set') -- F12 = Cycle through
+	send_command('bind f9 gs c toggle TP set') 
+	send_command('bind !f9 gs c toggle Tank_Mode') 
+	send_command('bind f10 gs c toggle refresh set')
+	send_command('bind f12 gs c toggle TH set')
+	send_command('bind f7 gs c toggle Main set')
 	send_command('bind !f7 gs c toggle Sub set')
-	send_command('bind !numpad1 gs c toggle Buff set') -- F12 = Cycle through
-	Melee_Index = 1
+	send_command('bind !numpad1 gs c toggle Buff set')
+	
+	
 	Refresh_Index= 1
 	TH_Index = 1
 	Main_Index = 1
 	Sub_Index = 1
 	Buff_Index = 1
 	
-
-	Melee_Set_Names = {'TP',"STP/DT","DEF/DT"}--,Hybrid:HasteII only
-	sets.melee = {} 					-- Leave this empty.
-	sets.melee.TP = {
+	sets.DD_Mode = {}
+	sets.DD_Mode.index = {'TP',"STP/DT",}--,Hybrid:HasteII only
+	DD_Mode_ind = 1
+	
+	sets.DD_Mode.TP = {
     ammo="Coiste Bodhar",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -30,7 +33,7 @@ function get_sets()
     right_ring="Epona's Ring",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
-	sets.melee["STP/DT"] = {
+	sets.DD_Mode["STP/DT"] = {
     ammo="Coiste Bodhar",
     head="Malignance Chapeau",
     body="Malignance Tabard",
@@ -47,22 +50,8 @@ function get_sets()
 	right_ring="Chirich Ring +1",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
-	sets.melee["DEF/DT"] = {
-    ammo="Coiste Bodhar",
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-	neck="Mirage Stole +1",
-	waist="Kentarch Belt +1",
-    left_ear="Cessance Earring",
-    right_ear="Hashishin Earring +1",
-    left_ring="Lehko's Ring",
-	right_ring="Chirich Ring +1",
-    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-	}
-	sets.melee["Hybrid:HasteII only"] = {
+
+	sets.DD_Mode["Hybrid:HasteII only"] = {
     ammo="Coiste Bodhar",
     head="Malignance Chapeau",
     body="Malignance Tabard",
@@ -78,7 +67,28 @@ function get_sets()
 	right_ring="Chirich Ring +1",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}	
-	Refresh_Set_Names = {'Refresh',"Regain/DT","MEVA",}
+
+	sets.Tank_Mode = {}
+	sets.Tank_Mode.index = {"Tank/DT"} --, 
+	Tank_Mode_ind = 1	
+
+	sets.Tank_Mode["Tank/DT"] = {
+    ammo="Staunch Tathlum +1",
+    head="Nyame Helm",
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Tuisto Earring",
+    left_ring="Eihwaz Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	}
+	
+	Refresh_Set_Names = {'Refresh',"Regain/DT","MEVA","Tank"}
 	sets.refresh = {}
 	sets.refresh.Refresh = {
     ammo="Staunch Tathlum +1",
@@ -112,11 +122,11 @@ function get_sets()
 	}
 	sets.refresh.MEVA = {
     ammo="Staunch Tathlum +1",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet="Malignance Boots",
+    feet="Nyame Sollerets",
     neck="Warder's Charm +1",
     waist="Carrier's Sash",
     left_ear="Eabani Earring",
@@ -125,7 +135,21 @@ function get_sets()
 	right_ring={name = "Stikini Ring +1", bag = "Wardrobe 7"},
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}	
-
+	sets.refresh.Tank = {
+    ammo="Staunch Tathlum +1",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    feet="Nyame Sollerets",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Tuisto Earring",
+    left_ring="Eihwaz Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	}	
 	TH_Set_Names = {'TH3'}
 	sets.TH = {}
 	sets.TH.TH3 = {
@@ -193,14 +217,15 @@ function get_sets()
 	sets.ws['Expiacion']	= {
     ammo="Oshasha's Treatise",
     head="Hashishin Kavuk +2",
-    body="Gleti's Cuirass",
+    --body="Gleti's Cuirass",
+	body="Assim. Jubbah +2",
     hands="Jhakri Cuffs +2",
     legs="Luhlaza Shalwar +3",
     feet="Gleti's Boots",
     neck="Mirage Stole +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    right_ear="Ishvara Earring",
+    right_ear="Odr Earring",
     left_ring="Ilabrat Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
@@ -397,7 +422,7 @@ function get_sets()
 	sets.Buff.reive = {
 	neck="Ygnas\'s Resolve +1",
 	}
-	sets.Buff.Phalanx =  set_combine (sets.melee["DEF/DT"],	{
+	sets.Buff.Phalanx =  set_combine (sets.DD_Mode["DEF/DT"],	{
     head={ name="Taeon Chapeau", augments={'"Fast Cast"+5','Phalanx +3',}},
     body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},
@@ -428,7 +453,7 @@ function get_sets()
     right_ring="Weatherspoon Ring +1", --, 6%, 4% QM
     back="Ogapepo Cape", 	--, 2% QM
 	}
-	sets.precast.magicFC = {
+	sets.precast.FastCast = {
 	ammo="Impatiens", 
     head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
     body="Pinga Tunic",	
@@ -443,7 +468,21 @@ function get_sets()
     right_ring="Weatherspoon Ring +1",
     back="Ogapepo Cape",
 	}
-	
+	sets.precast.FastCastTank = {
+	ammo="Impatiens", 
+    head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
+    body="Pinga Tunic",	
+    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}}, --8
+    legs="Pinga Pants",
+    feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}},
+    waist="Platinum Moogle Belt",
+    neck="Unmoving Collar +1",
+    right_ear="Odnowa Earring +1",
+	left_ear="Tuisto Earring",
+    left_ring="Kishar Ring",
+    right_ring="Weatherspoon Ring +1",
+    back="Moonbeam Cape",
+	}	
     sets.midcast = {}               -- leave this empty  
 	sets.midcast.elemental = {
 	-- ammo="Perfect Lucky Egg", --, TH4
@@ -535,7 +574,36 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back={ name="Cornflower Cape", augments={'MP+21','DEX+1','Blue Magic skill +10',}},
 	}
-	
+	sets.midcast.OccultationTank = {
+    ammo="Mavi Tathlum",
+    head="Nyame Helm",
+    body="Assim. Jubbah +2",
+    hands="Hashi. Bazu. +2",
+    legs="Hashishin Tayt +2",
+    feet="Nyame Sollerets",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear="Njordr Earring",
+    right_ear={ name="Hashi. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Dbl.Atk."+3',}},
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back="Moonbeam Cape",
+	}	
+	sets.midcast.Enmity = {	
+    ammo="Sapience Orb",
+    head="Nyame Helm",
+    body="Emet Harness",
+    hands="Nilas Gloves",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear="Cryptic Earring",
+    right_ear="Trux Earring",
+    left_ring="Eihwaz Ring",
+    right_ring="Supershear Ring",
+    back="Moonbeam Cape",	
+	}	
 	sets.midcast.magicacc = {
     ammo="Mavi Tathlum",
     head="Hashishin Kavuk +2",
@@ -659,7 +727,21 @@ function get_sets()
     right_ring="Defending Ring",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
-
+	sets.midcast.Aquaveil = {
+	ammo="Staunch Tathlum +1",
+    head="Amalric Coif",
+    body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
+    hands={ name="Telchine Gloves", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +9',}},
+     legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
+    feet={ name="Telchine Pigaches", augments={'Enh. Mag. eff. dur. +10',}},
+	waist="Emphatikos Rope",
+    neck="Warder's Charm +1",
+    left_ear="Magnetic Earring",
+	right_ear="Odnowa Earring +1",
+    left_ring="Gelatinous Ring +1",
+    right_ring="Defending Ring",
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	}
 	sets.midcast.enhancingduration = {
 	ammo="Staunch Tathlum +1", 
 	head={ name="Telchine Cap", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
@@ -711,8 +793,6 @@ function get_sets()
 	ElementalGear = {}
 	ElementalGear.Obi = "Hachirin-no-Obi"
 	ElementalGear.Cape = "Twilight Cape"
-	ElementalGear.Ring = "Archon Ring"
-	ElementalGear.Head = "Pixie Hairpin +1"
 	sets.midcast.CureWithLightWeather = {back=ElementalGear.Cape,waist=ElementalGear.Obi}
 	sets.midcast.NukeWithMatchingWeather = {back=ElementalGear.Cape,waist=ElementalGear.Obi}	
 	
@@ -731,11 +811,14 @@ function get_sets()
 end
 
 function precast(spell)
-    if  spell.skill == 'Blue Magic' then
-        equip(sets.precast.bluFC)
-	elseif spell.action_type == 'Magic' then
-		equip(sets.precast.magicFC)
+	if spell.action_type == 'Magic' then
+		if DD_Mode == true then	
+			equip(sets.precast.FastCast)else
+		if Tank_Mode == true then
+			equip(sets.precast.FastCastTank)	
+		end
 	end
+end
     if sets.ja[spell.name] then
         equip(sets.ja[spell.name])
 	end
@@ -749,25 +832,47 @@ end
 
 function midcast(spell)
     if  spell.action_type == 'Magic' then
-		equip(sets.melee["DEF/DT"])
+		if DD_Mode == true then	
+			equip(sets.refresh.MEVA)else
+		if Tank_Mode == true then
+			equip(sets.refresh.Tank)
 	end
-	if spell.name:match('Occultation') then
-		equip(sets.midcast.Occultation)
-			if player.status == "Engaged" then
-				equip(sets.midcast.MaccSIRD)
-	end
-    if spell.name:match('Magic Fruit') or spell.name:match('Protect') or spell.name:match('Shell') or spell.name:match('Cure') or spell.name:match('Healing Breeze') then
-        equip(sets.midcast.HP) --,(sets.midcast.cure)
+end
+end
+		if spell.name:match('Magic Fruit') or spell.name:match('Protect') or spell.name:match('Shell') or spell.name:match('Cure') or spell.name:match('Healing Breeze') then
+			if DD_Mode == true then	
+			equip(sets.midcast.cure) --,(sets.midcast.HP)
+		elseif Tank_Mode == true then
+			equip(sets.midcast.HP)
+		end
 	end
 	if spell.name:match("White Wind") then
 		equip(sets.midcast.WhiteWind)
 	end
+	if spell.name:match('Occultation') then
+		if DD_Mode == true then
+		if player.status == "Engaged" then
+			equip(sets.midcast.MaccSIRD) else
+		if DD_Mode == true then
+		if player.status == "Idle" then
+			equip(sets.midcast.Occultation)
+		end
+	end
+	end
+end
+end
+	if spell.name:match('Occultation') then		
+		if DD_Mode == false then
+		if player.status == "Engaged" or player.status == "Idle" then
+			equip(sets.midcast.OccultationTank)
+		end
+	end
+end
 	if spell.name:match('Battery Charge') or spell.name:match('Refresh') then
 		equip(sets.midcast.refresh)
 		elseif spell.name:match('Aquaveil')then
 			equip(sets.midcast.Aquaveil)
 		end
-	end
 	if spell.name:match('Regeneration') or spell.name:match('Regen') then
 		equip(sets.midcast.regen)
 	end
@@ -775,21 +880,42 @@ function midcast(spell)
         equip(sets.midcast.physical)
 	end
 
-	if spell.name:match('storm') or spell.name:match('Ice Spikes') or spell.name:match('En')  or spell.name:match('Bar')or spell.name:match('Protect')or spell.name:match('Shell')then
-		equip(sets.midcast.enhancingduration)	
-	elseif spell.name:match('Jettatura') or spell.name:match('Absolute Terror')  or spell.name:match('Blank Gaze') or spell.name:match('Geist Wall') or spell.name:match('Tourbillion')or spell.name:match('Sudden Lunge')or spell.name:match('Cruel Joke')or spell.name:match('Dispel') or spell.name:match('Chaotic Eye') or spell.name:match('Magic Hammer') or spell.name:match("Stun") or spell.name:match("Sleep") then
-		equip(sets.midcast.MaccDT)
-		elseif spell.name:match('Feather Tickle') or spell.name:match('Reaving Wind') or spell.name:match('Osmosis') then
-			equip(sets.midcast.Recast)
-				elseif spell.name:match('Dream Flower') or spell.name:match('Sheep Song') or spell.name:match('Whirl of Rage') then
-					equip(sets.midcast.MaccSIRD)
-			end
+	if spell.name:match('storm') or spell.name:match('Ice Spikes') or spell.name:match('En') or spell.name:match('Protect')or spell.name:match('Shell') or spell.name:match('Bar') and spell.english ~= "Barrier Tusk" then
+		equip(sets.midcast.enhancingduration)
+	end	
+
+	if spell.name:match('Jettatura') or spell.name:match('Absolute Terror')  or spell.name:match('Blank Gaze') or spell.name:match('Geist Wall') or spell.name:match('Tourbillion')or spell.name:match('Sudden Lunge')or spell.name:match('Cruel Joke')or spell.name:match('Dispel') or spell.name:match('Chaotic Eye') or spell.name:match('Magic Hammer') or spell.name:match("Stun") or spell.name:match("Sleep") then
+		if DD_Mode == true then
+			equip(sets.midcast.MaccDT) else
+		if Tank_Mode == true then	
+			equip(sets.midcast.Enmity)
+		end
+	end
+end
+
+	if spell.name:match('Feather Tickle') or spell.name:match('Reaving Wind') or spell.name:match('Osmosis') then
+		if DD_Mode == true then
+			equip(sets.midcast.Recast) else
+		if Tank_Mode == true then	
+			equip(sets.midcast.Enmity)
+		end
+	end	
+end
+
+	if spell.name:match('Dream Flower') or spell.name:match('Sheep Song') or spell.name:match('Whirl of Rage') then
+	if DD_Mode == true then
+		equip(sets.midcast.MaccSIRD) else
+	if Tank_Mode == true then	
+		equip(sets.midcast.Enmity)
+		end
+	end	
+end
 	if spell.name:match('Tenebral Crush') or spell.name:match('Eyes On Me') or spell.name:match("Evryone. Grudge") then
 		equip(sets.midcast.pixie)
 		    if world.weather_element == spell.element or world.day_element == spell.element then
 				equip(sets.midcast.NukeWithMatchingWeather)
-					end
-	end
+			end
+		end
 	if spell.name:match('Phalanx') then
 		equip(sets.midcast.phalanx)
 	end
@@ -821,11 +947,12 @@ function midcast(spell)
 	if spell.name:match('Diaga') then
 		equip (sets.TH.TH3)
 	end
+
 end
 
 
 function aftercast(spell)
-	 idle()
+	idle()
 end
 
 function buff_change(buff,gain)
@@ -867,30 +994,74 @@ function buff_change(buff,gain)
 end
 
 function idle()
-    if player.status=='Engaged' then
-        equip(sets.melee[Melee_Set_Names[Melee_Index]]) 
+	if player.status =="Engaged" then --, When drawing weapon
+		if DD_Mode == false then
+			equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]]) --, Equips the last gearset you changed to, is not static
+		elseif DD_Mode == true then
+			equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
+		end
 	end
 	if player.status =='Idle' then
 		equip(sets.refresh[Refresh_Set_Names[Refresh_Index]])
 	end
 end
+
+
 function status_change(new,old)
 	idle()
 end
 
+Tank_Mode = true --, If true, default set is tanking TP array.
+DD_Mode = true --, TP set order, looks for Tanking TP set before 2H TP
+
 function self_command(command)
-	if command == 'toggle melee set' then
-        Melee_Index = Melee_Index +1
-    if Melee_Index > #Melee_Set_Names then Melee_Index = 1 end
-        windower.add_to_chat('TP mode is now: '..Melee_Set_Names[Melee_Index])
-        equip(sets.melee[Melee_Set_Names[Melee_Index]])
-    end
+	if command == 'toggle TP set' then --, When using the command as specified at the top of this lua, then executes these functions
+		if DD_Mode == true then --, Checks whether or not the DD_Mode Mode is active,
+			DD_Mode_ind = DD_Mode_ind + 1 --, Cycles through the Index, starts at 1 when switching or starting game
+			if DD_Mode_ind > #sets.DD_Mode.index then DD_Mode_ind = 1 end 
+			windower.add_to_chat('DD mode --> ' .. sets.DD_Mode.index[DD_Mode_ind] ..'') --, Sends a message ingame, not visible to others.
+			--if player.status == 'Engaged' then
+				equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
+			--end
+		elseif DD_Mode == false then
+			if Tank_Mode == true then
+				Tank_Mode_ind = Tank_Mode_ind + 1
+				if Tank_Mode_ind > #sets.Tank_Mode.index then Tank_Mode_ind = 1 end
+				windower.add_to_chat('Tank mode --> ' .. sets.Tank_Mode.index[Tank_Mode_ind] ..'')
+				--if player.status == 'Engaged' then
+						equip(sets.Tank_Mode[sets.Tank_Mode.index[DD_Mode_ind]])
+				end
+			end		
+		end
+	if command == 'toggle Tank_Mode set' then
+		DD_Mode_ind = DD_Mode_ind + 1
+		if DD_Mode_ind > #sets.DD_Mode.index then DD_Mode_ind = 1 end
+		windower.add_to_chat('DD mode --> ' .. sets.DD_Mode.index[DD_Mode_ind] ..'')
+		if player.status == 'Engaged' then
+			equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
+		end
+	elseif command == 'toggle Tank_Mode' then
+		if DD_Mode == true then
+			DD_Mode = false
+			windower.add_to_chat('<----- Tank Mode: [On] ----->')
+        else
+			DD_Mode = true
+			windower.add_to_chat('<----- DD Mode: [On] ----->')
+		end
+		status_change(player.status)
+	end
+	-- if command == 'toggle melee set' then
+        -- DD_Mode_ind = DD_Mode_ind +1
+    -- if DD_Mode_ind > #sets.DD_Mode.index then DD_Mode_ind = 1 end
+        -- windower.add_to_chat('TP mode is now: '..sets.DD_Mode.index[DD_Mode_ind])
+        -- equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
+    -- end
 	if command == 'toggle refresh set' then
         Refresh_Index = Refresh_Index +1
     if Refresh_Index > #Refresh_Set_Names then Refresh_Index = 1 end
         windower.add_to_chat('Idle mode is now: '..Refresh_Set_Names[Refresh_Index])
         equip(sets.refresh[Refresh_Set_Names[Refresh_Index]])
-    end
+	end
 	if command == 'toggle TH set' then
         TH_Index = TH_Index +1
     if TH_Index > #TH_Set_Names then TH_Index = 1 end
