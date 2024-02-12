@@ -88,7 +88,7 @@ function get_sets()
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
-	Refresh_Set_Names = {'Refresh',"Regain/DT","Tank",}--, "MEVA"
+	Refresh_Set_Names = {'Refresh',"Regain/DT","MEVA",}--, "Tank"
 	sets.refresh = {}
 	sets.refresh.Refresh = {
     ammo="Staunch Tathlum +1",
@@ -138,7 +138,7 @@ function get_sets()
 	sets.refresh.Tank = {
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",
-    body="Nyame Mail",
+    body="Hashishin Mintan +2",
     hands="Nyame Gauntlets",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     feet="Nyame Sollerets",
@@ -146,7 +146,7 @@ function get_sets()
     waist="Plat. Mog. Belt",
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     right_ear="Tuisto Earring",
-    left_ring="Eihwaz Ring",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 4"},
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}	
@@ -435,6 +435,8 @@ function get_sets()
     right_ring="Supershear Ring",
     back="Moonbeam Cape",	
 	}
+	sets.ja["Provoke"] = set_combine (sets.ja.Enmity)
+	sets.ja["Defender"] = set_combine (sets.ja.Enmity)
 	sets.ja["Vallation"] = set_combine (sets.ja.Enmity)
 	sets.ja["Valiance"] = set_combine (sets.ja.Enmity)
 	sets.ja["Pflug"] = set_combine (sets.ja.Enmity)
@@ -886,8 +888,8 @@ function midcast(spell)
 	end
 end
 end
-		if spell.name:match('Magic Fruit') or spell.name:match('Protect') or spell.name:match('Shell') or spell.name:match('Cure') or spell.name:match('Healing Breeze') then
-			if DD_Mode == true then	
+	if spell.name:match('Magic Fruit') or spell.name:match('Protect') or spell.name:match('Shell') or spell.name:match('Cure') or spell.name:match('Healing Breeze') then
+		if DD_Mode == true then	
 			equip(sets.midcast.cure) --,(sets.midcast.HP)
 		elseif Tank_Mode == true then
 			equip(sets.midcast.HP)
@@ -1049,8 +1051,13 @@ function idle()
 		end
 	end
 	if player.status =='Idle' then
-		equip(sets.refresh[Refresh_Set_Names[Refresh_Index]])
+		if DD_Mode == true then
+			equip(sets.refresh[Refresh_Set_Names[Refresh_Index]]) else
+		if Tank_Mode == true then
+			equip(sets.refresh.Tank)
+		end
 	end
+end
 end
 
 
