@@ -753,6 +753,8 @@ function midcast(spell)
 	end
 	if spell.name:match('Occultation') then
 		equip(sets.midcast.Occultation)
+			if player.status == "Engaged" then
+				equip(sets.midcast.MaccSIRD)
 	end
     if spell.name:match('Magic Fruit') or spell.name:match('Protect') or spell.name:match('Shell') or spell.name:match('Cure') or spell.name:match('Healing Breeze') then
         equip(sets.midcast.HP) --,(sets.midcast.cure)
@@ -760,8 +762,11 @@ function midcast(spell)
 	if spell.name:match("White Wind") then
 		equip(sets.midcast.WhiteWind)
 	end
-	if spell.name:match('Battery Charge') or spell.name:match('Refresh') or spell.name:match('Aquaveil')then
+	if spell.name:match('Battery Charge') or spell.name:match('Refresh') then
 		equip(sets.midcast.refresh)
+		elseif spell.name:match('Aquaveil')then
+			equip(sets.midcast.Aquaveil)
+		end
 	end
 	if spell.name:match('Regeneration') or spell.name:match('Regen') then
 		equip(sets.midcast.regen)
@@ -772,11 +777,11 @@ function midcast(spell)
 
 	if spell.name:match('storm') or spell.name:match('Ice Spikes') or spell.name:match('En')  or spell.name:match('Bar')or spell.name:match('Protect')or spell.name:match('Shell')then
 		equip(sets.midcast.enhancingduration)	
-	elseif spell.name:match('Jettatura') or spell.name:match('Absolute Terror')  or spell.name:match('Blank Gaze') or spell.name:match('Geist Wall') or spell.name:match('Tourbillion')or spell.name:match('Sudden Lunge')or spell.name:match('Cruel Joke')or spell.name:match('Dispel')or spell.name:match('Whirl of Rage')or spell.name:match('Chaotic Eye') or spell.name:match('Magic Hammer') or spell.name:match("Stun") or spell.name:match("Sleep") then
+	elseif spell.name:match('Jettatura') or spell.name:match('Absolute Terror')  or spell.name:match('Blank Gaze') or spell.name:match('Geist Wall') or spell.name:match('Tourbillion')or spell.name:match('Sudden Lunge')or spell.name:match('Cruel Joke')or spell.name:match('Dispel') or spell.name:match('Chaotic Eye') or spell.name:match('Magic Hammer') or spell.name:match("Stun") or spell.name:match("Sleep") then
 		equip(sets.midcast.MaccDT)
 		elseif spell.name:match('Feather Tickle') or spell.name:match('Reaving Wind') or spell.name:match('Osmosis') then
 			equip(sets.midcast.Recast)
-				elseif spell.name:match('Dream Flower') or spell.name:match('Sheep Song') then
+				elseif spell.name:match('Dream Flower') or spell.name:match('Sheep Song') or spell.name:match('Whirl of Rage') then
 					equip(sets.midcast.MaccSIRD)
 			end
 	if spell.name:match('Tenebral Crush') or spell.name:match('Eyes On Me') or spell.name:match("Evryone. Grudge") then
