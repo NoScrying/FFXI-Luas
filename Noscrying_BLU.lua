@@ -15,7 +15,7 @@ function get_sets()
 	Buff_Index = 1
 	
 	sets.DD_Mode = {}
-	sets.DD_Mode.index = {'TP',"STP/DT",}--,Hybrid:HasteII only
+	sets.DD_Mode.index = {"STP/DT",'TP',}--,Hybrid:HasteII only
 	DD_Mode_ind = 1
 	
 	sets.DD_Mode.TP = {
@@ -88,7 +88,7 @@ function get_sets()
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
-	Refresh_Set_Names = {'Refresh',"Regain/DT","MEVA","Tank"}
+	Refresh_Set_Names = {'Refresh',"Regain/DT","Tank",}--, "MEVA"
 	sets.refresh = {}
 	sets.refresh.Refresh = {
     ammo="Staunch Tathlum +1",
@@ -230,6 +230,23 @@ function get_sets()
     right_ring="Epaminondas's Ring",
     back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
 	}
+	
+	sets.ws.Tank	= {
+    ammo="Oshasha's Treatise",
+    head="Hashishin Kavuk +2",
+    --body="Gleti's Cuirass",
+	body="Assim. Jubbah +2",
+    hands="Jhakri Cuffs +2",
+    legs="Luhlaza Shalwar +3",
+    feet="Gleti's Boots",
+    neck="Unmoving Collar +1",
+    waist="Platinum Moogle Belt",
+    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Tuisto Earring",
+    left_ring="Ilabrat Ring",
+    right_ring="Gelatinous Ring +1",
+    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
+	}	
 	
 	sets.ws['Circle Blade']	= {
 	ammo="Oshasha's Treatise",
@@ -829,7 +846,7 @@ end
 		equip(sets.ws.Tank)
 		end
 	end
-end 
+end     
     if spell.name:match('Curing') or spell.name:match('Divine') then
         equip(sets.ja.waltz)
 	end   
@@ -1055,12 +1072,6 @@ function self_command(command)
 		end
 		status_change(player.status)
 	end
-	-- if command == 'toggle melee set' then
-        -- DD_Mode_ind = DD_Mode_ind +1
-    -- if DD_Mode_ind > #sets.DD_Mode.index then DD_Mode_ind = 1 end
-        -- windower.add_to_chat('TP mode is now: '..sets.DD_Mode.index[DD_Mode_ind])
-        -- equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
-    -- end
 	if command == 'toggle refresh set' then
         Refresh_Index = Refresh_Index +1
     if Refresh_Index > #Refresh_Set_Names then Refresh_Index = 1 end
