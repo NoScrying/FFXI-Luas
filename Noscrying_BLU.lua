@@ -159,7 +159,7 @@ function get_sets()
 	sub="Bunzi's Rod",
 	}	
 	
-	Main_Set_Names = {'Maxentius', 'Naegling',"Tizona"}
+	Main_Set_Names = {'Maxentius',"Tizona"}--, Naegling
 	sets.Main = {}
 	sets.Main.Naegling = {
 	Main="Naegling",
@@ -404,9 +404,9 @@ function get_sets()
     legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     feet={ name="Taeon Boots", augments={'Spell interruption rate down -10%','Phalanx +3',}},
 	})
-	sets.buff.Holywater = {
+	sets.Buff.Holywater = {
     neck="Nicander's Necklace",
-    left_ring="Blenmot's Ring",
+    left_ring="Blenmot's Ring +1",
     right_ring="Purity Ring",
 	}
 	Idle_Set_Names = {'Normal'}
@@ -583,12 +583,12 @@ function get_sets()
     right_ring="Weather. Ring +1", 	--, 6% FC
     back={ name="Aurist's Cape +1", augments={'Path: A',}}, --, need Ambu cape, +20 Int +30 MACC, +10% FC, +10 SIRD
 	}
-	sets.midcast.MaccSIRD = {	--, Merits 10 + 82 = 92%
+	sets.midcast.MaccSIRD = {	--, Merits 10 + 82 = 94%
     ammo="Staunch Tathlum +1", 	--, 11
     head="Hashishin Kavuk +2",
     body="Hashishin Mintan +2",
 	hands="Rawhide Gloves", 	--, 15
-    legs="Carmine Cuisses +1",	--,	20 --, need Assimilator Shalwar +2-3 for MACC & 22-24% SIRD
+    legs="Assimilator's Shalwar +2",--,	22
     feet="Amalric Nails +1",	--, 16
     neck="Mirage Stole +1",
     --waist={ name="Acuity Belt +1", augments={'Path: A',}},
@@ -725,7 +725,7 @@ function get_sets()
 	}
 	sets.buff.Holywater = {
     neck="Nicander's Necklace",
-    left_ring="Blenmot's Ring",
+    left_ring="Blenmot's Ring +1",
     right_ring="Purity Ring",
 	}
 end
