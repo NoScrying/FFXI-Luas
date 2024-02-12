@@ -823,8 +823,13 @@ end
         equip(sets.ja[spell.name])
 	end
 	if sets.ws[spell.name] then
-        equip(sets.ws[spell.name])        
-    end     
+	if DD_Mode == true then
+        equip(sets.ws[spell.name])  else
+	if Tank_Mode == true then
+		equip(sets.ws.Tank)
+		end
+	end
+end 
     if spell.name:match('Curing') or spell.name:match('Divine') then
         equip(sets.ja.waltz)
 	end   
