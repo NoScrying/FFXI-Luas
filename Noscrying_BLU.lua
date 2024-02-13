@@ -69,7 +69,7 @@ function get_sets()
 	}	
 
 	sets.Tank_Mode = {}
-	sets.Tank_Mode.index = {"Tank/DT"} --, 
+	sets.Tank_Mode.index = {"Tank/DT","EVA/DT"} --, 
 	Tank_Mode_ind = 1	
 
 	sets.Tank_Mode["Tank/DT"] = {
@@ -87,7 +87,22 @@ function get_sets()
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
-	
+	sets.Tank_Mode["EVA/DT"] = {
+    ammo="Amar Cluster",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Bathy Choker +1",
+    waist="Sveltesse Gouriz +1",
+    left_ear="Eabani Earring",
+    right_ear="Infused Earring",
+    left_ring="Ilabrat Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	}
+
 	Refresh_Set_Names = {'Refresh',"Regain/DT","MEVA",}--, "Tank"
 	sets.refresh = {}
 	sets.refresh.Refresh = {
@@ -923,8 +938,13 @@ end
 			equip(sets.midcast.Aquaveil)
 		end
 	if spell.name:match('Regeneration') or spell.name:match('Regen') then
-		equip(sets.midcast.regen)
+		if DD_Mode == true then
+			equip(sets.midcast.regen) else
+		if Tank_Mode == true then
+			equip(sets.midcast.regenTank)
+		end
 	end
+end
 	if spell.name:match('Sinker Drill') or spell.name:match('Heavy Strike') or spell.name:match('Thrashing Assault') or spell.name:match('Empty Thrash')then
         equip(sets.midcast.physical)
 	end
