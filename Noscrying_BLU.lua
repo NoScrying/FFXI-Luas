@@ -942,7 +942,7 @@ end
 	end
 end
 
-	if spell.name:match('Feather Tickle') or spell.name:match('Reaving Wind') or spell.name:match('Osmosis') or spell.name:match('Flash')then
+	if spell.name:match('Feather Tickle') or spell.name:match('Reaving Wind') or spell.name:match('Osmosis') or spell.name:match('Flash') or spell.name:match('Fantod')then
 		if DD_Mode == true then
 			equip(sets.midcast.Recast) else
 		if Tank_Mode == true then	
