@@ -688,7 +688,7 @@ function get_sets()
     right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
-	sets.midcast.Recast = {			--, 34% FC + 15% JT = 24% Recast + 16% Recast = 40% Recast -- need Luhlaza Body for +9% FC
+	sets.midcast.Recast = {			--, 44% FC + 15% JT = 29% Recast + 16% Recast = 45% Recast -- need Luhlaza Body for +9% FC
     ammo="Sapience Orb",			--, 2% FC
     head="Carmine Mask +1",			--, 14% FC
     body="Hashishin Mintan +2",
@@ -703,9 +703,9 @@ function get_sets()
 	left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     --left_ring="Kishar Ring", 		--, 4% FC
     right_ring="Weather. Ring +1", 	--, 6% FC
-    back={ name="Aurist's Cape +1", augments={'Path: A',}}, --, need Ambu cape, +20 Int +30 MACC, +10% FC, +10 SIRD
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Spell interruption rate down-10%',}},
 	}
-	sets.midcast.MaccSIRD = {	--, Merits 10 + 82 = 94%
+	sets.midcast.MaccSIRD = {	--, Merits 10 + 94 = 104%
     ammo="Staunch Tathlum +1", 	--, 11
     head="Hashishin Kavuk +2",
     body="Hashishin Mintan +2",
@@ -719,7 +719,7 @@ function get_sets()
     right_ear="Hashishin Earring +1",
     left_ring="Stikini Ring +1",
     right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    back={ name="Aurist's Cape +1", augments={'Path: A',}}, --, need Ambu cape, +20 Int +30 MACC, +10% FC, +10 SIRD
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Spell interruption rate down-10%',}},
 	}	
 	sets.midcast.cure = {
     ammo="Staunch Tathlum +1",
@@ -734,7 +734,7 @@ function get_sets()
     right_ear="Magnetic Earring",
     left_ring="Kunaji Ring",
     right_ring="Defending Ring",
-    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Spell interruption rate down-10%',}},
 	}
 	sets.midcast.HP = {
     ammo="Staunch Tathlum +1",
@@ -824,7 +824,7 @@ function get_sets()
     right_ear="Mimir Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
-    back="Merciful Cape",
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Spell interruption rate down-10%',}},
 	}
 
 	sets.midcast.regen = { --72 SIRD, +15 Regen
@@ -843,7 +843,37 @@ function get_sets()
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 
-
+	sets.midcast.MidcastDT = {
+    ammo="Staunch Tathlum +1",
+    head="Carmine Mask +1",			--, 14% FC
+    body="Nyame Mail",
+	hands="Hashishin Bazubands +2",	--, 16% Recast
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Voltsurge Torque",
+    waist="Flume Belt",
+    left_ear="Enchanter's Earring +1",
+    right_ear="Regal Earring",
+    left_ring="Lehko's Ring",
+	right_ring="Defending Ring",
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Spell interruption rate down-10%',}},
+	}
+	sets.midcast.MidcastTank = {
+    ammo="Staunch Tathlum +1",
+    head="Carmine Mask +1",			--, 14% FC
+    body="Nyame Mail",
+	hands="Hashishin Bazubands +2",	--, 16% Recast
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Unmoving Collar +1",
+    waist="Platinum Moogle Belt",
+    left_ear="Odnowa Earring +1",
+    right_ear="Tuisto Earring",
+    left_ring="Lehko's Ring",
+	right_ring="Gelatinous Ring +1",
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Spell interruption rate down-10%',}},
+	}
+	
 	ElementalGear = {}
 	ElementalGear.Obi = "Hachirin-no-Obi"
 	ElementalGear.Cape = "Twilight Cape"
@@ -897,9 +927,9 @@ end
 function midcast(spell)
     if  spell.action_type == 'Magic' then
 		if DD_Mode == true then	
-			equip(sets.refresh.MEVA)else
+			equip(sets.midcast.MidcastDT)else
 		if Tank_Mode == true then
-			equip(sets.refresh.Tank)
+			equip(sets.midcast.MidcastTank)
 	end
 end
 end
