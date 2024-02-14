@@ -1133,7 +1133,7 @@ function self_command(command)
 				if Tank_Mode_ind > #sets.Tank_Mode.index then Tank_Mode_ind = 1 end
 				windower.add_to_chat('Tank mode --> ' .. sets.Tank_Mode.index[Tank_Mode_ind] ..'')
 				--if player.status == 'Engaged' then
-						equip(sets.Tank_Mode[sets.Tank_Mode.index[DD_Mode_ind]])
+						equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
 				end
 			end		
 		end
