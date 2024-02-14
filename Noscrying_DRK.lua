@@ -18,8 +18,7 @@ function get_sets()
 	Buff_Index = 1	
 	
 
-
-	Weapons_Set_Names = {'Caladbolg','Apocalypse'}
+	Weapons_Set_Names = {'Caladbolg','Apocalypse', "CrepScythe"}
 	sets.weapons = {}
 	sets.weapons.Caladbolg = {
     main="Caladbolg",
@@ -29,6 +28,10 @@ function get_sets()
     main="Apocalypse",
 	sub="Utu Grip",
 }
+	sets.weapons.CrepScythe = {
+    main="Crepuscular Scythe",
+	sub="Utu Grip",
+}	
 	
 	Sub_Weapons_Set_Names = {'Lycurgos','Loxotic',"Naegling"}--,''
 	sets.sub_weapons = {}
