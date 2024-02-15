@@ -7,6 +7,7 @@ function get_sets()
 	send_command('bind !f7 gs c toggle Sub set')
 	send_command('bind !numpad1 gs c toggle Buff set')
 	send_command('bind !numpad2 gs c toggle Echo Drops')
+	send_command ('bind ^numpad1 gs c toggle Holy Water')
 	
 	
 	Refresh_Index= 1
@@ -600,19 +601,20 @@ function get_sets()
     back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
 	}	
 	sets.midcast.physical = {
-    ammo="Mavi Tathlum",
+    ammo="Aurgelmir Orb",
     head="Hashishin Kavuk +2",
-	body="Assim. Jubbah +2",
-	hands="Hashishin Bazubands +2",
+    body="Gleti's Cuirass",
+	--body="Assim. Jubbah +2",
+    hands="Gleti's Gauntlets",
     legs="Hashishin Tayt +2",
-    feet="Hashishin Basmak +2",
-    neck="Mirage Stole +1",
-    waist="Eschan Stone",
+    feet="Gleti's Boots",
+    neck={ name="Mirage Stole +1", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Njordr Earring",
     right_ear="Hashishin Earring +1",
-    left_ring="Stikini Ring +1",
-    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    back={ name="Cornflower Cape", augments={'MP+21','DEX+1','Blue Magic skill +10',}},
+    left_ring="Ilabrat Ring",
+    right_ring="Ifrit Ring +1",
+    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
 	}
 	sets.midcast.Occultation = {
     ammo="Mavi Tathlum",
@@ -1180,12 +1182,13 @@ function self_command(command)
         equip(sets.Sub[Sub_Set_Names[Sub_Index]])
     end
 	if command == 'toggle Buff set' then
-        Buff_Index = Buff_Index +1
-    if Buff_Index > #Buff_Set_Names then Buff_Index = 1 end
-        windower.add_to_chat('Buff mode is now: '..Buff_Set_Names[Buff_Index])
-        equip(sets.buff[Buff_Set_Names[Buff_Index]])
+    windower.add_to_chat('Buff mode is now: '..Buff_Set_Names[Buff_Index])
+		equip(sets.buff[Buff_Set_Names[Buff_Index]])
+	end
+	if command == 'toggle Holy Water' then
+        windower.add_to_chat("Using Holy Water")
 		send_command ("input /item 'Holy Water' <me>")
-    end
+	end
 	if command == 'toggle Echo Drops' then
         windower.add_to_chat("Using Echo Drops")
 		send_command ("input /item 'Echo Drops' <me>")
