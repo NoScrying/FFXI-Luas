@@ -8,7 +8,8 @@ function get_sets()
 	send_command('bind f12 gs c toggle TH set') 
 	send_command('bind ^f12 gs c toggle Nuke set') 
 	--send_command('bind !f12 gs c toggle Dagger set') 
-	send_command('bind !numpad1 gs c toggle Buff set') 
+	send_command('bind !numpad1 gs c toggle Buff set')
+	send_command('bind !numpad2 gs c toggle Echo Drops')
 	send_command('bind !numpad0 gs c toggle Cure set')
 
 	DW_Index = 1
@@ -1056,6 +1057,11 @@ function self_command(command)
     if Buff_Index > #Buff_Set_Names then Buff_Index = 1 end
         windower.add_to_chat('Buff mode is now: '..Buff_Set_Names[Buff_Index])
         equip(sets.buff[Buff_Set_Names[Buff_Index]])
+		send_command ("input /item 'Holy Water' <me>")
+    end
+	if command == 'toggle Echo Drops' then
+        windower.add_to_chat("Using Echo Drops")
+		send_command ("input /item 'Echo Drops' <me>")
     end
 	if command == 'toggle Nuke set' then
         Nuke_Index = Nuke_Index +1
