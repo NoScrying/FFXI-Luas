@@ -8,6 +8,7 @@ function get_sets()
 	send_command('bind f7 gs c toggle Weapons set') 
 	send_command('bind !f7 gs c toggle Sub_Weapons set') 
 	send_command('bind !numpad1 gs c toggle Buff set')
+	send_command('bind !numpad2 gs c toggle Echo Drops')
 	send_command('bind ^numpad1 gs c toggle Regen set')
 	send_command('bind !numpad0 gs c toggle Emergency MEVA')
 	send_command('bind !numpad7 input /p Embolden on, Protect V / Regen V please')
@@ -1459,8 +1460,13 @@ function self_command(command) --, Allows of use of various commands
 	if command == 'toggle Buff set' then
         Buff_Index = Buff_Index +1
     if Buff_Index > #Buff_Set_Names then Buff_Index = 1 end
-        windower.add_to_chat(Buff_Set_Names[Buff_Index]..'+75% Equipped')
+        windower.add_to_chat('Buff mode is now: '..Buff_Set_Names[Buff_Index])
         equip(sets.buff[Buff_Set_Names[Buff_Index]])
+		send_command ("input /item 'Holy Water' <me>")
+    end
+	if command == 'toggle Echo Drops' then
+        windower.add_to_chat("Using Echo Drops")
+		send_command ("input /item 'Echo Drops' <me>")
     end
 	if command == 'toggle Emergency MEVA' then
         windower.add_to_chat('Emergency MEVA/DT On')
