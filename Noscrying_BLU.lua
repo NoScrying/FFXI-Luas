@@ -6,6 +6,7 @@ function get_sets()
 	send_command('bind f7 gs c toggle Main set')
 	send_command('bind !f7 gs c toggle Sub set')
 	send_command('bind !numpad1 gs c toggle Buff set')
+	send_command('bind !numpad2 gs c toggle Echo Drops')
 	
 	
 	Refresh_Index= 1
@@ -1183,6 +1184,11 @@ function self_command(command)
     if Buff_Index > #Buff_Set_Names then Buff_Index = 1 end
         windower.add_to_chat('Buff mode is now: '..Buff_Set_Names[Buff_Index])
         equip(sets.buff[Buff_Set_Names[Buff_Index]])
+		send_command ("input /item 'Holy Water' <me>")
+    end
+	if command == 'toggle Echo Drops' then
+        windower.add_to_chat("Using Echo Drops")
+		send_command ("input /item 'Echo Drops' <me>")
     end
 end
 
