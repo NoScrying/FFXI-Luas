@@ -328,6 +328,21 @@ function get_sets()
     right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     back="Aurist's Cape +1",
 	}
+	sets.ws['Sanguine Blade Tank']	= {
+    ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+    head="Pixie Hairpin +1",
+    body="Hashishin Mintan +2",
+    hands="Hashi. Bazu. +2",
+    legs={ name="Luhlaza Shalwar +3", augments={'Enhances "Assimilation" effect',}},
+    feet="Hashi. Basmak +2",
+    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Tuisto Earring",
+    left_ring="Archon Ring",
+    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+	}
 	sets.ws['Seraph Blade']	= {
 	ammo="Oshasha's Treatise",
     head="Hashishin Kavuk +2",
@@ -919,9 +934,12 @@ end
         equip(sets.ws[spell.name])  else
 	if Tank_Mode == true then
 		equip(sets.ws.Tank)
+			if spell.name == "Sanguine Blade" then
+				equip(sets.ws['Sanguine Blade Tank'])
+			end
 		end
 	end
-end     
+end   
     if spell.name:match('Curing') or spell.name:match('Divine') then
         equip(sets.ja.waltz)
 	end   
