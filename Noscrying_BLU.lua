@@ -5,10 +5,9 @@ function get_sets()
 	send_command('bind f12 gs c toggle TH set')
 	send_command('bind f7 gs c toggle Main set')
 	send_command('bind !f7 gs c toggle Sub set')
-	send_command('bind !numpad1 gs c toggle Buff set')
-	send_command('bind !numpad2 gs c toggle Echo Drops')
-	send_command ('bind ^numpad1 gs c toggle Holy Water')
-	
+	send_command('bind ^numpad1 gs c toggle Buff set')
+	send_command('bind !numpad3 gs c toggle Echo Drops')
+	send_command('bind !numpad1 gs c toggle Holy Water')
 	
 	Refresh_Index= 1
 	TH_Index = 1
@@ -29,8 +28,10 @@ function get_sets()
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
     neck="Mirage Stole +1",
 	waist="Sailfi Belt +1",
-    left_ear="Cessance Earring",
-    right_ear="Hashishin Earring +1",
+	left_ear="Eabani Earring",
+    right_ear="Suppanomimi",
+    -- left_ear="Cessance Earring",
+    -- right_ear="Hashishin Earring +1",
     left_ring="Lehko's Ring",
     right_ring="Epona's Ring",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
@@ -104,7 +105,7 @@ function get_sets()
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
-
+	
 	Refresh_Set_Names = {'Refresh',"Regain/DT","MEVA",}--, "Tank"
 	sets.refresh = {}
 	sets.refresh.Refresh = {
@@ -217,7 +218,7 @@ function get_sets()
     ammo="Oshasha's Treatise",
     head="Hashishin Kavuk +2",
     --body="Gleti's Cuirass",
-	body="Assim. Jubbah +2",
+	body="Assim. Jubbah +3",
     hands="Jhakri Cuffs +2",
     legs="Luhlaza Shalwar +3",
     feet="Gleti's Boots",
@@ -235,7 +236,7 @@ function get_sets()
     ammo="Oshasha's Treatise",
     head="Hashishin Kavuk +2",
     --body="Gleti's Cuirass",
-	body="Assim. Jubbah +2",
+	body="Assim. Jubbah +3",
     hands="Jhakri Cuffs +2",
     legs="Luhlaza Shalwar +3",
     feet="Gleti's Boots",
@@ -252,7 +253,7 @@ function get_sets()
     ammo="Oshasha's Treatise",
     head="Hashishin Kavuk +2",
     --body="Gleti's Cuirass",
-	body="Assim. Jubbah +2",
+	body="Assim. Jubbah +3",
     hands="Jhakri Cuffs +2",
     legs="Luhlaza Shalwar +3",
     feet="Gleti's Boots",
@@ -268,7 +269,7 @@ function get_sets()
 	sets.ws['Circle Blade']	= {
 	ammo="Oshasha's Treatise",
         head="Hashishin Kavuk +2",
-    body="Jhakri Robe +2",
+	body="Assim. Jubbah +3",
     hands="Jhakri Cuffs +2",
     legs="Luhlaza Shalwar +3",
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
@@ -406,7 +407,7 @@ function get_sets()
 	sets.ws['Black Halo']	= {
     ammo="Oshasha's Treatise",
     head="Hashishin Kavuk +2",
-    body="Gleti's Cuirass",
+	body="Assim. Jubbah +3",
     hands="Jhakri Cuffs +2",
     legs="Luhlaza Shalwar +3",
     feet="Gleti's Boots",
@@ -421,7 +422,7 @@ function get_sets()
 	sets.ws['Judgment']	= {
     ammo="Oshasha's Treatise",
     head="Hashishin Kavuk +2",
-    body="Gleti's Cuirass",
+	body="Assim. Jubbah +3",
     hands="Jhakri Cuffs +2",
     legs="Luhlaza Shalwar +3",
     feet="Gleti's Boots",
@@ -443,6 +444,11 @@ function get_sets()
 	}	
 	sets.ja['Chain Affinity'] = {
     head="Hashishin Kavuk +2",
+	--feet="Assimilator's Charuqs +2",
+	}
+	sets.ja['Burst Affinity'] = {	
+	legs="Luhlaza Shalwar +3",
+	feet="Hashishin Basmak +2",
 	}
 	sets.ja['Steal'] = {
     head="White Rarab Cap +1",
@@ -619,7 +625,7 @@ function get_sets()
     ammo="Aurgelmir Orb",
     head="Hashishin Kavuk +2",
     body="Gleti's Cuirass",
-	--body="Assim. Jubbah +2",
+	--body="Assim. Jubbah +3",
     hands="Gleti's Gauntlets",
     legs="Hashishin Tayt +2",
     feet="Gleti's Boots",
@@ -634,7 +640,7 @@ function get_sets()
 	sets.midcast.Occultation = {
     ammo="Mavi Tathlum",
     head="Luhlaza Keffiyeh",
-	body="Assim. Jubbah +2",
+	body="Assim. Jubbah +3",
 	hands="Hashishin Bazubands +2",
     legs="Hashishin Tayt +2",
     feet="Luhlaza Charuqs",
@@ -649,7 +655,7 @@ function get_sets()
 	sets.midcast.OccultationTank = {
     ammo="Mavi Tathlum",
     head="Nyame Helm",
-    body="Assim. Jubbah +2",
+    body="Assim. Jubbah +3",
     hands="Hashi. Bazu. +2",
     legs="Hashishin Tayt +2",
     feet="Nyame Sollerets",
@@ -697,7 +703,7 @@ function get_sets()
     body="Hashishin Mintan +2",
 	hands="Hashishin Bazubands +2",
     legs="Hashishin Tayt +2",
-    feet="Nyame Sollerets",
+    feet="Hashishin Basmak +2",
     neck="Mirage Stole +1",
     waist={ name="Acuity Belt +1", augments={'Path: A',}},
     left_ear="Regal Earring",
@@ -723,7 +729,7 @@ function get_sets()
     right_ring="Weather. Ring +1", 	--, 6% FC
     back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Spell interruption rate down-10%',}},
 	}
-	sets.midcast.MaccSIRD = {	--, Merits 10 + 94 = 104%
+	sets.midcast.MaccSIRD = {	--, Merits 10 + 84 = 104%
     ammo="Staunch Tathlum +1", 	--, 11
     head="Hashishin Kavuk +2",
     body="Hashishin Mintan +2",
@@ -765,8 +771,8 @@ function get_sets()
     waist="Plat. Mog. Belt",
     left_ear="Odnowa Earring +1",
     right_ear="Tuisto Earring",
-    left_ring="Gelatinous Ring +1",
-    right_ring="Eihwaz Ring",
+    left_ring="Eihwaz Ring",
+    right_ring="Gelatinous Ring +1",
     back="Moonbeam Cape",
 	}
 	sets.midcast.WhiteWind = {
@@ -786,7 +792,7 @@ function get_sets()
 	}
 	sets.midcast.refresh = {
 	ammo="Staunch Tathlum +1",
-    head="Amalric Coif",
+    head="Amalric Coif +1",
     body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
     hands={ name="Telchine Gloves", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +9',}},
      legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
@@ -795,13 +801,13 @@ function get_sets()
     neck="Warder's Charm +1",
     left_ear="Magnetic Earring",
 	right_ear="Odnowa Earring +1",
-    left_ring="Gelatinous Ring +1",
-    right_ring="Defending Ring",
+    left_ring="Defending Ring",
+    right_ring="Gelatinous Ring +1",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.midcast.Aquaveil = {
 	ammo="Staunch Tathlum +1",
-    head="Amalric Coif",
+    head="Amalric Coif +1",
     body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
     hands={ name="Telchine Gloves", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +9',}},
      legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
@@ -810,8 +816,8 @@ function get_sets()
     neck="Warder's Charm +1",
     left_ear="Magnetic Earring",
 	right_ear="Odnowa Earring +1",
-    left_ring="Gelatinous Ring +1",
-    right_ring="Defending Ring",
+    left_ring="Defending Ring",
+    right_ring="Gelatinous Ring +1",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.midcast.enhancingduration = {
@@ -856,9 +862,24 @@ function get_sets()
     neck="Warder's Charm +1",
     left_ear="Magnetic Earring",
 	right_ear="Odnowa Earring +1",
-    left_ring="Gelatinous Ring +1",
-    right_ring="Defending Ring",
+    left_ring="Defending Ring",
+    right_ring="Gelatinous Ring +1",
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	}
+	sets.midcast.regenTank = { --, +15 Regen
+	ammo="Staunch Tathlum +1", 
+    head={ name="Taeon Chapeau", augments={'Mag. Evasion+16','Spell interruption rate down -9%','"Regen" potency+3',}},
+    body={ name="Taeon Tabard", augments={'Mag. Evasion+19','Spell interruption rate down -9%','"Regen" potency+3',}},
+    hands={ name="Taeon Gloves", augments={'Mag. Evasion+15','Spell interruption rate down -10%','"Regen" potency+3',}},
+    legs={ name="Taeon Tights", augments={'Mag. Evasion+17','Spell interruption rate down -9%','"Regen" potency+3',}},
+    feet={ name="Taeon Boots", augments={'Mag. Evasion+18','Spell interruption rate down -9%','"Regen" potency+3',}},
+	waist="Platinum Moogle Belt",
+    neck="Unmoving Collar +1",
+    left_ear="Odnowa Earring +1",
+    right_ear="Tuisto Earring",
+    left_ring="Eihwaz Ring",
+    right_ring="Gelatinous Ring +1",
+    back="Moonbeam Cape",
 	}
 
 	sets.midcast.MidcastDT = {
@@ -939,7 +960,8 @@ end
 			end
 		end
 	end
-end   
+end
+
     if spell.name:match('Curing') or spell.name:match('Divine') then
         equip(sets.ja.waltz)
 	end   
@@ -1105,9 +1127,27 @@ function buff_change(buff,gain)
     if buff == 'Chain Affinity' then
         if gain then
             equip(sets.ja['Chain Affinity'])
-            disable("head")
+            disable("head","feet")	
         else
-            enable("head")
+            enable("head","feet")
+            status_change(player.status)
+        end
+    end
+    if buff == 'Burst Affinity' then
+        if gain then
+            equip(sets.ja['Burst Affinity'])
+            disable("legs")
+        else
+            enable("legs")
+            status_change(player.status)
+        end
+    end
+    if buff == "doom" then --, Auto equips doom set, cause I'm lazy from killing Shinryu
+        if gain then
+            equip(sets.buff.Holywater)
+              disable('ring1','ring2','neck')
+        else
+            enable('ring1','ring2','neck')
             status_change(player.status)
         end
     end
@@ -1119,8 +1159,11 @@ function idle()
 			equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]]) --, Equips the last gearset you changed to, is not static
 		elseif DD_Mode == true then
 			equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
+				if buffactive["Aftermath: Lv.3"] then
+					equip(sets.DD_Mode["STP/DT"])
+				end
+			end
 		end
-	end
 	if player.status =='Idle' then
 		if DD_Mode == true then
 			equip(sets.refresh[Refresh_Set_Names[Refresh_Index]]) else
@@ -1130,7 +1173,6 @@ function idle()
 	end
 end
 end
-
 
 function status_change(new,old)
 	idle()
@@ -1154,7 +1196,7 @@ function self_command(command)
 				if Tank_Mode_ind > #sets.Tank_Mode.index then Tank_Mode_ind = 1 end
 				windower.add_to_chat('Tank mode --> ' .. sets.Tank_Mode.index[Tank_Mode_ind] ..'')
 				--if player.status == 'Engaged' then
-						equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
+					equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
 				end
 			end		
 		end
@@ -1224,6 +1266,8 @@ send_command('unbind !f12')
 send_command('unbind f7')
 send_command('unbind !f7')
 send_command('unbind !numpad1')
+send_command('unbind !numpad2')
+send_command('unbind !numpad3')
 send_command('unbind ^numpad1')
 send_command('unbind !numpad0')
 send_command('unbind !numpad7')
