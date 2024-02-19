@@ -7,7 +7,7 @@ function get_sets()
 	send_command('bind f10 gs c toggle run set')
 	send_command('bind f12 gs c toggle TH set')
 	send_command('bind !numpad1 gs c toggle Buff set')
-	send_command('bind !numpad2 gs c toggle Echo Drops')
+	send_command('bind !numpad3 gs c toggle Echo Drops')
 	
 	Run_Index = 1
 	Weapons_Index = 1
