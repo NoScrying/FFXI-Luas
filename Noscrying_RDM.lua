@@ -9,7 +9,7 @@ function get_sets()
 	send_command('bind ^f12 gs c toggle Nuke set') 
 	--send_command('bind !f12 gs c toggle Dagger set') 
 	send_command('bind !numpad1 gs c toggle Buff set')
-	send_command('bind !numpad2 gs c toggle Echo Drops')
+	send_command('bind !numpad3 gs c toggle Echo Drops')
 	send_command('bind !numpad0 gs c toggle Cure set')
 
 	DW_Index = 1
