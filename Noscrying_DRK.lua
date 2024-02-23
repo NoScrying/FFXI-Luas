@@ -968,26 +968,23 @@ function midcast(spell)
 	if spell.skill == 'Dark Magic' then
 		equip(sets.midcast.DarkMagic)
 	end
+	
+	if spell.name:match('Dread Spikes') and player.max_HP < 7000 then 
+		equip(sets.midcast.sird)
+	elseif spell.name:match('Dread Spikes') and player.max_HP > 7000 then
+		equip(sets.midcast.Spikes)
+	end
+	
 	if spell.name:match('Aspir') or spell.name:match('Drain')then
 		equip(sets.midcast.Drain)
-	end
-	if spell.name:match('Absorb-')then	
+	elseif spell.name:match('Absorb-')then	
 		equip(sets.midcast.Absorb)
-			if spell.name == "Absorb-Attri" or spell.name == "Absorb-TP" or spell.name == "Stun" or spell.name == "Absorb-ACC" or spell.name:match("Sleep") or spell.name == "Bind" or spell.name == "Break" then
-				equip(sets.midcast.Macc)
-			end
-		end
+	elseif spell.name == "Absorb-Attri" or spell.name == "Absorb-TP" or spell.name == "Stun" or spell.name == "Absorb-ACC" or spell.name:match("Sleep") or spell.name == "Bind" or spell.name == "Break" then
+		equip(sets.midcast.Macc)
+	end
 
 	if spell.name:match('Poison') or spell.name:match('Flash') then
 		equip(sets.midcast.enmity)
-	end
-	
-	if spell.name:match('Dread Spikes') and player.max_HP >= 7000 or buff == "Aftermath Lv.3" then 
-		if gain then
-		equip(sets.midcast.sird)
-			elseif spell.name:match('Dread Spikes') and player.max_HP <=7000 then
-				equip(sets.midcast.spikes)
-		end
 	end
 
     if spell.skill == 'Elemental Magic' then
