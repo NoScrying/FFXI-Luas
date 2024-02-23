@@ -781,7 +781,7 @@ function get_sets()
     body="Pinga Tunic",
     hands={ name="Telchine Gloves", augments={'"Cure" potency +7%',}},
     legs="Pinga Pants",
-    feet={ name="Telchine Pigaches", augments={'Enh. Mag. eff. dur. +10',}},
+    feet="Nyame Sollerets",
 	waist="Platinum Moogle Belt",
     neck="Unmoving Collar +1",
     left_ear="Tuisto Earring",
