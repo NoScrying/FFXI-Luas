@@ -844,7 +844,8 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     right_ring="Stikini Ring +1", 	--, +11 MACC, +8 Skill
     back={ name="Niht Mantle", augments={'Attack+6','Dark magic skill +9','"Drain" and "Aspir" potency +24',}}, --, Drain +24, +9 Skill
 	}
-	sets.midcast.spikes = {			--, Dread Spikes +45% = 82.5% Current HP Converted to Spikes.
+	sets.midcast.spikes = {			--, Dread Spikes +95% +20% Job Gift = 107,5% Current HP Converted to Spikes.
+    main="Crepuscular Scythe",
     ammo="Staunch Tathlum +1", 		--, +11 SIRD, -3DT
     head="Ratri Sallet +1", 		--, HP+410, +7DT
     body="Heath. Cuirass +2", 		--, HP+83, -12DT, Dread Spikes +45%
@@ -981,12 +982,14 @@ function midcast(spell)
 		equip(sets.midcast.enmity)
 	end
 	
-	if spell.name:match('Dread Spikes') and player.max_HP >= 7000 then
+	if spell.name:match('Dread Spikes') and player.max_HP >= 7000 or buff == "Aftermath Lv.3" then 
+		if gain then
 		equip(sets.midcast.sird)
-			else if spell.name:match('Dread Spikes') and player.max_HP <=7000 then 
+			elseif spell.name:match('Dread Spikes') and player.max_HP <=7000 then
 				equip(sets.midcast.spikes)
 		end
 	end
+
     if spell.skill == 'Elemental Magic' then
 		equip(sets.midcast.MAB)
 	end
