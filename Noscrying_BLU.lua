@@ -8,6 +8,12 @@ function get_sets()
 	send_command('bind ^numpad1 gs c toggle Buff set')
 	send_command('bind !numpad3 gs c toggle Echo Drops')
 	send_command('bind !numpad1 gs c toggle Holy Water')
+	send_command ("input //text Keybind1 create ALT+N1 - Holy Water")
+	send_command ("input //text Keybind2 create ALT+N3 - Echo Drops")
+	send_command ("input //text Keybind1 pos 700 1085")	
+	send_command ("input //text Keybind2 pos 835 1085")	
+	send_command ("input //text Keybind1 size 10")	
+	send_command ("input //text Keybind2 size 10")	
 	
 	Refresh_Index= 1
 	TH_Index = 1
@@ -24,7 +30,7 @@ function get_sets()
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    legs={ name="Herculean Trousers", augments={'Accuracy+28','"Triple Atk."+4','AGI+5',}},
+    legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
     neck="Mirage Stole +1",
 	waist="Sailfi Belt +1",
@@ -72,7 +78,7 @@ function get_sets()
 	}	
 
 	sets.Tank_Mode = {}
-	sets.Tank_Mode.index = {"Tank/DT","EVA/DT"} --, 
+	sets.Tank_Mode.index = {"Tank/DT","EVA/DT","MEVA/Magic"} --, 
 	Tank_Mode_ind = 1	
 
 	sets.Tank_Mode["Tank/DT"] = {
@@ -87,6 +93,21 @@ function get_sets()
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     right_ear="Tuisto Earring",
     left_ring="Eihwaz Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	}
+	sets.Tank_Mode["MEVA/Magic"] = {
+    ammo="Staunch Tathlum +1",
+    head="Nyame Helm",
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Warder's Charm +1",
+    waist="Plat. Mog. Belt",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Tuisto Earring",
+    left_ring="Shadow Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
@@ -248,7 +269,22 @@ function get_sets()
     right_ring="Epaminondas's Ring",
     back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
 	}
-	
+	sets.ws['Flat Blade']	= {
+    ammo="Oshasha's Treatise",
+    head="Hashishin Kavuk +2",
+    --body="Gleti's Cuirass",
+	body="Assim. Jubbah +3",
+    hands="Jhakri Cuffs +2",
+    legs="Luhlaza Shalwar +3",
+    feet="Gleti's Boots",
+    neck="Mirage Stole +1",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Odr Earring",
+    left_ring="Ilabrat Ring",
+    right_ring="Epaminondas's Ring",
+    back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+1','Weapon skill damage +10%',}},
+	}	
 	sets.ws.Tank	= {
     ammo="Oshasha's Treatise",
     head="Hashishin Kavuk +2",
@@ -287,7 +323,7 @@ function get_sets()
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body="Gleti's Cuirass",
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    legs="Gleti's Breeches",
+    legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
     neck={ name="Mirage Stole +1", augments={'Path: A',}},
     waist="Fotia Belt",
@@ -303,7 +339,7 @@ function get_sets()
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    legs="Gleti's Breeches",
+    legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
     neck="Fotia Gorget",
     waist="Fotia Belt",
@@ -379,7 +415,7 @@ function get_sets()
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    legs={ name="Herculean Trousers", augments={'Accuracy+28','"Triple Atk."+4','AGI+5',}},
+    legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
     neck={ name="Mirage Stole +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -437,14 +473,14 @@ function get_sets()
 	
 	sets.ja = {} 					-- Leave this empty.
 	sets.ja['Diffusion'] = {
-	feet="Luhlaza Charuqs",
+	feet="Luhlaza Charuqs +3",
 	}
 	sets.ja['Efflux'] = {
     legs="Hashishin Tayt +2",
 	}	
 	sets.ja['Chain Affinity'] = {
     head="Hashishin Kavuk +2",
-	--feet="Assimilator's Charuqs +2",
+	feet="Assim. Charuqs +2",
 	}
 	sets.ja['Burst Affinity'] = {	
 	legs="Luhlaza Shalwar +3",
@@ -624,11 +660,10 @@ function get_sets()
 	sets.midcast.physical = {
     ammo="Aurgelmir Orb",
     head="Hashishin Kavuk +2",
-    body="Gleti's Cuirass",
-	--body="Assim. Jubbah +3",
+    body="Luhlaza Jubbah +3",
     hands="Gleti's Gauntlets",
     legs="Hashishin Tayt +2",
-    feet="Gleti's Boots",
+    feet="Luhlaza Charuqs +3",
     neck={ name="Mirage Stole +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Njordr Earring",
@@ -639,16 +674,16 @@ function get_sets()
 	}
 	sets.midcast.Occultation = {
     ammo="Mavi Tathlum",
-    head="Luhlaza Keffiyeh",
-	body="Assim. Jubbah +3",
-	hands="Hashishin Bazubands +2",
+    head={ name="Luh. Keffiyeh +3", augments={'Enhances "Convergence" effect',}},
+    body="Assim. Jubbah +3",
+    hands="Hashi. Bazu. +2",
     legs="Hashishin Tayt +2",
-    feet="Luhlaza Charuqs",
-    neck="Mirage Stole +1",
-    waist="Eschan Stone",
+    feet={ name="Luhlaza Charuqs +3", augments={'Enhances "Diffusion" effect',}},
+    neck={ name="Mirage Stole +1", augments={'Path: A',}},
+    waist="Flume Belt",
     left_ear="Njordr Earring",
-    right_ear="Hashishin Earring +1",
-    left_ring="Stikini Ring +1",
+    right_ear={ name="Hashi. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Dbl.Atk."+3',}},
+    left_ring="Defending Ring",
     right_ring="Stikini Ring +1",
     back={ name="Cornflower Cape", augments={'MP+21','DEX+1','Blue Magic skill +10',}},
 	}
@@ -672,7 +707,7 @@ function get_sets()
     head="Nyame Helm",
     body="Emet Harness",
     hands="Nilas Gloves",
-    legs="Nyame Flanchard",
+    legs="Zoar Subligar",
     feet="Nyame Sollerets",
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},
     waist="Plat. Mog. Belt",
@@ -712,10 +747,10 @@ function get_sets()
     right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
-	sets.midcast.Recast = {			--, 44% FC + 15% JT = 29% Recast + 16% Recast = 45% Recast -- need Luhlaza Body for +9% FC
+	sets.midcast.Recast = {			--, 53% FC + 15% JT = 34% Recast + 16% Recast = 50% Recast
     ammo="Sapience Orb",			--, 2% FC
     head="Carmine Mask +1",			--, 14% FC
-    body="Hashishin Mintan +2",
+    body="Luhlaza Jubbah +3",		--, 9% FC
 	hands="Hashishin Bazubands +2",	--, 16% Recast
     --legs="Hashishin Tayt +2",
 	legs="Ayanmo Cosciales +2",		--, 6% FC
@@ -930,6 +965,7 @@ function get_sets()
     neck="Nicander's Necklace",
     left_ring="Blenmot's Ring +1",
     right_ring="Purity Ring",
+	waist="Gishdubar Sash",
 	}
 end
 
@@ -976,7 +1012,7 @@ function midcast(spell)
 	end
 end
 end
-	if spell.name:match('Magic Fruit') or spell.name:match('Protect') or spell.name:match('Shell') or spell.name:match('Cure') or spell.name:match('Healing Breeze') then
+	if spell.name:match('Magic Fruit') or spell.name:match('Cure') or spell.name:match('Healing Breeze') then
 		if DD_Mode == true then	
 			equip(sets.midcast.cure) --,(sets.midcast.HP)
 		elseif Tank_Mode == true then
@@ -986,7 +1022,7 @@ end
 	if spell.name:match("White Wind") then
 		equip(sets.midcast.WhiteWind)
 	end
-	if spell.name:match('Occultation') then
+	if spell.name:match('Occultation') or spell.name:match('Magic Barrier') then
 		if DD_Mode == true then
 		if player.status == "Engaged" then
 			equip(sets.midcast.MaccSIRD) else
@@ -998,7 +1034,7 @@ end
 	end
 end
 end
-	if spell.name:match('Occultation') then		
+	if spell.name:match('Occultation') or spell.name:match('Magic Barrier')  then		
 		if DD_Mode == false then
 		if player.status == "Engaged" or player.status == "Idle" then
 			equip(sets.midcast.OccultationTank)
@@ -1022,11 +1058,11 @@ end
         equip(sets.midcast.physical)
 	end
 
-	if spell.name:match('storm') or spell.name:match('Ice Spikes') or spell.name:match('En') or spell.name:match('Protect')or spell.name:match('Shell') or spell.name:match('Bar') and spell.english ~= "Barrier Tusk" then
+	if spell.name:match('storm') or spell.name:match('Ice Spikes') or spell.name:match('En') or spell.name:match('Protect')or spell.name:match('Shell') or spell.name:match('Bar') and spell.english ~= "Barrier Tusk" and spell.english ~= "Magic Barrier"then
 		equip(sets.midcast.enhancingduration)
 	end	
 
-	if spell.name:match('Jettatura') or spell.name:match('Absolute Terror')  or spell.name:match('Blank Gaze') or spell.name:match('Geist Wall') or spell.name:match('Tourbillion')or spell.name:match('Sudden Lunge')or spell.name:match('Cruel Joke')or spell.name:match('Dispel') or spell.name:match('Chaotic Eye') or spell.name:match('Magic Hammer') or spell.name:match("Stun") or spell.name:match("Sleep") then
+	if spell.name:match('Jettatura') or spell.name:match('Absolute Terror')  or spell.name:match('Blank Gaze') or spell.name:match('Geist Wall') or spell.name:match('Tourbillion')or spell.name:match('Sudden Lunge')or spell.name:match('Cruel Joke')or spell.name:match('Dispel') or spell.name:match('Chaotic Eye') or spell.name:match("Stun") or spell.name:match("Sleep") then
 		if DD_Mode == true then
 			equip(sets.midcast.MaccDT) else
 		if Tank_Mode == true then	
@@ -1035,7 +1071,7 @@ end
 	end
 end
 
-	if spell.name:match('Feather Tickle') or spell.name:match('Reaving Wind') or spell.name:match('Osmosis') or spell.name:match('Flash') or spell.name:match('Fantod')then
+	if spell.name:match('Feather Tickle') or spell.name:match('Reaving Wind') or spell.name:match('Osmosis') or spell.name:match('Flash') or spell.name:match('Fantod') or spell.name:match('Saline Coat') then
 		if DD_Mode == true then
 			equip(sets.midcast.Recast) else
 		if Tank_Mode == true then	
@@ -1052,7 +1088,7 @@ end
 		end
 	end	
 end
-	if spell.name:match('Tenebral Crush') or spell.name:match('Eyes On Me') or spell.name:match("Evryone. Grudge") then
+	if spell.name:match('Tenebral Crush') or spell.name:match('Eyes On Me') or spell.name:match("Evryone. Grudge") or spell.name:match("Palling Salvo") then
 		equip(sets.midcast.pixie)
 		    if world.weather_element == spell.element or world.day_element == spell.element then
 				equip(sets.midcast.NukeWithMatchingWeather)
@@ -1062,12 +1098,12 @@ end
 		equip(sets.midcast.phalanx)
 	end
     if spell.action_type == 'Magic' then
-        if spell.name:match('Subduction') or spell.name:match('Spectral Floe') or  spell.name:match('Entomb')or spell.name:match('Dia') or spell.name:match('Molting Plumage') or spell.name:match('Anvil Lightning') then
+        if spell.name:match('Subduction') or spell.name:match('Spectral Floe') or  spell.name:match('Entomb')or spell.name:match('Dia') or spell.name:match('Molting Plumage') or spell.name:match('Anvil Lightning') or spell.name:match('Scouring Spate') or spell.name:match('Searing Tempest') then
 			equip(sets.midcast.elemental)
             if world.weather_element == spell.element or world.day_element == spell.element then
                 equip(sets.midcast.NukeWithMatchingWeather)
 				end
-					elseif spell.name:match('Retinal Glare') or spell.name:match('Diffusion Ray') or spell.name:match('Rail Cannon') or spell.name:match('Blinding Fulgor') then
+					elseif spell.name:match('Retinal Glare') or spell.name:match('Diffusion Ray') or spell.name:match('Rail Cannon') or spell.name:match('Blinding Fulgor') or spell.name:match('Magic Hammer') or spell.name:match('Uproot') then
 						equip(sets.midcast.Light)
 						if world.weather_element == spell.element or world.day_element == spell.element then
 						equip(sets.midcast.NukeWithMatchingWeather)
@@ -1271,4 +1307,5 @@ send_command('unbind !numpad3')
 send_command('unbind ^numpad1')
 send_command('unbind !numpad0')
 send_command('unbind !numpad7')
+send_command ("input //lua r text")
 end
