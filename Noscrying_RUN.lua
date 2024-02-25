@@ -7,11 +7,17 @@ function get_sets()
 	send_command('bind f12 gs c toggle TH set') 
 	send_command('bind f7 gs c toggle Weapons set') 
 	send_command('bind !f7 gs c toggle Sub_Weapons set') 
-	send_command('bind !numpad1 gs c toggle Buff set')
+	send_command('bind ^numpad1 gs c toggle Buff set')
 	send_command('bind !numpad3 gs c toggle Echo Drops')
-	send_command('bind ^numpad1 gs c toggle Regen set')
+	send_command('bind !numpad1 gs c toggle Holy Water')
 	send_command('bind !numpad0 gs c toggle Emergency MEVA')
-	send_command('bind !numpad7 input /p Embolden on, Protect V / Regen V please')
+	send_command('bind !numpad7 input /p Embolden on, Protect V Please')
+	send_command ("input //text Keybind1 create ALT+N1 - Holy Water")
+	send_command ("input //text Keybind2 create ALT+N3 - Echo Drops")
+	send_command ("input //text Keybind1 pos 700 1085")	
+	send_command ("input //text Keybind2 pos 835 1085")	
+	send_command ("input //text Keybind1 size 10")	
+	send_command ("input //text Keybind2 size 10")	
 	
 	Run_Index = 1 --, Index for gearsets, needed for when there is more than 1 in a set and you wish you toggle beween them
 	TH_Index = 1
@@ -130,7 +136,7 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},priority=14,
 	}
 	sets.Tank_Mode = {}
-	sets.Tank_Mode.index = {"Parry: 50PDT - 52MDT","Hybrid: 54PDT - 42MDT"} --, 
+	sets.Tank_Mode.index = {"Parry: 50PDT - 52MDT","Hybrid: 54PDT - 42MDT","Magic Absorb/Annul"} --, 
 	Tank_Mode_ind = 1
 	
 	sets.Tank_Mode["Hybrid: 54PDT - 42MDT"] = { --, -54PDT, -42MDT, +44 DA, +8 TA, +3 QA, 3300 HP
@@ -149,7 +155,22 @@ function get_sets()
     right_ring="Niqmaddu Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},priority=12,
 	}
-
+	sets.Tank_Mode["Magic Absorb/Annul"] = { --, +50-60 Elemental Resist, -50PDT, -45MDT, +5% Damage Absorb Chance, +5% Magic Absorb Chance, +13% Magic Damage Annulment Chance, 3150 HP, 
+    ammo="Yamarang",
+    head="Erilaz Galea +2",priority=17,
+    body="Erilaz Surcoat +2",priority=19,
+    hands="Erilaz Gauntlets +2",priority=13,
+    legs="Eri. Leg Guards +2",priority=15,
+    feet="Erilaz Greaves +2",priority=12,
+    neck="Warder's Charm +1",
+	waist="Engraved Belt",
+    --waist="Plat. Mog. Belt", priority=20,
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},priority=18,
+    right_ear={ name="Erilaz Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Damage taken-3%',}},
+    left_ring="Shadow Ring",
+    right_ring="Moonlight Ring",priority=16,
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Phys. dmg. taken-10%',}},priority=14,
+	}
 	sets.Tank_Mode["Parry: 50PDT - 52MDT"] = { --, -50PDT, -52MDT, +11 Inquartata, Parry +5%, +25 DA, 3600 HP
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",priority=16,
@@ -160,7 +181,7 @@ function get_sets()
     neck="Futhark Torque +2",priority=11,
 	waist="Platinum Moogle Belt",priority=20,
     left_ear="Odnowa Earring +1",priority=18,
-    right_ear="Hermodr Earring",
+    right_ear="Erilaz Earring +1",
     left_ring="Moonlight Ring",priority=17,
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}},priority=19,
@@ -1135,7 +1156,7 @@ function get_sets()
 	}
 	sets.buff.Holywater = { 	--, +42% Holy Water (Doom removal chance), 33% Base +42% = 75% Chance
     neck="Nicander's Necklace",
-    left_ring="Blenmot's Ring",
+    left_ring="Blenmot's Ring +1",
     right_ring="Purity Ring",
 	}
 	sets.buff.Sleep = set_combine(sets.run.Regen, {
@@ -1345,9 +1366,9 @@ end
     if buff == "doom" then --, Auto equips doom set, cause I'm lazy from killing Shinryu
         if gain then
             equip(sets.buff.Holywater)
-             disable('ring1','ring2','waist','neck')
+             disable('ring1','ring2','neck')
         else
-            enable('ring1','ring2','waist','neck')
+            enable('ring1','ring2','neck')
             status_change(player.status)
         end
     end
@@ -1458,12 +1479,13 @@ function self_command(command) --, Allows of use of various commands
 		equip(sets.sub_weapons[Sub_Weapons_Set_Names[Sub_Weapons_Index]])
 	end
 	if command == 'toggle Buff set' then
-        Buff_Index = Buff_Index +1
-    if Buff_Index > #Buff_Set_Names then Buff_Index = 1 end
-        windower.add_to_chat('Buff mode is now: '..Buff_Set_Names[Buff_Index])
-        equip(sets.buff[Buff_Set_Names[Buff_Index]])
+    windower.add_to_chat('Buff mode is now: '..Buff_Set_Names[Buff_Index])
+		equip(sets.buff[Buff_Set_Names[Buff_Index]])
+	end
+	if command == 'toggle Holy Water' then
+        windower.add_to_chat("Using Holy Water")
 		send_command ("input /item 'Holy Water' <me>")
-    end
+	end
 	if command == 'toggle Echo Drops' then
         windower.add_to_chat("Using Echo Drops")
 		send_command ("input /item 'Echo Drops' <me>")
@@ -1476,11 +1498,6 @@ function self_command(command) --, Allows of use of various commands
         windower.add_to_chat('STP Set')
 		equip(sets.Aftermath)
 	end
-	if command == 'toggle Regen set' then
-        windower.add_to_chat("Regen Set Equipped")
-		equip(sets.midcast.RegenReceived)
-		send_command ("input /p Regen Set equipped")
-    end
 end
 
 --windower.add_to_chat('DT mode is now: '..DT_mode)
@@ -1497,7 +1514,10 @@ send_command('unbind !f12')
 send_command('unbind f7')
 send_command('unbind !f7')
 send_command('unbind !numpad1')
+send_command('unbind !numpad2')
+send_command('unbind !numpad3')
 send_command('unbind ^numpad1')
 send_command('unbind !numpad0')
 send_command('unbind !numpad7')
+send_command ("input //lua r text")
 end
