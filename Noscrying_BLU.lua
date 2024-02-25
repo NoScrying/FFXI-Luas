@@ -8,12 +8,6 @@ function get_sets()
 	send_command('bind ^numpad1 gs c toggle Buff set')
 	send_command('bind !numpad3 gs c toggle Echo Drops')
 	send_command('bind !numpad1 gs c toggle Holy Water')
-	send_command ("input //text Keybind1 create ALT+N1 - Holy Water")
-	send_command ("input //text Keybind2 create ALT+N3 - Echo Drops")
-	send_command ("input //text Keybind1 pos 700 1085")	
-	send_command ("input //text Keybind2 pos 835 1085")	
-	send_command ("input //text Keybind1 size 10")	
-	send_command ("input //text Keybind2 size 10")	
 	
 	Refresh_Index= 1
 	TH_Index = 1
@@ -614,7 +608,7 @@ function get_sets()
 	
 	ammo="Ghastly Tathlum +1",
     left_ear="Friomisi Earring",
-	left_ring="Arvina Ringlet +1",
+	left_ring="Jhakri Ring",
 	
 	neck="Sibyl Scarf",
 	right_ear="Regal Earring",
@@ -625,7 +619,7 @@ function get_sets()
 	legs="Hashishin Tayt +2",
     back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
 	}
-	sets.midcast.pixie = {
+	sets.midcast.Dark = {
 	ammo="Ghastly Tathlum +1",
 	head="Pixie Hairpin +1",
     body="Hashishin Mintan +2",
@@ -657,6 +651,22 @@ function get_sets()
     right_ring="Weatherspoon Ring +1",
     back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
 	}	
+	sets.midcast.Earth = {
+    head="Hashishin Kavuk +2",
+    waist="Orpheus's Sash",
+    feet="Hashishin Basmak +2",
+	ammo="Ghastly Tathlum +1",
+    left_ear="Friomisi Earring",
+	left_ring="Jhakri Ring",
+	neck="Quanpur Necklace",
+	right_ear="Regal Earring",
+	right_ring="Metamor. Ring +1",
+    body="Hashishin Mintan +2",
+	hands="Hashishin Bazubands +2",
+    --legs="Luhlaza Shalwar +3",
+	legs="Hashishin Tayt +2",
+    back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
+	}
 	sets.midcast.physical = {
     ammo="Aurgelmir Orb",
     head="Hashishin Kavuk +2",
@@ -1012,7 +1022,7 @@ function midcast(spell)
 	end
 end
 end
-	if spell.name:match('Magic Fruit') or spell.name:match('Cure') or spell.name:match('Healing Breeze') then
+	if T{'Magic Fruit','Cure',"Healing Breeze"}:contains(spell.name) then
 		if DD_Mode == true then	
 			equip(sets.midcast.cure) --,(sets.midcast.HP)
 		elseif Tank_Mode == true then
@@ -1022,7 +1032,7 @@ end
 	if spell.name:match("White Wind") then
 		equip(sets.midcast.WhiteWind)
 	end
-	if spell.name:match('Occultation') or spell.name:match('Magic Barrier') then
+		if T{'Occultation','Magic Barrier'}:contains(spell.name) then
 		if DD_Mode == true then
 		if player.status == "Engaged" then
 			equip(sets.midcast.MaccSIRD) else
@@ -1034,19 +1044,19 @@ end
 	end
 end
 end
-	if spell.name:match('Occultation') or spell.name:match('Magic Barrier')  then		
+	if T{'Occultation','Magic Barrier'}:contains(spell.name) then		
 		if DD_Mode == false then
 		if player.status == "Engaged" or player.status == "Idle" then
 			equip(sets.midcast.OccultationTank)
 		end
 	end
 end
-	if spell.name:match('Battery Charge') or spell.name:match('Refresh') then
+	if T{'Battery Charge','Refresh'}:contains(spell.name) then
 		equip(sets.midcast.refresh)
 		elseif spell.name:match('Aquaveil')then
 			equip(sets.midcast.Aquaveil)
 		end
-	if spell.name:match('Regeneration') or spell.name:match('Regen') then
+	if T{'Regeneration','Regen'}:contains(spell.name) then
 		if DD_Mode == true then
 			equip(sets.midcast.regen) else
 		if Tank_Mode == true then
@@ -1054,15 +1064,21 @@ end
 		end
 	end
 end
-	if spell.name:match('Sinker Drill') or spell.name:match('Heavy Strike') or spell.name:match('Thrashing Assault') or spell.name:match('Empty Thrash')then
+	if T{'Sinker Drill','Heavy Strike','Thrashing Assault','Empty Thrash'}:contains(spell.name) then
         equip(sets.midcast.physical)
 	end
-
-	if spell.name:match('storm') or spell.name:match('Ice Spikes') or spell.name:match('En') or spell.name:match('Protect')or spell.name:match('Shell') or spell.name:match('Bar') and spell.english ~= "Barrier Tusk" and spell.english ~= "Magic Barrier"then
+	
+	if spell.name:match('storm') or spell.name:match('Ice Spikes') or spell.name:match('En') or spell.name:match('Protect')or spell.name:match('Shell') or spell.name:match('Bar') and spell.name ~= "Barrier Tusk" and spell.name ~= "Magic Barrier" and spell.name ~= "Entomb" then
 		equip(sets.midcast.enhancingduration)
+			if spell.name:match("Entomb") then
+				equip(sets.midcast.Earth)
+					if world.weather_element == spell.element or world.day_element == spell.element then
+					equip(sets.midcast.NukeWithMatchingWeather)
+			end
+		end
 	end	
 
-	if spell.name:match('Jettatura') or spell.name:match('Absolute Terror')  or spell.name:match('Blank Gaze') or spell.name:match('Geist Wall') or spell.name:match('Tourbillion')or spell.name:match('Sudden Lunge')or spell.name:match('Cruel Joke')or spell.name:match('Dispel') or spell.name:match('Chaotic Eye') or spell.name:match("Stun") or spell.name:match("Sleep") then
+	if T{'Jettatura','Absolute Terror','Blank Gaze','Geist Wall','Tourbillion','Sudden Lunge','Cruel Joke','Dispel','Chaotic Eye',"Stun","Sleep"}:contains(spell.name) then
 		if DD_Mode == true then
 			equip(sets.midcast.MaccDT) else
 		if Tank_Mode == true then	
@@ -1071,7 +1087,7 @@ end
 	end
 end
 
-	if spell.name:match('Feather Tickle') or spell.name:match('Reaving Wind') or spell.name:match('Osmosis') or spell.name:match('Flash') or spell.name:match('Fantod') or spell.name:match('Saline Coat') then
+	if T{'Feather Tickle','Reaving Wind','Osmosis','Flash','Fantod','Saline Coat'}:contains(spell.name) then
 		if DD_Mode == true then
 			equip(sets.midcast.Recast) else
 		if Tank_Mode == true then	
@@ -1080,7 +1096,7 @@ end
 	end	
 end
 
-	if spell.name:match('Dream Flower') or spell.name:match('Sheep Song') or spell.name:match('Whirl of Rage') then
+	if T{'Dream Flower','Sheep Song','Whirl of Rage'}:contains(spell.name) then
 	if DD_Mode == true then
 		equip(sets.midcast.MaccSIRD) else
 	if Tank_Mode == true then	
@@ -1088,8 +1104,8 @@ end
 		end
 	end	
 end
-	if spell.name:match('Tenebral Crush') or spell.name:match('Eyes On Me') or spell.name:match("Evryone. Grudge") or spell.name:match("Palling Salvo") then
-		equip(sets.midcast.pixie)
+	if T{'Tenebral Crush','Eyes On Me','Evryone. Grudge','Palling Salvo'}:contains(spell.name) then
+		equip(sets.midcast.Dark)
 		    if world.weather_element == spell.element or world.day_element == spell.element then
 				equip(sets.midcast.NukeWithMatchingWeather)
 			end
@@ -1097,13 +1113,14 @@ end
 	if spell.name:match('Phalanx') then
 		equip(sets.midcast.phalanx)
 	end
+
     if spell.action_type == 'Magic' then
-        if spell.name:match('Subduction') or spell.name:match('Spectral Floe') or  spell.name:match('Entomb')or spell.name:match('Dia') or spell.name:match('Molting Plumage') or spell.name:match('Anvil Lightning') or spell.name:match('Scouring Spate') or spell.name:match('Searing Tempest') then
+        if T{'Subduction','Spectral Floe','Molting Plumage','Anvil Lightning','Scouring Spate','Searing Tempest'}:contains(spell.name) then
 			equip(sets.midcast.elemental)
             if world.weather_element == spell.element or world.day_element == spell.element then
                 equip(sets.midcast.NukeWithMatchingWeather)
 				end
-					elseif spell.name:match('Retinal Glare') or spell.name:match('Diffusion Ray') or spell.name:match('Rail Cannon') or spell.name:match('Blinding Fulgor') or spell.name:match('Magic Hammer') or spell.name:match('Uproot') then
+					elseif T{'Retinal Glare','Diffusion Ray','Rail Cannon','Blinding Fulgor','Magic Hammer','Uproot'}:contains(spell.name) then
 						equip(sets.midcast.Light)
 						if world.weather_element == spell.element or world.day_element == spell.element then
 						equip(sets.midcast.NukeWithMatchingWeather)
@@ -1112,10 +1129,10 @@ end
 						if world.weather_element == spell.element or world.day_element == spell.element then
 						equip(sets.midcast.CureWithLightWeather)
 
-					end
 				end
 			end
 		end
+	end
 	if spell.skill == 'Elemental Magic' then
         equip(sets.midcast.elemental)
 			if world.weather_element == spell.element or world.day_element == spell.element then
@@ -1307,5 +1324,4 @@ send_command('unbind !numpad3')
 send_command('unbind ^numpad1')
 send_command('unbind !numpad0')
 send_command('unbind !numpad7')
-send_command ("input //lua r text")
 end
