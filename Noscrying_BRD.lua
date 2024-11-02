@@ -2,12 +2,14 @@ function get_sets()
 	send_command('bind f7 gs c toggle Weapons set')
 	send_command('bind !f7 gs c toggle Sub Weapons') --, ALT
 	send_command('bind ^f7 gs c toggle Refresh staff idle') --, CTRL
-	send_command('bind f9 gs c toggle TP set')
-	send_command('bind !f9 gs c toggle DD_Mode') 
+	send_command('bind f9 gs c toggle TP set') 
+	send_command('bind !f9 gs c toggle Tank_Mode') 
 	send_command('bind f10 gs c toggle run set')
 	send_command('bind f12 gs c toggle TH set')
-	send_command('bind !numpad1 gs c toggle Buff set')
+	send_command('bind ^numpad1 gs c toggle Buff set')
 	send_command('bind !numpad3 gs c toggle Echo Drops')
+	send_command('bind !numpad1 gs c toggle Holy Water')
+
 	
 	Run_Index = 1
 	Weapons_Index = 1
@@ -15,19 +17,24 @@ function get_sets()
 	Refresh_Index = 1
 	Buff_Index = 1	
 
-	Weapons_Set_Names = {'Carnwenhan','Naegling',"Gleti"} --'Tauret'
+	
+	
+	Weapons_Set_Names = {'Carnwenhan','Naegling',"Twashtar"} --'Tauret'
 	sets.weapons = {}
 	sets.weapons.Tauret = {
     main="Tauret",
 	}
 	sets.weapons.Naegling = {
     main="Naegling",
+	sub="Fusetto +2",
 	}
-	sets.weapons.Gleti = {
-    main="Gleti's Knife",
+	sets.weapons.Twashtar = {
+    main="Twashtar",
+	sub="Fusetto +2",
 	}
 	sets.weapons.Carnwenhan = {
-    main="Carnwenhan",
+    main="Carnwenhan",priority=19,
+    sub="Twashtar",	priority=1,
 	}
 	
 	Sub_Weapons_Set_Names = {'Gleti','TP_Bonus','Ammurapi'} --'Kali'
@@ -49,60 +56,9 @@ function get_sets()
 	sub="Enki Strap"
 	}
 	
-	sets.Enmity_Mode = {} 				-- Leave this empty.
-	sets.Enmity_Mode.index = {"STP/MA",'DT/Acc'}
-	Enmity_Mode_Index = 1
-	
-	sets.Enmity_Mode["STP/MA"]  = {	
-    range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
-    head="Blistering Sallet +1",
-    body="Ashera Harness",
-    hands="Bunzi's Gloves",
-    legs={ name="Telchine Braconi", augments={'Accuracy+20','"Store TP"+6','DEX+10',}},
-    feet="Nyame Sollerets",
-    neck={ name="Bard's Charm +1", augments={'Path: A',}},
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Brutal Earring",
-    right_ear="Cessance Earring",
-    left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
-    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
-	}
-	sets.Enmity_Mode["DT/Acc"]  = {
-    range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
-    head="Nyame Helm",
-    body="Ashera Harness",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck={ name="Bard's Charm +1", augments={'Path: A',}},
-    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
-    left_ear="Brutal Earring",
-    right_ear="Cessance Earring",
-    left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
-    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
-	}  	
-	sets.Aftermath = {
-    range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
-    head="Blistering Sallet +1",
-    body="Ashera Harness",
-    hands="Bunzi's Gloves",
-    legs={ name="Telchine Braconi", augments={'Accuracy+20','"Store TP"+6','DEX+10',}},
-    feet="Nyame Sollerets",
-    neck={ name="Bard's Charm +1", augments={'Path: A',}},
-    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
-    left_ear="Crep. Earring",
-    right_ear="Cessance Earring",
-    left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
-    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
-	}	
-
 	sets.DD_Mode = {}
 	sets.DD_Mode.index = {"STP/MA",'DT/Acc'}
-	DD_Mode_Index = 1
-	
+	DD_Mode_ind = 1	
 	sets.DD_Mode["STP/MA"] = {
     range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
     head="Blistering Sallet +1",
@@ -132,8 +88,58 @@ function get_sets()
     left_ring="Moonlight Ring",
     right_ring="Lehko's Ring",
     back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
-	}
+	}	
 	
+	sets.Tank_Mode = {}
+	sets.Tank_Mode.index = {"STP/MA",'DT/Acc'}
+	Tank_Mode_ind = 1	
+
+	sets.Tank_Mode["STP/MA"]  = {	
+    range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
+    head="Blistering Sallet +1",
+    body="Ashera Harness",
+    hands="Bunzi's Gloves",
+    legs={ name="Telchine Braconi", augments={'Accuracy+20','"Store TP"+6','DEX+10',}},
+    feet="Nyame Sollerets",
+    neck={ name="Bard's Charm +1", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Brutal Earring",
+    right_ear="Cessance Earring",
+    left_ring="Moonlight Ring",
+    right_ring="Lehko's Ring",
+    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
+	}
+	sets.Tank_Mode["DT/Acc"]  = {
+    range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
+    head="Nyame Helm",
+    body="Ashera Harness",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck={ name="Bard's Charm +1", augments={'Path: A',}},
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
+    left_ear="Brutal Earring",
+    right_ear="Cessance Earring",
+    left_ring="Moonlight Ring",
+    right_ring="Lehko's Ring",
+    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
+	}  	
+	sets.Aftermath = {
+    range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
+    head="Blistering Sallet +1",
+    body="Ashera Harness",
+    hands="Bunzi's Gloves",
+    legs={ name="Telchine Braconi", augments={'Accuracy+20','"Store TP"+6','DEX+10',}},
+    feet="Nyame Sollerets",
+    neck={ name="Bard's Charm +1", augments={'Path: A',}},
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
+    left_ear="Crep. Earring",
+    right_ear="Suppanomimi",
+    left_ring="Moonlight Ring",
+    right_ring="Lehko's Ring",
+    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
+	}	
+
 	Run_Set_Names = {"DT/Regen","EVA/DT","Refresh"}
 	sets.run = {}
 	sets.run["DT/Regen"] =  {
@@ -177,8 +183,8 @@ function get_sets()
     waist="Flume Belt",
     left_ear="Halasz Earring",
     right_ear="Fili Earring",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 4"},
+	right_ring={name = "Stikini Ring +1", bag = "Wardrobe 7"},
     back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
 	}
 	
@@ -187,7 +193,7 @@ function get_sets()
     range={ name="Linos", augments={'Attack+20','Weapon skill damage +3%','Quadruple Attack +3',}},
     head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     body={ name="Bihu Jstcorps. +3", augments={'Enhances "Troubadour" effect',}},
-    hands="Nyame Gauntlets",
+    hands={ name="Chironic Gloves", augments={'Pet: Phys. dmg. taken -3%','STR+7','Weapon skill damage +7%','Accuracy+11 Attack+11',}},
     legs="Nyame Flanchard",
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
@@ -202,7 +208,7 @@ function get_sets()
     range={ name="Linos", augments={'Attack+20','Weapon skill damage +3%','Quadruple Attack +3',}},
     head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     body={ name="Bihu Jstcorps. +3", augments={'Enhances "Troubadour" effect',}},
-    hands="Nyame Gauntlets",
+    hands={ name="Chironic Gloves", augments={'Pet: Phys. dmg. taken -3%','STR+7','Weapon skill damage +7%','Accuracy+11 Attack+11',}},
     legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
@@ -217,7 +223,7 @@ function get_sets()
     range={ name="Linos", augments={'Attack+20','Weapon skill damage +3%','Quadruple Attack +3',}},
     head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     body={ name="Bihu Jstcorps. +3", augments={'Enhances "Troubadour" effect',}},
-    hands="Nyame Gauntlets",
+    hands={ name="Chironic Gloves", augments={'Pet: Phys. dmg. taken -3%','STR+7','Weapon skill damage +7%','Accuracy+11 Attack+11',}},
     legs="Nyame Flanchard",
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
@@ -232,7 +238,7 @@ function get_sets()
     range={ name="Linos", augments={'Attack+20','Weapon skill damage +3%','Quadruple Attack +3',}},
     head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     body={ name="Bihu Justaucorps +3", augments={'Enhances "Troubadour" effect',}},
-    hands="Nyame Gauntlets",
+    hands={ name="Chironic Gloves", augments={'Pet: Phys. dmg. taken -3%','STR+7','Weapon skill damage +7%','Accuracy+11 Attack+11',}},
     legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
 	--neck="Rep. Plat. Medal",
@@ -249,7 +255,7 @@ function get_sets()
     range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body={ name="Bihu Justaucorps +3", augments={'Enhances "Troubadour" effect',}},
-    hands="Nyame Gauntlets",
+    hands="Bunzi's Gloves",
     legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck={ name="Bard's Charm +1", augments={'Path: A',}},
@@ -264,7 +270,7 @@ function get_sets()
     range={ name="Linos", augments={'Attack+20','Weapon skill damage +3%','Quadruple Attack +3',}},
     head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     body={ name="Bihu Jstcorps. +3", augments={'Enhances "Troubadour" effect',}},
-    hands="Nyame Gauntlets",
+    hands={ name="Chironic Gloves", augments={'Pet: Phys. dmg. taken -3%','STR+7','Weapon skill damage +7%','Accuracy+11 Attack+11',}},
     legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck={ name="Bard's Charm +1", augments={'Path: A',}},
@@ -420,7 +426,7 @@ function get_sets()
     right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Stikini Ring +1",
-    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
 	sets.midcast.Banish = {
     range="Gjallarhorn",
@@ -435,7 +441,7 @@ function get_sets()
     right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Stikini Ring +1",
-    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
+    back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
 	sets.midcast.MultiSong = {
 	range="Daurdabla",
@@ -505,6 +511,21 @@ function get_sets()
 	sets.midcast.Carol = set_combine(sets.midcast.selfsongs, {
     hands="Mousai Gages +1",
 	})
+	sets.midcast.MazurkaRecast = {
+    range="Marsyas",
+    head="Bunzi's Hat",
+    body="Fili Hongreline +2",
+    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+    legs="Fili Rhingrave +2",
+    feet="Brioso Slippers +2",
+    neck="Mnbw. Whistle +1",
+    waist="Embla Sash",
+    left_ear="Loquac. Earring",
+    right_ear="Enchntr. Earring +1",
+    left_ring="Weather. Ring +1",
+    right_ring="Kishar Ring",
+    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},	
+	}
 	sets.midcast.HordeLullabyII = set_combine(sets.midcast.macc, { 
 	-- String Skill 486+
 	-- Horde Lullaby II Area of Effect
@@ -614,7 +635,7 @@ function get_sets()
 	sets.buff = {} 					
 	sets.buff.Holywater = {
     neck="Nicander's Necklace",
-    left_ring="Blenmot's Ring",
+    left_ring="Blenmot's Ring +1",
     right_ring="Purity Ring",
     waist="Gishdubar Sash",	
     feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
@@ -632,7 +653,7 @@ function precast(spell)
 			equip(sets.precast.Hordelullaby)
 		end
 	end
-	if spell.name == "Honor March" then
+	if spell.name == "Honor March" or "Chocobo Mazurka" then
 		equip(sets.precast["Honor March"])
 	end
     if sets.ws[spell.name] then
@@ -648,14 +669,14 @@ function midcast(spell)
 	if spell.type == 'BardSong' and spell.target.type == 'SELF' or spell.target.type == 'PLAYER'then
 		if DD_Mode == true then
         equip(sets.midcast.selfsongs)
-			elseif  Enmity_Mode == true then
+			elseif  Tank_Mode == true then
 			equip(set_combine (sets.midcast.selfsongs, sets.midcast.enmity))
 		end
 	end
 	if spell.type == 'BardSong' and spell.target.type == 'MONSTER' then
 		if DD_Mode == true then
 		equip(sets.midcast.macc)
-			elseif Enmity_Mode == true then
+			elseif Tank_Mode == true then
 			equip(set_combine (sets.midcast.macc, sets.midcast.enmity))	
 			end
 		end	
@@ -671,6 +692,9 @@ function midcast(spell)
 	end	
 	if spell.name:match("Knight's Minne") then
         equip(sets.midcast.Minne)
+	end	
+	if spell.name:match("Chocobo Mazurka") or spell.name:match("Goddess's Hymnus") then
+        equip(sets.midcast.MazurkaRecast)
 	end	
 	if spell.name:match("Dragonfoe Mambo") or spell.name:match("Sheepfoe Mambo") then
         equip(sets.midcast.Mambo)
@@ -696,7 +720,7 @@ function midcast(spell)
 	if spell.skill == 'Healing Magic' then
 		equip(sets.midcast.cura)
 	end
-	if spell.name:match("Paralyna") or spell.name:match("Silena") or spell.name:match("Stona") or spell.name:match("Viruna") or spell.name:match("Poisona") then
+	if T{'Paralyna','Silena',"Stona","Viruna","Poisona"}:contains(spell.name) then
 		equip(sets.run["EVA/DT"])
 			elseif spell.name == "Cursna" then
 				equip(set_combine(sets.run["EVA/DT"], sets.midcast.Cursna))
@@ -706,7 +730,7 @@ function midcast(spell)
 	end
 	if spell.skill == 'Enhancing Magic' then
 		equip(sets.midcast.enhancing)
-			if spell.name:match("Haste") or spell.name:match("Auspice") or spell.name:match("Reraise") or spell.name:match("Protect") or spell.name:match("Shell") then
+			if T{'Haste','Auspice',"Reraise","Protect","Shell"}:contains(spell.name) then
 			equip(sets.midcast.enhancingduration)
 		end
 	end
@@ -714,7 +738,7 @@ function midcast(spell)
 		equip(sets.midcast.Banish)
 	end
 
-	if spell.skill == 'Enfeebling Magic' then
+	if spell.skill == 'Enfeebling Magic' or spell.skill == 'Dark Magic' then
 		equip(sets.midcast.macc)
 	end
     if spell.name:match('Curing') or spell.name:match('Divine') then
@@ -755,26 +779,26 @@ function buff_change(buff,gain)
 	if buff == "Troubadour" then
 		if gain then
             equip(sets.weapons.Carnwenhan)
-             	disable('main')
-        	else
-			equip(sets.weapons[Weapons_Set_Names[Weapons_Index]])
-            	enable('main')
-            status_change(player.status)
+             	-- disable('main')
+        	-- else
+			-- equip(sets.weapons[Weapons_Set_Names[Weapons_Index]])
+            	-- enable('main')
+            -- status_change(player.status)
 		end
 	end
 end
 
-function idle() --, Engaged/Idle sets do not have to be here, can also be under self_command or anywhere really.
+function idle()
 	if player.status =="Engaged" then --, When drawing weapon
-		if DD_Mode == true then
-			equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_Index]]) --, Equips the last gearset you changed to, is not static
+		if DD_Mode == false then
+			equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]]) --, Equips the last gearset you changed to, is not static
+		elseif DD_Mode == true then
+			equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
+				if buffactive["Aftermath: Lv.3"] then
+					equip(sets.Aftermath)
+				end
+			end
 		end
-	if player.status =="Engaged" then	
-		if Enmity_Mode == true then
-			equip(sets.Enmity_Mode[sets.Enmity_Mode.index[Enmity_Mode_Index]])
-		end
-	end
-end
 	if player.status =='Idle' then --, When holstering weapon
 		equip(sets.run[Run_Set_Names[Run_Index]])
 	end
@@ -785,52 +809,44 @@ function status_change(new,old)
 	idle()
 end
 
-Enmity_Mode = true
+Tank_Mode = true
 DD_Mode = true
 
-function self_command(command)
+function self_command(command) --, Allows of use of various commands
 	if command == 'toggle TP set' then --, When using the command as specified at the top of this lua, then executes these functions
 		if DD_Mode == true then --, Checks whether or not the DD_Mode Mode is active,
-			DD_Mode_Index = DD_Mode_Index + 1 --, Cycles through the Index, starts at 1 when Enmityitching or starting game
-			if DD_Mode_Index > #sets.DD_Mode.index then DD_Mode_Index = 1 end 
-			windower.add_to_chat('DD mode --> ' .. sets.DD_Mode.index[DD_Mode_Index] ..'') --, Sends a message ingame, not visible to others.
+			DD_Mode_ind = DD_Mode_ind + 1 --, Cycles through the Index, starts at 1 when switching or starting game
+			if DD_Mode_ind > #sets.DD_Mode.index then DD_Mode_ind = 1 end 
+			windower.add_to_chat('DD mode --> ' .. sets.DD_Mode.index[DD_Mode_ind] ..'') --, Sends a message ingame, not visible to others.
 			--if player.status == 'Engaged' then
-				equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_Index]])
+				equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
 			--end
 		elseif DD_Mode == false then
-			if Enmity_Mode == true then
-				Enmity_Mode_Index = Enmity_Mode_Index + 1
-				if Enmity_Mode_Index > #sets.Enmity_Mode.index then Enmity_Mode_Index = 1 end
-				windower.add_to_chat('Enmity mode --> ' .. sets.Enmity_Mode.index[Enmity_Mode_Index] ..'')
+			if Tank_Mode == true then
+				Tank_Mode_ind = Tank_Mode_ind + 1
+				if Tank_Mode_ind > #sets.Tank_Mode.index then Tank_Mode_ind = 1 end
+				windower.add_to_chat('Tank mode --> ' .. sets.Tank_Mode.index[Tank_Mode_ind] ..'')
 				--if player.status == 'Engaged' then
-					equip(sets.Enmity_Mode[sets.Enmity_Mode.index[Enmity_Mode_Index]])
+					equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
 				end
 			end		
 		end
-	if command == 'toggle DD_Mode set' then
-		DD_Mode_Index = DD_Mode_Index + 1
-		if DD_Mode_Index > #sets.DD_Mode.index then DD_Mode_Index = 1 end
-		windower.add_to_chat('DD mode --> ' .. sets.DD_Mode.index[DD_Mode_Index] ..'')
+	if command == 'toggle Tank_Mode set' then
+		DD_Mode_ind = DD_Mode_ind + 1
+		if DD_Mode_ind > #sets.DD_Mode.index then DD_Mode_ind = 1 end
+		windower.add_to_chat('DD mode --> ' .. sets.DD_Mode.index[DD_Mode_ind] ..'')
 		if player.status == 'Engaged' then
-			equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_Index]])
+			equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
 		end
-	elseif command == 'toggle DD_Mode' then
+	elseif command == 'toggle Tank_Mode' then
 		if DD_Mode == true then
 			DD_Mode = false
-			windower.add_to_chat('<----- Enmity Mode: [On] ----->')
+			windower.add_to_chat('<----- Tank Mode: [On] ----->')
         else
 			DD_Mode = true
 			windower.add_to_chat('<----- DD Mode: [On] ----->')
 		end
 		status_change(player.status)
-	elseif command == 'toggle Enmity_Mode' then
-		if Enmity_Mode == true then
-			Enmity_Mode = false
-			windower.add_to_chat('<----- Enmity Mode: [Off] ----->')
-        else
-			Enmity_Mode = true
-			windower.add_to_chat('<----- Enmity Mode: [On] ----->')
-		end
 	end
 	if command == 'toggle run set' then
         Run_Index = Run_Index +1
@@ -858,12 +874,13 @@ function self_command(command)
         equip(sets.midcast.TreasureHunter)
     end
 	if command == 'toggle Buff set' then
-        Buff_Index = Buff_Index +1
-    if Buff_Index > #Buff_Set_Names then Buff_Index = 1 end
-        windower.add_to_chat('Buff mode is now: '..Buff_Set_Names[Buff_Index])
-        equip(sets.buff[Buff_Set_Names[Buff_Index]])
+    windower.add_to_chat('Buff mode is now: '..Buff_Set_Names[Buff_Index])
+		equip(sets.buff[Buff_Set_Names[Buff_Index]])
+	end
+	if command == 'toggle Holy Water' then
+        windower.add_to_chat("Using Holy Water")
 		send_command ("input /item 'Holy Water' <me>")
-    end
+	end
 	if command == 'toggle Echo Drops' then
         windower.add_to_chat("Using Echo Drops")
 		send_command ("input /item 'Echo Drops' <me>")
@@ -882,7 +899,10 @@ send_command('unbind !f12')
 send_command('unbind f7')
 send_command('unbind !f7')
 send_command('unbind !numpad1')
+send_command('unbind !numpad2')
+send_command('unbind !numpad3')
 send_command('unbind ^numpad1')
 send_command('unbind !numpad0')
 send_command('unbind !numpad7')
+
 end
