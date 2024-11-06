@@ -10,47 +10,53 @@ function get_sets()
 	Weapons_Index = 1
 	Sub_Weapons_Index = 1
 
-	Sub_Weapons_Set_Names = {'Naegling','Tauret'}
+	Sub_Weapons_Set_Names = {"Twashtar/TP Bonus","Twashtar/Tauret",'Naegling',}--,'TH',
 	sets.sub_weapons = {}
 	sets.sub_weapons.Naegling = {
     main="Naegling",
-    sub="Gleti's Knife",
+    sub="Fusetto +2",
 	}
-	sets.sub_weapons.Tauret = {
-    main="Tauret",
-	--sub="Gleti's Knife",
-	sub="Sandung",
+	sets.sub_weapons["Twashtar/TP Bonus"] = {
+    main="Twashtar",
+    sub="Fusetto +2",
 	}
-	Weapons_Set_Names = {'Scythe','Spear','Sword','Dagger','Staff','Club','GreatSword'} --'Katana','GreatKatana'
+	sets.sub_weapons["Twashtar/Tauret"] = {
+    main="Twashtar",
+    sub="Tauret",
+	}
+	sets.sub_weapons.TH = {
+    main="Taming Sari",
+	sub="Fusetto +2",
+	--sub="Sandung",
+	}
+	Weapons_Set_Names = {'Scythe','Dagger','Sword','Staff','Club','Spear','GreatSword'} --
 	sets.weapons = {}
 	sets.weapons.Scythe = {
     main="Lost Sickle",
+	sub="Utu Grip",
 	}
 	sets.weapons.GreatSword = {
 	main="Goujian",
+	sub="Utu Grip",
 	}
 	sets.weapons.Spear = {
     main="Iapetus",
+	sub="Utu Grip",
 	}
 	sets.weapons.Sword = {
     main="Twinned Blade",
 	sub="Qutrub Knife",
 	}
 	sets.weapons.Dagger = {
-    main="Wind Knife",
+    main="Wind Knife +1",
 	sub="Qutrub Knife",
-	}
-	sets.weapons.Katana = {
-    main="Debahocho",
-	}
-	sets.weapons.GreatKatana = {
-    main="Zanmato",
 	}
 	sets.weapons.Staff = {
     main="Caver's Shovel",
+	sub="Utu Grip",
 	}
 	sets.weapons.Club = {
-    main="Lady Bell",
+    main="Thunder Hammer",
 	sub="Qutrub Knife",
 	}
 
@@ -91,7 +97,7 @@ function get_sets()
     back="Thall Mantle",
 }
 
-	Melee_Set_Names = {'TH',"STP","normal"} --, 'normal''DT'
+	Melee_Set_Names = {'normal','DT'} --, 'TH',"STP",
 	sets.melee = {} 				-- Leave this empty.
 	sets.melee.normal = {
     ammo="Aurgelmir Orb",
@@ -108,13 +114,21 @@ function get_sets()
 	right_ring="Gere Ring",
 	back="Sacro Mantle",
 	}
-	sets.melee.TH = set_combine(sets.melee.normal,{
-    head="White Rarab Cap +1",
+	sets.melee.TH = {
 	ammo="Perfect Lucky Egg",
+    head="White Rarab Cap +1",
+    body="Malignance Tabard",
     hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
+    legs="Malignance Tights",
     feet="Skulk. Poulaines",
+    neck="Iskur Gorget",
     waist="Chaac Belt",
-	})	
+    left_ear="Sherida Earring",
+    right_ear="Crep. Earring",
+    left_ring="Moonlight Ring",
+    right_ring="Lehko's Ring",
+    back="Sacro Mantle",
+	}
 	sets.melee.DT = {
     ammo="Aurgelmir Orb",
     head="Malignance Chapeau",
@@ -148,12 +162,19 @@ function get_sets()
 	DT_Set_Names = {'TH'}
 	sets.DT = {}
 	sets.DT.TH = {
-    head="White Rarab Cap +1",
 	ammo="Perfect Lucky Egg",
+    head="White Rarab Cap +1",
+    body="Malignance Tabard",
     hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
+    legs="Malignance Tights",
     feet="Skulk. Poulaines",
+    neck="Iskur Gorget",
     waist="Chaac Belt",
-	left_ring="Lehko's Ring",
+    left_ear="Sherida Earring",
+    right_ear="Crep. Earring",
+    left_ring="Moonlight Ring",
+    right_ring="Lehko's Ring",
+    back="Sacro Mantle",
 	}
 	
 	Run_Set_Names = {'DT', "Regen"}
@@ -234,7 +255,7 @@ function get_sets()
 	}
 
 	sets.ws["Rudra's Storm"] = {
-    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+    ammo="Cath Palug Stone",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
     body={ name="Herculean Vest", augments={'DEX+15','Pet: "Store TP"+9','Weapon skill damage +3%','Accuracy+15 Attack+15','Mag. Acc.+9 "Mag.Atk.Bns."+9',}},
     hands="Meg. Gloves +2",
@@ -242,14 +263,14 @@ function get_sets()
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
-    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    right_ear="Sherida Earring",
+    left_ear="Sherida Earring",
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
     right_ring="Ilabrat Ring",
     back="Sacro Mantle",
 	}
 	sets.ws['Evisceration'] = {
-    ammo="Aurgelmir Orb",
+    ammo="Cath Palug Stone",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body="Meg. Cuirie +2",
 	hands="Gleti's Gauntlets",
@@ -264,7 +285,7 @@ function get_sets()
     back="Sacro Mantle",
 	}
 	sets.ws['Shark Bite'] = {
-    ammo="Oshasha's Treatise",
+    ammo="Cath Palug Stone",
     head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     body="Meg. Cuirie +2",
     hands="Meg. Gloves +2",
@@ -287,14 +308,29 @@ function get_sets()
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    right_ear="Sherida Earring",
+    left_ear="Sherida Earring",
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ring="Epaminondas's Ring",
+    right_ring="Gere Ring",
+    back="Sacro Mantle",
+	}
+	sets.ws['Circle Blade'] = {
+    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+    head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
+    body="Nyame Mail",
+    hands="Meg. Gloves +2",
+    legs="Nyame Flanchard",
+    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
+    neck="Rep. Plat. Medal",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Sherida Earring",
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
     right_ring="Gere Ring",
     back="Sacro Mantle",
 	}
 	sets.ws['Mercy Stroke'] = {
-    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+    ammo="Cath Palug Stone",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
     body="Nyame Mail",
     hands="Meg. Gloves +2",
