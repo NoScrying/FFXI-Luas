@@ -1,8 +1,8 @@
 function get_sets()
 	send_command('bind f7 gs c toggle Weapons set') -- F10 = Cycle through
 	send_command('bind !f7 gs c toggle Sub_Weapon set') -- F10 = Cycle through
-	send_command('bind f9 gs c toggle melee set') -- F9 = Cycle through
-	send_command('bind !f9 gs c toggle Parrying set') -- F9 = Cycle through
+	send_command('bind f9 gs c toggle TP set') 
+	send_command('bind !f9 gs c toggle Tank_Mode') 
 	send_command('bind f10 gs c toggle run set') -- F10 = Cycle through	
 	send_command('bind !f10 gs c toggle Regain set') -- F10 = Cycle through	
 	send_command('bind f12 gs c toggle TH set')
@@ -28,14 +28,22 @@ function get_sets()
 	main="Twashtar",
 	sub="Fusetto +2",
 	}
-	sets.weapons["Tauret"] = {
+	
+	Sub_Weapon_Names = {"Tauret","Karambit"}--"
+	sets.Sub_Weapon = {}	
+	sets.Sub_Weapon["Tauret"] = {
 	main="Tauret",
 	sub="Twashtar",
 	}
+	sets.Sub_Weapon["Karambit"] = {
+	main="Karambit",
+	}
 	
-	Melee_Set_Names = {'Hybrid','DT','normal'}
-	sets.melee = {} 				-- Leave this empty.
-	sets.melee.normal = {
+	sets.DD_Mode = {} 				-- Leave this empty.
+	sets.DD_Mode.index = {'Hybrid','DT','normal'}
+	DD_Mode_ind = 1	
+	
+	sets.DD_Mode.normal = {
 	ammo="Coiste Bodhar",
     head="Adhemar Bonnet +1",
     body="Horos Casaque +3",
@@ -50,7 +58,7 @@ function get_sets()
     right_ring="Epona's Ring",
     back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},
 	}
-	sets.melee.DT = {
+	sets.DD_Mode.DT = {
 	ammo="Staunch Tathlum +1",
     head="Malignance Chapeau",
     body="Maculele Casaque +2",
@@ -65,22 +73,7 @@ function get_sets()
     right_ring="Lehko's Ring",
     back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},
 	}
-	sets.melee.Parrying = {
-	ammo="Staunch Tathlum +1",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Turms Mittens +1",
-    legs="Malignance Tights",
-    feet="Turms Leggings +1",
-    neck={ name="Etoile Gorget +1", augments={'Path: A',}},
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
-    right_ear="Hermodr Earring",
-    left_ring="Moonlight Ring",
-    right_ring="Defending Ring",
-    back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},
-	}
-	sets.melee.Hybrid = {	
+	sets.DD_Mode.Hybrid = {	
     ammo="Staunch Tathlum +1",
     head="Malignance Chapeau",
     body="Maculele Casaque +2",
@@ -97,7 +90,9 @@ function get_sets()
     right_ring="Lehko's Ring",
     back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},	
 	}
+	
 --	Aftermath Sets
+
 	sets["Terpsichore Aftermath"] = {
 	ammo="Yamarang",
     head="Malignance Chapeau",
@@ -128,7 +123,45 @@ function get_sets()
     right_ring="Lehko's Ring",
     back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},
 	}
+	sets["Karambit"] = {
+	ammo="Charis Feather",
+    head="Gleti's Mask",
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    feet="Maculele Toe Shoes +2",
+    neck={ name="Etoile Gorget +1", augments={'Path: A',}},
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
+    left_ear="Sherida Earring",
+    right_ear="Odr Earring",
+    left_ring="Moonlight Ring",
+    right_ring="Lehko's Ring",
+    back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},
+
+	
 --	Aftermath Sets
+
+	sets.Tank_Mode = {}
+	sets.Tank_Mode.index = {"Parrying"}
+	Tank_Mode_ind = 1	
+	
+	sets.Tank_Mode.Parrying = {
+	ammo="Staunch Tathlum +1",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Turms Mittens +1",
+    legs="Malignance Tights",
+    feet="Turms Leggings +1",
+    neck="Unmoving Collar +1",
+	waist="Platinum Moogle Belt",priority=20,
+    left_ear="Sherida Earring",
+    right_ear="Hermodr Earring",
+    left_ring="Moonlight Ring",
+    right_ring="Gelatinous Ring +1",
+    back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},
+	}
+
+
 
 	sets.TH4 = {
 	ammo="Perfect Lucky Egg",
@@ -247,7 +280,7 @@ function get_sets()
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
-    neck="Sibyl Scarf",
+    neck="Sanctity Necklace",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
@@ -256,7 +289,7 @@ function get_sets()
     back={ name="Senuna's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Magic Damage +10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 }
 	sets.ws["Rudra's Storm"] = {
-    ammo="Crepuscular Pebble",
+    ammo="Cath Palug Stone",
 	head="Maculele Tiara +2",
     --body="Horos Casaque +3",
 	body="Gleti's Cuirass",
@@ -352,7 +385,7 @@ function get_sets()
     back={ name="Senuna's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Shark Bite'] = {
-    ammo="Crepuscular Pebble",
+    ammo="Cath Palug Stone",
 	head="Maculele Tiara +2",
     body="Gleti's Cuirass",
     hands="Maxixi Bangles +3",
@@ -397,7 +430,7 @@ function get_sets()
     back={ name="Senuna's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	} 
 	sets.ws['Raging Fists'] = {
-    ammo="Oshasha's Treatise",
+    ammo="Crepuscular Pebble",
     head="Blistering Sallet +1",
     body="Horos Casaque +3",
     hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},
@@ -428,15 +461,15 @@ function get_sets()
 	}	
 	
 	sets.ja = {} 					-- Leave this empty.
-	sets.ja['Chocobo Jig II'] = set_combine(sets.melee.DT, {
+	sets.ja['Chocobo Jig II'] = set_combine(sets.DD_Mode.DT, {
 	legs="Horos Tights +3",
 	feet="Maxixi Toe Shoes +1",
 	})
-	sets.ja['Spectral Jig'] = set_combine(sets.melee.DT, {
+	sets.ja['Spectral Jig'] = set_combine(sets.DD_Mode.DT, {
 	legs="Horos Tights +3",
 	feet="Maxixi Toe Shoes +1",
 	})
-	sets.ja.Waltz = set_combine(sets.melee.DT, {		
+	sets.ja.Waltz = set_combine(sets.DD_Mode.DT, {		
     ammo="Yamarang",
     head={ name="Horos Tiara +3", augments={'Enhances "Trance" effect',}},
     body="Maxixi Casaque +1",
@@ -451,7 +484,7 @@ function get_sets()
     right_ring="Defending Ring",
     back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},
 	})
-	sets.ja.WaltzSelf = set_combine(sets.melee.DT, {	
+	sets.ja.WaltzSelf = set_combine(sets.DD_Mode.DT, {	
     ammo="Yamarang",
     head="Mummu Bonnet +2",
     body="Maxixi Casaque +1",
@@ -466,20 +499,20 @@ function get_sets()
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},
 	})
-	sets.ja['No Foot Rise'] = set_combine(sets.melee.DT, {
+	sets.ja['No Foot Rise'] = set_combine(sets.DD_Mode.DT, {
 	body="Horos Casaque +3",
 	})
-	sets.ja['Saber Dance'] = set_combine(sets.melee.DT, {
+	sets.ja['Saber Dance'] = set_combine(sets.DD_Mode.DT, {
 	legs="Horos Tights +3",
 	})
-	sets.ja['Trance'] = set_combine(sets.melee.DT, {		
+	sets.ja['Trance'] = set_combine(sets.DD_Mode.DT, {		
 	head="Horos Tiara +3",
 	})
-	sets.ja['Haste Samba'] = set_combine(sets.melee.DT, {		
+	sets.ja['Haste Samba'] = set_combine(sets.DD_Mode.DT, {		
 	head="Maxixi Tiara +1",
     back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},
 	})	
-	sets.ja['Drain Samba III'] = set_combine(sets.melee.DT, {		
+	sets.ja['Drain Samba III'] = set_combine(sets.DD_Mode.DT, {		
 	head="Maxixi Tiara +1",
     back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},
 	})	
@@ -501,14 +534,14 @@ function get_sets()
     right_ring="Chirich Ring +1",
     back="Sacro Mantle",
 	}
-	sets.ja['Striking Flourish'] = set_combine(sets.melee.DT, {		
+	sets.ja['Striking Flourish'] = set_combine(sets.DD_Mode.DT, {		
 	body="Maculele Casaque +2",
 	})
-	sets.ja['Reverse Flourish'] = set_combine(sets.melee.DT, {		
+	sets.ja['Reverse Flourish'] = set_combine(sets.DD_Mode.DT, {		
 	hands="Maculele Bangles +2",
 	back="Toetapper Mantle",
 	})
-	sets.ja['Climactic Flourish'] = set_combine(sets.melee.DT, {		
+	sets.ja['Climactic Flourish'] = set_combine(sets.DD_Mode.DT, {		
 	head="Maculele Tiara +2",
 	})
 	
@@ -523,7 +556,7 @@ function get_sets()
     hands="Maxixi Bangles +3",	
 	})	
 
-	sets.ja['High Jump']= set_combine(sets.melee.DT, {	
+	sets.ja['High Jump']= set_combine(sets.DD_Mode.DT, {	
     ammo="Yamarang",
     head="Maculele Tiara +2",
     body="Malignance Tabard",
@@ -538,7 +571,7 @@ function get_sets()
     right_ring="Lehko's Ring",
     back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},
 	})
-	sets.ja['Jump'] = set_combine(sets.melee.DT, {	
+	sets.ja['Jump'] = set_combine(sets.DD_Mode.DT, {	
     ammo="Yamarang",
     head="Maculele Tiara +2",
     body="Malignance Tabard",
@@ -702,13 +735,20 @@ end
 
 function idle()
 	if player.status =="Engaged" then --, When drawing weapon
-        equip(sets.melee[Melee_Set_Names[Melee_Index]])
+		if DD_Mode == false then
+			equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]]) --, Equips the last gearset you changed to, is not static
+		elseif DD_Mode == true then
+        equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
 			if buffactive["Aftermath: Lv.3"] and player.equipment.main == "Terpsichore" then
 					equip(sets["Terpsichore Aftermath"])
 		elseif buffactive["Aftermath: Lv.3"] and player.equipment.main == "Twashtar" then
 					equip(sets["Twashtar Aftermath"])
 				end
 			end
+		end
+	if player.status =="Engaged" and player.equipment.main == "Karambit" then--, When drawing weapon
+		equip(sets["Karambit"])
+	end
 	if player.status =='Idle' then --, When holstering weapon
 		equip(sets.run[Run_Set_Names[Run_Index]])
 	end
@@ -718,17 +758,45 @@ function status_change(new,old)
 	idle()
 end
 
+Tank_Mode = true
+DD_Mode = true
+
 function self_command(command)
-	if command == 'toggle melee set' then
-        Melee_Index = Melee_Index +1
-        if Melee_Index > #Melee_Set_Names then Melee_Index = 1 end
-        windower.add_to_chat('TP mode is now: '..Melee_Set_Names[Melee_Index])
-        equip(sets.melee[Melee_Set_Names[Melee_Index]])
-    end
-	if command == 'toggle Parrying set' then
-        windower.add_to_chat("Parrying Set equipped")
-        equip(sets.melee.Parrying)
-    end
+	if command == 'toggle TP set' then --, When using the command as specified at the top of this lua, then executes these functions
+		if DD_Mode == true then --, Checks whether or not the DD_Mode Mode is active,
+			DD_Mode_ind = DD_Mode_ind + 1 --, Cycles through the Index, starts at 1 when switching or starting game
+			if DD_Mode_ind > #sets.DD_Mode.index then DD_Mode_ind = 1 end 
+			windower.add_to_chat('DD mode --> ' .. sets.DD_Mode.index[DD_Mode_ind] ..'') --, Sends a message ingame, not visible to others.
+			--if player.status == 'Engaged' then
+				equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
+			--end
+		elseif DD_Mode == false then
+			if Tank_Mode == true then
+				Tank_Mode_ind = Tank_Mode_ind + 1
+				if Tank_Mode_ind > #sets.Tank_Mode.index then Tank_Mode_ind = 1 end
+				windower.add_to_chat('Tank mode --> ' .. sets.Tank_Mode.index[Tank_Mode_ind] ..'')
+				--if player.status == 'Engaged' then
+					equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
+				end
+			end		
+		end
+	if command == 'toggle Tank_Mode set' then
+		DD_Mode_ind = DD_Mode_ind + 1
+		if DD_Mode_ind > #sets.DD_Mode.index then DD_Mode_ind = 1 end
+		windower.add_to_chat('DD mode --> ' .. sets.DD_Mode.index[DD_Mode_ind] ..'')
+		if player.status == 'Engaged' then
+			equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
+		end
+	elseif command == 'toggle Tank_Mode' then
+		if DD_Mode == true then
+			DD_Mode = false
+			windower.add_to_chat('<----- Tank Mode: [On] ----->')
+        else
+			DD_Mode = true
+			windower.add_to_chat('<----- DD Mode: [On] ----->')
+		end
+		status_change(player.status)
+	end
 	if command == 'toggle run set' then
         Run_Index = Run_Index +1
         if Run_Index > #Run_Set_Names then Run_Index = 1 end
