@@ -61,7 +61,7 @@ function get_sets()
 	sets.DD_Mode.DT = {
 	ammo="Staunch Tathlum +1",
     head="Malignance Chapeau",
-    body="Maculele Casaque +2",
+    body="Maculele Casaque +2", --Overcapped on DW, but +13 Subtle Blow, with Sherida = 50SB
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Maculele Toe Shoes +2",
@@ -76,7 +76,7 @@ function get_sets()
 	sets.DD_Mode.Hybrid = {	
     ammo="Staunch Tathlum +1",
     head="Malignance Chapeau",
-    body="Maculele Casaque +2",
+    body="Maculele Casaque +2", --Overcapped on DW, but +13 Subtle Blow, with Sherida = 50SB
     hands="Malignance Gloves",
     legs="Meg. Chausses +2",
     -- legs="Malignance Tights",
@@ -96,7 +96,7 @@ function get_sets()
 	sets["Terpsichore Aftermath"] = {
 	ammo="Yamarang",
     head="Malignance Chapeau",
-    body="Maculele Casaque +2",
+    body="Maculele Casaque +2", --Overcapped on DW, but +13 Subtle Blow, with Sherida = 50SB
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Maculele Toe Shoes +2",
@@ -145,7 +145,7 @@ function get_sets()
 	sets.Tank_Mode.index = {"Parrying"}
 	Tank_Mode_ind = 1	
 	
-	sets.Tank_Mode.Parrying = {
+	sets.Tank_Mode.Parrying = { --3.1K HP, add Tuisto instead of Sherida for 3.3K HP
 	ammo="Staunch Tathlum +1",
     head="Malignance Chapeau",
     body="Malignance Tabard",
