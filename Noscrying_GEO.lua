@@ -1,18 +1,18 @@
 function get_sets()
-	send_command('bind f9 gs c toggle melee set') -- F9 = Cycle through
+	send_command('bind f9 gs c toggle Engaged set') -- F9 = Cycle through
 	send_command('bind f7 gs c toggle weapon set') -- F10 = Cycle through
 	send_command('bind f10 gs c toggle Run set') -- F10 = Cycle through
 	send_command('bind f12 gs c toggle TH set') -- F12 = Cycle through
 	send_command('bind ^f12 gs c toggle Nuke set') 
-	Melee_Index = 1
+	Engaged_Index = 1
 	Weapon_Index = 1
 	Run_Index = 1
 	TH_Index = 1
 	Nuke_Index = 1
 	
-	Melee_Set_Names = {"Refresh",'melee','mage'}
-	sets.melee = {} 					-- Leave this empty.
-	sets.melee.melee = {
+	Engaged_Set_Names = {"Luopan Regen/Refresh",'Melee'}--,'Refresh/DT'
+	sets.Engaged = {} 					-- Leave this empty.
+	sets.Engaged.Melee = {
     ammo="Staunch Tathlum +1",
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Nyame Mail",
@@ -28,26 +28,26 @@ function get_sets()
     back={ name="Nantosuelta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 
-	sets.melee.mage = {
+	sets.Engaged["Refresh/DT"] = {
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Azimuth Gloves +2",
     legs="Nyame Flanchard",
     feet="Azimuth Gaiters +2",
     neck="Sibyl Scarf",
-	waist="Embla Sash",
+    waist="Carrier's Sash",
     left_ear="Friomisi Earring",
     right_ear="Malignance Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
     back={ name="Nantosuelta's Cape", augments={'INT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+5','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
 	}
-	sets.melee.Refresh =  {
-    range="Dunna",
+	sets.Engaged["Luopan Regen/Refresh"] =  {
+    range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
     head="Azimuth Hood +2",
     body="Agwu's Robe",
     hands="Azimuth Gloves +2",
-    legs="Assid. Pants +1",
+    legs={ name="Telchine Braconi", augments={'Mag. Evasion+23','Pet: "Regen"+3','Pet: Damage taken -4%',}},
     feet="Azimuth Gaiters +2",
     neck="Sibyl Scarf",
     waist="Carrier's Sash",
@@ -58,31 +58,16 @@ function get_sets()
     back={ name="Nantosuelta's Cape", augments={'INT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+5','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
 	}
 
-	Run_Set_Names = {"Luopan Regen","DT"}--'Run',
+	Run_Set_Names = {"Luopan Regen","DT/MovSpeed"}
 	sets.run = {}
-	sets.run.Run =  {
-    ammo="Staunch Tathlum +1",
-    head="Azimuth Hood +2",
-    body="Agwu's Robe",
-    hands="Bagua Mitaines +1",
-    legs="Assid. Pants +1",
-    feet="Geo. Sandals +1",
-    neck="Sibyl Scarf",
-    waist="Carrier's Sash",
-    left_ear="Infused Earring",
-    right_ear="Odnowa Earring +1",
-    left_ring="Defending Ring",
-    right_ring="Stikini Ring +1",
-    back={ name="Nantosuelta's Cape", augments={'INT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+5','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
-	}
-	sets.run.DT =  {
+	sets.run["DT/MovSpeed"] =  {
     ammo="Staunch Tathlum +1",
     head="Azimuth Hood +2",
     body="Agwu's Robe",
     hands="Azimuth Gloves +2",
     legs="Assid. Pants +1",
     feet="Geo. Sandals +1",
-    neck="Warder's Charm +1",
+    neck="Elite Royal Collar",
     waist="Carrier's Sash",
     left_ear="Infused Earring",
     right_ear="Odnowa Earring +1",
@@ -95,7 +80,7 @@ function get_sets()
     head="Azimuth Hood +2",
     body={ name="Telchine Chas.", augments={'Pet: Mag. Evasion+18','Pet: "Regen"+3','Pet: Damage taken -3%',}},
     hands="Azimuth Gloves +2",
-    legs="Assid. Pants +1",
+    legs={ name="Telchine Braconi", augments={'Mag. Evasion+23','Pet: "Regen"+3','Pet: Damage taken -4%',}},
     feet="Bagua Sandals +1",
     neck="Sibyl Scarf",
     waist="Carrier's Sash",
@@ -121,14 +106,14 @@ function get_sets()
     back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}},
 	}
 	
-	Weapon_Set_Names = {'Daybreak','Mpaca',"DW" }--'Bunzi'
+	Weapon_Set_Names = {'Idris',"DW","Mpaca" }--'Bunzi','Daybreak',
 	sets.weapon = {}
 	sets.weapon.Daybreak = {
     main="Daybreak",
     sub="Ammurapi Shield",
 	}
-	sets.weapon.Bunzi = {
-    main="Bunzi's Rod",
+	sets.weapon["Idris"] = {
+    main="Idris",
     sub="Ammurapi Shield",
 	}
 	sets.weapon.Mpaca = {
@@ -138,6 +123,7 @@ function get_sets()
 	sets.weapon.DW = {
     main="Maxentius",
     sub="Ternion Dagger +1",
+	--sub="Magesmasher +1",
 	}	
 	sets.ws = {} 					-- Leave this empty.
 	sets.ws['Black Halo']	= {
@@ -172,10 +158,10 @@ function get_sets()
 	}
 	sets.ws['Cataclysm']	= {
     ammo="Ghastly Tathlum +1",
-    head="Agwu's Cap",
-    body="Agwu's Robe",
+    head="Azimuth Hood +2",
+    body="Jhakri Robe +2",
     hands="Jhakri Cuffs +2",
-    legs="Agwu's Slops",
+    legs="Azimuth Tights +2",
     feet="Azimuth Gaiters +2",
     neck="Sanctity Necklace",
     waist="Orpheus's Sash",
@@ -202,11 +188,11 @@ function get_sets()
 	}
 	sets.ws['Flash Nova']	= {
     ammo="Ghastly Tathlum +1",
-    head="Jhakri Coronal +2",
+    head="Azimuth Hood +2",
     body="Jhakri Robe +2",
     hands="Jhakri Cuffs +2",
-    legs="Jhakri Slops +2",
-    feet="Jhakri Pigaches +2",
+    legs="Azimuth Tights +2",
+    feet="Azimuth Gaiters +2",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
     left_ear="Regal Earring",
@@ -235,6 +221,11 @@ function get_sets()
 	sets.ja["Life Cycle"] = {
 	body="Geomancy Tunic +1",
     back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}},
+    neck="Unmoving Collar +1",
+    waist="Platinum Moogle Belt",
+    left_ear="Odnowa Earring +1",
+    right_ear="Tuisto Earring",
+	right_ring="Gelatinous Ring +1",
 	}
 	sets.ja["Bolster"] = {
 	body="Bagua Tunic +1",
@@ -249,10 +240,10 @@ function get_sets()
 
 	sets.precast = {}               -- leave this empty
 	sets.precast.fastcast = {
-    range="Dunna",
+    range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
     head={ name="Amalric Coif +1", augments={'INT+12','Mag. Acc.+25','Enmity-6',}},
     body="Agwu's Robe",
-    hands="Nyame Gauntlets",
+    hands="Agwu's Gages",
     legs="Geomancy Pants +1",
     feet={ name="Amalric Nails +1", augments={'Mag. Acc.+20','"Mag.Atk.Bns."+20','"Conserve MP"+7',}},
     neck="Voltsurge Torque",
@@ -261,47 +252,63 @@ function get_sets()
     right_ear="Loquac. Earring",
     left_ring="Kishar Ring",
     right_ring="Weather. Ring +1",
-	back={ name="Lifestream Cape", augments={'Geomancy Skill +7','Indi. eff. dur. +19','Pet: Damage taken -3%',}},
+	back={ name="Lifestream Cape", augments={'Geomancy Skill +9','Indi. eff. dur. +20','Pet: Damage taken -5%',}},
 	}
 	sets.precast['Dispelga'] = set_combine(sets.precast.fastcast,{ main = "Daybreak" })
 	
     sets.midcast = {}               -- leave this empty  
-	sets.midcast.geo = {
-	--main="Idris",
+	sets.midcast.DT = {
     range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
-    head="Azimuth Hood +2",
-    body={ name="Bagua Tunic +1", augments={'Enhances "Bolster" effect',}},
-    hands="Geo. Mitaines +1",
-    legs="Geo. Pants +1",
+    head={ name="Vanya Hood", augments={'MND+10','Spell interruption rate down +15%','"Conserve MP"+6',}},
+    body="Nyame Mail",
+    hands="Azimuth Gloves +2",
+    legs={ name="Vanya Slops", augments={'MND+10','Spell interruption rate down +15%','"Conserve MP"+6',}},
+    feet="Azimuth Gaiters +2",
+    neck="Voltsurge Torque",
+    waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
+    left_ear="Malignance Earring",
+    right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
+    left_ring="Defending Ring",
+    right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+    back={ name="Nantosuelta's Cape", augments={'INT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+5','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
+	}
+	
+	sets.midcast.geo = {
+	main="Idris",
+    range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
+    head={ name="Vanya Hood", augments={'MND+10','Spell interruption rate down +15%','"Conserve MP"+6',}},
+    body="Nyame Mail",
+    hands="Azimuth Gloves +2",
+    legs={ name="Vanya Slops", augments={'MND+10','Spell interruption rate down +15%','"Conserve MP"+6',}},
     feet={ name="Amalric Nails +1", augments={'Mag. Acc.+20','"Mag.Atk.Bns."+20','"Conserve MP"+7',}},
-    neck="Bagua Charm +1",
+    neck="Incanter's Torque",
     waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
     left_ear="Magnetic Earring",
     right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
-    left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
-    right_ring="Stikini Ring +1",
-    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    left_ring="Freke Ring",
+    right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+    back={ name="Nantosuelta's Cape", augments={'INT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+5','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
 	}	
 	sets.midcast.indi = {
-	--main="Idris",
+	main="Idris",
     range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
-    head="Azimuth Hood +2",
-    body={ name="Bagua Tunic +1", augments={'Enhances "Bolster" effect',}},
-    hands="Geo. Mitaines +1",
-    legs={ name="Bagua Pants +1", augments={'Enhances "Mending Halation" effect',}},
+    head={ name="Vanya Hood", augments={'MND+10','Spell interruption rate down +15%','"Conserve MP"+6',}},
+    body="Nyame Mail",
+    hands="Azimuth Gloves +2",
+    legs={ name="Vanya Slops", augments={'MND+10','Spell interruption rate down +15%','"Conserve MP"+6',}},
     feet="Azimuth Gaiters +2",
-    neck="Bagua Charm +1",
+    neck="Incanter's Torque",
     waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
     left_ear="Magnetic Earring",
     right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
-    left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
-    right_ring="Stikini Ring +1",
-    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    left_ring="Freke Ring",
+    right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
+    back={ name="Lifestream Cape", augments={'Geomancy Skill +9','Indi. eff. dur. +20','Pet: Damage taken -5%',}},
 	}			
 	
 	sets.midcast.enhancingduration = {
     sub="Ammurapi Shield",
-    range="Dunna",
+    range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
     head={ name="Telchine Cap", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
     body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
     hands={ name="Telchine Gloves", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +9',}},
@@ -317,18 +324,18 @@ function get_sets()
 	}		
 	
 	sets.midcast.cure = {
-    range="Dunna",
+    range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
     head={ name="Vanya Hood", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
     body="Nyame Mail",
     hands={ name="Telchine Gloves", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +9',}},
     legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
     feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
-    neck="Elite Royal Collar",
-    waist="Gishdubar Sash",
+    neck="Incanter's Torque",
+    waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
     left_ear="Magnetic Earring",
     right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
-    left_ring="Lebeche Ring",
-    right_ring="Defending Ring",
+    left_ring="Defending Ring",
+    right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
     back="Tempered Cape +1",
 	}
 
@@ -337,8 +344,8 @@ function get_sets()
     head="Pixie Hairpin +1",
     body="Jhakri Robe +2",
     hands="Jhakri Cuffs +2",
-    legs="Jhakri Slops +2",
-    feet="Agwu's Pigaches",
+    legs="Azimuth Tights +2",
+    feet="Azimuth Gaiters +2",
     neck="Erra Pendant",
     waist="Eschan Stone",
     left_ear="Malignance Earring",
@@ -354,7 +361,7 @@ function get_sets()
     head="Azimuth Hood +2",
     body="Agwu's Robe",
     hands="Azimuth Gloves +2",
-    legs="Jhakri Slops +2",
+    legs="Azimuth Tights +2",
     feet="Azimuth Gaiters +2",
     neck="Bagua Charm +1",
     waist={ name="Acuity Belt +1", augments={'Path: A',}},
@@ -365,11 +372,11 @@ function get_sets()
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
 	sets.midcast.enfeebling = {
-    range="Dunna",
+    range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
     head={ name="Amalric Coif +1", augments={'INT+12','Mag. Acc.+25','Enmity-6',}},
     body="Jhakri Robe +2",
     hands="Azimuth Gloves +2",
-    legs="Jhakri Slops +2",
+    legs="Azimuth Tights +2",
     feet="Azimuth Gaiters +2",
     neck="Bagua Charm +1",
     waist={ name="Acuity Belt +1", augments={'Path: A',}},
@@ -412,10 +419,10 @@ function get_sets()
 	}
 	sets.midcast.Drain = {	
     ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
-    head={ name="Bagua Galero +1", augments={'Enhances "Primeval Zeal" effect',}},
+    head={ name="Bagua Galero +2", augments={'Enhances "Primeval Zeal" effect',}},
     body="Agwu's Robe",
     hands="Azimuth Gloves +2",
-    legs="Agwu's Slops",
+    legs="Azimuth Tights +2",
     feet="Agwu's Pigaches",
     neck="Erra Pendant",
     waist="Fucho-no-Obi",
@@ -434,7 +441,7 @@ function get_sets()
 	head="Azimuth Hood +2",
     body="Agwu's Robe",
     hands="Azimuth Gloves +2",
-    legs="Agwu's Slops",
+    legs="Azimuth Tights +2",
     feet="Azimuth Gaiters +2",
     neck="Sanctity Necklace",
     waist="Orpheus's Sash",
@@ -450,13 +457,13 @@ function get_sets()
     head="Ea Hat",
     body="Ea Houppelande",
     hands="Ea Cuffs +1",
-    legs="Agwu's Slops",
+    legs="Azimuth Tights +2",
     feet="Azimuth Gaiters +2",
     neck="Mizu. Kubikazari",
     waist="Orpheus's Sash",
     left_ear="Malignance Earring",
     right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
-    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    left_ring="Freke Ring",
     right_ring="Mujin Band",
     back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}},
 	}
@@ -480,10 +487,10 @@ function get_sets()
     waist="Gishdubar Sash",	
     feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
 	}
-	sets.buff.CursnaOthers = { 	--, +107 Healing Skill, +60 Cursna, 
+	sets.buff.CursnaOthers = { 	--, +107 Healing Skill, +55 Cursna, 
     neck="Debilis Medallion", 	--, +15
     waist="Gishdubar Sash",		--, +10 Self
-    feet="Gendewitha Galoshes +1", --, +10
+	feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}}, --, +5
     left_ring="Haoma's Ring", 	--, 15
     right_ring="Menelaus's Ring", --, +20
     back="Oretania's Cape +1", 	--, +5
@@ -515,7 +522,7 @@ end
 
 function midcast(spell)
     if  spell.action_type == 'Magic' then
-		equip(sets.melee.melee)
+		equip(sets.midcast.DT)
 	end
 	if T{"Refresh","Aquaveil"}:contains(spell.name) then
 		equip(sets.midcast.Aquaveil) else
@@ -525,7 +532,7 @@ function midcast(spell)
 		end
 	--		
 	if T{"Aspir","Aspir II","Aspir III","Drain"}:contains(spell.name) then
-		equip (sets.midcast.Drain) else
+		equip (sets.midcast.Drain)
 	end
 	--
 
@@ -591,7 +598,7 @@ end
 
 function idle()
     if player.status=='Engaged' then
-        equip(sets.melee[Melee_Set_Names[Melee_Index]]) 
+        equip(sets.Engaged[Engaged_Set_Names[Engaged_Index]]) 
 	end
 	if player.status =='Idle' then --, When holstering weapon
 		equip(sets.run[Run_Set_Names[Run_Index]])
@@ -599,11 +606,11 @@ function idle()
 end
 
 function self_command(command)
-	if command == 'toggle melee set' then
-        Melee_Index = Melee_Index +1
-    if Melee_Index > #Melee_Set_Names then Melee_Index = 1 end
-        windower.add_to_chat('TP mode is now: '..Melee_Set_Names[Melee_Index])
-        equip(sets.melee[Melee_Set_Names[Melee_Index]])
+	if command == 'toggle Engaged set' then
+        Engaged_Index = Engaged_Index +1
+    if Engaged_Index > #Engaged_Set_Names then Engaged_Index = 1 end
+        windower.add_to_chat('TP mode is now: '..Engaged_Set_Names[Engaged_Index])
+        equip(sets.Engaged[Engaged_Set_Names[Engaged_Index]])
     end
 	if command == 'toggle weapon set' then
         Weapon_Index = Weapon_Index +1
