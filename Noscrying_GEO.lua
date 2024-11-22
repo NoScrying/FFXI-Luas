@@ -3,7 +3,9 @@ function get_sets()
 	send_command('bind f7 gs c toggle weapon set') -- F10 = Cycle through
 	send_command('bind f10 gs c toggle Run set') -- F10 = Cycle through
 	send_command('bind f12 gs c toggle TH set') -- F12 = Cycle through
-	send_command('bind ^f12 gs c toggle Nuke set') 
+	send_command('bind ^f12 gs c toggle Nuke set')
+	send_command('bind !numpad1 gs c toggle Holy Water')
+	send_command('bind !numpad3 gs c toggle Echo Drops')	
 	Engaged_Index = 1
 	Weapon_Index = 1
 	Run_Index = 1
@@ -57,7 +59,12 @@ function get_sets()
     right_ring="Stikini Ring +1",
     back={ name="Nantosuelta's Cape", augments={'INT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+5','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
 	}
-
+	sets["DW"] = {
+    waist="Shetal Stone",
+    left_ear="Suppanomimi",
+	right_ear="Eabani Earring",	
+	}
+	
 	Run_Set_Names = {"Luopan Regen","DT/MovSpeed"}
 	sets.run = {}
 	sets.run["DT/MovSpeed"] =  {
@@ -106,7 +113,7 @@ function get_sets()
     back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}},
 	}
 	
-	Weapon_Set_Names = {'Idris',"DW","Mpaca" }--'Bunzi','Daybreak',
+	Weapon_Set_Names = {'Idris',"Maxentius/Ternion","Maxentius/Magesmasher","Mpaca"}--'Bunzi','Daybreak',
 	sets.weapon = {}
 	sets.weapon.Daybreak = {
     main="Daybreak",
@@ -120,10 +127,15 @@ function get_sets()
     main="Mpaca's Staff",
     sub="Khonsu",
 	}
-	sets.weapon.DW = {
+	sets.weapon["Maxentius/Ternion"] = {
     main="Maxentius",
     sub="Ternion Dagger +1",
 	--sub="Magesmasher +1",
+	}	
+	sets.weapon["Maxentius/Magesmasher"] = {
+    main="Maxentius",
+    --sub="Ternion Dagger +1",
+	sub="Magesmasher +1",
 	}	
 	sets.ws = {} 					-- Leave this empty.
 	sets.ws['Black Halo']	= {
@@ -230,6 +242,9 @@ function get_sets()
 	sets.ja["Bolster"] = {
 	body="Bagua Tunic +1",
 	}	
+	sets.ja["Concentric Pulse"] = {
+    head={ name="Bagua Galero +2", augments={'Enhances "Primeval Zeal" effect',}},
+	}
 	sets.ja["Radial Arcana"] = {
 	body="Bagua Sandals +1",
 	}
@@ -330,7 +345,7 @@ function get_sets()
     hands={ name="Telchine Gloves", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +9',}},
     legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
     feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
-    neck="Incanter's Torque",
+    neck="Elite Royal Collar",
     waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
     left_ear="Magnetic Earring",
     right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
@@ -367,8 +382,8 @@ function get_sets()
     waist={ name="Acuity Belt +1", augments={'Path: A',}},
     left_ear="Malignance Earring",
         right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
-    left_ring="Kishar Ring",
-    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Weatherspoon Ring +1",
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
 	sets.midcast.enfeebling = {
@@ -382,8 +397,8 @@ function get_sets()
     waist={ name="Acuity Belt +1", augments={'Path: A',}},
     left_ear="Malignance Earring",
     right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
-    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    right_ring="Stikini Ring +1",
+    left_ring="Kishar Ring",
+    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
 	
@@ -446,7 +461,7 @@ function get_sets()
     neck="Sanctity Necklace",
     waist="Orpheus's Sash",
     left_ear="Malignance Earring",
-    right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
+    right_ear="Regal Earring",
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Freke Ring",
     back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}},
@@ -462,13 +477,14 @@ function get_sets()
     neck="Mizu. Kubikazari",
     waist="Orpheus's Sash",
     left_ear="Malignance Earring",
-    right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
+    right_ear="Regal Earring",
     left_ring="Freke Ring",
     right_ring="Mujin Band",
     back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.Nuke.Stone = set_combine(sets.Nuke.MB, {
-	neck="Quanpur Necklace"
+	neck="Quanpur Necklace",
+	feet="Agwu's Pigaches",
 	})
     sets.aftercast = {}             -- leave this empty
 	
@@ -539,7 +555,7 @@ function midcast(spell)
 	--
 	if spell.skill == 'Enfeebling Magic' then
 		equip(sets.midcast.enfeebling) else
-	if T{"Sleep","Break","Stona","Bio","Poisona"}:contains(spell.name) then
+	if T{"Sleep","Sleep II","Sleepga","Sleepga II","Break","Bio","Bind","Blind","Frazzle","Dispel","Silence"}:contains(spell.name) then
 		equip (sets.midcast.MACC)
 	end
 end
@@ -557,6 +573,9 @@ end
     if spell.action_type == 'Magic' then
 		if spell.skill == 'Healing Magic' then
 			equip(sets.midcast.cure)
+				if T{"Paralyna","Silena","Stona","Viruna","Poisona"}:contains(spell.name) then
+				equip(sets.midcast.DT)
+			end
 		end
 	if 	spell.name:match('Cursna') and spell.target.type == 'SELF' then
 			equip(set_combine(sets.midcast.cure, sets.buff.CursnaSelf))
@@ -597,8 +616,12 @@ end
 
 
 function idle()
-    if player.status=='Engaged' then
+	if player.status=='Engaged' and player.sub_job ~='NIN' or player.sub_job ~= 'DNC'then --, "~=" means "Is Not", So if sub is not NIN or DNC, then uses this set
         equip(sets.Engaged[Engaged_Set_Names[Engaged_Index]]) 
+	end
+	if player.status=='Engaged' and player.sub_job =='NIN' or player.sub_job == 'DNC' then --, "==" means "Is", So if sub is NIN or DNC then uses this set
+	    equip(sets.Engaged[Engaged_Set_Names[Engaged_Index]]) 
+			equip(set_combine(sets.Engaged[Engaged_Set_Names[Engaged_Index]], sets["DW"]))
 	end
 	if player.status =='Idle' then --, When holstering weapon
 		equip(sets.run[Run_Set_Names[Run_Index]])
@@ -634,5 +657,13 @@ function self_command(command)
         Nuke_Index = Nuke_Index +1
     if Nuke_Index > #Nuke_Set_Names then Nuke_Index = 1 end
         windower.add_to_chat('Nuke mode is now: '..Nuke_Set_Names[Nuke_Index])
+    end
+	if command == 'toggle Holy Water' then
+        windower.add_to_chat("Using Holy Water")
+		send_command ("input /item 'Holy Water' <me>")
+	end
+	if command == 'toggle Echo Drops' then
+        windower.add_to_chat("Using Echo Drops")
+		send_command ("input /item 'Echo Drops' <me>")
     end
 end
