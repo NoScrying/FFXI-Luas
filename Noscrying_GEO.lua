@@ -638,11 +638,6 @@ function buff_change(buff,gain)
             status_change(player.status)
         end
     end
-	if buff == "entrust" then
-		if gain then
-		send_command("@input /ma 'Indi-Haste' <Qultada>")
-	end
-end
 end
  
 function status_change(new,old)
