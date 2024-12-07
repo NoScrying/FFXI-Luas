@@ -15,20 +15,20 @@ function get_sets()
 	sets.DD_Mode = {}
 	sets.DD_Mode.index = {'normal', 'Hybrid - SB+75',"DT"} --,DT
 	DD_Mode_ind = 1
-	sets.DD_Mode.normal = { 		--, -52PDT, -19 MDT, 30STP (13 Hit), 3QA, 22TA, 18DA, 64KA, SB 35, SBII25, Crit +29%
-    ammo="Coiste Bodhar",			--, 3DA, 3STP
-    head="Mpaca's Cap",				--, 3TA, +4 Crit, -7PDT
-    body="Mpaca's Doublet", 		--, 4TA, +7 Crit, -10 PDT, +10 Counter
-    hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}}, --, 4TA, 7STP
-	legs="Bhikku Hose +2", 			--, 25KA, 9STP, -13DT
-    feet="Mpaca's Boots",			--, 3TA, +3 Crit, -6PDT
-    neck={ name="Mnk. Nodowa +1", augments={'Path: A',}}, --, 15KA
-    waist="Moonbow Belt +1", 		--, -6DT, 8TA, 15SBII
-    left_ear="Sherida Earring", 	--, 5DA, 5STP, 5SBII
-    right_ear="Crepuscular Earring",--, 5STP
-    left_ring="Niqmaddu Ring",		--, 3QA, 5SBII 
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit
-    back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, 10KA, 10DA, -10PDT
+	sets.DD_Mode.normal = {
+    ammo="Coiste Bodhar",
+    head="Malignance Chapeau",
+    body="Mpaca's Doublet",
+    hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    legs="Bhikku Hose +2",
+    feet="Anch. Gaiters +3",
+    neck={ name="Mnk. Nodowa +2", augments={'Path: A',}},
+    waist="Moonbow Belt +1",
+    left_ear="Sherida Earring",
+    right_ear="Bhikku Earring +1", 	--, Counter +8
+    left_ring="Niqmaddu Ring",
+    right_ring="Lehko's Ring",
+    back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.DD_Mode.DT = {				--, -50 PDT, -34 MDT, 65STP (10 Hit), 3QA, 8TA, 15DA, 39KA, SB 35, SBII 25, Crit  +20%
     ammo="Staunch Tathlum +1", 		--, -3DT, PDL+3
@@ -37,25 +37,27 @@ function get_sets()
 	hands="Malignance Gloves",		--, -5DT, 12STP, PLD+4
 	legs="Malignance Tights",		--, -7DT, 10STP, PDL+5
 	feet="Malignance Boots", 		--, -4DT, 9STP, PDL+2
-    neck={ name="Mnk. Nodowa +1", augments={'Path: A',}}, --, 15KA
+    neck={ name="Mnk. Nodowa +2", augments={'Path: A',}}, --, 15KA
     waist="Moonbow Belt +1", 		--, -6DT, 8TA, 15SBII
     left_ear="Sherida Earring", 	--, 5DA, 5STP, 5SBII
-    right_ear="Odr Earring",		--, +5 Crit
+    right_ear="Bhikku Earring +1", 	--, Counter +8
     left_ring="Niqmaddu Ring",		--, 3QA, 5SBII 
     right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, 10KA, 10DA, -10PDT
 }
-	sets.DD_Mode["Hybrid - SB+75"]= {	--, -43PDT, -24 MDT, 15STP (15 hit) 3QA, 20TA, 5DA, 39KA, SB 51, SBII 30 (Max 75), Crit +36%
+	sets.DD_Mode["Hybrid - SB+75"]= {	--, -46PDT, -36 MDT, 47STP (12 hit) 3QA, 16TA, 15DA, 55KA, SB 51, SBII 25 (Max 75), Crit +25%
     ammo="Staunch Tathlum +1", 		--, -3DT, PDL+3
-    head="Malignance Chapeau", 		--, -6DT, 8STP, PDL+3
+    head="Kendatsuba Jinpachi +1", 	--, -6DT, 8STP, PDL+3
     body="Malignance Tabard", 		--, -9DT, 11STP, PDL+6
-    hands="Ken. Tekko +1",			--, 4TA, 8SB, +5 Crit
-    legs="Mpaca's Hose",			--, 4TA, 5SBII, +6 Crit, -9PDT
+    --hands="Ken. Tekko +1",			--, 4TA, 8SB, +5 Crit
+	hands="Malignance Gloves",		--, -5DT, 12STP, PLD+4
+    --legs="Mpaca's Hose",			--, 4TA, 5SBII, +6 Crit, -9PDT
+	legs="Bhikku Hose +2", 			--, 25KA, 9STP, -13DT
     feet="Ken. Sune-Ate +1",		--, 4TA, 8SB, +5 Crit
-    neck={ name="Mnk. Nodowa +1", augments={'Path: A',}}, --, 15KA
+    neck={ name="Mnk. Nodowa +2", augments={'Path: A',}}, --, 15KA
     waist="Moonbow Belt +1", 		--, -6DT, 8TA, 15SBII
     left_ear="Sherida Earring", 	--, 5DA, 5STP, 5SBII
-    right_ear="Odr Earring",		--, +5 Crit		
+    right_ear="Bhikku Earring +1", 	--, Counter +8	
     left_ring="Niqmaddu Ring",		--, 3QA, 5SBII 
     right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, 10KA, 10DA, -10PDT
@@ -78,14 +80,16 @@ function get_sets()
     right_ring="Defending Ring",	--, -10DT
     back={ name="Segomo's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','System: 1 ID: 640 Val: 4',}}, --, 10DA, Counter +10
 	}
-	sets.Tank_Mode["Hybrid - SB+75"]= {	--, -43PDT, -24 MDT, 15STP (15 hit) 3QA, 20TA, 5DA, 39KA, SB 51, SBII 30 (Max 75), Crit +36%
+	sets.Tank_Mode["Hybrid - SB+75"]= {	--, -46PDT, -36 MDT, 47STP (12 hit) 3QA, 16TA, 15DA, 55KA, SB 51, SBII 25 (Max 75), Crit +25%
     ammo="Staunch Tathlum +1", 		--, -3DT, PDL+3
-    head="Malignance Chapeau", 		--, -6DT, 8STP, PDL+3
+    head="Kendatsuba Jinpachi +1", 	--, -6DT, 8STP, PDL+3
     body="Malignance Tabard", 		--, -9DT, 11STP, PDL+6
-    hands="Ken. Tekko +1",			--, 4TA, 8SB, +5 Crit
-    legs="Mpaca's Hose",			--, 4TA, 5SBII, +6 Crit, -9PDT
+    --hands="Ken. Tekko +1",			--, 4TA, 8SB, +5 Crit
+	hands="Malignance Gloves",		--, -5DT, 12STP, PLD+4
+    --legs="Mpaca's Hose",			--, 4TA, 5SBII, +6 Crit, -9PDT
+	legs="Bhikku Hose +2", 			--, 25KA, 9STP, -13DT
     feet="Ken. Sune-Ate +1",		--, 4TA, 8SB, +5 Crit
-    neck={ name="Mnk. Nodowa +1", augments={'Path: A',}}, --, 15KA
+    neck={ name="Mnk. Nodowa +2", augments={'Path: A',}}, --, 15KA
     waist="Moonbow Belt +1", 		--, -6DT, 8TA, 15SBII
     left_ear="Sherida Earring", 	--, 5DA, 5STP, 5SBII
     right_ear="Odr Earring",		--, +5 Crit		
@@ -106,22 +110,22 @@ function get_sets()
     neck="Warder's Charm +1",
     waist="Engraved Belt",
     left_ear="Odnowa Earring +1",
-    right_ear="Tuisto Earring",
-    left_ring="Archon Ring",
+    right_ear={ name="Arete del Luna +1", augments={'Path: A',}},
+    left_ring="Shadow Ring",
     right_ring="Defending Ring",
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.run.Regen = {
     ammo="Staunch Tathlum +1",
-    head={ name="Rao Kabuto", augments={'Pet: HP+100','Pet: Accuracy+15','Pet: Damage taken -3%',}},
+    head="Nyame Helm",
     body="Hiza. Haramaki +2",
     hands="Rao Kote +1",
     legs="Bhikku Hose +2",
     feet="Hermes' Sandals",
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
     waist="Moonbow Belt +1",
-    left_ear="Sherida Earring",
-    right_ear="Infused Earring",
+    left_ear="Odnowa Earring +1",
+    right_ear={ name="Arete del Luna +1", augments={'Path: A',}},
     left_ring="Chirich Ring +1",
     right_ring="Defending Ring",
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
@@ -129,19 +133,19 @@ function get_sets()
 	
 	MEVA_Set_Name = {'MEVA'}
 	sets.MEVA = {					--, +682 MEVA, 40-50 Elemental Resist, +5% Negate Magic Damage chance, -51% PDT, -41% MDT
-    ammo="Staunch Tathlum +1",		--, Status Resistance +11, -3 DT,
-    head="Malignance Chapeau", 		--, 123 MEVA, -6 DT, 8STP, PDL+3
-    body="Malignance Tabard", 		--, 139 MEVA, -9 DT, 11STP, PDL+6
-	hands="Malignance Gloves",		--, 112 MEVA, -5 DT, 12STP, PLD+4
-	legs="Malignance Tights", 		--, 150 MEVA, -7 DT, 10STP, PDL+5
-    feet="Malignance Boots", 		--, 150 MEVA, -4 DT, 9STP, PDL+2
-    neck="Warder's Charm +1", 		--, +20 Element Resist, +5% Magic Absorb chance
-    waist="Engraved Belt", 			--, +20-30 Element Resist
-    left_ear="Sherida Earring",
-    right_ear="Eabani Earring",		--, +8 Meva
-    left_ring="Archon Ring", 		--, +5% Negate Magic Damage chance
-    right_ring="Defending Ring", 	--, -10% DT
-    back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, 10 KA, 10 DA, -10 PDT 
+    ammo="Staunch Tathlum +1",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Warder's Charm +1",
+    waist="Engraved Belt",
+    left_ear="Arete del Luna",
+    right_ear={ name="Arete del Luna +1", augments={'Path: A',}},
+    left_ring="Terrasoul Ring",
+    right_ring="Icecrack Ring",
+    back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 
 
@@ -154,13 +158,13 @@ function get_sets()
     feet={ name="Herculean Boots", augments={'"Dual Wield"+1','Attack+5','"Treasure Hunter"+1',}},
 	}
 	
-	Weapons_Set_Names = {'Verethragna', 'Counter'}
+	Weapons_Set_Names = {'Verethragna', 'Malignance'}
 	sets.Weapons = {} 					-- Leave this empty.
 	sets.Weapons.Verethragna = {
 	main = "Verethragna",
 	} 
-	sets.Weapons.Counter = {
-	main = "Jolt Counter",
+	sets.Weapons.Malignance = {
+	main = "Malignance Pole",
 	} 
 
 	
@@ -213,10 +217,10 @@ function get_sets()
     legs="Mpaca's Hose",
     feet="Mpaca's Boots",
     neck="Rep. Plat. Medal",
-    waist="Moonbow Belt +1",
+    waist="Orpheus's Sash",
     left_ear="Sherida Earring",
     right_ear="Odr Earring",
-    left_ring="Niqmaddu Ring",
+    left_ring="Weatherspoon Ring +1",
     right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
@@ -227,12 +231,27 @@ function get_sets()
     hands="Mpaca's Gloves",
     legs="Mpaca's Hose",
     feet="Mpaca's Boots",
-    neck={ name="Mnk. Nodowa +1", augments={'Path: A',}},
-    waist="Moonbow Belt +1",
+    neck={ name="Mnk. Nodowa +2", augments={'Path: A',}},
+    waist="Orpheus's Sash",
     left_ear="Sherida Earring",
     right_ear="Schere Earring",
-    left_ring="Niqmaddu Ring",
-    right_ring="Ilabrat Ring",
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Weatherspoon Ring +1",
+    back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	}
+	sets.ws['Shoulder Tackle'] = {
+    ammo="Coiste Bodhar",
+    head="Malignance Chapeau",
+    body="Bhikku Cyclas +2",
+    hands="Malignance Gloves",
+    legs="Bhikku Hose +2",
+    feet="Malignance Boots",
+    neck="Moonlight Necklace",
+    waist={ name="Acuity Belt +1", augments={'Path: A',}},
+    left_ear="Enchntr. Earring +1",
+    right_ear={ name="Bhikku Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+15','Mag. Acc.+15','"Store TP"+5',}},
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Weather. Ring +1",
     back="Sacro Mantle",
 	}
 	sets.ws['Tornado Kick'] = {
@@ -242,7 +261,7 @@ function get_sets()
     hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},
     legs="Mpaca's Hose",
     feet="Anch. Gaiters +3",
-    neck={ name="Mnk. Nodowa +1", augments={'Path: A',}},	
+    neck={ name="Mnk. Nodowa +2", augments={'Path: A',}},	
     waist="Moonbow Belt +1",
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
@@ -257,7 +276,7 @@ function get_sets()
     hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},
     legs="Mpaca's Hose",
     feet="Anch. Gaiters +3",
-    neck={ name="Mnk. Nodowa +1", augments={'Path: A',}},	
+    neck={ name="Mnk. Nodowa +2", augments={'Path: A',}},	
     waist="Moonbow Belt +1",
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
@@ -326,6 +345,37 @@ function get_sets()
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	} 	
 
+	sets.ws['Cataclysm'] = {
+	ammo="Knobkierrie",
+    head="Pixie Hairpin +1",
+    body="Nyame Mail",
+    hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
+    legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
+    feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
+    neck="Sanctity Necklace",
+    waist="Orpheus's Sash",
+    left_ear="Friomisi Earring",
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Archon Ring",
+    back="Sacro Mantle",
+	} 	
+	sets.ws['Shell Crusher'] = {
+    ammo="Knobkierrie",
+    head="Malignance Chapeau",
+    body="Bhikku Cyclas +2",
+    hands="Malignance Gloves",
+    legs="Bhikku Hose +2",
+    feet="Bhikku Gaiters +2",
+    neck="Sanctity Necklace",
+    waist={ name="Acuity Belt +1", augments={'Path: A',}},
+    left_ear="Crep. Earring",
+    right_ear={ name="Bhikku Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+15','Mag. Acc.+15','"Store TP"+5',}},
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Weather. Ring +1",
+    back="Sacro Mantle",
+	} 	
+	
 	sets.ja = {} 					-- Leave this empty.
 	sets.ja.Enmity = {
     ammo="Staunch Tathlum +1",
@@ -364,6 +414,7 @@ function get_sets()
     back={ name="Segomo's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','System: 1 ID: 640 Val: 4',}},
 	}  
 	sets.ja['Impetus'] = {	
+	left_ring="Defending Ring",
 	body="Bhikku Cyclas +2",
 	} 
 	sets.ja['Dodge'] = {	
@@ -377,11 +428,14 @@ function get_sets()
 	}
 	sets.ja['Boost'] = {	
     waist="Ask Sash",
+    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
+    legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
+    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
 	}
 	sets.ja.footwork = {
     feet="Anch. Gaiters +3",
 	legs="Bhikku Hose +2",
-    neck={ name="Mnk. Nodowa +1", augments={'Path: A',}},
+    neck={ name="Mnk. Nodowa +2", augments={'Path: A',}},
 	}
 	sets.ja['Hundred Fists'] = {
     legs={ name="Hes. Hose +1", augments={'Enhances "Hundred Fists" effect',}},
@@ -404,7 +458,7 @@ function get_sets()
 	}
 	sets.buff.Holywater = {
     neck="Nicander's Necklace",
-    left_ring="Blenmot's Ring",
+    left_ring="Blenmot's Ring +1",
     right_ring="Purity Ring",
 	}
 	
@@ -413,6 +467,13 @@ function get_sets()
 	}
 	sets.buff.Sleep = {
 	head="Frenzy Sallet",
+	}
+	sets.buff.Phalanx = {
+    head={ name="Taeon Chapeau", augments={'Spell interruption rate down -8%','Phalanx +3',}},
+    body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    feet={ name="Taeon Boots", augments={'Spell interruption rate down -10%','Phalanx +3',}},
 	}
 	
     sets.precast = {}               -- leave this empty  
@@ -438,7 +499,7 @@ function get_sets()
     hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     feet={ name="Taeon Boots", augments={'Spell interruption rate down -10%','Phalanx +3',}},
-    neck="Melic Torque",
+    neck="Incanter's Torque",
 	waist="Olympus Sash",
     left_ear="Augmenting Earring",
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
@@ -523,7 +584,7 @@ end
 
 function idle()
 	if player.status =="Engaged" then --, When drawing weapon
-		if Tank_Mode == true then
+		if DD_Mode == false then
 			equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]]) --, Equips the last gearset you changed to, is not static
 		elseif DD_Mode == true then
 			equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
@@ -549,47 +610,39 @@ DD_Mode = true --, TP set order, looks for Tanking TP set before 2H TP
 
 function self_command(command)
 	if command == 'toggle TP set' then --, When using the command as specified at the top of this lua, then executes these functions
-		if Tank_Mode == true then --, Checks whether or not the Tank_Mode Mode is active,
-			Tank_Mode_ind = Tank_Mode_ind + 1 --, Cycles through the Index, starts at 1 when switching or starting game
-			if Tank_Mode_ind > #sets.Tank_Mode.index then Tank_Mode_ind = 1 end 
-			windower.add_to_chat('Tank mode --> ' .. sets.Tank_Mode.index[Tank_Mode_ind] ..'') --, Sends a message ingame, not visible to others.
+		if DD_Mode == true then --, Checks whether or not the DD_Mode Mode is active,
+			DD_Mode_ind = DD_Mode_ind + 1 --, Cycles through the Index, starts at 1 when switching or starting game
+			if DD_Mode_ind > #sets.DD_Mode.index then DD_Mode_ind = 1 end 
+			windower.add_to_chat('DD mode --> ' .. sets.DD_Mode.index[DD_Mode_ind] ..'') --, Sends a message ingame, not visible to others.
 			--if player.status == 'Engaged' then
-				equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
+				equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
 			--end
-		elseif Tank_Mode == false then
-			if DD_Mode == true then
-				DD_Mode_ind = DD_Mode_ind + 1
-				if DD_Mode_ind > #sets.DD_Mode.index then DD_Mode_ind = 1 end
-				windower.add_to_chat('DD mode --> ' .. sets.DD_Mode.index[DD_Mode_ind] ..'')
+		elseif DD_Mode == false then
+			if Tank_Mode == true then
+				Tank_Mode_ind = Tank_Mode_ind + 1
+				if Tank_Mode_ind > #sets.Tank_Mode.index then Tank_Mode_ind = 1 end
+				windower.add_to_chat('Tank mode --> ' .. sets.Tank_Mode.index[Tank_Mode_ind] ..'')
 				--if player.status == 'Engaged' then
-						equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
+					equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
 				end
 			end		
 		end
 	if command == 'toggle Tank_Mode set' then
-		Tank_Mode_ind = Tank_Mode_ind + 1
-		if Tank_Mode_ind > #sets.Tank_Mode.index then Tank_Mode_ind = 1 end
-		windower.add_to_chat('Tank mode --> ' .. sets.Tank_Mode.index[Tank_Mode_ind] ..'')
+		DD_Mode_ind = DD_Mode_ind + 1
+		if DD_Mode_ind > #sets.DD_Mode.index then DD_Mode_ind = 1 end
+		windower.add_to_chat('DD mode --> ' .. sets.DD_Mode.index[DD_Mode_ind] ..'')
 		if player.status == 'Engaged' then
-			equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
+			equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
 		end
 	elseif command == 'toggle Tank_Mode' then
-		if Tank_Mode == true then
-			Tank_Mode = false
-			windower.add_to_chat('<----- Tanking Mode: [Off] ----->')
-        else
-			Tank_Mode = true
-			windower.add_to_chat('<----- Tanking Mode: [On] ----->')
-		end
-		status_change(player.status)
-	elseif command == 'toggle DD_Mode' then
 		if DD_Mode == true then
 			DD_Mode = false
-			windower.add_to_chat('<----- DD Mode: [Off] ----->')
+			windower.add_to_chat('<----- Tank Mode: [On] ----->')
         else
 			DD_Mode = true
 			windower.add_to_chat('<----- DD Mode: [On] ----->')
 		end
+		status_change(player.status)
 	end
 	if command == 'toggle Weapons set' then
         Weapons_Index = Weapons_Index +1
