@@ -11,13 +11,8 @@ function get_sets()
 	send_command('bind !numpad3 gs c toggle Echo Drops')
 	send_command('bind !numpad1 gs c toggle Holy Water')
 	send_command('bind !numpad0 gs c toggle Emergency MEVA')
+	send_command('bind ^numpad0 gs c toggle Meva/Stun resist')
 	send_command('bind !numpad7 input /p Embolden on, Protect V Please')
-	send_command ("input //text Keybind1 create ALT+N1 - Holy Water")
-	send_command ("input //text Keybind2 create ALT+N3 - Echo Drops")
-	send_command ("input //text Keybind1 pos 700 1085")	
-	send_command ("input //text Keybind2 pos 835 1085")	
-	send_command ("input //text Keybind1 size 10")	
-	send_command ("input //text Keybind2 size 10")	
 	
 	Run_Index = 1 --, Index for gearsets, needed for when there is more than 1 in a set and you wish you toggle beween them
 	TH_Index = 1
@@ -65,20 +60,18 @@ function get_sets()
 
 	sets.DD_Mode["Normal: 30PDT - 12MDT"] = { -- 3QA, 19TA, 27DA, Temper+28 = 55DA, Embolden +12 = 74DA, -30PDT, -12MDT, 2850HP
     ammo="Yamarang",
-    head="Adhemar Bonnet +1",priority=16,
-    body="Ashera Harness",priority=17,
-    --body="Nyame Mail",
-    hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},priority=195,
-	legs="Meghanada Chausses +2",priority=18,
+    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    body="Ashera Harness",
+    hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+    legs={ name="Samnuha Tights", augments={'STR+10','DEX+10','"Dbl.Atk."+3','"Triple Atk."+3',}},
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
     neck="Anu Torque",
-	--neck="Futhark Torque +2",
-    waist="Ioskeha Belt +1",
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Cessance Earring",
     right_ear="Sherida Earring",
-    left_ring="Moonlight Ring",priority=19,
+    left_ring="Moonlight Ring",
     right_ring="Niqmaddu Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},priority=14,
+    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.DD_Mode["Glass Cannon"] = { 
     ammo="Coiste Bodhar",
@@ -95,14 +88,15 @@ function get_sets()
     right_ring="Niqmaddu Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},priority=14,
 	}
-	sets.DD_Mode["Parry: 44PDT - 46MDT"] = { -- 3QA, 24DA, Temper+28 = 52DA, Embolden +12 = 64DA, -44PDT, -46MDT, +11 Inquartata, Parry+5%, 3300HP
+	sets.DD_Mode["Parry: 44PDT - 46MDT"] = { -- 3QA, 24DA, Temper+28 = 52DA, Embolden +12 = 64DA, -44PDT, -46MDT, +11 Inquartata, Parry+5%, 3270HP
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",priority=13,
     body="Ashera Harness",priority=17,
     hands="Turms Mittens +1",priority=14,
     legs="Eri. Leg Guards +2",priority=16,
     feet="Turms Leggings +1",priority=15,
-    neck="Futhark Torque +2",priority=11,
+    --neck="Futhark Torque +2",priority=11,
+	neck="Loricate Torque +1",
     waist="Ioskeha Belt +1",
     left_ear="Odnowa Earring +1",priority=19,
     right_ear="Sherida Earring",
@@ -136,17 +130,18 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},priority=14,
 	}
 	sets.Tank_Mode = {}
-	sets.Tank_Mode.index = {"Parry: 50PDT - 52MDT","Hybrid: 54PDT - 42MDT","Magic Absorb/Annul"} --, 
+	sets.Tank_Mode.index = {"Parry: 55PDT - 41MDT","Hybrid: 56PDT - 44MDT","Magic Absorb/Annul"} --, 
 	Tank_Mode_ind = 1
 	
-	sets.Tank_Mode["Hybrid: 54PDT - 42MDT"] = { --, -54PDT, -42MDT, +44 DA, +8 TA, +3 QA, 3300 HP
+	sets.Tank_Mode["Hybrid: 56PDT - 44MDT"] = { --, +44 DA, +8 TA, +3 QA, 3270 HP
     ammo="Yamarang",
     head="Adhemar Bonnet +1",priority=13,
-    body="Erilaz Surcoat +2",priority=18,
+    body="Ashera Harness",priority=18,
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},priority=14,
     legs="Erilaz Leg Guards +2",priority=17,
     feet="Erilaz Greaves +2",priority=16,
-    neck="Futhark Torque +2",priority=15,
+    --neck="Futhark Torque +2",priority=15,
+	neck="Loricate Torque +1",
     -- waist="Engraved Belt",
 	waist="Platinum Moogle Belt",priority=20,
     left_ear="Cessance Earring",
@@ -155,30 +150,31 @@ function get_sets()
     right_ring="Niqmaddu Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},priority=12,
 	}
-	sets.Tank_Mode["Magic Absorb/Annul"] = { --, +50-60 Elemental Resist, -50PDT, -45MDT, +5% Damage Absorb Chance, +5% Magic Absorb Chance, +13% Magic Damage Annulment Chance, 3150 HP, 
-    ammo="Yamarang",
+	sets.Tank_Mode["Magic Absorb/Annul"] = { --, +50-60 Elemental Resist, +5% Damage Absorb Chance, +5% Magic Absorb Chance, +13% Magic Damage Annulment Chance, 3485 HP, 
+    ammo="Staunch Tathlum +1",
     head="Erilaz Galea +2",priority=17,
     body="Erilaz Surcoat +2",priority=19,
     hands="Erilaz Gauntlets +2",priority=13,
     legs="Eri. Leg Guards +2",priority=15,
     feet="Erilaz Greaves +2",priority=12,
     neck="Warder's Charm +1",
-	waist="Engraved Belt",
+	waist="Platinum Moogle Belt",priority=20,
     --waist="Plat. Mog. Belt", priority=20,
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},priority=18,
-    right_ear={ name="Erilaz Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Damage taken-3%',}},
-    left_ring="Shadow Ring",
-    right_ring="Moonlight Ring",priority=16,
+    left_ear={ name="Arete del Luna +1", augments={'Path: A',}},
+    right_ear="Sanare Earring",
+    left_ring="Moonlight Ring",priority=16,
+    right_ring="Shadow Ring",
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Phys. dmg. taken-10%',}},priority=14,
 	}
-	sets.Tank_Mode["Parry: 50PDT - 52MDT"] = { --, -50PDT, -52MDT, +11 Inquartata, Parry +5%, +25 DA, 3600 HP
+	sets.Tank_Mode["Parry: 55PDT - 41MDT"] = { --, +11 Inquartata, Parry +5%, +25 DA, 3650 HP
     ammo="Staunch Tathlum +1",
     head="Nyame Helm",priority=16,
-    body="Erilaz Surcoat +2",priority=15,
+    body="Nyame Mail",priority=15,
     hands="Turms Mittens +1",priority=13,
     legs="Eri. Leg Guards +2",priority=14,
     feet="Turms Leggings +1",priority=12,
-    neck="Futhark Torque +2",priority=11,
+    --neck="Futhark Torque +2",priority=11,
+	neck="Loricate Torque +1",
 	waist="Platinum Moogle Belt",priority=20,
     left_ear="Odnowa Earring +1",priority=18,
     right_ear="Erilaz Earring +1",
@@ -202,15 +198,30 @@ function get_sets()
     legs="Eri. Leg Guards +2",priority=15,	--, +147, -12% DT
     feet="Erilaz Greaves +2",priority=14, 	--, +147, +30 Element Resist, -10% DT
     neck="Futhark Torque +2",priority=11,	--, +30, -6% DT
-    waist="Engraved Belt", 		--, +20-30 Element Resist
-    left_ear="Odnowa Earring +1",priority=18,	--, -5% MDT, -3% PDT
-    right_ear="Tuisto Earring",priority=19, 
+    waist="Platinum Moogle Belt",
+    left_ear={ name="Arete del Luna +1", augments={'Path: A',}},
+    right_ear="Sanare Earring",
     --left_ring="Archon Ring", 	--, +5% Negate Magic Damage chance
     left_ring="Moonlight Ring",priority=17,
     right_ring="Purity Ring", 	--, +10, -4% MDT
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}},priority=10, --, +20 MEVA
 	}	
-	
+	sets["MEVA Stun Resist"] = { 				--, +30-80 Elemental Resist, +18% Status Resist, +60%(?) Stun Resist
+    ammo="Staunch Tathlum +1", 				--, +11% Status Resist, -3% DT
+    head="Nyame Helm",priority=13,			--, +123, -7% DT
+    body="Nyame Mail",priority=16,	 		--, +139, -9% DT
+    hands="Erilaz Gauntlets +2",priority=12,--, +49, -10% DT
+    legs="Eri. Leg Guards +2",priority=15,	--, +147, -12% DT
+    feet="Erilaz Greaves +2",priority=14, 	--, +147, +30 Element Resist, -10% DT
+    neck="Futhark Torque +2",priority=11,	--, +30, -7% DT
+    waist="Platinum Moogle Belt",
+    left_ear={ name="Arete del Luna +1", augments={'Path: A',}}, --, 20% Stun Resist
+    right_ear="Arete Del Luna",	--, 15% Stun Resist
+    --left_ring="Archon Ring", 	--, +5% Negate Magic Damage chance
+    left_ring="Terrasoul Ring", --, 15% Stun Resist
+    right_ring="Icecrack Ring", --, ??(10)% Stun Resist
+    back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Parrying rate+5%',}},priority=10, --, +20 MEVA
+	}		
 	Run_Set_Names = {'DT','Regen','Refresh'}
 	sets.run = {}
 	sets.run.Supertank =  { 	--, +60-70 Elemental Resist, +679 MEVA, +7% Damage to MP, +4% Chance Damage to HP , +5% Magic Annul Chance, +5% Chance Magic to HP, -50% PDT, -42% MDT
@@ -223,13 +234,13 @@ function get_sets()
     neck="Warder's Charm +1", 	--, +20 Ele, +5% Magic Absorb Chance,
     waist="Engraved Belt", 		--, +20-30 Ele
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},priority=18, --, -3% DT, -2% MDT
-    right_ear="Tuisto Earring",priority=19,
+    right_ear="Sanare Earring",
     left_ring="Moonlight Ring",priority=17, --, -5% DT
     right_ring="Archon Ring",	--, +5% Magic Annul Chance,
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Phys. dmg. taken-10%',}},priority=11, 	--, 30, -10% PDT
 	}
 	sets.run.DT =  { 			--, -53% PDT, -35% MDT
-    ammo="Yamarang",
+    ammo="Staunch Tathlum +1",
     head="Nyame Helm",priority=12, 
     body="Futhark Coat +3",priority=16, 
     hands="Nyame Gauntlets",priority=10, 
@@ -237,8 +248,8 @@ function get_sets()
     feet="Erilaz Greaves +2",priority=11, 
     neck="Warder's Charm +1",
 	waist="Platinum Moogle Belt",priority=19, 
-    left_ear="Odnowa Earring +1",priority=17, 
-    right_ear="Tuisto Earring",priority=18, 
+    left_ear={ name="Arete del Luna +1", augments={'Path: A',}},
+    right_ear="Sanare Earring",
     left_ring="Moonlight Ring",priority=14, 
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},priority=15, 
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},priority=9, 
@@ -268,7 +279,7 @@ function get_sets()
     neck="Sibyl Scarf",
     waist="Plat. Mog. Belt",priority=20, 
     left_ear="Odnowa Earring +1",priority=18, 
-    right_ear="Infused Earring",priority=14, 
+    right_ear="Sanare Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
     back="Moonbeam Cape",priority=19, 
@@ -325,11 +336,11 @@ function get_sets()
     hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},priority=16, 
     legs="Meg. Chausses +2",priority=18, 
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},priority=15, 
-    neck="Rep. Plat. Medal",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
-    left_ring="Sroda Ring",
+    left_ring="Ifrit Ring +1",
     right_ring="Niqmaddu Ring",
     back={ name="Ogma's Cape", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
 	}
@@ -337,17 +348,16 @@ function get_sets()
 	sets.ws['Dimidiation']	= {
     ammo="Knobkierrie",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Ashera Harness",priority=17,
-    hands="Meg. Gloves +2",priority=18, 
-    legs="Lustr. Subligar +1",
+    body="Erilaz Surcoat +2",
+    hands="Meg. Gloves +2",
+    legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
-    neck="Fotia Gorget",
-    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
+    neck="Rep. Plat. Medal",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
-	left_ring="Epaminondas's Ring",
-    --left_ring="Lehko's Ring",
-    right_ring="Niqmaddu Ring",	
+    left_ring="Epaminondas's Ring",
+    right_ring="Ilabrat Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 
@@ -402,7 +412,7 @@ function get_sets()
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Shockwave']	= { 		--, Use MACC to ensure additional effect proc, Sleepga
-    ammo="Knobkierrie",
+    ammo="Yamarang",
 	head="Erilaz Galea +2",priority=16,  
     body="Erilaz Surcoat +2",priority=18, 
     hands="Erilaz Gauntlets +2",priority=15, 
@@ -621,14 +631,14 @@ function get_sets()
 	}
 
 	sets.ja = {} 					-- Leave this empty
-	sets.ja.Enmity = { 				--, +82% Enmity (Enmity gear is a percentage increase or decrease, not an addition
+	sets.ja.Enmity = { 				--, +79% Enmity (Enmity gear is a percentage increase or decrease, not an addition
     head="Halitus Helm", 			--, 8
     body="Emet Harness",priority=19, 			--, 9
 	hands="Erilaz Gauntlets +2",priority=17,
     legs="Erilaz Leg Guards +2",priority=18, 	--, 12
     feet="Erilaz Greaves +2",priority=16,		--, 8
     neck="Moonlight Necklace", 		--, 15 Enmity
-    waist="Warwolf Belt", 			--, 3
+    waist="Plat. Mog. Belt",
     left_ear="Cryptic Earring",		--, 4
     right_ear="Trux Earring",		--, 5
     left_ring="Supershear Ring",priority=13, 	--, 5
@@ -720,7 +730,7 @@ function get_sets()
     neck="Warder's Charm +1",
     waist="Engraved Belt",
     left_ear="Tuisto Earring",priority=19,
-    right_ear="Eabani Earring",priority=12,
+    right_ear="Sanare Earring",priority=12,
     left_ring="Archon Ring",
     right_ring="Defending Ring",
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},priority=13,	
@@ -735,7 +745,7 @@ function get_sets()
     neck="Warder's Charm +1",
     waist="Engraved Belt",
     left_ear="Tuisto Earring",priority=19,
-    right_ear="Eabani Earring",priority=12,
+    right_ear="Sanare Earring",priority=12,
     left_ring="Archon Ring",
     right_ring="Defending Ring",
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},priority=13,	
@@ -750,7 +760,7 @@ function get_sets()
     neck="Warder's Charm +1",
     waist="Engraved Belt",
     left_ear="Tuisto Earring",priority=19,
-    right_ear="Eabani Earring",priority=12,
+    right_ear="Sanare Earring",priority=12,
     left_ring="Archon Ring",
     right_ring="Defending Ring",
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},priority=13,	
@@ -765,7 +775,7 @@ function get_sets()
     neck="Warder's Charm +1",
     waist="Engraved Belt",
     left_ear="Tuisto Earring",priority=19,
-    right_ear="Eabani Earring",priority=12,
+    right_ear="Sanare Earring",priority=12,
     left_ring="Archon Ring",
     right_ring="Defending Ring",
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},priority=13,	
@@ -780,7 +790,7 @@ function get_sets()
     neck="Warder's Charm +1",
     waist="Engraved Belt",
     left_ear="Tuisto Earring",priority=19,
-    right_ear="Eabani Earring",priority=12,
+    right_ear="Sanare Earring",priority=12,
     left_ring="Archon Ring",
     right_ring="Defending Ring",
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},priority=13,	
@@ -795,7 +805,7 @@ function get_sets()
     neck="Warder's Charm +1",
     waist="Engraved Belt",
     left_ear="Tuisto Earring",priority=19,
-    right_ear="Eabani Earring",priority=12,
+    right_ear="Sanare Earring",priority=12,
     left_ring="Archon Ring",
     right_ring="Defending Ring",
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},priority=13,	
@@ -810,7 +820,7 @@ function get_sets()
     neck="Warder's Charm +1",
     waist="Engraved Belt",
     left_ear="Tuisto Earring",priority=19,
-    right_ear="Eabani Earring",priority=12,
+    right_ear="Sanare Earring",priority=12,
     left_ring="Archon Ring",
     right_ring="Defending Ring",
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},priority=13,	
@@ -825,7 +835,7 @@ function get_sets()
     neck="Warder's Charm +1",
     waist="Engraved Belt",
     left_ear="Tuisto Earring",priority=19,
-    right_ear="Eabani Earring",priority=12,
+    right_ear="Sanare Earring",priority=12,
     left_ring="Archon Ring",
     right_ring="Defending Ring",
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},priority=13,	
@@ -927,7 +937,7 @@ function get_sets()
     right_ring={ name="Gelatinous Ring +1", priority=16},
     back={ name="Ogma's Cape", augments={'HP+60','"Fast Cast"+10','Spell interruption rate down-10%',}},priority=12, --, 10
 	})
-	sets.midcast.BLUEnmitySIRD = { 		--, +38% Enmity, Merit+10 = +104% SIRD, -46% PDT, -34% MDT, 3435 HP
+	sets.midcast.BLUEnmitySIRD = { 		--, +60% Enmity, Merit+10 = +104% SIRD, -46% PDT, -34% MDT, 3435 HP
 	ammo="Staunch Tathlum +1", 			--, 11 SIRD
 	head="Erilaz Galea +2",priority=17, --, 15 SIRD
     body="Nyame Mail",priority=18,
@@ -955,7 +965,7 @@ function get_sets()
     left_ear="Cyptic Earring", 			--, 4 Enmity
     right_ear="Trux Earring", 			--, 5 Enmity
     left_ring="Supershear Ring",priority=14, --, 5 Enmity
-    right_ring="Provocare Ring", 		--, 5 Enmity
+    right_ring="Eihwaz Ring", 			--, 5 Enmity
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},priority=15, --, 10 Enmity, 10PDT
 	}
 	sets.midcast.MaxEnmity = { 			--, DD Mode; 	+90% Enmity, Merit+10 = +25% SIRD, -37% PDT, -22% MDT, 3100 HP
@@ -967,11 +977,11 @@ function get_sets()
     legs="Erilaz Leg Guards +2",priority=19,--, 12 Enmity, -12% DT
     feet="Erilaz Greaves +2",priority=16, 	--, 8 Enmity, -10% DT
     neck="Moonlight Necklace", 			--, 15 Enmity, +15 SIRD
-    waist="Warwolf Belt", 				--, 3 Enmity
+    waist="Kasiri Belt", 				--, 3 Enmity
     left_ear="Cryptic Earring",			--, 4 Enmity
     right_ear="Trux Earring",			--, 5
     left_ring="Supershear Ring",priority=14, --, 5 Enmity
-    right_ring="Provocare Ring", 		--, 5 Enmity
+    right_ring="Eihwaz Ring", 			--, 5 Enmity
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},priority=15, --, 10 Enmity, 10PDT
 	}
 	sets.midcast.Foil = { 				--, DD Mode; 	+54% Enmity, Merit+10 = +84% SIRD, -39% PDT, -10% MDT, +50% Duration, 3100 HP
@@ -986,7 +996,7 @@ function get_sets()
     waist="Audumbla Sash",  			--, 10 SIRD, -4 PDT
     left_ear="Cryptic Earring", 		--, 4 Enmity
     right_ear="Magnetic Earring", 		--, 8 SIRD
-    left_ring="Supershear Ring",priority=13,--, 5 Enmity
+    left_ring="Eihwaz Ring",priority=13,--, 5 Enmity
 	right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},priority=19,	--, +135HP
     back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Enmity+10','Phys. dmg. taken-10%',}},priority=14, --, 10 Enmity, 10PDT
 	}	
@@ -1009,6 +1019,7 @@ function get_sets()
 	
 	sets.midcast.regenPeord = {
     main={ name="Peord Claymore", augments={'Path: C',}},
+    right_ear="Erilaz Earring +1",
 	}
 
 	sets.midcast.RegenReceived = {				--, Merit+10 = +72% SIRD +18 Regen, +30% Potency, +39 seconds, +30% Duration, +3HP JT = Regen IV 62/tic, 168 Seconds = 3472 HP. Peord +20HP = 4592 HP.
@@ -1035,7 +1046,7 @@ function get_sets()
     hands="Rawhide Gloves",
     legs="Carmine Cuisses +1",priority=13,
     feet="Erilaz Greaves +2",priority=15,
-    left_ear="Halasz Earring",
+    left_ear="Arete Del Luna +1",
     right_ear="Magnetic Earring",
 	left_ring="Moonlight Ring",priority=16,	--, +110HP
 	right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},priority=19,	--, +135HP
@@ -1058,14 +1069,14 @@ function get_sets()
     --back={ name="Ogma's Cape", augments={'HP+60','"Fast Cast"+10','Spell interruption rate down-10%',}},
 	}
 	
-	sets.midcast.phalanx = { 		--, ML41 = Skill 527 = Phalanx Tier 8, -35 Damage, +18 = -53 Damage, Merit+10 = +31% SIRD, 2850 HP
+	sets.midcast.phalanx = { 		--, ML45 = Skill 531 = Phalanx Tier 8, -35 Damage, +18 = -53 Damage, Merit+10 = +31% SIRD, 2850 HP
 	ammo="Staunch Tathlum +1",
     head={ name="Fu. Bandeau +3", augments={'Enhances "Battuta" effect',}},priority=15,
     body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     feet={ name="Taeon Boots", augments={'Spell interruption rate down -10%','Phalanx +3',}},
-    neck="Melic Torque",
+    neck="Incanter's Torque",
 	waist="Olympus Sash",
     left_ear="Andoaa Earring",
     right_ear="Mimir Earring",
@@ -1073,7 +1084,23 @@ function get_sets()
 	right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},priority=18,	--, +135HP
     back={ name="Ogma's Cape", augments={'HP+60','"Fast Cast"+10','Spell interruption rate down-10%',}},priority=16, --, 10
 	}
-	sets.midcast.phalanxSIRD = {	--, ML41 = Skill 481 = Phalanx Tier 7 , -34 Damage, +18 = -52 Damage, Merit+10 = 104% SIRD, -22% PDT, 3350 HP
+	sets.midcast.PhalanxOutOfCombat = { 		--, ML45 = Skill 500 = Phalanx Tier 8, -35 Damage, +22 = -58 Damage, Merit+10 = +31% SIRD, 3250 HP
+	main="Deacon Sword",
+	ammo="Staunch Tathlum +1",
+    head={ name="Fu. Bandeau +3", augments={'Enhances "Battuta" effect',}},priority=15,
+    body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    feet={ name="Taeon Boots", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    neck="Moonlight Necklace", 		--, 15
+	waist="Platinum Moogle Belt",
+    left_ear="Andoaa Earring",
+    right_ear="Mimir Earring",
+	left_ring="Moonlight Ring",priority=17,		--, +110HP
+	right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},priority=18,	--, +135HP
+    back={ name="Ogma's Cape", augments={'HP+60','"Fast Cast"+10','Spell interruption rate down-10%',}},priority=16, --, 10
+	}
+	sets.midcast.phalanxSIRD = {	--, ML45 = Skill 485 = Phalanx Tier 7 , -34 Damage, +18 = -52 Damage, Merit+10 = 104% SIRD, -22% PDT, 3050 HP
 	ammo="Staunch Tathlum +1",		--, 11
     head={ name="Fu. Bandeau +3", augments={'Enhances "Battuta" effect',}},priority=15,
     body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}}, 	--, 10
@@ -1095,7 +1122,7 @@ function get_sets()
     hands="Runeist Mitons +2",priority=14,  			--, 15
     legs={ name="Futhark Trousers +3", augments={'Enhances "Inspire" effect',}},priority=18, --, 30%
     feet="Erilaz Greaves +2",priority=16,
-    neck="Melic Torque", 				--, 10
+    neck="Incanter's Torque", 				--, 10
 	waist="Olympus Sash", 				--, 5
     left_ear="Andoaa Earring", 			--, 5
     right_ear="Mimir Earring", 			--, 10
@@ -1110,7 +1137,7 @@ function get_sets()
     hands="Runeist Mitons +2",priority=16, --, 15
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},priority=18, --18
     feet="Erilaz Greaves +2",priority=19,
-    neck="Melic Torque", 				--, 10
+    neck="Incanter's Torque", 				--, 10
 	waist="Olympus Sash", 				--, 5
     left_ear="Andoaa Earring", 			--, 5
     right_ear="Mimir Earring", 			--, 10
@@ -1257,14 +1284,14 @@ function midcast(spell) --, Midcast works in hierachy. The lower on the list the
 					equip(set_combine(sets.midcast.enmity, sets.TankHP))
 			end
 		end	
-	if spell.name =='Flash' or spell.name =='Stun' or spell.name =="Banishga" then
+	if T{'Flash','Banishga','Stun'}:contains(spell.name) then
 		if Tank_Mode == false then
 			equip(sets.midcast.MaxEnmity)
 				elseif Tank_Mode == true then
 					equip(set_combine(sets.midcast.MaxEnmity, sets.TankEnmity))
 			end
 		end
-	if spell.name =='Foil' or spell.name =="Crusade" then
+	if T{'Foil','Crusade'}:contains(spell.name) then
 		if Tank_Mode == false then
 			equip(sets.midcast.Foil)
 				elseif Tank_Mode == true then
@@ -1289,16 +1316,21 @@ function midcast(spell) --, Midcast works in hierachy. The lower on the list the
 		end
 	end
 	if spell.name:match('Phalanx') then
+		if player.status == "Idle" and player.tp < 500 then
+			equip (sets.midcast.PhalanxOutOfCombat) else
+		if player.status == "Engaged" then		
 			equip(sets.midcast.phalanxSIRD)
 		end
-    if spell.name:match('Magic Fruit') or spell.name:match('Cure') or spell.name:match('Healing Breeze')or spell.name:match('Wild Carrot')then
+	end
+end
+    if T{'Magic Fruit','Wild Carrot','Healing Breeze','Cure','Cure II','Cure III','Cure IV','Cura','Curaga III'}:contains(spell.name) then
 		if Tank_Mode == false then
 			equip(sets.midcast.Cure)
 				elseif Tank_Mode == true then
 					equip(set_combine(sets.midcast.Cure, sets.CureHP))
 		end
 	end
-	if spell.name:match('Stoneskin') or spell.name:match('Aquaveil') then
+	if T{'Stoneskin','Aquaveil'}:contains(spell.name) then
 			equip(sets.midcast.sird)
 		end
 
@@ -1309,7 +1341,7 @@ function midcast(spell) --, Midcast works in hierachy. The lower on the list the
 	if spell.skill == "Elemental Magic" then
 		equip(sets.ja['Lunge'])
 	end
-	if spell.name:match("Sleep") or spell.name:match ("Bind") or spell.name:match ("Absorb-") then
+	if T{'Sleep','Bind','Absorb-TP','Absorb-DEX'}:contains(spell.name) then
 		equip(sets.midcast.MACC)
 	end
 end 
@@ -1318,10 +1350,8 @@ end
 
 function aftercast(spell) --, idle() makes the aftercast use the "Idle ()" states.
 	idle()
-	if spell.name:match('Regen') then
 		equip(sets.weapons[Weapons_Set_Names[Weapons_Index]])
 	end
-end
 
 function buff_change(buff,gain) --, See list of buff names under Gearswap libraries, or just check name in-game when they are active
     -- if buff == 'Reive Mark' then
@@ -1494,6 +1524,10 @@ function self_command(command) --, Allows of use of various commands
         windower.add_to_chat('Emergency MEVA/DT On')
 		equip(sets.MEVA)
 	end
+	if command == 'toggle Meva/Stun resist' then
+        windower.add_to_chat('MEVA/Stun resist On')
+		equip(sets["MEVA Stun Resist"])
+	end
 	if command == 'toggle STP Set' then
         windower.add_to_chat('STP Set')
 		equip(sets.Aftermath)
@@ -1519,5 +1553,4 @@ send_command('unbind !numpad3')
 send_command('unbind ^numpad1')
 send_command('unbind !numpad0')
 send_command('unbind !numpad7')
-send_command ("input //lua r text")
 end
