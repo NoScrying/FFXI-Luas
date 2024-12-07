@@ -33,23 +33,26 @@ function get_sets()
     -- main="Shining One",
 	-- sub="Utu Grip",
 	-- }
-	Weapons_Set_Names = {'Scythe','Spear','Sword','Dagger','Staff','Club','GreatSword','Katana','GreatKatana'} --
+	Weapons_Set_Names = {'Scythe','Katana','Dagger','GreatKatana','Sword','Staff','Club','Spear','GreatSword'} --
 	sets.weapons = {}
 	sets.weapons.Scythe = {
     main="Lost Sickle",
+	sub="Utu Grip",
 	}
 	sets.weapons.GreatSword = {
 	main="Goujian",
+	sub="Utu Grip",
 	}
 	sets.weapons.Spear = {
     main="Iapetus",
+	sub="Utu Grip",
 	}
 	sets.weapons.Sword = {
     main="Twinned Blade",
 	sub="Qutrub Knife",
 	}
 	sets.weapons.Dagger = {
-    main="Wind Knife",
+    main="Wind Knife +1",
 	sub="Qutrub Knife",
 	}
 	sets.weapons.Katana = {
@@ -57,16 +60,18 @@ function get_sets()
 	}
 	sets.weapons.GreatKatana = {
     main="Zanmato",
+	sub="Utu Grip",
 	}
 	sets.weapons.Staff = {
     main="Caver's Shovel",
+	sub="Utu Grip",
 	}
 	sets.weapons.Club = {
     main="Thunder Hammer",
 	sub="Qutrub Knife",
 	}
 	
-	Sub_Weapons_Set_Names = {'Loxotic','Montante'}--,'Lycurgos',
+	Sub_Weapons_Set_Names = {'Naegling','Lycurgos'}--,'Loxotic','Montante'
 	sets.sub_weapons = {}
 	sets.sub_weapons.Loxotic = {
     main={ name="Loxotic Mace +1", augments={'Path: A',}},
@@ -76,10 +81,33 @@ function get_sets()
     main="Montante +1",
 	sub="Utu Grip",
 	}
-
-
-	Melee_Set_Names = {'normal', 'DT', "BrazenRush"}
+	sets.sub_weapons.Naegling = {
+    main="Naegling",
+	sub="Blurred Shield +1",
+	}
+	sets.sub_weapons.Lycurgos = {
+    main="Lycurgos",
+	sub="Utu Grip",
+	}
+	
+	Melee_Set_Names = {'normal','TH' }--"BrazenRush" 'DT'
 	sets.melee = {} 					-- Leave this empty.
+	sets.melee.TH = {
+    head="White Rarab Cap +1",
+	hands={ name="Valorous Mitts", augments={'"Mag.Atk.Bns."+1','Attack+11','"Treasure Hunter"+1','Accuracy+8 Attack+8','Mag. Acc.+3 "Mag.Atk.Bns."+3',}},
+	ammo="Perfect Lucky Egg",
+    waist="Chaac Belt",
+	
+    body="Sakpata's Plate",
+    legs="Boii Cuisses +2",
+    feet="Sakpata's Leggings",
+    neck={ name="War. Beads +1", augments={'Path: A',}},
+    left_ear="Brutal Earring",
+    right_ear={ name="Boii Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    left_ring="Niqmaddu Ring",
+    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	}	
 	sets.melee.normal = {
     -- ammo="Aurgelmir Orb",
     -- head="Hjarrandi Helm",
@@ -732,14 +760,24 @@ function get_sets()
 	}
 	sets.buff.Holywater = {
     neck="Nicander's Necklace",
-    left_ring="Blenmot's Ring",
+    left_ring="Blenmot's Ring +1",
     right_ring="Purity Ring",
 	}
 	sets.buff.Phalanx = {
-    legs="Sakpata's Cuisses",
-    body={ name="Yorium Cuirass", augments={'Phalanx +3',}},
+    sub="Blurred Shield +1",
+    ammo="Staunch Tathlum +1",
+    head={ name="Yorium Barbuta", augments={'Mag. Evasion+19','Enmity+7','Phalanx +2',}},
+    body={ name="Yorium Cuirass", augments={'Mag. Evasion+20','Enmity+7','Phalanx +3',}},
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    legs="Sakpata's Cuisses",
     feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Engraved Belt",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Sanare Earring",
+    left_ring="Moonlight Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back="Moonbeam Cape",
 	}
 
 end
