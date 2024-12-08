@@ -125,22 +125,40 @@ function get_sets()
     back="Sacro Mantle",
 	}	
 
-	Jugs_Set_Names = {'Warlike Patrick','Blackbeard Randy','Generous Arthur','Anklebiter Jedd',}
+	Weapons_Set_Names = {"Dolichenus","Naegling",} 
+	sets.weapons = {}
+	sets.weapons["Naegling"] = {
+    main="Naegling",
+	}
+	sets.weapons["Dolichenus"] = {
+    main="Dolichenus",
+	}
+	
+	Sub_Weapons_Set_Names = {'Sacro Shield',"Agwu's Axe"}
+	sets.sub_weapons = {}
+	sets.sub_weapons["Sacro Shield"] = {
+	sub="Sacro Shield",
+	}	
+	sets.sub_weapons["Agwu's Axe"] = {
+	sub="Agwu's Axe",
+	}	
+	
+	Jugs_Set_Names = {'WAR - Lizard','WAR - Tiger','10% HP Down - Slug','+50% Slow - Diremite','+50% ATK - Sheep'}
 	sets.Jugs = {}
-	sets.Jugs["Warlike Patrick"] = {
+	sets.Jugs["WAR - Lizard"] = {
 	ammo="Livid Broth",
 	}
-	sets.Jugs["Blackbeard Randy"] = {
+	sets.Jugs["WAR - Tiger"] = {
 	ammo="Meaty Broth",
 	}
-	sets.Jugs["Generous Arthur"] = {
+	sets.Jugs["10% HP Down - Slug"] = {
 	ammo="Dire Broth",
 	}
-	sets.Jugs["Anklebiter Jedd"] = {
+	sets.Jugs["+50% Slow - Diremite"] = {
 	ammo="Crackling Broth",
 	}
-	sets.Jugs["Warlike Patrick"] = {
-	ammo="Livid Broth",
+	sets.Jugs["+50% ATK - Sheep"] = {
+	ammo="Lyrical Broth",
 	}	
 	
 	sets.buff = {}
@@ -276,20 +294,62 @@ function get_sets()
 	sets.idle = {} 					-- Leave this empty.
 	
 	sets.precast = {}               -- leave this empty
+	sets.precast.fastcast = {
+    ammo="Sapience Orb",
+    head={ name="Herculean Helm", augments={'Accuracy+15','"Triple Atk."+4','Attack+14',}},
+    body={ name="Taeon Tabard", augments={'"Fast Cast"+5',}},
+    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+    legs={ name="Taeon Tights", augments={'"Fast Cast"+5',}},
+    feet={ name="Taeon Boots", augments={'"Fast Cast"+5',}},
+    neck="Voltsurge Torque",
+    waist="Engraved Belt",
+    left_ear="Loquac. Earring",
+    right_ear="Enchntr. Earring +1",
+    left_ring="Lebeche Ring",
+    right_ring="Weather. Ring +1",
+    back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},
+	}
 	
-    sets.midcast = {}               -- leave this empty  
-
+    sets.midcast = {}               -- leave this empty   
+	sets.midcast.DT = {
+    ammo="Staunch Tathlum +1",
+    head={ name="Herculean Helm", augments={'Accuracy+15','"Triple Atk."+4','Attack+14',}},
+    body="Malignance Tabard",
+    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+	neck="Loricate Torque +1",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Enchntr. Earring +1",
+    right_ear="Loquac. Earring",
+    left_ring="Moonlight Ring",
+    right_ring="Weather. Ring +1",
+    back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},
+	}
     sets.aftercast = {}             -- leave this empty
 	
-	sets.adoulin = {}
-	sets.adoulin.movement = {body="Councilor's Garb",}   --auto swaps when in adoulin 
- 
+	Buff_Set_Names = {'Holywater'}
+	sets.buff = {} 					
+	sets.buff.Holywater = {
+    neck="Nicander's Necklace",
+    left_ring="Blenmot's Ring +1",
+    right_ring="Purity Ring",
+    waist="Gishdubar Sash",	
+    feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
+	}
+	sets.buff.Phalanx = {
+    head={ name="Taeon Chapeau", augments={'Spell interruption rate down -8%','Phalanx +3',}},
+    body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    feet={ name="Taeon Boots", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+	}
 
 end
 
 function precast(spell)
     if  spell.type ~= 'JobAbility' then
-        equip(sets.ja.normal)
+        equip(sets.precast.fastcast)
 	end
     if sets.ja[spell.name] then
         equip(sets.ja[spell.name])
@@ -300,7 +360,9 @@ function precast(spell)
 end
 
 function midcast(spell)
-
+    if  spell.action_type == 'Magic' then
+        equip(sets.midcast.DT)
+	end
 end
 
 function aftercast(spell)
@@ -317,21 +379,21 @@ function buff_change(buff,gain)
             equip(sets.Idle)
         end
     end
-	if buff == 'Elvorseal' then
-		if gain then
-			equip(sets.buff.domain)
-			disable("head", "body")
-		else
-			enable("head", "body")
-			equip(sets.Idle)
-		end
-	end
+    if buff == "doom" then --, Auto equips doom set, cause I'm lazy from killing Shinryu
+        if gain then
+            equip(sets.buff.Holywater)
+             disable('ring1','ring2','waist','neck','feet')
+        else
+            enable('ring1','ring2','waist','neck','feet')
+            status_change(player.status)
+        end
+    end
 end
 
 
 function idle()
 	if player.status =="Engaged" then --, When drawing weapon
-		if Pet_Mode == true then
+		if Master_Mode == false then
 			equip(sets.Pet_Mode[sets.Pet_Mode.index[Pet_Mode_ind]]) --, Equips the last gearset you changed to, is not static
 		elseif Master_Mode == true then
 			equip(sets.Master_Mode[sets.Master_Mode.index[Master_Mode_ind]])
@@ -426,5 +488,32 @@ function self_command(command)
 end
 
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
-send_command('clearbinds')
+send_command('unbind f7')
+send_command('unbind !f7')
+send_command('unbind ^f7')
+
+send_command('unbind f9')
+send_command('unbind !f9')
+send_command('unbind ^f9')
+
+send_command('unbind f10')
+send_command('unbind !f10')
+send_command('unbind ^f10')
+
+send_command('unbind f12')
+send_command('unbind !f12')
+send_command('unbind ^f12')
+
+send_command('unbind Numpad1')
+send_command('unbind !Numpad1')
+send_command('unbind ^Numpad1')
+
+send_command('unbind Numpad3')
+send_command('unbind !Numpad3')
+send_command('unbind ^Numpad3')
+
+send_command('unbind Numpad0')
+send_command('unbind !Numpad0')
+send_command('unbind ^Numpad0')
+send_command('unbind Numpad0')
 end
