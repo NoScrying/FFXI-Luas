@@ -10,6 +10,7 @@ function get_sets()
 	send_command('bind ^numpad1 gs c toggle Buff set')
 	send_command('bind !numpad1 gs c toggle Holy Water')
 	send_command('bind !numpad0 gs c toggle Emergency MEVA')
+	send_command('input //lua load PetCharges')
 	
 	Run_Index = 1 --, Index for gearsets, needed for when there is more than 1 in a set and you wish you toggle beween them
 	TH_Index = 1
@@ -20,7 +21,7 @@ function get_sets()
 	PetFood_Index = 1
 
 	sets.Master_Mode = {}
-	sets.Master_Mode.index = {'TP','DT'}
+	sets.Master_Mode.index = {'TP','STP/DT'}
 	Master_Mode_ind = 1
 	
 	sets.Master_Mode.TP = {
@@ -39,7 +40,7 @@ function get_sets()
     back="Sacro Mantle",
 	}
 	
-	sets.Master_Mode.DT = {
+	sets.Master_Mode["STP/DT"] = {
     ammo="Coiste Bodhar",
     head="Malignance Chapeau",
     body="Malignance Tabard",
@@ -47,7 +48,7 @@ function get_sets()
     legs="Malignance Tights",
     feet="Malignance Boots",
     neck="Shulmanu Collar",
-    waist="Klouskap Sash",
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Sroda Earring",
     right_ear="Sherida Earring",
     left_ring="Lehko's Ring",
@@ -134,14 +135,20 @@ function get_sets()
     main="Dolichenus",
 	}
 	
-	Sub_Weapons_Set_Names = {'Sacro Shield',"Agwu's Axe"}
+	Sub_Weapons_Set_Names = {'Sacro Bulwark',"Agwu's Axe","Ternion Dagger +1","Malevolence"}
 	sets.sub_weapons = {}
-	sets.sub_weapons["Sacro Shield"] = {
-	sub="Sacro Shield",
+	sets.sub_weapons["Sacro Bulwark"] = {
+	sub="Sacro Bulwark",
 	}	
 	sets.sub_weapons["Agwu's Axe"] = {
 	sub="Agwu's Axe",
 	}	
+	sets.sub_weapons["Ternion Dagger +1"] = {
+	sub="Ternion Dagger +1",
+	}	
+	sets.sub_weapons["Malevolence"] = {
+	sub="Malevolence",
+	}
 	
 	Jugs_Set_Names = {'WAR - Lizard','WAR - Tiger','10% HP Down - Slug','+50% Slow - Diremite','+50% ATK - Sheep'}
 	sets.Jugs = {}
@@ -165,13 +172,6 @@ function get_sets()
 	sets.buff.reive = {
 	neck="Ygnas\'s Resolve +1"
 	}
-	sets.buff.adoulin = {
-	body="Councilor\'s Garb"
-	}
-	sets.buff.domain = {
-	head="Heidrek Mask",
-	body="Heidrek Harness",
-	}
 
 	PetFood_Set_Names = {'Theta',}
 	sets.PetFood = {}
@@ -183,9 +183,9 @@ function get_sets()
 	sets.ws['Decimation']	= {
     ammo="Crepuscular Pebble",
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
-    body="Gleti's Cuirass",
+    body="Tali'ah Manteel +2",
     hands="Gleti's Gauntlets",
-    legs="Gleti's Breeches",
+    legs="Meg. Chausses +2",
     feet="Gleti's Boots",
     neck="Fotia Gorget",
     waist="Fotia Belt",
@@ -195,6 +195,21 @@ function get_sets()
     right_ring="Gere Ring",
     back="Sacro Mantle",
 	}	
+	sets.ws['Rampage']	= {
+    ammo="Crepuscular Pebble",
+    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    body="Tali'ah Manteel +2",
+    hands="Gleti's Gauntlets",
+    legs="Meg. Chausses +2",
+    feet="Gleti's Boots",
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    left_ear="Sroda Earring",
+    right_ear="Sherida Earring",
+    left_ring="Lehko's Ring",
+    right_ring="Gere Ring",
+    back="Sacro Mantle",
+	}
 	sets.ws['Smash Axe']	= {
     ammo="Knobkierrie",
 	head="Erilaz Galea +2", 
@@ -236,7 +251,7 @@ function get_sets()
     waist="Orpheus's Sash",
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    left_ring="Epaminondas's Ring",
     right_ring="Weather. Ring +1",
     back="Sacro Mantle",
 	}
@@ -249,9 +264,9 @@ function get_sets()
     feet="Nyame Sollerets",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
-    left_ear="Thrud Earring",
+    left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    left_ring="Epaminondas's Ring",
     right_ring="Gere Ring",
     back="Sacro Mantle",
 	}
@@ -285,19 +300,40 @@ function get_sets()
     right_ring="Weather. Ring +1",
     back="Sacro Mantle",
 	}
+	sets.ws['Savage Blade']	= {
+    ammo="Oshasha's Treatise",
+    head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
+    body="Gleti's Cuirass",
+    hands="Meg. Gloves +2",
+    legs="Gleti's Breeches",
+    feet={ name="Valorous Greaves", augments={'Accuracy+29','Weapon skill damage +4%','STR+13',}},
+    neck="Rep. Plat. Medal",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Thrud Earring",
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ring="Epaminondas's Ring",
+    right_ring="Gere Ring",
+    back="Sacro Mantle",
+	}
 	
 	sets.ja = {} 					-- Leave this empty.
 	sets.ja['Steal'] = {
     head="White Rarab Cap +1",
 	}
-
+	sets.ja['Reward'] = {
+    ammo="Pet Food Theta",
+	}
+	sets.ja['Call Beast'] = {
+	}
+	sets.ja['Bestial Loyalty'] = {
+	}
 	sets.idle = {} 					-- Leave this empty.
 	
 	sets.precast = {}               -- leave this empty
 	sets.precast.fastcast = {
     ammo="Sapience Orb",
     head={ name="Herculean Helm", augments={'Accuracy+15','"Triple Atk."+4','Attack+14',}},
-    body={ name="Taeon Tabard", augments={'"Fast Cast"+5',}},
+    body="Sacro  Breastplate",
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
     legs={ name="Taeon Tights", augments={'"Fast Cast"+5',}},
     feet={ name="Taeon Boots", augments={'"Fast Cast"+5',}},
@@ -308,6 +344,9 @@ function get_sets()
     left_ring="Lebeche Ring",
     right_ring="Weather. Ring +1",
     back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},
+	}
+	sets.precast.PetFood = {
+    ammo="Pet Food Theta",
 	}
 	
     sets.midcast = {}               -- leave this empty   
@@ -326,6 +365,11 @@ function get_sets()
     right_ring="Weather. Ring +1",
     back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},
 	}
+	sets.midcast.PetFood = {
+    ammo="Pet Food Theta",
+	}
+	
+	
     sets.aftercast = {}             -- leave this empty
 	
 	Buff_Set_Names = {'Holywater'}
@@ -337,13 +381,13 @@ function get_sets()
     waist="Gishdubar Sash",	
     feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
 	}
-	sets.buff.Phalanx = {
+	sets.buff.Phalanx = set_combine (sets.Master_Mode["STP/DT"], {
     head={ name="Taeon Chapeau", augments={'Spell interruption rate down -8%','Phalanx +3',}},
     body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     feet={ name="Taeon Boots", augments={'Spell interruption rate down -10%','Phalanx +3',}},
-	}
+	})
 
 end
 
@@ -353,6 +397,9 @@ function precast(spell)
 	end
     if sets.ja[spell.name] then
         equip(sets.ja[spell.name])
+		 if spell.name:match("Call Beast") or spell.name:match("Bestial Loyalty") then
+			equip(sets.Jugs[Jugs_Set_Names[Jugs_Index]])	
+		end
 	end
     if sets.ws[spell.name] then
         equip(sets.ws[spell.name])        
@@ -515,5 +562,6 @@ send_command('unbind ^Numpad3')
 send_command('unbind Numpad0')
 send_command('unbind !Numpad0')
 send_command('unbind ^Numpad0')
-send_command('unbind Numpad0')
+
+send_command("input //lua u PetCharges")
 end
