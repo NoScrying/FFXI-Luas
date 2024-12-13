@@ -21,7 +21,7 @@ function get_sets()
 	PetFood_Index = 1
 
 	sets.Master_Mode = {}
-	sets.Master_Mode.index = {'TP','STP/DT'}
+	sets.Master_Mode.index = {'STP/DT','TP',}
 	Master_Mode_ind = 1
 	
 	sets.Master_Mode.TP = {
@@ -37,7 +37,7 @@ function get_sets()
     right_ear="Sherida Earring",
     left_ring="Lehko's Ring",
     right_ring="Gere Ring",
-    back="Sacro Mantle",
+    back={ name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.Master_Mode["STP/DT"] = {
@@ -48,12 +48,13 @@ function get_sets()
     legs="Malignance Tights",
     feet="Malignance Boots",
     neck="Shulmanu Collar",
-    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},   
+	--waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Sroda Earring",
     right_ear="Sherida Earring",
     left_ring="Lehko's Ring",
     right_ring="Gere Ring",
-    back="Sacro Mantle",
+    back={ name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
 	Run_Set_Names = {"Regain/DT",'Regen'}--
@@ -90,7 +91,7 @@ function get_sets()
 	}
 	
 	sets.Pet_Mode = {}
-	sets.Pet_Mode.index = {"Tank Mode","Damage Mode"} --, 
+	sets.Pet_Mode.index = {"Damage Mode"} --, "Tank Mode",
 	Pet_Mode_ind = 1
 	
 	sets.Pet_Mode["Damage Mode"] = {
@@ -106,7 +107,7 @@ function get_sets()
     right_ear="Rimeice Earring",
     left_ring="Varar Ring",
     right_ring="Varar Ring",
-    back="Sacro Mantle",
+    back={ name="Artio's Mantle", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Haste+10','Pet: Phys. dmg. taken-10%',}},
 }
 
 	MEVA_Set_Name = {'MEVA'}
@@ -126,7 +127,7 @@ function get_sets()
     back="Sacro Mantle",
 	}	
 
-	Weapons_Set_Names = {"Dolichenus","Naegling",} 
+	Weapons_Set_Names = {"Dolichenus","Agwu's Axe"} 
 	sets.weapons = {}
 	sets.weapons["Naegling"] = {
     main="Naegling",
@@ -134,6 +135,9 @@ function get_sets()
 	sets.weapons["Dolichenus"] = {
     main="Dolichenus",
 	}
+	sets.weapons["Agwu's Axe"] = {
+	main="Agwu's Axe",
+	}	
 	
 	Sub_Weapons_Set_Names = {'Sacro Bulwark',"Agwu's Axe","Ternion Dagger +1","Malevolence"}
 	sets.sub_weapons = {}
@@ -150,7 +154,7 @@ function get_sets()
 	sub="Malevolence",
 	}
 	
-	Jugs_Set_Names = {'WAR - Lizard','WAR - Tiger','10% HP Down - Slug','+50% Slow - Diremite','+50% ATK - Sheep'}
+	Jugs_Set_Names = {'WAR - Lizard','WAR - Tiger','10% HP Down - Slug','+50% Slow - Diremite','+50% ATK - Sheep','WAR - Tulfaire','AoE - Chapuli'}
 	sets.Jugs = {}
 	sets.Jugs["WAR - Lizard"] = {
 	ammo="Livid Broth",
@@ -166,6 +170,12 @@ function get_sets()
 	}
 	sets.Jugs["+50% ATK - Sheep"] = {
 	ammo="Lyrical Broth",
+	}	
+	sets.Jugs["WAR - Tulfaire"] = {
+	ammo="Windy Greens",
+	}		
+	sets.Jugs["AoE - Chapuli"] = {
+	ammo="Spicy Broth",
 	}	
 	
 	sets.buff = {}
@@ -191,9 +201,9 @@ function get_sets()
     waist="Fotia Belt",
     left_ear="Sroda Earring",
     right_ear="Sherida Earring",
-    left_ring="Ifrit Ring +1",
+    left_ring="Epona's Ring",
     right_ring="Gere Ring",
-    back="Sacro Mantle",
+    back={ name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}	
 	sets.ws['Rampage']	= {
     ammo="Crepuscular Pebble",
@@ -208,7 +218,7 @@ function get_sets()
     right_ear="Sherida Earring",
     left_ring="Lehko's Ring",
     right_ring="Gere Ring",
-    back="Sacro Mantle",
+    back={ name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Smash Axe']	= {
     ammo="Knobkierrie",
@@ -222,7 +232,7 @@ function get_sets()
     left_ear="Crepuscular Earring",
     right_ear="Erilaz Earring +1",
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    right_ring="Stikini Ring +1",
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Mistral Axe']	= {
@@ -322,11 +332,15 @@ function get_sets()
 	}
 	sets.ja['Reward'] = {
     ammo="Pet Food Theta",
+    back={ name="Artio's Mantle", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Haste+10','Pet: Phys. dmg. taken-10%',}},
 	}
 	sets.ja['Call Beast'] = {
 	}
 	sets.ja['Bestial Loyalty'] = {
 	}
+
+	
+
 	sets.idle = {} 					-- Leave this empty.
 	
 	sets.precast = {}               -- leave this empty
@@ -343,10 +357,29 @@ function get_sets()
     right_ear="Enchntr. Earring +1",
     left_ring="Lebeche Ring",
     right_ring="Weather. Ring +1",
-    back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},
+    back={ name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.precast.PetFood = {
     ammo="Pet Food Theta",
+	}
+	sets.precast.PetCommand = {}
+	sets.precast.PetCommand['Spur'] = set_combine (sets.run["Regain/DT"], {
+    back={ name="Artio's Mantle", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Haste+10','Pet: Phys. dmg. taken-10%',}},
+	})
+	sets.precast.PetCommand['Ready'] = {
+    ammo="Voluspa Tathlum",
+    head="Gleti's Mask",
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    feet="Gleti's Boots",
+    neck="Shulmanu Collar",
+    waist="Klouskap Sash",
+    left_ear="Sroda Earring",
+    right_ear={ name="Nukumi Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    left_ring="C. Palug Ring",
+    right_ring="Varar Ring",
+    back={ name="Artio's Mantle", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Haste+10','Pet: Phys. dmg. taken-10%',}},
 	}
 	
     sets.midcast = {}               -- leave this empty   
@@ -363,16 +396,104 @@ function get_sets()
     right_ear="Loquac. Earring",
     left_ring="Moonlight Ring",
     right_ring="Weather. Ring +1",
-    back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},
+    back={ name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.midcast.PetFood = {
     ammo="Pet Food Theta",
 	}
-	
+
+	sets.PetCommand = {}
+	sets.PetCommand['Spur'] = set_combine (sets.run["Regain/DT"], {
+    back={ name="Artio's Mantle", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Haste+10','Pet: Phys. dmg. taken-10%',}},
+	})
+	sets.PetCommand['Ready'] = {
+    ammo="Voluspa Tathlum",
+    head="Gleti's Mask",
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    feet="Gleti's Boots",
+    neck="Shulmanu Collar",
+    waist="Klouskap Sash",
+    left_ear="Sroda Earring",
+    right_ear={ name="Nukumi Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    left_ring="C. Palug Ring",
+    right_ring="Varar Ring",
+    back={ name="Artio's Mantle", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Haste+10','Pet: Phys. dmg. taken-10%',}},
+	}
+	-- Melee
+	sets.PetCommand['Tegmina Buffet'] = {
+    ammo="Voluspa Tathlum",
+    head="Gleti's Mask",
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    feet="Gleti's Boots",
+    neck="Shulmanu Collar",
+    waist="Klouskap Sash",
+    left_ear="Sroda Earring",
+    right_ear={ name="Nukumi Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    left_ring="C. Palug Ring",
+    right_ring="Varar Ring",
+    back={ name="Artio's Mantle", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Haste+10','Pet: Phys. dmg. taken-10%',}},
+	}
+	sets.PetCommand['Swooping Frenzy'] = set_combine (sets.PetCommand['Tegmina Buffet'], {
+	})
+	sets.PetCommand['Pentapeck'] = set_combine (sets.PetCommand['Tegmina Buffet'], {
+	})
+	sets.PetCommand['Double Claw'] = set_combine (sets.PetCommand['Tegmina Buffet'], {
+	})
+	sets.PetCommand['Razor Fang'] = set_combine (sets.PetCommand['Tegmina Buffet'], {
+	})
+	sets.PetCommand['Crossthrash'] = set_combine (sets.PetCommand['Tegmina Buffet'], {
+	})
+	sets.PetCommand['Tail Blow'] = set_combine (sets.PetCommand['Tegmina Buffet'], {
+	})
+	sets.PetCommand['Blockhead'] = set_combine (sets.PetCommand['Tegmina Buffet'], {
+	})
+	sets.PetCommand['Sheep Charge'] = set_combine (sets.PetCommand['Tegmina Buffet'], {
+	})
+	sets.PetCommand['Lamb Chop'] = set_combine (sets.PetCommand['Tegmina Buffet'], {
+	})
+	sets.PetCommand['Sensilla Blades'] = set_combine (sets.PetCommand['Tegmina Buffet'], {
+	})
+	-- sets.PetCommand[''] = set_combine (sets.PetCommand['Tegmina Buffet'], {
+	-- })
+
+	-- magic	
+	sets.PetCommand['Purulent Ooze'] = {
+    ammo="Voluspa Tathlum",
+    head="Gleti's Mask",
+    body="Gleti's Cuirass",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    feet="Gleti's Boots",
+    neck="Bst. Collar +1",
+    waist="Klouskap Sash",
+    left_ear="Enmerkar Earring",
+    right_ear={ name="Nukumi Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    left_ring="C. Palug Ring",
+    right_ring="Tali'ah Ring",
+    back={ name="Artio's Mantle", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Haste+10','Pet: Phys. dmg. taken-10%',}},
+	}
+	sets.PetCommand['Corrosive Ooze'] = set_combine (sets.PetCommand['Purulent Ooze'], {
+	})
+	sets.PetCommand['Molting Plumage'] = set_combine (sets.PetCommand['Purulent Ooze'], {
+	})
+	sets.PetCommand['Roar'] = set_combine (sets.PetCommand['Purulent Ooze'], {
+	})
+	sets.PetCommand['Fireball'] = set_combine (sets.PetCommand['Purulent Ooze'], {
+	})
+	sets.PetCommand['Sheep Song'] = set_combine (sets.PetCommand['Purulent Ooze'], {
+	})
+	-- sets.PetCommand[''] = set_combine (sets.PetCommand['Purulent Ooze'], {
+	-- })
+
+
 	
     sets.aftercast = {}             -- leave this empty
 	
-	Buff_Set_Names = {'Holywater'}
+	Buff_Set_Names = {'Holywater','Phalanx'}
 	sets.buff = {} 					
 	sets.buff.Holywater = {
     neck="Nicander's Necklace",
@@ -381,18 +502,26 @@ function get_sets()
     waist="Gishdubar Sash",	
     feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
 	}
-	sets.buff.Phalanx = set_combine (sets.Master_Mode["STP/DT"], {
+	sets.buff.Phalanx = {
     head={ name="Taeon Chapeau", augments={'Spell interruption rate down -8%','Phalanx +3',}},
     body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     feet={ name="Taeon Boots", augments={'Spell interruption rate down -10%','Phalanx +3',}},
-	})
+	ammo="Staunch Tathlum +1",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Flume Belt",
+    left_ear="Odnowa Earring +1",
+    right_ear={ name="Arete del Luna +1", augments={'Path: A',}},
+    left_ring="Defending Ring",
+    right_ring="Gelatinous Ring +1",
+    back={ name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	}
 
 end
 
 function precast(spell)
-    if  spell.type ~= 'JobAbility' then
+    if  spell.type == 'Magic' then
         equip(sets.precast.fastcast)
 	end
     if sets.ja[spell.name] then
@@ -400,6 +529,12 @@ function precast(spell)
 		 if spell.name:match("Call Beast") or spell.name:match("Bestial Loyalty") then
 			equip(sets.Jugs[Jugs_Set_Names[Jugs_Index]])	
 		end
+	end
+	if sets.precast.PetCommand[spell.name] then
+		equip(sets.precast.PetCommand[spell.name])
+	end
+	if sets.PetCommand[spell.name] then
+		equip(sets.PetCommand[spell.name])
 	end
     if sets.ws[spell.name] then
         equip(sets.ws[spell.name])        
@@ -524,13 +659,11 @@ function self_command(command)
 		Jugs_Index = Jugs_Index +1
 		if Jugs_Index > #Jugs_Set_Names then Jugs_Index = 1 end
         windower.add_to_chat('Jug Pet is now: '..Jugs_Set_Names[Jugs_Index])
-		equip(sets.Jugs[Jugs_Set_Names[Jugs_Index]])	
 	end
 	if command == 'toggle Pet Food' then
 		PetFood_Index = PetFood_Index +1
 		if PetFood_Index > #PetFood_Set_Names then PetFood_Index = 1 end
         windower.add_to_chat('Pet Food is now: '..PetFood_Set_Names[PetFood_Index])
-		equip(sets.PetFood[PetFood_Set_Names[PetFood_Index]])	
 	end
 end
 
