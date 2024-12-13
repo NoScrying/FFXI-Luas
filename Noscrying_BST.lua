@@ -574,14 +574,21 @@ end
 
 
 function idle()
-	if player.status =="Engaged" then --, When drawing weapon
+	if player.status =="Engaged" and player.sub_job ~='NIN' or player.sub_job ~= 'DNC' then 
 		if Master_Mode == false then
-			equip(sets.Pet_Mode[sets.Pet_Mode.index[Pet_Mode_ind]]) --, Equips the last gearset you changed to, is not static
+			equip(sets.Pet_Mode[sets.Pet_Mode.index[Pet_Mode_ind]]) 
 		elseif Master_Mode == true then
 			equip(sets.Master_Mode[sets.Master_Mode.index[Master_Mode_ind]])
+		end
 	end
-end
-	if player.status =='Idle' then --, When holstering weapon
+	if player.status =="Engaged" and player.sub_job =='NIN' or player.sub_job == 'DNC' then
+		if Master_Mode == false then
+			equip(set_combine(sets.Pet_Mode[sets.Pet_Mode.index[Pet_Mode_ind]], sets["DW"])) 
+		elseif Master_Mode == true then
+			equip(set_combine(sets.Master_Mode[sets.Master_Mode.index[Master_Mode_ind]], sets["DW"])) 
+		end
+	end	
+	if player.status =='Idle' then 
 		equip(sets.run[Run_Set_Names[Run_Index]])
 	end
 end
