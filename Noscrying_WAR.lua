@@ -355,7 +355,7 @@ function get_sets()
     right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
-	sets.ws['Upheaval']	= {
+	sets.ws['Upheaval']	= { --Why use Orpheus and Weatherspoon? My logic is: Chango is for Skillchaining into Light, and Orpheus and Weatherspoon will provide +15% Damage to any Skillchain and +26% to Light
 	ammo="Knobkierrie",
     head="Agoge Mask +3",
 	body="Pummeler's Lorica +3",
@@ -368,7 +368,8 @@ function get_sets()
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
     left_ring="Niqmaddu Ring",
-    right_ring="Epaminondas's Ring",
+	right_ring="Weatherspoon Ring +1",
+    --right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Upheaval Low TP']	= {
@@ -384,7 +385,8 @@ function get_sets()
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
     left_ring="Niqmaddu Ring",
-    right_ring="Gelatinous Ring +1",
+	right_ring="Weatherspoon Ring +1",
+    --right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws["Ukko's Fury"]	= {
