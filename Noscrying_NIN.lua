@@ -8,6 +8,13 @@ function get_sets()
 	Run_Index = 1
 	TH_Index = 1
 	Weapons_Index = 1
+
+	sets["WarpRing"] = {
+	left_ring= "Warp Ring"
+	}
+	sets["DemRing"] = {
+	left_ring= "Dim. Ring (Dem)"
+	}
 	
 	Weapons_Set_Names = {"Naegling", "Kikoku","Kaja Katana"}
 	sets.weapons = {}
@@ -46,7 +53,7 @@ function get_sets()
     right_ear="Brutal Earring",
     left_ring="Lehko's Ring",
     right_ring="Gere Ring",
-    back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back="Null Shawl",
 	}
 	sets.melee.Hybrid = {
     ammo="Togakushi Shuriken",
@@ -61,7 +68,7 @@ function get_sets()
     right_ear="Brutal Earring",
     left_ring="Lehko's Ring",
     right_ring="Gere Ring",
-    back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back="Null Shawl",
 	}
 	sets.melee.DT = {
     ammo="Togakushi Shuriken",
@@ -83,39 +90,40 @@ function get_sets()
 	sets.run = {}
 	sets.run["MEVA/DT"] =  {
     ammo="Yamarang",
-    head="Malignance Chapeau",
+    head="Null Masque",
     body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Danzo Sune-Ate",
     neck="Warder's Charm +1",
-    waist="Engraved Belt",
+    waist="Null Belt",
     left_ear="Eabani Earring",
     right_ear="Magnetic Earring",
     left_ring="Purity Ring",
     right_ring="Defending Ring",
-    back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back="Null Shawl",
 	}
 	sets.run["Regen"]=  {
     ammo="Togakushi Shuriken",
-    head={ name="Rao Kabuto", augments={'Pet: HP+100','Pet: Accuracy+15','Pet: Damage taken -3%',}},
+    head="Null Masque",
     body="Hiza. Haramaki +2",
     hands={ name="Rao Kote +1", augments={'Accuracy+12','Attack+12','Evasion+20',}},
     legs="Malignance Tights",
     feet="Danzo Sune-Ate",
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Engraved Belt",
+    waist="Null Belt",
     left_ear="Eabani Earring",
     right_ear="Infused Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back="Moonbeam Cape",
-
+    back="Null Shawl",
 	}
-
+	sets.run["Hachi"] = {
+	feet="
+	}
 	sets.ws = {} -- Leave this empty.
 	sets.ws['Savage Blade']	= {
-	ammo="Oshasha's Treatise",
+    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Mpaca's Cap",
     body="Mpaca's Doublet",
     hands="Mpaca's Gloves",
@@ -176,7 +184,7 @@ function get_sets()
     back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	} 
 	sets.ws['Blade: Hi'] = {
-    ammo="Oshasha's Treatise",
+    ammo="Cath Palug Stone",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
     body="Mpaca's Doublet",
     hands="Mpaca's Gloves",
@@ -206,7 +214,7 @@ function get_sets()
     back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Blade: Kamu'] = {
-    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+    ammo="Cath Palug Stone",
     head="Mpaca's Cap",
     body="Mpaca's Doublet",
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -221,7 +229,7 @@ function get_sets()
     back={ name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	} 
 	sets.ws['Blade: Shun'] = {
-    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+    ammo="Cath Palug Stone",
     head="Mpaca's Cap",
     body="Malignance Tabard",
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -236,7 +244,7 @@ function get_sets()
     back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	} 
 	sets.ws['Blade: Metsu'] = {
-    ammo="Oshasha's Treatise",
+    ammo="Cath Palug Stone",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
     body={ name="Herculean Vest", augments={'DEX+15','Pet: "Store TP"+9','Weapon skill damage +3%','Accuracy+15 Attack+15','Mag. Acc.+9 "Mag.Atk.Bns."+9',}},
     hands={ name="Herculean Gloves", augments={'Accuracy+27','"Triple Atk."+3','DEX+15',}},
@@ -257,7 +265,7 @@ function get_sets()
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
-    neck="Sibyl Scarf",
+    neck="Sanctity Necklace",
     waist="Orpheus's Sash",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
@@ -272,7 +280,7 @@ function get_sets()
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
-    neck="Sibyl Scarf",
+    neck="Sanctity Necklace",
     waist="Orpheus's Sash",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
@@ -287,7 +295,7 @@ function get_sets()
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
-    neck="Sibyl Scarf",
+    neck="Sanctity Necklace",
     waist="Orpheus's Sash",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
@@ -302,7 +310,7 @@ function get_sets()
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
-    neck="Sibyl Scarf",
+    neck="Sanctity Necklace",
     waist="Orpheus's Sash",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
@@ -312,7 +320,7 @@ function get_sets()
 	} 
 	
 	sets.ws['Evisceration'] = {
-    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+    ammo="Cath Palug Stone",
     head="Mpaca's Cap",
     body="Mpaca's Doublet",
     hands={ name="Ryuo Tekko +1", augments={'DEX+12','Accuracy+25','"Dbl.Atk."+4',}},
@@ -335,7 +343,7 @@ function get_sets()
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     --feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
-    neck="Sibyl Scarf",
+    neck="Sanctity Necklace",
     --waist="Orpheus's Sash",
 	left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
@@ -420,8 +428,8 @@ function get_sets()
     legs="Nyame Flanchard",
 	hands="Rawhide Gloves",
 	feet="Hattori Kyahan +2",
-    neck="Willpower Torque",
-    waist="Audumbla Sash",
+    neck="Loricate Torque +1",
+    waist="Null Belt",
     left_ear="Halasz Earring",
     right_ear="Magnetic Earring",
     left_ring="Meridian Ring",
@@ -437,7 +445,7 @@ function get_sets()
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
-    neck="Sibyl Scarf",
+    neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear="Crepuscular Earring",
     right_ear="Friomisi Earring",
@@ -447,18 +455,18 @@ function get_sets()
 	}
 	sets.midcast.MACC = {
 	ammo="Yamarang",
-    head="Malignance Chapeau",
+    head="Null Masque",
     body="Malignance Tabard",
 	hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Moonlight Necklace",
-    waist="Eschan Stone",
+    neck="Null Loop",
+    waist="Null Belt",
     left_ear="Crepuscular Earring",
     right_ear="Enchanter's Earring +1",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
-    back="Sacro Mantle",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
+    back="Null Shawl",
 	}
 	sets.midcast['Flash'] = set_combine (sets.ja['Provoke'] ,{	
 	})	
@@ -517,6 +525,15 @@ function idle()
         equip(sets.melee[Melee_Set_Names[Melee_Index]]) 
 	end
 	if player.status =='Idle' then	
+		-- if world.time >= 17*60 or world.time <= 7*60 then
+		-- if world.time >= (18*60) or world.time <= (6*60) then
+			-- sets.Movement = set_combine(sets.Movement, sets.Movement.Night)
+		-- else
+			-- sets.Movement = set_combine(sets.Movement, sets.Movement.Dusk)
+		-- end
+	-- else
+		-- sets.Movement = set_combine(sets.Movement, sets.Movement.Day)
+	-- end
 		equip(sets.run[Run_Set_Names[Run_Index]])
 	end
 end

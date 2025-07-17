@@ -17,7 +17,12 @@ function get_sets()
 	Refresh_Index = 1
 	Buff_Index = 1	
 
-	
+	sets["WarpRing"] = {
+	left_ring= "Warp Ring"
+	}
+	sets["DemRing"] = {
+	left_ring= "Dim. Ring (Dem)"
+	}
 	
 	Weapons_Set_Names = {'Carnwenhan','Naegling',"Twashtar"} --'Tauret'
 	sets.weapons = {}
@@ -67,7 +72,7 @@ function get_sets()
 	DD_Mode_ind = 1	
 	sets.DD_Mode["STP/MA"] = {
     range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
-    head="Blistering Sallet +1",
+    head="Null Masque",
     body="Ashera Harness",
     hands="Bunzi's Gloves",
 	legs="Nyame Flanchard",
@@ -79,11 +84,11 @@ function get_sets()
     right_ear="Suppanomimi",
     left_ring="Moonlight Ring",
     right_ring="Lehko's Ring",
-    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
+    back="Null Shawl",
 	}
 	sets.DD_Mode["DT/Acc"] = {
     range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
-    head="Nyame Helm",
+    head="Null Masque",
     body="Ashera Harness",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
@@ -98,7 +103,7 @@ function get_sets()
 	}	
 	sets.DD_Mode["MEVA"] = {
     range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
-    head="Nyame Helm",
+    head="Null Masque",
     body="Ashera Harness",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
@@ -109,7 +114,7 @@ function get_sets()
     right_ear="Sanare Earring",
     left_ring="Moonlight Ring",
     right_ring="Purity Ring",
-    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
+    back="Null Shawl",
 	}	
 	
 	sets.Tank_Mode = {}
@@ -118,29 +123,29 @@ function get_sets()
 
 	sets.Tank_Mode["STP/MA"]  = {	
     range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
-    head="Blistering Sallet +1",
+    head="Null Masque",
     body="Ashera Harness",
     hands="Bunzi's Gloves",
     legs={ name="Telchine Braconi", augments={'Accuracy+20','"Store TP"+6','DEX+10',}},
     feet="Nyame Sollerets",
     neck={ name="Bard's Charm +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Brutal Earring",
+    left_ear="Telos Earring",
     right_ear="Cessance Earring",
     left_ring="Moonlight Ring",
     right_ring="Lehko's Ring",
-    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
+    back="Null Shawl",
 	}
 	sets.Tank_Mode["DT/Acc"]  = {
     range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
-    head="Nyame Helm",
+    head="Null Masque",
     body="Ashera Harness",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck={ name="Bard's Charm +1", augments={'Path: A',}},
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
-    left_ear="Brutal Earring",
+    left_ear="Telos Earring",
     right_ear="Cessance Earring",
     left_ring="Moonlight Ring",
     right_ring="Lehko's Ring",
@@ -151,7 +156,7 @@ function get_sets()
 	
 	sets["Carnwenhan Aftermath"] = {
     range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
-    head="Aya. Zucchetto +2",
+    head="Null Masque",
     body="Ashera Harness",
     hands="Bunzi's Gloves",
     legs="Nyame Flanchard",
@@ -162,7 +167,7 @@ function get_sets()
     right_ear="Suppanomimi",
     left_ring="Moonlight Ring",
     right_ring="Lehko's Ring",
-    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
+    back="Null Shawl",
 	}	
 	sets["Twashtar Aftermath"] = {
     range={ name="Linos", augments={'Accuracy+15','"Dbl.Atk."+3','Quadruple Attack +3',}},
@@ -177,7 +182,7 @@ function get_sets()
     right_ear="Suppanomimi",
     left_ring="Moonlight Ring",
     right_ring="Lehko's Ring",
-    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
+    back="Null Shawl",
 	}	
 	
 -- Aftermath
@@ -186,37 +191,37 @@ function get_sets()
 	sets.run = {}
 	sets.run["DT/Regen"] =  {
     range={ name="Linos", augments={'Evasion+15','"Regen"+1','AGI+8',}},
-    head="Nyame Helm",
+    head="Null Masque",
     body="Fili Hongreline +2",
     hands="Nyame Gauntlets",
     legs="Fili Rhingrave +2",
     feet="Fili Cothurnes +2",
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Flume Belt",
+    waist="Null Belt",
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     right_ear={ name="Arete del Luna +1", augments={'Path: A',}},
     left_ring="Defending Ring",
     right_ring="Chirich Ring +1",
-    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
+    back="Null Shawl",
 	}
 	sets.run["EVA/DT"] = { --, 53PDT, 
     range={ name="Linos", augments={'Evasion+15','"Regen"+1','AGI+8',}},
-    head="Nyame Helm", --, 7
+    head="Null Masque",
     body="Nyame Mail", --, 9
     hands="Nyame Gauntlets", --, 7
     legs="Nyame Flanchard", --, 8
     feet="Fili Cothurnes +2",
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Svelt. Gouriz +1",
+    waist="Null Belt",
     left_ear="Infused Earring",
     right_ear="Eabani Earring",
     left_ring="Defending Ring",	--, 10
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}}, --, 7 
-    back="Moonbeam Cape",
+    back="Null Shawl",
 	}
 	sets.run["Refresh"] =  {
     range={ name="Linos", augments={'Evasion+15','"Regen"+1','AGI+8',}},
-    head="Fili Calot +2",
+    head="Null Masque",
     body="Artsieq Jubbah",
     hands="Fili Manchettes +2",
 	legs="Assiduity Pants +1",
@@ -227,7 +232,7 @@ function get_sets()
     right_ear="Fili Earring",
     left_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
 	right_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
-    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
+    back="Null Shawl",
 	}
 	
 	sets.ws = {} 					-- Leave this empty.
@@ -432,7 +437,7 @@ function get_sets()
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Loricate Torque +1",
-    waist="Flume Belt",
+    waist="Null Belt",
     left_ear="Suppanomimi",
     right_ear="Eabani Earring",
     left_ring="Defending Ring",
@@ -475,12 +480,12 @@ function get_sets()
     legs="Inyanga Shalwar +2",
     feet="Fili Cothurnes +2",
     neck="Mnbw. Whistle +1",
-    waist={ name="Acuity Belt +1", augments={'Path: A',}},
+    waist="Null Belt",
     left_ear="Crepuscular Earring",
     right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
-    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    back="Null Shawl",
 	}
 	sets.midcast.Banish = {
     range="Gjallarhorn",
@@ -490,12 +495,12 @@ function get_sets()
 	legs="Fili Rhingrave +2",
     feet="Fili Cothurnes +2",
     neck="Mnbw. Whistle +1",
-    waist={ name="Acuity Belt +1", augments={'Path: A',}},
+    waist="Null Belt",
     left_ear="Crepuscular Earring",
     right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
-    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    back="Null Shawl",
 	}
 	sets.midcast.MultiSong = {
 	range="Daurdabla",
@@ -526,7 +531,8 @@ function get_sets()
     right_ring="Provocare Ring",
 	}
 	sets.midcast.selfsongs = {
-    range="Gjallarhorn",
+    --range="Gjallarhorn",
+	range="Miracle Cheer",
 	--range="Daurdabla",
     head="Fili Calot +2",
     body="Fili Hongreline +2",
@@ -545,6 +551,7 @@ function get_sets()
 	range="Marsyas",
 	})
 	sets.midcast.Ballad = set_combine(sets.midcast.selfsongs, {
+	range="Miracle Cheer",
 	legs="Fili Rhingrave +2",
 	})
 	sets.midcast.Minuet = set_combine(sets.midcast.selfsongs, {
@@ -566,7 +573,7 @@ function get_sets()
     hands="Mousai Gages +1",
 	})
 	sets.midcast.MazurkaRecast = {
-    range="Marsyas",
+    range="Miracle Cheer",
     head="Bunzi's Hat",
     body="Fili Hongreline +2",
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
@@ -597,12 +604,12 @@ function get_sets()
     legs="Inyanga Shalwar +2",
     feet="Brioso Slippers +2",
     neck="Mnbw. Whistle +1",
-    waist={ name="Acuity Belt +1", augments={'Path: A',}},
+    waist="Null Belt",
 	left_ear="Regal Earring",
     right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
     left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
     right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
-    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
+    back="Null Shawl",
 	})
 	sets.midcast.HordeLullaby = set_combine(sets.midcast.macc, {
     range="Blurred Harp +1",
@@ -612,12 +619,12 @@ function get_sets()
     legs="Fili Rhingrave +2",
     feet="Brioso Slippers +2",
     neck="Mnbw. Whistle +1",
-    waist={ name="Acuity Belt +1", augments={'Path: A',}},
+    waist="Null Belt",
     left_ear="Crep. Earring",
     right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Defending Ring",
-    back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
+    back="Null Shawl",
 	})
 	
 	sets.midcast.cura = { --, +57% Cure (50% Cap), -50% PDT, -32% MDT
@@ -847,16 +854,26 @@ function buff_change(buff,gain,lose)
             status_change(player.status)
 		end
 	end
-	-- if buff == "Pianissimo" then
-		-- if gain then
-            -- equip(sets["Miracle Cheer"])
-             	-- disable('range')
-        	-- else
-            	-- enable('range')
+	if buff == "Pianissimo" then
+		if gain then
+            equip(sets["Miracle Cheer"])
+             	disable('range')
+        	else
+            	enable('range')
+            status_change(player.status)
+		end
+	end
+end
+
+-- function buff_change(buff,lose)
+	-- if buff == "Troubadour" then
+		-- if lose then
+			-- equip(sets.weapons[Weapons_Set_Names[Weapons_Index]])
+			-- enable('main')
             -- status_change(player.status)
 		-- end
 	-- end
-end
+-- end
 
 function idle()
 	if player.status =="Engaged" then --, When drawing weapon

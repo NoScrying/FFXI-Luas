@@ -12,7 +12,8 @@ function get_sets()
 	send_command('bind ^numpad1 gs c toggle Buff set')
 	send_command('bind !numpad3 gs c toggle Echo Drops')
 	send_command('bind !numpad1 gs c toggle Holy Water')
-	
+	send_command('bind !pause input //send Nolyte /Savage Blade')
+
 	DW_Index = 1
 	Refresh_Index = 1
 	SW_Index = 1
@@ -23,8 +24,15 @@ function get_sets()
 	Buff_Index = 1	
 	Dagger_Index = 1
 	Nuke_Index = 1
+
+	sets["WarpRing"] = {
+	left_ring= "Warp Ring"
+	}
+	sets["DemRing"] = {
+	left_ring= "Dim. Ring (Dem)"
+	}
 	
-	Crocea_Set_Names = {'Daybreak',"Ammurapi"} --"Bunzi",'Odin', 'Crocea_TPBonus','Gleti','Tauret' --, must define set names, so it knows what to switch to
+	Crocea_Set_Names = {'Daybreak',"Ammurapi",'Crocea_TPBonus'} --"Bunzi",'Odin', 'Crocea_TPBonus','Gleti','Tauret' --, must define set names, so it knows what to switch to
 	sets.Crocea = {}
 	sets.Crocea.Daybreak = {
     main={ name="Crocea Mors", augments={'Path: C',}},
@@ -42,6 +50,10 @@ function get_sets()
     main={ name="Crocea Mors", augments={'Path: C',}},
     sub="Ammurapi Shield",
 	}	
+	sets.Crocea['Crocea_TPBonus'] = {
+    main={ name="Crocea Mors", augments={'Path: C',}},
+    sub="Machaera +2",
+	}	
 	Sword_Set_Names = {"Odin"}
 	sets.Sword = {}
 	sets.Sword.Odin = {
@@ -53,7 +65,7 @@ function get_sets()
     hands="Aya. Manopolas +2",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Sanctity Necklace",
+    neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear="Malignance Earring",
     right_ear="Suppanomimi",
@@ -63,7 +75,7 @@ function get_sets()
 	}
 
 
-	Club_Set_Names = {'Dispelga','Maxentius'}
+	Club_Set_Names = {'Maxentius'}--'Dispelga',
 	sets.Club = {}
 	sets.Club.Dispelga = {
     main="Daybreak",
@@ -74,7 +86,7 @@ function get_sets()
     sub="Machaera +2",
 	}
 	
-	Relic_Set_Names = {'Mandau & Gleti',"Naegling & TP Bonus",'Excalibur & TP Bonus'} --,
+	Relic_Set_Names = {'Mandau & Gleti',"Naegling & TP Bonus"} --,,'Excalibur & TP Bonus'
 	sets.Relic = {}
 	sets.Relic["Excalibur & TP Bonus"] = {
     main="Excalibur",
@@ -93,20 +105,20 @@ function get_sets()
 	sets.DW = {} 					-- Leave this empty.
 	sets.DW.DW = { --, -32PDT, -22 MDT, +11DW, 15DA, 55STP, +1-15% Elemental Damage, +17 Enspell Damage
 	ammo="Sroda Tathlum",
-    head="Malignance Chapeau",
+    head="Null Masque",
     body="Malignance Tabard",
     hands="Ayanmo Manopolas +2",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Duelist's Torque +1",
+    neck="Null Loop",
     waist="Orpheus's Sash", --, +1-15% Elemental Damage
-    left_ear="Sherida Earring",
+    --left_ear="Sherida Earring",
     --right_ear="Cessance Earring",
 	right_ear="Suppanomimi",
-    --left_ear="Eabani Earring",
-    left_ring="Chirich Ring +1",
+    left_ear="Eabani Earring",
+    left_ring="Defending Ring",
     right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
-    back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
+    back="Null Shawl",
 	}
 	sets.DW.DA = {
 	ammo="Sroda Tathlum",
@@ -115,7 +127,7 @@ function get_sets()
     hands="Ayanmo Manopolas +2",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Anu Torque",
+    neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear="Sherida Earring",
     --right_ear="Cessance Earring",
@@ -149,22 +161,22 @@ function get_sets()
 	
 	sets.DW.DT = { --,-51PDT, -41MDT, +9DW, 10DA, 60STP, +30 Elemental Resist, 5% Magic Damage Absorb chance
 	ammo="Staunch Tathlum +1",
-    head="Malignance Chapeau",
+    head="Null Masque",
     body="Malignance Tabard",
 	hands="Bunzi's Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
     --neck="Anu Torque",
     neck="Warder's Charm +1",
-    waist="Flume Belt",
-	--waist="Orpheus's Sash",
+    --waist="Flume Belt",
+	waist="Orpheus's Sash",
     --left_ear="Sherida Earring",
     --right_ear="Cessance Earring",
     left_ear="Eabani Earring",
     right_ear="Suppanomimi",
     left_ring="Defending Ring",
     right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
-    back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
+    back="Null Shawl",
 	}
 
 	
@@ -190,53 +202,53 @@ function get_sets()
 	sets.SW = {}
 	sets.SW.SW = { --, -49PDT, -39MDT, 23DA, 2TA, 63STP +17 Enspell Damage
 	--sub="Ammurapi Shield",
-	ammo="Coiste Bodhar",
-    head="Malignance Chapeau",
+    ammo="Coiste Bodhar",
+    head="Null Masque",
     body="Malignance Tabard",
-    hands="Ayanmo Manopolas +2",
+    hands="Aya. Manopolas +2",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Anu Torque",
+    neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear="Sherida Earring",
-    right_ear="Lethargy Earring +1",
-    left_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ear={ name="Leth. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+14','Mag. Acc.+14','"Dbl.Atk."+5',}},
+    left_ring="Defending Ring",
     right_ring="Chirich Ring +1",
-    back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
+    back="Null Shawl",
 	}
 	sets.SW.DT = { --, -51PDT, -41MDT, 18DA, 2TA, 68STP, +10% Counter
 	--sub="Ammurapi Shield",
-	ammo="Coiste Bodhar",
-    head="Malignance Chapeau",
+    ammo="Coiste Bodhar",
+    head="Null Masque",
     body="Malignance Tabard",
-	hands="Bunzi's Gloves",
+    hands="Bunzi's Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
     neck="Warder's Charm +1",
-    waist="Platinum Moogle Belt",
+    waist="Orpheus's Sash",
     left_ear="Sherida Earring",
-    right_ear="Lethargy Earring +1",
-    left_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
-    right_ring="Defending Ring",
-    back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
+    right_ear={ name="Leth. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+14','Mag. Acc.+14','"Dbl.Atk."+5',}},
+    left_ring="Defending Ring",
+    right_ring="Lehko's Ring",
+    back="Null Shawl",
 	}	
 
 	Refresh_Set_Names = {'battle'}
 	sets.refresh = {}
 	sets.refresh.battle = { --, -51PDT, -39MDT, +7 Passive Refresh, +15-35 Elemental Resist, +551 MEVA, +5% Magic Absorb chance
-    ammo="Homiliary",
-    head={ name="Viti. Chapeau +1", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+    ammo="Staunch Tathlum +1",
+    head="Null Masque",
     body="Lethargy Sayon +2",
     hands="Leth. Ganth. +2",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     feet="Nyame Sollerets",
-    neck="Loricate Torque +1",
-    waist="Flume Belt",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Null Belt",
     left_ear={ name="Arete del Luna +1", augments={'Path: A',}},
-    right_ear="Odnowa Earring +1",
-    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
-	right_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
-    back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back="Null Shawl",
 	}
 	
 	sets.ws = {} 					-- Leave this empty.
@@ -310,8 +322,8 @@ function get_sets()
 	hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck={ name="Dls. Torque +1", augments={'Path: A',}},
-    waist="Eschan Stone",
+    neck="Null Loop",
+    waist="Null Belt",
     left_ear="Malignance Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Crepuscular Ring",
@@ -341,7 +353,7 @@ function get_sets()
     hands="Jhakri Cuffs +2",
     legs="Leth. Fuseau +2",
     feet="Leth. Houseaux +3",
-    neck="Sibyl Scarf",
+    neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear="Regal Earring",
     right_ear="Malignance Earring",
@@ -358,7 +370,7 @@ function get_sets()
     hands="Jhakri Cuffs +2",
     legs="Leth. Fuseau +2",
     feet="Leth. Houseaux +3",
-    neck="Sibyl Scarf",
+    neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear="Malignance Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
@@ -375,7 +387,7 @@ function get_sets()
     hands="Jhakri Cuffs +2",
     legs="Leth. Fuseau +2",
     feet="Leth. Houseaux +3",
-    neck="Sibyl Scarf",
+    neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear="Malignance Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
@@ -392,7 +404,24 @@ function get_sets()
     hands="Jhakri Cuffs +2",
     legs="Leth. Fuseau +2",
     feet="Leth. Houseaux +3",
-    neck="Sibyl Scarf",
+    neck="Null Loop",
+    waist="Orpheus's Sash",
+    left_ear="Malignance Earring",
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    --right_ring="Epaminondas's Ring",
+    right_ring="Freke Ring",
+    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
+	}
+	sets.ws['Burning Blade']	= {
+	--ammo="Regal Gem",
+	ammo="Sroda Tathlum",
+    head="Jhakri Coronal +2",
+    body="Lethargy Sayon +2",
+    hands="Jhakri Cuffs +2",
+    legs="Leth. Fuseau +2",
+    feet="Leth. Houseaux +3",
+    neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear="Malignance Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
@@ -445,7 +474,7 @@ function get_sets()
     body="Lethargy Sayon +2",
     hands="Jhakri Cuffs +2",
     legs="Leth. Fuseau +2",
-    neck="Sibyl Scarf",
+    neck="Null Loop",
     left_ear="Regal Earring",
     right_ear="Malignance Earring",
     left_ring="Freke Ring",
@@ -485,19 +514,20 @@ function get_sets()
     back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
 	}
 	sets.ws['Empyreal Arrow'] = {
+    range="Ullr",
     ammo="Chapuli Arrow",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-	hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck="Fotia Gorget",
-    waist="Fotia Belt",
-    left_ear="Crepuscular Earring",
-    right_ear="Moonshade Earring",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Null Loop",
+    waist="Null Belt",
+    left_ear="Crep. Earring",
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Cacoethic Ring",
     right_ring="Longshot Ring",
-    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
+    back="Null Shawl",
 	}
 	
 	sets.ja = {} 
@@ -533,8 +563,8 @@ function get_sets()
     hands="Lethargy Gantherots +2",
     legs="Leth. Fuseau +2",
     feet="Leth. Houseaux +3",
-    neck="Sibyl Scarf",
-	waist="Sacro Cord",
+    neck="Null Loop",
+    waist="Orpheus's Sash",
     left_ear="Malignance Earring",
     right_ear="Regal Earring",
     left_ring="Jhakri Ring",
@@ -550,7 +580,7 @@ function get_sets()
     legs="Leth. Fuseau +2",
     feet="Leth. Houseaux +3",
     neck="Mizu. Kubikazari",
-	waist="Sacro Cord",
+    waist="Orpheus's Sash",
     left_ear="Malignance Earring",
     right_ear="Regal Earring",
     left_ring="Mujin Band",
@@ -603,7 +633,7 @@ function get_sets()
     sets.midcast = {}               -- leave this empty  
 	sets.midcast.enfeebling = { --, MACC+399, Enfeebling Skill +63, Enfeebling Potency +53, Enfeebling Duration +60%, Saboteur +13, Immunobreak +1
 	ammo="Regal Gem",				--, Enfeebling Potency +10
-    head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
+    head="Null Masque",
 	--head="Befouled Crown",
     body="Lethargy Sayon +2", 		--, Enfeebling Duration +10%| Combined, Enfeebling Potency +16
     hands="Lethargy Gantherots +2", --, Enfeebling Duration +10%| Combined, Saboteur +13 
@@ -613,10 +643,10 @@ function get_sets()
     waist={ name="Acuity Belt +1", augments={'Path: A',}},
     left_ear="Malignance Earring",
     right_ear="Snotra Earring", 	--, , Enfeebling Duration +10%
-    --left_ring="Kishar Ring", 			--, Enfeebling Duration +5%, +5 MACC
-    left_ring="Stikini Ring +1",
-    --right_ring={ name="Metamor. Ring +1", augments={'Path: A',}}, --, +15 MACC, +16 MND/INT
-    right_ring="Stikini Ring +1",
+    left_ring="Kishar Ring", 		--, Enfeebling Duration +10%, +5 MACC
+    --left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
+    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}}, --, +15 MACC, +16 MND/INT
+    --right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back={ name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}}, --,  Enfeebling Potency +10, Enfeebling Duration +20%
 }
 	sets.midcast.Macc = { --, +418 MACC, Enfeebling Skill +53, Enfeebling Potency +43, Enfeebling Duration +40%, Saboteur +13, Immunobreak +1, 
@@ -632,7 +662,7 @@ function get_sets()
     left_ear="Malignance Earring",
     right_ear="Snotra Earring",
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    right_ring="Stikini Ring +1",
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back={ name="Aurist's Cape +1", augments={'Path: A',}}, --, +30 MACC, +25 INT/MND (25 MACC'ish)
 }	
 	sets.midcast.Banish = { 
@@ -644,11 +674,11 @@ function get_sets()
     legs={ name="Chironic Hose", augments={'Mag. Acc.+21 "Mag.Atk.Bns."+21','INT+10','Mag. Acc.+11','"Mag.Atk.Bns."+5',}},
     feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
     neck={ name="Dls. Torque +1", augments={'Path: A',}},
-	waist="Sacro Cord",
+    waist="Null Belt",
     left_ear="Malignance Earring",
     right_ear="Snotra Earring",
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    right_ring="Stikini Ring +1",
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back={ name="Aurist's Cape +1", augments={'Path: A',}}, --, +30 MACC, +25 INT/MND (25 MACC'ish)
 }	
 	
@@ -665,8 +695,8 @@ function get_sets()
 	waist="Olympus Sash",
     left_ear="Andoaa Earring",
     right_ear="Mimir Earring",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}},
 	}
 	sets.midcast.barspell = { --, Enhancing Skill +127, BarAilment +20, Duration+15%
@@ -676,14 +706,14 @@ function get_sets()
     --body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
 	body="Vitiation Tabard +1",
     hands="Vitiation Gloves +3",
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    legs="Shedir Seraweels",
     feet="Leth. Houseaux +3",
     neck="Sroda Necklace",
 	waist="Olympus Sash",
     left_ear="Andoaa Earring",
     right_ear="Mimir Earring",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}},
 	}
 
@@ -699,8 +729,8 @@ function get_sets()
 	waist="Embla Sash", --, +10% Duration
     left_ear="Mimir Earring",
     right_ear="Lethargy Earring +1", --, +8% Duration
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}}, --, Ghostfyre Cape Duration is separate from normal Duration gear, 
 	}
 	sets.midcast.phalanxEngaged = { --, Skill 522 = Phalanx Tier 8 = -35 Damage, +15 = -50 Damage, +38% Duration, +20% Ghostfyre Duration, Merits+30 Seconds
@@ -715,8 +745,8 @@ function get_sets()
 	waist="Embla Sash", --, +10% Duration
     left_ear="Mimir Earring",
     right_ear="Lethargy Earring +1", --, +8% Duration
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}}, --, Ghostfyre Cape Duration is separate from normal Duration gear, 
 	}	
 	
@@ -732,8 +762,8 @@ function get_sets()
     waist="Embla Sash",
     left_ear="Mimir Earring",
     right_ear="Lethargy Earring +1",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}},
 }	
 	
@@ -750,8 +780,8 @@ function get_sets()
 	waist="Embla Sash",
     left_ear="Mimir Earring",
     right_ear="Lethargy Earring +1",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}},
 	}
 	
@@ -766,8 +796,8 @@ function get_sets()
 	waist="Embla Sash",
     left_ear="Mimir Earring",
     right_ear="Lethargy Earring +1",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}},
 	}
 	
@@ -782,8 +812,8 @@ function get_sets()
 	waist="Gishdubar Sash",
     left_ear="Aredan Earring",
     right_ear="Lethargy Earring +1",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}},
 	}
 	sets.midcast.Aquaveil = { --, Aquaveil+2
@@ -791,14 +821,14 @@ function get_sets()
 	head="Amalric Coif +1",
     body="Atrophy Tabard +2",
     hands="Atrophy Gloves +3",
-    legs="Leth. Fuseau +2",
+    legs="Shedir Seraweels",
     feet="Leth. Houseaux +3",
-    neck={ name="Dls. Torque +1", augments={'Path: A',}},
+    neck="Nodens Gorget",
 	waist="Emphatikos Rope",
     left_ear="Aredan Earring",
     right_ear="Lethargy Earring +1",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}},
 	}	
 
@@ -814,8 +844,8 @@ function get_sets()
     neck={ name="Dls. Torque +1", augments={'Path: A',}},
     left_ear="Magnetic Earring",
     right_ear="Lethargy Earring +1",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}},
 	}
 	sets.midcast.regenEngaged = { --, +55SIRD, +15 Regen, +38% Duration, +20% Ghostfyre Duration, Merits+30 Seconds, Telchine +12 Seconds = Regen II, 28/Tic = 1984 HP
@@ -830,8 +860,8 @@ function get_sets()
     neck={ name="Dls. Torque +1", augments={'Path: A',}},
     left_ear="Magnetic Earring",
     right_ear="Lethargy Earring +1",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}},
 	}
 	sets.midcast.Enmity = { 		--, +52% Enmity
@@ -932,7 +962,7 @@ function midcast(spell)
 		end	
 	if spell.name:match('Refresh') then
 		equip(sets.midcast.refresh) else
-				if spell.name:match('Aquaveil') then
+				if spell.name:match('Aquaveil') or spell.name:match('Stoneskin') then
 					equip(sets.midcast.Aquaveil) else
 						if buffactive['Composure'] and spell.skill == 'Enhancing Magic' and spell.target.type == 'PLAYER' or spell.target.type == 'NPC' then
 							equip(sets.midcast.enhancingdurationPT) else --, If Composure buff is active then uses this set when targeting others players or NPCs
@@ -945,18 +975,18 @@ function midcast(spell)
 	if spell.name:match('Bar') then
 		equip(sets.midcast.barspell)
 	end
-	if spell.name:match('Phalanx') then
-		equip(sets.midcast.phalanxEngaged)
-			if player.status=="Idle" then
-				equip(sets.midcast.phalanx)
-			if spell.name:match('Phalanx II') then
-				equip(sets.midcast.enhancingskillPT) else
-			end
-		end
-	end
-	if spell.target.type == 'SELF' and spell.name:match('Temper') or spell.name:match('En') or spell.name:match('Gain-') or spell.name:match('Stoneskin') then
+
+	if spell.target.type == 'SELF' and spell.name:match('Temper') or spell.name:match('En') or spell.name:match('Gain-') then
 		equip(sets.midcast.enhancingskill)		
 	end	
+	if spell.name:match('Phalanx II') and spell.target.type == 'SELF' and player.status=="Engaged" then
+		equip(sets.midcast.phalanxEngaged)
+	elseif spell.name:match('Phalanx II') and spell.target.type == 'SELF' and player.status=="Idle" then
+		equip(sets.midcast.phalanx)
+	elseif spell.name:match('Phalanx II') and  spell.target.type == 'PLAYER' or spell.target.type == 'NPC' then
+		equip(sets.midcast.enhancingskillPT)
+	end	
+
     if spell.action_type == 'Magic' then
         if spell.skill == 'Elemental Magic' then
             equip(sets.Nuke[Nuke_Set_Names[Nuke_Index]])
@@ -1115,19 +1145,32 @@ end
 
 
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
+send_command('unbind f7')
+send_command('unbind !f7')
+send_command('unbind ^f7')
+
 send_command('unbind f9')
 send_command('unbind !f9')
 send_command('unbind ^f9')
+
 send_command('unbind f10')
 send_command('unbind !f10')
+send_command('unbind ^f10')
+
 send_command('unbind f12')
 send_command('unbind !f12')
-send_command('unbind f7')
-send_command('unbind !f7')
-send_command('unbind !numpad1')
-send_command('unbind !numpad2')
-send_command('unbind !numpad3')
-send_command('unbind ^numpad1')
-send_command('unbind !numpad0')
-send_command('unbind !numpad7')
+send_command('unbind ^f12')
+
+send_command('unbind Numpad1')
+send_command('unbind !Numpad1')
+send_command('unbind ^Numpad1')
+
+send_command('unbind Numpad3')
+send_command('unbind !Numpad3')
+send_command('unbind ^Numpad3')
+
+send_command('unbind Numpad0')
+send_command('unbind !Numpad0')
+send_command('unbind ^Numpad0')
+send_command('unbind Numpad0')
 end

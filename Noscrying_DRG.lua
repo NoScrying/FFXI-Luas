@@ -6,6 +6,13 @@ function get_sets()
 	Run_Index = 1
 	TH_Index = 1
 
+	sets["WarpRing"] = {
+	left_ring= "Warp Ring"
+	}
+	sets["DemRing"] = {
+	left_ring= "Dim. Ring (Dem)"
+	}
+
 	Melee_Set_Names = {'normal', 'DT'}
 	sets.melee = {} 					-- Leave this empty.
 	sets.melee.normal = {
@@ -23,7 +30,7 @@ function get_sets()
     --left_ring="Niqmaddu Ring",
 	left_ring="Moonlight Ring",
     right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
-    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back="Null Shawl",
 	}
 	sets.melee.SAMSJ = {
     ammo="Coiste Bodhar",
@@ -40,11 +47,11 @@ function get_sets()
     left_ring="Niqmaddu Ring",
 	--left_ring="Moonlight Ring",
     right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
-    back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back="Null Shawl",
 	}
 	sets.melee.DT = {
     ammo="Crepuscular Pebble",
-    head="Nyame Helm",
+    head="Null Masque",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
@@ -62,12 +69,12 @@ function get_sets()
 	sets.run = {}
 	sets.run.DT =  {
     ammo="Aurgelmir Orb",
-    head="Gleti's Mask",
+    head="Null Masque",
     body="Gleti's Cuirass",
     hands="Gleti's Gauntlets",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     feet="Gleti's Boots",
-    neck="Elite Royal Collar",
+    neck="Loricate Torque +1",
     waist="Flume Belt",
     left_ear="Sroda Earring",
     right_ear="Sherida Earring",
@@ -208,19 +215,23 @@ function get_sets()
     back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     legs="Sulevia's Cuisses +2",
 	feet="Vishap Greaves +1",
+    back="Null Shawl",
 	}
 	sets.ja['High Jump'] = {
     back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     legs="Sulevia's Cuisses +2",
 	feet="Vishap Greaves +1",
+    back="Null Shawl",
 	}	
 	sets.ja['Spirit Jump'] = {
     back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     legs="Sulevia's Cuisses +2",
+    back="Null Shawl",
 	}
 	sets.ja['Soul Jump'] = {
     back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
     legs="Sulevia's Cuisses +2",
+    back="Null Shawl",
 	}
 	
 	sets.idle = {} 					-- Leave this empty
@@ -231,7 +242,7 @@ function get_sets()
     hands="Sulevia's Gauntlets +2",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     feet="Sulevia's Leggings +2",
-    neck="Elite Royal Collar",
+    neck="Loricate Torque +1",
 	waist="Flume Belt",
     left_ear="Sroda Earring",
     right_ear="Sherida Earring",

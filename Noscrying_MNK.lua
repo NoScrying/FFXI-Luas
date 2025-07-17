@@ -6,11 +6,19 @@ function get_sets()
 	send_command('bind f10 gs c toggle run set') -- F10 = Cycle through
 	send_command('bind !numpad1 gs c toggle Buff set') -- F12 = Cycle through
 	send_command('bind !numpad0 gs c toggle Emergency MEVA')
+	send_command('bind !pause input //send Nolyte /Savage Blade')
 	
 	Buff_Index = 1	
 	TH_Index = 1
 	Run_Index = 1
 	Weapons_Index = 1
+
+	sets["WarpRing"] = {
+	left_ring= "Warp Ring"
+	}
+	sets["DemRing"] = {
+	left_ring= "Dim. Ring (Dem)"
+	}
 
 	sets.DD_Mode = {}
 	sets.DD_Mode.index = {'normal', 'Hybrid - SB+75',"DT"} --,DT
@@ -102,7 +110,7 @@ function get_sets()
 	sets.run = {}
 	sets.run.DT = {
     ammo="Staunch Tathlum +1",
-    head="Nyame Helm",
+    head="Null Masque",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
@@ -117,7 +125,7 @@ function get_sets()
 	}
 	sets.run.Regen = {
     ammo="Staunch Tathlum +1",
-    head="Nyame Helm",
+    head="Null Masque",
     body="Hiza. Haramaki +2",
     hands="Rao Kote +1",
     legs="Bhikku Hose +2",
@@ -134,7 +142,7 @@ function get_sets()
 	MEVA_Set_Name = {'MEVA'}
 	sets.MEVA = {					--, +682 MEVA, 40-50 Elemental Resist, +5% Negate Magic Damage chance, -51% PDT, -41% MDT
     ammo="Staunch Tathlum +1",
-    head="Malignance Chapeau",
+    head="Null Masque",
     body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
@@ -231,8 +239,8 @@ function get_sets()
     hands="Mpaca's Gloves",
     legs="Mpaca's Hose",
     feet="Mpaca's Boots",
-    neck={ name="Mnk. Nodowa +2", augments={'Path: A',}},
-    waist="Orpheus's Sash",
+    neck="Null Loop",
+    waist="Moonbow Belt +1",
     left_ear="Sherida Earring",
     right_ear="Schere Earring",
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
@@ -241,7 +249,7 @@ function get_sets()
 	}
 	sets.ws['Shoulder Tackle'] = {
     ammo="Coiste Bodhar",
-    head="Malignance Chapeau",
+    head="Null Masque",
     body="Bhikku Cyclas +2",
     hands="Malignance Gloves",
     legs="Bhikku Hose +2",
@@ -352,7 +360,7 @@ function get_sets()
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
-    neck="Sanctity Necklace",
+    neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
@@ -367,7 +375,7 @@ function get_sets()
     hands="Malignance Gloves",
     legs="Bhikku Hose +2",
     feet="Bhikku Gaiters +2",
-    neck="Sanctity Necklace",
+    neck="Null Loop",
     waist={ name="Acuity Belt +1", augments={'Path: A',}},
     left_ear="Crep. Earring",
     right_ear={ name="Bhikku Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+15','Mag. Acc.+15','"Store TP"+5',}},
@@ -503,8 +511,8 @@ function get_sets()
 	waist="Olympus Sash",
     left_ear="Augmenting Earring",
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
 	}
     sets.aftercast = {}             -- leave this empty
 
@@ -675,17 +683,32 @@ function self_command(command)
 end
 
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
+send_command('unbind f7')
+send_command('unbind !f7')
+send_command('unbind ^f7')
+
 send_command('unbind f9')
 send_command('unbind !f9')
 send_command('unbind ^f9')
+
 send_command('unbind f10')
 send_command('unbind !f10')
+send_command('unbind ^f10')
+
 send_command('unbind f12')
 send_command('unbind !f12')
-send_command('unbind f7')
-send_command('unbind !f7')
-send_command('unbind !numpad1')
-send_command('unbind ^numpad1')
-send_command('unbind !numpad0')
-send_command('unbind !numpad7')
+send_command('unbind ^f12')
+
+send_command('unbind Numpad1')
+send_command('unbind !Numpad1')
+send_command('unbind ^Numpad1')
+
+send_command('unbind Numpad3')
+send_command('unbind !Numpad3')
+send_command('unbind ^Numpad3')
+
+send_command('unbind Numpad0')
+send_command('unbind !Numpad0')
+send_command('unbind ^Numpad0')
+send_command('unbind Numpad0')
 end

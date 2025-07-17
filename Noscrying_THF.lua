@@ -2,15 +2,22 @@ function get_sets()
 	send_command('bind f9 gs c toggle melee set') -- F9 = Cycle through
 	send_command('bind f12 gs c toggle DT set') -- F9 = Cycle through
 	send_command('bind f10 gs c toggle run set')
-	send_command('bind !f7 gs c toggle Weapons set') -- F10 = Cycle through
-	send_command('bind f7 gs c toggle Sub_Weapons set') -- F10 = Cycle through
+	send_command('bind f7 gs c toggle Weapons set') -- F10 = Cycle through
+	send_command('bind !f7 gs c toggle Sub_Weapons set') -- F10 = Cycle through
 	Melee_Index = 1
 	DT_Index = 1
 	Run_Index = 1
 	Weapons_Index = 1
 	Sub_Weapons_Index = 1
 
-	Sub_Weapons_Set_Names = {"Twashtar/TP Bonus","Twashtar/Tauret",'Naegling',}--,'TH',
+	sets["WarpRing"] = {
+	left_ring= "Warp Ring"
+	}
+	sets["DemRing"] = {
+	left_ring= "Dim. Ring (Dem)"
+	}
+
+	Sub_Weapons_Set_Names = {"Twashtar/TP Bonus"}--,'TH',,"Twashtar/Tauret",'Naegling',
 	sets.sub_weapons = {}
 	sets.sub_weapons.Naegling = {
     main="Naegling",
@@ -33,31 +40,27 @@ function get_sets()
 	sets.weapons = {}
 	sets.weapons.Scythe = {
     main="Lost Sickle",
-	sub="Utu Grip",
 	}
 	sets.weapons.GreatSword = {
 	main="Goujian",
-	sub="Utu Grip",
 	}
 	sets.weapons.Spear = {
     main="Iapetus",
-	sub="Utu Grip",
 	}
 	sets.weapons.Sword = {
-    main="Twinned Blade",
-	sub="Qutrub Knife",
+    main="Twinned Blade",Priority=10,
+	sub="Qutrub Knife",Priority=1,
 	}
 	sets.weapons.Dagger = {
-    main="Wind Knife +1",
-	sub="Qutrub Knife",
+    main="Wind Knife",Priority=10,
+	sub="Qutrub Knife",Priority=1,
 	}
 	sets.weapons.Staff = {
     main="Caver's Shovel",
-	sub="Utu Grip",
 	}
 	sets.weapons.Club = {
-    main="Thunder Hammer",
-	sub="Qutrub Knife",
+    main="Thunder Hammer",Priority=10,
+	sub="Qutrub Knife",Priority=1,
 	}
 
 		
@@ -72,13 +75,13 @@ function get_sets()
     hands="Meg. Gloves +2",
     legs="Temachtiani Pants",
     feet="Temachtiani Boots",
-    neck="Peacock Amulet",
-    waist="Eschan Stone",
+    neck="Null Loop",
+    waist="Null Belt",
     left_ear="Volley Earring",
     right_ear="Cessance Earring",
     left_ring="Prouesse Ring",
     right_ring="Cacoethic Ring",
-    back="Thall Mantle",
+    back="Null Shawl",
 }
 	sets.ranged.precast = {
     range="Kaja Bow",
@@ -88,31 +91,31 @@ function get_sets()
     hands="Meg. Gloves +2",
     legs="Temachtiani Pants",
     feet="Meg. Jam. +2",
-    neck="Peacock Amulet",
-    waist="Eschan Stone",
+    neck="Null Loop",
+    waist="Null Belt",
     left_ear="Volley Earring",
     right_ear="Cessance Earring",
     left_ring="Prouesse Ring",
     right_ring="Cacoethic Ring",
-    back="Thall Mantle",
+    back="Null Shawl",
 }
 
-	Melee_Set_Names = {'normal','DT'} --, 'TH',"STP",
+	Melee_Set_Names = {'normal','DT',"Twashtar Aftermath",'TH'} --, ,"STP",
 	sets.melee = {} 				-- Leave this empty.
 	sets.melee.normal = {
-    ammo="Aurgelmir Orb",
+    ammo="Cath Palug Stone",
     head="Adhemar Bonnet +1",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     legs="Meghanada Chausses +2",
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
-    neck="Lissome Necklace",
+    neck="Null Loop",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
 	left_ring="Lehko's Ring",
 	right_ring="Gere Ring",
-	back="Sacro Mantle",
+    back="Null Shawl",
 	}
 	sets.melee.TH = {
 	ammo="Perfect Lucky Egg",
@@ -127,23 +130,39 @@ function get_sets()
     right_ear="Crep. Earring",
     left_ring="Moonlight Ring",
     right_ring="Lehko's Ring",
-    back="Sacro Mantle",
+    back="Null Shawl",
 	}
 	sets.melee.DT = {
-    ammo="Aurgelmir Orb",
+    ammo="Crepuscular Pebble",
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Elite Royal Collar",
-    waist="Engraved Belt",
+    neck="Loricate Torque +1",
+    waist="Null Belt",
     left_ear="Sherida Earring",
     right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
     left_ring="Moonlight Ring",
     right_ring="Defending Ring",
-    back="Sacro Mantle",
+    back="Null Shawl",
 	}
+	sets.melee["Twashtar Aftermath"] = {
+    ammo="Cath Palug Stone",
+    head="Adhemar Bonnet +1",
+    body="Meghanada Cuirie +2",
+    hands="Gleti's Gauntlets",
+    legs="Gleti's Breeches",
+    feet="Gleti's Boots",
+    neck="Null Loop",
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
+    left_ear="Sherida Earring",
+    right_ear="Odr Earring",
+    left_ring="Moonlight Ring",
+    right_ring="Lehko's Ring",
+    back="Null Shawl",
+	}
+	
 	sets.melee.STP = {
     ammo="Aurgelmir Orb",
     head="Malignance Chapeau",
@@ -157,7 +176,7 @@ function get_sets()
     right_ear="Crep. Earring",
     left_ring="Moonlight Ring",
     right_ring="Lehko's Ring",
-    back="Sacro Mantle",
+    back="Null Shawl",
 	}
 	DT_Set_Names = {'TH'}
 	sets.DT = {}
@@ -168,13 +187,13 @@ function get_sets()
     hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
     legs="Malignance Tights",
     feet="Skulk. Poulaines",
-    neck="Iskur Gorget",
+    neck="Null Loop",
     waist="Chaac Belt",
     left_ear="Sherida Earring",
     right_ear="Crep. Earring",
     left_ring="Moonlight Ring",
     right_ring="Lehko's Ring",
-    back="Sacro Mantle",
+    back="Null Shawl",
 	}
 	
 	Run_Set_Names = {'DT', "Regen"}
@@ -186,13 +205,13 @@ function get_sets()
 	hands="Gleti's Gauntlets",
     legs="Gleti's Breeches",
 	feet="Jute Boots +1",
-    neck="Elite Royal Collar",
-    waist="Engraved Belt",
+    neck="Loricate Torque +1",
+    waist="Null Belt",
     left_ear="Sherida Earring",
     right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
 	left_ring="Moonlight Ring",
     right_ring="Defending Ring",
-	back="Sacro Mantle",
+    back="Null Shawl",
 	}
 	sets.run.Regen =  {
     ammo="Per. Lucky Egg",
@@ -202,12 +221,12 @@ function get_sets()
     legs="Gleti's Breeches",
     feet="Jute Boots +1",
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Engraved Belt",
+    waist="Null Belt",
     left_ear="Infused Earring",
     right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
-    back="Moonbeam Cape",
+    back="Null Shawl",
 	}	
 	sets.ws = {} 					-- Leave this empty.
 	sets.ws['Cyclone'] = {
@@ -230,7 +249,7 @@ function get_sets()
     body="Nyame Mail",
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
-    neck="Sibyl Scarf",
+    neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
@@ -245,7 +264,7 @@ function get_sets()
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
-    neck="Sibyl Scarf",
+    neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
@@ -367,13 +386,13 @@ function get_sets()
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Iskur Gorget",
+    neck="Null Loop",
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear="Crep. Earring",
     left_ring="Moonlight Ring",
     right_ring="Lehko's Ring",
-    back="Sacro Mantle",
+    back="Null Shawl",
 	}
 	sets.ja['Mug'] = {
     ammo="Aurgelmir Orb",
@@ -382,13 +401,13 @@ function get_sets()
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Iskur Gorget",
+    neck="Null Loop",
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear="Crep. Earring",
     left_ring="Moonlight Ring",
     right_ring="Lehko's Ring",
-    back="Sacro Mantle",
+    back="Null Shawl",
 	}
 	sets.ja['Despoil'] = {
     ammo="Aurgelmir Orb",
@@ -397,13 +416,13 @@ function get_sets()
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Iskur Gorget",
+    neck="Null Loop",
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear="Crep. Earring",
     left_ring="Moonlight Ring",
     right_ring="Lehko's Ring",
-    back="Sacro Mantle",
+    back="Null Shawl",
 	}
 		
 	sets.idle = {} 					-- Leave this empty.
@@ -414,13 +433,13 @@ function get_sets()
 	hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
     legs="Meghanada Chausses +2",
 	feet="Trotter Boots",
-    neck="Lissome Necklace",
+    neck="Null Loop",
     waist="Chaac Belt",
 	left_ear="Sherida Earring",
     right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
 	left_ring="Epona\'s Ring",
 	right_ring="Mummu Ring",
-	back="Sacro Mantle",
+    back="Null Shawl",
 	}
 	sets.precast = {}               -- leave this empty
 	sets.precast.fastcast = {
@@ -454,12 +473,12 @@ function get_sets()
     hands={ name="Telchine Gloves", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +9',}},
     legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
     feet={ name="Telchine Pigaches", augments={'Enh. Mag. eff. dur. +10',}},
-    neck="Melic Torque",
+    neck="Incanter's Torque",
     waist="Embla Sash",
     left_ear="Andoaa Earring",
     right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back="Merciful Cape",
 	}
 	sets.midcast['Diaga'] = {
@@ -469,7 +488,7 @@ function get_sets()
     hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
     legs="Malignance Tights",
     feet="Skulk. Poulaines",
-    neck="Elite Royal Collar",
+    neck="Loricate Torque +1",
     waist="Chaac Belt",
     left_ear="Sherida Earring",
     right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
@@ -484,7 +503,7 @@ function get_sets()
     hands={ name="Plun. Armlets", augments={'Enhances "Perfect Dodge" effect',}},
     legs="Malignance Tights",
     feet="Skulk. Poulaines",
-    neck="Elite Royal Collar",
+    neck="Loricate Torque +1",
     waist="Chaac Belt",
     left_ear="Sherida Earring",
     right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
@@ -493,11 +512,35 @@ function get_sets()
 	back="Moonbeam Cape",	
 	}
     sets.aftercast = {}             -- leave this empty
-
+	
+	Buff_Set_Names = {'Holywater'}
+	sets.buff = {} 					-- Leave this empty.
+	sets.buff.reive = {
+	neck="Ygnas\'s Resolve +1",
+	}
+	sets.buff.Holywater = {
+    neck="Nicander's Necklace",
+    left_ring="Blenmot's Ring +1",
+    right_ring="Purity Ring",
+	}
+	
+	sets.buff.adoulin = {
+	body="Councilor\'s Garb"
+	}
+	sets.buff.Sleep = {
+	head="Frenzy Sallet",
+	}
+	sets.buff.Phalanx = {
+    head={ name="Taeon Chapeau", augments={'Spell interruption rate down -8%','Phalanx +3',}},
+    body={ name="Taeon Tabard", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    hands={ name="Taeon Gloves", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+    feet={ name="Taeon Boots", augments={'Spell interruption rate down -10%','Phalanx +3',}},
+	}
 end
 
 function precast(spell)
-    if  spell.type ~= 'JobAbility' then
+    if  spell.action_type == 'Magic' then
         equip(sets.precast.fastcast)
 	end
     if spell.type == 'Flourishes I' then

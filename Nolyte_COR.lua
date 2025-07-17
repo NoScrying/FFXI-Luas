@@ -19,53 +19,56 @@ function get_sets()
 	
 	sets.ranged = {}
 	sets.ranged.normal = {
-	ammo="Adlivun Bullet",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-	hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck="Iskur Gorget",
-    waist="Kwahu Kachina Belt",
-    left_ear="Crepuscular Earring",
-    right_ear="Beyla Earring",
-    left_ring="Cacoethic Ring",
-    right_ring="Dingir Ring",
+    ammo="Eminent Bullet",
+    range={ name="Compensator", augments={'DMG:+15','Rng.Atk.+15','"Mag.Atk.Bns."+15',}},
+    ammo="Eminent Bullet",
+    head="Meghanada Visor +2",
+    body="Meg. Cuirie +2",
+    hands="Meg. Gloves +2",
+    legs="Mummu Kecks +2",
+    feet="Meg. Jam. +2",
+    neck="Null Loop",
+    waist="Null Belt",
+    left_ear="Cessance Earring",
+    right_ear="Brutal Earring",
+    left_ring="Ilabrat Ring",
+    right_ring="Defending Ring",
     back="Null Shawl",
 }
 	sets.ranged.precast = {
-    ammo="Adlivun Bullet",
-    head={ name="Taeon Chapeau", augments={'"Mag.Atk.Bns."+18','"Snapshot"+5','"Snapshot"+5',}},
-    body={ name="Taeon Tabard", augments={'"Snapshot"+5','AGI+10',}},
-    hands={ name="Carmine Fin. Ga.", augments={'Rng.Atk.+15','"Mag.Atk.Bns."+10','"Store TP"+5',}},
-    legs="Nahtirah Trousers",
+    ammo="Eminent Bullet",
+    range={ name="Compensator", augments={'DMG:+15','Rng.Atk.+15','"Mag.Atk.Bns."+15',}},
+    ammo="Eminent Bullet",
+    head="Meghanada Visor +2",
+    body="Meg. Cuirie +2",
+    hands="Meg. Gloves +2",
+    legs="Mummu Kecks +2",
     feet="Meg. Jam. +2",
-    neck="Commodore Charm",
-    waist="Kwahu Kachina Belt",
-    left_ear="Crepuscular Earring",
-    right_ear="Beyla Earring",
-    left_ring="Cacoethic Ring",
-    right_ring="Crepuscular Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+    neck="Null Loop",
+    waist="Null Belt",
+    left_ear="Cessance Earring",
+    right_ear="Brutal Earring",
+    left_ring="Ilabrat Ring",
+    right_ring="Defending Ring",
+    back="Null Shawl",
 }
 
-	Melee_Set_Names = {'normal', 'DT','Hybrid',}--, 'Crit'
+	Melee_Set_Names = {'Crits','Hybrid',}--, 'Crit',, 'DT
 	sets.melee = {}                 -- Leave this empty
-	sets.melee.normal = {
+	sets.melee.Crits = {
+	range="Compensator",
 	ammo="Eminent Bullet",
-    head="Adhemar Bonnet +1",
-    body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-	legs="Meghanada Chausses +2",
-    feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
+    head="Blistering Sallet +1",
+    body="Mummu Jacket +2",
+    hands="Mummu Wrists +2",
+    legs="Mummu Kecks +2",
+    feet="Mummu Gamash. +2",
     neck="Null Loop",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Eabani Earring",
-    right_ear="Suppanomimi",
-    --left_ear="Brutal Earring",
-    --right_ear="Cessance Earring",
-    left_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
-    right_ring="Epona\'s Ring",
+    waist="Null Belt",
+    left_ear="Cessance Earring",
+    right_ear="Brutal Earring",
+    left_ring="Ilabrat Ring",
+    right_ring="Defending Ring",
     back="Null Shawl",
 }
 	sets.melee.DT = {
@@ -81,28 +84,27 @@ function get_sets()
     right_ear="Suppanomimi",
     left_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     right_ring="Defending Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
 	sets.melee.Hybrid = {
+	range="Compensator",
     ammo="Eminent Bullet",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet="Malignance Boots",
+    head="Null Masque",
+    body="Mummu Jacket +2",
+    hands="Mummu Wrists +2",
+    legs="Meg. Chausses +2",
+    feet="Mummu Gamash. +2",
     neck="Null Loop",
-    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-	waist="Shetal Stone",
-    --left_ear="Crep. Earring",
-	left_ear="Eabani Earring",
-    right_ear="Suppanomimi",
-    left_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    waist="Null Belt",
+    left_ear="Cessance Earring",
+    right_ear="Brutal Earring",
+    left_ring="Ilabrat Ring",
     right_ring="Defending Ring",
     back="Null Shawl",
 	}
 	sets.melee.Crit = {	
     ammo="Eminent Bullet",
-    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    head="Blistering Sallet +1",
     body="Sayadio's Kaftan",
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
@@ -139,7 +141,7 @@ function get_sets()
     feet={ name="Herculean Boots", augments={'"Dual Wield"+1','Attack+5','"Treasure Hunter"+1',}},
 	}
 	
-	Weapons_Set_Names = {'Ranged','Evis', 'Naegling','Melee'}
+	Weapons_Set_Names = {'Evis', 'Naegling','Domain Invasion'} --'Ranged',,'Melee'
 	sets.Weapons = {}
 	sets.Weapons.Ranged = {
 	main="Fettering Blade",
@@ -147,37 +149,38 @@ function get_sets()
 	}
 	sets.Weapons.Evis = {
 	main="Tauret",	
-	sub="Blurred Knife +1",
+	sub="Gleti's Knife",
 	}	
 	sets.Weapons.Naegling = {
 	main="Naegling",	
-	sub="Blurred Knife +1",
-	}	
-	sets.Weapons.Melee = {
-	main="Naegling",	
 	sub="Gleti's Knife",
+	}	
+	sets.Weapons["Domain Invasion"] = {
+	main="Tauret",	
+	sub="Voluspa Knife",
 	}		
 
 	
 	CP_Set_Names = {'Run',"Regen"}
 	sets.CP = {}
 	sets.CP.Run = {
-	ammo="Eminent Bullet",
+    range={ name="Compensator", augments={'DMG:+15','Rng.Atk.+15','"Mag.Atk.Bns."+15',}},
+    ammo="Eminent Bullet",
     head="Null Masque",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet="Nyame Sollerets",
-    neck="Warder's Charm +1",
-    waist="Carrier's Sash",
-    left_ear="Crep. Earring",
+    body="Mummu Jacket +2",
+    hands="Mummu Wrists +2",
+    legs="Mummu Kecks +2",
+    feet="Mummu Gamash. +2",
+    neck="Null Loop",
+    waist="Flume Belt",
+    left_ear="Cessance Earring",
     right_ear="Suppanomimi",
-    left_ring="Purity Ring",
+    left_ring="Shneddick Ring",
     right_ring="Defending Ring",
     back="Null Shawl",
 	}
 	sets.CP.Regen = {
-    head="Null Masque",
+    head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
@@ -227,23 +230,24 @@ function get_sets()
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
     right_ring="Sroda Ring",
-    back={ name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 
 	sets.ws['Evisceration'] = {
-    ammo="Animikii Bullet",
-    head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-    body="Meg. Cuirie +2",
+	range="Compensator",
+	ammo="Eminent Bullet",
+    head="Blistering Sallet +1",
+    body="Mummu Jacket +2",
     hands="Mummu Wrists +2",
     legs="Mummu Kecks +2",
     feet="Mummu Gamash. +2",
-    neck="Fotia Gorget",
-    waist="Fotia Belt",
-    left_ear="Odr Earring",
-    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Lehko's Ring",
-    right_ring="Ilabrat Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    neck="Null Loop",
+    waist="Null Belt",
+    left_ear="Cessance Earring",
+    right_ear="Brutal Earring",
+    left_ring="Ilabrat Ring",
+    right_ring="Defending Ring",
+    back="Null Shawl",
 	}
 	
 	sets.ws['Aeolian Edge'] = {
@@ -259,7 +263,7 @@ function get_sets()
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
     right_ring="Dingir Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 
 	sets.ws['Requiescat'] = {
@@ -333,11 +337,11 @@ function get_sets()
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     feet="Lanun Bottes +2",
     neck="Null Loop",
-    waist="Null Belt",
-	left_ear="Crepuscular Earring",
+    waist="Orpheus's Sash",
+	left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Archon Ring",
-    right_ring="Metamorphic Ring +1",
+    right_ring="Epaminondas's Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
 }
 
@@ -359,137 +363,153 @@ function get_sets()
 
 	sets.ja = {}                    -- Leave this empty
 	sets.ja["Dancer's Roll"] = { 
-	neck="Regal Necklace",
+	--neck="Regal Necklace",
     head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
 	hands="Chasseur's Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
+    --legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
 	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	right_ring="Barataria Ring",
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 	sets.ja["Fighter's Roll"] = { 
-	neck="Regal Necklace",
+	--neck="Regal Necklace",
     head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
 	hands="Chasseur's Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
+    --legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
 	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	right_ring="Barataria Ring",
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 	sets.ja["Samurai Roll"] = {
-	neck="Regal Necklace",
+	--neck="Regal Necklace",
     head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
 	hands="Chasseur's Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
+    --legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
 	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	right_ring="Barataria Ring",
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 	sets.ja["Monk's Roll"] = {
-	neck="Regal Necklace",
+	--neck="Regal Necklace",
     head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
 	hands="Chasseur's Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
+    --legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
 	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	right_ring="Barataria Ring",
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 	sets.ja["Chaos Roll"] = { 
-	neck="Regal Necklace",
+	--neck="Regal Necklace",
     head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
 	hands="Chasseur's Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
+    --legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
 	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	right_ring="Barataria Ring",
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 	sets.ja["Hunter's Roll"] = { 
     head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
 	hands="Chasseur's Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
+    --legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
+	--neck="Regal Necklace",
 	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	right_ring="Barataria Ring",
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 	sets.ja["Tactician's Roll"] = { 
     head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
 	hands="Chasseur's Gants",
     body="Chasseur's Frac",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
+    --legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
+	--neck="Regal Necklace",
 	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	right_ring="Barataria Ring",
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 	sets.ja["Bolter's Roll"] = { 
     head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
 	hands="Chasseur's Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
+    --legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
+	--neck="Regal Necklace",
 	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	right_ring="Barataria Ring",
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 	sets.ja["Drachen Roll"] = { 
     head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
 	hands="Chasseur's Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
+    --legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
+	--neck="Regal Necklace",
 	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	right_ring="Barataria Ring",
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 	sets.ja["Beast Roll"] = { 
     head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
 	hands="Chasseur's Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
+    --legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
+	--neck="Regal Necklace",
 	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	right_ring="Barataria Ring",
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 	sets.ja["Puppet Roll"] = { 
     head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
 	hands="Chasseur's Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
+    --legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
+	--neck="Regal Necklace",
 	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	right_ring="Barataria Ring",
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 	sets.ja["Wizard's Roll"] = { 
     head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
 	hands="Chasseur\'s Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
+    --legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
+	--neck="Regal Necklace",
 	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	right_ring="Barataria Ring",
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 	sets.ja["Allies' Roll"] = { 
     head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
 	hands="Chasseur\'s Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
+    --legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
+	--neck="Regal Necklace",
 	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	right_ring="Barataria Ring",
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 
 	sets.ja["Rogue's Roll"] = { 
     head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
 	hands="Chasseur\'s Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
+    --legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
+	--neck="Regal Necklace",
 	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	right_ring="Barataria Ring",
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 	sets.ja["Corsair's Roll"] = { 
     head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
 	hands="Chasseur\'s Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
+    --legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
+	--neck="Regal Necklace",
 	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	right_ring="Barataria Ring",
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 	sets.ja["Evoker's Roll"] = { 
     head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
 	hands="Chasseur\'s Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    --legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
+	--neck="Regal Necklace",
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 }
 	sets.ja["Double-Up"] = { 
 	left_ring ="Luzaf\'s Ring",
-	neck="Regal Necklace",
+	right_ring="Barataria Ring",
+	--neck="Regal Necklace",
 }
 	sets.ja['Random Deal'] = {
     body={ name="Lanun Frac +1", augments={'Enhances "Loaded Deck" effect',}},
@@ -679,7 +699,7 @@ function get_sets()
     right_ear="Suppanomimi",
     left_ring="Epona\'s Ring",
     right_ring="Defending Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
 	
     sets.midcast = {}               -- leave this empty 
@@ -725,7 +745,7 @@ function get_sets()
 	left_ring="Gelatinous Ring +1",
 	ring_ring="Defending Ring",
 	left_ear="Odnowa Earring +1",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
 end
  

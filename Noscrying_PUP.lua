@@ -5,6 +5,13 @@ function get_sets()
 	send_command('bind f12 gs c toggle TH set') -- F12 = Cycle through
 	send_command('bind f7 gs c toggle weapons set') -- F9 = Cycle through
 
+	sets["WarpRing"] = {
+	left_ring= "Warp Ring"
+	}
+	sets["DemRing"] = {
+	left_ring= "Dim. Ring (Dem)"
+	}
+
 	
 	TH_Index = 1
 	DT_Index = 1
@@ -59,7 +66,7 @@ function get_sets()
 	}	
 	sets.Master_Mode["DT"] = {
 	     --ammo="Automat. Oil +3",
-    head="Nyame Helm",
+    head="Null Masque",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
@@ -170,7 +177,7 @@ function get_sets()
     hands="Mpaca's Gloves",
     legs="Mpaca's Hose",
     feet="Mpaca's Boots",
-    neck="Fotia Gorget",
+    neck="Null Loop",
     waist="Moonbow Belt +1",
 	left_ear="Cessance Earring",
     right_ear="Schere Earring",
@@ -221,7 +228,7 @@ function get_sets()
     back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},	
 	}
 	sets.ws['Shoulder Tackle'] = {
-    head="Mpaca's Cap",
+    head="Null Masque",
     body="Tali\'ah Manteel +2",
     hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},
     legs="Hizamaru Hizayoroi +2",
@@ -286,7 +293,7 @@ function get_sets()
     hands="Foire Dastanas +2",
     legs={ name="Taeon Tights", augments={'Accuracy+25','"Triple Atk."+2','STR+5 DEX+5',}},
     feet="Tali'ah Crackows +2",
-    neck="Lissome Necklace",
+    neck="Null Loop",
     left_ear="Mache Earring",
     right_ear="Sroda Earring",
     left_ring="Epona\'s Ring",
@@ -364,7 +371,7 @@ function get_sets()
 
 	sets.idle.normal = {	
     --ammo="Automat. Oil +3",
-    head="Nyame Helm",
+    head="Null Masque",
     body="Hiza. Haramaki +2",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
@@ -411,7 +418,7 @@ function get_sets()
 end
 
 function precast(spell)
-    if  spell.type ~= 'JobAbility' then
+    if  spell.action_type == 'Magic' then
         equip(sets.ja.normal)
 	end
     if  spell.action_type == 'Magic' then

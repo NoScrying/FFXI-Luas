@@ -5,43 +5,51 @@ function get_sets()
 	send_command('bind f12 gs c toggle TH set') -- F12 = Cycle through
 	send_command('bind ^f12 gs c toggle Nuke set')
 	send_command('bind !numpad1 gs c toggle Holy Water')
-	send_command('bind !numpad3 gs c toggle Echo Drops')	
+	send_command('bind !numpad3 gs c toggle Echo Drops')
+	send_command('bind !pause input //send Nolyte /Savage Blade')	
 	Engaged_Index = 1
 	Weapon_Index = 1
 	Run_Index = 1
 	TH_Index = 1
 	Nuke_Index = 1
+
+	sets["WarpRing"] = {
+	left_ring= "Warp Ring"
+	}
+	sets["DemRing"] = {
+	left_ring= "Dim. Ring (Dem)"
+	}
 	
 	Engaged_Set_Names = {"Luopan Regen/Refresh",'Melee'}--,'Refresh/DT'
 	sets.Engaged = {} 					-- Leave this empty.
 	sets.Engaged.Melee = {
     ammo="Staunch Tathlum +1",
-    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    head="Null Masque",
     body="Nyame Mail",
     hands="Azimuth Gloves +2",
     legs="Nyame Flanchard",
     feet="Azimuth Gaiters +2",
-    neck="Lissome Necklace",
-    waist="Cornelia's Belt",
+    neck="Null Loop",
+    waist="Null Belt",
     left_ear="Cessance Earring",
     right_ear="Brutal Earring",
     left_ring="Chirich Ring +1",
     right_ring="Lehko's Ring",
-    back={ name="Nantosuelta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back="Null Shawl",
 	}
 
 	sets.Engaged["Refresh/DT"] = {
-    head="Nyame Helm",
+    head="Null Masque",
     body="Nyame Mail",
     hands="Azimuth Gloves +2",
     legs="Nyame Flanchard",
     feet="Azimuth Gaiters +2",
-    neck="Sibyl Scarf",
+    neck="Null Loop",
     waist="Carrier's Sash",
     left_ear="Friomisi Earring",
     right_ear="Malignance Earring",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},priority=19,
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},priority=15,
     back={ name="Nantosuelta's Cape", augments={'INT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+5','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
 	}
 	sets.Engaged["Luopan Regen/Refresh"] =  {
@@ -55,8 +63,8 @@ function get_sets()
     waist="Carrier's Sash",
     left_ear="Infused Earring",
     right_ear="Regal Earring",
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},priority=19,
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},priority=15,
     back={ name="Nantosuelta's Cape", augments={'INT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+5','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
 	}
 	sets["DW"] = {
@@ -69,17 +77,17 @@ function get_sets()
 	sets.run = {}
 	sets.run["DT/MovSpeed"] =  {
     ammo="Staunch Tathlum +1",
-    head="Azimuth Hood +2",
+    head="Null Masque",
     body="Azimuth Coat +2",
     hands="Azimuth Gloves +2",
     legs="Assid. Pants +1",
-    feet="Geo. Sandals +1",
-    neck="Elite Royal Collar",
+    feet="Geo. Sandals +2",
+    neck="Loricate Torque +1",
     waist="Carrier's Sash",
     left_ear="Odnowa Earring +1",
-    right_ear="Infused Earring",
+    right_ear={ name="Arete del Luna +1", augments={'Path: A',}},
     left_ring="Defending Ring",
-    right_ring="Stikini Ring +1",
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back={ name="Nantosuelta's Cape", augments={'INT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+5','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
 	}
 	sets.run["Luopan Regen"] =  {
@@ -93,8 +101,8 @@ function get_sets()
     waist="Carrier's Sash",
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
     right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},priority=19,
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},priority=15,
     back={ name="Nantosuelta's Cape", augments={'INT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+5','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
 	}	
 	TH_Set_Names = {'TH3'}
@@ -107,7 +115,7 @@ function get_sets()
     hands="Azimuth Gloves +2",
     legs="Nyame Flanchard",
     feet="Azimuth Gaiters +2",
-    neck="Elite Royal Collar",
+    neck="Loricate Torque +1",
     left_ring="Defending Ring",
     right_ring={ name="Dark Ring", augments={'Phys. dmg. taken -6%','Magic dmg. taken -3%',}},
     back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}},
@@ -173,7 +181,7 @@ function get_sets()
     hands="Jhakri Cuffs +2",
     legs="Azimuth Tights +2",
     feet="Azimuth Gaiters +2",
-    neck="Sanctity Necklace",
+    neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear="Malignance Earring",
     right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
@@ -203,7 +211,7 @@ function get_sets()
     hands="Jhakri Cuffs +2",
     legs="Azimuth Tights +2",
     feet="Azimuth Gaiters +2",
-    neck="Sibyl Scarf",
+    neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear="Regal Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
@@ -249,6 +257,9 @@ function get_sets()
 	sets.ja["Full Circle"] = {
 	head="Azimuth Hood +2",
 	}	
+	sets.ja["Mending Halation"] = {
+	legs="Bagua Pants +3",
+	}	
 	sets.idle = {} 					-- Leave this empty.
 
 	sets.precast = {}               -- leave this empty
@@ -278,7 +289,7 @@ function get_sets()
     hands="Azimuth Gloves +2",
     legs={ name="Vanya Slops", augments={'MND+10','Spell interruption rate down +15%','"Conserve MP"+6',}},
     feet="Azimuth Gaiters +2",
-    neck="Voltsurge Torque",
+	neck="Loricate Torque +1",
     waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
     left_ear="Malignance Earring",
     right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
@@ -309,9 +320,9 @@ function get_sets()
     head={ name="Vanya Hood", augments={'MND+10','Spell interruption rate down +15%','"Conserve MP"+6',}},
     body="Nyame Mail",
     hands="Azimuth Gloves +2",
-    legs="Bagua Pants +1",
+    legs="Bagua Pants +3",
     feet="Azimuth Gaiters +2",
-    neck="Elite Royal Collar",
+	neck="Loricate Torque +1",
     waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
     left_ear="Magnetic Earring",
     right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
@@ -332,8 +343,8 @@ function get_sets()
     waist="Embla Sash",
     left_ear="Mimir Earring",
     right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
-    left_ring="Stikini Ring +1",
-    right_ring="Stikini Ring +1",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}},
 	}		
 	
@@ -344,7 +355,7 @@ function get_sets()
     hands={ name="Telchine Gloves", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +9',}},
     legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
     feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
-    neck="Elite Royal Collar",
+	neck="Loricate Torque +1",
     waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
     left_ear="Magnetic Earring",
     right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
@@ -361,7 +372,7 @@ function get_sets()
     legs="Azimuth Tights +2",
     feet="Azimuth Gaiters +2",
     neck="Erra Pendant",
-    waist="Eschan Stone",
+    waist="Null Belt",
     left_ear="Malignance Earring",
     right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
     left_ring="Evanescence Ring",
@@ -377,13 +388,13 @@ function get_sets()
     hands="Azimuth Gloves +2",
     legs="Azimuth Tights +2",
     feet="Azimuth Gaiters +2",
-    neck="Bagua Charm +1",
+    neck="Null Loop",
     waist={ name="Acuity Belt +1", augments={'Path: A',}},
     left_ear="Malignance Earring",
         right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Weatherspoon Ring +1",
-    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    back="Null Shawl",
 	}
 	sets.midcast.enfeebling = {
     range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
@@ -392,7 +403,7 @@ function get_sets()
     hands="Azimuth Gloves +2",
     legs="Azimuth Tights +2",
     feet="Azimuth Gaiters +2",
-    neck="Bagua Charm +1",
+    neck="Null Loop",
     waist={ name="Acuity Belt +1", augments={'Path: A',}},
     left_ear="Malignance Earring",
     right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
@@ -408,11 +419,11 @@ function get_sets()
     hands={ name="Telchine Gloves", augments={'"Regen" potency+3',}},
     legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
     feet={ name="Telchine Pigaches", augments={'Enh. Mag. eff. dur. +10',}},
-    neck="Willpower Torque",
+	neck="Loricate Torque +1",
     waist="Embla Sash",
     left_ear="Magnetic Earring",
     right_ear="Halasz Earring",
-    left_ring="Stikini Ring +1",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
     right_ring="Evanescence Ring",
     back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}},
 	}	
@@ -421,13 +432,13 @@ function get_sets()
 	head="Amalric Coif +1",
     body={ name="Telchine Chas.", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +10',}},
     hands={ name="Telchine Gloves", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +9',}},
-     legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
+    legs="Shedir Seraweels",
     feet={ name="Telchine Pigaches", augments={'Enh. Mag. eff. dur. +10',}},
-    neck="Incanter's Torque",
+	neck="Loricate Torque +1",
 	waist="Emphatikos Rope",
     left_ear="Magnetic Earring",
     right_ear="Halasz Earring",
-    left_ring="Stikini Ring +1",
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
     right_ring="Evanescence Ring",
     back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}},
 	}
@@ -542,7 +553,7 @@ function get_sets()
 end
 
 function precast(spell)
-    if  spell.type ~= 'JobAbility' then
+    if  spell.action_type == 'Magic' then
         equip(sets.precast.fastcast)
 	end
 	if spell.name == "Dispelga" then
@@ -590,12 +601,12 @@ end
 	if spell.skill == 'Elemental Magic' then
 		equip(sets.Nuke[Nuke_Set_Names[Nuke_Index]])
 	if spell.name:match("Ston") and not spell.name:match("Stona") then
-		equip(sets.Nuke.Stone) else
-	if T{"Fira II","Fira III","Blizzara II","Blizzara III","Stonera II","Stonera III","Aera II","Aera III","Thundara II","Thundara III","Watera II","Watera III"}:contains(spell.name) then
-		equip(sets.Nuke.Ra)
+		-- equip(sets.Nuke.Stone) else
+	-- if T{"Fira II","Fira III","Blizzara II","Blizzara III","Stonera II","Stonera III","Aera II","Aera III","Thundara II","Thundara III","Watera II","Watera III"}:contains(spell.name) then
+		-- equip(sets.Nuke.Ra)
 			if world.weather_element == spell.element or world.day_element == spell.element then
 				equip(sets.midcast.NukeWithMatchingWeather)	
-			end
+			-- end
 		end
 	end
 end		
@@ -695,4 +706,35 @@ function self_command(command)
         windower.add_to_chat("Using Echo Drops")
 		send_command ("input /item 'Echo Drops' <me>")
     end
+end
+
+function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
+send_command('unbind f7')
+send_command('unbind !f7')
+send_command('unbind ^f7')
+
+send_command('unbind f9')
+send_command('unbind !f9')
+send_command('unbind ^f9')
+
+send_command('unbind f10')
+send_command('unbind !f10')
+send_command('unbind ^f10')
+
+send_command('unbind f12')
+send_command('unbind !f12')
+send_command('unbind ^f12')
+
+send_command('unbind Numpad1')
+send_command('unbind !Numpad1')
+send_command('unbind ^Numpad1')
+
+send_command('unbind Numpad3')
+send_command('unbind !Numpad3')
+send_command('unbind ^Numpad3')
+
+send_command('unbind Numpad0')
+send_command('unbind !Numpad0')
+send_command('unbind ^Numpad0')
+send_command('unbind Numpad0')
 end
