@@ -1,17 +1,25 @@
 function get_sets()
 	send_command('bind f9 gs c toggle TP set') 
 	send_command('bind !f9 gs c toggle Tank_Mode') 
+	
 	send_command('bind f10 gs c toggle run set') 
 	send_command('bind !f10 gs c toggle Idle Tank set') 
+
 	send_command('bind f12 gs c toggle TH set') 
+	send_command('bind ^f12 gs c toggle Cure set') 
+	
 	send_command('bind f7 gs c toggle Weapons set') 
 	send_command('bind !f7 gs c toggle Shield set') 
 	send_command('bind ^f7 gs c toggle Sub_Weapons set') 
+	
 	send_command('bind ^numpad1 gs c toggle Buff set')
-	send_command('bind !numpad3 gs c toggle Echo Drops')
 	send_command('bind !numpad1 gs c toggle Holy Water')
+	
+	send_command('bind !numpad3 gs c toggle Echo Drops')
+	
 	send_command('bind !numpad0 gs c toggle Emergency MEVA')
 	send_command('bind ^numpad0 gs c toggle Idle Tank')
+	
 	send_command('bind !pause input //send Nolyte /Savage Blade')
 	
 	Run_Index = 1 --, Index for gearsets, needed for when there is more than 1 in a set and you wish you toggle beween them
@@ -52,10 +60,10 @@ function get_sets()
 	sets.Shield["Duban"] = {
 	sub="Duban",
 	}			
-	sets.Shield["Blurred"] = {
+	sets.Shield["Blurred +1"] = {
 	sub="Blurred Shield +1",
 	}			
-	Sub_Weapons_Set_Names = {'Tauret',} --, 'Lycurgos'
+	Sub_Weapons_Set_Names = {'Malevolence',} --, 'Lycurgos'
 	sets.sub_weapons = {}
 	sets.sub_weapons.Tauret = {
     main={ name="Malevolence", augments={'INT+10','Mag. Acc.+10','"Mag.Atk.Bns."+10','"Fast Cast"+5',}},
@@ -103,7 +111,7 @@ function get_sets()
 	}
 	
 	sets.Tank_Mode = {}
-	sets.Tank_Mode.index = {"DEF","Magic Absorb/Annul"} --,Hybrid
+	sets.Tank_Mode.index = {"DEF",'Block',"Magic Absorb/Annul"} --,Hybrid
 	Tank_Mode_ind = 1
 	
 	sets.Tank_Mode["DEF"] = { --,3118 HP, 684 MEVA, -12% Enemy Crit Rate, -56% DT
@@ -121,20 +129,24 @@ function get_sets()
     right_ring="Lehko's Ring",
     back="Null Cape",
 	}
-	sets.Tank_Mode["Hybrid"] = { 
-    ammo="Staunch Tathlum +1",
-    head="Sakpata's Helm",
-    body="Sakpata's Plate",
+	sets.Tank_Mode["Block"] = { 
+    ammo="Eluder's Sachet",
+    head="Null Masque",priority=15,
+    body="Adamantite Armor",priority=18,
     hands="Sakpata's Gauntlets",
     legs="Sakpata's Cuisses",
-    feet="Sakpata's Leggings",
-    neck={ name="Unmoving Collar +1", augments={'Path: A',}},
-    waist="Plat. Mog. Belt",
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    right_ear="Telos Earring",
-    left_ring="Moonlight Ring",
+    feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},priority=19,
+	
+    -- neck={ name="Unmoving Collar +1", augments={'Path: A',}},priority=17,
+    -- waist="Carrier's Sash",
+    neck="Warder's Charm +1",
+    waist="Plat. Mog. Belt", priority=20,
+	
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},priority=16,
+    right_ear={ name="Chev. Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    left_ring="Fortified Ring",
     right_ring="Lehko's Ring",
-    back="Null Shawl",
+    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}},
 	}
 	sets.Tank_Mode["Magic Absorb/Annul"] = { --, 3063 HP, 684 MEVA, +5% Absorb Magic, +5% Annul Magic,
     ammo="Staunch Tathlum +1",
@@ -172,13 +184,13 @@ function get_sets()
 		
 	Run_Set_Names = {'DT','Refresh','Regen'}
 	sets.run = {}
-	sets.run.DT =  { --, 2993 HP, 614 MEVA, +20 Ele, Refresh +2, Regen +3, -50% DT
-    ammo="Homiliary",
+	sets.run.DT =  { --, 3168 HP, 614 MEVA, +20 Ele, Refresh +2, Regen +3, -50% DT
+    ammo="Eluder's Sachet",
     head="Null Masque", Priority=17,
     body="Adamantite Armor", priority=16,
     hands="Sakpata's Gauntlets",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet="Sakpata's Leggings",
+    feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},priority=17,
     neck="Warder's Charm +1",
     waist="Plat. Mog. Belt", priority=20,
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}}, priority=16,
@@ -579,7 +591,7 @@ right_ear="Tuisto Earring", priority=18,
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}},
 	}
 		
-	sets.ja['Vallation'] = set_combine(sets.ja.Enmity, { --, When we define a set as as "sets.ja['xx'], then we can in our precast set, refer to all named in this way, while still specifying a single set.
+	sets.ja['Vallation'] = set_combine(sets.ja.Enmity, {
 	})
 	sets.ja['Valiance'] = set_combine(sets.ja.Enmity, {
 	})
@@ -601,6 +613,7 @@ right_ear="Tuisto Earring", priority=18,
 	feet="Cabbalarius Leggings +1",
 	})
 	sets.ja['Cover'] = set_combine(sets.ja.Enmity, {
+	body="Caballarius Surcoat", priority=16,
 	})
 	sets.ja['Palisade'] = set_combine(sets.ja.Enmity, {
 	})
@@ -617,19 +630,7 @@ right_ear="Tuisto Earring", priority=18,
     legs="Caballarius Breeches", priority=16,
 	})
 	sets.ja['Rampart'] = set_combine(sets.ja.Enmity, {
-    ammo="Crepuscular Pebble",
     head="Caballarius Coronet", priority=15,
-    body="Adamantite Armor", priority=16,
-    hands="Sakpata's Gauntlets",
-    legs="Sakpata's Cuisses",
-    feet="Sakpata's Leggings",
-    neck={ name="Unmoving Collar +1", augments={'Path: A',}}, priority=19,
-    waist="Plat. Mog. Belt", priority=20,
-    left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
-    right_ear="Tuisto Earring", priority=17,
-    left_ring="Supershear Ring",
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}}, priority=18,
-    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}},
 	})
 
 	sets.ja['Ignis'] = set_combine(sets.ja.Enmity, {
@@ -705,21 +706,6 @@ right_ear="Tuisto Earring", priority=18,
 	sets.midcast.Foil = set_combine(sets.ja.Enmity, {
 	})
 	
-    sets.midcast.Cure = { --, 3045 HP
-    ammo="Staunch Tathlum +1",
-    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},priority=16,
-    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},priority=15,
-    hands="Regal Gauntlets",priority=18,
-    legs={ name="Founder's Hose", augments={'MND+6','Mag. Acc.+10','Attack+7','Breath dmg. taken -2%',}},priority=14,
-    feet="Odyssean Greaves",
-    neck="Sacro Gorget",
-    waist="Flume Belt",
-    left_ear="Nourish. Earring +1",
-    right_ear={ name="Chev. Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
-    left_ring="Moonlight Ring",priority=17,
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},priority=13,
-    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}},
-	}
     sets.midcast.DD_Cure = { --, 2958 HP
     ammo="Staunch Tathlum +1",
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
@@ -805,6 +791,42 @@ right_ear="Tuisto Earring", priority=18,
     right_ring="Weather. Ring +1",
     back="Null Shawl",
 	}
+	
+	Cure_Index = 1
+	Cure_Set_Names = {'Potecy Cure','MEVA Cure'}
+	sets.Cure = {}	
+    sets.Cure["Potecy Cure"] = { --, 3045 HP
+    ammo="Staunch Tathlum +1",
+    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},priority=16,
+    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},priority=15,
+    hands="Regal Gauntlets",priority=18,
+    legs={ name="Founder's Hose", augments={'MND+6','Mag. Acc.+10','Attack+7','Breath dmg. taken -2%',}},priority=14,
+    feet="Odyssean Greaves",
+    neck="Sacro Gorget",
+    waist="Flume Belt",
+    left_ear="Nourish. Earring +1",
+    right_ear={ name="Chev. Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    left_ring="Moonlight Ring",priority=17,
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},priority=13,
+    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}},
+	}
+    sets.Cure["MEVA Cure"] = { --,
+    ammo="Staunch Tathlum +1",
+    head="Null Masque", Priority=17,
+    body="Sakpata's Plate", priority=16,
+    hands="Sakpata's Gauntlets",
+    legs="Sakpata's Cuisses",
+    feet="Sakpata's Leggings",
+    neck="Sacro Gorget",
+    waist="Sroda Belt", priority=20,
+    left_ear="Odnowa Earring",priority=19,
+	right_ear="Tuisto Earring", priority=18,
+    left_ring="Shadow Ring",
+    right_ring="Moonlight Ring",
+    back="Null Shawl",
+	}
+
+
 	Buff_Set_Names = {'Holywater'}
 	sets.buff = {} 					-- Leave this empty.
 	sets.buff.reive = {
@@ -905,7 +927,7 @@ function midcast(spell) --, Midcast works in hierachy. The lower on the list the
 					equip(set_combine(sets.midcast.MaxEnmity, sets.TankEnmity))
 			end
 		end
-	if T{'Foil','Crusade','Protect V','Enlight II'}:contains(spell.name) then
+	if T{'Foil','Crusade','Protect V','Enlight II'}:contains(spell.name) or spell.name:match('Bar') then
 		if Tank_Mode == false then
 			equip(sets.midcast.enhancingduration)
 				elseif Tank_Mode == true then
@@ -921,16 +943,11 @@ function midcast(spell) --, Midcast works in hierachy. The lower on the list the
 	end
 end
     if T{'Magic Fruit','Wild Carrot','Healing Breeze','Cure','Cure II','Cure III','Cure IV','Cura','Curaga III'}:contains(spell.name) then
-		if Tank_Mode == false then
-			equip(sets.midcast.DD_Cure)
-				elseif Tank_Mode == true then
-					equip(sets.midcast.Cure)
+			equip(sets.Cure[Cure_Set_Names[Cure_Index]])
 		end
-	end
 	if T{'Stoneskin','Aquaveil'}:contains(spell.name) then
 			equip(sets.midcast.sird)
 		end
-
 	if spell.action_type == 'Ranged Attack' then
 		equip (sets.ranged.precast)
 	end
@@ -1110,6 +1127,11 @@ function self_command(command) --, Allows of use of various commands
 	if command == 'toggle Idle Tank' then
         windower.add_to_chat('Idle Tank +11 Block')
 		equip(sets["Idle Tank"])
+	end
+	if command == 'toggle Cure set' then
+        Cure_Index = Cure_Index +1
+    if Cure_Index > #Cure_Set_Names then Cure_Index = 1 end
+        windower.add_to_chat('Cure mode is now: '..Cure_Set_Names[Cure_Index])
 	end
 end
 
