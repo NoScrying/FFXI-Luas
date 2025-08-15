@@ -3,7 +3,7 @@ Job Luas
 
 DRK, RUN, RDM, PUP, MNK, SAM, BRD, RUN, DNC, SCH, BLU Up to date.
 
-#1 RUN & BLU #2 RDM & DRK #3 BRD & DNC #4 SAM & SCH #5 MNK most work put into.
+#1 RUN & BLU #2 RDM & PLD #3 BRD & DNC #4 SAM & WAR #5 MNK & DRK & SCHmost work put into.
 
 RUN, BLU & DNC have a dedicated Tank mode toggle, with JA, WS and spellsets at 3200+ HP in tank mode.
 
