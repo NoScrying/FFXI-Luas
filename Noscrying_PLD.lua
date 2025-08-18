@@ -36,7 +36,7 @@ function get_sets()
 	left_ring= "Dim. Ring (Dem)"
 	}
 
-	Weapons_Set_Names = {"Sakpata","Naegling",'Excalibur'} --, 'Caladbolg',
+	Weapons_Set_Names = {"Malignance Sword","Naegling",'Excalibur'} --, 'Caladbolg','Sakpata'
 	sets.weapons = {}
 
 	sets.weapons.Caladbolg = {
@@ -49,10 +49,13 @@ function get_sets()
 	sets.weapons["Sakpata"] = {
     main="Sakpata's Sword",
 	}
+	sets.weapons["Malignance Sword"] = {
+    main="Malignance Sword",
+	}
 	sets.weapons["Excalibur"] = {
     main="Excalibur",
 	}	
-	Shield_Set_Names = {'Aegis','Duban','Blurred'} --, 'Lycurgos'
+	Shield_Set_Names = {'Aegis','Duban','Blurred +1'} --, 'Lycurgos'
 	sets.Shield = {}
 	sets.Shield["Aegis"] = {
 	sub="Aegis",
@@ -127,9 +130,9 @@ function get_sets()
     right_ear={ name="Chev. Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
     left_ring="Fortified Ring",
     right_ring="Lehko's Ring",
-    back="Null Cape",
+    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
-	sets.Tank_Mode["Block"] = { 
+	sets.Tank_Mode["Block"] = { --, 3228 HP, -51% DT, -12% Enemy Crit Rate, Block+6 (missing +5 from Ambu Cape), +20 Ele
     ammo="Eluder's Sachet",
     head="Null Masque",priority=15,
     body="Adamantite Armor",priority=18,
@@ -146,7 +149,7 @@ function get_sets()
     right_ear={ name="Chev. Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
     left_ring="Fortified Ring",
     right_ring="Lehko's Ring",
-    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}},
+    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	sets.Tank_Mode["Magic Absorb/Annul"] = { --, 3063 HP, 684 MEVA, +5% Absorb Magic, +5% Annul Magic,
     ammo="Staunch Tathlum +1",
@@ -184,20 +187,20 @@ function get_sets()
 		
 	Run_Set_Names = {'DT','Refresh','Regen'}
 	sets.run = {}
-	sets.run.DT =  { --, 3168 HP, 614 MEVA, +20 Ele, Refresh +2, Regen +3, -50% DT
+	sets.run.DT =  { --, 3074 HP, 678 MEVA, +20 Ele, Refresh +2, Regen +3, -50% DT
     ammo="Eluder's Sachet",
     head="Null Masque", Priority=17,
     body="Adamantite Armor", priority=16,
     hands="Sakpata's Gauntlets",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},priority=17,
+    feet="Sakpata's Leggings", priority=17,
     neck="Warder's Charm +1",
     waist="Plat. Mog. Belt", priority=20,
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}}, priority=16,
 	right_ear="Tuisto Earring", priority=18,
     left_ring="Fortified Ring",
     right_ring="Shadow Ring",
-    back="Null Shawl",
+    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	sets.run.Regen =  { --, 3157 HP, 572 MEVA, +2 Refresh, +33 Regen, -22% DT
     ammo="Homiliary",
@@ -259,7 +262,7 @@ function get_sets()
     right_ear="Tuisto Earring",priority=16,
     left_ring="Fortified Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},priority=15,
-    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}},
+    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 
 	TH_Set_Names = {'TH'}
@@ -334,7 +337,7 @@ function get_sets()
     right_ear="Thrud Earring",
     left_ring="Sroda Ring",
     right_ring="Epaminondas's Ring",
-    back="Null Shawl",
+    back={ name="Rudianos's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}	
 	
 	sets.ws['Freezebite']	= {
@@ -395,7 +398,7 @@ function get_sets()
     right_ear="Thrud Earring",
     left_ring="Sroda Ring",
     right_ring="Epaminondas's Ring",
-    back="Null Shawl",
+    back={ name="Rudianos's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}	
 	sets.ws['Torcleaver']	= {
     ammo="Oshasha's Treatise",
@@ -410,7 +413,7 @@ function get_sets()
     right_ear="Thrud Earring",
     left_ring="Moonlight Ring", priority=13,
     right_ring="Epaminondas's Ring",
-    back="Null Shawl",
+    back={ name="Rudianos's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}	
 
 	sets.ws['Atonement']	= {
@@ -426,7 +429,7 @@ function get_sets()
     right_ear="Tuisto Earring",
     left_ring="Apeile Ring +1",
     right_ring="Apeile Ring",
-    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}},
+    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	sets.ws['Savage Blade']	= {
     ammo="Oshasha's Treatise",
@@ -441,7 +444,7 @@ function get_sets()
     right_ear="Thrud Earring",
     left_ring="Ifrit's Ring +1",
     right_ring="Epaminondas's Ring",
-    back="Null Shawl",
+    back={ name="Rudianos's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws["Knights of Round"]	= {
     ammo="Oshasha's Treatise",
@@ -456,7 +459,7 @@ function get_sets()
     right_ear="Thrud Earring",
     left_ring="Ifrit's Ring +1",
     right_ring="Epaminondas's Ring",
-    back="Null Shawl",
+    back={ name="Rudianos's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Chant du Cygne']	= {
     ammo="Knobkierrie",
@@ -484,10 +487,10 @@ function get_sets()
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},
     waist="Plat. Mog. Belt", priority=20,
     left_ear="Crep. Earring",
-right_ear="Tuisto Earring", priority=18,
+	right_ear="Tuisto Earring", priority=18,
     left_ring="Moonlight Ring", priority=13,
     right_ring="Epaminondas's Ring",
-    back="Null Shawl",
+    back={ name="Rudianos's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws["Circle Blade"] = {
     head="White Rarab Cap +1",
@@ -495,100 +498,37 @@ right_ear="Tuisto Earring", priority=18,
     waist="Chaac Belt",
     hands={ name="Valorous Mitts", augments={'"Mag.Atk.Bns."+1','Attack+11','"Treasure Hunter"+1','Accuracy+8 Attack+8','Mag. Acc.+3 "Mag.Atk.Bns."+3',}},
 	}
-	sets.ws['Upheaval']	= {
-    ammo="Knobkierrie",
-    head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Futhark Coat +3",
-    hands="Meg. Gloves +2",
-    legs="Eri. Leg Guards +2",
-    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
-    neck="Rep. Plat. Medal",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    right_ear="Sherida Earring",
-    left_ring="Epaminondas's Ring",
-    right_ring="Niqmaddu Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-	}
-	
-	sets.ws['Steel Cyclone']	= {
-    ammo="Knobkierrie",
-    head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Futhark Coat +3",
-    hands="Meg. Gloves +2",
-    legs="Eri. Leg Guards +2",
-    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
-    neck="Rep. Plat. Medal",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    right_ear="Sherida Earring",
-    left_ring="Epaminondas's Ring",
-    right_ring="Niqmaddu Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-	}
-
-	sets.ws['Fell Cleave']	= {
-    ammo="Knobkierrie",
-    head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Futhark Coat +3",
-    hands="Meg. Gloves +2",
-    legs="Eri. Leg Guards +2",
-    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
-    neck="Rep. Plat. Medal",
-    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    right_ear="Sherida Earring",
-    left_ring="Epaminondas's Ring",
-    right_ring="Niqmaddu Ring",
-    back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
-	}
-	
-	sets.ws['Armor Break']	= { --, Use MACC to ensure additional effect proc, Defense Down
-    ammo="Knobkierrie",
-    head="Null Masque",priority=16,  
-    body="Adamantite Armor", priority=16,priority=18, 
-    hands="Erilaz Gauntlets +2",priority=14, 
-    legs="Erilaz Leg Guards +2",priority=17, 
-    feet="Erilaz Greaves +2",priority=15, 
-    neck="Null Loop",
-    waist="Null Belt",
-    left_ear="Crepuscular Earring",
-    right_ear="Erilaz Earring +1",
-    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
-    back="Null Shawl",
-	}
 
 	sets.ja = {} 					-- Leave this empty
-	sets.ja.Enmity = { --, 3226 HP, +99 Enmity
-    ammo="Staunch Tathlum +1",
+	sets.ja.Enmity = { --, 3226 HP, +101 Enmity
+    ammo="Sapience Orb",
     head={ name="Loess Barbuta +1", augments={'Path: A',}},
     body="Souveran Cuirass +1", priority=16,
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=14,
     legs="Sakpata's Cuisses",
-    feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+	feet="Chevalier's Sabatons +2",
     neck="Moonlight Necklace",
     waist="Warwolf Belt",
     left_ear="Trux Earring",
     right_ear="Tuisto Earring",
     left_ring="Apeile Ring +1",
     right_ring="Apeile Ring",
-    back="Moonbeam Cape",
+    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
-	sets.ja.DD_Enmity = { --,3226 HP, +99 Enmity, -52% DT
-    ammo="Staunch Tathlum +1",
+	sets.ja.DD_Enmity = { --,3226 HP, +101 Enmity, -49% DT
+    ammo="Sapience Orb",
     head={ name="Loess Barbuta +1", augments={'Path: A',}},
     body="Souveran Cuirass +1", priority=16,
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=14,
     legs="Sakpata's Cuisses",
-    feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+	feet="Chevalier's Sabatons +2",
     neck="Moonlight Necklace",
     waist="Warwolf Belt",
     left_ear="Trux Earring",
     right_ear="Cyptic Earring",
     left_ring="Apeile Ring +1",
     right_ring="Apeile Ring",
-    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}},
+    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 		
 	sets.ja['Vallation'] = set_combine(sets.ja.Enmity, {
@@ -606,11 +546,16 @@ right_ear="Tuisto Earring", priority=18,
 	})
 	sets.ja['Last Resort'] = set_combine(sets.ja.Enmity, {
 	})
+	sets.ja['Majesty'] = set_combine(sets.ja.Enmity, {
+	})
 	sets.ja['Holy Circle'] = set_combine(sets.ja.Enmity, {
 	feet="Gallant Leggings",
 	})
+	sets.ja['Divine Emblem'] = set_combine(sets.ja.Enmity, {
+	feet="Chevalier's Sabatons +2",
+	})
 	sets.ja['Sentinel'] = set_combine(sets.ja.Enmity, {
-	feet="Cabbalarius Leggings +1",
+	feet="Cab. Leggings +1",
 	})
 	sets.ja['Cover'] = set_combine(sets.ja.Enmity, {
 	body="Caballarius Surcoat", priority=16,
@@ -652,13 +597,13 @@ right_ear="Tuisto Earring", priority=18,
 	sets.idle = {}
 	
 	sets.precast = {}
-	sets.precast.fastcast = { --, +70% FC, 3113 HP
+	sets.precast.fastcast = { --, +72% FC, 3113 HP
     ammo="Sapience Orb",
     head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
     body="Sacro Breastplate",priority=17,
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
     legs="Enif Cosciales",
-    feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}},
+	feet="Chevalier's Sabatons +2",
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},priority=19,
     waist="Plat. Mog. Belt", priority=20,
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}}, priority=16,
@@ -669,7 +614,7 @@ right_ear="Tuisto Earring", priority=18,
 	} 
 
     sets.midcast = {} 
-	sets.midcast.sird = set_combine(sets.ja.Enmity, {  --, +116% SIRD, 3200 HP
+	sets.midcast.sird = set_combine(sets.ja.Enmity, {  --, +106% SIRD, 3200 HP
     ammo="Staunch Tathlum +1",
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=15,
     body="Adamantite Armor", priority=16,
@@ -682,7 +627,7 @@ right_ear="Tuisto Earring", priority=18,
     right_ear={ name="Chev. Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
     left_ring="Moonlight Ring", priority=13,
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}}, priority=17,
-    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}},
+    back="Null Cape",
 	})
 	sets.midcast.BLUEnmitySIRD = set_combine(sets.ja.Enmity, { --, +106% SIRD, 3041 HP, +85 Enmity
     ammo="Staunch Tathlum +1",
@@ -742,25 +687,29 @@ right_ear="Tuisto Earring", priority=18,
 	sets.midcast.PhalanxOutOfCombat = set_combine(sets.midcast.phalanx, { --, +30 Phalanx, Enhancing Skill 368 = 30 Phalanx, 3129 HP, -41% DT
 	main="Sakpata's Sword",
 	})
-	sets.midcast["Reprisal"] = { --, 3216 HP, -29% DT, +42% FC (-21% Recast) 
+	
+	sets.midcast["Reprisal"] = { --, 3016 HP, -39% DT, +46% FC (-23% Recast) 
     ammo="Staunch Tathlum +1",
     head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
     body="Adamantite Armor",priority=17,
     hands="Regal Gauntlets",priority=19,
     legs={ name="Founder's Hose", augments={'MND+6','Mag. Acc.+10','Attack+7','Breath dmg. taken -2%',}},
-    feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}},
-    neck={ name="Unmoving Collar +1", augments={'Path: A',}},priority=18,
+	feet="Chevalier's Sabatons +2",
+    neck="Voltsurge Torque",priority=18,
     waist="Plat. Mog. Belt",priority=20,
     left_ear="Enchanting Earring +1",
     right_ear="Tuisto Earring",priority=16,
-    left_ring="Kishar Ring",
+    left_ring="Defending Ring",
     right_ring="Weather. Ring +1",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}},
 	}
 	sets.midcast.enhancingduration = set_combine(sets.midcast.sird, {
     hands="Regal Gauntlets",priority=14,
 	})
-	
+	sets.midcast["Protect"] = set_combine(sets.midcast.sird, {
+    hands="Regal Gauntlets",priority=14,
+    right_ear="Brachyura Earring",
+	})	
     sets.midcast.MACC = { --, +360 MACC 
     ammo="Pemphredo Tathlum",
     head="Null Masque",priority=18,
@@ -825,7 +774,21 @@ right_ear="Tuisto Earring", priority=18,
     right_ring="Moonlight Ring",
     back="Null Shawl",
 	}
-
+    sets.Cure["Potecy - Others"] = { --, not finished yet
+    ammo="Staunch Tathlum +1",
+    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},priority=16,
+    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},priority=15,
+    hands="Regal Gauntlets",priority=18,
+    legs={ name="Founder's Hose", augments={'MND+6','Mag. Acc.+10','Attack+7','Breath dmg. taken -2%',}},priority=14,
+    feet="Odyssean Greaves",
+    neck="Sacro Gorget",
+    waist="Flume Belt",
+    left_ear="Nourish. Earring +1",
+    right_ear={ name="Chev. Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    left_ring="Moonlight Ring",priority=17,
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},priority=13,
+    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}},
+	}
 
 	Buff_Set_Names = {'Holywater'}
 	sets.buff = {} 					-- Leave this empty.
@@ -859,12 +822,8 @@ end
 
 function precast(spell) --, "==" indicates "Is", "~=" indicates "Is not", See examples in RDM.lua
     if  spell.type == 'JobAbility' then
-        if Tank_Mode == false then
-			equip(sets.ja.DD_Enmity)
-				elseif Tank_Mode == true then
-					equip(set_combine(sets.ja.enmity))
-			end
-		end	
+		equip(sets.ja[spell.name]) 
+	end	
     if  spell.action_type == 'Magic' then --, All magic types uses assigned set
 		if Tank_Mode == false then
 			equip(sets.precast.fastcast)
@@ -927,13 +886,16 @@ function midcast(spell) --, Midcast works in hierachy. The lower on the list the
 					equip(set_combine(sets.midcast.MaxEnmity, sets.TankEnmity))
 			end
 		end
-	if T{'Foil','Crusade','Protect V','Enlight II'}:contains(spell.name) or spell.name:match('Bar') then
+	if T{'Foil','Crusade','Enlight II'}:contains(spell.name) or spell.name:match('Bar') then
 		if Tank_Mode == false then
 			equip(sets.midcast.enhancingduration)
 				elseif Tank_Mode == true then
 					equip(set_combine(sets.midcast.enhancingduration, sets.TankFoil))
 			end
 		end
+	if spell.name:match("Protect") or spell.name:match("Shell") then
+		equip(sets.midcast["Protect"])
+	end
 	if spell.name:match('Phalanx') then
 		if player.status == "Idle" and player.tp < 500 then
 			equip (sets.midcast.PhalanxOutOfCombat) else
@@ -958,7 +920,7 @@ end
 	if T{'Reprisal'}:contains(spell.name) then
 	equip(sets.midcast["Reprisal"])
 	end
-	if T{'Holy','Holy II','Banish II','Banishga'}:contains(spell.name) then	
+	if T{'Holy','Holy II','Banish II'}:contains(spell.name) then	
 	equip(sets.midcast.MAB)
 		if Tank_Mode == true then
 			equip(sets.TankHP)
@@ -971,7 +933,6 @@ end
 function aftercast(spell) --, idle() makes the aftercast use the "Idle ()" states.
 	idle()
 	equip(sets.weapons[Weapons_Set_Names[Weapons_Index]])
-
 end
 
 function buff_change(buff,gain) --, See list of buff names under Gearswap libraries, or just check name in-game when they are active
@@ -1083,7 +1044,7 @@ function self_command(command) --, Allows of use of various commands
 	if command == 'toggle Idle Tank set' then
         windower.add_to_chat('Idle Tank set equipped')
 		equip(sets["Idle Tank"])
-	end
+	end	
 	if command == 'toggle TH set' then
         TH_Index = TH_Index +1
     if TH_Index > #TH_Set_Names then TH_Index = 1 end
@@ -1135,7 +1096,29 @@ function self_command(command) --, Allows of use of various commands
 	end
 end
 
---windower.add_to_chat('DT mode is now: '..DT_mode)
+windower.register_event('prerender', function()
+    if os.clock() > (tickdelay or 0) then
+        if player.status=='Engaged' and not buffactive['Majesty'] and not midaction() and not buffactive['Amnesia'] then
+            send_command('input /ja "Majesty" <me>')
+            tickdelay = os.clock() + 5
+        end
+    end
+end)
+
+function job_tick()
+    if check_Majesty() then return true end
+    return false
+end
+
+function check_Majesty()
+    if player.status=='Engaged' and not buffactive['Majesty'] and not midaction() and not buffactive['Amnesia'] then
+        send_command('input /ja "Majesty" <me>')
+        tickdelay = os.clock() + 5
+        return true
+    end
+    return false
+end
+
 
 
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
@@ -1167,5 +1150,4 @@ send_command('unbind Numpad0')
 send_command('unbind !Numpad0')
 send_command('unbind ^Numpad0')
 send_command('unbind Numpad0')
-
 end
