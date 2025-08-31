@@ -84,7 +84,7 @@ function get_sets()
 
 	sets.DD_Mode["Hybrid"] = { --, 2898 HP,
     ammo="Staunch Tathlum +1",
-    head="Null Masque",
+    head="Chevalier's Armet +2",priority=15,
     body="Adamantite Armor", priority=16,
     hands="Sakpata's Gauntlets",
     legs="Sakpata's Cuisses",
@@ -101,7 +101,7 @@ function get_sets()
     ammo="Coiste Bodhar",
     head="Hjarrandi Helm",
     body="Sakpata's Plate",
-    hands="Sakpata's Gauntlets",
+    hands="Chevalier's Gauntlets +2",
     legs="Sakpata's Cuisses",
     feet="Flam. Gambieras +2",
     neck="Null Loop",
@@ -121,7 +121,7 @@ function get_sets()
     ammo="Eluder's Sachet",
     head="Null Masque", Priority=17,
     body="Adamantite Armor", priority=16,
-    hands="Sakpata's Gauntlets",
+    hands="Chevalier's Gauntlets +2",
     legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
     neck={ name="Unmoving Collar +1", augments={'Path: A',}}, Priority=19,
@@ -132,11 +132,11 @@ function get_sets()
     right_ring="Lehko's Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
-	sets.Tank_Mode["Block"] = { --, 3228 HP, -51% DT, -12% Enemy Crit Rate, Block+6 (missing +5 from Ambu Cape), +20 Ele
+	sets.Tank_Mode["Block"] = { --, 3078 HP, -51% DT, -12% Enemy Crit Rate, Block+6 (missing +5 from Ambu Cape), +20 Ele
     ammo="Eluder's Sachet",
-    head="Null Masque",priority=15,
+    head="Chevalier's Armet +2",priority=15,
     body="Adamantite Armor",priority=18,
-    hands="Sakpata's Gauntlets",
+    hands="Chevalier's Gauntlets +2",
     legs="Sakpata's Cuisses",
     feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},priority=19,
 	
@@ -145,7 +145,7 @@ function get_sets()
     neck="Warder's Charm +1",
     waist="Plat. Mog. Belt", priority=20,
 	
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},priority=16,
+    left_ear="Thureous Earring",
     right_ear={ name="Chev. Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
     left_ring="Fortified Ring",
     right_ring="Lehko's Ring",
@@ -172,20 +172,20 @@ function get_sets()
 	sets.MEVA = { --, 2942 HP, 690 MEVA, +54MDB, +20 Ele, 5% Magic Absorb, 5% Magic Annul, 5% Magic Scherzo, -59% DT
     ammo="Staunch Tathlum +1",
     head="Null Masque",
-    body="Adamantite Armor", priority=16,
-    hands="Sakpata's Gauntlets",
-    legs="Sakpata's Cuisses",
+    body="Adamantite Armor", priority=19,
+    hands="Sakpata's Gauntlets",priority=16,
+    legs="Sakpata's Cuisses",priority=17,
     feet="Sakpata's Leggings",
     neck="Warder's Charm +1",
     waist="Plat. Mog. Belt", priority=20,
     left_ear="Sanare Earring",
 	right_ear="Tuisto Earring", priority=18,
     left_ring="Shadow Ring",
-    right_ring="Archon Ring",
+    right_ring="Purity Ring",
     back="Null Shawl",
 	}	
 		
-	Run_Set_Names = {'DT','Refresh','Regen'}
+	Run_Set_Names = {'DT','Idle Tank','Refresh','Regen'}
 	sets.run = {}
 	sets.run.DT =  { --, 3074 HP, 678 MEVA, +20 Ele, Refresh +2, Regen +3, -50% DT
     ammo="Eluder's Sachet",
@@ -247,19 +247,36 @@ function get_sets()
     right_ring="Shadow Ring",
     back="Null Shawl",
 	}	
-	
-	sets["Idle Tank"] = {
+
+	sets.run["Idle Tank"] = {
     ammo="Eluder's Sachet",
-    head="Null Masque",priority=18,
+    head="Chevalier's Armet +2",priority=18,
     body="Adamantite Armor",priority=19,
-    hands="Sakpata's Gauntlets",
+    hands="Chevalier's Gauntlets +2",
     legs="Sakpata's Cuisses",
     feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},priority=17,
     neck="Warder's Charm +1",
     --waist="Plat. Mog. Belt",priority=20,
 	waist="Null Belt",priority=20,
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},priority=14,
-    right_ear="Tuisto Earring",priority=16,
+    left_ear="Thureous Earring",
+	right_ear="Chevalier's Earring",
+    left_ring="Fortified Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},priority=15,
+    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
+	}
+	
+	sets["Idle Tank"] = {
+    ammo="Eluder's Sachet",
+    head="Chevalier's Armet +2",priority=18,
+    body="Adamantite Armor",priority=19,
+    hands="Chevalier's Gauntlets +2",
+    legs="Sakpata's Cuisses",
+    feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},priority=17,
+    neck="Warder's Charm +1",
+    --waist="Plat. Mog. Belt",priority=20,
+	waist="Null Belt",priority=20,
+    left_ear="Thureous Earring",
+	right_ear="Chevalier's Earring",
     left_ring="Fortified Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},priority=15,
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
@@ -437,12 +454,12 @@ function get_sets()
     body="Sakpata's Plate",
     hands={ name="Odyssean Gauntlets", augments={'Accuracy+18','Weapon skill damage +5%','STR+6',}},
     legs="Sakpata's Cuisses",
-    feet="Sulev. Leggings +2",
+    feet="Nyame Sollerets",
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Thrud Earring",
-    left_ring="Ifrit's Ring +1",
+    left_ring="Ifrit Ring +1",
     right_ring="Epaminondas's Ring",
     back={ name="Rudianos's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
@@ -452,12 +469,12 @@ function get_sets()
     body="Sakpata's Plate",
     hands={ name="Odyssean Gauntlets", augments={'Accuracy+18','Weapon skill damage +5%','STR+6',}},
     legs="Sakpata's Cuisses",
-    feet="Sulev. Leggings +2",
+    feet="Nyame Sollerets",
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Thrud Earring",
-    left_ring="Ifrit's Ring +1",
+    left_ring="Ifrit Ring +1",
     right_ring="Epaminondas's Ring",
     back={ name="Rudianos's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
@@ -614,7 +631,7 @@ function get_sets()
 	} 
 
     sets.midcast = {} 
-	sets.midcast.sird = set_combine(sets.ja.Enmity, {  --, +106% SIRD, 3200 HP
+	sets.midcast.sird = set_combine(sets.ja.Enmity, {  --, +106% SIRD, 3129 HP, -42% DT
     ammo="Staunch Tathlum +1",
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=15,
     body="Adamantite Armor", priority=16,
@@ -622,25 +639,39 @@ function get_sets()
     legs={ name="Founder's Hose", augments={'MND+6','Mag. Acc.+10','Attack+7','Breath dmg. taken -2%',}},
     feet="Odyssean Greaves",
     neck="Moonlight Necklace",
-    waist="Plat. Mog. Belt", priority=20,
+    waist="Flume Belt",
     left_ear="Odnowa Earring +1", priority=17,
     right_ear={ name="Chev. Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
     left_ring="Moonlight Ring", priority=13,
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}}, priority=17,
     back="Null Cape",
 	})
-	sets.midcast.BLUEnmitySIRD = set_combine(sets.ja.Enmity, { --, +106% SIRD, 3041 HP, +85 Enmity
-    ammo="Staunch Tathlum +1",
-    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=15,
-    body="Souveran Cuirass +1", priority=16,
-    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=14,
+	sets.midcast.BLUEnmitySIRD = set_combine(sets.ja.Enmity, { 
+    -- ammo="Staunch Tathlum +1",	--, +106% SIRD, 3041 HP, +85 Enmity, -15% DT
+    -- head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=15,
+    -- body="Souveran Cuirass +1", priority=16,
+    -- hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=14,
+    -- legs={ name="Founder's Hose", augments={'MND+6','Mag. Acc.+10','Attack+7','Breath dmg. taken -2%',}},
+    -- feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=17,
+    -- neck="Moonlight Necklace",
+    -- waist="Audumbla Sash",
+    -- left_ear="Magnetic Earring",
+    -- right_ear="Trux Earring",
+    -- left_ring="Apeile Ring +1",
+    -- right_ring="Apeile Ring",
+    -- back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}},
+	
+    ammo="Staunch Tathlum +1", --, +104% SIRD, 3091 HP, +36 Enmity, -51% DT
+    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=19,
+    body="Adamantite Armor", priority=20,
+    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=18,
     legs={ name="Founder's Hose", augments={'MND+6','Mag. Acc.+10','Attack+7','Breath dmg. taken -2%',}},
     feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=17,
-    neck="Moonlight Necklace",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Audumbla Sash",
     left_ear="Magnetic Earring",
-    right_ear="Trux Earring",
-    left_ring="Apeile Ring +1",
+    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}}, priority=16,
+    left_ring="Defending Ring",
     right_ring="Apeile Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}},
 	})
@@ -651,23 +682,7 @@ function get_sets()
 	sets.midcast.Foil = set_combine(sets.ja.Enmity, {
 	})
 	
-    sets.midcast.DD_Cure = { --, 2958 HP
-    ammo="Staunch Tathlum +1",
-    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    legs={ name="Founder's Hose", augments={'MND+6','Mag. Acc.+10','Attack+7','Breath dmg. taken -2%',}},
-    feet="Odyssean Greaves",
-    neck="Sacro Gorget",
-    waist="Null Belt",
-    left_ear="Nourish. Earring +1",
-    right_ear={ name="Chev. Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
-    left_ring="Defending Ring",
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
-    back="Null Shawl",
-	}
-	
-	sets.midcast.phalanx = { --, +25 Phalanx, Enhancing Skill 368 = 30 Phalanx, 3239 HP, -41% DT
+	sets.midcast.phalanx = { --, +25 Phalanx, Enhancing Skill 387 = 31 Phalanx, 3239 HP, -41% DT
 	--Skill: 300 329 358 386 415 443 472 500
 	--Dmg: 	-28 -29 -30 -31 -32 -33 -34 -35
     ammo="Staunch Tathlum +1",
@@ -684,13 +699,13 @@ function get_sets()
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}}, priority=17,
     back={ name="Weard Mantle", augments={'VIT+4','DEX+1','Enmity+4','Phalanx +5',}},
 	}
-	sets.midcast.PhalanxOutOfCombat = set_combine(sets.midcast.phalanx, { --, +30 Phalanx, Enhancing Skill 368 = 30 Phalanx, 3129 HP, -41% DT
+	sets.midcast.PhalanxOutOfCombat = set_combine(sets.midcast.phalanx, { --, +30 Phalanx, Enhancing Skill 387 = 31 Phalanx, 3129 HP, -41% DT
 	main="Sakpata's Sword",
 	})
 	
-	sets.midcast["Reprisal"] = { --, 3016 HP, -39% DT, +46% FC (-23% Recast) 
+	sets.midcast["Reprisal"] = { --, 3016 HP, -39% DT, +42% FC (-21% Recast) 
     ammo="Staunch Tathlum +1",
-    head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
+    head="Chevalier's Armet +2",priority=15,
     body="Adamantite Armor",priority=17,
     hands="Regal Gauntlets",priority=19,
     legs={ name="Founder's Hose", augments={'MND+6','Mag. Acc.+10','Attack+7','Breath dmg. taken -2%',}},
@@ -714,9 +729,9 @@ function get_sets()
     ammo="Pemphredo Tathlum",
     head="Null Masque",priority=18,
     body="Adamantite Armor",priority=19,
-    hands="Sakpata's Gauntlets",
+    hands="Chevalier's Gauntlets +2",
     legs="Sakpata's Cuisses",
-    feet="Sakpata's Leggings",
+	feet="Chevalier's Sabatons +2",
     neck="Null Loop",
     waist="Plat. Mog. Belt",priority=20,
     left_ear="Crep. Earring",
@@ -742,9 +757,9 @@ function get_sets()
 	}
 	
 	Cure_Index = 1
-	Cure_Set_Names = {'Potecy Cure','MEVA Cure'}
+	Cure_Set_Names = {'Potency Cure','MEVA Cure'}
 	sets.Cure = {}	
-    sets.Cure["Potecy Cure"] = { --, 3045 HP
+    sets.Cure["Potency Cure"] = { --, 3045 HP
     ammo="Staunch Tathlum +1",
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},priority=16,
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},priority=15,
@@ -752,7 +767,7 @@ function get_sets()
     legs={ name="Founder's Hose", augments={'MND+6','Mag. Acc.+10','Attack+7','Breath dmg. taken -2%',}},priority=14,
     feet="Odyssean Greaves",
     neck="Sacro Gorget",
-    waist="Flume Belt",
+    waist="Carrier's Sash",
     left_ear="Nourish. Earring +1",
     right_ear={ name="Chev. Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
     left_ring="Moonlight Ring",priority=17,
@@ -762,7 +777,7 @@ function get_sets()
     sets.Cure["MEVA Cure"] = { --,
     ammo="Staunch Tathlum +1",
     head="Null Masque", Priority=17,
-    body="Sakpata's Plate", priority=16,
+    body="Adamantite Armor", priority=16,
     hands="Sakpata's Gauntlets",
     legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
@@ -774,22 +789,22 @@ function get_sets()
     right_ring="Moonlight Ring",
     back="Null Shawl",
 	}
-    sets.Cure["Potecy - Others"] = { --, not finished yet
+    sets.midcast.DD_Cure = { --, 2958 HP
     ammo="Staunch Tathlum +1",
-    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},priority=16,
-    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},priority=15,
-    hands="Regal Gauntlets",priority=18,
-    legs={ name="Founder's Hose", augments={'MND+6','Mag. Acc.+10','Attack+7','Breath dmg. taken -2%',}},priority=14,
+    head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
+    legs={ name="Founder's Hose", augments={'MND+6','Mag. Acc.+10','Attack+7','Breath dmg. taken -2%',}},
     feet="Odyssean Greaves",
     neck="Sacro Gorget",
-    waist="Flume Belt",
+    waist="Null Belt",
     left_ear="Nourish. Earring +1",
     right_ear={ name="Chev. Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
-    left_ring="Moonlight Ring",priority=17,
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},priority=13,
-    back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}},
+    left_ring="Defending Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back="Null Shawl",
 	}
-
+	
 	Buff_Set_Names = {'Holywater'}
 	sets.buff = {} 					-- Leave this empty.
 	sets.buff.reive = {
@@ -1096,27 +1111,21 @@ function self_command(command) --, Allows of use of various commands
 	end
 end
 
-windower.register_event('prerender', function()
-    if os.clock() > (tickdelay or 0) then
-        if player.status=='Engaged' and not buffactive['Majesty'] and not midaction() and not buffactive['Amnesia'] then
-            send_command('input /ja "Majesty" <me>')
-            tickdelay = os.clock() + 5
+function check_combat_set()
+    if player.status == 'Engaged' then
+        if Tank_Mode == true then
+            equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
+        elseif DD_Mode == true then
+            equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
         end
     end
-end)
-
-function job_tick()
-    if check_Majesty() then return true end
-    return false
-end
-
-function check_Majesty()
-    if player.status=='Engaged' and not buffactive['Majesty'] and not midaction() and not buffactive['Amnesia'] then
-        send_command('input /ja "Majesty" <me>')
-        tickdelay = os.clock() + 5
-        return true
-    end
-    return false
+	if player.status =='Idle' then --, When holstering weapon
+		if Tank_Mode == true then
+			equip(sets.run[Run_Set_Names[Run_Index]])
+	elseif DD_Mode == true then
+			equip(sets.run.DD_Idle)
+		end
+	end
 end
 
 
