@@ -1111,25 +1111,6 @@ function self_command(command) --, Allows of use of various commands
 	end
 end
 
-function check_combat_set()
-    if player.status == 'Engaged' then
-        if Tank_Mode == true then
-            equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
-        elseif DD_Mode == true then
-            equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
-        end
-    end
-	if player.status =='Idle' then --, When holstering weapon
-		if Tank_Mode == true then
-			equip(sets.run[Run_Set_Names[Run_Index]])
-	elseif DD_Mode == true then
-			equip(sets.run.DD_Idle)
-		end
-	end
-end
-
-
-
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
 send_command('unbind f7')
 send_command('unbind !f7')
@@ -1160,3 +1141,4 @@ send_command('unbind !Numpad0')
 send_command('unbind ^Numpad0')
 send_command('unbind Numpad0')
 end
+
