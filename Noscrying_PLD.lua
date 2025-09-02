@@ -36,7 +36,7 @@ function get_sets()
 	left_ring= "Dim. Ring (Dem)"
 	}
 
-	Weapons_Set_Names = {"Malignance Sword","Naegling",'Excalibur'} --, 'Caladbolg','Sakpata'
+	Weapons_Set_Names = {'Burtgang',"Naegling","Malignance Sword",} --, 'Caladbolg','Sakpata''Excalibur'
 	sets.weapons = {}
 
 	sets.weapons.Caladbolg = {
@@ -49,12 +49,15 @@ function get_sets()
 	sets.weapons["Sakpata"] = {
     main="Sakpata's Sword",
 	}
+	sets.weapons["Burtgang"] = {
+    main="Burtgang",
+	}
 	sets.weapons["Malignance Sword"] = {
     main="Malignance Sword",
 	}
 	sets.weapons["Excalibur"] = {
     main="Excalibur",
-	}	
+	}
 	Shield_Set_Names = {'Aegis','Duban','Blurred +1'} --, 'Lycurgos'
 	sets.Shield = {}
 	sets.Shield["Aegis"] = {
@@ -1141,4 +1144,5 @@ send_command('unbind !Numpad0')
 send_command('unbind ^Numpad0')
 send_command('unbind Numpad0')
 end
+
 
