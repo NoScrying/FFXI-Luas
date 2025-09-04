@@ -552,23 +552,6 @@ sets.ja.Enmity = { --, 3075 HP, +130 Enmity +23 Burtgang +30 Crusade = +183% Enm
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 		
-	sets.ja['Vallation'] = set_combine(sets.ja.Enmity, {
-	})
-	sets.ja['Valiance'] = set_combine(sets.ja.Enmity, {
-	})
-	sets.ja['Pflug'] = set_combine(sets.ja.Enmity, {
-	})
-
-	sets.ja['Weapon Bash'] = set_combine(sets.ja.Enmity, {
-	})
-	sets.ja['Swordplay'] = set_combine(sets.ja.Enmity, {
-	})
-	sets.ja['Souleater'] = set_combine(sets.ja.Enmity, {
-	})
-	sets.ja['Last Resort'] = set_combine(sets.ja.Enmity, {
-	})
-	sets.ja['Majesty'] = set_combine(sets.ja.Enmity, {
-	})
 	sets.ja['Holy Circle'] = set_combine(sets.ja.Enmity, {
 	feet="Gallant Leggings",
 	})
@@ -580,8 +563,6 @@ sets.ja.Enmity = { --, 3075 HP, +130 Enmity +23 Burtgang +30 Crusade = +183% Enm
 	})
 	sets.ja['Cover'] = set_combine(sets.ja.Enmity, {
 	body="Caballarius Surcoat", priority=16,
-	})
-	sets.ja['Palisade'] = set_combine(sets.ja.Enmity, {
 	})
 	sets.ja['Chivalry'] = set_combine(sets.ja.Enmity, {
     hands="Caballarius Gauntlets +3",
@@ -597,23 +578,6 @@ sets.ja.Enmity = { --, 3075 HP, +130 Enmity +23 Burtgang +30 Crusade = +183% Enm
 	})
 	sets.ja['Rampart'] = set_combine(sets.ja.Enmity, {
     head="Caballarius Coronet", priority=15,
-	})
-
-	sets.ja['Ignis'] = set_combine(sets.ja.Enmity, {
-	})
-	sets.ja['Gelus'] = set_combine(sets.ja.Enmity, {
-	})
-	sets.ja['Tellus'] = set_combine(sets.ja.Enmity, {
-	})
-	sets.ja['Sulpor'] = set_combine(sets.ja.Enmity, {
-	})
-	sets.ja['Unda'] = set_combine(sets.ja.Enmity, {
-	})
-	sets.ja['Flabra'] = set_combine(sets.ja.Enmity, {
-	})
-	sets.ja['Lux'] = set_combine(sets.ja.Enmity, {
-	})
-	sets.ja['Tenebrae'] = set_combine(sets.ja.Enmity, {
 	})
 	sets.idle = {}
 	
@@ -841,6 +805,8 @@ sets.ja.Enmity = { --, 3075 HP, +130 Enmity +23 Burtgang +30 Crusade = +183% Enm
 end
 function precast(spell) --, "==" indicates "Is", "~=" indicates "Is not", See examples in RDM.lua
     if  spell.type == 'JobAbility' then
+		equip(sets.ja.Enmity)
+			elseif sets.ja[spell.name] then
 		equip(sets.ja[spell.name]) 
 	end	
     if  spell.action_type == 'Magic' then --, All magic types uses assigned set
@@ -1107,6 +1073,7 @@ send_command('unbind !Numpad0')
 send_command('unbind ^Numpad0')
 send_command('unbind Numpad0')
 end
+
 
 
 
