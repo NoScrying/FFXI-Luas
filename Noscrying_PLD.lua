@@ -5,8 +5,7 @@ function get_sets()
 	send_command('bind f10 gs c toggle run set') 
 	send_command('bind !f10 gs c toggle Idle Tank set') 
 
-	send_command('bind f12 gs c toggle TH set') 
-	send_command('bind ^f12 gs c toggle Cure set') 
+	send_command('bind f12 gs c toggle Cure set') 
 	
 	send_command('bind f7 gs c toggle Weapons set') 
 	send_command('bind !f7 gs c toggle Shield set') 
@@ -15,7 +14,7 @@ function get_sets()
 	send_command('bind ^numpad1 gs c toggle Buff set')
 	send_command('bind !numpad1 gs c toggle Holy Water')
 	
-	send_command('bind !numpad3 gs c toggle Echo Drops')
+	send_command('bind !numpad3 gs c toggle Remedy')
 	
 	send_command('bind !numpad0 gs c toggle Emergency MEVA')
 	send_command('bind ^numpad0 gs c toggle Idle Tank')
@@ -1024,9 +1023,9 @@ function self_command(command) --, Allows of use of various commands
         windower.add_to_chat("Using Holy Water")
 		send_command ("input /item 'Holy Water' <me>")
 	end
-	if command == 'toggle Echo Drops' then
-        windower.add_to_chat("Using Echo Drops")
-		send_command ("input /item 'Echo Drops' <me>")
+	if command == 'toggle Remedy' then
+        windower.add_to_chat("Using Remedy - Removes Blind, Paralyze, Poison, Silence, and potentially Disease.")
+		send_command ("input /item 'Remedy' <me>")
     end
 	if command == 'toggle Emergency MEVA' then
         windower.add_to_chat('Emergency MEVA/DT On')
@@ -1073,6 +1072,7 @@ send_command('unbind !Numpad0')
 send_command('unbind ^Numpad0')
 send_command('unbind Numpad0')
 end
+
 
 
 
