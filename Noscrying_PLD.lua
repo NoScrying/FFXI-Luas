@@ -520,30 +520,30 @@ function get_sets()
 	}
 
 	sets.ja = {} 					-- Leave this empty
-	sets.ja.Enmity = { --, 3226 HP, +101 Enmity
+sets.ja.Enmity = { --, 3075 HP, +130 Enmity +23 Burtgang +30 Crusade = +183% Enmity
     ammo="Sapience Orb",
     head={ name="Loess Barbuta +1", augments={'Path: A',}},
     body="Souveran Cuirass +1", priority=16,
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=14,
-    legs="Sakpata's Cuisses",
-	feet="Chevalier's Sabatons +2",
+    legs="Souveran Diechlings +1",priority=15,
+	feet="Chevalier's Sabatons +2",priority=13,
     neck="Moonlight Necklace",
-    waist="Warwolf Belt",
+    waist="Creed Baudrier",
     left_ear="Trux Earring",
     right_ear="Tuisto Earring",
     left_ring="Apeile Ring +1",
     right_ring="Apeile Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
-	sets.ja.DD_Enmity = { --,3226 HP, +101 Enmity, -49% DT
+	sets.ja.DD_Enmity = {
     ammo="Sapience Orb",
     head={ name="Loess Barbuta +1", augments={'Path: A',}},
     body="Souveran Cuirass +1", priority=16,
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=14,
-    legs="Sakpata's Cuisses",
+    legs="Souveran Diechlings +1",priority=15,
 	feet="Chevalier's Sabatons +2",
     neck="Moonlight Necklace",
-    waist="Warwolf Belt",
+    waist="Creed Baudrier",
     left_ear="Trux Earring",
     right_ear="Cyptic Earring",
     left_ring="Apeile Ring +1",
@@ -617,14 +617,15 @@ function get_sets()
 	sets.idle = {}
 	
 	sets.precast = {}
-	sets.precast.fastcast = { --, +72% FC, 3113 HP
+	sets.precast.fastcast = { --, +76% FC, 3028 HP
     ammo="Sapience Orb",
     head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
     body="Sacro Breastplate",priority=17,
     hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
     legs="Enif Cosciales",
 	feet="Chevalier's Sabatons +2",
-    neck={ name="Unmoving Collar +1", augments={'Path: A',}},priority=19,
+    --neck={ name="Unmoving Collar +1", augments={'Path: A',}},priority=19,
+	neck="Voltsurge Torque",
     waist="Plat. Mog. Belt", priority=20,
     left_ear={ name="Odnowa Earring +1", augments={'Path: A',}}, priority=16,
     right_ear="Tuisto Earring", priority=18,
@@ -664,12 +665,12 @@ function get_sets()
     -- right_ring="Apeile Ring",
     -- back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}},
 	
-    ammo="Staunch Tathlum +1", --, +104% SIRD, 3091 HP, +36 Enmity, -51% DT
+    ammo="Staunch Tathlum +1", --, +104% SIRD, 3091 HP, +40 Enmity +23 Burgang +30 Crusade = 93% Enmity, -51% DT
     head={ name="Souv. Schaller +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=19,
     body="Adamantite Armor", priority=20,
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=18,
     legs={ name="Founder's Hose", augments={'MND+6','Mag. Acc.+10','Attack+7','Breath dmg. taken -2%',}},
-    feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=17,
+	feet="Chevalier's Sabatons +2",priority=17,
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Audumbla Sash",
     left_ear="Magnetic Earring",
@@ -728,7 +729,7 @@ function get_sets()
     hands="Regal Gauntlets",priority=14,
     right_ear="Brachyura Earring",
 	})	
-    sets.midcast.MACC = { --, +360 MACC 
+    sets.midcast.MACC = { --, +372 MACC 
     ammo="Pemphredo Tathlum",
     head="Null Masque",priority=18,
     body="Adamantite Armor",priority=19,
@@ -837,80 +838,44 @@ function get_sets()
  
 
 end
-
 function precast(spell) --, "==" indicates "Is", "~=" indicates "Is not", See examples in RDM.lua
     if  spell.type == 'JobAbility' then
 		equip(sets.ja[spell.name]) 
 	end	
     if  spell.action_type == 'Magic' then --, All magic types uses assigned set
-		if Tank_Mode == false then
-			equip(sets.precast.fastcast)
-				elseif Tank_Mode == true then
-					equip(set_combine(sets.precast.fastcast, sets.TankHP))
-			end
-		end
-	-- if spell.skill == 'Enhancing Magic' then --, If specifically Enhancing magic, then uses this set instead	
-		-- if Tank_Mode == false then
-			-- equip(sets.precast.enhancing)
-				-- elseif Tank_Mode == true then
-					-- equip(set_combine(sets.precast.enhancing, sets.TankHP))
-			-- end
-		-- end
-    if sets.ja[spell.name] then --, When set is setup as specified, then uses the preassigned set
-        if Tank_Mode == false then
-			equip(sets.ja[spell.name])
-				elseif Tank_Mode == true then
-					equip(set_combine(sets.ja[spell.name], sets.TankHP))
-			end
-		end
+		equip(sets.precast.fastcast)
+	end
     if sets.ws[spell.name] then
 		if Tank_Mode == false then
 			equip(sets.ws[spell.name])
 				elseif Tank_Mode == true then
 					equip(set_combine(sets.ws[spell.name], sets.TankWS))
+				if sets.ws['Atonement'] then
+				equip(sets.ws['Atonement'])
 			end
 		end
+	end
 	if spell.action_type == 'Ranged Attack' then
 		equip (sets.ranged.precast)
 	end
 end
-
 
 function midcast(spell) --, Midcast works in hierachy. The lower on the list the higher priority when using lazy If/End statements, otherwise when using If/Else/End, "Else" takes priority. See RDM lua for examples
     if  spell.action_type == 'Magic' then
         equip(sets.midcast.sird)
 	end
 	if spell.skill == "Blue Magic" then	
-			equip(sets.midcast.BLUEnmitySIRD)
-		end	
-	if spell.name:match('Refresh') then --,Spell.name == "xx" has to match name exactly, Spell.name:match ('xx') is like a variable that matches any prefix
-		if Tank_Mode == false then
-			equip(sets.midcast.refresh)
-				elseif Tank_Mode == true then
-					equip(set_combine(sets.midcast.refresh, sets.TankHP))
-			end
-		end
+		equip(sets.midcast.BLUEnmitySIRD)
+	end	
 	if spell.name:match('Poison') then  
-		if Tank_Mode == false then
-			equip(sets.midcast.enmity)
-				elseif Tank_Mode == true then
-					equip(set_combine(sets.midcast.enmity, sets.TankHP))
-			end
-		end	
-	if T{'Flash','Banishga','Stun','Banish',}:contains(spell.name) then
-		if Tank_Mode == false then
-			equip(sets.midcast.MaxEnmity)
-				elseif Tank_Mode == true then
-					equip(set_combine(sets.midcast.MaxEnmity, sets.TankEnmity))
-			end
-		end
-	if T{'Foil','Crusade','Enlight II'}:contains(spell.name) or spell.name:match('Bar') then
-		if Tank_Mode == false then
-			equip(sets.midcast.enhancingduration)
-				elseif Tank_Mode == true then
-					equip(set_combine(sets.midcast.enhancingduration, sets.TankFoil))
-			end
-		end
+		equip(sets.midcast.enmity)
+	end	
+	if T{'Flash','Banishga','Stun','Banish','Foil',}:contains(spell.name) then
+		equip(sets.midcast.MaxEnmity)
+	end
+	if T{'Crusade','Enlight II'}:contains(spell.name) or spell.name:match('Bar') then
+		equip(sets.midcast.enhancingduration)
+	end
 	if spell.name:match("Protect") or spell.name:match("Shell") then
 		equip(sets.midcast["Protect"])
 	end
@@ -932,7 +897,7 @@ end
 		equip (sets.ranged.precast)
 	end
 
-	if T{'Sleep','Bind','Absorb-TP','Absorb-DEX','Frightful Roar','Sheep Song'}:contains(spell.name) then
+	if T{'Sleep','Bind','Absorb-TP','Absorb-DEX',}:contains(spell.name) then
 		equip(sets.midcast.MACC)
 	end
 	if T{'Reprisal'}:contains(spell.name) then
@@ -940,9 +905,6 @@ end
 	end
 	if T{'Holy','Holy II','Banish II'}:contains(spell.name) then	
 	equip(sets.midcast.MAB)
-		if Tank_Mode == true then
-			equip(sets.TankHP)
-		end	
 	end
 end 
 
@@ -1144,5 +1106,6 @@ send_command('unbind !Numpad0')
 send_command('unbind ^Numpad0')
 send_command('unbind Numpad0')
 end
+
 
 
