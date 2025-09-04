@@ -435,7 +435,7 @@ function get_sets()
     back={ name="Rudianos's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}	
 
-	sets.ws['Atonement']	= { --,3165HP, +119 Enmity +23 Burtgang +30 Crusade = +172% Enmity -> 1K - 1638CE + 4914VE <> 2K - 2047CE + 6142VE <> 3K - 2457CE + 7371VE 
+	sets.ws['Atonement']	= { --, 3165HP, +129% Enmity +23 Burtgang +30 Crusade = +182% Enmity -> 1K - 1692CE + 5076VE <> 2K - 2115CE + 6345VE <> 3K - 2538CE + 7614VE  
     ammo="Sapience Orb",
     head={ name="Loess Barbuta +1", augments={'Path: A',}},
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=19,
@@ -520,7 +520,7 @@ function get_sets()
 	}
 
 	sets.ja = {} 					-- Leave this empty
-sets.ja.Enmity = { --, 3075 HP, +130 Enmity +23 Burtgang +30 Crusade = +183% Enmity
+sets.ja.Enmity = { --, 3075 HP, +134 Enmity +23 Burtgang +30 Crusade = +187% Enmity
     ammo="Sapience Orb",
     head={ name="Loess Barbuta +1", augments={'Path: A',}},
     body="Souveran Cuirass +1", priority=16,
@@ -1072,6 +1072,7 @@ send_command('unbind !Numpad0')
 send_command('unbind ^Numpad0')
 send_command('unbind Numpad0')
 end
+
 
 
 
