@@ -441,12 +441,13 @@ function get_sets()
     head={ name="Loess Barbuta +1", augments={'Path: A',}},
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=19,
     hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=18,
-    legs="Sakpata's Cuisses", priority=16,
-    feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=17,
+    legs="Souveran Diechlings +1",priority=16,
+	feet="Chevalier's Sabatons +2",priority=17,
     neck={ name="Unmoving Collar +1", augments={'Path: A',}}, priority=20,
-    waist="Flume Belt",
+    --neck="Moonlight Necklace",
+    waist="Creed Baudrier",
     left_ear="Trux Earring",
-    right_ear="Tuisto Earring",
+    right_ear="Cryptic Earring",
     left_ring="Apeile Ring +1",
     right_ring="Apeile Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
@@ -1106,6 +1107,7 @@ send_command('unbind !Numpad0')
 send_command('unbind ^Numpad0')
 send_command('unbind Numpad0')
 end
+
 
 
 
