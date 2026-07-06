@@ -1,3 +1,25 @@
+texts = require('texts')
+local res = require('resources')
+local enspells = {
+    ['Enfire'] = true,
+    ['Enblizzard'] = true,
+    ['Enaero'] = true,
+    ['Enstone'] = true,
+    ['Enthunder'] = true,
+    ['Enwater'] = true,
+    ['Enfire II'] = true,
+    ['Enblizzard II'] = true,
+    ['Enaero II'] = true,
+    ['Enstone II'] = true,
+    ['Enthunder II'] = true,
+    ['Enwater II'] = true,
+}
+local gainstat = {
+    ['INT Boost'] = true,
+    ['MND Boost'] = true,
+    ['STR Boost'] = true,
+    ['DEX Boost'] = true,
+}
 function get_sets()
 	send_command('bind f7 gs c toggle Crocea set') 	--, Sends a command to console, command is defined at bottom of Lua
 	send_command('bind !f7 gs c toggle Club set') 	--, ! = ALT
@@ -13,6 +35,9 @@ function get_sets()
 	send_command('bind !numpad3 gs c toggle Echo Drops')
 	send_command('bind !numpad1 gs c toggle Holy Water')
 	send_command('bind !pause input //send Nolyte /Savage Blade')
+	send_command('bind !pageup input //send Kiokura /Savage Blade')	
+	send_command('bind !end input //send Kiokura /LeadenSalute')	
+	send_command('bind !pagedown input //send @others /Savage Blade')
 
 	DW_Index = 1
 	Refresh_Index = 1
@@ -54,24 +79,41 @@ function get_sets()
     main={ name="Crocea Mors", augments={'Path: C',}},
     sub="Machaera +2",
 	}	
-	Sword_Set_Names = {"Odin"}
-	sets.Sword = {}
-	sets.Sword.Odin = {
+	sets.Crocea.Odin = {
     main="Wind Knife",
     sub="Qutrub Knife",
     range="Kaja Bow",
-    head="Malignance Chapeau",
+    head="Null Masque",
     body="Malignance Tabard",
     hands="Aya. Manopolas +2",
     legs="Malignance Tights",
     feet="Malignance Boots",
     neck="Null Loop",
     waist="Orpheus's Sash",
-    left_ear="Malignance Earring",
-    right_ear="Suppanomimi",
-    left_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    left_ear="Suppanomimi",
+    right_ear={ name="Leth. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+14','Mag. Acc.+14','"Dbl.Atk."+5',}},
+    right_ring="Murky Ring",
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    back={ name="Aurist's Cape +1", augments={'Path: A',}},
+    back="Null Shawl",
+	}
+	Sword_Set_Names = {"Odin"}
+	sets.Sword = {}
+	sets.Sword.Odin = {
+    main="Wind Knife",
+    sub="Qutrub Knife",
+    range="Kaja Bow",
+    head="Null Masque",
+    body="Malignance Tabard",
+    hands="Aya. Manopolas +2",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Null Loop",
+    waist="Orpheus's Sash",
+    left_ear="Suppanomimi",
+    right_ear={ name="Leth. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+14','Mag. Acc.+14','"Dbl.Atk."+5',}},
+    right_ring="Murky Ring",
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    back="Null Shawl",
 	}
 
 
@@ -115,8 +157,8 @@ function get_sets()
     --left_ear="Sherida Earring",
     --right_ear="Cessance Earring",
 	right_ear="Suppanomimi",
-    left_ear="Eabani Earring",
-    left_ring="Defending Ring",
+    --left_ear="Eabani Earring",
+    left_ring="Murky Ring",
     right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back="Null Shawl",
 	}
@@ -140,8 +182,9 @@ function get_sets()
 	sets.malig = {}
 	sets.malig.hands = {
 	ammo="Coiste Bodhar",
-	hands="Bunzi's Gloves",
+	hands="Malignance Gloves",
 	waist="Shetal Stone",
+	left_ear="Sherida Earring",
 	}	
 	sets.Empty = {
 	ammo="",
@@ -174,7 +217,7 @@ function get_sets()
     --right_ear="Cessance Earring",
     left_ear="Eabani Earring",
     right_ear="Suppanomimi",
-    left_ring="Defending Ring",
+    left_ring="Murky Ring",
     right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back="Null Shawl",
 	}
@@ -212,7 +255,7 @@ function get_sets()
     waist="Orpheus's Sash",
     left_ear="Sherida Earring",
     right_ear={ name="Leth. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+14','Mag. Acc.+14','"Dbl.Atk."+5',}},
-    left_ring="Defending Ring",
+    left_ring="Murky Ring",
     right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
@@ -228,7 +271,7 @@ function get_sets()
     waist="Orpheus's Sash",
     left_ear="Sherida Earring",
     right_ear={ name="Leth. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+14','Mag. Acc.+14','"Dbl.Atk."+5',}},
-    left_ring="Defending Ring",
+    left_ring="Murky Ring",
     right_ring="Lehko's Ring",
     back="Null Shawl",
 	}	
@@ -237,7 +280,7 @@ function get_sets()
 	sets.refresh = {}
 	sets.refresh.battle = { --, -51PDT, -39MDT, +7 Passive Refresh, +15-35 Elemental Resist, +551 MEVA, +5% Magic Absorb chance
     ammo="Staunch Tathlum +1",
-    head="Null Masque",
+    head="Vitiation Chapeau +3",
     body="Lethargy Sayon +2",
     hands="Leth. Ganth. +2",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
@@ -245,7 +288,7 @@ function get_sets()
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Null Belt",
     left_ear={ name="Arete del Luna +1", augments={'Path: A',}},
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Alabaster Earring",
     left_ring="Stikini Ring +1",
     right_ring="Stikini Ring +1",
     back="Null Shawl",
@@ -254,7 +297,7 @@ function get_sets()
 	sets.ws = {} 					-- Leave this empty.
 	sets.ws['Savage Blade']	= {
     ammo="Oshasha's Treatise",
-    head="Jhakri Coronal +2",
+    head="Vitiation Chapeau +3",
     body="Nyame Mail",
     hands="Atrophy Gloves +3",
     legs="Nyame Flanchard",
@@ -265,11 +308,11 @@ function get_sets()
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Sroda Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
+    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Knights of Round']	= {
     ammo="Oshasha's Treatise",
-    head="Jhakri Coronal +2",
+    head="Vitiation Chapeau +3",
     body="Nyame Mail",
     hands="Atrophy Gloves +3",
     legs="Nyame Flanchard",
@@ -280,12 +323,12 @@ function get_sets()
     right_ear="Ishvara Earring",
     left_ring="Sroda Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
+    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.ws['Circle Blade']	= {
 	ammo="Aurgelmir Orb",
-    head={ name="Blistering Sallet +1", augments={'Path: A',}},
+    head="Vitiation Chapeau +3",
 	body="Jhakri Robe +2",
     hands="Atrophy Gloves +3",
     legs="Jhakri Slops +2",
@@ -296,11 +339,11 @@ function get_sets()
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
     right_ring="Sroda Ring",
-    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
+    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.ws['Chant du Cygne']	= {
-	ammo="Aurgelmir Orb",
+	ammo="Yetshila +1",
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
 	body="Jhakri Robe +2",
     hands="Bunzi's Gloves",
@@ -332,9 +375,9 @@ function get_sets()
 	}
 	sets.ws['Requiescat']	= {
     ammo="Oshasha's Treatise",
-    head="Jhakri Coronal +2",
+    head="Vitiation Chapeau +3",
     body="Nyame Mail",
-    hands="Bunzi's Gloves",
+    hands="Atrophy Gloves +3",
     legs="Nyame Flanchard",
     feet="Leth. Houseaux +3",
     neck="Rep. Plat. Medal",
@@ -343,7 +386,7 @@ function get_sets()
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Sroda Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
+    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Sanguine Blade']	= {
 	--ammo="Regal Gem",
@@ -360,7 +403,7 @@ function get_sets()
     left_ring="Archon Ring",
     --right_ring="Epaminondas's Ring",
     right_ring="Freke Ring",
-    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
+    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Seraph Blade']	= {
 	--ammo="Regal Gem",
@@ -377,7 +420,7 @@ function get_sets()
     left_ring="Weatherspoon Ring +1",
     --right_ring="Epaminondas's Ring",
     right_ring="Freke Ring",
-    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
+    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Shining Blade']	= {
 	--ammo="Regal Gem",
@@ -394,7 +437,7 @@ function get_sets()
     left_ring="Weatherspoon Ring +1",
     --right_ring="Epaminondas's Ring",
     right_ring="Freke Ring",
-    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
+    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Red Lotus Blade']	= {
 	--ammo="Regal Gem",
@@ -411,7 +454,7 @@ function get_sets()
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     --right_ring="Epaminondas's Ring",
     right_ring="Freke Ring",
-    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
+    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Burning Blade']	= {
 	--ammo="Regal Gem",
@@ -428,12 +471,12 @@ function get_sets()
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     --right_ring="Epaminondas's Ring",
     right_ring="Freke Ring",
-    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
+    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.ws['Black Halo']	= {
     ammo="Oshasha's Treatise",
-    head="Jhakri Coronal +2",
+    head="Vitiation Chapeau +3",
     body="Nyame Mail",
     hands="Atrophy Gloves +3",
     legs="Nyame Flanchard",
@@ -444,7 +487,7 @@ function get_sets()
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Sroda Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
+    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Realmrazer']	= {
 	ammo="Oshasha's Treatise",
@@ -459,7 +502,7 @@ function get_sets()
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
     right_ring="Rajas Ring",
-    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
+    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.ws['Aeolian Edge'] = {
@@ -499,7 +542,7 @@ function get_sets()
 	}
 	sets.ws['Mercy Stroke'] = {
     ammo="Oshasha's Treatise",
-    head="Jhakri Coronal +2",
+    head="Vitiation Chapeau +3",
 	body="Lethargy Sayon +2",
     --body="Nyame Mail",
     hands="Atrophy Gloves +3",
@@ -511,7 +554,7 @@ function get_sets()
     right_ear="Ishvara Earring",
     left_ring="Sroda Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%',}},
+    back={ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Empyreal Arrow'] = {
     range="Ullr",
@@ -610,7 +653,7 @@ function get_sets()
     waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
     left_ear="Magnetic Earring",
     right_ear="Halasz Earring",
-    left_ring="Defending Ring",
+    left_ring="Murky Ring",
     right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
     back={ name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
@@ -633,7 +676,7 @@ function get_sets()
     sets.midcast = {}               -- leave this empty  
 	sets.midcast.enfeebling = { --, MACC+399, Enfeebling Skill +63, Enfeebling Potency +53, Enfeebling Duration +60%, Saboteur +13, Immunobreak +1
 	ammo="Regal Gem",				--, Enfeebling Potency +10
-    head="Null Masque",
+    head="Vitiation Chapeau +3",
 	--head="Befouled Crown",
     body="Lethargy Sayon +2", 		--, Enfeebling Duration +10%| Combined, Enfeebling Potency +16
     hands="Lethargy Gantherots +2", --, Enfeebling Duration +10%| Combined, Saboteur +13 
@@ -651,7 +694,7 @@ function get_sets()
 }
 	sets.midcast.Macc = { --, +418 MACC, Enfeebling Skill +53, Enfeebling Potency +43, Enfeebling Duration +40%, Saboteur +13, Immunobreak +1, 
 	ammo="Regal Gem",
-    head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
+    head="Vitiation Chapeau +3",
     --hands="Jhakri Cuffs +2",
     body="Lethargy Sayon +2",
     hands="Lethargy Gantherots +2",
@@ -669,7 +712,7 @@ function get_sets()
 	ammo="Regal Gem",
     head="Ipoca Beret",
     --hands="Jhakri Cuffs +2",
-    body="Lethargy Sayon +2",
+    body="Adamantite Armor",
     hands="Lethargy Gantherots +2",
     legs={ name="Chironic Hose", augments={'Mag. Acc.+21 "Mag.Atk.Bns."+21','INT+10','Mag. Acc.+11','"Mag.Atk.Bns."+5',}},
     feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
@@ -691,7 +734,7 @@ function get_sets()
     hands="Vitiation Gloves +3",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     feet="Leth. Houseaux +3",
-    neck="Incanter's Torque",
+    neck="Hoxne Torque",
 	waist="Olympus Sash",
     left_ear="Andoaa Earring",
     right_ear="Mimir Earring",
@@ -786,18 +829,18 @@ function get_sets()
 	}
 	
 	sets.midcast.enhancingdurationPT = { --, +133% Duration, +20% Ghostfyre Duration, Merits+30 Seconds, = 12 Minute Haste II
-	ammo="Staunch Tathlum +1",
+    ammo="Staunch Tathlum +1",
     head="Lethargy Chappel",
     body="Lethargy Sayon +2",
-    hands="Lethargy Gantherots +2",
+    hands="Atrophy Gloves +3",
     legs="Leth. Fuseau +2",
     feet="Leth. Houseaux +3",
     neck={ name="Dls. Torque +1", augments={'Path: A',}},
-	waist="Embla Sash",
+    waist="Embla Sash",
     left_ear="Mimir Earring",
-    right_ear="Lethargy Earring +1",
-    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
-    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
+    right_ear={ name="Leth. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+14','Mag. Acc.+14','"Dbl.Atk."+5',}},
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
     back={ name="Ghostfyre Cape", augments={'Enfb.mag. skill +2','Enha.mag. skill +10','Enh. Mag. eff. dur. +20',}},
 	}
 	
@@ -819,7 +862,7 @@ function get_sets()
 	sets.midcast.Aquaveil = { --, Aquaveil+2
 	ammo="Staunch Tathlum +1",
 	head="Amalric Coif +1",
-    body="Atrophy Tabard +2",
+    body="Adamantite Armor",
     hands="Atrophy Gloves +3",
     legs="Shedir Seraweels",
     feet="Leth. Houseaux +3",
@@ -933,6 +976,203 @@ function get_sets()
     legs={ name="Taeon Tights", augments={'Spell interruption rate down -10%','Phalanx +3',}},
     feet={ name="Taeon Boots", augments={'Spell interruption rate down -10%','Phalanx +3',}},
 	}
+	
+RDM_info_1 = texts.new('${text}', {
+    pos = {
+        x = 799,
+        y = 734,
+    },
+	bg = {
+		alpha   = 120,   -- 0-255 (0 = transparent, 255 = opaque)
+	},
+    text = {
+        font = 'Consolas',
+        size = 10,
+        red = 255,
+        green = 255,
+        blue = 255,
+    },
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+RDM_info_2 = texts.new('${text}', {
+    pos = {
+        x = 685,
+        y = 734,
+    },
+	bg = {
+		alpha   = 120,   -- 0-255 (0 = transparent, 255 = opaque)
+	},	
+    text = {
+        font = 'Consolas',
+        size = 10,
+        red = 255,
+        green = 255,
+        blue = 255,
+    },
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+
+RDM_info_1:show()
+RDM_info_2:show()
+update_rdm_panel()
+
+remedy_box = texts.new('', {
+    pos = {x = 598, y = 930},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+panacea_box = texts.new('', {
+    pos = {x = 598, y = 880},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+holywater_box = texts.new('', {
+    pos = {x = 598, y = 830},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+vile_box = texts.new('', {
+    pos = {x = 590, y = 965},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+vile1_box = texts.new('', {
+    pos = {x = 572, y = 980},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+InstantWarp_box = texts.new('', {
+    pos = {x = 680, y = 1068},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+Food_box = texts.new('', {
+    pos = {x = 1080, y = 1088},
+    text = {
+        font = 'Consolas',
+        size = 10,
+        stroke = {width = 2},
+    },
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+SneakInvisible_box = texts.new('${text}', {
+    pos = {
+        x = 530,
+        y = 1050,
+    },
+    text = {
+        font = 'Consolas',
+        size = 10,
+        red = 255,
+        green = 255,
+        blue = 255,
+    },
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+        draggable = false,
+    }
+})
+
+remedy_box:show()
+panacea_box:show()
+holywater_box:show()
+vile_box:show()
+vile1_box:show()
+InstantWarp_box:show()
+Food_box:show()
+SneakInvisible_box:show()
+
+update_item_boxes()
+count_item()
 end
 
 function precast(spell)
@@ -954,7 +1194,7 @@ end
 function midcast(spell)
 	if T{"Sleep","Blind","Frazzle II","Dispel","Break","Bind","Silence"}:contains(spell.name) then
 			equip(sets.midcast.Macc) --, Macc Spells, are not affected by Potency or are more important to land quickly, Gravity can get over -80% Movement speed, Frazzle II added to MACC set, to allow Frazzle III to be cast with Max Potency
-	elseif spell.skill == 'Enfeebling Magic' or spell.name =="Frazzle III" then
+	elseif spell.skill == 'Enfeebling Magic' or spell.name =="Frazzle III" or spell.name =="Sleepga II" then
 			equip(sets.midcast.enfeebling)
 				if spell.name:match('Diaga') then
 					equip(sets.TH.TH3)
@@ -1029,10 +1269,12 @@ end
 
 function aftercast(spell)
 	idle()
+	update_item_boxes()
 end
- 
 function status_change(new,old)
 	idle()
+	update_rdm_panel()
+	update_item_boxes()
 end
 
 function buff_change(buff,gain)
@@ -1053,6 +1295,16 @@ function buff_change(buff,gain)
             enable('ring1','ring2','waist','neck','feet')
             status_change(player.status)
         end
+    end
+    if enspells[buff]
+    or gainstat[buff]
+    or buff == 'Composure'
+    or buff == 'Saboteur'
+    or buff == 'Phalanx'
+    or buff == 'Multi Strikes' 
+    or buff == 'Refresh'
+    or buff == 'Haste' then
+        update_rdm_panel()
     end
 end
 
@@ -1143,6 +1395,119 @@ function self_command(command)
 	end
 end
 
+function color_enspell(spell)
+
+    if spell:find('Enfire') then
+        return '\\cs(255,0,0)'..spell..'\\cr'
+    elseif spell:find('Enblizzard') then
+        return '\\cs(0,128,255)'..spell..'\\cr'
+    elseif spell:find('Enaero') then
+        return '\\cs(0,255,0)'..spell..'\\cr'
+    elseif spell:find('Enstone') then
+        return '\\cs(210,180,40)'..spell..'\\cr'
+    elseif spell:find('Enthunder') then
+        return '\\cs(180,0,255)'..spell..'\\cr'
+    elseif spell:find('Enwater') then
+        return '\\cs(0,255,255)'..spell..'\\cr'
+    end
+
+    return spell
+
+end
+function color_gainstat(spell)
+
+    if spell:find('STR Boost') then
+        return '\\cs(255,0,0)'..spell..'\\cr'
+    elseif spell:find('INT Boost') then
+        return '\\cs(0,128,255)'..spell..'\\cr'
+    elseif spell:find('DEX Boost') then
+        return '\\cs(180,0,255)'..spell..'\\cr'
+    elseif spell:find('MND Boost') then
+        return '\\cs(0,255,255)'..spell..'\\cr'
+    end
+
+    return spell
+
+end
+function get_current_enspell()
+
+    for spell in pairs(enspells) do
+        if buffactive[spell] then
+            return spell
+        end
+    end
+
+    return 'None'
+
+end
+function get_current_gainstat()
+
+    for spell in pairs(gainstat) do
+        if buffactive[spell] then
+            return spell
+        end
+    end
+
+    return 'No-Boost '
+
+end
+function update_rdm_panel()
+	local gainstat = color_gainstat(get_current_gainstat())
+	local enspell = color_enspell(get_current_enspell())
+	local composure = buffactive['Composure']
+	local saboteur  = buffactive['Saboteur']
+	local phalanx   = buffactive['Phalanx']
+	local temper = buffactive['Multi Strikes']
+	local refresh = buffactive['Refresh']
+	local haste = buffactive['Haste']
+
+     RDM_info_1:text(string.format(
+        'Enspell: %s\nComposure: %s\nSaboteur: %s\nPhalanx: %s',
+        enspell,
+        composure and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr',
+        saboteur and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr',
+        phalanx and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr'
+    ))
+    RDM_info_2:text(string.format(
+        'Gain: %s\nTemper: %s\nRefresh: %s\nHaste: %s',
+		gainstat,
+        temper and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr',
+        refresh and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr',
+        haste and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr'
+    ))
+end
+function count_item(name)
+    local item = res.items:with('en', name)
+    if not item then return 0 end
+
+    local inv = windower.ffxi.get_items('inventory')
+    local count = 0
+
+    for i = 1, inv.max do
+        local slot = inv[i]
+        if slot and slot.id == item.id then
+            count = count + slot.count
+        end
+    end
+
+    return count
+end
+function update_item_boxes()
+
+    remedy_box:text(('Rem: %d'):format(count_item('Remedy')))
+    panacea_box:text(('Pan: %d'):format(count_item('Panacea')))
+    holywater_box:text(('HW: %d'):format(count_item('Holy Water')))
+    vile_box:text(('VElix: %d'):format(count_item('Vile Elixir')))
+    vile1_box:text(('VElix +1: %d'):format(count_item('Vile Elixir +1')))
+    InstantWarp_box:text(('Warp: %d'):format(count_item('Instant Warp')))
+    Food_box:text(('Grape Daifuku: %d'):format(count_item('Grape Daifuku')))
+	SneakInvisible_box:text(
+		('Silent Oil : %d\nPrism Powder: %d'):format(
+			count_item('Silent Oil'),
+			count_item('Prism Powder')
+		))
+
+end
 
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
 send_command('unbind f7')
@@ -1173,4 +1538,13 @@ send_command('unbind Numpad0')
 send_command('unbind !Numpad0')
 send_command('unbind ^Numpad0')
 send_command('unbind Numpad0')
+
+remedy_box:destroy()
+panacea_box:destroy()
+holywater_box:destroy()
+vile_box:destroy()
+vile1_box:destroy()
+InstantWarp_box:destroy()
+Food_box:destroy()
+SneakInvisible_box:destroy()
 end

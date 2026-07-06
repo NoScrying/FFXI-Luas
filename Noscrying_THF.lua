@@ -4,6 +4,13 @@ function get_sets()
 	send_command('bind f10 gs c toggle run set')
 	send_command('bind f7 gs c toggle Weapons set') -- F10 = Cycle through
 	send_command('bind !f7 gs c toggle Sub_Weapons set') -- F10 = Cycle through
+	send_command('bind pageup input //fillmode 1')
+	send_command('bind pagedown input //fillmode 0')
+	send_command('bind !pause input //send Nolyte /Savage Blade')
+	send_command('bind !pageup input //send Kiokura /Savage Blade')	
+	send_command('bind !end input //send Kiokura /LeadenSalute')	
+	send_command('bind !pagedown input //send @others /Savage Blade')
+
 	Melee_Index = 1
 	DT_Index = 1
 	Run_Index = 1
@@ -17,7 +24,7 @@ function get_sets()
 	left_ring= "Dim. Ring (Dem)"
 	}
 
-	Sub_Weapons_Set_Names = {"Twashtar/TP Bonus"}--,'TH',,"Twashtar/Tauret",'Naegling',
+	Sub_Weapons_Set_Names = {"Twashtar/TP Bonus",'Naegling'}--,'TH',,"Twashtar/Tauret",
 	sets.sub_weapons = {}
 	sets.sub_weapons.Naegling = {
     main="Naegling",
@@ -100,10 +107,10 @@ function get_sets()
     back="Null Shawl",
 }
 
-	Melee_Set_Names = {'normal','DT',"Twashtar Aftermath",'TH'} --, ,"STP",
+	Melee_Set_Names = {'DT','TH','Hybrid'} --, ,"STP",'normal',,"Twashtar Aftermath",
 	sets.melee = {} 				-- Leave this empty.
 	sets.melee.normal = {
-    ammo="Cath Palug Stone",
+    ammo="Staunch Tathlum +1",
     head="Adhemar Bonnet +1",
     body={ name="Adhemar Jacket +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
@@ -132,8 +139,23 @@ function get_sets()
     right_ring="Lehko's Ring",
     back="Null Shawl",
 	}
+	sets.melee.Hybrid = {
+    ammo="Coiste Bodhar",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Null Loop",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Sherida Earring",
+    right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
+    left_ring="Moonlight Ring",
+    right_ring="Lehko's Ring",
+    back="Null Shawl",
+	}
 	sets.melee.DT = {
-    ammo="Crepuscular Pebble",
+    ammo="Staunch Tathlum +1",
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
@@ -144,7 +166,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
     left_ring="Moonlight Ring",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     back="Null Shawl",
 	}
 	sets.melee["Twashtar Aftermath"] = {
@@ -199,22 +221,22 @@ function get_sets()
 	Run_Set_Names = {'DT', "Regen"}
 	sets.run = {}
 	sets.run.DT =  {
-	ammo="Perfect Lucky Egg",
+    ammo="Staunch Tathlum +1",
     head="Gleti's Mask",
-    body="Gleti's Cuirass",
-	hands="Gleti's Gauntlets",
+    body="Adamantite Armor",
+    hands="Gleti's Gauntlets",
     legs="Gleti's Breeches",
-	feet="Jute Boots +1",
-    neck="Loricate Torque +1",
+    feet="Jute Boots +1",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Null Belt",
-    left_ear="Sherida Earring",
-    right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
-	left_ring="Moonlight Ring",
-    right_ring="Defending Ring",
+    left_ear="Infused Earring",
+    right_ear="Eabani Earring",
+    left_ring="Moonlight Ring",
+    right_ring="Murky Ring",
     back="Null Shawl",
 	}
 	sets.run.Regen =  {
-    ammo="Per. Lucky Egg",
+    ammo="Staunch Tathlum +1",
     head="Gleti's Mask",
     body="Gleti's Cuirass",
     hands="Gleti's Gauntlets",
@@ -274,7 +296,7 @@ function get_sets()
 	}
 
 	sets.ws["Rudra's Storm"] = {
-    ammo="Cath Palug Stone",
+    ammo="Oshasha's Treatise",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
     body={ name="Herculean Vest", augments={'DEX+15','Pet: "Store TP"+9','Weapon skill damage +3%','Accuracy+15 Attack+15','Mag. Acc.+9 "Mag.Atk.Bns."+9',}},
     hands="Meg. Gloves +2",
@@ -282,14 +304,29 @@ function get_sets()
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Rep. Plat. Medal",
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
+    left_ear="Ishvara Earring",
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ring="Epaminondas's Ring",
+    right_ring="Ilabrat Ring",
+    back="Sacro Mantle",
+	}
+	sets.ws["Mandalic Stab"] = {
+    ammo="Oshasha's Treatise",
+    head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
+    body={ name="Herculean Vest", augments={'DEX+15','Pet: "Store TP"+9','Weapon skill damage +3%','Accuracy+15 Attack+15','Mag. Acc.+9 "Mag.Atk.Bns."+9',}},
+    hands="Meg. Gloves +2",
+    legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
+    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
+    neck="Rep. Plat. Medal",
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
+    left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
     right_ring="Ilabrat Ring",
     back="Sacro Mantle",
 	}
 	sets.ws['Evisceration'] = {
-    ammo="Cath Palug Stone",
+	ammo="Yetshila +1",
     head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     body="Meg. Cuirie +2",
 	hands="Gleti's Gauntlets",
@@ -383,12 +420,13 @@ function get_sets()
     ammo="Aurgelmir Orb",
     head="Malignance Chapeau",
     body="Malignance Tabard",
-    hands="Malignance Gloves",
+    hands="Thief's Kote",
+	--hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
     neck="Null Loop",
-    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
+    waist="Null Belt",
+    left_ear="Telos Earring",
     right_ear="Crep. Earring",
     left_ring="Moonlight Ring",
     right_ring="Lehko's Ring",
@@ -493,7 +531,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
     left_ring="Epona's Ring",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
 	back="Moonbeam Cape",	
 	}
 	sets.midcast['Dia'] = {
@@ -508,7 +546,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
     left_ring="Epona's Ring",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
 	back="Moonbeam Cape",	
 	}
     sets.aftercast = {}             -- leave this empty
@@ -625,6 +663,10 @@ function self_command(command)
         if Sub_Weapons_Index > #Sub_Weapons_Set_Names then Sub_Weapons_Index = 1 end
         windower.add_to_chat('Sub Weapon is now: '..Sub_Weapons_Set_Names[Sub_Weapons_Index])
 		equip(sets.sub_weapons[Sub_Weapons_Set_Names[Sub_Weapons_Index]])
+	end
+	if command == 'react_return' then
+        windower.add_to_chat('Phalanx received')
+		idle()
 	end
 end
 

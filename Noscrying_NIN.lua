@@ -4,6 +4,12 @@ function get_sets()
 	send_command('bind f10 gs c toggle run set') -- F10 = Cycle through
 	send_command('bind f12 gs c toggle TH set') -- F10 = Cycle through
 	send_command ("input //lua load Dressup")
+	send_command('wait 1; gs c checktime')
+	send_command('bind !pause input //send Nolyte /Savage Blade')
+	send_command('bind !pageup input //send Kiokura /Savage Blade')	
+	send_command('bind !end input //send Kiokura /LeadenSalute')	
+	send_command('bind !pagedown input //send @others /Savage Blade')
+	
 	Melee_Index = 1
 	Run_Index = 1
 	TH_Index = 1
@@ -16,7 +22,7 @@ function get_sets()
 	left_ring= "Dim. Ring (Dem)"
 	}
 	
-	Weapons_Set_Names = {"Naegling", "Kikoku","Kaja Katana"}
+	Weapons_Set_Names = {"Naegling", "Kikoku"}--,"Kaja Katana"
 	sets.weapons = {}
 	sets.weapons["Kaja Katana"] = {
 	main="Kaja Katana",
@@ -37,7 +43,7 @@ function get_sets()
 	waist="Chaac Belt",
 	}
 
-	Melee_Set_Names = {'normal', 'DT', 'Hybrid'}
+	Melee_Set_Names = {'Hybrid','DT'}--'normal', 
 	sets.melee = {} 					-- Leave this empty.
 	sets.melee.normal = {
     ammo="Togakushi Shuriken",
@@ -82,7 +88,7 @@ function get_sets()
     left_ear="Suppanomimi",
     right_ear="Brutal Earring",
     left_ring="Lehko's Ring",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     back={ name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 
@@ -91,16 +97,16 @@ function get_sets()
 	sets.run["MEVA/DT"] =  {
     ammo="Yamarang",
     head="Null Masque",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
+    body="Adamantite Armor",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
     feet="Danzo Sune-Ate",
     neck="Warder's Charm +1",
     waist="Null Belt",
-    left_ear="Eabani Earring",
-    right_ear="Magnetic Earring",
+    left_ear="Sanare Earring",
+    right_ear={ name="Arete del Luna +1", augments={'Path: A',}},
     left_ring="Purity Ring",
-    right_ring="Defending Ring",
+    right_ring="Shadow Ring",
     back="Null Shawl",
 	}
 	sets.run["Regen"]=  {
@@ -119,7 +125,7 @@ function get_sets()
     back="Null Shawl",
 	}
 	sets.run["Hachi"] = {
-	feet="
+	feet="Hachiya Kyahan",
 	}
 	sets.ws = {} -- Leave this empty.
 	sets.ws['Savage Blade']	= {
@@ -265,7 +271,7 @@ function get_sets()
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
-    neck="Sanctity Necklace",
+    neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
@@ -280,7 +286,7 @@ function get_sets()
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
-    neck="Sanctity Necklace",
+    neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
@@ -295,7 +301,7 @@ function get_sets()
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
-    neck="Sanctity Necklace",
+    neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
@@ -310,7 +316,7 @@ function get_sets()
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
-    neck="Sanctity Necklace",
+    neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
@@ -343,7 +349,7 @@ function get_sets()
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
     --feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
-    neck="Sanctity Necklace",
+    neck="Null Loop",
     --waist="Orpheus's Sash",
 	left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
@@ -424,7 +430,7 @@ function get_sets()
 	sets.midcast.Utsusemi = {
     ammo="Impatiens",
     head="Nyame Helm",
-    body="Nyame Mail",
+    body="Adamantite Armor",
     legs="Nyame Flanchard",
 	hands="Rawhide Gloves",
 	feet="Hattori Kyahan +2",
@@ -456,10 +462,10 @@ function get_sets()
 	sets.midcast.MACC = {
 	ammo="Yamarang",
     head="Null Masque",
-    body="Malignance Tabard",
-	hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
+    body="Adamantite Armor",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     neck="Null Loop",
     waist="Null Belt",
     left_ear="Crepuscular Earring",
@@ -488,7 +494,7 @@ end
 
 function midcast(spell)
     if  spell.action_type == 'Magic' then
-        equip(sets.melee.DT)
+        equip(sets.midcast.MACC)
 	end
     if spell.name:match('Utsusemi')then
         equip(sets.midcast.Utsusemi)
@@ -496,9 +502,6 @@ function midcast(spell)
 	if spell.name:match('Katon') or spell.name:match('Hyoton') or spell.name:match('Raiton') or spell.name:match('Suiton') or spell.name:match('Doton') or spell.name:match('Huton') then
         equip(sets.midcast.damagespells)
     end
-	if spell.name:match('Yurin') or spell.name:match('Hojo') or spell.name:match('Jubaku') then
-		equip(sets.midcast.MACC)
-	end
     if sets.midcast[spell.name] then
         equip(sets.midcast[spell.name])
 	end
@@ -523,21 +526,33 @@ end
 function idle()
     if player.status=='Engaged' then
         equip(sets.melee[Melee_Set_Names[Melee_Index]]) 
-	end
-	if player.status =='Idle' then	
-		-- if world.time >= 17*60 or world.time <= 7*60 then
-		-- if world.time >= (18*60) or world.time <= (6*60) then
-			-- sets.Movement = set_combine(sets.Movement, sets.Movement.Night)
-		-- else
-			-- sets.Movement = set_combine(sets.Movement, sets.Movement.Dusk)
-		-- end
-	-- else
-		-- sets.Movement = set_combine(sets.Movement, sets.Movement.Day)
-	-- end
-		equip(sets.run[Run_Set_Names[Run_Index]])
-	end
+    elseif player.status =='Idle' then
+        local currentTime = world.time
+        -- Nighttime = 18:00 (1080) through 06:00 (360)
+        if (currentTime >= (18*60)) or (currentTime < (6*60)) then
+            -- Nighttime: use Hachiya Kyahan
+            equip(set_combine(sets.run[Run_Set_Names[Run_Index]], {feet="Hachiya Kyahan"}))
+        else
+            -- Daytime: use Danzo Sune-Ate
+            equip(set_combine(sets.run[Run_Set_Names[Run_Index]], {feet="Danzo Sune-Ate"}))
+        end
+    end
 end
- 
+
+ function check_time_idle()
+    if player.status == 'Idle' then
+        local currentTime = world.time
+        -- Nighttime = 18:00 (1080) through 06:00 (360)
+        if (currentTime >= (18*60)) or (currentTime < (6*60)) then
+            equip(set_combine(sets.run[Run_Set_Names[Run_Index]], {feet="Hachiya Kyahan"}))
+        else
+            equip(set_combine(sets.run[Run_Set_Names[Run_Index]], {feet="Danzo Sune-Ate"}))
+        end
+    end
+    -- Schedule this function to run again in 30 seconds
+    send_command('wait 30; gs c checktime')
+end
+
 function status_change(new,old)
  idle()
 end
@@ -567,6 +582,9 @@ function self_command(command)
         windower.add_to_chat('Main hand is now: '..Weapons_Set_Names[Weapons_Index])
 		equip(sets.weapons[Weapons_Set_Names[Weapons_Index]])
 	end
+    if command == 'checktime' then
+        check_time_idle()
+    end
 end
 
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all

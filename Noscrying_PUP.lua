@@ -4,6 +4,11 @@ function get_sets()
 	send_command('bind f10 gs c toggle run set')
 	send_command('bind f12 gs c toggle TH set') -- F12 = Cycle through
 	send_command('bind f7 gs c toggle weapons set') -- F9 = Cycle through
+	send_command('lua l pettp')
+	send_command('bind !pause input //send Nolyte /Savage Blade')
+	send_command('bind !pageup input //send Kiokura /Savage Blade')	
+	send_command('bind !end input //send Kiokura /LeadenSalute')	
+	send_command('bind !pagedown input //send @others /Savage Blade')
 
 	sets["WarpRing"] = {
 	left_ring= "Warp Ring"
@@ -90,7 +95,7 @@ function get_sets()
     body={ name="Taeon Tabard", augments={'Pet: Accuracy+19 Pet: Rng. Acc.+19','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     hands={ name="Taeon Gloves", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
     legs={ name="Taeon Tights", augments={'Pet: Accuracy+25 Pet: Rng. Acc.+25','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
-    feet={ name="Taeon Boots", augments={'Pet: Accuracy+18 Pet: Rng. Acc.+18','Pet: "Dbl. Atk."+5','Pet: Damage taken -4%',}},
+    feet="Mpaca's Boots",
     neck="Shulmanu Collar",
     waist="Klouskap Sash",
     left_ear="Enmerkar Earring",
@@ -370,19 +375,34 @@ function get_sets()
 	sets.idle = {} 					-- Leave this empty.
 
 	sets.idle.normal = {	
-    --ammo="Automat. Oil +3",
+    -- --ammo="Automat. Oil +3",
+    -- head="Null Masque",
+    -- body="Hiza. Haramaki +2",
+    -- hands="Nyame Gauntlets",
+    -- legs="Nyame Flanchard",
+    -- feet="Hermes' Sandals",
+    -- neck={ name="Bathy Choker +1", augments={'Path: A',}},
+    -- waist="Moonbow Belt +1",
+    -- left_ear="Enmerkar Earring",
+    -- right_ear="Sroda Earring",
+    -- left_ring="Murky Ring",
+    -- right_ring="C. Palug Ring",
+    -- back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	
+    range="Neo Animator",
+    ammo="Automat. Oil +2",
     head="Null Masque",
-    body="Hiza. Haramaki +2",
+    body="Manasa Chasuble",
     hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
+    legs="Assid. Pants +1",
     feet="Hermes' Sandals",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Moonbow Belt +1",
-    left_ear="Enmerkar Earring",
+    neck="Sibyl Scarf",
+    waist="Null Belt",
+    left_ear="Alabaster Earring",
     right_ear="Sroda Earring",
-    left_ring="Defending Ring",
-    right_ring="C. Palug Ring",
-    back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    left_ring="Stikini Ring +1",
+    right_ring="Stikini Ring +1",
+    back="Null Shawl",
 	}
 	
 	TH_Set_Names = {'TH'}
@@ -551,4 +571,5 @@ send_command('unbind !numpad1')
 send_command('unbind ^numpad1')
 send_command('unbind !numpad0')
 send_command('unbind !numpad7')
+send_command('lua u pettp')
 end

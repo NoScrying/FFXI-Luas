@@ -1,3 +1,5 @@
+texts = require('texts')
+local res = require('resources')
 function get_sets()
 	send_command('bind f9 gs c toggle melee set') -- F9 = Cycle through
 	send_command('bind !f9 gs c toggle DW set') -- F9 = Cycle through
@@ -9,7 +11,9 @@ function get_sets()
 	send_command('bind !numpad1 gs c toggle Buff set') -- F12 = Cycle through
 	send_command('bind !numpad0 gs c toggle Emergency MEVA')
 	send_command('bind !pause input //send Nolyte /Savage Blade')
-	include('BuffWatcher.lua')
+	send_command('bind !pageup input //send Kiokura /Savage Blade')	
+	send_command('bind !end input //send Kiokura /LeadenSalute')	
+	send_command('bind !pagedown input //send @others /Savage Blade')
 	
 	Melee_Index = 1
 	Run_Index = 1
@@ -66,10 +70,12 @@ function get_sets()
 	-- sets.weapons.Katana = {
     -- main="Debahocho",priority=10,
 	-- sub="Qutrub Knife",priority=1,
+	-- neck="Hoxne Torque",
 	-- }
 	-- sets.weapons.GreatKatana = {
     -- main="Zanmato",priority=10,
 	-- sub="Utu Grip",priority=1,
+	-- neck="Hoxne Torque",
 	-- }
 	-- sets.weapons.Staff = {
     -- main="Caver's Shovel",priority=10,
@@ -80,7 +86,7 @@ function get_sets()
 	-- sub="Qutrub Knife",priority=1,
 	-- }
 	
-	Sub_Weapons_Set_Names = {'Loxotic','Montante','Chango'} --,'Dolichenus'
+	Sub_Weapons_Set_Names = {'Loxotic'} --,'Dolichenus','Montante','Chango'
 	sets.sub_weapons = {}
 	sets.sub_weapons.Loxotic = {
     main={ name="Loxotic Mace +1", augments={'Path: A',}},
@@ -108,7 +114,7 @@ function get_sets()
     waist="Chaac Belt",
 	
     body="Boii Lorica +2",
-	legs="Sakpata's Cuisses",
+	legs="Boii Cuisses +3",
     feet="Sakpata's Leggings",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     left_ear="Telos Earring",
@@ -181,7 +187,7 @@ function get_sets()
     head="Hjarrandi Helm",
     body="Boii Lorica +2",
     hands="Boii Mufflers +2",
-    legs="Boii Cuisses +2",
+    legs="Boii Cuisses +3",
     feet="Flam. Gambieras +2",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist="Ioskeha Belt +1",
@@ -194,9 +200,9 @@ function get_sets()
 	
 	MEVA_Set_Name = {'MEVA'}
 	sets.MEVA = {
-    ammo="Staunch Tathlum +1",
+    ammo="Vanir Battery",
     head="Sakpata's Helm",
-    body="Sakpata's Plate",
+    body="Adamantite Armor",
     hands="Sakpata's Gauntlets",
     legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
@@ -205,7 +211,7 @@ function get_sets()
     left_ear="Tuisto Earring",
     right_ear="Eabani Earring",
     left_ring="Archon Ring",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     back="Null Shawl",
 	}	
 	
@@ -223,7 +229,7 @@ function get_sets()
     left_ear="Cryptic Earring",
     right_ear="Telos Earring",
 	left_ring="Niqmaddu Ring",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.melee.TwoHanded = {
@@ -263,7 +269,7 @@ function get_sets()
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
     waist="Null Belt",
     left_ear="Infused Earring",
-    right_ear="Odnowa Earring +1",
+    right_ear="Alabaster Earring",
 	left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
     back="Null Shawl",
@@ -271,7 +277,7 @@ function get_sets()
 	sets.run.MEVA = {
     ammo="Staunch Tathlum +1",
     head="Null Masque",
-    body="Sakpata's Plate",
+    body="Adamantite Armor",
     hands="Sakpata's Gauntlets",
     legs="Sakpata's Cuisses",
     feet="Hermes' Sandals",
@@ -280,7 +286,7 @@ function get_sets()
     left_ear="Tuisto Earring",
     right_ear="Sanare Earring",
     left_ring="Shadow Ring",
-    right_ring="Defending Ring",
+    right_ring="Purity Ring",
     back="Null Shawl",
 	}
 	sets.run.Refresh =  {			--, +5 Refresh, +1 Regen, -39 PDT, -30 MDT, +18% Movement Speed
@@ -293,7 +299,7 @@ function get_sets()
     neck="Sibyl Scarf", 			--, 1 Refresh
     waist="Null Belt",
     left_ear={ name="Arete del Luna +1", augments={'Path: A',}},
-    right_ear="Odnowa Earring +1",	--, -5MDT, 3 PDT
+    right_ear="Alabaster Earring",	--, -5MDT, 3 PDT
 	left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"}, 	--, 1 Refresh
     right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"}, 	--, 1 Refresh
     back="Null Shawl",
@@ -313,7 +319,7 @@ function get_sets()
     head="Sakpata's Helm",
     body="Sakpata's Plate",
     hands="Sakpata's Gauntlets",
-    legs="Boii Cuisses +2",
+    legs="Boii Cuisses +3",
     feet="Sakpata's Leggings",
     neck="Fotia Gorget",
     waist="Fotia Belt",
@@ -329,7 +335,7 @@ function get_sets()
     head="Agoge Mask +3",
     body="Pummeler's Lorica +3",
     hands="Boii Mufflers +2",
-    legs="Boii Cuisses +2",
+    legs="Boii Cuisses +3",
     feet="Sulevia's Leggings +2",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -345,8 +351,8 @@ function get_sets()
     head="Agoge Mask +3",
 	body="Pummeler's Lorica +3",
     hands="Boii Mufflers +2",
-    legs="Boii Cuisses +2",
-    feet="Sakpata's Leggings",
+    legs="Boii Cuisses +3",
+    feet="Nyame Sollerets",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
@@ -355,13 +361,13 @@ function get_sets()
     right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
-	sets.ws['Upheaval']	= { --Why use Orpheus and Weatherspoon? My logic is: Chango is for Skillchaining into Light, and Orpheus and Weatherspoon will provide +15% Damage to any Skillchain and +26% to Light
+	sets.ws['Upheaval']	= {
 	ammo="Knobkierrie",
     head="Agoge Mask +3",
 	body="Pummeler's Lorica +3",
     hands="Boii Mufflers +2",
-    legs="Boii Cuisses +2",
-    feet="Sakpata's Leggings",
+    legs="Boii Cuisses +3",
+    feet="Nyame Sollerets",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     -- waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     waist="Orpheus's Sash",
@@ -377,25 +383,25 @@ function get_sets()
     head="Agoge Mask +3",
 	body="Pummeler's Lorica +3",
     hands="Sakpata's Gauntlets",
-    legs="Boii Cuisses +2",
-    feet="Sakpata's Leggings",
+    legs="Boii Cuisses +3",
+    feet="Nyame Sollerets",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     -- waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     waist="Orpheus's Sash",
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
     left_ring="Niqmaddu Ring",
+    --right_ring="Gelatinous Ring +1",
 	right_ring="Weatherspoon Ring +1",
-    --right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws["Ukko's Fury"]	= {
-	ammo="Knobkierrie",
+	ammo="Yetshila +1",
     head="Agoge Mask +3",
     body="Pummeler's Lorica +3",
     hands="Boii Mufflers +2",
-    legs="Boii Cuisses +2",
-    feet="Valorous Greaves",
+    legs="Boii Cuisses +3",
+    feet="Nyame Sollerets",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
@@ -409,8 +415,8 @@ function get_sets()
     head="Agoge Mask +3",
     body="Pummeler's Lorica +3",
     hands="Boii Mufflers +2",
-    legs="Boii Cuisses +2",
-    feet="Valorous Greaves",
+    legs="Boii Cuisses +3",
+    feet="Nyame Sollerets",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
@@ -420,12 +426,12 @@ function get_sets()
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Armor Break']	= {
-    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
+    ammo="Pemphredo Tathlum",
     ammo="Staunch Tathlum +1",
     head="Null Masque",
     body="Boii Lorica +2",
     hands="Boii Mufflers +2",
-    legs="Boii Cuisses +2",
+    legs="Boii Cuisses +3",
     feet="Sakpata's Leggings",
     neck="Null Loop",
     waist="Null Belt",
@@ -441,7 +447,7 @@ function get_sets()
     head="Null Masque",
     body="Boii Lorica +2",
     hands="Boii Mufflers +2",
-    legs="Boii Cuisses +2",
+    legs="Boii Cuisses +3",
     feet="Sakpata's Leggings",
     neck="Null Loop",
     waist="Null Belt",
@@ -452,12 +458,11 @@ function get_sets()
     back="Null Shawl",
 	}
 	sets.ws['Full Break']	= {
-    ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
-    ammo="Staunch Tathlum +1",
+    ammo="Pemphredo Tathlum",
     head="Null Masque",
     body="Boii Lorica +2",
     hands="Boii Mufflers +2",
-    legs="Boii Cuisses +2",
+    legs="Boii Cuisses +3",
     feet="Sakpata's Leggings",
     neck="Null Loop",
     waist="Null Belt",
@@ -472,8 +477,8 @@ function get_sets()
     head="Agoge Mask +3",
     body="Pummeler's Lorica +3",
     hands="Boii Mufflers +2",
-    legs="Boii Cuisses +2",
-    feet="Sakpata's Leggings",
+    legs="Boii Cuisses +3",
+    feet="Nyame Sollerets",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
@@ -487,8 +492,8 @@ function get_sets()
     head="Agoge Mask +3",
     body="Pummeler's Lorica +3",
     hands="Boii Mufflers +2",
-    legs="Boii Cuisses +2",
-    feet="Sulevia's Leggings +2",
+    legs="Boii Cuisses +3",
+    feet="Nyame Sollerets",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
@@ -502,7 +507,7 @@ function get_sets()
     head="Hjarrandi Helm",
     body="Sakpata's Plate",
     hands="Boii Mufflers +2",
-    legs="Boii Cuisses +2",
+    legs="Boii Cuisses +3",
     feet="Sulev. Leggings +2",
     neck="Fotia Gorget",
     waist="Fotia Belt",
@@ -517,7 +522,7 @@ function get_sets()
     head="Null Masque",
     body="Sakpata's Plate",
     hands="Boii Mufflers +2",
-    legs="Boii Cuisses +2",
+    legs="Boii Cuisses +3",
     feet="Sulev. Leggings +2",
     neck="Null Loop",
     waist="Null Belt",
@@ -532,8 +537,8 @@ function get_sets()
     head="Agoge Mask +3",
     body="Pummeler's Lorica +3",
     hands="Boii Mufflers +2",
-    legs="Boii Cuisses +2",
-    feet="Sulevia's Leggings +2",
+    legs="Boii Cuisses +3",
+    feet="Nyame Sollerets",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
@@ -543,12 +548,12 @@ function get_sets()
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Rampage']	= {
-	ammo="Knobkierrie",
+	ammo="Yetshila +1",
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Hjarrandi Breastplate",
 	--hands="Flamma Manopolas +2",
     hands="Boii Mufflers +2",
-	legs="Boii Cuisses +2",
+	legs="Boii Cuisses +3",
     feet="Sulevia's Leggings +2",
     neck="Fotia Gorget",
     waist="Fotia Belt",
@@ -578,8 +583,8 @@ function get_sets()
     head="Agoge Mask +3",
     body="Pummeler's Lorica +3",
     hands="Boii Mufflers +2",
-    legs="Boii Cuisses +2",
-    feet="Sulevia's Leggings +2",
+    legs="Boii Cuisses +3",
+    feet="Nyame Sollerets",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
@@ -594,8 +599,8 @@ function get_sets()
     head="Agoge Mask +3",
     body="Pummeler's Lorica +3",
     hands="Boii Mufflers +2",
-    legs="Boii Cuisses +2",
-    feet="Sakpata's Leggings",
+    legs="Boii Cuisses +3",
+    feet="Nyame Sollerets",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
@@ -609,7 +614,7 @@ function get_sets()
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Hjarrandi Breast.",
     hands="Flam. Manopolas +2",
-    legs="Boii Cuisses +2",
+    legs="Boii Cuisses +3",
     feet="Flam. Gambieras +2",
     neck="Fotia Gorget",
     waist="Fotia Belt",
@@ -655,7 +660,7 @@ function get_sets()
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Hjarrandi Breast.",
     hands="Flam. Manopolas +2",
-    legs="Boii Cuisses +2",
+    legs="Boii Cuisses +3",
 	feet = "Valorous Greaves",
     neck="Fotia Gorget",
     waist="Fotia Belt",
@@ -670,7 +675,7 @@ function get_sets()
     head="Agoge Mask +3",
     body="Pummeler's Lorica +3",
     hands="Flamma Manopolas +2",
-	legs="Boii Cuisses +2",
+	legs="Boii Cuisses +3",
 	feet = "Valorous Greaves",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -681,14 +686,14 @@ function get_sets()
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Impulse Drive']	= {
-	ammo="Knobkierrie",
+	ammo="Yetshila +1",
     -- head={ name="Blistering Sallet +1", augments={'Path: A',}},
     -- body="Hjarrandi Breastplate",
     head="Agoge Mask +3",
     body="Pummeler's Lorica +3",
     hands="Boii Mufflers +2",
-	legs="Boii Cuisses +2",
-    feet="Sulevia's Leggings +2",
+	legs="Boii Cuisses +3",
+    feet="Nyame Sollerets",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
@@ -702,8 +707,8 @@ function get_sets()
     head="Agoge Mask +3",
     body="Pummeler's Lorica +3",
     hands="Boii Mufflers +2",
-    legs="Boii Cuisses +2",
-    feet="Sulevia's Leggings +2",
+    legs="Boii Cuisses +3",
+    feet="Nyame Sollerets",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
@@ -718,7 +723,7 @@ function get_sets()
     body="Sacro Breastplate",
     hands="Boii Mufflers +2",
     legs="Nyame Flanchard", 
-    feet="Sulev. Leggings +2",
+    feet="Nyame Sollerets",
     neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
@@ -732,7 +737,7 @@ function get_sets()
     head={ name="Blistering Sallet +1", augments={'Path: A',}},
     body="Hjarrandi Breast.",
     hands="Flam. Manopolas +2",
-    legs="Boii Cuisses +2",
+    legs="Boii Cuisses +3",
     feet="Flam. Gambieras +2",
     neck="Fotia Gorget",
     waist="Fotia Belt",
@@ -745,16 +750,16 @@ function get_sets()
 	sets.ja = {} 					-- Leave this empty
 	sets.ja.Enmity = {
     head="Halitus Helm", 
-	body="Emet Harness",
+    body="Souveran Cuirass +1", priority=16,
+    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=14,
+    legs="Souveran Diechlings +1",priority=15,
     feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
-    legs="Odyssean Cuisses",
     neck="Moonlight Necklace",
     waist="Warwolf Belt",
     left_ear="Cryptic Earring",	--, 4
     right_ear="Trux Earring",
-    left_ring="Supershear Ring",
-    right_ring="Provocare Ring",
+    left_ring="Apeile Ring",
+    right_ring="Apeile Ring",
 	}
 
 	sets.ja['Berserk'] = set_combine(sets.ja.Enmity,{
@@ -791,7 +796,7 @@ function get_sets()
     head="Hjarrandi Helm",
     body="Boii Lorica +2",
     hands="Boii Mufflers +2",
-    legs="Boii Cuisses +2",
+    legs="Boii Cuisses +3",
     feet="Flam. Gambieras +2",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist="Ioskeha Belt +1",
@@ -812,8 +817,8 @@ function get_sets()
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
 	waist="Asklepian Belt",
     left_ear="Crepuscular Earring",
-    right_ear="Odnowa Earring +1",
-	left_ring="Defending Ring",
+    right_ear="Alabaster Earring",
+	left_ring="Murky Ring",
     right_ring="Chirich Ring +1",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
@@ -833,6 +838,21 @@ function get_sets()
 	left_ear="Enchanter's Earring +1",
 	} 	
     sets.midcast = {}               -- leave this empty  
+    sets.midcast.MACCDT = {
+    ammo="Pemphredo Tathlum",
+    head="Null Masque",
+    body="Adamantite Armor",
+    hands="Boii Mufflers +2",
+    legs="Boii Cuisses +3",
+    feet="Nyame Sollerets",
+    neck="Null Loop",
+    waist="Null Belt",
+    left_ear="Crep. Earring",
+    right_ear={ name="Boii Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Crepuscular Ring",
+    back="Null Shawl",	
+	}
 	
 	Buff_Set_Names = {'Holywater','Phalanx'}
 	sets.buff = {} 					-- Leave this empty.
@@ -853,13 +873,209 @@ function get_sets()
     feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Engraved Belt",
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ear="Alabaster Earring",
     right_ear="Sanare Earring",
     left_ring="Moonlight Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back="Moonbeam Cape",
 	}
 
+WAR_info = texts.new('${text}', {
+    pos = {
+        x = 681,
+        y = 765,
+    },
+	bg = {
+		alpha   = 120,   -- 0-255 (0 = transparent, 255 = opaque)
+	},	
+    text = {
+        font = 'Consolas',
+        size = 10,
+        red = 255,
+        green = 255,
+        blue = 255,
+    },
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+WAR_info:show()
+update_WAR_panel()
+
+hasso_info = texts.new('${text}', {
+    pos = {
+        x = 681,
+        y = 750,
+    },
+	bg = {
+		alpha   = 120,   -- 0-255 (0 = transparent, 255 = opaque)
+	},	
+    text = {
+        font = 'Consolas',
+        size = 10,
+        red = 255,
+        green = 255,
+        blue = 255,
+    },
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+hasso_info:show()
+update_hasso_panel()
+
+remedy_box = texts.new('', {
+    pos = {x = 598, y = 930},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+panacea_box = texts.new('', {
+    pos = {x = 598, y = 880},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+holywater_box = texts.new('', {
+    pos = {x = 598, y = 830},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+vile_box = texts.new('', {
+    pos = {x = 590, y = 965},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+vile1_box = texts.new('', {
+    pos = {x = 572, y = 980},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+InstantWarp_box = texts.new('', {
+    pos = {x = 680, y = 1068},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+Food_box = texts.new('', {
+    pos = {x = 1080, y = 1088},
+    text = {
+        font = 'Consolas',
+        size = 10,
+        stroke = {width = 2},
+    },
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+SneakInvisible_box = texts.new('${text}', {
+    pos = {
+        x = 530,
+        y = 1050,
+    },
+    text = {
+        font = 'Consolas',
+        size = 10,
+        red = 255,
+        green = 255,
+        blue = 255,
+    },
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+        draggable = false,
+    }
+})
+remedy_box:show()
+panacea_box:show()
+holywater_box:show()
+vile_box:show()
+vile1_box:show()
+InstantWarp_box:show()
+Food_box:show()
+SneakInvisible_box:show()
+
+update_item_boxes()
+count_item()
 end
 
 function precast(spell)
@@ -883,34 +1099,15 @@ function precast(spell)
 end
 
 function midcast(spell)
-
-end
-
-windower.register_event('prerender', function()
-    if os.clock() > (tickdelay or 0) then
-        if player.sub_job == 'SAM' and player.status=='Engaged' and not buffactive['Hasso'] and not midaction() and not buffactive['Amnesia'] and not buffactive['Seigan'] then
-            send_command('input /ja "Hasso" <me>')
-            tickdelay = os.clock() + 10
-        end
-    end
-end)
-
-function job_tick()
-    if check_hasso() then return true end
-    return false
-end
-
-function check_hasso()
-        if player.sub_job == 'SAM' and player.status=='Engaged' and not buffactive['Hasso'] and not midaction() and not buffactive['Amnesia'] and not buffactive['Seigan'] then
-        send_command('input /ja "Hasso" <me>')
-        tickdelay = os.clock() + 10
-        return true
-    end
-    return false
+    if  spell.action_type == 'Magic' then
+        equip(sets.midcast.MACCDT)
+	end
 end
 
 function aftercast(spell)
 	idle()
+    send_command('wait 5; gs c check_combat_set')
+	update_item_boxes()
 end
 
 function buff_change(buff,gain)
@@ -932,6 +1129,13 @@ function buff_change(buff,gain)
 			end
 		end	
 	end
+    if buff == 'Berserk' 
+    or buff == 'Retaliation' then
+        update_WAR_panel()
+    end
+    if buff == 'Hasso' then
+        update_hasso_panel()
+    end
 end
 
 
@@ -949,9 +1153,12 @@ end
 		equip(sets.run[Run_Set_Names[Run_Index]])
 	end
 end
- 
+
 function status_change(new,old)
 	idle()
+     update_WAR_panel()
+     update_hasso_panel()
+	update_item_boxes()
 end
   
 
@@ -1008,8 +1215,96 @@ function self_command(command)
         windower.add_to_chat('Equipping Emergency MEVA/DT')
 		equip(sets.MEVA)
 	end
+	if command == 'react_return' then
+        windower.add_to_chat('Phalanx received')
+		idle()
+	end
+    if command == 'check_combat_set' then
+        check_combat_set()
+        return
+	end
 end
 
+function check_combat_set()
+    if player.status == 'Engaged' then
+        if Tank_Mode == true then
+            equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
+        elseif DD_Mode == true then
+            equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
+        end
+    end
+	if player.status =='Idle' then --, When holstering weapon
+		if Tank_Mode == true then
+			equip(sets.run[Run_Set_Names[Run_Index]])
+	elseif DD_Mode == true then
+			equip(sets.run.DD_Idle)
+		end
+	end
+end
+
+function sub_job_change(new, old)
+    update_hasso_panel(new)
+end
+function update_WAR_panel(subjob)
+
+    local berserk     = buffactive['Berserk']
+    local retaliation = buffactive['Retaliation']
+
+    WAR_info:text(string.format(
+        'Berserk: %s\nRetaliation: %s',
+        berserk and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr',
+        retaliation and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr'
+    ))
+end
+function update_hasso_panel(subjob)
+
+    subjob = subjob or player.sub_job
+
+    if subjob ~= 'SAM' then
+        hasso_info:hide()
+        return
+    end
+
+    hasso_info:show()
+
+    local hasso = buffactive['Hasso']
+
+    hasso_info:text(string.format(
+        'Hasso: %s',
+        hasso and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr'
+    ))
+end
+function count_item(name)
+    local item = res.items:with('en', name)
+    if not item then return 0 end
+
+    local inv = windower.ffxi.get_items('inventory')
+    local count = 0
+
+    for i = 1, inv.max do
+        local slot = inv[i]
+        if slot and slot.id == item.id then
+            count = count + slot.count
+        end
+    end
+
+    return count
+end
+function update_item_boxes()
+
+    remedy_box:text(('Rem: %d'):format(count_item('Remedy')))
+    panacea_box:text(('Pan: %d'):format(count_item('Panacea')))
+    holywater_box:text(('HW: %d'):format(count_item('Holy Water')))
+    vile_box:text(('VElix: %d'):format(count_item('Vile Elixir')))
+    vile1_box:text(('VElix +1: %d'):format(count_item('Vile Elixir +1')))
+    InstantWarp_box:text(('Warp: %d'):format(count_item('Instant Warp')))
+    Food_box:text(('Grape Daifuku: %d'):format(count_item('Grape Daifuku')))
+	SneakInvisible_box:text(
+		('Silent Oil : %d\nPrism Powder: %d'):format(
+			count_item('Silent Oil'),
+			count_item('Prism Powder')
+		))	
+end
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
 send_command('unbind f7')
 send_command('unbind !f7')
@@ -1039,4 +1334,13 @@ send_command('unbind Numpad0')
 send_command('unbind !Numpad0')
 send_command('unbind ^Numpad0')
 send_command('unbind Numpad0')
+
+remedy_box:destroy()
+panacea_box:destroy()
+holywater_box:destroy()
+vile_box:destroy()
+vile1_box:destroy()
+InstantWarp_box:destroy()
+Food_box:destroy()
+SneakInvisible_box:destroy()
 end

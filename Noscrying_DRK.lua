@@ -1,3 +1,5 @@
+texts = require('texts')
+local res = require('resources')
 function get_sets()
 	send_command('bind f9 gs c toggle TP set') 
 	send_command('bind !f9 gs c toggle Tank_Mode') 
@@ -10,7 +12,10 @@ function get_sets()
 	send_command('bind !numpad1 gs c toggle Holy Water')
 	send_command('bind !numpad0 gs c toggle Emergency MEVA')
 	send_command('bind !pause input //send Nolyte /Savage Blade')
-	send_command('bind !pause input //send Nolyte /Rudras Storm')
+	send_command('bind !pageup input //send Kiokura /Savage Blade')	
+	send_command('bind !end input //send Kiokura /LeadenSalute')	
+	send_command('bind !pagedown input //send @others /Savage Blade')
+	include('BuffWatcher.lua')
 	
 	Weapon_Index = 1
 	Niche_Index = 1
@@ -68,7 +73,7 @@ function get_sets()
     waist="Null Belt", 		--, +15 Elemental
     left_ear="Sanare Earring", 		--, 
     right_ear={ name="Arete del Luna +1", augments={'Path: A',}},
-    left_ring="Archon Ring", 		--, +5% Negate Magic
+    left_ring="Shadow Ring", 		--, +5% Negate Magic
     right_ring="Purity Ring", 		--, +10, -4% MDT
     back="Null Shawl",
 	}
@@ -102,7 +107,7 @@ function get_sets()
     hands="Sakpata's Gauntlets",
     legs={ name="Odyssean Cuisses", augments={'Accuracy+25 Attack+25','"Store TP"+6','Accuracy+10',}}, --, +5% Haste, +11 STP, +2 DA
     feet="Flamma Gambieras +2", 	--, +2% Haste, +6 STP, +6 DA
-    neck={ name="Abyssal Beads +1", augments={'Path: A',}}, --, +6 STP
+    neck="Null Loop",
     waist="Ioskeha Belt +1", 		--, +8% Haste, +9 DA
     left_ear="Telos Earring",
 	right_ear="Cessance Earring", 	--, +3 STP, +3 DA
@@ -144,7 +149,7 @@ function get_sets()
     hands="Sakpata's Gauntlets", 	--, +4% Haste, -8DT, +6 DA
     legs="Sakpata's Cuisses", 		--, +4% Haste, -9DT, +7 DA
     feet="Flamma Gambieras +2", 	--, +2% Haste, +6 STP, +6 DA
-    neck={ name="Abyssal Beads +1", augments={'Path: A',}}, --, +6 STP
+    neck="Null Loop",
     waist="Ioskeha Belt +1", 		--, +8% Haste, +9 DA
     left_ear="Telos Earring",
     right_ear="Crep. Earring", 		--, +5 STP
@@ -173,7 +178,7 @@ function get_sets()
 	ear1={ name="Lugra Earring +1", augments={'Path: A',}}, --, +3 DA
 	}
 	
-	Run_Set_Names = {'Regen','Regain','DT','Refresh'}
+	Run_Set_Names = {'Regen','DT','Refresh'}--,'Regain'
 	sets.run = {}
 
 	sets.run.Regen =  {				--, 22 Regen, -32 PDT, -224 MDT, +18% Movement Speed
@@ -186,7 +191,7 @@ function get_sets()
     neck={ name="Bathy Choker +1", augments={'Path: A',}}, --, +3 Regen
     waist="Null Belt",
     left_ear="Infused Earring", 	--, 1 Regen
-    right_ear="Odnowa Earring +1",	--, -5MDT, 3 PDT
+    right_ear="Alabaster Earring",	--, -5MDT, 3 PDT
 	left_ring="Chirich Ring +1",	--, 2 Regen
     right_ring="Chirich Ring +1",	--, 2 Regen
     back="Null Shawl",
@@ -194,31 +199,31 @@ function get_sets()
 	sets.run.Regain =  {				--, 22 Regen, -32 PDT, -224 MDT, +18% Movement Speed
     ammo="Staunch Tathlum +1", 		--, -2DT
     head="Ratri Sallet +1",			--, +5 Regain
-    body="Makora Meikogai",			
+    body="Adamantite Armor",			
     hands="Sakpata\'s Gauntlets", 	--, -8DT
     legs="Carmine Cuisses +1",		--, +18% Movement Speed
     feet="Sakpata's Leggings",		--, -6DT
     neck={ name="Bathy Choker +1", augments={'Path: A',}}, --, +3 Regen
     waist="Platinum Moogle Belt",	--, -3DT
     left_ear={ name="Arete del Luna +1", augments={'Path: A',}},
-    right_ear="Odnowa Earring +1",	--, -5MDT, 3 PDT
+    right_ear="Alabaster Earring",	--, -5MDT, 3 PDT
 	left_ring="Chirich Ring +1",	--, 2 Regen
     right_ring="Chirich Ring +1",	--, 2 Regen
     back="Null Shawl",
 	}
 	sets.run.DT = {					--, +532 MEVA, +15-35 Elemental Resist, +5% Negate Magic, +10 Status Resist, -55 PDT (Cap 50), -45 MDT, +18% Movement Speed
-    ammo="Staunch Tathlum +1", 		--, +10 Status Resist, -2DT
+    ammo="Staunch Tathlum +1",
     head="Null Masque",
-    body="Sakpata's Plate", 		--, 139, -10DT
-    hands="Sakpata's Gauntlets", 	--, 112, -8DT
-    legs="Carmine Cuisses +1",		--, +18% Movement Speed
-    feet="Sakpata's Leggings", 		--, 150, -6DT
-    neck="Warder's Charm +1",		--, +20 Elemental, +5% magic absorb
+    body="Adamantite Armor",
+    hands="Sakpata's Gauntlets",
+    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    feet="Sakpata's Leggings",
+    neck="Warder's Charm +1",
     waist="Null Belt",
-    left_ear="Tuisto Earring", 		--, +150HP
+    left_ear="Sanare Earring",
     right_ear={ name="Arete del Luna +1", augments={'Path: A',}},
-    left_ring="Shadow Ring", 		--, +5% Negate Magic
-    right_ring="Defending Ring", 	--, -10DT
+    left_ring="Shadow Ring",
+    right_ring="Moonlight Ring",
     back="Null Shawl",
 	}
 	sets.run.Refresh =  {			--, +5 Refresh, +1 Regen, -39 PDT, -30 MDT, +18% Movement Speed
@@ -231,7 +236,7 @@ function get_sets()
     neck="Sibyl Scarf", 			--, 1 Refresh
     waist="Null Belt",
     left_ear={ name="Arete del Luna +1", augments={'Path: A',}},
-    right_ear="Odnowa Earring +1",	--, -5MDT, 3 PDT
+    right_ear="Alabaster Earring",	--, -5MDT, 3 PDT
 	left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"}, 	--, 1 Refresh
     right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"}, 	--, 1 Refresh
     back="Null Shawl",
@@ -286,7 +291,7 @@ function get_sets()
 	}	
 	sets.ws['Torcleaver']	= {
     ammo="Knobkierrie",
-    head="Ratri Sallet +1",
+    head="Sakpata's Helm",
     body="Ignominy Cuirass +3",
     hands={ name="Odyssean Gauntlets", augments={'Accuracy+18','Weapon skill damage +5%','STR+6',}},
     legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
@@ -301,7 +306,7 @@ function get_sets()
 	}
 	sets.ws['Ground Strike']	= {
     ammo="Knobkierrie",
-    head="Ratri Sallet +1",
+    head="Sakpata's Helm",
     body="Ignominy Cuirass +3",
     hands={ name="Odyssean Gauntlets", augments={'Accuracy+18','Weapon skill damage +5%','STR+6',}},
     legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
@@ -317,7 +322,7 @@ function get_sets()
 	sets.ws['Shockwave']	= {
     ammo="Knobkierrie",
     head="Null Masque",
-    body="Heath. Cuirass +2",
+    body="Adamantite Armor",
     hands="Sakpata's Gauntlets",
 	legs="Heath. Flanchard +2",
     feet="Heathen's Sollerets +2",
@@ -331,7 +336,7 @@ function get_sets()
 	}
 	sets.ws['Cross Reaper']	= { -- WSD Set
 	ammo="Knobkierrie",
-	head="Ratri Sallet +1",
+	head="Sakpata's Helm",
     body="Ignominy Cuirass +3",
     hands="Ratri Gadlings +1",
     legs="Fallen's Flanchard +3",
@@ -342,12 +347,12 @@ function get_sets()
     right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},	
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 
 	}
 	sets.ws['Catastrophe']	= { -- WSD Set
 	ammo="Knobkierrie",
-	head="Ratri Sallet +1",
+	head="Sakpata's Helm",
     body="Ignominy Cuirass +3",
     hands="Ratri Gadlings +1",
     legs="Fallen's Flanchard +3",
@@ -358,12 +363,12 @@ function get_sets()
 	right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},	
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 
 	}
 	sets.ws['Quietus']	= { 	-- WSD Set
 	ammo="Knobkierrie",
-	head="Ratri Sallet +1",
+	head="Sakpata's Helm",
     body="Ignominy Cuirass +3",
     hands="Ratri Gadlings +1",
     legs="Fallen's Flanchard +3",
@@ -374,7 +379,7 @@ function get_sets()
 	right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},	
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 
 	}
 	sets.ws['Entropy']	= {
@@ -394,7 +399,7 @@ function get_sets()
 	}
 	sets.ws['Spiral Hell']	= {
 	ammo="Knobkierrie",
-	head="Ratri Sallet +1",
+	head="Sakpata's Helm",
     body="Ignominy Cuirass +3",
     hands="Ratri Gadlings +1",
     legs="Fallen's Flanchard +3",
@@ -405,7 +410,7 @@ function get_sets()
     right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},	
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Infernal Scythe']	= {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}}, --, +7 MAB
@@ -435,7 +440,7 @@ function get_sets()
     right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},	
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Guillotine']	= {
 	ammo="Knobkierrie",
@@ -454,7 +459,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 	}
 	sets.ws['Savage Blade']	= {
 	ammo="Knobkierrie",
-	head="Ratri Sallet +1",
+	head="Sakpata's Helm",
     body="Ignominy Cuirass +3",
     hands="Ratri Gadlings +1",
     legs="Fallen's Flanchard +3",
@@ -465,7 +470,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},		
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},	
 
 	}
 	sets.ws['Chant du Cygne']	= {
@@ -500,7 +505,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 	}	
 	sets.ws['Upheaval']	= {
     ammo="Knobkierrie",
-	head="Ratri Sallet +1",
+	head="Sakpata's Helm",
     body="Ignominy Cuirass +3",
     hands={ name="Odyssean Gauntlets", augments={'Accuracy+18','Weapon skill damage +5%','STR+6',}},
     legs="Fallen's Flanchard +3",
@@ -516,7 +521,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 	}
 	sets.ws['Steel Cyclone']	= {
     ammo="Knobkierrie",
-	head="Ratri Sallet +1",
+	head="Sakpata's Helm",
     body="Ignominy Cuirass +3",
     hands={ name="Odyssean Gauntlets", augments={'Accuracy+18','Weapon skill damage +5%','STR+6',}},
     legs="Fallen's Flanchard +3",
@@ -547,7 +552,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 	}
 	sets.ws['Fell Cleave']	= {
     ammo="Knobkierrie",
-	head="Ratri Sallet +1",
+	head="Sakpata's Helm",
     body="Ignominy Cuirass +3",
     hands={ name="Odyssean Gauntlets", augments={'Accuracy+18','Weapon skill damage +5%','STR+6',}},
     legs="Fallen's Flanchard +3",
@@ -563,8 +568,8 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 	}
 	sets.ws['Armor Break']	= {
 	ammo="Knobkierrie",
-    head="Sakpata's Helm", 			--, +40 MACC
-	body="Heathen's Cuirass +2", 	--, +54 MACC
+    head="Null Masque", 			--, +50 MACC
+    body="Adamantite Armor",
     hands="Sakpata's Gauntlets", 	--, +40 MACC
 	legs="Heath. Flanchard +2", 	--, +53 MACC, +25 Skill
     feet="Heathen's Sollerets +2", 	--, +50 MACC
@@ -589,12 +594,12 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},	
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}	
 	sets.ws['Smash Axe']	= {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Flamma Zucchetto +2",
-    body="Sakpata\'s Breastplate",
+    body="Adamantite Armor",
     hands="Sakpata\'s Gauntlets",
     legs="Sakpata's Cuisses",
     feet="Heathen's Sollerets +2",
@@ -623,7 +628,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 	}
 	sets.ws['Judgment']	= {
     ammo="Knobkierrie",
-	head="Ratri Sallet +1",
+	head="Sakpata's Helm",
     body="Ignominy Cuirass +3",
     hands="Ratri Gadlings +1",
     legs="Fallen's Flanchard +3",
@@ -634,7 +639,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Niqmaddu Ring",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},	
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 
 	}
 	sets.ws['Flash Nova']	= {
@@ -650,7 +655,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','Weapon skill damage +2%',}},
     left_ring="Weatherspoon Ring +1",
     right_ring="Epaminondas's Ring",
-    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+9','Weapon skill damage +10%','Phys. dmg. taken-10%',}},		
+    back={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},	
 	}		
 
 	sets.ja = {} 
@@ -684,14 +689,14 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 	}
 	sets.ja["Waltz"] = {
     head="Ratri Sallet +1",
-    body="Hjarrandi Breast.",
+    body="Adamantite Armor",
     hands="Rat. Gadlings +1",
     legs="Dashing Subligar",
     feet="Ratri Sollerets",
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},
     waist="Plat. Mog. Belt",
     left_ear="Tuisto Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Alabaster Earring",
     left_ring="Moonlight Ring",
     right_ring="Asklepian Ring",
     back="Moonbeam Cape",
@@ -773,7 +778,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     sets.midcast = {}
     sets.midcast.DarkMagic = { 		--, +309 MACC, +76 Skill
     head="Null Masque",
-	body="Heathen's Cuirass +2", 	--, +54 MACC
+    body="Adamantite Armor",
     hands={ name="Fall. Fin. Gaunt. +2", augments={'Enhances "Diabolic Eye" effect',}}, --, Drain +14, +28 Macc, +16 Skill
 	legs="Heath. Flanchard +2", 	--, +53 MACC, +25 Skill
     feet="Heathen's Sollerets +2", 	--, +50 MACC
@@ -798,11 +803,11 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     right_ear="Friomisi Earring", 	--, +10 MAB
     left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"}, 	--, +8 Skill, +11 MACC
     right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"}, 	--, +8 Skill, +11 MACC
-    back="Argocham. Mantle", 		--, +12 MAB
+    back="Null Shawl",
 	}
     sets.midcast.Absorb = {			--, Absorb +20% Potency, +20 Seconds Duration, +239 MACC, +43 Dark Magic
     head="Null Masque",
-	body="Heathen's Cuirass +2", 	--, +54 MACC
+    body="Adamantite Armor",
     hands={ name="Fall. Fin. Gaunt. +2", augments={'Enhances "Diabolic Eye" effect',}}, --, +28 Macc, +16 Skill
 	legs="Heath. Flanchard +2", 	--, +53 MACC, +25 Skill
     feet="Ratri Sollerets", 		--, +33 MACC, +20% Duration
@@ -817,7 +822,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 	sets.midcast.Drain = { 			--, +44% Drain/Aspir Potency, +95% Potency under Nethervoid, +1-15% Damage increase, +20% Duration, +257 MACC, +78 Dark Magic
     ammo="Ghastly Tathlum +1", 
     head="Null Masque",
-	body="Heathen's Cuirass +2", 	--, +54 MACC
+    body="Adamantite Armor",
     hands={ name="Fall. Fin. Gaunt. +2", augments={'Enhances "Diabolic Eye" effect',}}, --, Drain +14, +28 Macc, +16 Skill
 	legs="Heath. Flanchard +2", 	--, +40% Nethervoid, = Nethervoid Drain +95%, +53 MACC, +25 Skill
     feet="Ratri Sollerets", 		--, +20% Duration, +33 MACC
@@ -839,7 +844,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     feet="Ratri Sollerets", 		--, HP+387, +5DT
     neck="Unmoving Collar +1", 		--, HP+200
     waist="Platinum Moogle Belt", 	--, HP+10%, -3DT
-    left_ear="Odnowa Earring +1", 	--, HP+110, -3DT
+    left_ear="Alabaster Earring", 	--, HP+110, -3DT
     right_ear="Tuisto Earring",		--, HP+150
     left_ring="Moonlight Ring", 	--, HP+110,	-5DT
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}}, --, HP+135, -7PDT
@@ -855,7 +860,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     feet="Ratri Sollerets", 		--, HP+387, +5DT
     neck="Unmoving Collar +1", 		--, HP+200
     waist="Platinum Moogle Belt", 	--, HP+10%, -3DT
-    left_ear="Odnowa Earring +1", 	--, HP+110, -3DT
+    left_ear="Alabaster Earring", 	--, HP+110, -3DT
     right_ear="Tuisto Earring",		--, HP+150
     left_ring="Moonlight Ring", 	--, HP+110,	-5DT
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}}, --, HP+135, -7PDT
@@ -879,7 +884,7 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 	sets.midcast.EnmitySIRD = {		--, merits+10 = 104% (Cap 104%), +29% Enmity
     ammo="Staunch Tathlum +1", 		--, 11 SIRD
     head="Halitus Helm",			--, 8
-    body="Emet Harness", 			--, 9
+    body="Adamantite Armor",
     hands="Yorium Gauntlets", 		--, 4
     legs={ name="Founder's Hose", augments={'MND+6','Mag. Acc.+10','Attack+7','Breath dmg. taken -2%',}}, --, 30 SIRD, HP+54
     feet="Odyssean Greaves", 		--, 20 SIRD
@@ -939,10 +944,202 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
 	ElementalGear.Cape = "Twilight Cape"
 	sets.midcast.NukeWithMatchingWeather = {back=ElementalGear.Cape,waist=ElementalGear.Obi}
 	
-	sets.adoulin = {}
-	sets.adoulin.movement = {body="Councilor's Garb",}   --auto swaps when in adoulin 
- 
+DRK_info = texts.new('${text}', {
+    pos = {
+        x = 681,
+        y = 765,
+    },
+	bg = {
+		alpha   = 120,   -- 0-255 (0 = transparent, 255 = opaque)
+	},	
+    text = {
+        font = 'Consolas',
+        size = 10,
+        red = 255,
+        green = 255,
+        blue = 255,
+    },
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+DRK_info:show()
+update_DRK_panel()
 
+hasso_info = texts.new('${text}', {
+    pos = {
+        x = 681,
+        y = 750,
+    },
+	bg = {
+		alpha   = 120,   -- 0-255 (0 = transparent, 255 = opaque)
+	},	
+    text = {
+        font = 'Consolas',
+        size = 10,
+        red = 255,
+        green = 255,
+        blue = 255,
+    },
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+hasso_info:show()
+update_hasso_panel()
+
+remedy_box = texts.new('', {
+    pos = {x = 598, y = 930},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+panacea_box = texts.new('', {
+    pos = {x = 598, y = 880},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+holywater_box = texts.new('', {
+    pos = {x = 598, y = 830},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+vile_box = texts.new('', {
+    pos = {x = 590, y = 965},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+vile1_box = texts.new('', {
+    pos = {x = 572, y = 980},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+InstantWarp_box = texts.new('', {
+    pos = {x = 680, y = 1068},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+Food_box = texts.new('', {
+    pos = {x = 1080, y = 1088},
+    text = {
+        font = 'Consolas',
+        size = 10,
+        stroke = {width = 2},
+    },
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+SneakInvisible_box = texts.new('${text}', {
+    pos = {
+        x = 530,
+        y = 1050,
+    },
+    text = {
+        font = 'Consolas',
+        size = 10,
+        red = 255,
+        green = 255,
+        blue = 255,
+    },
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+        draggable = false,
+    }
+})
+remedy_box:show()
+panacea_box:show()
+holywater_box:show()
+vile_box:show()
+vile1_box:show()
+InstantWarp_box:show()
+Food_box:show()
+SneakInvisible_box:show()
+
+update_item_boxes()
+count_item()
 end
 
 function precast(spell)
@@ -953,11 +1150,11 @@ function precast(spell)
         equip(sets.ja[spell.name])
 	end
     if sets.ws[spell.name] then
-        equip(sets.ws[spell.name])  
-			if player.tp <= 2500 and not sets.ws['Catastrophe'] then
-				equip (sets.ws.moonshade)				
-		end
-	end
+        equip(sets.ws[spell.name])
+        if player.tp < 2500 and spell.name ~= 'Catastrophe' and sets.ws.moonshade then
+            equip(sets.ws.moonshade)
+        end
+    end
     if spell.name:match('Curing') or spell.name:match('Divine') then
         equip(sets.ja["Waltz"])
 	end
@@ -970,13 +1167,19 @@ function midcast(spell)
 	if spell.skill == 'Dark Magic' then
 		equip(sets.midcast.DarkMagic)
 	end
-	
-	if spell.name:match('Dread Spikes') and player.max_HP > 7000 or Buff == "Aftermath Lv.3" then 
-		equip(sets.midcast.sird)
-	elseif spell.name:match('Dread Spikes') and player.max_HP < 7000 then
-		equip(sets.midcast.Spikes)
-	end
-	
+    if spell.name == 'Dread Spikes' then
+        -- 1. Use Spikes if HP > 7000 or Idle
+        if player.hp > 7000 or player.status == "Idle" then
+            equip(sets.midcast.Spikes)
+        -- 2. Use SpikesScythe if TP < 500 and Aftermath Lv.3 is NOT active
+        elseif player.tp < 500 and not buffactive['Aftermath: Lv.3'] then
+            equip(sets.midcast.SpikesScythe)
+        -- 3. Use SIRD if HP < 7000 OR Aftermath Lv.3 is active
+        elseif player.hp < 7000 or buffactive['Aftermath: Lv.3'] then
+            equip(sets.midcast.sird)
+
+        end
+    end
 	if spell.name:match('Aspir') or spell.name:match('Drain')then
 		equip(sets.midcast.Drain)
 	elseif spell.name:match('Absorb-')then	
@@ -1003,6 +1206,8 @@ end
 
 function aftercast(spell)
 	idle()
+equip(sets.weapons[Weapons_Set_Names[Weapons_Index]])
+	update_item_boxes()
 end
 
 function buff_change(buff,gain)
@@ -1033,8 +1238,14 @@ function buff_change(buff,gain)
             status_change(player.status)
 		end
 	end
+    if buff == 'Dread Spikes' 
+    or buff == 'Max HP Boost' then
+        update_DRK_panel()
+    end
+    if buff == 'Hasso' then
+        update_hasso_panel()
+    end
 end
-
 
 function idle()
 	if player.status =="Engaged" then --, When drawing weapon
@@ -1054,17 +1265,18 @@ function idle()
 			end
 		end
 	if player.status =='Idle' then
-		if player.sub_job == "DRK" or "RUN" then
         equip(sets.run[Run_Set_Names[Run_Index]]) 
 			if player.mpp <= 50 then
 				equip(sets.run.Refresh)
 			end
 		end
-    end
- end
+end
  
  function status_change(new,old)
 	idle()
+     update_DRK_panel()
+     update_hasso_panel()
+	update_item_boxes()
 end
 
 Tank_Mode = true --, If true, default set is tanking TP array.
@@ -1162,6 +1374,70 @@ function self_command(command)
 	end
 end
 
+function sub_job_change(new, old)
+    update_hasso_panel(new)
+end
+function update_DRK_panel()
+
+    local dreadspikes  = buffactive['Dread Spikes']
+    local maxhpboost   = buffactive['Max HP Boost']
+
+    DRK_info:text(string.format(
+        'Dread Spikes: %s\nMax HP Boost: %s',
+        dreadspikes and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr',
+        maxhpboost and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr'
+    ))
+end
+function update_hasso_panel(subjob)
+
+    subjob = subjob or player.sub_job
+
+    if subjob ~= 'SAM' then
+        hasso_info:hide()
+        return
+    end
+
+    hasso_info:show()
+
+    local hasso = buffactive['Hasso']
+
+    hasso_info:text(string.format(
+        'Hasso: %s',
+        hasso and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr'
+    ))
+end
+function count_item(name)
+    local item = res.items:with('en', name)
+    if not item then return 0 end
+
+    local inv = windower.ffxi.get_items('inventory')
+    local count = 0
+
+    for i = 1, inv.max do
+        local slot = inv[i]
+        if slot and slot.id == item.id then
+            count = count + slot.count
+        end
+    end
+
+    return count
+end
+function update_item_boxes()
+
+    remedy_box:text(('Rem: %d'):format(count_item('Remedy')))
+    panacea_box:text(('Pan: %d'):format(count_item('Panacea')))
+    holywater_box:text(('HW: %d'):format(count_item('Holy Water')))
+    vile_box:text(('VElix: %d'):format(count_item('Vile Elixir')))
+    vile1_box:text(('VElix +1: %d'):format(count_item('Vile Elixir +1')))
+    InstantWarp_box:text(('Warp: %d'):format(count_item('Instant Warp')))
+    Food_box:text(('Grape Daifuku: %d'):format(count_item('Grape Daifuku')))
+	SneakInvisible_box:text(
+		('Silent Oil : %d\nPrism Powder: %d'):format(
+			count_item('Silent Oil'),
+			count_item('Prism Powder')
+		))	
+end
+
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
 send_command('unbind f7')
 send_command('unbind !f7')
@@ -1191,4 +1467,13 @@ send_command('unbind Numpad0')
 send_command('unbind !Numpad0')
 send_command('unbind ^Numpad0')
 send_command('unbind Numpad0')
+
+remedy_box:destroy()
+panacea_box:destroy()
+holywater_box:destroy()
+vile_box:destroy()
+vile1_box:destroy()
+InstantWarp_box:destroy()
+Food_box:destroy()
+SneakInvisible_box:destroy()
 end

@@ -10,6 +10,10 @@ function get_sets()
 	send_command('bind ^numpad1 gs c toggle Buff set')
 	send_command('bind !numpad1 gs c toggle Holy Water')
 	send_command('bind !numpad0 gs c toggle Emergency MEVA')
+	send_command('bind !pause input //send Nolyte /Savage Blade')
+	send_command('bind !pageup input //send Kiokura /Savage Blade')	
+	send_command('bind !end input //send Kiokura /LeadenSalute')	
+	send_command('bind !pagedown input //send @others /Savage Blade')
 	send_command('input //lua load PetCharges')
 	
 	Run_Index = 1 
@@ -82,7 +86,7 @@ function get_sets()
     waist="Engraved Belt",
     left_ear="Sanare Earring",
     right_ear={ name="Arete del Luna +1", augments={'Path: A',}},
-    left_ring="Defending Ring",
+    left_ring="Murky Ring",
     right_ring="Shadow Ring",
     back="Null Shawl",
 	}
@@ -315,7 +319,7 @@ function get_sets()
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Sanctity Necklace",
+    neck="Null Loop",
     waist="Null Belt",
     left_ear="Crep. Earring",
     right_ear="Enchntr. Earring +1",
@@ -482,7 +486,7 @@ function get_sets()
 	sets.PetCommand['Purulent Ooze'] = {
     ammo="Voluspa Tathlum",
     head="Gleti's Mask",
-    body="Gleti's Cuirass",
+    body="Udug Jacket",
     hands="Gleti's Gauntlets",
     legs="Gleti's Breeches",
     feet="Gleti's Boots",
@@ -529,9 +533,9 @@ function get_sets()
 	ammo="Staunch Tathlum +1",
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Flume Belt",
-    left_ear="Odnowa Earring +1",
+    left_ear="Alabaster Earring",
     right_ear={ name="Arete del Luna +1", augments={'Path: A',}},
-    left_ring="Defending Ring",
+    left_ring="Murky Ring",
     right_ring="Gelatinous Ring +1",
     back={ name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}

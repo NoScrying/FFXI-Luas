@@ -6,7 +6,11 @@ function get_sets()
 	send_command('bind ^f12 gs c toggle Nuke set')
 	send_command('bind !numpad1 gs c toggle Holy Water')
 	send_command('bind !numpad3 gs c toggle Echo Drops')
-	send_command('bind !pause input //send Nolyte /Savage Blade')	
+	send_command('bind !pause input //send Nolyte /Savage Blade')
+	send_command('bind !pageup input //send Kiokura /Savage Blade')	
+	send_command('bind !end input //send Kiokura /LeadenSalute')	
+	send_command('bind !pagedown input //send @others /Savage Blade')
+	
 	Engaged_Index = 1
 	Weapon_Index = 1
 	Run_Index = 1
@@ -23,16 +27,16 @@ function get_sets()
 	Engaged_Set_Names = {"Luopan Regen/Refresh",'Melee'}--,'Refresh/DT'
 	sets.Engaged = {} 					-- Leave this empty.
 	sets.Engaged.Melee = {
-    ammo="Staunch Tathlum +1",
+    ammo="Amar Cluster",
     head="Null Masque",
-    body="Nyame Mail",
+    body="Adamantite Armor",
     hands="Azimuth Gloves +2",
     legs="Nyame Flanchard",
     feet="Azimuth Gaiters +2",
     neck="Null Loop",
     waist="Null Belt",
     left_ear="Cessance Earring",
-    right_ear="Brutal Earring",
+    right_ear="Telos Earring",
     left_ring="Chirich Ring +1",
     right_ring="Lehko's Ring",
     back="Null Shawl",
@@ -84,9 +88,9 @@ function get_sets()
     feet="Geo. Sandals +2",
     neck="Loricate Torque +1",
     waist="Carrier's Sash",
-    left_ear="Odnowa Earring +1",
+    left_ear="Alabaster Earring",
     right_ear={ name="Arete del Luna +1", augments={'Path: A',}},
-    left_ring="Defending Ring",
+    left_ring="Murky Ring",
     right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back={ name="Nantosuelta's Cape", augments={'INT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+5','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
 	}
@@ -99,7 +103,7 @@ function get_sets()
     feet={ name="Bagua Sandals +1", augments={'Enhances "Radial Arcana" effect',}},
     neck={ name="Bagua Charm +1", augments={'Path: A',}},
     waist="Carrier's Sash",
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ear="Alabaster Earring",
     right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
     left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},priority=19,
     right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},priority=15,
@@ -116,7 +120,7 @@ function get_sets()
     legs="Nyame Flanchard",
     feet="Azimuth Gaiters +2",
     neck="Loricate Torque +1",
-    left_ring="Defending Ring",
+    left_ring="Murky Ring",
     right_ring={ name="Dark Ring", augments={'Phys. dmg. taken -6%','Magic dmg. taken -3%',}},
     back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}},
 	}
@@ -241,7 +245,7 @@ function get_sets()
     back={ name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}},
     neck="Unmoving Collar +1",
     waist="Platinum Moogle Belt",
-    left_ear="Odnowa Earring +1",
+    left_ear="Alabaster Earring",
     right_ear="Tuisto Earring",
 	right_ring="Gelatinous Ring +1",
 	}
@@ -285,24 +289,24 @@ function get_sets()
 	sets.midcast.DT = {
     range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
     head={ name="Vanya Hood", augments={'MND+10','Spell interruption rate down +15%','"Conserve MP"+6',}},
-    body="Nyame Mail",
+    body="Adamantite Armor",
     hands="Azimuth Gloves +2",
     legs={ name="Vanya Slops", augments={'MND+10','Spell interruption rate down +15%','"Conserve MP"+6',}},
     feet="Azimuth Gaiters +2",
-	neck="Loricate Torque +1",
+    neck="Null Loop",
     waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
     left_ear="Malignance Earring",
     right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
-    left_ring="Defending Ring",
+    left_ring="Stikini Ring +1",
     right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
-    back={ name="Nantosuelta's Cape", augments={'INT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+5','Pet: "Regen"+10','Phys. dmg. taken-10%',}},
+    back="Null Shawl",
 	}
 	
 	sets.midcast.geo = {
 	main="Idris",
     range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
     head={ name="Vanya Hood", augments={'MND+10','Spell interruption rate down +15%','"Conserve MP"+6',}},
-    body="Nyame Mail",
+    body="Adamantite Armor",
     hands="Azimuth Gloves +2",
     legs={ name="Vanya Slops", augments={'MND+10','Spell interruption rate down +15%','"Conserve MP"+6',}},
     feet="Nyame Sollerets",
@@ -318,7 +322,7 @@ function get_sets()
 	main="Idris",
     range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
     head={ name="Vanya Hood", augments={'MND+10','Spell interruption rate down +15%','"Conserve MP"+6',}},
-    body="Nyame Mail",
+    body="Adamantite Armor",
     hands="Azimuth Gloves +2",
     legs="Bagua Pants +3",
     feet="Azimuth Gaiters +2",
@@ -351,7 +355,7 @@ function get_sets()
 	sets.midcast.cure = {
     range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
     head={ name="Vanya Hood", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
-    body="Nyame Mail",
+    body="Adamantite Armor",
     hands={ name="Telchine Gloves", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +9',}},
     legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
     feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
@@ -359,7 +363,7 @@ function get_sets()
     waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
     left_ear="Magnetic Earring",
     right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
-    left_ring="Defending Ring",
+    left_ring="Murky Ring",
     right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
     back="Tempered Cape +1",
 	}

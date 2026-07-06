@@ -7,6 +7,9 @@ function get_sets()
 	send_command('bind !numpad1 gs c toggle Buff set') -- F12 = Cycle through
 	send_command('bind !numpad0 gs c toggle Emergency MEVA')
 	send_command('bind !pause input //send Nolyte /Savage Blade')
+	send_command('bind !pageup input //send Kiokura /Savage Blade')	
+	send_command('bind !end input //send Kiokura /LeadenSalute')	
+	send_command('bind !pagedown input //send @others /Savage Blade')
 	
 	Buff_Index = 1	
 	TH_Index = 1
@@ -85,7 +88,7 @@ function get_sets()
     left_ear="Cryptic Earring", 	--, Counter +3
     right_ear="Bhikku Earring +1", 	--, Counter +8
     left_ring="Niqmaddu Ring",		--, 3QA, 5SBII  
-    right_ring="Defending Ring",	--, -10DT
+    right_ring="Murky Ring",	--, -10DT
     back={ name="Segomo's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','System: 1 ID: 640 Val: 4',}}, --, 10DA, Counter +10
 	}
 	sets.Tank_Mode["Hybrid - SB+75"]= {	--, -46PDT, -36 MDT, 47STP (12 hit) 3QA, 16TA, 15DA, 55KA, SB 51, SBII 25 (Max 75), Crit +25%
@@ -111,17 +114,17 @@ function get_sets()
 	sets.run.DT = {
     ammo="Staunch Tathlum +1",
     head="Null Masque",
-    body="Nyame Mail",
+    body="Adamantite Armor",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Hermes' Sandals",
     neck="Warder's Charm +1",
     waist="Engraved Belt",
-    left_ear="Odnowa Earring +1",
+    left_ear="Sanare Earring",
     right_ear={ name="Arete del Luna +1", augments={'Path: A',}},
-    left_ring="Shadow Ring",
-    right_ring="Defending Ring",
-    back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    left_ring="Purity Ring",
+    right_ring="Shadow Ring",
+    back="Null Shawl",
 	}
 	sets.run.Regen = {
     ammo="Staunch Tathlum +1",
@@ -132,28 +135,28 @@ function get_sets()
     feet="Hermes' Sandals",
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
     waist="Moonbow Belt +1",
-    left_ear="Odnowa Earring +1",
+    left_ear="Alabaster Earring",
     right_ear={ name="Arete del Luna +1", augments={'Path: A',}},
     left_ring="Chirich Ring +1",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}	
 	
 	MEVA_Set_Name = {'MEVA'}
 	sets.MEVA = {					--, +682 MEVA, 40-50 Elemental Resist, +5% Negate Magic Damage chance, -51% PDT, -41% MDT
-    ammo="Staunch Tathlum +1",
+    ammo="Vanir Battery",
     head="Null Masque",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
+    body="Adamantite Armor",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     neck="Warder's Charm +1",
     waist="Engraved Belt",
-    left_ear="Arete del Luna",
+    left_ear="Sanare Earring",
     right_ear={ name="Arete del Luna +1", augments={'Path: A',}},
-    left_ring="Terrasoul Ring",
-    right_ring="Icecrack Ring",
-    back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    left_ring="Purity Ring",
+    right_ring="Shadow Ring",
+    back="Null Shawl",
 	}
 
 
@@ -177,21 +180,6 @@ function get_sets()
 
 	
 	sets.idle = {}
-	sets.idle.normal = {
-    ammo="Aurgelmir Orb",
-    head={ name="Rao Kabuto", augments={'Pet: HP+100','Pet: Accuracy+15','Pet: Damage taken -3%',}},
-    body="Hizamaru Haramaki +2",
-    hands={ name="Rao Kote", augments={'Pet: HP+100','Pet: Accuracy+15','Pet: Damage taken -3%',}},
-	legs="Bhikku Hose +2",
-	feet="Hermes' Sandals",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Moonbow Belt +1",
-    left_ear="Sherida Earring",
-    right_ear="Cessance Earring",
-    left_ring="Defending Ring",
-    right_ring={ name="Dark Ring", augments={'Phys. dmg. taken -6%','Magic dmg. taken -3%',}},
-    back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-	}
 	
 	sets.ws = {} -- Leave this empty.
 	sets.ws['Victory Smite'] = {
@@ -245,7 +233,7 @@ function get_sets()
     right_ear="Schere Earring",
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Weatherspoon Ring +1",
-    back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    back="Null Cape",
 	}
 	sets.ws['Shoulder Tackle'] = {
     ammo="Coiste Bodhar",
@@ -254,13 +242,13 @@ function get_sets()
     hands="Malignance Gloves",
     legs="Bhikku Hose +2",
     feet="Malignance Boots",
-    neck="Moonlight Necklace",
-    waist={ name="Acuity Belt +1", augments={'Path: A',}},
+    neck="Null Loop",
+    waist="Null Belt",
     left_ear="Enchntr. Earring +1",
     right_ear={ name="Bhikku Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+15','Mag. Acc.+15','"Store TP"+5',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Weather. Ring +1",
-    back="Sacro Mantle",
+    back="Null Cape",
 	}
 	sets.ws['Tornado Kick'] = {
 	ammo="Knobkierrie",
@@ -415,14 +403,14 @@ function get_sets()
     feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},
     waist="Moonbow Belt +1",
-    left_ear="Odnowa Earring +1",
+    left_ear="Alabaster Earring",
     right_ear="Tuisto Earring",
     left_ring="Niqmaddu Ring",
     right_ring="Supershear Ring",
     back={ name="Segomo's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','System: 1 ID: 640 Val: 4',}},
 	}  
 	sets.ja['Impetus'] = {	
-	left_ring="Defending Ring",
+	left_ring="Murky Ring",
 	body="Bhikku Cyclas +2",
 	} 
 	sets.ja['Dodge'] = {	
@@ -679,6 +667,10 @@ function self_command(command)
 	if command == 'toggle Emergency MEVA' then
         windower.add_to_chat('Equipping Emergency MEVA/DT')
 		equip(sets.MEVA)
+	end
+	if command == 'react_return' then
+        windower.add_to_chat('Phalanx received')
+		idle()
 	end
 end
 

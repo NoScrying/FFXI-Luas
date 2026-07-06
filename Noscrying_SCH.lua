@@ -7,7 +7,10 @@ function get_sets()
 	send_command('bind !numpad1 gs c toggle Buff set')
 	send_command('bind ^f12 gs c toggle Nuke set') 	--, ^ = CTRL
 	send_command ("input //lua load SCH-hud")
-	send_command('bind End input //send Nolyte /ws "Savage Blade" <t>')
+	send_command('bind !pause input //send Nolyte /Savage Blade')
+	send_command('bind !pageup input //send Kiokura /Savage Blade')	
+	send_command('bind !end input //send Kiokura /LeadenSalute')	
+	send_command('bind !pagedown input //send @others /Savage Blade')
 	
 	Melee_Index = 1
 	Main_Index = 1
@@ -44,7 +47,7 @@ function get_sets()
 	sets.melee.DT = {
     ammo="Staunch Tathlum +1",
     head="Null Masque",
-    body="Arbatel Gown +2",
+    body="Adamantite Armor",
     hands="Nyame Gauntlets",
     legs="Arbatel Pants +2",
     feet="Nyame Sollerets",
@@ -108,16 +111,16 @@ function get_sets()
 	sets.Run.DT =  {
     ammo="Staunch Tathlum +1",
     head="Null Masque",
-    body="Arbatel Gown +2",
+    body="Adamantite Armor",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Herald's Gaiters",
     neck="Warder's Charm +1",
     waist="Null Belt",
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ear="Alabaster Earring",
     right_ear="Sanare Earring",
     left_ring="Shadow Ring",
-    right_ring="Defending Ring",
+    right_ring="Purity Ring",
     back="Null Shawl",
 	}
 	
@@ -139,7 +142,7 @@ function get_sets()
     back={ name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}},
 	}
 	
-	Main_Set_Names = {"Pedagogy Staff","Mpaca","Daybreak","Maxentius"}--Bunzi,  'Malignance',
+	Main_Set_Names = {"Pedagogy Staff","Mpaca","Daybreak","COD"}--Bunzi,  'Malignance','Maxentius'
 	sets.Main = {}
 	sets.Main["Pedagogy Staff"] = {
     main="Pedagogy Staff",priority=15,
@@ -152,6 +155,10 @@ function get_sets()
 	sets.Main["Daybreak"] = {
     main="Daybreak",priority=19,
 	sub="Ammurapi Shield",priority=15,
+	}	
+	sets.Main["COD"] = {
+    main="Daybreak",priority=19,
+	sub="Maxentius",priority=15,
 	}	
 	sets.Main["DW"] = {
     main="Maxentius",priority=19,
@@ -347,19 +354,19 @@ function get_sets()
 	
     sets.midcast = {}               -- leave this empty  
 	sets.midcast.DT = {	
-    ammo="Staunch Tathlum +1",
-    head="Volte Beret",
-    body="Arbatel Gown +2",
+    ammo="Pemphredo Tathlum",
+    head="Null Masque",
+    body="Adamantite Armor",
     hands="Nyame Gauntlets",
-    legs="Arbatel Pants +2",
+    legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Null Loop",
     waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
     left_ear="Enchntr. Earring +1",
     right_ear="Malignance Earring",
     left_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
-    right_ring="Defending Ring",
-    back={ name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10',}},
+    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    back="Null Shawl",
 	}
 	sets.midcast.enfeebling = {
     ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
@@ -422,7 +429,7 @@ function get_sets()
 	waist="Embla Sash",
     left_ear="Magnetic Earring",
     right_ear="Halasz Earring",
-    left_ring="Defending Ring",
+    left_ring="Murky Ring",
     right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
     back={ name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}},
 	}
@@ -435,7 +442,7 @@ function get_sets()
     hands="Chironic Gloves",
     legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
     feet={ name="Telchine Pigaches", augments={'Enh. Mag. eff. dur. +10',}},
-    neck="Incanter's Torque",
+    neck="Hoxne Torque",
     waist="Embla Sash",
     left_ear="Mimir Earring",
     right_ear="Andoaa Earring",
@@ -458,7 +465,7 @@ function get_sets()
     waist="Embla Sash",
     left_ear="Magnetic Earring",
     right_ear="Halasz Earring",
-    left_ring="Defending Ring",
+    left_ring="Murky Ring",
     right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
     back={ name="Bookworm's Cape", augments={'INT+1','MND+4','Helix eff. dur. +17','"Regen" potency+10',}},
 	}	
@@ -474,7 +481,7 @@ function get_sets()
     waist="Gishdubar Sash",
     left_ear="Magnetic Earring",
     right_ear="Halasz Earring",
-    left_ring="Defending Ring",
+    left_ring="Murky Ring",
     right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
     back={ name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}},
 	}
@@ -489,7 +496,7 @@ function get_sets()
     waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
     left_ear="Magnetic Earring",
     right_ear="Halasz Earring",
-    left_ring="Defending Ring",
+    left_ring="Murky Ring",
     right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
     back={ name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}},
 	}	
@@ -504,7 +511,7 @@ function get_sets()
     waist={ name="Shinjutsu-no-Obi +1", augments={'Path: A',}},
     left_ear="Magnetic Earring",
     right_ear="Halasz Earring",
-    left_ring="Defending Ring",
+    left_ring="Murky Ring",
     right_ring={ name="Mephitas's Ring +1", augments={'Path: A',}},
     back={ name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}},
 	}
@@ -605,14 +612,13 @@ function get_sets()
 }
 	sets.Nuke["Luminohelix"] = {
     main="Daybreak",priority=19,
-	sub="Ammurapi Shield",priority=15,
     ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
     head="Arbatel Bonnet +2",
     body="Arbatel Gown +2",
     hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
     legs="Arbatel Pants +2",
     feet="Arbatel Loafers +2",
-    neck="Sanctity Necklace",
+    neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear="Malignance Earring",
     right_ear={ name="Arbatel Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Enmity-3',}},

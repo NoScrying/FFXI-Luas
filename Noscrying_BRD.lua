@@ -1,3 +1,5 @@
+texts = require('texts')
+local res = require('resources')
 function get_sets()
 	send_command('bind f7 gs c toggle Weapons set')
 	send_command('bind !f7 gs c toggle Sub Weapons') --, ALT
@@ -9,7 +11,10 @@ function get_sets()
 	send_command('bind ^numpad1 gs c toggle Buff set')
 	send_command('bind !numpad3 gs c toggle Echo Drops')
 	send_command('bind !numpad1 gs c toggle Holy Water')
-
+	send_command('bind !pause input //send Nolyte /Savage Blade')
+	send_command('bind !pageup input //send Kiokura /Savage Blade')	
+	send_command('bind !end input //send Kiokura /LeadenSalute')	
+	send_command('bind !pagedown input //send @others /Savage Blade')
 	
 	Run_Index = 1
 	Weapons_Index = 1
@@ -80,7 +85,7 @@ function get_sets()
     feet="Nyame Sollerets",
     neck={ name="Bard's Charm +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Brutal Earring",
+    left_ear="Telos Earring",
     right_ear="Suppanomimi",
     left_ring="Moonlight Ring",
     right_ring="Lehko's Ring",
@@ -95,7 +100,7 @@ function get_sets()
     feet="Nyame Sollerets",
     neck={ name="Bard's Charm +1", augments={'Path: A',}},
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Brutal Earring",
+    left_ear="Telos Earring",
     right_ear="Suppanomimi",
     left_ring="Moonlight Ring",
     right_ring="Lehko's Ring",
@@ -198,25 +203,25 @@ function get_sets()
     feet="Fili Cothurnes +2",
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
     waist="Null Belt",
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    left_ear="Alabaster Earring",
     right_ear={ name="Arete del Luna +1", augments={'Path: A',}},
-    left_ring="Defending Ring",
-    right_ring="Chirich Ring +1",
+    left_ring="Chirich Ring +1",
+    right_ring="Murky Ring",
     back="Null Shawl",
 	}
 	sets.run["EVA/DT"] = { --, 53PDT, 
     range={ name="Linos", augments={'Evasion+15','"Regen"+1','AGI+8',}},
     head="Null Masque",
-    body="Nyame Mail", --, 9
-    hands="Nyame Gauntlets", --, 7
-    legs="Nyame Flanchard", --, 8
+    body="Adamantite Armor",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
     feet="Fili Cothurnes +2",
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
     waist="Null Belt",
     left_ear="Infused Earring",
     right_ear="Eabani Earring",
-    left_ring="Defending Ring",	--, 10
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}}, --, 7 
+    left_ring="Shadow Ring",
+    right_ring="Murky Ring",
     back="Null Shawl",
 	}
 	sets.run["Refresh"] =  {
@@ -242,7 +247,7 @@ function get_sets()
     body={ name="Bihu Jstcorps. +3", augments={'Enhances "Troubadour" effect',}},
     hands={ name="Chironic Gloves", augments={'Pet: Phys. dmg. taken -3%','STR+7','Weapon skill damage +7%','Accuracy+11 Attack+11',}},
     legs="Nyame Flanchard",
-    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
+    feet="Nyame Sollerets",
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Ishvara Earring",
@@ -257,7 +262,7 @@ function get_sets()
     body={ name="Bihu Jstcorps. +3", augments={'Enhances "Troubadour" effect',}},
     hands={ name="Chironic Gloves", augments={'Pet: Phys. dmg. taken -3%','STR+7','Weapon skill damage +7%','Accuracy+11 Attack+11',}},
     legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
-    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
+    feet="Nyame Sollerets",
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Ishvara Earring",
@@ -272,7 +277,7 @@ function get_sets()
     body={ name="Bihu Jstcorps. +3", augments={'Enhances "Troubadour" effect',}},
     hands={ name="Chironic Gloves", augments={'Pet: Phys. dmg. taken -3%','STR+7','Weapon skill damage +7%','Accuracy+11 Attack+11',}},
     legs="Nyame Flanchard",
-    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
+    feet="Nyame Sollerets",
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Ishvara Earring",
@@ -287,7 +292,7 @@ function get_sets()
     body={ name="Bihu Justaucorps +3", augments={'Enhances "Troubadour" effect',}},
     hands={ name="Chironic Gloves", augments={'Pet: Phys. dmg. taken -3%','STR+7','Weapon skill damage +7%','Accuracy+11 Attack+11',}},
     legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
-    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
+    feet="Nyame Sollerets",
 	--neck="Rep. Plat. Medal",
     neck={ name="Bard's Charm +1", augments={'Path: A',}},
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
@@ -320,7 +325,7 @@ function get_sets()
     --hands={ name="Chironic Gloves", augments={'Pet: Phys. dmg. taken -3%','STR+7','Weapon skill damage +7%','Accuracy+11 Attack+11',}},
 	hands="Regal Gloves",
     legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
-    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
+    feet="Nyame Sollerets",
     neck={ name="Bard's Charm +1", augments={'Path: A',}},
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Ishvara Earring",
@@ -333,17 +338,17 @@ function get_sets()
 	sets.ws['Aeolian Edge']	= {
     range={ name="Linos", augments={'Attack+20','Weapon skill damage +3%','Quadruple Attack +3',}},
     head="Bunzi's Hat",
-    body="Bunzi's Robe",
+    body={ name="Nyame Mail", augments={'Path: B',}},
     hands="Bunzi's Gloves",
     legs="Bunzi's Pants",
-    feet="Bunzi's Sabots",
-    neck="Sanctity Necklace",
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear="Regal Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
-    right_ring="Arvina Ringlet +1",
-    back="Aurist's Cape +1",
+    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}	
 	sets.ws['Gust Slash']	= {
     range={ name="Linos", augments={'Attack+20','Weapon skill damage +3%','Quadruple Attack +3',}},
@@ -351,7 +356,7 @@ function get_sets()
     body="Bunzi's Robe",
     hands="Bunzi's Gloves",
     legs="Bunzi's Pants",
-    feet="Bunzi's Sabots",
+    feet="Nyame Sollerets",
     neck="Sibyl Scarf",
     waist="Orpheus's Sash",
     left_ear="Regal Earring",
@@ -415,7 +420,7 @@ function get_sets()
 	sets.ja.waltz = {		
     range="Gjallarhorn",
     head="Fili Calot +2",
-    body="Fili Hongreline +2",
+    body="Adamantite Armor",
     legs="Dashing Subligar",
     hands="Fili Manchettes +2",
     feet="Fili Cothurnes +2",
@@ -432,7 +437,7 @@ function get_sets()
 	sets.idle.normal = {
     range={ name="Linos", augments={'Evasion+15','"Regen"+1','AGI+8',}},
     head="Nyame Helm",
-    body="Nyame Mail",
+    body="Adamantite Armor",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
@@ -440,7 +445,7 @@ function get_sets()
     waist="Null Belt",
     left_ear="Suppanomimi",
     right_ear="Eabani Earring",
-    left_ring="Defending Ring",
+    left_ring="Ilabrat Ring",
     right_ring={ name="Dark Ring", augments={'Phys. dmg. taken -6%','Magic dmg. taken -3%',}},
     back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
 	} 					-- Leave this empty.
@@ -448,7 +453,7 @@ function get_sets()
 	
 	sets.precast = {}               -- leave this empty
 	sets.precast.fastcast = { 			--, 80 FC
-    range={ name="Linos", augments={'Evasion+15','"Regen"+1','AGI+8',}},
+    range="Miracle Cheer",priority=20,
 	head="Bunzi's Hat", 				--, 10
     body="Inyanga Jubbah +2", 			--, 14
     hands="Leyline Gloves", 			--, 8
@@ -468,9 +473,9 @@ function get_sets()
 	sets.precast["Honor March"] = set_combine(sets.precast.fastcast, {
 	range="Marsyas",
 	})
-	sets.precast["Mage's Ballad"] = set_combine(sets.precast.fastcast, {
-	range="Miracle Cheer",
-	})	
+	-- sets.precast["Mage's Ballad"] = set_combine(sets.precast.fastcast, {
+	-- range="Miracle Cheer",
+	-- })	
     sets.midcast = {}               -- leave this empty
 	sets.midcast.macc = {
     range="Gjallarhorn",
@@ -487,14 +492,21 @@ function get_sets()
     right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back="Null Shawl",
 	}
+	sets.midcast.EnfeebDuration = set_combine(sets.midcast.macc, {
+	range="Marsyas",
+    feet="Brioso Slippers +3",
+	})
+	sets.midcast.EnfeebPotency = set_combine(sets.midcast.macc, {
+    feet="Brioso Slippers +3",
+	})
 	sets.midcast.Banish = {
     range="Gjallarhorn",
     head="Ipoca Beret",
-    body="Fili Hongreline +2",
+    body="Adamantite Armor",
     hands="Fili Manchettes +2",
 	legs="Fili Rhingrave +2",
     feet="Fili Cothurnes +2",
-    neck="Mnbw. Whistle +1",
+    neck="Jokushu Chain",
     waist="Null Belt",
     left_ear="Crepuscular Earring",
     right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
@@ -504,17 +516,17 @@ function get_sets()
 	}
 	sets.midcast.MultiSong = {
 	range="Daurdabla",
-    head="Fili Calot +2",
-    body="Nyame Mail",
-    hands="Fili Manchettes +2",
-    legs="Fili Rhingrave +2",
-    feet="Nyame Sollerets",
-    neck="Warder's Charm +1",
-    waist="Flume Belt",
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
-    left_ring="Defending Ring",
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    head="Null Masque",
+    body="Adamantite Armor",
+    hands="Nyame Gauntlets",
+    legs="Bunzi's Pants",
+    feet="Fili Cothurnes +2",
+    neck="Null Loop",
+    waist="Null Belt",
+    left_ear="Magnetic Earring",
+    right_ear="Loquac. Earring",
+    left_ring="Shadow Ring",
+    right_ring="Moonbeam Ring",
     back="Moonbeam Cape",
 	}
 	sets.midcast.enmity = {
@@ -531,27 +543,25 @@ function get_sets()
     right_ring="Provocare Ring",
 	}
 	sets.midcast.selfsongs = {
-    --range="Gjallarhorn",
-	range="Miracle Cheer",
-	--range="Daurdabla",
+	range="Gjallarhorn",
     head="Fili Calot +2",
     body="Fili Hongreline +2",
     hands="Fili Manchettes +2",
     legs="Inyanga Shalwar +2",
     feet="Brioso Slippers +2",
     neck="Mnbw. Whistle +1",
-    waist="Flume Belt",
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
-    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
-    left_ring="Defending Ring",
+    waist="Witful Belt",
+    left_ear="Magnetic Earring",
+    right_ear="Loquac. Earring",
+    left_ring="Murky Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
 	}
 	sets.midcast["Honor March"] = set_combine(sets.midcast.selfsongs, {
 	range="Marsyas",
+    hands="Fili Manchettes +2",
 	})
 	sets.midcast.Ballad = set_combine(sets.midcast.selfsongs, {
-	range="Miracle Cheer",
 	legs="Fili Rhingrave +2",
 	})
 	sets.midcast.Minuet = set_combine(sets.midcast.selfsongs, {
@@ -616,14 +626,14 @@ function get_sets()
     head="Fili Calot +2",
     body="Fili Hongreline +2",
     hands="Fili Manchettes +2",
-    legs="Fili Rhingrave +2",
+    legs="Inyanga Shalwar +2",
     feet="Brioso Slippers +2",
     neck="Mnbw. Whistle +1",
     waist="Null Belt",
     left_ear="Crep. Earring",
     right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     back="Null Shawl",
 	})
 	
@@ -637,7 +647,7 @@ function get_sets()
     waist="Flume Belt",
     left_ear="Magnetic Earring",
     right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
-    left_ring="Defending Ring",
+    left_ring="Murky Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
 	}
@@ -656,7 +666,7 @@ function get_sets()
     hands="Inyan. Dastanas +2",
     legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
     feet={ name="Telchine Pigaches", augments={'Enh. Mag. eff. dur. +10',}},
-    neck="Incanter's Torque",
+    neck="Hoxne Torque",
     waist="Embla Sash",
     left_ear="Andoaa Earring",
     right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
@@ -670,7 +680,7 @@ function get_sets()
     hands={ name="Telchine Gloves", augments={'"Cure" potency +7%','Enh. Mag. eff. dur. +9',}},
     legs={ name="Telchine Braconi", augments={'"Cure" potency +8%','Enh. Mag. eff. dur. +10',}},
     feet={ name="Telchine Pigaches", augments={'Enh. Mag. eff. dur. +10',}},
-    neck="Incanter's Torque",
+    neck="Hoxne Torque",
     waist="Embla Sash",
     left_ear="Andoaa Earring",
     right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
@@ -712,6 +722,154 @@ function get_sets()
     feet={ name="Taeon Boots", augments={'Spell interruption rate down -10%','Phalanx +3',}},
 	}
     sets.aftercast = {}             -- leave this empty
+	
+remedy_box = texts.new('', {
+    pos = {x = 598, y = 930},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+panacea_box = texts.new('', {
+    pos = {x = 598, y = 880},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+holywater_box = texts.new('', {
+    pos = {x = 598, y = 830},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+vile_box = texts.new('', {
+    pos = {x = 590, y = 965},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+vile1_box = texts.new('', {
+    pos = {x = 572, y = 980},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+InstantWarp_box = texts.new('', {
+    pos = {x = 680, y = 1068},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+Food_box = texts.new('', {
+    pos = {x = 1080, y = 1088},
+    text = {
+        font = 'Consolas',
+        size = 10,
+        stroke = {width = 2},
+    },
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+SneakInvisible_box = texts.new('${text}', {
+    pos = {
+        x = 530,
+        y = 1050,
+    },
+    text = {
+        font = 'Consolas',
+        size = 10,
+        red = 255,
+        green = 255,
+        blue = 255,
+    },
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+        draggable = false,
+    }
+})
+
+remedy_box:show()
+panacea_box:show()
+holywater_box:show()
+vile_box:show()
+vile1_box:show()
+InstantWarp_box:show()
+Food_box:show()
+SneakInvisible_box:show()
+
+update_item_boxes()
+count_item()
 end
 
 function precast(spell)
@@ -721,7 +879,7 @@ function precast(spell)
 			equip(sets.precast.Hordelullaby)
 		end
 	end
-	if spell.name == "Honor March" or "Chocobo Mazurka" then
+	if spell.name == "Honor March" then
 		equip(sets.precast["Honor March"])
 	end
     if sets.ws[spell.name] then
@@ -734,97 +892,87 @@ end
 
 
 function midcast(spell)
-	if spell.type == 'BardSong' and spell.target.type == 'SELF' or spell.target.type == 'PLAYER'then
-		if DD_Mode == true then
-        equip(sets.midcast.selfsongs)
-			elseif  Tank_Mode == true then
-			equip(set_combine (sets.midcast.selfsongs, sets.midcast.enmity))
-		end
-	end
-	if spell.type == 'BardSong' and spell.target.type == 'MONSTER' then
-		if DD_Mode == true then
-		equip(sets.midcast.macc)
-			elseif Tank_Mode == true then
-			equip(set_combine (sets.midcast.macc, sets.midcast.enmity))	
-			end
-		end	
+    if spell.interrupted then
+        enable('range','ammo')
+    end
 
-	if spell.name:match("Valor Minuet") or spell.name:match("Blade Madrigal") then
-        equip(sets.midcast.Minuet)
-	end	
-	if buffactive["Pianissimo"] and spell.name:match("Mage's Ballad") then
-		equip(set_combine(sets.midcast.Ballad, sets.ja['Pianissimo']))
-	elseif spell.name:match("Mage's Ballad") then
-        equip(sets.midcast.Ballad)
-	end	
-	if T{"Army's Paeon","Army's Paeon II","Army's Paeon III","Minuet"}:contains(spell.name) then
-        equip(sets.midcast.MultiSong)
-	end	
-	if spell.name:match("Knight's Minne") then
-        equip(sets.midcast.Minne)
-	end	
-	if spell.name:match("Chocobo Mazurka") or spell.name:match("Goddess's Hymnus") then
-        equip(sets.midcast.MazurkaRecast)
-	end	
-	if spell.name:match("Dragonfoe Mambo") or spell.name:match("Sheepfoe Mambo") then
-        equip(sets.midcast.Mambo)
-	end	
-	if spell.name == "Horde Lullaby II" then
-        equip(sets.midcast.HordeLullabyII)
-	end	
-	if spell.name == "Horde Lullaby" then
-        equip(sets.midcast.HordeLullaby)
-	end	
-	if string.find(spell.english,'Carol') then
-        equip(sets.midcast.Carol)
-	end	
-	if string.find(spell.english,'Threnody') then
-        equip(sets.midcast.Threnody)
-	end	
-	if spell.name:match("Sentinel's Scherzo") then
-        equip(sets.midcast.Scherzo)
-	end	
-	if spell.name:match("Honor March") then
-		equip(sets.midcast["Honor March"])
-	end
-	if spell.skill == 'Healing Magic' then
-		equip(sets.midcast.cura)
-	end
-	if T{'Paralyna','Silena',"Stona","Viruna","Poisona"}:contains(spell.name) then
-		equip(sets.run["EVA/DT"])
-			elseif spell.name == "Cursna" then
-				equip(set_combine(sets.run["EVA/DT"], sets.midcast.Cursna))
-	end
-	if spell.name:match('Regen') then
-		equip(sets.midcast.regen)
-	end
-	if spell.skill == 'Enhancing Magic' then
-		equip(sets.midcast.enhancing)
-			if T{'Haste','Auspice',"Reraise","Protect","Shell"}:contains(spell.name) then
-			equip(sets.midcast.enhancingduration)
-		end
-	end
-	if spell.name:match('Banish') then
-		equip(sets.midcast.Banish)
-	end
+    local equip_set = sets.midcast.BardSong  -- default fallback
+    local lock_instrument = false
 
-	if spell.skill == 'Enfeebling Magic' or spell.skill == 'Dark Magic' then
-		equip(sets.midcast.macc)
-	end
-    if spell.name:match('Curing') or spell.name:match('Divine') then
-        equip(sets.ja.waltz)
-	end
-	if spell.name == "Banishga" or spell.name == "Flash" then
-        equip(sets.midcast.enmity)
-	end	
+    -- Honor March must use Marsyas
+    if spell.name == "Honor March" then
+        equip_set = sets.midcast["Honor March"]
+        lock_instrument = true
+
+    -- Self-targeted songs
+    elseif spell.type == 'BardSong' and (spell.target.type == 'SELF' or spell.target.type == 'PLAYER') then
+        if DD_Mode then
+            equip_set = sets.midcast.selfsongs
+            lock_instrument = true
+        elseif Tank_Mode then
+            equip_set = set_combine(sets.midcast.selfsongs, sets.midcast.enmity)
+            lock_instrument = true
+        end
+
+    -- Monster-targeted songs (Enfeebling/Buff)
+    elseif spell.type == 'BardSong' and spell.target.type == 'MONSTER' then
+        if DD_Mode then
+            equip_set = sets.midcast.macc
+        elseif Tank_Mode then
+            equip_set = set_combine(sets.midcast.macc, sets.midcast.enmity)
+        end
+    end
+
+    -- Song-specific overrides
+    if T{"Army's Paeon","Army's Paeon II"}:contains(spell.name) then
+        equip_set = sets.midcast.MultiSong
+    elseif spell.name:match("Knight's Minne") then
+        equip_set = sets.midcast.Minne
+    elseif spell.name:match("Chocobo Mazurka") or spell.name:match("Goddess's Hymnus") then
+        equip_set = sets.midcast.MazurkaRecast
+    elseif spell.name:match("Valor Minuet") or spell.name:match("Blade Madrigal") then
+        equip_set = sets.midcast.Minuet
+    elseif spell.name:match("Mambo") then
+        equip_set = sets.midcast.Mambo
+    elseif spell.name:match("Elegy") or spell.name:match("Requiem") or spell.name:match("Virelai") then
+        equip_set = sets.midcast.EnfeebDuration
+    elseif spell.name:match("Nocturne") or spell.name:match("Threnody") then
+        equip_set = sets.midcast.EnfeebPotency
+    elseif spell.name == "Horde Lullaby II" then
+        equip_set = sets.midcast.HordeLullabyII
+    elseif spell.name == "Horde Lullaby" then
+        equip_set = sets.midcast.HordeLullaby
+    elseif spell.name == "Foe Lullaby II" then
+        equip_set = sets.midcast.FoeLullaby
+    elseif string.find(spell.english,'Carol') then
+        equip_set = sets.midcast.Carol
+    elseif string.find(spell.english,'Threnody') then
+        equip_set = sets.midcast.Threnody
+    elseif string.find(spell.english,'Etude') then
+        equip_set = sets.midcast.Etude
+    elseif spell.name:match("Sentinel's Scherzo") then
+        equip_set = sets.midcast.Scherzo
+    elseif spell.skill == 'Healing Magic' then
+        equip_set = sets.midcast.cura
+    elseif spell.skill == 'Enfeebling Magic' or spell.skill == 'Dark Magic' then
+        equip_set = sets.midcast.macc
+    end
+
+    -- Equip the chosen set
+    equip(equip_set)
+
+    -- Lock instrument if needed
+    if lock_instrument then
+        disable('range','ammo')
+    end
 end
-
-	
-
-
 
 function aftercast(spell)
 	idle()
+    if spell.type == 'BardSong' then
+        enable('range','ammo')
+    end
+	update_item_boxes()
 end
 
 function buff_change(buff,gain,lose)
@@ -851,15 +999,6 @@ function buff_change(buff,gain,lose)
             equip(sets["Carnwenhan"])
 	elseif lose then
 			equip(sets.weapons[Weapons_Set_Names[Weapons_Index]])
-            status_change(player.status)
-		end
-	end
-	if buff == "Pianissimo" then
-		if gain then
-            equip(sets["Miracle Cheer"])
-             	disable('range')
-        	else
-            	enable('range')
             status_change(player.status)
 		end
 	end
@@ -893,9 +1032,10 @@ function idle()
 	end
 end
 
- 
+
 function status_change(new,old)
 	idle()
+	update_item_boxes()
 end
 
 Tank_Mode = true
@@ -974,8 +1114,42 @@ function self_command(command) --, Allows of use of various commands
         windower.add_to_chat("Using Echo Drops")
 		send_command ("input /item 'Echo Drops' <me>")
     end
+    if cmd == 'darkthorn' then
+        send_command("input /ma 'Magic Finale' <bt>")
+    end
 end
+function count_item(name)
+    local item = res.items:with('en', name)
+    if not item then return 0 end
 
+    local inv = windower.ffxi.get_items('inventory')
+    local count = 0
+
+    for i = 1, inv.max do
+        local slot = inv[i]
+        if slot and slot.id == item.id then
+            count = count + slot.count
+        end
+    end
+
+    return count
+end
+function update_item_boxes()
+
+    remedy_box:text(('Rem: %d'):format(count_item('Remedy')))
+    panacea_box:text(('Pan: %d'):format(count_item('Panacea')))
+    holywater_box:text(('HW: %d'):format(count_item('Holy Water')))
+    vile_box:text(('VElix: %d'):format(count_item('Vile Elixir')))
+    vile1_box:text(('VElix +1: %d'):format(count_item('Vile Elixir +1')))
+    InstantWarp_box:text(('Warp: %d'):format(count_item('Instant Warp')))
+    Food_box:text(('Grape Daifuku: %d'):format(count_item('Grape Daifuku')))
+	SneakInvisible_box:text(
+		('Silent Oil : %d\nPrism Powder: %d'):format(
+			count_item('Silent Oil'),
+			count_item('Prism Powder')
+		))
+
+end
 
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
 send_command('unbind f7')
@@ -1006,4 +1180,13 @@ send_command('unbind Numpad0')
 send_command('unbind !Numpad0')
 send_command('unbind ^Numpad0')
 send_command('unbind Numpad0')
+
+remedy_box:destroy()
+panacea_box:destroy()
+holywater_box:destroy()
+vile_box:destroy()
+vile1_box:destroy()
+InstantWarp_box:destroy()
+Food_box:destroy()
+SneakInvisible_box:destroy()
 end

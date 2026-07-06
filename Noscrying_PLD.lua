@@ -1,3 +1,5 @@
+texts = require('texts')
+local res = require('resources')
 function get_sets() --!=ALT - ^=CTRL
 	send_command('bind f9 gs c toggle TP set') 
 	send_command('bind !f9 gs c toggle Tank_Mode') 
@@ -20,8 +22,11 @@ function get_sets() --!=ALT - ^=CTRL
 	send_command('bind ^numpad0 gs c toggle Idle Tank')
 	
 	send_command('bind !pause input //send Nolyte /Savage Blade')
-	
-	Run_Index = 1 --, Index for gearsets, needed for when there is more than 1 in a set and you wish you toggle beween them
+	send_command('bind !pageup input //send Kiokura /Savage Blade')	
+	send_command('bind !end input //send Kiokura /LeadenSalute')	
+	send_command('bind !pagedown input //send @others /Savage Blade')
+
+	Run_Index = 1
 	TH_Index = 1
 	Weapons_Index = 1
 	Sub_Weapons_Index = 1	
@@ -35,7 +40,7 @@ function get_sets() --!=ALT - ^=CTRL
 	left_ring= "Dim. Ring (Dem)"
 	}
 
-	Weapons_Set_Names = {'Burtgang',"Naegling","Malignance Sword",} --, 'Caladbolg','Sakpata''Excalibur'
+	Weapons_Set_Names = {'Burtgang',"Naegling"} --, 'Caladbolg','Sakpata','Excalibur',"Malignance Sword",
 	sets.weapons = {}
 
 	sets.weapons.Caladbolg = {
@@ -57,7 +62,7 @@ function get_sets() --!=ALT - ^=CTRL
 	sets.weapons["Excalibur"] = {
     main="Excalibur",
 	}	
-	Shield_Set_Names = {'Aegis','Duban','Blurred +1'} --, 'Lycurgos'
+	Shield_Set_Names = {'Aegis','Duban','Blurred +1'} --,
 	sets.Shield = {}
 	sets.Shield["Aegis"] = {
 	sub="Aegis",
@@ -68,11 +73,15 @@ function get_sets() --!=ALT - ^=CTRL
 	sets.Shield["Blurred +1"] = {
 	sub="Blurred Shield +1",
 	}			
-	Sub_Weapons_Set_Names = {'Malevolence',} --, 'Lycurgos'
+	Sub_Weapons_Set_Names = {'Malevolence',"Malignance Pole"} --,
 	sets.sub_weapons = {}
-	sets.sub_weapons.Tauret = {
+	sets.sub_weapons.Malevolence = {
     main={ name="Malevolence", augments={'INT+10','Mag. Acc.+10','"Mag.Atk.Bns."+10','"Fast Cast"+5',}},
 	sub="Blurred Shield +1",
+	}	
+	sets.sub_weapons["Malignance Pole"] = {
+    main="Malignance Pole",
+	sub="Utu Grip",
 	}	
 	sets.ranged = {}
 	sets.ranged.precast = {
@@ -81,7 +90,7 @@ function get_sets() --!=ALT - ^=CTRL
 	}
 	
 	sets.DD_Mode = {}
-	sets.DD_Mode.index = {"Damage","Hybrid"}--,"Glass Cannon"
+	sets.DD_Mode.index = {"Damage","Hybrid"}
 	DD_Mode_ind = 1
 
 	sets.DD_Mode["Hybrid"] = { --, 3160 HP,
@@ -91,7 +100,7 @@ function get_sets() --!=ALT - ^=CTRL
     hands="Sakpata's Gauntlets",
     legs="Sakpata's Cuisses",
     feet="Sakpata's Leggings",
-    neck="Warder's Charm +1",
+    neck="Hoxne Torque",
     waist="Plat. Mog. Belt", priority=20,
     left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     right_ear={ name="Chev. Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
@@ -128,10 +137,10 @@ function get_sets() --!=ALT - ^=CTRL
     feet="Sakpata's Leggings",
     neck={ name="Unmoving Collar +1", augments={'Path: A',}}, Priority=19,
     waist="Plat. Mog. Belt", priority=20,
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}}, Priority=18,
+    left_ear="Alabaster Earring", Priority=18,
     right_ear={ name="Chev. Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
     left_ring="Fortified Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Warden's Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	sets.Tank_Mode["Block"] = { --, 3206 HP, -51% DT, -12% Enemy Crit Rate, Block+6 (missing +5 from Ambu Cape), +20 Ele
@@ -144,17 +153,17 @@ function get_sets() --!=ALT - ^=CTRL
 	
     -- neck={ name="Unmoving Collar +1", augments={'Path: A',}},priority=17,
     -- waist="Carrier's Sash",
-    neck="Warder's Charm +1",
+    neck="Hoxne Torque",
     waist="Plat. Mog. Belt", priority=20,
 	
     left_ear="Thureous Earring",
     right_ear={ name="Chev. Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
     left_ring="Fortified Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Warden's Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	sets.Tank_Mode["Magic Absorb/Annul"] = { --, 3208 HP, 684 MEVA, +5% Absorb Magic, +5% Annul Magic,
-    ammo="Shadow Sachet",
+    ammo="Vanir Battery",
     head="Null Masque", Priority=17,
     body="Adamantite Armor", priority=16,
     hands="Sakpata's Gauntlets",
@@ -185,15 +194,15 @@ function get_sets() --!=ALT - ^=CTRL
     waist="Plat. Mog. Belt", priority=20,
     left_ear="Sanare Earring",
 	right_ear="Tuisto Earring", priority=18,
-    left_ring="Shadow Ring",
-    right_ring="Purity Ring",
+    left_ring="Purity Ring",
+    right_ring="Shadow Ring",
     back="Null Shawl",
 	}	
 		
 	Run_Set_Names = {'DT','Idle Tank','Refresh','Regen'}
 	sets.run = {}
 	sets.run.DT =  { --, 3216 HP, 678 MEVA, +20 Ele, Refresh +2, Regen +3, -50% DT
-    ammo="Shadow Sachet",
+    ammo="Eluder's Sachet",
     head="Null Masque", Priority=17,
     body="Adamantite Armor", priority=16,
     hands="Sakpata's Gauntlets",
@@ -201,10 +210,10 @@ function get_sets() --!=ALT - ^=CTRL
     feet="Sakpata's Leggings", priority=17,
     neck="Warder's Charm +1",
     waist="Plat. Mog. Belt", priority=20,
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}}, priority=16,
+    left_ear="Alabaster Earring", priority=16,
 	right_ear="Tuisto Earring", priority=18,
     left_ring="Fortified Ring",
-    right_ring="Shadow Ring",
+    right_ring="Warden's Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	sets.run.Regen =  { --, 3215 HP, 572 MEVA, +2 Refresh, +33 Regen, -22% DT
@@ -216,7 +225,7 @@ function get_sets() --!=ALT - ^=CTRL
     feet="Sakpata's Leggings",
     neck={ name="Bathy Choker +1", augments={'Path: A',}},
     waist="Plat. Mog. Belt", priority=20,
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}}, priority=16,
+    left_ear="Alabaster Earring", priority=16,
 	right_ear="Infused Earring",
     left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
@@ -246,7 +255,7 @@ function get_sets() --!=ALT - ^=CTRL
     feet="Sakpata's Leggings",
     neck="Warder's Charm +1",
     waist="Null Belt",
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}}, priority=16,
+    left_ear="Alabaster Earring", priority=16,
 	right_ear="Chevalier's Earring",
     left_ring="Fortified Ring",
     right_ring="Shadow Ring",
@@ -261,14 +270,14 @@ function get_sets() --!=ALT - ^=CTRL
     legs="Sakpata's Cuisses",
     feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},priority=17,
     --neck="Warder's Charm +1",
-	neck="Unmoving Collar +1",
+    neck="Hoxne Torque",
 	waist="Carrier's Sash",
     --waist="Plat. Mog. Belt",priority=20,
 	--waist="Null Belt",priority=20,
     left_ear="Thureous Earring",
-	right_ear="Chevalier's Earring",
+	right_ear="Alabaster Earring",
     left_ring="Fortified Ring",
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},priority=15,
+    right_ring="Warden's Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 	
@@ -280,15 +289,15 @@ function get_sets() --!=ALT - ^=CTRL
     legs="Sakpata's Cuisses",
     feet={ name="Souveran Schuhs +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}},priority=17,
     --neck="Warder's Charm +1",
-	neck="Unmoving Collar +1",
+    neck="Hoxne Torque",
 	waist="Carrier's Sash",
     --waist="Plat. Mog. Belt",priority=20,
 	--waist="Null Belt",priority=20,
 	waist="Null Belt",priority=20,
     left_ear="Thureous Earring",
-	right_ear="Chevalier's Earring",
+	right_ear="Alabaster Earring",
     left_ring="Fortified Ring",
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},priority=15,
+    right_ring="Warden's Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Enmity+10','Chance of successful block +5',}},
 	}
 
@@ -303,28 +312,28 @@ function get_sets() --!=ALT - ^=CTRL
 
 	sets.CureHP = {						--, +355
 	right_Ear="Magnetic Earring",
-    left_ear="Odnowa Earring +1",	priority=20, 	--, +110HP
+    left_ear="Alabaster Earring",	priority=20, 	--, +110HP
 	left_ring="Moonlight Ring",		priority=19,	--, +110HP
 	right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},priority=18,	--, +135HP
 	}	
 	sets.TankHP = {						--, +760
     neck="Unmoving Collar +1",priority=19, 		--, +200HP
 	waist="Platinum Moogle Belt",priority=20, 	--, +270-400HP'ish
-    left_ear="Odnowa Earring +1",priority=17, 	--, +110HP
+    left_ear="Alabaster Earring",priority=17, 	--, +110HP
 	right_ear="Tuisto Earring", priority=18, 	--, +150HP
 	}
 	sets.TankEnmity = {					--, +560
 	waist="Platinum Moogle Belt",priority=20,	--, +270-400HP'ish
-    left_ear="Odnowa Earring +1",priority=18, 	--, +110HP
+    left_ear="Alabaster Earring",priority=18, 	--, +110HP
 	right_ear="Tuisto Earring", priority=18,	--, +150HP
 	}
 	sets.TankFoil = {					--, +260HP
-    left_ear="Odnowa Earring +1",priority=19, 	--, +110HP
+    left_ear="Alabaster Earring",priority=19, 	--, +110HP
 	right_ear="Tuisto Earring", priority=18,	--, +150HP
 	}
 	sets.TankWS = {						--, +760HP
     neck="Unmoving Collar +1",priority=19, 		--, +200HP
-	waist="Platinum Moogle Belt",priority=20, 	--, +270-400HP'ish
+	--waist="Platinum Moogle Belt",priority=20, 	--, +270-400HP'ish
 	right_ear="Tuisto Earring", priority=18, 	--, +150HP
 	left_ring="Moonlight Ring",priority=17,		--, +110HP
 	}
@@ -357,7 +366,7 @@ function get_sets() --!=ALT - ^=CTRL
     body={ name="Valorous Mail", augments={'Weapon skill damage +4%','STR+13','Attack+5',}},
     hands={ name="Odyssean Gauntlets", augments={'Accuracy+18','Weapon skill damage +5%','STR+6',}},
     legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
-    feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
+    feet="Nyame Sollerets",
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
@@ -417,7 +426,7 @@ function get_sets() --!=ALT - ^=CTRL
     head={ name="Odyssean Helm", augments={'Accuracy+28','Weapon skill damage +4%','CHR+10','Attack+11',}},
     body={ name="Valorous Mail", augments={'Weapon skill damage +4%','STR+13','Attack+5',}},
     hands={ name="Odyssean Gauntlets", augments={'Accuracy+18','Weapon skill damage +5%','STR+6',}},
-    legs="Sakpata's Cuisses",
+    feet="Nyame Sollerets",
     feet="Sulev. Leggings +2",
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -433,7 +442,7 @@ function get_sets() --!=ALT - ^=CTRL
     body={ name="Valorous Mail", augments={'Weapon skill damage +4%','STR+13','Attack+5',}},
     hands={ name="Odyssean Gauntlets", augments={'Accuracy+18','Weapon skill damage +5%','STR+6',}},
     legs="Sakpata's Cuisses",
-    feet="Sulev. Leggings +2",
+    feet="Nyame Sollerets",
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
@@ -443,11 +452,11 @@ function get_sets() --!=ALT - ^=CTRL
     back={ name="Rudianos's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}	
 
-	sets.ws['Atonement']	= { --, 2962 HP, +134% Enmity +23 Burtgang +30 Crusade = +186% Enmity -> 1K - 1692CE + 5076VE <> 2K - 2115CE + 6345VE <> 3K - 2538CE + 7614VE 
+	sets.ws['Atonement']	= { --, 3150 HP, +130% Enmity +23 Burtgang +30 Crusade = +182% Enmity -> 1K - 1716CE + 5148VE <> 2K - 2145CE + 6435VE <> 3K - 2574CE + 7722VE 
     ammo="Sapience Orb",
     head={ name="Loess Barbuta +1", augments={'Path: A',}},
     body={ name="Souv. Cuirass +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=19,
-    hands={ name="Yorium Gauntlets", augments={'Mag. Evasion+19','Enmity+10','Damage taken-3%',}},
+    hands={ name="Souv. Handsch. +1", augments={'HP+105','Enmity+9','Potency of "Cure" effect received +15%',}}, priority=18,
     legs="Souveran Diechlings +1",priority=16,
 	feet="Chevalier's Sabatons +2",priority=17,
     neck={ name="Unmoving Collar +1", augments={'Path: A',}}, priority=20,
@@ -511,7 +520,7 @@ function get_sets() --!=ALT - ^=CTRL
     body={ name="Nyame Mail", augments={'Path: B',}},
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
-    feet="Sulev. Leggings +2",
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
     neck={ name="Unmoving Collar +1", augments={'Path: A',}},
     waist="Plat. Mog. Belt", priority=20,
     left_ear="Crep. Earring",
@@ -526,7 +535,51 @@ function get_sets() --!=ALT - ^=CTRL
     waist="Chaac Belt",
     hands={ name="Valorous Mitts", augments={'"Mag.Atk.Bns."+1','Attack+11','"Treasure Hunter"+1','Accuracy+8 Attack+8','Mag. Acc.+3 "Mag.Atk.Bns."+3',}},
 	}
-
+	sets.ws["Cataclysm"]	= { 	--, Mix MACC and MAB for high Drain rate
+    ammo="Pemphredo Tathlum",
+    head="Pixie Hairpin +1",
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    neck="Null Loop",
+    waist="Orpheus's Sash",
+    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Crematio Earring",
+    left_ring="Archon Ring",
+    right_ring="Epaminondas's Ring",
+    back={ name="Rudianos's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+	}
+	sets.ws['Shell Crusher']	= { 		--, Use MACC to ensure additional effect proc, Sleepga
+    ammo="Pemphredo Tathlum",
+    head="Null Masque",
+    body="Adamantite Armor",
+    hands="Chev. Gauntlets +2",
+    legs="Nyame Flanchard",
+    feet={ name="Nyame Sollerets", augments={'Path: B',}},
+    neck="Null Loop",
+    waist="Null Belt",
+    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Crep. Earring",
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Weather. Ring +1",
+    back="Null Shawl",
+	}
+	sets.ws['Retribution']	= {
+    ammo="Oshasha's Treatise",
+    head={ name="Odyssean Helm", augments={'Accuracy+28','Weapon skill damage +4%','CHR+10','Attack+11',}},
+    body="Sakpata's Plate",
+    hands={ name="Odyssean Gauntlets", augments={'Accuracy+18','Weapon skill damage +5%','STR+6',}},
+    legs="Sakpata's Cuisses",
+    feet="Nyame Sollerets",
+    neck="Rep. Plat. Medal",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Thrud Earring",
+    left_ring="Ifrit Ring +1",
+    right_ring="Epaminondas's Ring",
+    back={ name="Rudianos's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+	}
 	sets.ja = {} 					-- Leave this empty
 	sets.ja.Enmity = { --, 3115 HP, +130 Enmity +23 Burtgang +30 Crusade = +183% Enmity
     ammo="Sapience Orb",
@@ -572,10 +625,10 @@ function get_sets() --!=ALT - ^=CTRL
 	body="Caballarius Surcoat", priority=16,
 	})
 	sets.ja['Chivalry'] = set_combine(sets.ja.Enmity, {
-    hands="Caballarius Gauntlets +3",
+    hands="Cab. Gauntlets +3",
 	})
 	sets.ja['Shield Bash'] = set_combine(sets.ja.Enmity, {
-    hands="Caballarius Gauntlets +3",
+    hands="Cab. Gauntlets +3",
 	})
 	sets.ja['Fealty'] = set_combine(sets.ja.Enmity, {
     body="Caballarius Surcoat", priority=16,
@@ -599,7 +652,7 @@ function get_sets() --!=ALT - ^=CTRL
     --neck={ name="Unmoving Collar +1", augments={'Path: A',}},priority=19,
 	neck="Voltsurge Torque",
     waist="Plat. Mog. Belt", priority=20,
-    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}}, priority=16,
+    left_ear="Alabaster Earring", priority=16,
     right_ear="Tuisto Earring", priority=18,
     left_ring="Kishar Ring",
     right_ring="Weather. Ring +1",
@@ -616,7 +669,7 @@ function get_sets() --!=ALT - ^=CTRL
     feet="Odyssean Greaves",
     neck="Moonlight Necklace",
     waist="Flume Belt",
-    left_ear="Odnowa Earring +1", priority=17,
+    left_ear="Alabaster Earring", priority=17,
     right_ear={ name="Chev. Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
     left_ring="Moonlight Ring", priority=13,
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}}, priority=17,
@@ -646,8 +699,8 @@ function get_sets() --!=ALT - ^=CTRL
     neck={ name="Loricate Torque +1", augments={'Path: A',}},
     waist="Audumbla Sash",
     left_ear="Magnetic Earring",
-    right_ear={ name="Odnowa Earring +1", augments={'Path: A',}}, priority=16,
-    left_ring="Defending Ring",
+    right_ear="Alabaster Earring", priority=16,
+    left_ring="Murky Ring",
     right_ring="Apeile Ring",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}},
 	})
@@ -658,7 +711,7 @@ function get_sets() --!=ALT - ^=CTRL
 	sets.midcast.Foil = set_combine(sets.ja.Enmity, {
 	})
 	
-	sets.midcast.phalanx = { --, +25 Phalanx, Enhancing Skill 387 = 31 Phalanx, 3239 HP, -41% DT
+	sets.midcast.phalanx = { --, +32 Phalanx, Enhancing Skill 425: 32 Phalanx = -64, 3239 HP, -41% DT
 	--Skill: 300 329 358 386 415 443 472 500
 	--Dmg: 	-28 -29 -30 -31 -32 -33 -34 -35
     ammo="Staunch Tathlum +1",
@@ -671,12 +724,14 @@ function get_sets() --!=ALT - ^=CTRL
     waist="Audumbla Sash",
     left_ear="Magnetic Earring",
 	right_ear="Tuisto Earring", priority=18,
-    left_ring="Defending Ring",
+    left_ring="Murky Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}}, priority=17,
     back={ name="Weard Mantle", augments={'VIT+4','DEX+1','Enmity+4','Phalanx +5',}},
 	}
-	sets.midcast.PhalanxOutOfCombat = set_combine(sets.midcast.phalanx, { --, +30 Phalanx, Enhancing Skill 387 = 31 Phalanx, 3129 HP, -41% DT
+	sets.midcast.PhalanxOutOfCombat = set_combine(sets.midcast.phalanx, { --, +32 Phalanx, Enhancing Skill 387: 31 Phalanx = -63, 3129 HP, -60% DT
 	main="Sakpata's Sword",
+    sub={ name="Priwen", augments={'HP+50','Mag. Evasion+50','Damage Taken -3%',}},
+    neck="Hoxne Torque",
 	})
 	
 	sets.midcast["Reprisal"] = { --, 3016 HP, -39% DT, +42% FC (-21% Recast) 
@@ -690,7 +745,7 @@ function get_sets() --!=ALT - ^=CTRL
     waist="Plat. Mog. Belt",priority=20,
     left_ear="Enchanting Earring +1",
     right_ear="Tuisto Earring",priority=16,
-    left_ring="Defending Ring",
+    left_ring="Murky Ring",
     right_ring="Weather. Ring +1",
     back={ name="Rudianos's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Spell interruption rate down-10%',}},
 	}
@@ -776,7 +831,7 @@ function get_sets() --!=ALT - ^=CTRL
     waist="Null Belt",
     left_ear="Nourish. Earring +1",
     right_ear={ name="Chev. Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
-    left_ring="Defending Ring",
+    left_ring="Murky Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back="Null Shawl",
 	}
@@ -806,45 +861,223 @@ function get_sets() --!=ALT - ^=CTRL
 	sets.midcast.DarkNukes = {waist=ElementalGear.Obi,head=ElementalGear.Head,ring2=ElementalGear.RingDark}
 	sets.midcast.LightNukes = {waist=ElementalGear.Obi,ring2=ElementalGear.RingLight}
 	
-	sets.adoulin = {}
-	sets.adoulin.movement = {body="Councilor's Garb",}   --auto swaps when in adoulin 
- 
+Majesty_info_1 = texts.new('${text}', {
+    pos = {
+        x = 681,
+        y = 765,
+    },
+	bg = {
+		alpha   = 120,   -- 0-255 (0 = transparent, 255 = opaque)
+	},	
+    text = {
+        font = 'Consolas',
+        size = 10,
+        red = 255,
+        green = 255,
+        blue = 255,
+    },
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+Majesty_info_2 = texts.new('${text}', {
+    pos = {
+        x = 788,
+        y = 765,
+    },
+	bg = {
+		alpha   = 120,   -- 0-255 (0 = transparent, 255 = opaque)
+	},	
+    text = {
+        font = 'Consolas',
+        size = 10,
+        red = 255,
+        green = 255,
+        blue = 255,
+    },
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+Majesty_info_1:show()
+Majesty_info_2:show()
+update_Majesty_panel()
 
+remedy_box = texts.new('', {
+    pos = {x = 598, y = 930},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+panacea_box = texts.new('', {
+    pos = {x = 598, y = 880},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+holywater_box = texts.new('', {
+    pos = {x = 598, y = 830},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+vile_box = texts.new('', {
+    pos = {x = 590, y = 965},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+vile1_box = texts.new('', {
+    pos = {x = 572, y = 980},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+InstantWarp_box = texts.new('', {
+    pos = {x = 680, y = 1068},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+Food_box = texts.new('', {
+    pos = {x = 1080, y = 1088},
+    text = {
+        font = 'Consolas',
+        size = 10,
+        stroke = {width = 2},
+    },
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+SneakInvisible_box = texts.new('${text}', {
+    pos = {
+        x = 530,
+        y = 1050,
+    },
+    text = {
+        font = 'Consolas',
+        size = 10,
+        red = 255,
+        green = 255,
+        blue = 255,
+    },
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+        draggable = false,
+    }
+})
+remedy_box:show()
+panacea_box:show()
+holywater_box:show()
+vile_box:show()
+vile1_box:show()
+InstantWarp_box:show()
+Food_box:show()
+SneakInvisible_box:show()
+
+update_item_boxes()
+count_item()
 end
 
 function precast(spell) --, "==" indicates "Is", "~=" indicates "Is not", See examples in RDM.lua
-    if  spell.type == 'JobAbility' then
-		equip(sets.ja.Enmity)
-			elseif sets.ja[spell.name] then
+    if sets.ja[spell.name] then
 		equip(sets.ja[spell.name]) 
-	end	
+	else if  spell.type == 'JobAbility' then
+		equip(sets.ja.Enmity)
+	end
+end
     if  spell.action_type == 'Magic' then --, All magic types uses assigned set
 		equip(sets.precast.fastcast)
 	end
-	-- if spell.skill == 'Enhancing Magic' then --, If specifically Enhancing magic, then uses this set instead	
-		-- if Tank_Mode == false then
-			-- equip(sets.precast.enhancing)
-				-- elseif Tank_Mode == true then
-					-- equip(set_combine(sets.precast.enhancing, sets.TankHP))
-			-- end
-		-- end
-    -- if sets.ja[spell.name] then --, When set is setup as specified, then uses the preassigned set
-        -- if Tank_Mode == false then
-			-- equip(sets.ja[spell.name])
-				-- elseif Tank_Mode == true then
-					-- equip(set_combine(sets.ja[spell.name], sets.TankHP))
-			-- end
-		-- end
     if sets.ws[spell.name] then
-		if Tank_Mode == false then
-			equip(sets.ws[spell.name])
-				elseif Tank_Mode == true then
-					equip(set_combine(sets.ws[spell.name], sets.TankWS))
-				if sets.ws['Atonement'] then
-				equip(sets.ws['Atonement'])
-			end
-		end
-	end
+        if Tank_Mode == false then
+            equip(sets.ws[spell.name])
+        else
+            equip(set_combine(sets.ws[spell.name], sets.TankWS))
+        end
+    end
+
+    if spell.name == 'Atonement' then
+        equip(sets.ws['Atonement'])
+    end
 	if spell.action_type == 'Ranged Attack' then
 		equip (sets.ranged.precast)
 	end
@@ -861,7 +1094,7 @@ function midcast(spell) --, Midcast works in hierachy. The lower on the list the
 	if spell.name:match('Poison') then  
 		equip(sets.midcast.enmity)
 	end	
-	if T{'Flash','Banishga','Stun','Banish','Foil',}:contains(spell.name) then
+	if T{'Flash','Stun','Banish','Foil',}:contains(spell.name) then
 		equip(sets.midcast.MaxEnmity)
 	end
 	if T{'Crusade','Enlight II'}:contains(spell.name) or spell.name:match('Bar') then
@@ -881,7 +1114,7 @@ end
     if T{'Magic Fruit','Wild Carrot','Healing Breeze','Cure','Cure II','Cure III','Cure IV','Cura','Curaga III'}:contains(spell.name) then
 			equip(sets.Cure[Cure_Set_Names[Cure_Index]])
 		end
-	if T{'Stoneskin','Aquaveil'}:contains(spell.name) then
+	if T{'Stoneskin','Aquaveil','Banishga'}:contains(spell.name) then
 			equip(sets.midcast.sird)
 		end
 	if spell.action_type == 'Ranged Attack' then
@@ -904,7 +1137,9 @@ end
 function aftercast(spell) --, idle() makes the aftercast use the "Idle ()" states.
 	idle()
 	equip(sets.weapons[Weapons_Set_Names[Weapons_Index]])
+	equip(sets.Shield[Shield_Set_Names[Shield_Index]])
     send_command('wait 5; gs c check_combat_set')
+	update_item_boxes()
 end
 
 function buff_change(buff,gain) --, See list of buff names under Gearswap libraries, or just check name in-game when they are active
@@ -925,6 +1160,12 @@ function buff_change(buff,gain) --, See list of buff names under Gearswap librar
             enable('ring1','ring2','neck')
             status_change(player.status)
         end
+    end
+    if buff == 'Majesty'
+    or buff == 'Phalanx' 
+    or buff == 'Crusade'
+    or buff == 'Reprisal' then
+        update_Majesty_panel()
     end
 end
 
@@ -948,6 +1189,8 @@ end
 
 function status_change(new,old) --, Checks player status when changing, is necessary to auto-equip from Idle mode to Engaged
 	idle()
+     update_Majesty_panel()
+	update_item_boxes()
 end
 
 
@@ -1061,28 +1304,28 @@ function self_command(command) --, Allows of use of various commands
 	end
 end
 
-windower.register_event('prerender', function()
-    if os.clock() > (tickdelay or 0) then
-        if player.status=='Engaged' and not buffactive['Majesty'] and not midaction() and not buffactive['Amnesia'] then
-            send_command('input /ja "Majesty" <me>')
-            tickdelay = os.clock() + 5
-        end
-    end
-end)
+-- windower.register_event('prerender', function()
+    -- if os.clock() > (tickdelay or 0) then
+        -- if player.status=='Engaged' and not buffactive['Majesty'] and not midaction() and not buffactive['Amnesia'] then
+            -- send_command('input /ja "Majesty" <me>')
+            -- tickdelay = os.clock() + 5
+        -- end
+    -- end
+-- end)
 
-function job_tick()
-    if check_Majesty() then return true end
-    return false
-end
+-- function job_tick()
+    -- if check_Majesty() then return true end
+    -- return false
+-- end
 
-function check_Majesty()
-    if player.status=='Engaged' and not buffactive['Majesty'] and not midaction() and not buffactive['Amnesia'] then
-        send_command('input /ja "Majesty" <me>')
-        tickdelay = os.clock() + 5
-        return true
-    end
-    return false
-end
+-- function check_Majesty()
+    -- if player.status=='Engaged' and not buffactive['Majesty'] and not midaction() and not buffactive['Amnesia'] then
+        -- send_command('input /ja "Majesty" <me>')
+        -- tickdelay = os.clock() + 5
+        -- return true
+    -- end
+    -- return false
+-- end
 
 function check_combat_set()
     if player.status == 'Engaged' then
@@ -1092,9 +1335,65 @@ function check_combat_set()
             equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
         end
     end
+	if player.status =='Idle' then --, When holstering weapon
+		if Tank_Mode == true then
+			equip(sets.run[Run_Set_Names[Run_Index]])
+	elseif DD_Mode == true then
+			equip(sets.run.DD_Idle)
+		end
+	end
 end
 
+function update_Majesty_panel()
 
+	local phalanx   = buffactive['Phalanx']
+	local crusade = buffactive['Crusade']
+	local majesty = buffactive['Majesty']
+	local reprisal = buffactive['Reprisal']
+
+     Majesty_info_1:text(string.format(
+        'Majesty: %s\nPhalanx: %s',
+        majesty and '\\cs(0,255,0)>ON<\\cr' or '\\cs(255,0,0)<OFF>\\cr',
+        phalanx and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr'
+    ))
+    Majesty_info_2:text(string.format(
+        'Crusade: %s\nReprisal: %s',
+        crusade and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr',
+        reprisal and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr'
+    ))
+
+end
+function count_item(name)
+    local item = res.items:with('en', name)
+    if not item then return 0 end
+
+    local inv = windower.ffxi.get_items('inventory')
+    local count = 0
+
+    for i = 1, inv.max do
+        local slot = inv[i]
+        if slot and slot.id == item.id then
+            count = count + slot.count
+        end
+    end
+
+    return count
+end
+function update_item_boxes()
+
+    remedy_box:text(('Rem: %d'):format(count_item('Remedy')))
+    panacea_box:text(('Pan: %d'):format(count_item('Panacea')))
+    holywater_box:text(('HW: %d'):format(count_item('Holy Water')))
+    vile_box:text(('VElix: %d'):format(count_item('Vile Elixir')))
+    vile1_box:text(('VElix +1: %d'):format(count_item('Vile Elixir +1')))
+    InstantWarp_box:text(('Warp: %d'):format(count_item('Instant Warp')))
+    Food_box:text(('Grape Daifuku: %d'):format(count_item('Grape Daifuku')))
+	SneakInvisible_box:text(
+		('Silent Oil : %d\nPrism Powder: %d'):format(
+			count_item('Silent Oil'),
+			count_item('Prism Powder')
+		))	
+end
 
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
 send_command('unbind f7')
@@ -1125,4 +1424,13 @@ send_command('unbind Numpad0')
 send_command('unbind !Numpad0')
 send_command('unbind ^Numpad0')
 send_command('unbind Numpad0')
+
+remedy_box:destroy()
+panacea_box:destroy()
+holywater_box:destroy()
+vile_box:destroy()
+vile1_box:destroy()
+InstantWarp_box:destroy()
+Food_box:destroy()
+SneakInvisible_box:destroy()
 end
