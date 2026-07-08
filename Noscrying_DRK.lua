@@ -1,8 +1,9 @@
 texts = require('texts')
 local res = require('resources')
+WeaponOverride = false
 function get_sets()
 	send_command('bind f9 gs c toggle TP set') 
-	send_command('bind !f9 gs c toggle Tank_Mode') 
+	send_command('bind !f9 gs c toggle Calad_Mode') 
 	send_command('bind !f10 gs c toggle Regain set') -- F10 = Cycle through
 	send_command('bind f10 gs c toggle run set') -- F10 = Cycle through
 	send_command('bind f12 gs c toggle TH set') -- F10 = Cycle through
@@ -22,17 +23,17 @@ function get_sets()
 	Run_Index = 1
 	TH_Index = 1
 	Weapons_Index = 1
-	Sub_Weapons_Index = 1
+
 	Buff_Index = 1	
 	
 	sets["WarpRing"] = {
-	left_ring= "Warp Ring"
+	right_ring= "Warp Ring"
 	}
 	sets["DemRing"] = {
 	left_ring= "Dim. Ring (Dem)"
 	}
 
-	Weapons_Set_Names = {'Caladbolg','Apocalypse', "CrepScythe"}
+	Weapons_Set_Names = {'Caladbolg','Apocalypse',}
 	sets.weapons = {}
 	sets.weapons.Caladbolg = {
     main="Caladbolg",
@@ -46,7 +47,13 @@ function get_sets()
     main="Crepuscular Scythe",
 	sub="Utu Grip",
 }	
-	Sub_Weapons_Set_Names = {'Lycurgos','Loxotic',"Naegling"}--,''
+	sets.weapons.Lycurgos = {
+    main="Lycurgos",
+	sub="Utu Grip",
+}	
+
+Sub_Weapons_Set_Names = {'Lycurgos','Loxotic'} --,'Off',,'Naegling'
+	Sub_Weapons_Index = 1
 	sets.sub_weapons = {}
 	sets.sub_weapons.Naegling = {
     main="Naegling",
@@ -63,9 +70,9 @@ function get_sets()
 	
 	MEVA_Set_Name = {'MEVA'}
 	sets.MEVA = { 					--, +692 MEVA, +15-35 Elemental Resist, +10 Status Resist, -47% MDT, -53% PDT
-    ammo="Staunch Tathlum +1", 		--, +11 Status Resist, -3DT
+    ammo="Shadow Sachet", 		--, +11 Status Resist, -3DT
     head="Null Masque",
-    body="Sakpata's Plate", 		--, 139, -10DT
+    body="Adamantite Armor", 		--, 139, -10DT
     hands="Sakpata's Gauntlets", 	--, 112, -8DT
     legs="Sakpata's Cuisses", 		--, 150, -9DT
     feet="Sakpata's Leggings", 		--, 150, -6DT
@@ -96,11 +103,11 @@ function get_sets()
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 }
 
-	sets.DD_Mode = {} 					--, SAM-SJ = 80 STP = 255 TP (4 Hit) & +45% Haste
-	sets.DD_Mode.index = {'TP','DT'} 	--, Apoc Delay = 513 + 10% Job Ability Haste Aftermath
-	DD_Mode_ind = 1
+	sets.Apoc_Mode = {} 					--, SAM-SJ = 80 STP = 255 TP (4 Hit) & +45% Haste
+	sets.Apoc_Mode.index = {'TP','DT'} 	--, Apoc Delay = 513 + 10% Job Ability Haste Aftermath
+	Apoc_Mode_ind = 1
 	
-	sets.DD_Mode["TP"] = { 				--,  +58 STP = 227 TP (5 Hit), +25% Haste, -32% PDT, -22% MDT, +41 DA
+	sets.Apoc_Mode["TP"] = { 				--,  +58 STP = 227 TP (5 Hit), +25% Haste, -32% PDT, -22% MDT, +41 DA
     ammo="Coiste Bodhar",
     head="Hjarrandi Helm",			--, -10DT, +7 STP, +6 DA
     body="Hjarrandi Breastplate", 	--, -12DT, +10 STP
@@ -115,7 +122,7 @@ function get_sets()
     right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back="Null Shawl",
 	}
-	sets.DD_Mode["DT"] = { 				--, +25% Haste, -50 PDT, -40 MDT, +57 DA
+	sets.Apoc_Mode["DT"] = { 				--, +25% Haste, -50 PDT, -40 MDT, +57 DA
     ammo="Coiste Bodhar",
     head="Sakpata's Helm", 			--, +4% Haste -7DT, +5 DA
     body="Sakpata's Plate", 		--, +2% Haste -10DT, +8 DA
@@ -130,7 +137,7 @@ function get_sets()
     right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, +10 DA, -10 PDT
 	}
-	sets.DD_Mode.NotSAMSJ = { 			--, +33% Haste, +41 STP = 200 TP, -49 PDT, -39 MDT, +54 DA
+	sets.Apoc_Mode.NotSAMSJ = { 			--, +33% Haste, +41 STP = 200 TP, -49 PDT, -39 MDT, +54 DA
 	ear2="Brutal Earring", 			--, +1 STP, +5 DA
 	ear1={ name="Lugra Earring +1", augments={'Path: A',}}, --, +3 DA
     hands="Sakpata's Gauntlets",  	--, -8DT, +6 DA
@@ -138,11 +145,11 @@ function get_sets()
 	}
 	
 
-	sets.Tank_Mode = {}					--, SAM-SJ = 66 STP = 202 TP (5 Hit) & +35% Haste
-	sets.Tank_Mode.index = {'TP', 'DT'} --, Caladbolg, 430 Delay
-	Tank_Mode_ind = 1
+	sets.Calad_Mode = {}					--, SAM-SJ = 66 STP = 202 TP (5 Hit) & +35% Haste
+	sets.Calad_Mode.index = {'TP', 'DT'} --, Caladbolg, 430 Delay
+	Calad_Mode_ind = 1
 	
-	sets.Tank_Mode["TP"] = { 			--, +51 STP = 184 TP (6 Hit), +25% Haste, -49 PDT, -39 MDT ,+47 DA, +28 Crit
+	sets.Calad_Mode["TP"] = { 			--, +51 STP = 184 TP (6 Hit), +25% Haste, -49 PDT, -39 MDT ,+47 DA, +28 Crit
     ammo="Coiste Bodhar",
     head="Hjarrandi Helm",			--, -10DT, +7 STP, +6 DA
     body="Hjarrandi Breastplate", 	--, -12DT, +12 Crit, +10 STP
@@ -157,7 +164,7 @@ function get_sets()
     right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back="Null Shawl",
 	}
-	sets.Tank_Mode["DT"] = { 				--, +34% Haste (Cap 25%), -50 PDT, -40 MDT, +57 DA
+	sets.Calad_Mode["DT"] = { 				--, +34% Haste (Cap 25%), -50 PDT, -40 MDT, +57 DA
     ammo="Coiste Bodhar",
     head="Sakpata's Helm",			--, +4% Haste -7DT, +5 DA
     body="Sakpata's Plate", 		--, +2% Haste -10DT, +8 DA
@@ -173,7 +180,7 @@ function get_sets()
     back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, +10 DA, -10 PDT
 	}
 
-	sets.Tank_Mode.NotSAMSJ = { 		--, +28 STP = 156 TP (7 Hit), +29% Haste (Cap 25%), -47 PDT, -37 MDT ,+63 DA
+	sets.Calad_Mode.NotSAMSJ = { 		--, +28 STP = 156 TP (7 Hit), +29% Haste (Cap 25%), -47 PDT, -37 MDT ,+63 DA
 	ear2="Brutal Earring", 			--, +1 STP, +5 DA
 	ear1={ name="Lugra Earring +1", augments={'Path: A',}}, --, +3 DA
 	}
@@ -212,7 +219,7 @@ function get_sets()
     back="Null Shawl",
 	}
 	sets.run.DT = {					--, +532 MEVA, +15-35 Elemental Resist, +5% Negate Magic, +10 Status Resist, -55 PDT (Cap 50), -45 MDT, +18% Movement Speed
-    ammo="Staunch Tathlum +1",
+    ammo="Shadow Sachet",
     head="Null Masque",
     body="Adamantite Armor",
     hands="Sakpata's Gauntlets",
@@ -834,23 +841,8 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"}, 	--, +11 MACC, +8 Skill
     back={ name="Niht Mantle", augments={'Attack+6','Dark magic skill +9','"Drain" and "Aspir" potency +24',}}, --, Drain +24, +9 Skill
 	}
-	sets.midcast.SpikesScythe = {			--, Dread Spikes +95% +20% Job Gift = 107,5% Current HP Converted to Spikes.
-    main="Crepuscular Scythe",
-    ammo="Staunch Tathlum +1", 		--, +11 SIRD, -3DT
-    head="Ratri Sallet +1", 		--, HP+410, +7DT
-    body="Heath. Cuirass +2", 		--, HP+83, -12DT, Dread Spikes +45%
-    hands="Ratri Gadlings +1", 		--, HP+399, +9DT
-    legs="Nyame Flanchard", 		--, HP+114, -8DT
-    feet="Ratri Sollerets", 		--, HP+387, +5DT
-    neck="Unmoving Collar +1", 		--, HP+200
-    waist="Platinum Moogle Belt", 	--, HP+10%, -3DT
-    left_ear="Alabaster Earring", 	--, HP+110, -3DT
-    right_ear="Tuisto Earring",		--, HP+150
-    left_ring="Moonlight Ring", 	--, HP+110,	-5DT
-    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}}, --, HP+135, -7PDT
-    back="Moonbeam Cape", 			--, HP+250, -5DT
-	}
-	sets.midcast.Spikes = {			--, Dread Spikes +95% +20% Job Gift = +115% Current HP Converted to Spikes.
+	
+	sets.midcast.Spikes = {			--, Dread Spikes +45% +20% Job Gift = +115% Current HP Converted to Spikes.
     --main="Crepuscular Scythe",
     ammo="Staunch Tathlum +1", 		--, +11 SIRD, -3DT
     head="Ratri Sallet +1", 		--, HP+410, +7DT
@@ -866,7 +858,12 @@ right_ear={ name="Heath. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Acc
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}}, --, HP+135, -7PDT
     back="Moonbeam Cape", 			--, HP+250, -5DT
 	}
-	sets.midcast.sird = {			--, merits+10 = 104% (Cap 104%), +4 DT, +10% HP, +1012 HP, Dread Spikes +45% +20% Job Gift = +65% Current HP Converted to Spikes.
+	sets.midcast.SpikesScythe = set_combine(sets.midcast.Spikes, {
+    main = "Crepuscular Scythe",
+    sub = "Utu Grip",
+	})
+
+	sets.midcast.SIRD = {			--, merits+10 = 104% (Cap 104%), +4 DT, +10% HP, +1012 HP, Dread Spikes +45% +20% Job Gift = +65% Current HP Converted to Spikes.
     ammo="Staunch Tathlum +1", 		--, 11 SIRD
     head="Ratri Sallet +1", 			--, HP+410, +7DT
     body="Heath. Cuirass +2", 		--, HP+83, -12DT, Dread Spikes +45%
@@ -950,7 +947,7 @@ DRK_info = texts.new('${text}', {
         y = 765,
     },
 	bg = {
-		alpha   = 120,   -- 0-255 (0 = transparent, 255 = opaque)
+		alpha   = 150,   -- 0-255 (0 = transparent, 255 = opaque)
 	},	
     text = {
         font = 'Consolas',
@@ -972,10 +969,10 @@ update_DRK_panel()
 hasso_info = texts.new('${text}', {
     pos = {
         x = 681,
-        y = 750,
+        y = 748,
     },
 	bg = {
-		alpha   = 120,   -- 0-255 (0 = transparent, 255 = opaque)
+		alpha   = 150,   -- 0-255 (0 = transparent, 255 = opaque)
 	},	
     text = {
         font = 'Consolas',
@@ -995,7 +992,7 @@ hasso_info:show()
 update_hasso_panel()
 
 remedy_box = texts.new('', {
-    pos = {x = 598, y = 930},
+    pos = {x = 555, y = 930},
     text = {
         font = 'Consolas',
         size = 8,
@@ -1012,7 +1009,7 @@ remedy_box = texts.new('', {
     }
 })
 panacea_box = texts.new('', {
-    pos = {x = 598, y = 880},
+    pos = {x = 555, y = 880},
     text = {
         font = 'Consolas',
         size = 8,
@@ -1029,7 +1026,7 @@ panacea_box = texts.new('', {
     }
 })
 holywater_box = texts.new('', {
-    pos = {x = 598, y = 830},
+    pos = {x = 561, y = 830},
     text = {
         font = 'Consolas',
         size = 8,
@@ -1046,7 +1043,7 @@ holywater_box = texts.new('', {
     }
 })
 vile_box = texts.new('', {
-    pos = {x = 590, y = 965},
+    pos = {x = 550, y = 965},
     text = {
         font = 'Consolas',
         size = 8,
@@ -1063,7 +1060,7 @@ vile_box = texts.new('', {
     }
 })
 vile1_box = texts.new('', {
-    pos = {x = 572, y = 980},
+    pos = {x = 532, y = 980},
     text = {
         font = 'Consolas',
         size = 8,
@@ -1096,24 +1093,13 @@ InstantWarp_box = texts.new('', {
 		draggable = false,
     }
 })
-Food_box = texts.new('', {
-    pos = {x = 1080, y = 1088},
-    text = {
-        font = 'Consolas',
-        size = 10,
-        stroke = {width = 2},
-    },
-    flags = {
-        right = false,
-        bottom = false,
-        bold = true,
-		draggable = false,
-    }
-})
-SneakInvisible_box = texts.new('${text}', {
+Item_box = texts.new('${text}', {
     pos = {
-        x = 530,
-        y = 1050,
+        x = 1215,
+        y = 930,
+    },
+    bg = {
+        alpha = 190,
     },
     text = {
         font = 'Consolas',
@@ -1129,17 +1115,28 @@ SneakInvisible_box = texts.new('${text}', {
         draggable = false,
     }
 })
+
+Item_box:show()
 remedy_box:show()
 panacea_box:show()
 holywater_box:show()
 vile_box:show()
 vile1_box:show()
 InstantWarp_box:show()
-Food_box:show()
-SneakInvisible_box:show()
+
 
 update_item_boxes()
 count_item()
+end
+
+function equip_current_weapons()
+
+    if WeaponOverride then
+        equip(sets.sub_weapons[Sub_Weapons_Set_Names[Sub_Weapons_Index]])
+    else
+        equip(sets.weapons[Weapons_Set_Names[Weapons_Index]])
+    end
+
 end
 
 function precast(spell)
@@ -1167,19 +1164,15 @@ function midcast(spell)
 	if spell.skill == 'Dark Magic' then
 		equip(sets.midcast.DarkMagic)
 	end
-    if spell.name == 'Dread Spikes' then
-        -- 1. Use Spikes if HP > 7000 or Idle
-        if player.hp > 7000 or player.status == "Idle" then
-            equip(sets.midcast.Spikes)
-        -- 2. Use SpikesScythe if TP < 500 and Aftermath Lv.3 is NOT active
-        elseif player.tp < 500 and not buffactive['Aftermath: Lv.3'] then
-            equip(sets.midcast.SpikesScythe)
-        -- 3. Use SIRD if HP < 7000 OR Aftermath Lv.3 is active
-        elseif player.hp < 7000 or buffactive['Aftermath: Lv.3'] then
-            equip(sets.midcast.sird)
-
-        end
+	if spell.name == 'Dread Spikes' then
+    -- Preserve TP / Aftermath
+    if player.tp >= 500 or buffactive['Aftermath: Lv.3'] then
+        equip(sets.midcast.SIRD)
+    -- Safe to swap to Crepuscular Scythe
+    else
+        equip(sets.midcast.SpikesScythe)
     end
+end
 	if spell.name:match('Aspir') or spell.name:match('Drain')then
 		equip(sets.midcast.Drain)
 	elseif spell.name:match('Absorb-')then	
@@ -1206,7 +1199,7 @@ end
 
 function aftercast(spell)
 	idle()
-equip(sets.weapons[Weapons_Set_Names[Weapons_Index]])
+    equip_current_weapons()
 	update_item_boxes()
 end
 
@@ -1249,18 +1242,18 @@ end
 
 function idle()
 	if player.status =="Engaged" then --, When drawing weapon
-		if DD_Mode == true then
-			equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]]) --, Equips the last gearset you changed to, is not static
+		if Apoc_Mode == true then
+			equip(sets.Apoc_Mode[sets.Apoc_Mode.index[Apoc_Mode_ind]]) --, Equips the last gearset you changed to, is not static
 				if player.sub_job ~= "SAM" then
-					equip(sets.DD_Mode.NotSAMSJ)
+					equip(sets.Apoc_Mode.NotSAMSJ)
 				end
 			end
 		end
 	if player.status =="Engaged" then
-		if  Tank_Mode == true then
-			equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
+		if  Calad_Mode == true then
+			equip(sets.Calad_Mode[sets.Calad_Mode.index[Calad_Mode_ind]])
      			if player.sub_job ~= "SAM" then
-					equip(sets.Tank_Mode.NotSAMSJ)
+					equip(sets.Calad_Mode.NotSAMSJ)
 				end
 			end
 		end
@@ -1279,50 +1272,50 @@ end
 	update_item_boxes()
 end
 
-Tank_Mode = true --, If true, default set is tanking TP array.
-DD_Mode = true --, TP set order, looks for Tanking TP set before 2H TP
+Calad_Mode = true --, If true, default set is Calading TP array.
+Apoc_Mode = true --, TP set order, looks for Calading TP set before 2H TP
 
 function self_command(command)
 	if command == 'toggle TP set' then --, When using the command as specified at the top of this lua, then executes these functions
-		if Tank_Mode == true then --, Checks whether or not the Tank_Mode Mode is active,
-			Tank_Mode_ind = Tank_Mode_ind + 1 --, Cycles through the Index, starts at 1 when switching or starting game
-			if Tank_Mode_ind > #sets.Tank_Mode.index then Tank_Mode_ind = 1 end 
-			windower.add_to_chat('Caladbolg --> ' .. sets.Tank_Mode.index[Tank_Mode_ind] ..'') --, Sends a message ingame, not visible to others.
+		if Calad_Mode == true then --, Checks whether or not the Calad_Mode Mode is active,
+			Calad_Mode_ind = Calad_Mode_ind + 1 --, Cycles through the Index, starts at 1 when switching or starting game
+			if Calad_Mode_ind > #sets.Calad_Mode.index then Calad_Mode_ind = 1 end 
+			windower.add_to_chat('Caladbolg --> ' .. sets.Calad_Mode.index[Calad_Mode_ind] ..'') --, Sends a message ingame, not visible to others.
 			--if player.status == 'Engaged' then
-				equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
+				equip(sets.Calad_Mode[sets.Calad_Mode.index[Calad_Mode_ind]])
 			--end
-		elseif Tank_Mode == false then
-			if DD_Mode == true then
-				DD_Mode_ind = DD_Mode_ind + 1
-				if DD_Mode_ind > #sets.DD_Mode.index then DD_Mode_ind = 1 end
-				windower.add_to_chat('Apoc --> ' .. sets.DD_Mode.index[DD_Mode_ind] ..'')
+		elseif Calad_Mode == false then
+			if Apoc_Mode == true then
+				Apoc_Mode_ind = Apoc_Mode_ind + 1
+				if Apoc_Mode_ind > #sets.Apoc_Mode.index then Apoc_Mode_ind = 1 end
+				windower.add_to_chat('Apoc --> ' .. sets.Apoc_Mode.index[Apoc_Mode_ind] ..'')
 				--if player.status == 'Engaged' then
-						equip(sets.DD_Mode[sets.DD_Mode.index[DD_Mode_ind]])
+						equip(sets.Apoc_Mode[sets.Apoc_Mode.index[Apoc_Mode_ind]])
 				end
 			end		
 		end
-	if command == 'toggle Tank_Mode set' then
-		Tank_Mode_ind = Tank_Mode_ind + 1
-		if Tank_Mode_ind > #sets.Tank_Mode.index then Tank_Mode_ind = 1 end
-		windower.add_to_chat('Caladbolg --> ' .. sets.Tank_Mode.index[Tank_Mode_ind] ..'')
+	if command == 'toggle Calad_Mode set' then
+		Calad_Mode_ind = Calad_Mode_ind + 1
+		if Calad_Mode_ind > #sets.Calad_Mode.index then Calad_Mode_ind = 1 end
+		windower.add_to_chat('Caladbolg --> ' .. sets.Calad_Mode.index[Calad_Mode_ind] ..'')
 		if player.status == 'Engaged' then
-			equip(sets.Tank_Mode[sets.Tank_Mode.index[Tank_Mode_ind]])
+			equip(sets.Calad_Mode[sets.Calad_Mode.index[Calad_Mode_ind]])
 		end
-	elseif command == 'toggle Tank_Mode' then
-		if Tank_Mode == true then
-			Tank_Mode = false
+	elseif command == 'toggle Calad_Mode' then
+		if Calad_Mode == true then
+			Calad_Mode = false
 			windower.add_to_chat('<----- Caladbolg Mode: [Off] ----->')
         else
-			Tank_Mode = true
+			Calad_Mode = true
 			windower.add_to_chat('<----- Caladbolg Mode: [On] ----->')
 		end
 		status_change(player.status)
-	elseif command == 'toggle DD_Mode' then
-		if DD_Mode == true then
-			DD_Mode = false
+	elseif command == 'toggle Apoc_Mode' then
+		if Apoc_Mode == true then
+			Apoc_Mode = false
 			windower.add_to_chat('<----- Apoc Mode: [Off] ----->')
         else
-			DD_Mode = true
+			Apoc_Mode = true
 			windower.add_to_chat('<----- Apoc Mode: [On] ----->')
 		end
 	end
@@ -1339,16 +1332,23 @@ function self_command(command)
         equip(sets.TH[TH_Set_Names[TH_Index]])
     end
 	if command == 'toggle Weapons set' then
-        Weapons_Index = Weapons_Index +1
-        if Weapons_Index > #Weapons_Set_Names then Weapons_Index = 1 end
-        windower.add_to_chat('Weapon is now: '..Weapons_Set_Names[Weapons_Index])
-		equip(sets.weapons[Weapons_Set_Names[Weapons_Index]])
+		Weapons_Index = Weapons_Index + 1
+	if Weapons_Index > #Weapons_Set_Names then
+		Weapons_Index = 1
+	end
+-- Turn off any temporary weapon override
+		WeaponOverride = false
+	equip_current_weapons()
+	windower.add_to_chat(8,'Main Weapon: '..Weapons_Set_Names[Weapons_Index])
 	end
 	if command == 'toggle Sub_Weapons set' then
-        Sub_Weapons_Index = Sub_Weapons_Index +1
-        if Sub_Weapons_Index > #Sub_Weapons_Set_Names then Sub_Weapons_Index = 1 end
-        windower.add_to_chat('Sub Weapon is now: '..Sub_Weapons_Set_Names[Sub_Weapons_Index])
-		equip(sets.sub_weapons[Sub_Weapons_Set_Names[Sub_Weapons_Index]])
+		Sub_Weapons_Index = Sub_Weapons_Index + 1
+	if Sub_Weapons_Index > #Sub_Weapons_Set_Names then
+		Sub_Weapons_Index = 1
+	end
+	WeaponOverride = true
+    windower.add_to_chat('Sub Weapon is now: '..Sub_Weapons_Set_Names[Sub_Weapons_Index])
+	equip_current_weapons()
 	end
 	if command == 'toggle Buff set' then
         windower.add_to_chat('Buff mode is now: '..Buff_Set_Names[Buff_Index])
@@ -1430,12 +1430,22 @@ function update_item_boxes()
     vile_box:text(('VElix: %d'):format(count_item('Vile Elixir')))
     vile1_box:text(('VElix +1: %d'):format(count_item('Vile Elixir +1')))
     InstantWarp_box:text(('Warp: %d'):format(count_item('Instant Warp')))
-    Food_box:text(('Grape Daifuku: %d'):format(count_item('Grape Daifuku')))
-	SneakInvisible_box:text(
-		('Silent Oil : %d\nPrism Powder: %d'):format(
+	Item_box:text(
+		('Reraise : %d\n' ..
+		'Hi-RR   : %d\n' ..
+		'Insta RR: %d\n' ..
+		'Utsusemi: %d\n' ..
+		'Silent Oil: %d\n' ..
+		'Prism Powder: %d\n' ..
+		'Grape Daifuku: %d'):format(
+			count_item('Reraiser'),
+			count_item('Hi-Reraiser'),
+			count_item('Instant Reraise'),
+			count_item('Shihei'),
 			count_item('Silent Oil'),
-			count_item('Prism Powder')
-		))	
+			count_item('Prism Powder'),
+			count_item('Grape Daifuku')
+		))
 end
 
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
@@ -1474,6 +1484,6 @@ holywater_box:destroy()
 vile_box:destroy()
 vile1_box:destroy()
 InstantWarp_box:destroy()
-Food_box:destroy()
-SneakInvisible_box:destroy()
+
+Item_box:destroy()
 end
