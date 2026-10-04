@@ -1,5 +1,6 @@
 texts = require('texts')
 local res = require('resources')
+include('organizer-lib')
 function get_sets()
 	send_command('bind f9 gs c toggle melee set') -- F9 = Cycle through
 	send_command('bind !f9 gs c toggle DW set') -- F9 = Cycle through
@@ -10,10 +11,11 @@ function get_sets()
 	send_command('bind !f7 gs c toggle Sub_Weapons set') -- F10 = Cycle through
 	send_command('bind !numpad1 gs c toggle Buff set') -- F12 = Cycle through
 	send_command('bind !numpad0 gs c toggle Emergency MEVA')
-	send_command('bind !pause input //send Nolyte /Savage Blade')
-	send_command('bind !pageup input //send Kiokura /Savage Blade')	
-	send_command('bind !end input //send Kiokura /LeadenSalute')	
-	send_command('bind !pagedown input //send @others /Savage Blade')
+	send_command('bind !pause input //send @others /Savage Blade')
+	send_command('bind !pageup input //send Nolyte /Savage Blade')	
+	send_command('bind !pagedown input //send Kiokura /Savage Blade')
+	send_command('bind !end input //send Kiokura /LeadenSalute')
+	send_command('bind !delete input //send Kiokura /LastStand')
 	
 	Melee_Index = 1
 	Run_Index = 1
@@ -25,7 +27,7 @@ function get_sets()
 	Buff_Index = 1	
 	
 	sets["WarpRing"] = {
-	left_ring= "Warp Ring"
+	right_ring= "Warp Ring"
 	}
 	sets["DemRing"] = {
 	left_ring= "Dim. Ring (Dem)"
@@ -118,9 +120,9 @@ function get_sets()
     feet="Sakpata's Leggings",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     left_ear="Telos Earring",
-    right_ear={ name="Boii Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    right_ear="Boii Earring +1",
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Chirich Ring +1",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}	
 	sets.melee.normal = {
@@ -129,13 +131,13 @@ function get_sets()
     head="Hjarrandi Helm",
     hands="Sakpata's Gauntlets",
 	legs="Sakpata's Cuisses",
-    feet="Sakpata's Leggings",
+    feet="Flamma Gambieras +2",
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist="Ioskeha Belt +1",
     left_ear="Telos Earring",
-    right_ear={ name="Boii Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    right_ear="Boii Earring +1",
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Chirich Ring +1",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back="Null Shawl",
 	
     -- ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
@@ -162,7 +164,7 @@ function get_sets()
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist="Ioskeha Belt +1",
     left_ear="Schere Earring",
-    right_ear={ name="Boii Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    right_ear="Boii Earring +1",
     left_ring="Niqmaddu Ring",
     right_ring="Chirich Ring +1",
     back="Null Shawl",
@@ -177,9 +179,9 @@ function get_sets()
     neck="Null Loop",
     waist="Null Belt",
     left_ear="Telos Earring",
-    right_ear={ name="Boii Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    right_ear="Boii Earring +1",
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
 	sets.melee.BrazenRush = {
@@ -192,9 +194,9 @@ function get_sets()
     neck={ name="War. Beads +1", augments={'Path: A',}},
     waist="Ioskeha Belt +1",
     left_ear="Telos Earring",
-    right_ear={ name="Boii Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    right_ear="Boii Earring +1",
     left_ring="Chirich Ring +1",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 }
 	
@@ -326,14 +328,14 @@ function get_sets()
     left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Niqmaddu Ring",
-    right_ring="Sroda Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.ws['Ground Strike']	= {
 	ammo="Knobkierrie",
     head="Agoge Mask +3",
-    body="Pummeler's Lorica +3",
+    body="Ruwa Breastplate",
     hands="Boii Mufflers +2",
     legs="Boii Cuisses +3",
     feet="Sulevia's Leggings +2",
@@ -341,15 +343,15 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     right_ear="Moonshade Earring",
-    left_ring="Niqmaddu Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Ephramad's Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.ws["King's Justice"]	= {
 	ammo="Knobkierrie",
     head="Agoge Mask +3",
-	body="Pummeler's Lorica +3",
+    body="Ruwa Breastplate",
     hands="Boii Mufflers +2",
     legs="Boii Cuisses +3",
     feet="Nyame Sollerets",
@@ -357,48 +359,49 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Niqmaddu Ring",
+    left_ring="Ephramad's Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Upheaval']	= {
 	ammo="Knobkierrie",
     head="Agoge Mask +3",
-	body="Pummeler's Lorica +3",
+    body="Ruwa Breastplate",
     hands="Boii Mufflers +2",
     legs="Boii Cuisses +3",
     feet="Nyame Sollerets",
     neck={ name="War. Beads +1", augments={'Path: A',}},
-    -- waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    waist="Orpheus's Sash",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Orpheus's Sash",
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Niqmaddu Ring",
-	right_ring="Weatherspoon Ring +1",
-    --right_ring="Epaminondas's Ring",
+    left_ring="Ephramad's Ring",
+	--right_ring="Weatherspoon Ring +1",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Upheaval Low TP']	= {
 	ammo="Knobkierrie",
     head="Agoge Mask +3",
-	body="Pummeler's Lorica +3",
-    hands="Sakpata's Gauntlets",
+    body="Ruwa Breastplate",
+    hands="Boii Mufflers +2",    
+	--hands="Sakpata's Gauntlets",
     legs="Boii Cuisses +3",
     feet="Nyame Sollerets",
     neck={ name="War. Beads +1", augments={'Path: A',}},
-    -- waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    waist="Orpheus's Sash",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    --waist="Orpheus's Sash",
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Niqmaddu Ring",
-    --right_ring="Gelatinous Ring +1",
-	right_ring="Weatherspoon Ring +1",
+    left_ring="Ephramad's Ring",
+	--right_ring="Weatherspoon Ring +1",
+    right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws["Ukko's Fury"]	= {
 	ammo="Yetshila +1",
     head="Agoge Mask +3",
-    body="Pummeler's Lorica +3",
+    body="Ruwa Breastplate",
     hands="Boii Mufflers +2",
     legs="Boii Cuisses +3",
     feet="Nyame Sollerets",
@@ -407,13 +410,13 @@ function get_sets()
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws["Raging Rush"]	= {
 	ammo="Knobkierrie",
     head="Agoge Mask +3",
-    body="Pummeler's Lorica +3",
+    body="Ruwa Breastplate",
     hands="Boii Mufflers +2",
     legs="Boii Cuisses +3",
     feet="Nyame Sollerets",
@@ -422,21 +425,21 @@ function get_sets()
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Armor Break']	= {
     ammo="Pemphredo Tathlum",
     ammo="Staunch Tathlum +1",
     head="Null Masque",
-    body="Boii Lorica +2",
+    body="Ruwa Breastplate",
     hands="Boii Mufflers +2",
     legs="Boii Cuisses +3",
     feet="Sakpata's Leggings",
     neck="Null Loop",
     waist="Null Belt",
     left_ear="Crep. Earring",
-    right_ear={ name="Boii Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    right_ear="Boii Earring +1",
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Crepuscular Ring",
     back="Null Shawl",
@@ -445,14 +448,14 @@ function get_sets()
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     ammo="Staunch Tathlum +1",
     head="Null Masque",
-    body="Boii Lorica +2",
+    body="Ruwa Breastplate",
     hands="Boii Mufflers +2",
     legs="Boii Cuisses +3",
     feet="Sakpata's Leggings",
     neck="Null Loop",
     waist="Null Belt",
     left_ear="Crep. Earring",
-    right_ear={ name="Boii Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    right_ear="Boii Earring +1",
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Crepuscular Ring",
     back="Null Shawl",
@@ -460,14 +463,14 @@ function get_sets()
 	sets.ws['Full Break']	= {
     ammo="Pemphredo Tathlum",
     head="Null Masque",
-    body="Boii Lorica +2",
+    body="Ruwa Breastplate",
     hands="Boii Mufflers +2",
     legs="Boii Cuisses +3",
     feet="Sakpata's Leggings",
     neck="Null Loop",
     waist="Null Belt",
     left_ear="Crep. Earring",
-    right_ear={ name="Boii Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    right_ear="Boii Earring +1",
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Crepuscular Ring",
     back="Null Shawl",
@@ -475,7 +478,7 @@ function get_sets()
 	sets.ws['Steel Cyclone']	= {
 	ammo="Knobkierrie",
     head="Agoge Mask +3",
-    body="Pummeler's Lorica +3",
+    body="Ruwa Breastplate",
     hands="Boii Mufflers +2",
     legs="Boii Cuisses +3",
     feet="Nyame Sollerets",
@@ -483,14 +486,14 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Niqmaddu Ring",
+    left_ring="Ephramad's Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Fell Cleave']	= {
 	ammo="Knobkierrie",
     head="Agoge Mask +3",
-    body="Pummeler's Lorica +3",
+    body="Ruwa Breastplate",
     hands="Boii Mufflers +2",
     legs="Boii Cuisses +3",
     feet="Nyame Sollerets",
@@ -498,7 +501,7 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Niqmaddu Ring",
+    left_ring="Ephramad's Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
@@ -514,13 +517,13 @@ function get_sets()
     left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Niqmaddu Ring",
-    right_ring="Sroda Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Smash Axe']	= {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head="Null Masque",
-    body="Sakpata's Plate",
+    body="Ruwa Breastplate",
     hands="Boii Mufflers +2",
     legs="Boii Cuisses +3",
     feet="Sulev. Leggings +2",
@@ -529,13 +532,13 @@ function get_sets()
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Niqmaddu Ring",
-    right_ring="Sroda Ring",
+    right_ring="Ephramad's Ring",
     back="Null Shawl",
 	}
 	sets.ws['Mistral Axe']	= {
 	ammo="Knobkierrie",
     head="Agoge Mask +3",
-    body="Pummeler's Lorica +3",
+    body="Ruwa Breastplate",
     hands="Boii Mufflers +2",
     legs="Boii Cuisses +3",
     feet="Nyame Sollerets",
@@ -543,7 +546,7 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Niqmaddu Ring",
+    left_ring="Ephramad's Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
@@ -560,7 +563,7 @@ function get_sets()
     left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     right_ear="Moonshade Earring",
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Ephramad's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Ruinator']	= {
@@ -581,7 +584,7 @@ function get_sets()
 	sets.ws['Calamity']	= {
 	ammo="Knobkierrie",
     head="Agoge Mask +3",
-    body="Pummeler's Lorica +3",
+    body="Ruwa Breastplate",
     hands="Boii Mufflers +2",
     legs="Boii Cuisses +3",
     feet="Nyame Sollerets",
@@ -589,7 +592,7 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Niqmaddu Ring",
+    left_ring="Ephramad's Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
@@ -597,7 +600,7 @@ function get_sets()
 	sets.ws['Savage Blade']	= {
 	ammo="Knobkierrie",
     head="Agoge Mask +3",
-    body="Pummeler's Lorica +3",
+    body="Ruwa Breastplate",
     hands="Boii Mufflers +2",
     legs="Boii Cuisses +3",
     feet="Nyame Sollerets",
@@ -605,7 +608,7 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Niqmaddu Ring",
+    left_ring="Ephramad's Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
@@ -620,7 +623,7 @@ function get_sets()
     waist="Fotia Belt",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
-    left_ring="Niqmaddu Ring",
+    left_ring="Ephramad's Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
@@ -649,7 +652,7 @@ function get_sets()
     neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
-    right_ear={ name="Boii Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    right_ear="Boii Earring +1",
     left_ring="Archon Ring",
     right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
@@ -667,13 +670,13 @@ function get_sets()
     left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Ephramad's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Sonic Thrust']	= {
 	ammo = "Yetshila +1",
     head="Agoge Mask +3",
-    body="Pummeler's Lorica +3",
+    body="Ruwa Breastplate",
     hands="Flamma Manopolas +2",
 	legs="Boii Cuisses +3",
 	feet = "Valorous Greaves",
@@ -682,7 +685,7 @@ function get_sets()
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Ephramad's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Impulse Drive']	= {
@@ -690,7 +693,7 @@ function get_sets()
     -- head={ name="Blistering Sallet +1", augments={'Path: A',}},
     -- body="Hjarrandi Breastplate",
     head="Agoge Mask +3",
-    body="Pummeler's Lorica +3",
+    body="Ruwa Breastplate",
     hands="Boii Mufflers +2",
 	legs="Boii Cuisses +3",
     feet="Nyame Sollerets",
@@ -699,13 +702,13 @@ function get_sets()
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Ephramad's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Judgment']	= {
 	ammo="Knobkierrie",
     head="Agoge Mask +3",
-    body="Pummeler's Lorica +3",
+    body="Ruwa Breastplate",
     hands="Boii Mufflers +2",
     legs="Boii Cuisses +3",
     feet="Nyame Sollerets",
@@ -713,7 +716,7 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear="Moonshade Earring",
-    left_ring="Niqmaddu Ring",
+    left_ring="Ephramad's Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}	
@@ -744,7 +747,7 @@ function get_sets()
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Ephramad's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ja = {} 					-- Leave this empty
@@ -759,7 +762,7 @@ function get_sets()
     left_ear="Cryptic Earring",	--, 4
     right_ear="Trux Earring",
     left_ring="Apeile Ring",
-    right_ring="Apeile Ring",
+    right_ring="Apeile Ring +1",
 	}
 
 	sets.ja['Berserk'] = set_combine(sets.ja.Enmity,{
@@ -803,7 +806,7 @@ function get_sets()
     left_ear="Dedition Earring",
     right_ear="Crep. Earring",
     left_ring="Chirich Ring +1",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.idle = {} 					-- Leave this empty
@@ -848,12 +851,26 @@ function get_sets()
     neck="Null Loop",
     waist="Null Belt",
     left_ear="Crep. Earring",
-    right_ear={ name="Boii Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    right_ear="Boii Earring +1",
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Crepuscular Ring",
     back="Null Shawl",	
 	}
-	
+	sets.midcast.MAB = {
+    ammo="Pemphredo Tathlum",
+    head="Nyame Helm",
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Null Loop",
+    waist="Orpheus's Sash",
+    left_ear="Friomisi Earring",
+    right_ear="Crematio Earring",
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Stikini Ring +1",
+    back="Null Shawl",
+	}	
 	Buff_Set_Names = {'Holywater','Phalanx'}
 	sets.buff = {} 					-- Leave this empty.
 	sets.buff.reive = {
@@ -886,7 +903,7 @@ WAR_info = texts.new('${text}', {
         y = 765,
     },
 	bg = {
-		alpha   = 120,   -- 0-255 (0 = transparent, 255 = opaque)
+		alpha   = 150,   -- 0-255 (0 = transparent, 255 = opaque)
 	},	
     text = {
         font = 'Consolas',
@@ -908,10 +925,10 @@ update_WAR_panel()
 hasso_info = texts.new('${text}', {
     pos = {
         x = 681,
-        y = 750,
+        y = 748,
     },
 	bg = {
-		alpha   = 120,   -- 0-255 (0 = transparent, 255 = opaque)
+		alpha   = 150,   -- 0-255 (0 = transparent, 255 = opaque)
 	},	
     text = {
         font = 'Consolas',
@@ -931,7 +948,7 @@ hasso_info:show()
 update_hasso_panel()
 
 remedy_box = texts.new('', {
-    pos = {x = 598, y = 930},
+    pos = {x = 555, y = 930},
     text = {
         font = 'Consolas',
         size = 8,
@@ -948,7 +965,7 @@ remedy_box = texts.new('', {
     }
 })
 panacea_box = texts.new('', {
-    pos = {x = 598, y = 880},
+    pos = {x = 555, y = 880},
     text = {
         font = 'Consolas',
         size = 8,
@@ -965,7 +982,7 @@ panacea_box = texts.new('', {
     }
 })
 holywater_box = texts.new('', {
-    pos = {x = 598, y = 830},
+    pos = {x = 561, y = 830},
     text = {
         font = 'Consolas',
         size = 8,
@@ -982,7 +999,7 @@ holywater_box = texts.new('', {
     }
 })
 vile_box = texts.new('', {
-    pos = {x = 590, y = 965},
+    pos = {x = 550, y = 965},
     text = {
         font = 'Consolas',
         size = 8,
@@ -999,7 +1016,7 @@ vile_box = texts.new('', {
     }
 })
 vile1_box = texts.new('', {
-    pos = {x = 572, y = 980},
+    pos = {x = 532, y = 980},
     text = {
         font = 'Consolas',
         size = 8,
@@ -1032,24 +1049,14 @@ InstantWarp_box = texts.new('', {
 		draggable = false,
     }
 })
-Food_box = texts.new('', {
-    pos = {x = 1080, y = 1088},
-    text = {
-        font = 'Consolas',
-        size = 10,
-        stroke = {width = 2},
-    },
-    flags = {
-        right = false,
-        bottom = false,
-        bold = true,
-		draggable = false,
-    }
-})
-SneakInvisible_box = texts.new('${text}', {
+
+Item_box = texts.new('${text}', {
     pos = {
-        x = 530,
-        y = 1050,
+        x = 1215,
+        y = 930,
+    },
+    bg = {
+        alpha = 190,
     },
     text = {
         font = 'Consolas',
@@ -1065,14 +1072,15 @@ SneakInvisible_box = texts.new('${text}', {
         draggable = false,
     }
 })
+
+Item_box:show()
 remedy_box:show()
 panacea_box:show()
 holywater_box:show()
 vile_box:show()
 vile1_box:show()
 InstantWarp_box:show()
-Food_box:show()
-SneakInvisible_box:show()
+
 
 update_item_boxes()
 count_item()
@@ -1101,6 +1109,9 @@ end
 function midcast(spell)
     if  spell.action_type == 'Magic' then
         equip(sets.midcast.MACCDT)
+	end
+    if spell.skill == 'Elemental Magic' then
+		equip(sets.midcast.MAB)
 	end
 end
 
@@ -1135,6 +1146,15 @@ function buff_change(buff,gain)
     end
     if buff == 'Hasso' then
         update_hasso_panel()
+    end
+    if buff == "doom" then --, Auto equips doom set, cause I'm lazy from killing Shinryu
+        if gain then
+            equip(sets.buff.Holywater)
+             disable('ring1','ring2','neck')
+        else
+            enable('ring1','ring2','neck')
+            status_change(player.status)
+        end
     end
 end
 
@@ -1251,7 +1271,7 @@ function update_WAR_panel(subjob)
     local retaliation = buffactive['Retaliation']
 
     WAR_info:text(string.format(
-        'Berserk: %s\nRetaliation: %s',
+        'Berserk    : %s\nRetaliation: %s',
         berserk and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr',
         retaliation and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr'
     ))
@@ -1298,12 +1318,22 @@ function update_item_boxes()
     vile_box:text(('VElix: %d'):format(count_item('Vile Elixir')))
     vile1_box:text(('VElix +1: %d'):format(count_item('Vile Elixir +1')))
     InstantWarp_box:text(('Warp: %d'):format(count_item('Instant Warp')))
-    Food_box:text(('Grape Daifuku: %d'):format(count_item('Grape Daifuku')))
-	SneakInvisible_box:text(
-		('Silent Oil : %d\nPrism Powder: %d'):format(
+	Item_box:text(
+		('Reraise : %d\n' ..
+		'Hi-RR   : %d\n' ..
+		'Insta RR: %d\n' ..
+		'Utsusemi: %d\n' ..
+		'Silent Oil: %d\n' ..
+		'Prism Powder: %d\n' ..
+		'Grape Daifuku: %d'):format(
+			count_item('Reraiser'),
+			count_item('Hi-Reraiser'),
+			count_item('Instant Reraise'),
+			count_item('Shihei'),
 			count_item('Silent Oil'),
-			count_item('Prism Powder')
-		))	
+			count_item('Prism Powder'),
+			count_item('Grape Daifuku')
+		))
 end
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
 send_command('unbind f7')
@@ -1341,6 +1371,5 @@ holywater_box:destroy()
 vile_box:destroy()
 vile1_box:destroy()
 InstantWarp_box:destroy()
-Food_box:destroy()
-SneakInvisible_box:destroy()
+Item_box:destroy()
 end

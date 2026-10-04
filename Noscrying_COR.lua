@@ -1,9 +1,16 @@
+include('organizer-lib')
 function get_sets()
 	send_command('bind f9 gs c toggle melee set') -- F9 = Cycle through
-	send_command('bind f7 gs c toggle Gun set') -- F9 = Cycle through
+	send_command('bind !f7 gs c toggle Gun set') -- F9 = Cycle through
 	send_command('bind f10 gs c toggle CP set') -- F12 = Cycle through
-	send_command('bind !f7 gs c toggle Weapons set') -- F12 = Cycle through
+	send_command('bind f7 gs c toggle Weapons set') -- F12 = Cycle through
 	send_command('bind f12 gs c toggle TH set') -- F10 = Cycle through
+	send_command('bind !pause input //send @others /Savage Blade')
+	send_command('bind !pageup input //send Nolyte /Savage Blade')	
+	send_command('bind !pagedown input //send Kiokura /Savage Blade')
+	send_command('bind !end input //send Kiokura /LeadenSalute')
+	send_command('bind !delete input //send Kiokura /LastStand')
+	
 	Melee_Index = 1
 	Gun_Index = 1
 	CP_Index = 1
@@ -11,7 +18,7 @@ function get_sets()
 	TH_Index = 1
 
 	sets["WarpRing"] = {
-	left_ring= "Warp Ring"
+	right_ring= "Warp Ring"
 	}
 	sets["DemRing"] = {
 	left_ring= "Dim. Ring (Dem)"
@@ -19,37 +26,43 @@ function get_sets()
 	
 	sets.ranged = {}
 	sets.ranged.normal = {
-	ammo="Adlivun Bullet",
+    ammo="Decimating Bullet",
     head="Malignance Chapeau",
     body="Malignance Tabard",
-	hands="Malignance Gloves",
-    legs="Malignance Tights",
+    hands="Malignance Gloves",
+    legs="Chasseur's Culottes +2",
     feet="Malignance Boots",
     neck="Iskur Gorget",
-    waist="Kwahu Kachina Belt",
-    left_ear="Crepuscular Earring",
-    right_ear="Beyla Earring",
-    left_ring="Cacoethic Ring",
-    right_ring="Dingir Ring",
+    waist="Null Belt",
+    left_ear="Crep. Earring",
+    right_ear="Telos Earring",
+    left_ring="Ilabrat Ring",
+    right_ring="Crepuscular Ring",
     back="Null Shawl",
-}
+	}
+	sets.ranged.Triple = set_combine(sets.ranged.normal, {
+	legs="Oshosi Trousers",
+	body="Chasseur's Frac +2",
+	hands="Lanun Gants +3",
+	fet="Oshosi Leggings",
+	})
 	sets.ranged.precast = {
-    ammo="Adlivun Bullet",
-    head={ name="Taeon Chapeau", augments={'"Mag.Atk.Bns."+18','"Snapshot"+5','"Snapshot"+5',}},
-    body={ name="Taeon Tabard", augments={'"Snapshot"+5','AGI+10',}},
-    hands={ name="Carmine Fin. Ga.", augments={'Rng.Atk.+15','"Mag.Atk.Bns."+10','"Store TP"+5',}},
-    legs="Nahtirah Trousers",
+    ammo="Decimating Bullet",
+    head="Ikenga's Hat",
+    body="Laksamana's Frac +3",
+    hands="Lanun Gants +3",
+    legs="Chasseur's Culottes +2",
     feet="Meg. Jam. +2",
     neck="Commodore Charm",
     waist="Kwahu Kachina Belt",
-    left_ear="Crepuscular Earring",
+    left_ear="Crep. Earring",
     right_ear="Beyla Earring",
     left_ring="Cacoethic Ring",
     right_ring="Crepuscular Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
-}
+	}
 
-	Melee_Set_Names = {'normal', 'DT','Hybrid',}--, 'Crit'
+	Melee_Set_Names = {'Hybrid','normal','ATK'}--, 'Crit','DT'
 	sets.melee = {}                 -- Leave this empty
 	sets.melee.normal = {
 	ammo="Eminent Bullet",
@@ -60,14 +73,14 @@ function get_sets()
     feet={ name="Herculean Boots", augments={'Accuracy+28','"Triple Atk."+4',}},
     neck="Null Loop",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-    left_ear="Eabani Earring",
+    left_ear="Telos Earring",
     right_ear="Suppanomimi",
     --left_ear="Brutal Earring",
     --right_ear="Cessance Earring",
-    left_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    left_ring="Chirich Ring +1",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     right_ring="Epona\'s Ring",
     back="Null Shawl",
-}
+	}
 	sets.melee.DT = {
     ammo="Eminent Bullet",
     head="Malignance Chapeau",
@@ -79,25 +92,23 @@ function get_sets()
     waist="Shetal Stone",
     left_ear="Eabani Earring",
     right_ear="Suppanomimi",
-    left_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
-    right_ring="Defending Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+    left_ring="Chirich Ring +1",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Murky Ring",
+    back="Null Shawl",
 	}
 	sets.melee.Hybrid = {
     ammo="Eminent Bullet",
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    legs="Chasseur's Culottes +2",
     feet="Malignance Boots",
     neck="Null Loop",
-    --waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-	waist="Shetal Stone",
-    --left_ear="Crep. Earring",
-	left_ear="Eabani Earring",
+    waist="Shetal Stone",
+    left_ear="Brutal Earring",
     right_ear="Suppanomimi",
-    left_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
-    right_ring="Defending Ring",
+    left_ring="Chirich Ring +1",
+    right_ring="Murky Ring",
     back="Null Shawl",
 	}
 	sets.melee.Crit = {	
@@ -111,24 +122,27 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Odr Earring",
     right_ear="Suppanomimi",
-    left_ring="Lehko's Ring",
+    left_ring="Chirich Ring +1",
     right_ring="Epona's Ring",
     back="Null Shawl",
 	}
-	sets.melee.Kite = {
-	ammo="Eminent Bullet",
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
-    feet="Nyame Sollerets",
-    neck="Warder's Charm +1",
-    waist="Carrier's Sash",
-    left_ear="Crep. Earring",
+	sets.melee.ATK = {
+    main="Naegling",
+    sub="Gleti's Knife",
+    range={ name="Anarchy +2", augments={'Delay:+60','TP Bonus +1000',}},
+    ammo="Eminent Bullet",
+    head="Meghanada Visor +2",
+    body="Meg. Cuirie +2",
+    hands="Meg. Gloves +2",
+    legs="Meg. Chausses +2",
+    feet="Meg. Jam. +2",
+    neck="Rep. Plat. Medal",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear="Telos Earring",
     right_ear="Suppanomimi",
-    left_ring="Purity Ring",
-    right_ring="Defending Ring",
-    back="Null Shawl",
+    left_ring="Ilabrat Ring",
+    right_ring="Epona's Ring",
+    back={ name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
 
 	TH_Set_Names = {'TH'}
@@ -139,13 +153,13 @@ function get_sets()
     feet={ name="Herculean Boots", augments={'"Dual Wield"+1','Attack+5','"Treasure Hunter"+1',}},
 	}
 	
-	Weapons_Set_Names = {'Ranged','Evis', 'Naegling','Melee'}
+	Weapons_Set_Names = {'Ranged', 'Naegling','Tauret'} --'Evis',,'Melee'
 	sets.Weapons = {}
 	sets.Weapons.Ranged = {
-	main="Fettering Blade",
+	main="Lanun Knife",
 	sub="Nusku Shield",
 	}
-	sets.Weapons.Evis = {
+	sets.Weapons.Tauret = {
 	main="Tauret",	
 	sub="Blurred Knife +1",
 	}	
@@ -164,7 +178,7 @@ function get_sets()
 	sets.CP.Run = {
 	ammo="Eminent Bullet",
     head="Null Masque",
-    body="Nyame Mail",
+    body="Adamantite Armor",
     hands="Nyame Gauntlets",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     feet="Nyame Sollerets",
@@ -173,12 +187,12 @@ function get_sets()
     left_ear="Crep. Earring",
     right_ear="Suppanomimi",
     left_ring="Purity Ring",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     back="Null Shawl",
 	}
 	sets.CP.Regen = {
     head="Null Masque",
-    body="Nyame Mail",
+    body="Adamantite Armor",
     hands="Nyame Gauntlets",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     feet="Nyame Sollerets",
@@ -187,19 +201,21 @@ function get_sets()
     left_ear="Infused Earring",
     right_ear="Suppanomimi",
     left_ring="Chirich Ring +1",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     back="Null Shawl",
 	}	
-	Gun_Set_Names = {'Savage', 'Leaden'}
+	Gun_Set_Names = {'Anarchy +2', "Doomsday Leaden", "Doomsday Last Stand"}
 	sets.Gun = {}
-	sets.Gun.Savage = {
+	sets.Gun["Anarchy +2"] = {
     range={ name="Anarchy +2", augments={'Delay:+60','TP Bonus +1000',}},
 	}
 	
-	sets.Gun.Leaden = {
+	sets.Gun["Doomsday Leaden"] = {
 	range={ name="Doomsday", augments={'"Mag.Atk.Bns."+20','Weapon skill damage +7%','STR+15 AGI+15',}},
 	}
-	
+	sets.Gun["Doomsday Last Stand"] = {
+    range={ name="Doomsday", augments={'Rng.Acc.+18 Rng.Atk.+18','"Store TP"+6','DMG:+20',}},
+	}	
 	sets.ws = {}                    -- Leave this empty
 	sets.ws['Savage Blade'] = {
 	ammo="Animikii Bullet",
@@ -217,18 +233,18 @@ function get_sets()
     -- back={ name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Nyame Mail",
+    body="Laksamana's Frac +3",
     hands="Meg. Gloves +2",
     legs="Nyame Flanchard",
-    feet="Lanun Bottes +2",
+    feet="Lanun Bottes +3",
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
-    right_ring="Sroda Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
-}
+	}
 
 	sets.ws['Evisceration'] = {
     ammo="Animikii Bullet",
@@ -241,26 +257,27 @@ function get_sets()
     waist="Fotia Belt",
     left_ear="Odr Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Lehko's Ring",
+    left_ring="Ephramad's Ring",
     right_ring="Ilabrat Ring",
     back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.ws['Aeolian Edge'] = {
-	ammo="Animikii Bullet",
+    ammo="Animikii Bullet",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Rawhide Vest",
-    hands={ name="Carmine Fin. Ga.", augments={'Rng.Atk.+15','"Mag.Atk.Bns."+10','"Store TP"+5',}},
-	legs="Shneddick Tights +1",
-    feet="Lanun Bottes +2",
+    body={ name="Nyame Mail", augments={'Path: B',}},
+    hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
+    legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
+    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
     neck="Null Loop",
     waist="Orpheus's Sash",
-	left_ear="Friomisi Earring",
+    left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Epaminondas's Ring",
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Dingir Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
-}
+    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+
+	}
 
 	sets.ws['Requiescat'] = {
 	ammo="Animikii Bullet",
@@ -268,361 +285,177 @@ function get_sets()
     body="Nyame Mail",
     hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},
     legs="Nyame Flanchard",
-    feet="Lanun Bottes +2",
+    feet="Lanun Bottes +3",
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
-    right_ring="Rufescent Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},
-}
+	}
 
 	sets.ws['Last Stand'] = {
-	ammo="Eminent Bullet",
-    head="Meghanada Visor +2",
-    body="Meg. Cuirie +2",
-    hands="Meg. Gloves +2",
-    legs="Meg. Chausses +2",
-    feet="Lanun Bottes +2",
+    ammo="Eminent Bullet",
+    head="Ikenga's Hat",
+    body="Laksamana's Frac +3",
+	hands="Chasseur's Gants +2",
+    legs="Chasseur's Culottes +2",
+    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
     neck="Iskur Gorget",
-    waist="Kwahu Kachina Belt",
-	left_ear="Beyla Earring",
+    waist="Null Belt",
+    left_ear="Beyla Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Ilabrat Ring",
+    left_ring="Ephramad's Ring",
     right_ring="Dingir Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
-}
+	}
 
 	sets.ws['Wildfire'] = {
-	ammo="Bronze Bullet",
+	ammo="Orichalcum Bullet",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-     body="Nyame Mail",
+    body="Laksamana's Frac +3",
     hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
-    feet="Lanun Bottes +2",
+    feet="Lanun Bottes +3",
     neck="Null Loop",
     waist="Orpheus's Sash",
 	left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Arvina Ringlet +1",
     right_ring="Dingir Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
-}	
+    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+
+	}	
 	sets.ws['Hot Shot'] = {
     ammo="Eminent Bullet",
-    head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Nyame Mail",
-    hands="Meg. Gloves +2",
-    legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
-    feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +5%','Mag. Acc.+13',}},
-    neck="Null Loop",
-    waist="Orpheus's Sash",
-    left_ear="Crep. Earring",
-    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Ilabrat Ring",
-    right_ring="Dingir Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
-}
-
-	sets.ws['Leaden Salute'] = {
-	ammo="Bronze Bullet",
-    head="Pixie Hairpin +1",
-    body="Nyame Mail",
-    hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
-    legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
-    feet="Lanun Bottes +2",
+    head="Nyame Helm",
+    body="Laksamana's Frac +3",
+	hands="Chasseur's Gants +2",
+    legs="Nyame Flanchard",
+    feet="Lanun Bottes +3",
     neck="Null Loop",
     waist="Null Belt",
-	left_ear="Crepuscular Earring",
-    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Archon Ring",
-    right_ring="Metamorphic Ring +1",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
-}
-
-	sets.ws['Detonator'] = {
-	ammo="Eminent Bullet",
-    head="Meghanada Visor +2",
-    body="Meg. Cuirie +2",
-    hands="Meg. Gloves +2",
-    legs="Meg. Chausses +2",
-    feet="Lanun Bottes +2",
-    neck="Iskur Gorget",
-    waist="Kwahu Kachina Belt",
     left_ear="Beyla Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Ilabrat Ring",
+    left_ring="Ephramad's Ring",
     right_ring="Dingir Ring",
     back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
-}
+	}
+
+	sets.ws['Leaden Salute'] = {
+    ammo="Orichalc. Bullet",
+    head="Pixie Hairpin +1",
+    body="Laksamana's Frac +3",
+    hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+23','Weapon skill damage +4%','Mag. Acc.+5',}},
+    legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
+    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+    neck="Null Loop",
+    waist="Orpheus's Sash",
+    left_ear="Friomisi Earring",
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ring="Archon Ring",
+    right_ring="Dingir Ring",
+    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+	}
+
+	sets.ws['Detonator'] = {
+    ammo="Eminent Bullet",
+    head="Ikenga's Hat",
+    body="Laksamana's Frac +3",
+	hands="Chasseur's Gants +2",
+    legs="Chasseur's Culottes +2",
+    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+    neck="Iskur Gorget",
+    waist="Null Belt",
+    left_ear="Beyla Earring",
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ring="Ephramad's Ring",
+    right_ring="Dingir Ring",
+    back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+	}
 
 	sets.ja = {}                    -- Leave this empty
-	sets.ja["Dancer's Roll"] = { 
-	neck="Regal Necklace",
+    sets.ja["Phantom Roll"] = {
     head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
-	hands="Chasseur's Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
-	sets.ja["Fighter's Roll"] = { 
-	neck="Regal Necklace",
-    head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
-	hands="Chasseur's Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
-	sets.ja["Samurai Roll"] = {
-	neck="Regal Necklace",
-    head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
-	hands="Chasseur's Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
-	sets.ja["Monk's Roll"] = {
-	neck="Regal Necklace",
-    head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
-	hands="Chasseur's Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
-	sets.ja["Chaos Roll"] = { 
-	neck="Regal Necklace",
-    head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
-	hands="Chasseur's Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
-	sets.ja["Hunter's Roll"] = { 
-    head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
-	hands="Chasseur's Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
-	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
-	sets.ja["Tactician's Roll"] = { 
-    head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
-	hands="Chasseur's Gants",
-    body="Chasseur's Frac",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
-	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
-	sets.ja["Bolter's Roll"] = { 
-    head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
-	hands="Chasseur's Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
-	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
-	sets.ja["Drachen Roll"] = { 
-    head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
-	hands="Chasseur's Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
-	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
-	sets.ja["Beast Roll"] = { 
-    head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
-	hands="Chasseur's Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
-	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
-	sets.ja["Puppet Roll"] = { 
-    head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
-	hands="Chasseur's Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
-	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
-	sets.ja["Wizard's Roll"] = { 
-    head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
-	hands="Chasseur\'s Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
-	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
-	sets.ja["Allies' Roll"] = { 
-    head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
-	hands="Chasseur\'s Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
-	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
-
-	sets.ja["Rogue's Roll"] = { 
-    head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
-	hands="Chasseur\'s Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
-	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
-	sets.ja["Corsair's Roll"] = { 
-    head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
-	hands="Chasseur\'s Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
-	left_ring ="Luzaf\'s Ring",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
-	sets.ja["Evoker's Roll"] = { 
-    head={ name="Lanun Tricorne", augments={'Enhances "Winning Streak" effect',}},
-	hands="Chasseur\'s Gants",
-    legs={ name="Desultor Tassets", augments={'"Phantom Roll" ability delay -5','"Repair" potency +10%',}},
-	neck="Regal Necklace",
-    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
-}
+	hands="Chasseur's Gants +2",
+	body="Chasseur's Frac +2",
+    legs="Chasseur's Culottes +2",
+	feet="Chasseur's Bottes +1",
+    neck="Regal Necklace",
+    left_ring ="Luzaf's Ring",
+    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+    }
 	sets.ja["Double-Up"] = { 
-	left_ring ="Luzaf\'s Ring",
+	left_ring ="Luzaf's Ring",
 	neck="Regal Necklace",
-}
+	}
 	sets.ja['Random Deal'] = {
     body={ name="Lanun Frac +1", augments={'Enhances "Loaded Deck" effect',}},
 	}
 	sets.ja['Wild Card'] = {
-    feet="Lanun Bottes +2",	
+    feet="Lanun Bottes +3",	
 	}
+	sets.ja['Fold'] = {
+	hands="Lanun Gants +3",
+	}
+	
 	sets.ja['Earth Shot'] = {
-
-	ammo="Animikii Bullet",
+	ammo="Animikii Bullet", -- MAB
     head="Nyame Helm",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
+	feet="Chasseur's Bottes +2",
     neck="Null Loop",
-    waist="Null Belt",
-    left_ear="Hecate\'s Earring",
+    waist="Orpheus's Sash",
+    left_ear="Crematio Earring",
     right_ear="Friomisi Earring",
     left_ring="Arvina Ringlet +1",
     right_ring="Dingir Ring",
     back={ name="Gunslinger's Cape", augments={'Enmity-5','"Mag.Atk.Bns."+5','"Phantom Roll" ability delay -2',}},
-}
-	sets.ja['Wind Shot'] = {
-
-	ammo="Animikii Bullet",
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck="Null Loop",
-    waist="Null Belt",
-    left_ear="Hecate\'s Earring",
-    right_ear="Friomisi Earring",
-    left_ring="Arvina Ringlet +1",
-    right_ring="Dingir Ring",
-    back={ name="Gunslinger's Cape", augments={'Enmity-5','"Mag.Atk.Bns."+5','"Phantom Roll" ability delay -2',}},
-}
-	sets.ja['Fire Shot'] = {
-
-	ammo="Animikii Bullet",
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck="Null Loop",
-    waist="Null Belt",
-    left_ear="Hecate\'s Earring",
-    right_ear="Friomisi Earring",
-    left_ring="Arvina Ringlet +1",
-    right_ring="Dingir Ring",
-    back={ name="Gunslinger's Cape", augments={'Enmity-5','"Mag.Atk.Bns."+5','"Phantom Roll" ability delay -2',}},
-}
-	sets.ja['Water Shot'] = {
-
-	ammo="Animikii Bullet",
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck="Null Loop",
-    waist="Null Belt",
-    left_ear="Hecate\'s Earring",
-    right_ear="Friomisi Earring",
-    left_ring="Arvina Ringlet +1",
-    right_ring="Dingir Ring",
-    back={ name="Gunslinger's Cape", augments={'Enmity-5','"Mag.Atk.Bns."+5','"Phantom Roll" ability delay -2',}},
-}
-	sets.ja['Thunder Shot'] = {
-
-	ammo="Animikii Bullet",
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck="Null Loop",
-    waist="Null Belt",
-    left_ear="Hecate\'s Earring",
-    right_ear="Friomisi Earring",
-    left_ring="Arvina Ringlet +1",
-    right_ring="Dingir Ring",
-    back={ name="Gunslinger's Cape", augments={'Enmity-5','"Mag.Atk.Bns."+5','"Phantom Roll" ability delay -2',}},
-}
-	sets.ja['Ice Shot'] = {
-
-	ammo="Animikii Bullet",
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-    neck="Null Loop",
-    waist="Null Belt",
-    left_ear="Hecate\'s Earring",
-    right_ear="Friomisi Earring",
-    left_ring="Arvina Ringlet +1",
-    right_ring="Dingir Ring",
-    back={ name="Gunslinger's Cape", augments={'Enmity-5','"Mag.Atk.Bns."+5','"Phantom Roll" ability delay -2',}},
-}
+	
+    -- ammo="Decimating Bullet", -- STP
+    -- head="Malignance Chapeau",
+    -- body="Malignance Tabard",
+    -- hands="Malignance Gloves",
+    -- legs="Chasseur's Culottes +2",
+    -- feet="Malignance Boots",
+    -- neck="Iskur Gorget",
+    -- waist="Null Belt",
+    -- left_ear="Crep. Earring",
+    -- right_ear="Telos Earring",
+    -- left_ring="Ilabrat Ring",
+    -- right_ring="Crepuscular Ring",
+    -- back="Null Shawl",
+	}
+	sets.ja['Wind Shot'] = set_combine(sets.ja['Earth Shot'],{
+	})
+	sets.ja['Fire Shot'] = set_combine(sets.ja['Earth Shot'],{
+	})
+	sets.ja['Water Shot'] = set_combine(sets.ja['Earth Shot'],{
+	})
+	sets.ja['Thunder Shot'] = set_combine(sets.ja['Earth Shot'],{
+	})
+	sets.ja['Ice Shot'] = set_combine(sets.ja['Earth Shot'],{
+	})
 	sets.ja['Light Shot'] = {
     ammo="Animikii Bullet",
     head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
+    body="Chasseur's Frac +2",
+	hands="Chasseur's Gants +2",
+    legs="Chasseur's Culottes +2",
+	feet="Chasseur's Bottes +2",
     neck="Null Loop",
     waist="Null Belt",
     left_ear="Crepuscular Earring",
-    right_ear="Enchntr. Earring",
+    right_ear="Chasseur's Earring",
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Crepuscular Ring",
     back="Null Shawl",
-}
-	sets.ja['Dark Shot'] = {
-    ammo="Animikii Bullet",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
-    neck="Null Loop",
-    waist="Null Belt",
-    left_ear="Crepuscular Earring",
-    right_ear="Enchntr. Earring",
-    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    right_ring="Crepuscular Ring",
-    back="Null Shawl",
-}
+	}
+	sets.ja['Dark Shot'] = set_combine(sets.ja['Light Shot'],{
+	})
 	sets.buff = {} 					-- Leave this empty.
 	sets.buff.reive = {
 	neck="Ygnas\'s Resolve +1",
@@ -650,9 +483,9 @@ function get_sets()
     left_ear="Crepuscular Earring",
     right_ear="Suppanomimi",
     left_ring="Crepuscular Ring",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     back="Null Shawl",
-} 
+	} 
 
     sets.precast = {}               -- leave this empty  
 	sets.precast.fastcast = {
@@ -678,7 +511,7 @@ function get_sets()
     left_ear="Eabani Earring",
     right_ear="Suppanomimi",
     left_ring="Epona\'s Ring",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
@@ -723,22 +556,21 @@ function get_sets()
 	waist="Flume Belt",
 	neck="Loricate Torque +1",
 	left_ring="Gelatinous Ring +1",
-	ring_ring="Defending Ring",
-	left_ear="Odnowa Earring +1",
+	ring_ring="Murky Ring",
+	left_ear="Alabaster Earring",
     back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 end
  
 function precast(spell)
     if  spell.action_type == 'Magic' then
-        equip(sets.precast.DT)
-		    if sets.ja[spell.name] then
-				equip(sets.ja[spell.name])
-		end
-	end  
-    if  spell.action_type == 'Magic' then
         equip(sets.precast.fastcast)
 	end
+	if sets.ja[spell.name] then
+		equip(sets.ja[spell.name])
+    elseif spell.type == "CorsairRoll" then
+        equip(sets.ja["Phantom Roll"])
+    end
     if sets.ws[spell.name] then
         equip(sets.ws[spell.name])        
 			if spell.name:match("Leaden Salute") or spell.name:match("Wildfire") then 
@@ -760,9 +592,14 @@ function midcast(spell)
 	end
     if sets.ja[spell.name] then
         equip(sets.ja[spell.name])
-	end
+    elseif spell.type == "CorsairRoll" then
+        equip(sets.ja["Phantom Roll"])
+    end
 	if spell.action_type == 'Ranged Attack' then
 		equip (sets.ranged.normal)
+			if buffactive["Triple Shot"] then
+			equip(sets.ranged.Triple)
+		end
 	end
 end
  
@@ -818,6 +655,10 @@ function self_command(command)
         windower.add_to_chat('TH4 equipped')
         equip(sets.TH[TH_Set_Names[TH_Index]])
     end
+	if command == 'react_return' then
+        windower.add_to_chat('Phalanx received')
+		idle()
+	end
 end
 
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all

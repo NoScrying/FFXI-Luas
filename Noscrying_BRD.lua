@@ -1,5 +1,6 @@
 texts = require('texts')
 local res = require('resources')
+include('organizer-lib')
 function get_sets()
 	send_command('bind f7 gs c toggle Weapons set')
 	send_command('bind !f7 gs c toggle Sub Weapons') --, ALT
@@ -11,10 +12,11 @@ function get_sets()
 	send_command('bind ^numpad1 gs c toggle Buff set')
 	send_command('bind !numpad3 gs c toggle Echo Drops')
 	send_command('bind !numpad1 gs c toggle Holy Water')
-	send_command('bind !pause input //send Nolyte /Savage Blade')
-	send_command('bind !pageup input //send Kiokura /Savage Blade')	
-	send_command('bind !end input //send Kiokura /LeadenSalute')	
-	send_command('bind !pagedown input //send @others /Savage Blade')
+	send_command('bind !pause input //send @others /Savage Blade')
+	send_command('bind !pageup input //send Nolyte /Savage Blade')	
+	send_command('bind !pagedown input //send Kiokura /Savage Blade')
+	send_command('bind !end input //send Kiokura /LeadenSalute')
+	send_command('bind !delete input //send Kiokura /LastStand')
 	
 	Run_Index = 1
 	Weapons_Index = 1
@@ -23,7 +25,7 @@ function get_sets()
 	Buff_Index = 1	
 
 	sets["WarpRing"] = {
-	left_ring= "Warp Ring"
+	right_ring= "Warp Ring"
 	}
 	sets["DemRing"] = {
 	left_ring= "Dim. Ring (Dem)"
@@ -36,15 +38,12 @@ function get_sets()
 	}
 	sets.weapons.Naegling = {
     main="Naegling",
-	sub="Fusetto +2",
 	}
 	sets.weapons.Twashtar = {
     main="Twashtar",priority=19,
-	sub="Fusetto +2",priority=1,
 	}
 	sets.weapons.Carnwenhan = {
     main="Carnwenhan",priority=19,
-    sub="Twashtar",	priority=1,
 	}
 
 	sets["Carnwenhan"] = {
@@ -53,13 +52,13 @@ function get_sets()
 	sets["Miracle Cheer"] = {
 	range="Miracle Cheer"
 	}	
-	Sub_Weapons_Set_Names = {'Gleti','TP_Bonus','Ammurapi'} --'Kali'
+	Sub_Weapons_Set_Names = {'Prophetic','TP_Bonus','Ammurapi'} --'Kali'
 	sets.Sub_Weapons = {}	
 	sets.Sub_Weapons.Ammurapi = {
 	sub="Ammurapi Shield",
 	}
-	sets.Sub_Weapons.Gleti = {
-    sub="Gleti's Knife",
+	sets.Sub_Weapons.Prophetic = {
+    sub="Prophetic Knife",
 	}
 	sets.Sub_Weapons.TP_Bonus = {
 	sub="Fusetto +2",
@@ -88,7 +87,7 @@ function get_sets()
     left_ear="Telos Earring",
     right_ear="Suppanomimi",
     left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
 	sets.DD_Mode["DT/Acc"] = {
@@ -103,7 +102,7 @@ function get_sets()
     left_ear="Telos Earring",
     right_ear="Suppanomimi",
     left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
 	}	
 	sets.DD_Mode["MEVA"] = {
@@ -138,7 +137,7 @@ function get_sets()
     left_ear="Telos Earring",
     right_ear="Cessance Earring",
     left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
 	sets.Tank_Mode["DT/Acc"]  = {
@@ -153,7 +152,7 @@ function get_sets()
     left_ear="Telos Earring",
     right_ear="Cessance Earring",
     left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
 	}  	
 	
@@ -171,7 +170,7 @@ function get_sets()
     left_ear="Crep. Earring",
     right_ear="Suppanomimi",
     left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}	
 	sets["Twashtar Aftermath"] = {
@@ -186,7 +185,7 @@ function get_sets()
     left_ear="Crep. Earring",
     right_ear="Suppanomimi",
     left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}	
 	
@@ -234,7 +233,7 @@ function get_sets()
     neck="Sibyl Scarf",
     waist="Flume Belt",
     left_ear={ name="Arete del Luna +1", augments={'Path: A',}},
-    right_ear="Fili Earring",
+    right_ear="Fili Earring +1",
     left_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
 	right_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
     back="Null Shawl",
@@ -252,8 +251,8 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Epaminondas's Ring",
-    right_ring="Sroda Ring",
+    left_ring="Ephramad's Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%','STR+10'}},
 	}
 	sets.ws['Circle Blade']	= {
@@ -267,8 +266,8 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Epaminondas's Ring",
-    right_ring="Sroda Ring",
+    left_ring="Ephramad's Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%','STR+10'}},
 	}
 	sets.ws['Mercy Stroke']	= {
@@ -282,8 +281,8 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Ishvara Earring",
     right_ear="Cessance Earring",
-    left_ring="Epaminondas's Ring",
-    right_ring="Sroda Ring",
+    left_ring="Ephramad's Ring",
+    right_ring="Epaminondas's Ring",
     back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws["Rudra's Storm"]	= {
@@ -298,8 +297,8 @@ function get_sets()
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Epaminondas's Ring",
-    right_ring="Ilabrat Ring",
+    left_ring="Ephramad's Ring",
+    right_ring="Epaminondas's Ring",
 	--back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%','STR+10'}},
     back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}	
@@ -315,7 +314,7 @@ function get_sets()
     left_ear="Brutal Earring",
     right_ear="Cessance Earring",
     left_ring="Ilabrat Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
 	}	
 	sets.ws['Mordant Rime']	= {
@@ -331,14 +330,14 @@ function get_sets()
     left_ear="Ishvara Earring",
     right_ear="Regal Earring",
     left_ring="Ilabrat Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     --back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%','STR+10'}},
 	}		
 	sets.ws['Aeolian Edge']	= {
     range={ name="Linos", augments={'Attack+20','Weapon skill damage +3%','Quadruple Attack +3',}},
     head="Bunzi's Hat",
-    body={ name="Nyame Mail", augments={'Path: B',}},
+    body="Egbesu Frock",
     hands="Bunzi's Gloves",
     legs="Bunzi's Pants",
     feet={ name="Nyame Sollerets", augments={'Path: B',}},
@@ -377,7 +376,7 @@ function get_sets()
     left_ear="Brutal Earring",
     right_ear="Cessance Earring",
     left_ring="Ilabrat Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
 	}		
 	
@@ -487,7 +486,7 @@ function get_sets()
     neck="Mnbw. Whistle +1",
     waist="Null Belt",
     left_ear="Crepuscular Earring",
-    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
+    right_ear={ name="Fili Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back="Null Shawl",
@@ -509,7 +508,7 @@ function get_sets()
     neck="Jokushu Chain",
     waist="Null Belt",
     left_ear="Crepuscular Earring",
-    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
+    right_ear={ name="Fili Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back="Null Shawl",
@@ -616,7 +615,7 @@ function get_sets()
     neck="Mnbw. Whistle +1",
     waist="Null Belt",
 	left_ear="Regal Earring",
-    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
+    right_ear={ name="Fili Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
     left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
     right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back="Null Shawl",
@@ -631,7 +630,7 @@ function get_sets()
     neck="Mnbw. Whistle +1",
     waist="Null Belt",
     left_ear="Crep. Earring",
-    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
+    right_ear={ name="Fili Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Murky Ring",
     back="Null Shawl",
@@ -646,7 +645,7 @@ function get_sets()
 	neck="Loricate Torque +1",
     waist="Flume Belt",
     left_ear="Magnetic Earring",
-    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
+    right_ear={ name="Fili Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
     left_ring="Murky Ring",
     right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
     back={ name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
@@ -669,7 +668,7 @@ function get_sets()
     neck="Hoxne Torque",
     waist="Embla Sash",
     left_ear="Andoaa Earring",
-    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
+    right_ear={ name="Fili Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
     left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
     right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back="Merciful Cape",
@@ -683,7 +682,7 @@ function get_sets()
     neck="Hoxne Torque",
     waist="Embla Sash",
     left_ear="Andoaa Earring",
-    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
+    right_ear={ name="Fili Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
     left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
     right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
     back="Merciful Cape",
@@ -724,7 +723,7 @@ function get_sets()
     sets.aftercast = {}             -- leave this empty
 	
 remedy_box = texts.new('', {
-    pos = {x = 598, y = 930},
+    pos = {x = 555, y = 930},
     text = {
         font = 'Consolas',
         size = 8,
@@ -741,7 +740,7 @@ remedy_box = texts.new('', {
     }
 })
 panacea_box = texts.new('', {
-    pos = {x = 598, y = 880},
+    pos = {x = 555, y = 880},
     text = {
         font = 'Consolas',
         size = 8,
@@ -758,7 +757,7 @@ panacea_box = texts.new('', {
     }
 })
 holywater_box = texts.new('', {
-    pos = {x = 598, y = 830},
+    pos = {x = 561, y = 830},
     text = {
         font = 'Consolas',
         size = 8,
@@ -775,7 +774,7 @@ holywater_box = texts.new('', {
     }
 })
 vile_box = texts.new('', {
-    pos = {x = 590, y = 965},
+    pos = {x = 550, y = 965},
     text = {
         font = 'Consolas',
         size = 8,
@@ -792,7 +791,7 @@ vile_box = texts.new('', {
     }
 })
 vile1_box = texts.new('', {
-    pos = {x = 572, y = 980},
+    pos = {x = 532, y = 980},
     text = {
         font = 'Consolas',
         size = 8,
@@ -825,24 +824,14 @@ InstantWarp_box = texts.new('', {
 		draggable = false,
     }
 })
-Food_box = texts.new('', {
-    pos = {x = 1080, y = 1088},
-    text = {
-        font = 'Consolas',
-        size = 10,
-        stroke = {width = 2},
-    },
-    flags = {
-        right = false,
-        bottom = false,
-        bold = true,
-		draggable = false,
-    }
-})
-SneakInvisible_box = texts.new('${text}', {
+
+Item_box = texts.new('${text}', {
     pos = {
-        x = 530,
-        y = 1050,
+        x = 1215,
+        y = 930,
+    },
+    bg = {
+        alpha = 190,
     },
     text = {
         font = 'Consolas',
@@ -858,15 +847,14 @@ SneakInvisible_box = texts.new('${text}', {
         draggable = false,
     }
 })
-
+Item_box:show()
 remedy_box:show()
 panacea_box:show()
 holywater_box:show()
 vile_box:show()
 vile1_box:show()
 InstantWarp_box:show()
-Food_box:show()
-SneakInvisible_box:show()
+
 
 update_item_boxes()
 count_item()
@@ -882,9 +870,13 @@ function precast(spell)
 	if spell.name == "Honor March" then
 		equip(sets.precast["Honor March"])
 	end
-    if sets.ws[spell.name] then
-        equip(sets.ws[spell.name])        
-    end
+if sets.ws[spell.name] then
+    equip(
+        player.equipment.sub == "Prophetic Knife"
+        and set_combine(sets.ws[spell.name], {ammo="Prophetica"})
+        or sets.ws[spell.name]
+    )
+end
     if sets.ja[spell.name] then
         equip(sets.ja[spell.name])  
 	end
@@ -1142,13 +1134,22 @@ function update_item_boxes()
     vile_box:text(('VElix: %d'):format(count_item('Vile Elixir')))
     vile1_box:text(('VElix +1: %d'):format(count_item('Vile Elixir +1')))
     InstantWarp_box:text(('Warp: %d'):format(count_item('Instant Warp')))
-    Food_box:text(('Grape Daifuku: %d'):format(count_item('Grape Daifuku')))
-	SneakInvisible_box:text(
-		('Silent Oil : %d\nPrism Powder: %d'):format(
+	Item_box:text(
+		('Reraise : %d\n' ..
+		'Hi-RR   : %d\n' ..
+		'Insta RR: %d\n' ..
+		'Utsusemi: %d\n' ..
+		'Silent Oil: %d\n' ..
+		'Prism Powder: %d\n' ..
+		'Grape Daifuku: %d'):format(
+			count_item('Reraiser'),
+			count_item('Hi-Reraiser'),
+			count_item('Instant Reraise'),
+			count_item('Shihei'),
 			count_item('Silent Oil'),
-			count_item('Prism Powder')
+			count_item('Prism Powder'),
+			count_item('Grape Daifuku')
 		))
-
 end
 
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
@@ -1187,6 +1188,5 @@ holywater_box:destroy()
 vile_box:destroy()
 vile1_box:destroy()
 InstantWarp_box:destroy()
-Food_box:destroy()
-SneakInvisible_box:destroy()
+Item_box:destroy()
 end

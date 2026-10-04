@@ -1,3 +1,4 @@
+include('organizer-lib')
 function get_sets()
 	send_command('bind f9 gs c toggle melee set') -- F9 = Cycle through
 	send_command('bind f12 gs c toggle DT set') -- F9 = Cycle through
@@ -6,10 +7,11 @@ function get_sets()
 	send_command('bind !f7 gs c toggle Sub_Weapons set') -- F10 = Cycle through
 	send_command('bind pageup input //fillmode 1')
 	send_command('bind pagedown input //fillmode 0')
-	send_command('bind !pause input //send Nolyte /Savage Blade')
-	send_command('bind !pageup input //send Kiokura /Savage Blade')	
-	send_command('bind !end input //send Kiokura /LeadenSalute')	
-	send_command('bind !pagedown input //send @others /Savage Blade')
+	send_command('bind !pause input //send @others /Savage Blade')
+	send_command('bind !pageup input //send Nolyte /Savage Blade')	
+	send_command('bind !pagedown input //send Kiokura /Savage Blade')
+	send_command('bind !end input //send Kiokura /LeadenSalute')
+	send_command('bind !delete input //send Kiokura /LastStand')
 
 	Melee_Index = 1
 	DT_Index = 1
@@ -18,7 +20,7 @@ function get_sets()
 	Sub_Weapons_Index = 1
 
 	sets["WarpRing"] = {
-	left_ring= "Warp Ring"
+	right_ring= "Warp Ring"
 	}
 	sets["DemRing"] = {
 	left_ring= "Dim. Ring (Dem)"
@@ -120,7 +122,7 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
-	left_ring="Lehko's Ring",
+	left_ring="Chirich Ring +1",
 	right_ring="Gere Ring",
     back="Null Shawl",
 	}
@@ -136,7 +138,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear="Crep. Earring",
     left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
 	sets.melee.Hybrid = {
@@ -151,7 +153,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear={ name="Skulk. Earring +1", augments={'System: 1 ID: 1676 Val: 0','Accuracy+11','Mag. Acc.+11','"Store TP"+3',}},
     left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
 	sets.melee.DT = {
@@ -181,7 +183,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear="Odr Earring",
     left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
 	
@@ -197,7 +199,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear="Crep. Earring",
     left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
 	DT_Set_Names = {'TH'}
@@ -214,7 +216,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear="Crep. Earring",
     left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
 	
@@ -298,7 +300,8 @@ function get_sets()
 	sets.ws["Rudra's Storm"] = {
     ammo="Oshasha's Treatise",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body={ name="Herculean Vest", augments={'DEX+15','Pet: "Store TP"+9','Weapon skill damage +3%','Accuracy+15 Attack+15','Mag. Acc.+9 "Mag.Atk.Bns."+9',}},
+	--body="Gleti's Cuirass",
+    body="Olorun Harness",
     hands="Meg. Gloves +2",
     legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
@@ -307,13 +310,14 @@ function get_sets()
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
-    right_ring="Ilabrat Ring",
+    right_ring="Ephramad's Ring",
     back="Sacro Mantle",
 	}
 	sets.ws["Mandalic Stab"] = {
     ammo="Oshasha's Treatise",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body={ name="Herculean Vest", augments={'DEX+15','Pet: "Store TP"+9','Weapon skill damage +3%','Accuracy+15 Attack+15','Mag. Acc.+9 "Mag.Atk.Bns."+9',}},
+	--body="Gleti's Cuirass",
+    body="Olorun Harness",
     hands="Meg. Gloves +2",
     legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
@@ -322,7 +326,7 @@ function get_sets()
     left_ear="Ishvara Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
-    right_ring="Ilabrat Ring",
+    right_ring="Ephramad's Ring",
     back="Sacro Mantle",
 	}
 	sets.ws['Evisceration'] = {
@@ -336,14 +340,15 @@ function get_sets()
     waist="Fotia Belt",
     left_ear="Odr Earring",
     right_ear="Sherida Earring",
-    left_ring="Lehko's Ring",
+    left_ring="Ephramad's Ring",
     right_ring="Ilabrat Ring",
     back="Sacro Mantle",
 	}
 	sets.ws['Shark Bite'] = {
     ammo="Cath Palug Stone",
     head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
-    body="Meg. Cuirie +2",
+	--body="Gleti's Cuirass",
+    body="Olorun Harness",
     hands="Meg. Gloves +2",
     legs={ name="Lustr. Subligar +1", augments={'Attack+20','STR+8','"Dbl.Atk."+3',}},
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
@@ -352,13 +357,14 @@ function get_sets()
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Ishvara Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Ilabrat Ring",
+    right_ring="Ephramad's Ring",
     back="Sacro Mantle",
 	}
 	sets.ws['Savage Blade'] = {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Nyame Mail",
+	--body="Gleti's Cuirass",
+    body="Olorun Harness",
     hands="Meg. Gloves +2",
     legs="Nyame Flanchard",
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
@@ -367,13 +373,14 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
-    right_ring="Gere Ring",
+    right_ring="Ephramad's Ring",
     back="Sacro Mantle",
 	}
 	sets.ws['Circle Blade'] = {
     ammo={ name="Seeth. Bomblet +1", augments={'Path: A',}},
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Nyame Mail",
+	--body="Gleti's Cuirass",
+    body="Olorun Harness",
     hands="Meg. Gloves +2",
     legs="Nyame Flanchard",
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
@@ -382,13 +389,14 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
-    right_ring="Gere Ring",
+    right_ring="Ephramad's Ring",
     back="Sacro Mantle",
 	}
 	sets.ws['Mercy Stroke'] = {
     ammo="Cath Palug Stone",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Nyame Mail",
+	--body="Gleti's Cuirass",
+    body="Olorun Harness",
     hands="Meg. Gloves +2",
     legs="Nyame Flanchard",
     feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
@@ -397,7 +405,7 @@ function get_sets()
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Gere Ring",
+    right_ring="Ephramad's Ring",
     back="Sacro Mantle",
 	}
 	sets.ws['Exenterator'] = {
@@ -429,7 +437,7 @@ function get_sets()
     left_ear="Telos Earring",
     right_ear="Crep. Earring",
     left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
 	sets.ja['Mug'] = {
@@ -444,7 +452,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear="Crep. Earring",
     left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
 	sets.ja['Despoil'] = {
@@ -459,7 +467,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear="Crep. Earring",
     left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
 		

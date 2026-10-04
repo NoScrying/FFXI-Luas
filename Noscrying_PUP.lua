@@ -1,3 +1,4 @@
+include('organizer-lib')
 function get_sets()
 	send_command('bind f9 gs c toggle TP set') -- F9 = Cycle through
 	send_command('bind !f9 gs c toggle puppet mode') -- F10 = Cycle through
@@ -5,13 +6,15 @@ function get_sets()
 	send_command('bind f12 gs c toggle TH set') -- F12 = Cycle through
 	send_command('bind f7 gs c toggle weapons set') -- F9 = Cycle through
 	send_command('lua l pettp')
-	send_command('bind !pause input //send Nolyte /Savage Blade')
-	send_command('bind !pageup input //send Kiokura /Savage Blade')	
-	send_command('bind !end input //send Kiokura /LeadenSalute')	
-	send_command('bind !pagedown input //send @others /Savage Blade')
+	
+	send_command('bind !pause input //send @others /Savage Blade')
+	send_command('bind !pageup input //send Nolyte /Savage Blade')	
+	send_command('bind !pagedown input //send Kiokura /Savage Blade')
+	send_command('bind !end input //send Kiokura /LeadenSalute')
+	send_command('bind !delete input //send Kiokura /LastStand')
 
 	sets["WarpRing"] = {
-	left_ring= "Warp Ring"
+	right_ring= "Warp Ring"
 	}
 	sets["DemRing"] = {
 	left_ring= "Dim. Ring (Dem)"
@@ -170,7 +173,7 @@ function get_sets()
     feet="Mpaca's Boots",
     waist="Moonbow Belt +1",
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
 	left_ear="Cessance Earring",
     right_ear="Schere Earring",
 	back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},

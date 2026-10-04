@@ -1,5 +1,6 @@
 texts = require('texts')
 local res = require('resources')
+include('organizer-lib')
 function get_sets()
 	send_command('bind f9 gs c toggle melee set') -- F9 = Cycle through
 	send_command('bind !f7 gs c toggle Gun set') -- F9 = Cycle through
@@ -17,7 +18,7 @@ function get_sets()
 	TH_Index = 1
 
 	sets["WarpRing"] = {
-	left_ring= "Warp Ring"
+	right_ring= "Warp Ring"
 	}
 	sets["DemRing"] = {
 	left_ring= "Dim. Ring (Dem)"
@@ -33,30 +34,30 @@ function get_sets()
     feet="Malignance Boots",
     neck="Iskur Gorget",
     waist="Kwahu Kachina Belt",
-    left_ear="Neritic Earring",
-    right_ear="Chasseur's Earring",
-    left_ring="Cacoethic Ring",
+    left_ear="Crep. Earring",
+    right_ear={ name="Chas. Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    left_ring="Crepuscular Ring",
     right_ring="Cacoethic Ring +1",
     back="Null Shawl",
 	}
 	sets.ranged.Triple = set_combine(sets.ranged.normal, {
 	legs="Oshosi Trousers",
 	body="Chasseur's Frac +2",
-	hands="Lanun Gants +3",
+	hands="Lanun Gants +4",
 	feet="Oshosi Leggings",
 	})
 	sets.ranged.precast = {
     ammo="Decimating Bullet",
     head={ name="Taeon Chapeau", augments={'"Snapshot"+5','"Snapshot"+5',}},
-    body="Laksamanas Frac +3",
-    hands="Lanun Gants +3",
+    body="Laksamana Frac +4",
+    hands="Lanun Gants +4",
     legs="Chasseur's Culottes +2",
     feet="Meg. Jam. +2",
     neck="Commodore Charm",
     waist="Impulse Belt",
-    left_ear="Neritic Earring",
-    right_ear="Chasseur's Earring",
-    left_ring="Cacoethic Ring",
+    left_ear="Crep. Earring",
+    right_ear={ name="Chas. Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+6','Mag. Acc.+6',}},
+    left_ring="Crepuscular Ring",
     right_ring="Cacoethic Ring +1",
     back={ name="Camulus's Mantle", augments={'"Snapshot"+10',}},
 	}
@@ -67,7 +68,7 @@ function get_sets()
 	}
 	sets.melee.DT = {
     range="Anarchy",
-    ammo="Bronze Bullet",
+    ammo="Decimating Bullet",
     head="Malignance Chapeau",
     body="Malignance Tabard",
     hands="Malignance Gloves",
@@ -96,29 +97,30 @@ function get_sets()
     feet={ name="Herculean Boots", augments={'"Dual Wield"+1','Attack+5','"Treasure Hunter"+1',}},
 	}
 	
-	Weapons_Set_Names = {"Naegling - Gleti's","Naegling - Blurred","Kustawi - Nusku"} --'Evis',,'Melee''Ranged', ','Tauret'
+	Weapons_Set_Names = {"Naegling - Telopanos","Kustawi - Nusku","Tauret"} --'Evis',,'Melee''Ranged', ','Tauret'
 	sets.Weapons = {}
 	sets.Weapons["Kustawi - Nusku"] = {
 	main="Kustawi +1",
 	sub="Nusku Shield",
 	}
 	sets.Weapons.Tauret = {
-	main="Tauret",	
-	sub="Blurred Knife +1",
+	main="Tauret",priority=1,
+	sub="Telopanos Saber",priority=10,
 	}	
 	sets.Weapons["Naegling - Blurred"] = {
 	main="Naegling",	
 	sub="Blurred Knife +1",
 	}	
-	sets.Weapons["Naegling - Gleti's"] = {
+	sets.Weapons["Naegling - Telopanos"] = {
 	main="Naegling",	
-	sub="Gleti's Knife",
+	sub="Telopanos Saber",priority=1,
 	}		
 
 	
 	CP_Set_Names = {'Run'}--,"Regen"
 	sets.CP = {}
 	sets.CP.Run = {
+    ammo="Decimating Bullet",
     head="Null Masque",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
@@ -150,10 +152,10 @@ function get_sets()
 	sets.ws['Savage Blade'] = {
 	ammo="Animikii Bullet",
     head="Nyame Helm",
-    body="Laksamana's Frac +3",
+    body="Laksamana Frac +4",
     hands="Meg. Gloves +2",
     legs="Nyame Flanchard",
-    feet="Lanun Bottes +3",
+    feet={ name="Lanun Bottes +4", augments={'Enhances "Wild Card" effect',}},
     neck="Rep. Plat. Medal",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
@@ -182,27 +184,27 @@ function get_sets()
 	sets.ws['Aeolian Edge'] = {
     ammo="Animikii Bullet",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Lanun Frac +3",
+    body="Lanun Frac +4",
 	hands="Chasseur's Gants +2",
     legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','Weapon skill damage +5%','"Mag.Atk.Bns."+15',}},
-    feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+    feet={ name="Lanun Bottes +4", augments={'Enhances "Wild Card" effect',}},
     neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Cornelia's Ring",
     right_ring="Dingir Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%',}},
+    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 
 	}
 
 	sets.ws['Requiescat'] = {
 	ammo="Animikii Bullet",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Lanun Frac +3",
+    body="Lanun Frac +4",
     hands={ name="Herculean Gloves", augments={'"Triple Atk."+3','STR+13',}},
     legs="Nyame Flanchard",
-    feet="Lanun Bottes +3",
+    feet={ name="Lanun Bottes +4", augments={'Enhances "Wild Card" effect',}},
     neck="Fotia Gorget",
     waist="Fotia Belt",
     left_ear="Ishvara Earring",
@@ -215,81 +217,81 @@ function get_sets()
 	sets.ws['Last Stand'] = {
     ammo="Eminent Bullet",
     head="Nyame Helm",
-    body="Laksamana's Frac +3",
+    body="Laksamana Frac +4",
 	hands="Chasseur's Gants +2",
     legs="Chasseur's Culottes +2",
-    feet="Lanun Bottes +3",	
+    feet={ name="Lanun Bottes +4", augments={'Enhances "Wild Card" effect',}},	
     neck="Iskur Gorget",
     waist="Eschan Stone",
-    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    right_ear="Neritic Earring",
+    left_ear="Crepuscular Earring",
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Cornelia's Ring",
     right_ring="Dingir Ring",
-    back="Null Shawl",
+    back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%',}},
 	}
 
 	sets.ws['Wildfire'] = {
 	ammo="Orichalcum Bullet",
     head="Nyame Helm",
-    body="Lanun Frac +3",
+    body="Lanun Frac +4",
 	hands="Chasseur's Gants +2",
     legs="Nyame Flanchard",
-    feet="Lanun Bottes +3",	
+    feet={ name="Lanun Bottes +4", augments={'Enhances "Wild Card" effect',}},	
     neck="Null Loop",
     waist="Orpheus's Sash",
 	left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Cornelia's Ring",
     right_ring="Dingir Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%',}},
+    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 
 	}	
 	sets.ws['Hot Shot'] = {
     ammo="Eminent Bullet",
     head="Nyame Helm",
-    body="Laksamana's Frac +3",
+    body="Lanun Frac +4",
 	hands="Chasseur's Gants +2",
     legs="Nyame Flanchard",
-    feet="Lanun Bottes +3",	
+    feet={ name="Lanun Bottes +4", augments={'Enhances "Wild Card" effect',}},	
     neck="Iskur Gorget",
     waist="Orpheus's Sash",
-    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    right_ear="Neritic Earring",
+    left_ear="Crepuscular Earring",
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Cornelia's Ring",
     right_ring="Dingir Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%',}},
+    back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%',}},
 	}
 
 	sets.ws['Leaden Salute'] = {
     ammo="Orichalcum Bullet",
     head="Pixie Hairpin +1",
-    body="Lanun Frac +3",
+    body="Lanun Frac +4",
 	hands="Chasseur's Gants +2",
     legs="Nyame Flanchard",
-    feet="Lanun Bottes +3",	
+    feet={ name="Lanun Bottes +4", augments={'Enhances "Wild Card" effect',}},	
     neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Cornelia's Ring",
     right_ring="Archon Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%',}},
+    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 
 	sets.ws['Detonator'] = {
     ammo="Eminent Bullet",
     head="Nyame Helm",
-    body="Lanun Frac +3",
-	hands="Meghanada Gloves +2",
+    body="Laksamana Frac +4",
+	hands="Chasseur's Gants +2",
     legs="Chasseur's Culottes +2",
-    feet="Lanun Bottes +3",	
+    feet={ name="Lanun Bottes +4", augments={'Enhances "Wild Card" effect',}},	
     neck="Iskur Gorget",
-    waist="Kwahu Kachina Belt",
-    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    right_ear="Neritic Earring",
-    left_ring="Cacoethic Ring +1",
+    waist="Eschan Stone",
+    left_ear="Crepuscular Earring",
+    right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    left_ring="Cornelia's Ring",
     right_ring="Dingir Ring",
-    back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%',}},
+    back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%',}},
 	}
 
 	sets.ja = {}                    -- Leave this empty
@@ -311,22 +313,22 @@ function get_sets()
 	--neck="Regal Necklace",
 	}
 	sets.ja['Random Deal'] = {
-    body="Lanun Frac +3",
+    body="Lanun Frac +4",
 	}
 	sets.ja['Wild Card'] = {
-    feet="Lanun Bottes +3",	
+    feet={ name="Lanun Bottes +4", augments={'Enhances "Wild Card" effect',}},	
 	}
 	sets.ja['Fold'] = {
-	hands="Lanun Gants +3",
+	hands="Lanun Gants +4",
 	}
 	
 	sets.ja['Earth Shot'] = {
 	ammo="Animikii Bullet", -- MAB
     head="Nyame Helm",
-    body="Lanun Frac +3",
+    body="Lanun Frac +4",
     hands="Nyame Gauntlets",
-    feet="Lanun Bottes +3",	
-	feet="Chasseur's Bottes +2",
+    feet={ name="Lanun Bottes +4", augments={'Enhances "Wild Card" effect',}},	
+	feet="Lanun Bottes +4",
     neck="Null Loop",
     waist="Orpheus's Sash",
     left_ear="Crematio Earring",
@@ -444,15 +446,13 @@ function get_sets()
 	}
 	sets.buff.Holywater = {
     neck="Nicander's Necklace",
-    left_ring="Blenmot's Ring +1",
-    right_ring="Purity Ring",
 	}
 	sets.buff.Sleep = {
 	}
 	sets.buff.Phalanx = {
 	}
 remedy_box = texts.new('', {
-    pos = {x = 598, y = 930},
+    pos = {x = 555, y = 930},
     text = {
         font = 'Consolas',
         size = 8,
@@ -469,7 +469,7 @@ remedy_box = texts.new('', {
     }
 })
 panacea_box = texts.new('', {
-    pos = {x = 598, y = 880},
+    pos = {x = 555, y = 880},
     text = {
         font = 'Consolas',
         size = 8,
@@ -486,7 +486,7 @@ panacea_box = texts.new('', {
     }
 })
 holywater_box = texts.new('', {
-    pos = {x = 598, y = 830},
+    pos = {x = 561, y = 830},
     text = {
         font = 'Consolas',
         size = 8,
@@ -503,7 +503,7 @@ holywater_box = texts.new('', {
     }
 })
 vile_box = texts.new('', {
-    pos = {x = 590, y = 965},
+    pos = {x = 550, y = 965},
     text = {
         font = 'Consolas',
         size = 8,
@@ -520,7 +520,7 @@ vile_box = texts.new('', {
     }
 })
 vile1_box = texts.new('', {
-    pos = {x = 572, y = 980},
+    pos = {x = 532, y = 980},
     text = {
         font = 'Consolas',
         size = 8,
@@ -537,7 +537,7 @@ vile1_box = texts.new('', {
     }
 })
 InstantWarp_box = texts.new('', {
-    pos = {x = 680, y = 1068},
+    pos = {x = 630, y = 1070},
     text = {
         font = 'Consolas',
         size = 8,
@@ -553,24 +553,14 @@ InstantWarp_box = texts.new('', {
 		draggable = false,
     }
 })
-Food_box = texts.new('', {
-    pos = {x = 1080, y = 1088},
-    text = {
-        font = 'Consolas',
-        size = 10,
-        stroke = {width = 2},
-    },
-    flags = {
-        right = false,
-        bottom = false,
-        bold = true,
-		draggable = false,
-    }
-})
-SneakInvisible_box = texts.new('${text}', {
+
+Item_box = texts.new('${text}', {
     pos = {
-        x = 530,
-        y = 1050,
+        x = 1450,
+        y = 800,
+    },
+    bg = {
+        alpha = 190,
     },
     text = {
         font = 'Consolas',
@@ -586,14 +576,15 @@ SneakInvisible_box = texts.new('${text}', {
         draggable = false,
     }
 })
+
+Item_box:show()
 remedy_box:show()
 panacea_box:show()
 holywater_box:show()
 vile_box:show()
 vile1_box:show()
 InstantWarp_box:show()
-Food_box:show()
-SneakInvisible_box:show()
+
 
 update_item_boxes()
 count_item()
@@ -641,7 +632,18 @@ function aftercast(spell)
     equip(sets.Gun[Gun_Set_Names[Gun_Index]])
 	update_item_boxes()
 end
- 
+
+function buff_change(buff,gain,lose)
+    if buff == "doom" then --, Auto equips doom set, cause I'm lazy from killing Shinryu
+        if gain then
+            equip(sets.buff.Holywater)
+             disable('neck')
+        else
+            enable('neck')
+            status_change(player.status)
+        end
+    end
+end 
  
 function idle()
 	if player.status =='Engaged' then
@@ -722,12 +724,28 @@ function update_item_boxes()
     vile_box:text(('VElix: %d'):format(count_item('Vile Elixir')))
     vile1_box:text(('VElix +1: %d'):format(count_item('Vile Elixir +1')))
     InstantWarp_box:text(('Warp: %d'):format(count_item('Instant Warp')))
-    Food_box:text(('Grape Daifuku: %d'):format(count_item('Grape Daifuku')))
-	SneakInvisible_box:text(
-		('Silent Oil : %d\nPrism Powder: %d'):format(
+	Item_box:text(
+		('Reraise : %d\n' ..
+		'Hi-RR   : %d\n' ..
+		'Insta RR: %d\n' ..
+		'Utsusemi: %d\n' ..
+		'Silent Oil: %d\n' ..
+		'Prism Powder: %d\n' ..
+		'Grape Daifuku: %d\n' ..
+		'Decimating Bullet: %d\n' ..
+		'Eminent Bullet: %d\n' ..
+		'Orichalc. Bullet: %d'):format(
+			count_item('Reraiser'),
+			count_item('Hi-Reraiser'),
+			count_item('Instant Reraise'),
+			count_item('Shihei'),
 			count_item('Silent Oil'),
-			count_item('Prism Powder')
-		))	
+			count_item('Prism Powder'),
+			count_item('Grape Daifuku'),
+			count_item('Decimating Bullet'),
+			count_item('Eminent Bullet'),
+			count_item('Orichalc. Bullet')
+		))
 end
 
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
@@ -752,6 +770,6 @@ holywater_box:destroy()
 vile_box:destroy()
 vile1_box:destroy()
 InstantWarp_box:destroy()
-Food_box:destroy()
-SneakInvisible_box:destroy()
+
+Item_box:destroy()
 end

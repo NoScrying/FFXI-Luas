@@ -1,15 +1,18 @@
 texts = require('texts')
 local res = require('resources')
+include('organizer-lib')
 function get_sets()
 	send_command('bind f7 gs c toggle Weapons set') -- F10 = Cycle through
 	send_command('bind f9 gs c toggle melee set') -- F9 = Cycle through
 	send_command('bind f10 gs c toggle run set') -- F10 = Cycle through
 	send_command('bind f12 gs c toggle TH set') -- F10 = Cycle through
+	send_command('bind !numpad1 input //send @all gs c toggle Holy Water')
 	send_command('bind !numpad0 gs c toggle Emergency MEVA')
-	send_command('bind !pause input //send Nolyte /Savage Blade')
-	send_command('bind !pageup input //send Kiokura /Savage Blade')	
-	send_command('bind !end input //send Kiokura /LeadenSalute')	
-	send_command('bind !pagedown input //send @others /Savage Blade')
+	send_command('bind !pause input //send @others /Savage Blade')
+	send_command('bind !pageup input //send Nolyte /Savage Blade')	
+	send_command('bind !pagedown input //send Kiokura /Savage Blade')
+	send_command('bind !end input //send Kiokura /LeadenSalute')
+	send_command('bind !delete input //send Kiokura /LastStand')
 	send_command('lua l pettp')
 
 	Melee_Index = 1
@@ -18,7 +21,7 @@ function get_sets()
 	Weapons_Index = 1
 
 	sets["WarpRing"] = {
-	left_ring= "Warp Ring"
+	right_ring= "Warp Ring"
 	}
 	sets["DemRing"] = {
 	left_ring= "Dim. Ring (Dem)"
@@ -28,7 +31,7 @@ function get_sets()
 	sets.weapons = {}
 	sets.weapons.Naegling = {
     main="Naegling",
-	sub="",
+	sub="Regis",
 	}
 	sets.weapons["Shining One"] = {
     main="Shining One",
@@ -49,7 +52,7 @@ function get_sets()
     left_ear="Sroda Earring",
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
 	sets.melee.Hybrid = {
@@ -64,7 +67,7 @@ function get_sets()
     left_ear="Alabaster Earring",
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}	
 	sets.melee.DT = {
@@ -79,7 +82,7 @@ function get_sets()
     left_ear="Alabaster Earring",
     right_ear="Sanare Earring",
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
 
@@ -100,7 +103,7 @@ function get_sets()
     back="Null Shawl",
 	}
 	
-	Run_Set_Names = {'DT/Regen','MEVA', 'Refresh'}
+	Run_Set_Names = {'DT/Regen','Refresh'}--'MEVA',
 	sets.run = {}
 	sets.run["DT/Regen"] =  {
     ammo="Staunch Tathlum +1",
@@ -110,11 +113,11 @@ function get_sets()
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     feet="Gleti's Boots",
     neck="Loricate Torque +1",
-    waist="Null Belt",
-    left_ear="Alabaster Earring",
-    right_ear="Odnowa Earring +1",
+    waist="Carrier's Sash",
+    left_ear="Arete Del Luna +1",
+    right_ear="Sanare Earring",
     left_ring="Murky Ring",
-    right_ring="Purity Ring",
+    right_ring="Defending Ring",
     back="Null Shawl",
 	}
 	sets.run.MEVA = {
@@ -128,8 +131,8 @@ function get_sets()
     waist="Null Belt",
     left_ear="Arete Del Luna +1",
     right_ear="Sanare Earring",
-    left_ring="Shadow Ring", 		--, +5% Negate Magic Damage chance
-    right_ring="Gelatinous Ring +1", 	--, -10% DT
+    left_ring="Murky Ring",
+    right_ring="Purity Ring",
     back="Null Shawl",
 	}	
 	sets.run.Refresh = {
@@ -156,6 +159,23 @@ function get_sets()
     waist="Chaac Belt",
 	}
 	
+	MEVA_Set_Name = {'MEVA'}
+	sets.MEVA = {
+    ammo="Shadow Sachet",
+    head="Null Masque",
+    body="Adamantite Armor",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Warder's Charm +1", 		--, +20 Element Resist, +5% Magic Absorb chance
+    waist="Null Belt",
+    left_ear="Arete Del Luna +1",
+    right_ear="Sanare Earring",
+    left_ring="Murky Ring",
+    right_ring="Purity Ring",
+    back="Null Shawl",
+	}	
+	
 	sets.ws = {} 					-- Leave this empty.
 	sets.ws['Stardiver']	= {
     ammo="Coiste Bodhar",
@@ -169,87 +189,92 @@ function get_sets()
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Peltast's Earring +1",
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.ws['Impulse Drive']	= {
     ammo="Knobkierrie",
     head="Peltast's Mezail +2",
-    body="Gleti's Cuirass",
+    --body="Gleti's Cuirass",
+    body="Ruwa Breastplate",
     hands="Pteroslaver Finger Gauntlets +3",
     legs="Vishap Brais +3",
     feet="Sulev. Leggings +2",
-    neck="Rep. Plat. Medal",
+    neck="Dragoon's Collar +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Peltast's Earring +1",
     left_ring="Epaminondas's Ring",
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Ephramad's Ring",
     back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 
 	sets.ws['Drakesbane']	= {
     ammo="Knobkierrie",
     head="Peltast's Mezail +2",
-    body="Gleti's Cuirass",
+    --body="Gleti's Cuirass",
+    body="Ruwa Breastplate",
     hands="Pteroslaver Finger Gauntlets +3",
     legs="Peltast's Cuissots +2",
     feet="Sulev. Leggings +2",
-    neck="Rep. Plat. Medal",
+    neck="Dragoon's Collar +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Peltast's Earring +1",
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Ephramad's Ring",
     back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.ws["Camlann's Torment"]	= {
     ammo="Knobkierrie",
     head="Peltast's Mezail +2",
-    body="Gleti's Cuirass",
+    --body="Gleti's Cuirass",
+    body="Ruwa Breastplate",
     hands="Pteroslaver Finger Gauntlets +3",
     legs="Vishap Brais +3",
     feet="Sulev. Leggings +2",
-    neck="Rep. Plat. Medal",
+    neck="Dragoon's Collar +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear="Peltast's Earring +1",
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Ephramad's Ring",
     back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.ws['Wheeling Thrust']	= {
     ammo="Knobkierrie",
     head="Peltast's Mezail +2",
-    body="Gleti's Cuirass",
+    --body="Gleti's Cuirass",
+    body="Ruwa Breastplate",
     hands="Pteroslaver Finger Gauntlets +3",
     legs="Vishap Brais +3",
     feet="Sulev. Leggings +2",
-    neck="Rep. Plat. Medal",
+    neck="Dragoon's Collar +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear="Peltast's Earring +1",
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Ephramad's Ring",
     back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.ws['Sonic Thrust']	= {
     ammo="Knobkierrie",
     head="Peltast's Mezail +2",
-    body="Gleti's Cuirass",
+    --body="Gleti's Cuirass",
+    body="Ruwa Breastplate",
     hands="Pteroslaver Finger Gauntlets +3",
     legs="Vishap Brais +3",
     feet="Sulev. Leggings +2",
-    neck="Rep. Plat. Medal",
+    neck="Dragoon's Collar +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Peltast's Earring +1",
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Ephramad's Ring",
     back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Leg Sweep']	= {
@@ -270,15 +295,16 @@ function get_sets()
 	sets.ws['Savage Blade']	= {
     ammo="Knobkierrie",
     head="Peltast's Mezail +2",
-    body="Gleti's Cuirass",
+    --body="Gleti's Cuirass",
+    body="Ruwa Breastplate",
     hands="Pteroslaver Finger Gauntlets +3",
     legs="Vishap Brais +3",
     feet="Sulev. Leggings +2",
-    neck="Rep. Plat. Medal",
+    neck="Dragoon's Collar +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Peltast's Earring +1",
-    left_ring="Niqmaddu Ring",
+    left_ring="Ephramad's Ring",
     right_ring="Epaminondas's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}	
@@ -300,12 +326,12 @@ function get_sets()
     hands="Vishap Finger Gauntlets +2",
     legs="Sulev. Cuisses +2",
     feet="Ostro Greaves",
-    neck="Shulmanu Collar",
+    neck="Null Loop",
     waist="Kentarch Belt +1",
     left_ear="Sroda Earring",
     right_ear="Sherida Earring",
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
 	sets.ja['High Jump'] = set_combine (sets.ja['Jump'], {
@@ -366,7 +392,7 @@ function get_sets()
     right_ear="Loquac. Earring",
     left_ring="Lebeche Ring",
     right_ring="Weather. Ring +1",
-    back="Moonbeam Cape",
+    back={ name="Brigantia's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},
 	} 	
     sets.midcast = {}               -- leave this empty  
 	sets.midcast["Healing Breath"] = set_combine (sets.ja["Restoring Breath"], {
@@ -384,8 +410,24 @@ function get_sets()
     right_ear="Mimir Earring",
     left_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
     right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
-    back="Moonbeam Cape",
+    back={ name="Brigantia's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},
 	}	
+	sets.midcast.RecastDT = {
+    ammo="Sapience Orb",
+    head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
+    body="Adamantite Armor",
+    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+    legs="Pelt. Cuissots +2",
+    feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}},
+    neck="Voltsurge Torque",
+    waist="Null Belt",
+    left_ear="Alabaster Earring",
+    right_ear="Odnowa Earring +1",
+    left_ring="Murky Ring",
+    right_ring="Weather. Ring +1",
+    back={ name="Brigantia's Mantle", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},
+	}
+	
 	sets.buff = {}
 	sets.buff.reive = {
 	neck="Ygnas\'s Resolve +1",
@@ -395,10 +437,10 @@ function get_sets()
 hasso_info = texts.new('${text}', {
     pos = {
         x = 681,
-        y = 780,
+        y = 762,
     },
 	bg = {
-		alpha   = 120,   -- 0-255 (0 = transparent, 255 = opaque)
+		alpha   = 150,   -- 0-255 (0 = transparent, 255 = opaque)
 	},	
     text = {
         font = 'Consolas',
@@ -418,7 +460,7 @@ hasso_info:show()
 update_hasso_panel()
 
 remedy_box = texts.new('', {
-    pos = {x = 598, y = 930},
+    pos = {x = 555, y = 930},
     text = {
         font = 'Consolas',
         size = 8,
@@ -435,7 +477,7 @@ remedy_box = texts.new('', {
     }
 })
 panacea_box = texts.new('', {
-    pos = {x = 598, y = 880},
+    pos = {x = 555, y = 880},
     text = {
         font = 'Consolas',
         size = 8,
@@ -452,7 +494,7 @@ panacea_box = texts.new('', {
     }
 })
 holywater_box = texts.new('', {
-    pos = {x = 598, y = 830},
+    pos = {x = 561, y = 830},
     text = {
         font = 'Consolas',
         size = 8,
@@ -469,7 +511,7 @@ holywater_box = texts.new('', {
     }
 })
 vile_box = texts.new('', {
-    pos = {x = 590, y = 965},
+    pos = {x = 550, y = 965},
     text = {
         font = 'Consolas',
         size = 8,
@@ -486,7 +528,7 @@ vile_box = texts.new('', {
     }
 })
 vile1_box = texts.new('', {
-    pos = {x = 572, y = 980},
+    pos = {x = 532, y = 980},
     text = {
         font = 'Consolas',
         size = 8,
@@ -519,24 +561,13 @@ InstantWarp_box = texts.new('', {
 		draggable = false,
     }
 })
-Food_box = texts.new('', {
-    pos = {x = 1080, y = 1088},
-    text = {
-        font = 'Consolas',
-        size = 10,
-        stroke = {width = 2},
-    },
-    flags = {
-        right = false,
-        bottom = false,
-        bold = true,
-		draggable = false,
-    }
-})
-SneakInvisible_box = texts.new('${text}', {
+Item_box = texts.new('${text}', {
     pos = {
-        x = 530,
-        y = 1050,
+        x = 1215,
+        y = 930,
+    },
+    bg = {
+        alpha = 190,
     },
     text = {
         font = 'Consolas',
@@ -552,14 +583,15 @@ SneakInvisible_box = texts.new('${text}', {
         draggable = false,
     }
 })
+
+Item_box:show()
 remedy_box:show()
 panacea_box:show()
 holywater_box:show()
 vile_box:show()
 vile1_box:show()
 InstantWarp_box:show()
-Food_box:show()
-SneakInvisible_box:show()
+
 
 update_item_boxes()
 count_item()
@@ -579,7 +611,7 @@ end
 
 function midcast(spell)
     if  spell.action_type == 'Magic' then
-        equip(sets.MEVA)
+        equip(sets.midcast.RecastDT)
 	end
 	if spell.name:match('Phalanx') then
 		equip(sets.midcast.phalanx)
@@ -667,30 +699,63 @@ function self_command(command)
         windower.add_to_chat('Weapon is now: '..Weapons_Set_Names[Weapons_Index])
 		equip(sets.weapons[Weapons_Set_Names[Weapons_Index]])
 	end
+	if command == 'toggle Emergency MEVA' then
+        windower.add_to_chat('Equipping Emergency MEVA/DT')
+		equip(sets.MEVA)
+	end
     if command == 'idle' then
         idle()
     end
 end
 
+function color_pet_tp(tp)
+    if not tp then
+        return '\\cs(255,0,0)0\\cr'
+    elseif tp >= 3000 then
+        return '\\cs(255,0,0)'..tp..'\\cr'
+    elseif tp >= 1000 then
+        return '\\cs(0,255,0)'..tp..'\\cr'
+    else
+        return '\\cs(255,255,255)'..tp..'\\cr'
+    end
+end
 function sub_job_change(new, old)
     update_hasso_panel(new)
 end
+
+local last_pet_tp = -1
+local last_hasso = nil
+local last_subjob = nil
+
 function update_hasso_panel(subjob)
 
     subjob = subjob or player.sub_job
 
-    if subjob ~= 'SAM' then
-        hasso_info:hide()
-        return
+    local hasso_text
+
+    if subjob == 'SAM' then
+        local hasso = buffactive['Hasso']
+
+        hasso_text = string.format(
+            'Hasso: %s',
+            hasso and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr'
+        )
+    else
+        hasso_text = 'Hasso: \\cs(160,160,160)N/A\\cr'
+    end
+
+    local wyvern_tp = 0
+
+    if pet.isvalid then
+        wyvern_tp = pet.tp or 0
     end
 
     hasso_info:show()
 
-    local hasso = buffactive['Hasso']
-
     hasso_info:text(string.format(
-        'Hasso: %s',
-        hasso and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr'
+        '%s\nWyvern TP: %d',
+        hasso_text,
+        wyvern_tp
     ))
 end
 function count_item(name)
@@ -717,12 +782,22 @@ function update_item_boxes()
     vile_box:text(('VElix: %d'):format(count_item('Vile Elixir')))
     vile1_box:text(('VElix +1: %d'):format(count_item('Vile Elixir +1')))
     InstantWarp_box:text(('Warp: %d'):format(count_item('Instant Warp')))
-    Food_box:text(('Grape Daifuku: %d'):format(count_item('Grape Daifuku')))
-	SneakInvisible_box:text(
-		('Silent Oil : %d\nPrism Powder: %d'):format(
+	Item_box:text(
+		('Reraise : %d\n' ..
+		'Hi-RR   : %d\n' ..
+		'Insta RR: %d\n' ..
+		'Utsusemi: %d\n' ..
+		'Silent Oil: %d\n' ..
+		'Prism Powder: %d\n' ..
+		'Grape Daifuku: %d'):format(
+			count_item('Reraiser'),
+			count_item('Hi-Reraiser'),
+			count_item('Instant Reraise'),
+			count_item('Shihei'),
 			count_item('Silent Oil'),
-			count_item('Prism Powder')
-		))	
+			count_item('Prism Powder'),
+			count_item('Grape Daifuku')
+		))
 end
 
 function user_unload()
@@ -743,6 +818,5 @@ holywater_box:destroy()
 vile_box:destroy()
 vile1_box:destroy()
 InstantWarp_box:destroy()
-Food_box:destroy()
-SneakInvisible_box:destroy()
+Item_box:destroy()
 end

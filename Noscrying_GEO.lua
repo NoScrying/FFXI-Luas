@@ -1,3 +1,4 @@
+include('organizer-lib')
 function get_sets()
 	send_command('bind f9 gs c toggle Engaged set') -- F9 = Cycle through
 	send_command('bind f7 gs c toggle weapon set') -- F10 = Cycle through
@@ -6,10 +7,11 @@ function get_sets()
 	send_command('bind ^f12 gs c toggle Nuke set')
 	send_command('bind !numpad1 gs c toggle Holy Water')
 	send_command('bind !numpad3 gs c toggle Echo Drops')
-	send_command('bind !pause input //send Nolyte /Savage Blade')
-	send_command('bind !pageup input //send Kiokura /Savage Blade')	
-	send_command('bind !end input //send Kiokura /LeadenSalute')	
-	send_command('bind !pagedown input //send @others /Savage Blade')
+	send_command('bind !pause input //send @others /Savage Blade')
+	send_command('bind !pageup input //send Nolyte /Savage Blade')	
+	send_command('bind !pagedown input //send Kiokura /Savage Blade')
+	send_command('bind !end input //send Kiokura /LeadenSalute')
+	send_command('bind !delete input //send Kiokura /LastStand')
 	
 	Engaged_Index = 1
 	Weapon_Index = 1
@@ -18,7 +20,7 @@ function get_sets()
 	Nuke_Index = 1
 
 	sets["WarpRing"] = {
-	left_ring= "Warp Ring"
+	right_ring= "Warp Ring"
 	}
 	sets["DemRing"] = {
 	left_ring= "Dim. Ring (Dem)"
@@ -38,7 +40,7 @@ function get_sets()
     left_ear="Cessance Earring",
     right_ear="Telos Earring",
     left_ring="Chirich Ring +1",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
 
@@ -160,7 +162,7 @@ function get_sets()
     left_ear="Cessance Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
-    right_ring="Ifrit Ring +1",
+    right_ring="Ephramad's Ring",
     back={ name="Nantosuelta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Judgment']	= {
@@ -175,7 +177,7 @@ function get_sets()
     left_ear="Cessance Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Epaminondas's Ring",
-    right_ring="Ifrit Ring +1",
+    right_ring="Ephramad's Ring",
     back={ name="Nantosuelta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Cataclysm']	= {
@@ -205,7 +207,7 @@ function get_sets()
     left_ear="Cessance Earring",
     right_ear="Brutal Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Ifrit Ring +1",
+    right_ring="Ephramad's Ring",
     back={ name="Nantosuelta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Flash Nova']	= {
@@ -235,7 +237,7 @@ function get_sets()
     left_ear="Cessance Earring",
     right_ear="Brutal Earring",
     left_ring="Ifrit Ring +1",
-    right_ring="Lehko's Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Nantosuelta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}	
 	
@@ -284,6 +286,7 @@ function get_sets()
 	}
 	sets.precast["Geomancy"] = set_combine(sets.precast.fastcast,{ main = "Idris" })
 	sets.precast['Dispelga'] = set_combine(sets.precast.fastcast,{ main = "Daybreak" })
+	sets.precast['Impact'] = set_combine(sets.precast.fastcast,{ Body = "Crepuscular Cloak", head = ""})		
 	
     sets.midcast = {}               -- leave this empty  
 	sets.midcast.DT = {
@@ -386,7 +389,7 @@ function get_sets()
 
 
 	sets.midcast.MACC = {
-    ammo={ name="Ghastly Tathlum +1", augments={'Path: A',}},
+    ammo="Pemphredo Tathlum",
     head="Azimuth Hood +2",
     body="Azimuth Coat +2",
     hands="Azimuth Gloves +2",
@@ -399,6 +402,21 @@ function get_sets()
     left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     right_ring="Weatherspoon Ring +1",
     back="Null Shawl",
+	}
+	sets.midcast["Impact"] = {
+    ammo="Pemphredo Tathlum",
+    head="",
+    body="Crepuscular Cloak",
+    hands="Azimuth Gloves +2",
+    legs="Azimuth Tights +2",
+    feet="Azimuth Gaiters +2",
+    neck="Null Loop",
+    waist={ name="Acuity Belt +1", augments={'Path: A',}},
+    left_ear="Malignance Earring",
+        right_ear={ name="Azimuth Earring +1", augments={'System: 1 ID: 1676 Val: 0','Mag. Acc.+13','Damage taken-4%',}},
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Archon Ring",
+    back="Aurist's Cape +1",
 	}
 	sets.midcast.enfeebling = {
     range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
@@ -476,7 +494,7 @@ function get_sets()
     waist="Acuity Belt +1",
     left_ear="Malignance Earring",
     right_ear="Regal Earring",
-    left_ring="Lehko's Ring",
+    left_ring="Chirich Ring +1",
     right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 	back="Aurist's Cape +1",
 	}
@@ -557,8 +575,11 @@ function get_sets()
 end
 
 function precast(spell)
-    if  spell.action_type == 'Magic' then
+	if spell.action_type == 'Magic' then
         equip(sets.precast.fastcast)
+    end	
+	if spell.name == "Impact" then
+	equip(sets.precast['Impact'])
 	end
 	if spell.name == "Dispelga" then
 	equip(sets.precast['Dispelga'])
@@ -611,9 +632,13 @@ end
 			if world.weather_element == spell.element or world.day_element == spell.element then
 				equip(sets.midcast.NukeWithMatchingWeather)	
 			-- end
+
 		end
 	end
 end		
+    if spell.name == 'Impact'then
+        equip(sets.midcast["Impact"])
+    end
 	--
     if spell.action_type == 'Magic' then
 		if spell.skill == 'Healing Magic' then

@@ -1,5 +1,6 @@
 texts = require('texts')
 local res = require('resources')
+include('organizer-lib')
 local runes = {
     ['Ignis'] = true,
     ['Gelus'] = true,
@@ -58,10 +59,11 @@ function get_sets()
 	send_command('bind !numpad0 gs c toggle Emergency MEVA')
 	send_command('bind ^numpad0 gs c toggle Meva/Stun resist')
 	
-	send_command('bind !pause input //send Nolyte /Savage Blade')
-	send_command('bind !pageup input //send Kiokura /Savage Blade')	
-	send_command('bind !end input //send Kiokura /LeadenSalute')	
-	send_command('bind !pagedown input //send @others /Savage Blade')
+	send_command('bind !pause input //send @others /Savage Blade')
+	send_command('bind !pageup input //send Nolyte /Savage Blade')	
+	send_command('bind !pagedown input //send Kiokura /Savage Blade')
+	send_command('bind !end input //send Kiokura /LeadenSalute')
+	send_command('bind !delete input //send Kiokura /LastStand')
 	
 	Run_Index = 1 --, Index for gearsets, needed for when there is more than 1 in a set and you wish you toggle beween them
 	TH_Index = 1
@@ -70,7 +72,7 @@ function get_sets()
 	Buff_Index = 1	
 
 	sets["WarpRing"] = {
-	left_ring= "Warp Ring"
+	right_ring= "Warp Ring"
 	}
 	sets["DemRing"] = {
 	left_ring= "Dim. Ring (Dem)"
@@ -182,7 +184,7 @@ function get_sets()
     left_ear="Telos Earring",
     right_ear="Sherida Earring",
     left_ring="Moonlight Ring",priority=19,
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},priority=14,
 	}
 	sets.Tank_Mode = {}
@@ -378,7 +380,7 @@ function get_sets()
     waist="Fotia Belt",
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
-    left_ring="Ifrit Ring +1",
+    left_ring="Ephramad's Ring",
     right_ring="Niqmaddu Ring",
     back={ name="Ogma's Cape", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
 	}
@@ -386,7 +388,7 @@ function get_sets()
 	sets.ws['Dimidiation']	= {
     ammo="Knobkierrie",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Erilaz Surcoat +2",
+    body="Olorun Harness",
     hands="Meg. Gloves +2",
     legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
     feet="Nyame Sollerets",
@@ -395,7 +397,7 @@ function get_sets()
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Ilabrat Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 
@@ -406,7 +408,7 @@ function get_sets()
 	sets.ws['Spinning Slash']	= {
     ammo="Knobkierrie",
     head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
-    body="Futhark Coat +3",priority=19, 
+    body="Olorun Harness",priority=19, 
     hands="Meg. Gloves +2",priority=17, 
     legs="Meg. Chausses +2",priority=18, 
     feet="Nyame Sollerets",
@@ -415,7 +417,7 @@ function get_sets()
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Niqmaddu Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}	
 	
@@ -431,7 +433,7 @@ function get_sets()
 	left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Friomisi Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Niqmaddu Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Herculean Slash']	= {
@@ -446,7 +448,7 @@ function get_sets()
 	left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Friomisi Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Niqmaddu Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Shockwave']	= { 		--, Use MACC to ensure additional effect proc, Sleepga
@@ -467,7 +469,7 @@ function get_sets()
 	sets.ws['Ground Strike']	= {
     ammo="Knobkierrie",
     head={ name="Lustratio Cap +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
-    body="Futhark Coat +3",priority=19, 
+    body="Olorun Harness",priority=19, 
     hands="Meg. Gloves +2",priority=17, 
     legs="Meg. Chausses +2",priority=18, 
     feet="Nyame Sollerets",
@@ -476,7 +478,7 @@ function get_sets()
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Niqmaddu Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}	
 	
@@ -484,7 +486,7 @@ function get_sets()
 	sets.ws['Savage Blade']	= {
     ammo="Knobkierrie",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Futhark Coat +3",priority=19, 
+    body="Olorun Harness",priority=19, 
     hands="Meg. Gloves +2",priority=18, 
     legs="Lustr. Subligar +1",
     feet="Nyame Sollerets",
@@ -493,7 +495,7 @@ function get_sets()
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Niqmaddu Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Chant du Cygne']	= {
@@ -531,7 +533,7 @@ function get_sets()
 	sets.ws['Upheaval']	= {
     ammo="Knobkierrie",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Futhark Coat +3",
+    body="Olorun Harness",
     hands="Meg. Gloves +2",
     legs="Eri. Leg Guards +2",
     feet="Nyame Sollerets",
@@ -540,14 +542,14 @@ function get_sets()
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Niqmaddu Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	
 	sets.ws['Steel Cyclone']	= {
     ammo="Knobkierrie",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Futhark Coat +3",
+    body="Olorun Harness",
     hands="Meg. Gloves +2",
     legs="Eri. Leg Guards +2",
     feet="Nyame Sollerets",
@@ -556,14 +558,14 @@ function get_sets()
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Niqmaddu Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 
 	sets.ws['Fell Cleave']	= {
     ammo="Knobkierrie",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Futhark Coat +3",
+    body="Olorun Harness",
     hands="Meg. Gloves +2",
     legs="Eri. Leg Guards +2",
     feet="Nyame Sollerets",
@@ -572,7 +574,7 @@ function get_sets()
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Niqmaddu Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	
@@ -640,7 +642,7 @@ function get_sets()
 	sets.ws['Judgment']	= {
     ammo="Knobkierrie",
     head={ name="Herculean Helm", augments={'Accuracy+3','AGI+2','Weapon skill damage +7%','Accuracy+18 Attack+18','Mag. Acc.+15 "Mag.Atk.Bns."+15',}},
-    body="Futhark Coat +3",priority=19, 
+    body="Olorun Harness",priority=19, 
     hands="Meg. Gloves +2",priority=18, 
     legs="Lustr. Subligar +1",
     feet="Nyame Sollerets",
@@ -648,7 +650,7 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Sherida Earring",
-    left_ring="Sroda Ring",
+    left_ring="Ephramad's Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Ogma's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
@@ -840,7 +842,7 @@ function get_sets()
     ammo="Sapience Orb",				--, 2
     head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},priority=15, --, 14
     body="Erilaz Surcoat +2",priority=18, --, 10
-    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}}, --, 8
+    hands="Sworn Gauntlets",
     legs="Aya. Cosciales +2",priority=17, --, 6
     feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}},priority=14, --, 8
     neck="Voltsurge Torque", 			--, 4
@@ -856,7 +858,7 @@ function get_sets()
     ammo="Impatiens",					--, QM+2%
     head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},priority=13, --, 14
     body="Erilaz Surcoat +2",priority=16, --, 10
-    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}}, --, 8
+    hands="Sworn Gauntlets",
     legs="Futhark Trousers +3",priority=17, --, 15 (Only works for Enhancing Magic)
     feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}}, --, 8
     neck="Futhark Torque +2",priority=15,
@@ -1142,11 +1144,11 @@ function get_sets()
 	
 RUN_info_1 = texts.new('${text}', {
     pos = {
-        x = 772,
-        y = 732,
+        x = 779,
+        y = 733,
     },
 	bg = {
-		alpha   = 120,   -- 0-255 (0 = transparent, 255 = opaque)
+		alpha   = 150,   -- 0-255 (0 = transparent, 255 = opaque)
 	},	
     text = {
         font = 'Consolas',
@@ -1168,7 +1170,7 @@ RUN_info_2 = texts.new('${text}', {
         y = 749,
     },
 	bg = {
-		alpha   = 120,   -- 0-255 (0 = transparent, 255 = opaque)
+		alpha   = 150,   -- 0-255 (0 = transparent, 255 = opaque)
 	},	
     text = {
         font = 'Consolas',
@@ -1189,7 +1191,7 @@ RUN_info_2:show()
 update_RUN_panel()
 
 remedy_box = texts.new('', {
-    pos = {x = 598, y = 930},
+    pos = {x = 555, y = 930},
     text = {
         font = 'Consolas',
         size = 8,
@@ -1206,7 +1208,7 @@ remedy_box = texts.new('', {
     }
 })
 panacea_box = texts.new('', {
-    pos = {x = 598, y = 880},
+    pos = {x = 555, y = 880},
     text = {
         font = 'Consolas',
         size = 8,
@@ -1223,7 +1225,7 @@ panacea_box = texts.new('', {
     }
 })
 holywater_box = texts.new('', {
-    pos = {x = 598, y = 830},
+    pos = {x = 561, y = 830},
     text = {
         font = 'Consolas',
         size = 8,
@@ -1240,7 +1242,7 @@ holywater_box = texts.new('', {
     }
 })
 vile_box = texts.new('', {
-    pos = {x = 590, y = 965},
+    pos = {x = 550, y = 965},
     text = {
         font = 'Consolas',
         size = 8,
@@ -1257,7 +1259,7 @@ vile_box = texts.new('', {
     }
 })
 vile1_box = texts.new('', {
-    pos = {x = 572, y = 980},
+    pos = {x = 532, y = 980},
     text = {
         font = 'Consolas',
         size = 8,
@@ -1290,24 +1292,14 @@ InstantWarp_box = texts.new('', {
 		draggable = false,
     }
 })
-Food_box = texts.new('', {
-    pos = {x = 1080, y = 1088},
-    text = {
-        font = 'Consolas',
-        size = 10,
-        stroke = {width = 2},
-    },
-    flags = {
-        right = false,
-        bottom = false,
-        bold = true,
-		draggable = false,
-    }
-})
-SneakInvisible_box = texts.new('${text}', {
+
+Item_box = texts.new('${text}', {
     pos = {
-        x = 530,
-        y = 1050,
+        x = 1215,
+        y = 930,
+    },
+    bg = {
+        alpha = 190,
     },
     text = {
         font = 'Consolas',
@@ -1323,14 +1315,15 @@ SneakInvisible_box = texts.new('${text}', {
         draggable = false,
     }
 })
+
+Item_box:show()
 remedy_box:show()
 panacea_box:show()
 holywater_box:show()
 vile_box:show()
 vile1_box:show()
 InstantWarp_box:show()
-Food_box:show()
-SneakInvisible_box:show()
+
 
 update_item_boxes()
 count_item()
@@ -1713,10 +1706,10 @@ function update_RUN_panel()
 		battuta and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr'
 	))
     RUN_info_2:text(string.format(
-        'Temper: %s\nRefresh: %s\nRegen: %s',
-        temper and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr',
-        refresh and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr',
-        regen and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr'
+        'Temper : %s\nRefresh: %s\nRegen  : %s',
+        temper and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF \\cr',
+        refresh and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF \\cr',
+        regen and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF \\cr'
     ))
 end
 function count_item(name)
@@ -1743,12 +1736,22 @@ function update_item_boxes()
     vile_box:text(('VElix: %d'):format(count_item('Vile Elixir')))
     vile1_box:text(('VElix +1: %d'):format(count_item('Vile Elixir +1')))
     InstantWarp_box:text(('Warp: %d'):format(count_item('Instant Warp')))
-    Food_box:text(('Grape Daifuku: %d'):format(count_item('Grape Daifuku')))
-	SneakInvisible_box:text(
-		('Silent Oil : %d\nPrism Powder: %d'):format(
+	Item_box:text(
+		('Reraise : %d\n' ..
+		'Hi-RR   : %d\n' ..
+		'Insta RR: %d\n' ..
+		'Utsusemi: %d\n' ..
+		'Silent Oil: %d\n' ..
+		'Prism Powder: %d\n' ..
+		'Grape Daifuku: %d'):format(
+			count_item('Reraiser'),
+			count_item('Hi-Reraiser'),
+			count_item('Instant Reraise'),
+			count_item('Shihei'),
 			count_item('Silent Oil'),
-			count_item('Prism Powder')
-		))	
+			count_item('Prism Powder'),
+			count_item('Grape Daifuku')
+		))
 end
 
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
@@ -1787,6 +1790,5 @@ holywater_box:destroy()
 vile_box:destroy()
 vile1_box:destroy()
 InstantWarp_box:destroy()
-Food_box:destroy()
-SneakInvisible_box:destroy()
+Item_box:destroy()
 end

@@ -1,3 +1,4 @@
+include('organizer-lib')
 function get_sets()
 	send_command('bind f9 gs c toggle melee set')
 	send_command('bind f10 gs c toggle Run set')
@@ -7,10 +8,11 @@ function get_sets()
 	send_command('bind !numpad1 gs c toggle Buff set')
 	send_command('bind ^f12 gs c toggle Nuke set') 	--, ^ = CTRL
 	send_command ("input //lua load SCH-hud")
-	send_command('bind !pause input //send Nolyte /Savage Blade')
-	send_command('bind !pageup input //send Kiokura /Savage Blade')	
-	send_command('bind !end input //send Kiokura /LeadenSalute')	
-	send_command('bind !pagedown input //send @others /Savage Blade')
+	send_command('bind !pause input //send @others /Savage Blade')
+	send_command('bind !pageup input //send Nolyte /Savage Blade')	
+	send_command('bind !pagedown input //send Kiokura /Savage Blade')
+	send_command('bind !end input //send Kiokura /LeadenSalute')
+	send_command('bind !delete input //send Kiokura /LastStand')
 	
 	Melee_Index = 1
 	Main_Index = 1
@@ -21,7 +23,7 @@ function get_sets()
 	Nuke_Index = 1
 	
 	sets["WarpRing"] = {
-	left_ring= "Warp Ring"
+	right_ring= "Warp Ring"
 	}
 	sets["DemRing"] = {
 	left_ring= "Dim. Ring (Dem)"
@@ -40,7 +42,7 @@ function get_sets()
     waist="Null Belt",
     left_ear="Cessance Earring",
     right_ear="Brutal Earring",
-    left_ring="Lehko's Ring",
+    left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
@@ -85,7 +87,7 @@ function get_sets()
     waist="Shetal Stone",
     left_ear="Brutal Earring",
     right_ear="Suppanomimi",
-    left_ring="Lehko's Ring",
+    left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
@@ -193,7 +195,7 @@ function get_sets()
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Regal Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Ifrit Ring +1",
+    right_ring="Ephramad's Ring",
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
 	sets.ws['Realmrazer']	= {
@@ -208,7 +210,7 @@ function get_sets()
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Regal Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Ifrit Ring +1",
+    right_ring="Ephramad's Ring",
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
 	sets.ws['Flash Nova']	= {
@@ -268,7 +270,7 @@ function get_sets()
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     right_ear="Ishvara Earring",
     left_ring="Epaminondas's Ring",
-    right_ring="Sroda Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Aurist's Cape +1", augments={'Path: A',}},
 	}
 	
@@ -631,7 +633,12 @@ function get_sets()
 	left_ring = "Archon Ring",
     neck="Null Loop",
 	})
-	
+	sets.Nuke["Impact"] = set_combine (sets.Nuke["MB - With Bunzi"], {
+	head = "",
+	body = "Crepuscular Cloak",
+	left_ring = "Archon Ring",
+    neck="Null Loop",
+	})	
     sets.aftercast = {}             -- leave this empty
 	
 	ElementalGear = {}

@@ -1,5 +1,6 @@
 texts = require('texts')
 local res = require('resources')
+include('organizer-lib')
 function get_sets()
 	send_command('bind f7 gs c toggle Weapons set') -- F10 = Cycle through
 	send_command('bind !f7 gs c toggle Sub_Weapon set') -- F10 = Cycle through
@@ -11,10 +12,11 @@ function get_sets()
 	send_command('bind f12 gs c toggle TH set')
 	send_command('bind !numpad1 gs c toggle Holy Water')
 	send_command('bind !numpad0 gs c toggle Emergency MEVA')
-	send_command('bind !pause input //send Nolyte /Savage Blade')
-	send_command('bind !pageup input //send Kiokura /Savage Blade')	
-	send_command('bind !end input //send Kiokura /LeadenSalute')	
-	send_command('bind !pagedown input //send @others /Savage Blade')
+	send_command('bind !pause input //send @others /Savage Blade')
+	send_command('bind !pageup input //send Nolyte /Savage Blade')	
+	send_command('bind !pagedown input //send Kiokura /Savage Blade')
+	send_command('bind !end input //send Kiokura /LeadenSalute')
+	send_command('bind !delete input //send Kiokura /LastStand')
 	
 	Melee_Index = 1
 	Run_Index = 1
@@ -23,7 +25,7 @@ function get_sets()
 	Buff_Index = 1	
 
 	sets["WarpRing"] = {
-	left_ring= "Warp Ring"
+	right_ring= "Warp Ring"
 	}
 	sets["DemRing"] = {
 	left_ring= "Dim. Ring (Dem)"
@@ -68,7 +70,7 @@ function get_sets()
     body="Horos Casaque +3",
     hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
     legs="Meghanada Chausses +2",
-    feet="Horos Toe Shoes +3",
+    feet="Horos Toe Shoes +4",
     neck="Etoile Gorget +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
@@ -89,7 +91,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear="Telos Earring",
     left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
 	sets.DD_Mode.Hybrid = {	
@@ -97,66 +99,35 @@ function get_sets()
     head="Malignance Chapeau",
     body="Maculele Casaque +2",
     hands="Malignance Gloves",
-    legs="Meg. Chausses +2",
-    -- legs="Malignance Tights",
-    feet="Horos Toe Shoes +3",
+    --legs="Meg. Chausses +2",
+    legs="Malignance Tights",
+    feet="Horos Toe Shoes +4",
     neck="Etoile Gorget +1",
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     -- waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear="Alabaster Earring",
     left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
 	
 --	Aftermath Sets
 
-	sets["Terpsichore Aftermath"] = {
-	ammo="Yamarang",
-    head="Null Masque",
-    body="Maculele Casaque +2",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Maculele Toe Shoes +2",
-    neck={ name="Etoile Gorget +1", augments={'Path: A',}},
-    waist="Null Belt",
-    left_ear="Sherida Earring",
-    right_ear="Telos Earring",
-    left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
-    back="Null Shawl",
-	}
-	sets["Twashtar Aftermath"] = {
+	sets["Terpsichore Aftermath"] = set_combine (sets.DD_Mode.Hybrid, {
+    waist="Kentarch Belt +1",
+	})
+	sets["Twashtar Aftermath"] = set_combine (sets.DD_Mode.Hybrid, {
 	ammo="Charis Feather",
-    head="Adhemar Bonnet +1",
-    body="Meghanada Cuirie +2",
-    hands="Gleti's Gauntlets",
-    legs="Gleti's Breeches",
-    feet="Maculele Toe Shoes +2",
-    neck={ name="Etoile Gorget +1", augments={'Path: A',}},
-    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
     right_ear="Odr Earring",
-    left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
-    back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},
-	}
-	sets["Karambit"] = {
+	})
+	sets["Karambit"] = set_combine (sets.DD_Mode.Hybrid, {
 	ammo="Charis Feather",
     head="Gleti's Mask",
     body="Gleti's Cuirass",
     hands="Gleti's Gauntlets",
     legs="Gleti's Breeches",
-    feet="Maculele Toe Shoes +2",
-    neck={ name="Etoile Gorget +1", augments={'Path: A',}},
-    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
-    left_ear="Sherida Earring",
-    right_ear="Odr Earring",
-    left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
-    back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},
-	}
+	})
 	
 --	Aftermath Sets
 
@@ -176,7 +147,7 @@ function get_sets()
     left_ear="Tuisto Earring",priority=18,
     right_ear="Sanare Earring",
     left_ring="Moonlight Ring",priority=17,
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back={ name="Senuna's Mantle", augments={'DEX+20','Eva.+20 /Mag. Eva.+20','DEX+10','Enmity+10','Parrying rate+5%',}},
 	}
 
@@ -351,22 +322,21 @@ function get_sets()
     ammo="Cath Palug Stone",
 	head="Maculele Tiara +2",
     --body="Horos Casaque +3",
-	body="Gleti's Cuirass",
+	--body="Gleti's Cuirass",
+    body="Olorun Harness",
     hands="Maxixi Bangles +3",
 	legs="Horos Tights +3",
     feet="Nyame Sollerets",
-    --feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
     neck="Etoile Gorget +1",
-    --waist={ name="Kentarch Belt +1", augments={'Path: A',}},
-	waist="Orpheus's Sash",
+    waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},	
     right_ear="Maculele Earring",
-    left_ring="Ilabrat Ring",
+    left_ring="Ephramad's Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws.ClimacticRudra = {
-    body="Meg. Cuirie +2",
+    --body="Meg. Cuirie +2",
 	ammo="Charis Feather",
 	}
 	
@@ -384,7 +354,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear="Maculele Earring",
     left_ring="Gere Ring",
-    right_ring="Ilabrat Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Senuna's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Exenterator'] = {
@@ -414,7 +384,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear="Brutal Earring",
     left_ring="Gere Ring",
-    right_ring="Ilabrat Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Senuna's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws.StrikingFlourish = {
@@ -429,7 +399,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear="Odr Earring",
     left_ring="Gere Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},	
 	}
 	sets.ws['Evisceration'] = {
@@ -446,13 +416,14 @@ function get_sets()
     right_ear="Odr Earring",
     -- left_ring="Ilabrat Ring",
 	left_ring="Archon Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Senuna's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Shark Bite'] = {
     ammo="Cath Palug Stone",
 	head="Maculele Tiara +2",
-    body="Gleti's Cuirass",
+	--body="Gleti's Cuirass",
+    body="Olorun Harness",
     hands="Maxixi Bangles +3",
 	legs="Horos Tights +3",
     feet="Nyame Sollerets",
@@ -460,7 +431,7 @@ function get_sets()
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Ilabrat Ring",
+    left_ring="Ephramad's Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Senuna's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
@@ -491,7 +462,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear="Maculele Earring",
     left_ring="Gere Ring",
-    right_ring="Sroda Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Senuna's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	} 
 	sets.ws['Raging Fists'] = {
@@ -512,7 +483,7 @@ function get_sets()
 	sets.ws['Tornado Kick'] = {
     ammo="Crepuscular Pebble",
 	head="Maculele Tiara +2",
-    body="Horos Casaque +3",
+    body="Olorun Harness",
     hands="Maxixi Bangles +3",
 	legs="Horos Tights +3",
     feet="Nyame Sollerets",
@@ -520,9 +491,25 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Sherida Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Sroda Ring",
+    left_ring="Ephramad's Ring",
     right_ring="Epaminondas's Ring",
     back={ name="Senuna's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+	}	
+	
+	sets.steps = {
+    ammo="Yamarang",
+    head="Null Masque",
+    body="Malignance Tabard",
+    hands="Maxixi Bangles +3",
+    legs="Malignance Tights",
+    feet="Horos Toe Shoes +4",
+    neck="Null Loop",
+    waist="Null Belt",
+    left_ear="Crep. Earring",
+    right_ear="Odr Earring",
+    left_ring="Ephramad's Ring",
+    right_ring="Chirich Ring +1",
+    back="Null Shawl",
 	}	
 	
 	sets.ja = {} 					-- Leave this empty.
@@ -648,7 +635,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear="Telos Earring",
     left_ring="Moonlight Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	}
 	sets.ja['Jump'] = set_combine(sets.ja['High Jump'], {	
@@ -671,22 +658,6 @@ function get_sets()
 	}
 	sets.ja["Provoke"] = set_combine (sets.ja.enmity, {
 	})
-
-	sets.steps = {
-    ammo="Yamarang",
-    head="Null Masque",
-    body="Malignance Tabard",
-    hands="Maxixi Bangles +3",
-    legs="Malignance Tights",
-    feet="Horos Toe Shoes +3",
-    neck="Null Loop",
-    waist="Null Belt",
-    left_ear="Crep. Earring",
-    right_ear="Odr Earring",
-    left_ring="Chirich Ring +1",
-    right_ring="Chirich Ring +1",
-    back="Null Shawl",
-	}
 	
 	sets.idle = {} 					-- Leave this empty.
 	sets.precast = {}               -- leave this empty    
@@ -761,7 +732,7 @@ DNC_info = texts.new('${text}', {
         y = 748,
     },
 	bg = {
-		alpha   = 120,   -- 0-255 (0 = transparent, 255 = opaque)
+		alpha   = 150,   -- 0-255 (0 = transparent, 255 = opaque)
 	},	
     text = {
         font = 'Consolas',
@@ -782,7 +753,7 @@ DNC_info:show()
 update_dnc_panel()
 
 remedy_box = texts.new('', {
-    pos = {x = 598, y = 930},
+    pos = {x = 555, y = 930},
     text = {
         font = 'Consolas',
         size = 8,
@@ -799,7 +770,7 @@ remedy_box = texts.new('', {
     }
 })
 panacea_box = texts.new('', {
-    pos = {x = 598, y = 880},
+    pos = {x = 555, y = 880},
     text = {
         font = 'Consolas',
         size = 8,
@@ -816,7 +787,7 @@ panacea_box = texts.new('', {
     }
 })
 holywater_box = texts.new('', {
-    pos = {x = 598, y = 830},
+    pos = {x = 561, y = 830},
     text = {
         font = 'Consolas',
         size = 8,
@@ -833,7 +804,7 @@ holywater_box = texts.new('', {
     }
 })
 vile_box = texts.new('', {
-    pos = {x = 590, y = 965},
+    pos = {x = 550, y = 965},
     text = {
         font = 'Consolas',
         size = 8,
@@ -850,7 +821,7 @@ vile_box = texts.new('', {
     }
 })
 vile1_box = texts.new('', {
-    pos = {x = 572, y = 980},
+    pos = {x = 532, y = 980},
     text = {
         font = 'Consolas',
         size = 8,
@@ -883,24 +854,13 @@ InstantWarp_box = texts.new('', {
 		draggable = false,
     }
 })
-Food_box = texts.new('', {
-    pos = {x = 1080, y = 1088},
-    text = {
-        font = 'Consolas',
-        size = 10,
-        stroke = {width = 2},
-    },
-    flags = {
-        right = false,
-        bottom = false,
-        bold = true,
-		draggable = false,
-    }
-})
-SneakInvisible_box = texts.new('${text}', {
+Item_box = texts.new('${text}', {
     pos = {
-        x = 530,
-        y = 1050,
+        x = 1215,
+        y = 930,
+    },
+    bg = {
+        alpha = 190,
     },
     text = {
         font = 'Consolas',
@@ -916,14 +876,14 @@ SneakInvisible_box = texts.new('${text}', {
         draggable = false,
     }
 })
+
+Item_box:show()
 remedy_box:show()
 panacea_box:show()
 holywater_box:show()
 vile_box:show()
 vile1_box:show()
 InstantWarp_box:show()
-Food_box:show()
-SneakInvisible_box:show()
 
 update_item_boxes()
 count_item()
@@ -944,6 +904,15 @@ function precast(spell)
 	if spell.name == "Box Step" or spell.name == "Stutter Step" then
 		equip(sets.steps)
 	end	
+    if spell.name:match('Curing') or spell.name:match('Divine') then
+	if DD_Mode == true then
+        equip(sets.ja.Waltz)
+			-- if spell.name:match('Curing') and spell.target.type == 'SELF' then
+				-- equip(sets.ja.WaltzSelf)
+	elseif Tank_Mode == true then
+		equip(sets.ja.TankWaltz)
+		end
+	end
     if sets.ws[spell.name] then
         equip(sets.ws[spell.name])
 			if buffactive['Striking Flourish'] and spell.name == 'Pyrrhic Kleos' or spell.name == 'Exenterator' then
@@ -1125,7 +1094,7 @@ function update_dnc_panel()
 
 	DNC_info:text(
     string.format(
-        'Haste Samba: %s\nFan Dance: %s\nSaber Dance: %s',
+        'Haste Samba: %s\nFan Dance  : %s\nSaber Dance: %s',
         hs and '\\cs(0,255,0)ON\\cr' or '\\cs(255,0,0)OFF\\cr',
         fd and '\\cs(0,255,0)ON - No Sambas\\cr' or '\\cs(255,0,0)OFF\\cr',
         sd and '\\cs(0,255,0)ON - No Heals\\cr' or '\\cs(255,0,0)OFF\\cr'
@@ -1157,12 +1126,22 @@ function update_item_boxes()
     vile_box:text(('VElix: %d'):format(count_item('Vile Elixir')))
     vile1_box:text(('VElix +1: %d'):format(count_item('Vile Elixir +1')))
     InstantWarp_box:text(('Warp: %d'):format(count_item('Instant Warp')))
-    Food_box:text(('Grape Daifuku: %d'):format(count_item('Grape Daifuku')))
-	SneakInvisible_box:text(
-		('Silent Oil : %d\nPrism Powder: %d'):format(
+	Item_box:text(
+		('Reraise : %d\n' ..
+		'Hi-RR   : %d\n' ..
+		'Insta RR: %d\n' ..
+		'Utsusemi: %d\n' ..
+		'Silent Oil: %d\n' ..
+		'Prism Powder: %d\n' ..
+		'Grape Daifuku: %d'):format(
+			count_item('Reraiser'),
+			count_item('Hi-Reraiser'),
+			count_item('Instant Reraise'),
+			count_item('Shihei'),
 			count_item('Silent Oil'),
-			count_item('Prism Powder')
-		))	
+			count_item('Prism Powder'),
+			count_item('Grape Daifuku')
+		))
 end
 
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
@@ -1201,6 +1180,5 @@ holywater_box:destroy()
 vile_box:destroy()
 vile1_box:destroy()
 InstantWarp_box:destroy()
-Food_box:destroy()
-SneakInvisible_box:destroy()
+Item_box:destroy()
 end

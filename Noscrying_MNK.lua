@@ -1,3 +1,6 @@
+texts = require('texts')
+local res = require('resources')
+include('organizer-lib')
 function get_sets()
 	send_command('bind f9 gs c toggle TP set') 
 	send_command('bind !f9 gs c toggle Tank_Mode') 
@@ -6,10 +9,11 @@ function get_sets()
 	send_command('bind f10 gs c toggle run set') -- F10 = Cycle through
 	send_command('bind !numpad1 gs c toggle Buff set') -- F12 = Cycle through
 	send_command('bind !numpad0 gs c toggle Emergency MEVA')
-	send_command('bind !pause input //send Nolyte /Savage Blade')
-	send_command('bind !pageup input //send Kiokura /Savage Blade')	
-	send_command('bind !end input //send Kiokura /LeadenSalute')	
-	send_command('bind !pagedown input //send @others /Savage Blade')
+	send_command('bind !pause input //send @others /Savage Blade')
+	send_command('bind !pageup input //send Nolyte /Savage Blade')	
+	send_command('bind !pagedown input //send Kiokura /Savage Blade')
+	send_command('bind !end input //send Kiokura /LeadenSalute')
+	send_command('bind !delete input //send Kiokura /LastStand')
 	
 	Buff_Index = 1	
 	TH_Index = 1
@@ -17,7 +21,7 @@ function get_sets()
 	Weapons_Index = 1
 
 	sets["WarpRing"] = {
-	left_ring= "Warp Ring"
+	right_ring= "Warp Ring"
 	}
 	sets["DemRing"] = {
 	left_ring= "Dim. Ring (Dem)"
@@ -38,7 +42,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear="Bhikku Earring +1", 	--, Counter +8
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	}
 	sets.DD_Mode.DT = {				--, -50 PDT, -34 MDT, 65STP (10 Hit), 3QA, 8TA, 15DA, 39KA, SB 35, SBII 25, Crit  +20%
@@ -53,7 +57,7 @@ function get_sets()
     left_ear="Sherida Earring", 	--, 5DA, 5STP, 5SBII
     right_ear="Bhikku Earring +1", 	--, Counter +8
     left_ring="Niqmaddu Ring",		--, 3QA, 5SBII 
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit
+    right_ring="Chirich Ring +1",		--, +10 STP, +10% Haste, +10 Crit
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, 10KA, 10DA, -10PDT
 }
 	sets.DD_Mode["Hybrid - SB+75"]= {	--, -46PDT, -36 MDT, 47STP (12 hit) 3QA, 16TA, 15DA, 55KA, SB 51, SBII 25 (Max 75), Crit +25%
@@ -70,7 +74,7 @@ function get_sets()
     left_ear="Sherida Earring", 	--, 5DA, 5STP, 5SBII
     right_ear="Bhikku Earring +1", 	--, Counter +8	
     left_ring="Niqmaddu Ring",		--, 3QA, 5SBII 
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit
+    right_ring="Chirich Ring +1",		--, +10 STP, +10% Haste, +10 Crit
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, 10KA, 10DA, -10PDT
 }
 	sets.Tank_Mode = {}
@@ -105,7 +109,7 @@ function get_sets()
     left_ear="Sherida Earring", 	--, 5DA, 5STP, 5SBII
     right_ear="Odr Earring",		--, +5 Crit		
     left_ring="Niqmaddu Ring",		--, 3QA, 5SBII 
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit
+    right_ring="Chirich Ring +1",		--, +10 STP, +10% Haste, +10 Crit
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}, --, 10KA, 10DA, -10PDT
 }
 	
@@ -194,7 +198,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear="Odr Earring",
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Ephramad's Ring",
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 	
@@ -217,7 +221,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear="Odr Earring",
     left_ring="Weatherspoon Ring +1",
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Ephramad's Ring",
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Crit.hit rate+10','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Shijin Spiral'] = {
@@ -322,7 +326,7 @@ function get_sets()
     left_ear="Sherida Earring",
     right_ear="Schere Earring",
     left_ring="Ilabrat Ring",
-    right_ring="Sroda Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Segomo's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+5','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
 	} 
 	sets.ws['Howling Fist'] = {
@@ -504,6 +508,169 @@ function get_sets()
 	}
     sets.aftercast = {}             -- leave this empty
 
+
+
+MNK_info_1 = texts.new('${text}', {
+    pos = {
+        x = 680,
+        y = 748,
+    },
+	bg = {
+		alpha   = 150,   -- 0-255 (0 = transparent, 255 = opaque)
+	},
+    text = {
+        font = 'Consolas',
+        size = 10,
+        red = 255,
+        green = 255,
+        blue = 255,
+    },
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+
+MNK_info_1:show()
+update_mnk_panel()
+
+remedy_box = texts.new('', {
+    pos = {x = 555, y = 930},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+panacea_box = texts.new('', {
+    pos = {x = 555, y = 880},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+holywater_box = texts.new('', {
+    pos = {x = 561, y = 830},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+vile_box = texts.new('', {
+    pos = {x = 550, y = 965},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+vile1_box = texts.new('', {
+    pos = {x = 532, y = 980},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+InstantWarp_box = texts.new('', {
+    pos = {x = 680, y = 1068},
+    text = {
+        font = 'Consolas',
+        size = 8,
+        stroke = {width = 2},
+    },
+	bg = {
+		alpha = 0,
+	},	
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+		draggable = false,
+    }
+})
+Item_box = texts.new('${text}', {
+    pos = {
+        x = 1215,
+        y = 930,
+    },
+    bg = {
+        alpha = 190,
+    },
+    text = {
+        font = 'Consolas',
+        size = 10,
+        red = 255,
+        green = 255,
+        blue = 255,
+    },
+    flags = {
+        right = false,
+        bottom = false,
+        bold = true,
+        draggable = false,
+    }
+})
+
+Item_box:show()
+remedy_box:show()
+panacea_box:show()
+holywater_box:show()
+vile_box:show()
+vile1_box:show()
+InstantWarp_box:show()
+
+update_item_boxes()
+count_item()
 end
 
 function precast(spell)
@@ -531,7 +698,13 @@ function midcast(spell)
 end
 
 function aftercast(spell)
-	idle()
+ idle()
+	update_item_boxes()
+end
+ function status_change(new,old)
+ idle()
+	update_item_boxes()
+    update_mnk_panel()
 end
 
 function buff_change(buff,gain)
@@ -576,6 +749,10 @@ end
 		status_change(player.status)
 	end
 end
+    if buff == 'Footwork'
+    or buff == 'Impetus' then
+        update_mnk_panel()
+    end
 end
 
 function idle()
@@ -596,10 +773,7 @@ function idle()
         equip(sets.run[Run_Set_Names[Run_Index]]) 
     end
 end	
- 
-function status_change(new,old)
-	idle()
-end
+
 
 Tank_Mode = true --, If true, default set is tanking TP array.
 DD_Mode = true --, TP set order, looks for Tanking TP set before 2H TP
@@ -674,33 +848,80 @@ function self_command(command)
 	end
 end
 
-function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
-send_command('unbind f7')
-send_command('unbind !f7')
-send_command('unbind ^f7')
+function update_mnk_panel()
 
+    local Impetus = buffactive['Impetus']
+    local Footwork = buffactive['Footwork']
+
+    MNK_info_1:text(string.format(
+        'Footwork: %s\nImpetus: %s',
+        Footwork and '\\cs(0,255,0)Active\\cr' or '\\cs(255,0,0)OFF\\cr',
+        Impetus and '\\cs(0,255,0)Active\\cr' or '\\cs(255,0,0)OFF\\cr'
+
+    )) 
+end
+
+
+function count_item(name)
+    local item = res.items:with('en', name)
+    if not item then return 0 end
+
+    local inv = windower.ffxi.get_items('inventory')
+    local count = 0
+
+    for i = 1, inv.max do
+        local slot = inv[i]
+        if slot and slot.id == item.id then
+            count = count + slot.count
+        end
+    end
+
+    return count
+end
+function update_item_boxes()
+
+    remedy_box:text(('Rem: %d'):format(count_item('Remedy')))
+    panacea_box:text(('Pan: %d'):format(count_item('Panacea')))
+    holywater_box:text(('HW: %d'):format(count_item('Holy Water')))
+    vile_box:text(('VElix: %d'):format(count_item('Vile Elixir')))
+    vile1_box:text(('VElix +1: %d'):format(count_item('Vile Elixir +1')))
+    InstantWarp_box:text(('Warp: %d'):format(count_item('Instant Warp')))
+	Item_box:text(
+		('Reraise : %d\n' ..
+		'Hi-RR   : %d\n' ..
+		'Insta RR: %d\n' ..
+		'Utsusemi: %d\n' ..
+		'Silent Oil: %d\n' ..
+		'Prism Powder: %d\n' ..
+		'Grape Daifuku: %d'):format(
+			count_item('Reraiser'),
+			count_item('Hi-Reraiser'),
+			count_item('Instant Reraise'),
+			count_item('Shihei'),
+			count_item('Silent Oil'),
+			count_item('Prism Powder'),
+			count_item('Grape Daifuku')
+		))
+end
+function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
 send_command('unbind f9')
 send_command('unbind !f9')
 send_command('unbind ^f9')
-
 send_command('unbind f10')
 send_command('unbind !f10')
-send_command('unbind ^f10')
-
 send_command('unbind f12')
 send_command('unbind !f12')
-send_command('unbind ^f12')
+send_command('unbind f7')
+send_command('unbind !f7')
+send_command('unbind !numpad1')
+send_command('unbind ^numpad1')
+send_command('unbind !numpad0')
 
-send_command('unbind Numpad1')
-send_command('unbind !Numpad1')
-send_command('unbind ^Numpad1')
-
-send_command('unbind Numpad3')
-send_command('unbind !Numpad3')
-send_command('unbind ^Numpad3')
-
-send_command('unbind Numpad0')
-send_command('unbind !Numpad0')
-send_command('unbind ^Numpad0')
-send_command('unbind Numpad0')
+remedy_box:destroy()
+panacea_box:destroy()
+holywater_box:destroy()
+vile_box:destroy()
+vile1_box:destroy()
+InstantWarp_box:destroy()
+Item_box:destroy()
 end

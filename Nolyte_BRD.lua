@@ -1,5 +1,6 @@
 texts = require('texts')
 local res = require('resources')
+include('organizer-lib')
 function get_sets()
 	send_command('bind f7 gs c toggle Weapons set')
 	send_command('bind !f7 gs c toggle Sub Weapons') --, ALT
@@ -12,6 +13,7 @@ function get_sets()
 	send_command('bind !numpad3 gs c toggle Echo Drops')
 	send_command('bind !numpad1 gs c toggle Holy Water')
 	send_command('input //fastfollow pauseon item')
+	send_command ("input //lua load Dressup")
 	include('BuffWatcher.lua')
 
 	
@@ -23,7 +25,7 @@ function get_sets()
 
 	
 	sets["WarpRing"] = {
-	left_ring= "Warp Ring"
+	right_ring= "Warp Ring"
 	}
 	sets["DemRing"] = {
 	left_ring= "Dim. Ring (Dem)"
@@ -51,13 +53,13 @@ function get_sets()
 	sets["Miracle Cheer"] = {
 	range="Miracle Cheer"
 	}	
-	Sub_Weapons_Set_Names = {'TP_Bonus','Gleti','Ammurapi'} --'Kali','Gleti',
+	Sub_Weapons_Set_Names = {'TP_Bonus','Prophetic','Ammurapi'} --'Kali','Gleti',
 	sets.Sub_Weapons = {}	
 	sets.Sub_Weapons.Ammurapi = {
 	sub="Ammurapi Shield",
 	}
-	sets.Sub_Weapons.Gleti = {
-    sub="Gleti's Knife",
+	sets.Sub_Weapons.Prophetic = {
+    sub="Prophetic Knife",
 	}
 	sets.Sub_Weapons.TP_Bonus = {
 	sub="Fusetto +2",
@@ -116,7 +118,7 @@ function get_sets()
     -- left_ear="Brutal Earring",
     -- right_ear="Suppanomimi",
     -- left_ring="Moonlight Ring",
-    -- right_ring="Lehko's Ring",
+    -- right_ring="Chirich Ring +1",
     -- back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
 	-- }
 	-- sets.DD_Mode["DT/Acc"] = {
@@ -131,7 +133,7 @@ function get_sets()
     -- left_ear="Brutal Earring",
     -- right_ear="Suppanomimi",
     -- left_ring="Moonlight Ring",
-    -- right_ring="Lehko's Ring",
+    -- right_ring="Chirich Ring +1",
     -- back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
 	-- }	
 	-- sets.DD_Mode["MEVA"] = {
@@ -166,7 +168,7 @@ function get_sets()
     -- left_ear="Brutal Earring",
     -- right_ear="Cessance Earring",
     -- left_ring="Moonlight Ring",
-    -- right_ring="Lehko's Ring",
+    -- right_ring="Chirich Ring +1",
     -- back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
 	-- }
 	-- sets.Tank_Mode["DT/Acc"]  = {
@@ -181,7 +183,7 @@ function get_sets()
     -- left_ear="Brutal Earring",
     -- right_ear="Cessance Earring",
     -- left_ring="Moonlight Ring",
-    -- right_ring="Lehko's Ring",
+    -- right_ring="Chirich Ring +1",
     -- back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
 	-- }  	
 	
@@ -199,7 +201,7 @@ function get_sets()
     -- left_ear="Crep. Earring",
     -- right_ear="Suppanomimi",
     -- left_ring="Moonlight Ring",
-    -- right_ring="Lehko's Ring",
+    -- right_ring="Chirich Ring +1",
     -- back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
 	-- }	
 	-- sets["Twashtar Aftermath"] = {
@@ -214,7 +216,7 @@ function get_sets()
     -- left_ear="Crep. Earring",
     -- right_ear="Suppanomimi",
     -- left_ring="Moonlight Ring",
-    -- right_ring="Lehko's Ring",
+    -- right_ring="Chirich Ring +1",
     -- back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
 	-- }	
 	
@@ -291,7 +293,7 @@ function get_sets()
 	sets.ws['Savage Blade']	= {
     range={ name="Linos", augments={'Accuracy+13 Attack+13','Weapon skill damage +2%','STR+6 DEX+6',}},
     head="Blistering Sallet +1",
-    body="Bihu Justaucorps +3",
+    body="Bihu Justaucorps +4",
     hands="Chironic Gloves",
     legs={ name="Chironic Hose", augments={'Pet: Mag. Acc.+11 Pet: "Mag.Atk.Bns."+11','Potency of "Cure" effect received+5%','Weapon skill damage +4%','Accuracy+16 Attack+16','Mag. Acc.+17 "Mag.Atk.Bns."+17',}},
 	feet="Chironic Slippers",
@@ -306,7 +308,7 @@ function get_sets()
 	sets.ws['Sanguine Blade']	= {
     range={ name="Linos", augments={'Accuracy+13 Attack+13','Weapon skill damage +2%','STR+6 DEX+6',}},
     head="Bunzi's Hat",
-    body={ name="Bihu Jstcorps. +3", augments={'Enhances "Troubadour" effect',}},
+    body={ name="Bihu Jstcorps. +4", augments={'Enhances "Troubadour" effect',}},
     hands={ name="Chironic Gloves", augments={'Pet: AGI+1','Pet: Haste+3','Weapon skill damage +6%',}},
     legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
@@ -321,7 +323,7 @@ function get_sets()
 	sets.ws['Circle Blade']	= {
     range={ name="Linos", augments={'Accuracy+13 Attack+13','Weapon skill damage +2%','STR+6 DEX+6',}},
     head="Blistering Sallet +1",
-    body="Bihu Justaucorps +3",
+    body="Bihu Justaucorps +4",
     hands="Nyame Gauntlets",
     legs={ name="Chironic Hose", augments={'Pet: Mag. Acc.+11 Pet: "Mag.Atk.Bns."+11','Potency of "Cure" effect received+5%','Weapon skill damage +4%','Accuracy+16 Attack+16','Mag. Acc.+17 "Mag.Atk.Bns."+17',}},
 	feet="Chironic Slippers",
@@ -337,7 +339,7 @@ function get_sets()
 	sets.ws["Rudra's Storm"]	= {
     range={ name="Linos", augments={'Accuracy+13 Attack+13','Weapon skill damage +2%','STR+6 DEX+6',}},
     head="Blistering Sallet +1",
-    body="Bihu Justaucorps +3",
+    body="Bihu Justaucorps +4",
     hands="Chironic Gloves",
     legs={ name="Chironic Hose", augments={'Pet: Mag. Acc.+11 Pet: "Mag.Atk.Bns."+11','Potency of "Cure" effect received+5%','Weapon skill damage +4%','Accuracy+16 Attack+16','Mag. Acc.+17 "Mag.Atk.Bns."+17',}},
 	feet="Chironic Slippers",
@@ -377,14 +379,14 @@ function get_sets()
     -- left_ear="Ishvara Earring",
     -- right_ear="Regal Earring",
     -- left_ring="Ilabrat Ring",
-    -- right_ring="Lehko's Ring",
+    -- right_ring="Chirich Ring +1",
     -- back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
     -- --back={ name="Intarabus's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%','STR+10'}},
 	-- }		
 	sets.ws['Aeolian Edge']	= {
     range={ name="Linos", augments={'Accuracy+13 Attack+13','Weapon skill damage +2%','STR+6 DEX+6',}},
     head="Bunzi's Hat",
-    body={ name="Bihu Jstcorps. +3", augments={'Enhances "Troubadour" effect',}},
+    body={ name="Bihu Jstcorps. +4", augments={'Enhances "Troubadour" effect',}},
     hands={ name="Chironic Gloves", augments={'Pet: AGI+1','Pet: Haste+3','Weapon skill damage +6%',}},
     legs="Bunzi's Pants",
     feet="Bunzi's Sabots",
@@ -423,7 +425,7 @@ function get_sets()
     -- left_ear="Brutal Earring",
     -- right_ear="Cessance Earring",
     -- left_ring="Ilabrat Ring",
-    -- right_ring="Lehko's Ring",
+    -- right_ring="Chirich Ring +1",
     -- back={ name="Intarabus's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%','DEX+6'}},
 	-- }		
 	
@@ -448,7 +450,7 @@ function get_sets()
     range="Miracle Cheer",
 	} 
 	sets.ja['Troubadour'] = {
-    body="Bihu Justaucorps +3",
+    body="Bihu Justaucorps +4",
 	} 	
 	sets.ja['Soul Voice'] = {
     range="Miracle Cheer",
@@ -491,9 +493,9 @@ function get_sets()
     neck="Null Loop",
     waist="Witful Belt",
     left_ear="Alabaster Earring",
-    right_ear="Odnowa Earring +1",
-    left_ring="Murky Ring",
-    right_ring="Defending Ring",
+    right_ear="Loquacious Earring",
+    left_ring="Defending Ring",
+    right_ring="Kishar Ring",
     back={ name="Intarabus's Cape", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},
 	}
 
@@ -516,18 +518,33 @@ function get_sets()
     feet="Fili Cothurnes +3",
     neck="Mnbw. Whistle +1",
     waist="Null Belt",
-    left_ear="Magnetic Earring",
-    right_ear="Fili Earring",
+    left_ear="Dignitary's Earring",
+    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
     left_ring="Stikini Ring +1",
     right_ring="Metamorph Ring +1",
     back="Null Shawl",
 	}
+	sets.midcast.EnfeeblingMacc = {
+    range={ name="Linos", augments={'Mag. Acc.+15',}},
+    head="Null Masque",
+    body="Fili Hongreline +3",
+    hands="Inyan. Dastanas +2",
+    legs={ name="Chironic Hose", augments={'Mag. Acc.+30','"Drain" and "Aspir" potency +10','INT+1',}},
+    feet="Fili Cothurnes +3",
+    neck="Null Loop",
+    waist="Null Belt",
+    left_ear="Dignitary's Earring",
+    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
+    left_ring="Stikini Ring +1",
+    right_ring="Metamor. Ring +1",
+    back="Null Shawl",
+	}
 	sets.midcast.EnfeebDuration = set_combine(sets.midcast.macc, {
 	range="Marsyas",
-    feet="Brioso Slippers +3",
+    feet="Brioso Slippers +4",
 	})
 	sets.midcast.EnfeebPotency = set_combine(sets.midcast.macc, {
-    feet="Brioso Slippers +3",
+    feet="Brioso Slippers +4",
 	})
 	-- sets.midcast.Banish = {
     -- range="Gjallarhorn",
@@ -583,7 +600,7 @@ function get_sets()
     waist="Witful Belt",
     left_ear="Magnetic Earring",
     right_ear="Loquac. Earring",
-    left_ring="Murky Ring",
+    left_ring="Defending Ring",
     right_ring="Kishar Ring",
     back={ name="Intarabus's Cape", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},
 	}
@@ -593,12 +610,12 @@ function get_sets()
     body="Fili Hongreline +3",
     hands="Fili Manchettes +2",
     legs="Inyanga Shalwar +2",
-    feet="Brioso Slippers +3",
+    feet="Brioso Slippers +4",
     neck="Mnbw. Whistle +1",
     waist="Witful Belt",
     left_ear="Magnetic Earring",
     right_ear="Loquac. Earring",
-    left_ring="Murky Ring",
+    left_ring="Defending Ring",
     right_ring="Kishar Ring",
     back={ name="Intarabus's Cape", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},
 	}
@@ -655,33 +672,22 @@ function get_sets()
 	range="Blurred Harp +1",
     head="Fili Calot +2",
     body="Fili Hongreline +3",
-    hands="Brioso Cuffs +3",
+    hands="Brioso Cuffs +4",
     legs="Inyanga Shalwar +2",
-    feet="Brioso Slippers +3",
+    feet="Brioso Slippers +4",
     neck="Mnbw. Whistle +1",
     waist="Null Belt",
-    left_ear="Magnetic Earring",
+    left_ear="Dignitary's Earring",
     right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
     left_ring="Stikini Ring +1",
     right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     back="Null Shawl",
 	})
-	sets.midcast.HordeLullaby = set_combine(sets.midcast.macc, {
-    range="Blurred Harp +1",
-    head="Fili Calot +2",
-    body="Fili Hongreline +3",
-    hands="Brioso Cuffs +3",
-    legs="Inyanga Shalwar +2",
-    feet="Brioso Slippers +3",
-    neck="Mnbw. Whistle +1",
-    waist="Null Belt",
-    left_ear="Crep. Earring",
-    right_ear="Fili Earring",
-    left_ring="Stikini Ring +1",
-    right_ring="Metamorph Ring +1",
-    back="Null Shawl",
+	sets.midcast.HordeLullaby = set_combine(sets.midcast.HordeLullabyII, {
+    left_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
+    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 2"},
 	})
-	sets.midcast.FoeLullaby = set_combine(sets.midcast.HordeLullaby, {
+	sets.midcast.FoeLullaby = set_combine(sets.midcast.HordeLullabyII, {
     range="Marsyas",
 	})
 	
@@ -695,24 +701,24 @@ function get_sets()
     waist="Flume Belt",
     left_ear="Magnetic Earring",
     right_ear="Fili Earring",
-    left_ring="Murky Ring",
-    right_ring="Defending Ring",
+    left_ring="Defending Ring",
+    right_ring="Murky Ring",
     back={ name="Intarabus's Cape", augments={'VIT+20','Eva.+20 /Mag. Eva.+20','VIT+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},
 	}
 
 	sets.midcast.Banish = {
     head="Ipoca Beret",
-    body="Adamantite Armor",
+    body="Fili Hongreline +3",
     hands="Fili Manchettes +2",
-	legs="Fili Rhingrave +2",
-    feet="Fili Cothurnes +2",
+    legs="Fili Rhingrave +2",
+    feet="Fili Cothurnes +3",
     neck="Jokushu Chain",
     waist="Null Belt",
-    left_ear="Crepuscular Earring",
-    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+7','Mag. Acc.+7',}},
-    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    right_ring={name = "Stikini Ring +1", bag = "Wardrobe 1"},
-    back="Null Shawl",
+    left_ear="Digni. Earring",
+    right_ear={ name="Fili Earring", augments={'System: 1 ID: 1676 Val: 0','Accuracy+10','Mag. Acc.+10',}},
+    left_ring="Metamor. Ring +1",
+    right_ring="Stikini Ring +1",
+    back="Disperser's Cape",
 	}
 	-- sets.midcast.Cursna = {
     -- head={ name="Vanya Hood", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
@@ -782,7 +788,7 @@ function get_sets()
 	}
 	
 remedy_box = texts.new('', {
-    pos = {x = 598, y = 930},
+    pos = {x = 555, y = 930},
     text = {
         font = 'Consolas',
         size = 8,
@@ -799,7 +805,7 @@ remedy_box = texts.new('', {
     }
 })
 panacea_box = texts.new('', {
-    pos = {x = 598, y = 880},
+    pos = {x = 555, y = 880},
     text = {
         font = 'Consolas',
         size = 8,
@@ -816,7 +822,7 @@ panacea_box = texts.new('', {
     }
 })
 holywater_box = texts.new('', {
-    pos = {x = 598, y = 830},
+    pos = {x = 561, y = 830},
     text = {
         font = 'Consolas',
         size = 8,
@@ -833,7 +839,7 @@ holywater_box = texts.new('', {
     }
 })
 vile_box = texts.new('', {
-    pos = {x = 590, y = 965},
+    pos = {x = 550, y = 965},
     text = {
         font = 'Consolas',
         size = 8,
@@ -850,7 +856,7 @@ vile_box = texts.new('', {
     }
 })
 vile1_box = texts.new('', {
-    pos = {x = 572, y = 980},
+    pos = {x = 532, y = 980},
     text = {
         font = 'Consolas',
         size = 8,
@@ -867,7 +873,7 @@ vile1_box = texts.new('', {
     }
 })
 InstantWarp_box = texts.new('', {
-    pos = {x = 680, y = 1068},
+    pos = {x = 630, y = 1070},
     text = {
         font = 'Consolas',
         size = 8,
@@ -883,24 +889,14 @@ InstantWarp_box = texts.new('', {
 		draggable = false,
     }
 })
-Food_box = texts.new('', {
-    pos = {x = 1080, y = 1088},
-    text = {
-        font = 'Consolas',
-        size = 10,
-        stroke = {width = 2},
-    },
-    flags = {
-        right = false,
-        bottom = false,
-        bold = true,
-		draggable = false,
-    }
-})
-SneakInvisible_box = texts.new('${text}', {
+
+Item_box = texts.new('${text}', {
     pos = {
-        x = 530,
-        y = 1050,
+        x = 1215,
+        y = 930,
+    },
+    bg = {
+        alpha = 190,
     },
     text = {
         font = 'Consolas',
@@ -917,14 +913,14 @@ SneakInvisible_box = texts.new('${text}', {
     }
 })
 
+Item_box:show()
 remedy_box:show()
 panacea_box:show()
 holywater_box:show()
 vile_box:show()
 vile1_box:show()
 InstantWarp_box:show()
-Food_box:show()
-SneakInvisible_box:show()
+
 
 update_item_boxes()
 count_item()
@@ -940,9 +936,13 @@ function precast(spell)
 	if spell.name == "Honor March" then
 		equip(sets.precast["Honor March"])
 	end
-    if sets.ws[spell.name] then
-        equip(sets.ws[spell.name])        
-    end
+if sets.ws[spell.name] then
+    equip(
+        player.equipment.sub == "Prophetic Knife"
+        and set_combine(sets.ws[spell.name], {ammo="Prophetica"})
+        or sets.ws[spell.name]
+    )
+end
     if sets.ja[spell.name] then
         equip(sets.ja[spell.name])  
 	end
@@ -1017,7 +1017,7 @@ function midcast(spell)
     elseif spell.skill == 'Healing Magic' then
         equip_set = sets.midcast.cura
     elseif spell.skill == 'Enfeebling Magic' or spell.skill == 'Dark Magic' then
-        equip_set = sets.midcast.macc
+        equip_set = sets.midcast.EnfeeblingMacc
     end
 
     -- Equip the chosen set
@@ -1053,47 +1053,14 @@ function job_tick()
     return false
 end
 
-function check_haste_samba()
-    -- Check if we are BRD/DNC and if we meet TP and buff conditions
-    if player.sub_job == 'DNC' and player.tp >= 350 and player.status=='Engaged' and not buffactive['Haste Samba'] and not midaction() and not buffactive['Amnesia'] then
-        send_command('input /ja "Haste Samba" <me>')
-        tickdelay = os.clock() + 5
-        return true
-    end
-    return false
-end
-
--- windower.register_event('prerender', function()
-    -- if os.clock() > (tickdelay or 0) then
-        -- if player.status=='Engaged' and not buffactive['Haste'] then
-            -- send_command('input //send Noscrying /ma "Haste II" <Nolyte>')
-            -- tickdelay = os.clock() + 5
-        -- end
-    -- end
--- end)
-
--- function job_tick()
-    -- if check_hasteII() then return true end
-    -- return false
--- end
-
--- function check_hasteII()
-        -- if player.status=='Engaged' and not buffactive['Haste'] then
-			-- send_command('input //send Noscrying /ma "Haste II" <Nolyte>')
-			-- tickdelay = os.clock() + 5
-        -- return true
-    -- end
-    -- return false
--- end
-
 
 function buff_change(buff,gain,lose)
     if buff == "doom" then --, Auto equips doom set, cause I'm lazy from killing Shinryu
         if gain then
             equip(sets.buff.Holywater)
-             disable('ring1','ring2','waist','neck','feet')
+             disable('neck')
         else
-            enable('ring1','ring2','waist','neck','feet')
+            enable('neck')
             status_change(player.status)
         end
     end
@@ -1269,12 +1236,22 @@ function update_item_boxes()
     vile_box:text(('VElix: %d'):format(count_item('Vile Elixir')))
     vile1_box:text(('VElix +1: %d'):format(count_item('Vile Elixir +1')))
     InstantWarp_box:text(('Warp: %d'):format(count_item('Instant Warp')))
-    Food_box:text(('Rolan. Daifuku: %d'):format(count_item('Rolan. Daifuku')))
-	SneakInvisible_box:text(
-		('Silent Oil : %d\nPrism Powder: %d'):format(
+	Item_box:text(
+		('Reraise : %d\n' ..
+		'Hi-RR   : %d\n' ..
+		'Insta RR: %d\n' ..
+		'Utsusemi: %d\n' ..
+		'Silent Oil: %d\n' ..
+		'Prism Powder: %d\n' ..
+		'Rolan. Daifuku: %d'):format(
+			count_item('Reraiser'),
+			count_item('Hi-Reraiser'),
+			count_item('Instant Reraise'),
+			count_item('Shihei'),
 			count_item('Silent Oil'),
-			count_item('Prism Powder')
-		))	
+			count_item('Prism Powder'),
+			count_item('Rolan. Daifuku')
+		))
 end
 
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
@@ -1312,6 +1289,6 @@ holywater_box:destroy()
 vile_box:destroy()
 vile1_box:destroy()
 InstantWarp_box:destroy()
-Food_box:destroy()
-SneakInvisible_box:destroy()
+
+Item_box:destroy()
 end

@@ -1,3 +1,4 @@
+include('organizer-lib')
 function get_sets()
 	send_command('bind f9 gs c toggle melee set') -- F9 = Cycle through
 	send_command('bind f7 gs c toggle Gun set') -- F9 = Cycle through
@@ -11,7 +12,7 @@ function get_sets()
 	TH_Index = 1
 
 	sets["WarpRing"] = {
-	left_ring= "Warp Ring"
+	right_ring= "Warp Ring"
 	}
 	sets["DemRing"] = {
 	left_ring= "Dim. Ring (Dem)"
@@ -32,7 +33,7 @@ function get_sets()
     left_ear="Cessance Earring",
     right_ear="Brutal Earring",
     left_ring="Ilabrat Ring",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     back="Null Shawl",
 }
 	sets.ranged.precast = {
@@ -49,7 +50,7 @@ function get_sets()
     left_ear="Cessance Earring",
     right_ear="Brutal Earring",
     left_ring="Ilabrat Ring",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     back="Null Shawl",
 }
 
@@ -68,7 +69,7 @@ function get_sets()
     left_ear="Cessance Earring",
     right_ear="Brutal Earring",
     left_ring="Ilabrat Ring",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     back="Null Shawl",
 }
 	sets.melee.DT = {
@@ -82,24 +83,24 @@ function get_sets()
     waist="Shetal Stone",
     left_ear="Eabani Earring",
     right_ear="Suppanomimi",
-    left_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
-    right_ring="Defending Ring",
+    left_ring="Chirich Ring +1",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Murky Ring",
     back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
 	sets.melee.Hybrid = {
 	range="Compensator",
     ammo="Eminent Bullet",
     head="Null Masque",
-    body="Mummu Jacket +2",
+    body="Nyame Mail",
     hands="Mummu Wrists +2",
     legs="Meg. Chausses +2",
-    feet="Mummu Gamash. +2",
+    feet="Nyame Sollerets",
     neck="Null Loop",
     waist="Null Belt",
-    left_ear="Cessance Earring",
-    right_ear="Brutal Earring",
+    left_ear="Eabani Earring",
+    right_ear="Suppanomimi",
     left_ring="Ilabrat Ring",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     back="Null Shawl",
 	}
 	sets.melee.Crit = {	
@@ -113,14 +114,14 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Odr Earring",
     right_ear="Suppanomimi",
-    left_ring="Lehko's Ring",
+    left_ring="Chirich Ring +1",
     right_ring="Epona's Ring",
     back="Null Shawl",
 	}
 	sets.melee.Kite = {
 	ammo="Eminent Bullet",
     head="Nyame Helm",
-    body="Nyame Mail",
+    body="Adamantite Armor",
     hands="Nyame Gauntlets",
     legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
     feet="Nyame Sollerets",
@@ -129,7 +130,7 @@ function get_sets()
     left_ear="Crep. Earring",
     right_ear="Suppanomimi",
     left_ring="Purity Ring",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     back="Null Shawl",
 	}
 
@@ -161,36 +162,36 @@ function get_sets()
 	}		
 
 	
-	CP_Set_Names = {'Run',"Regen"}
+	CP_Set_Names = {"DT"}--'Run',
 	sets.CP = {}
 	sets.CP.Run = {
     range={ name="Compensator", augments={'DMG:+15','Rng.Atk.+15','"Mag.Atk.Bns."+15',}},
     ammo="Eminent Bullet",
     head="Null Masque",
-    body="Mummu Jacket +2",
-    hands="Mummu Wrists +2",
-    legs="Mummu Kecks +2",
-    feet="Mummu Gamash. +2",
+    body="Adamantite Armor",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     neck="Null Loop",
-    waist="Flume Belt",
-    left_ear="Cessance Earring",
-    right_ear="Suppanomimi",
+    waist="Null Belt",
+    left_ear="Sanare Earring",
+    right_ear="Alabaster Earring",
     left_ring="Shneddick Ring",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     back="Null Shawl",
 	}
-	sets.CP.Regen = {
-    head="Nyame Helm",
-    body="Nyame Mail",
+	sets.CP.DT = {
+    head="Null Masque",
+    body="Adamantite Armor",
     hands="Nyame Gauntlets",
-    legs={ name="Carmine Cuisses +1", augments={'Accuracy+20','Attack+12','"Dual Wield"+6',}},
+    legs="Nyame Flanchard",
     feet="Nyame Sollerets",
-    neck={ name="Bathy Choker +1", augments={'Path: A',}},
-    waist="Flume Belt",
-    left_ear="Infused Earring",
-    right_ear="Suppanomimi",
-    left_ring="Chirich Ring +1",
-    right_ring="Defending Ring",
+    neck="Null Loop",
+    waist="Null Belt",
+    left_ear="Sanare Earring",
+    right_ear="Alabaster Earring",
+    left_ring="Shneddick Ring",
+    right_ring="Murky Ring",
     back="Null Shawl",
 	}	
 	Gun_Set_Names = {'Savage', 'Leaden'}
@@ -246,7 +247,7 @@ function get_sets()
     left_ear="Cessance Earring",
     right_ear="Brutal Earring",
     left_ring="Ilabrat Ring",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     back="Null Shawl",
 	}
 	
@@ -518,129 +519,115 @@ function get_sets()
     feet="Lanun Bottes +2",	
 	}
 	sets.ja['Earth Shot'] = {
-
-	ammo="Animikii Bullet",
-    head="Nyame Helm",
+    head="Null Masque",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Null Loop",
     waist="Null Belt",
-    left_ear="Hecate\'s Earring",
-    right_ear="Friomisi Earring",
-    left_ring="Arvina Ringlet +1",
-    right_ring="Dingir Ring",
-    back={ name="Gunslinger's Cape", augments={'Enmity-5','"Mag.Atk.Bns."+5','"Phantom Roll" ability delay -2',}},
+    left_ear="Cessance Earring",
+    right_ear="Suppanomimi",
+    left_ring="Dingir Ring",
+    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    back="Null Shawl",
 }
 	sets.ja['Wind Shot'] = {
-
-	ammo="Animikii Bullet",
-    head="Nyame Helm",
+    head="Null Masque",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Null Loop",
     waist="Null Belt",
-    left_ear="Hecate\'s Earring",
-    right_ear="Friomisi Earring",
-    left_ring="Arvina Ringlet +1",
-    right_ring="Dingir Ring",
-    back={ name="Gunslinger's Cape", augments={'Enmity-5','"Mag.Atk.Bns."+5','"Phantom Roll" ability delay -2',}},
+    left_ear="Cessance Earring",
+    right_ear="Suppanomimi",
+    left_ring="Dingir Ring",
+    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    back="Null Shawl",
 }
 	sets.ja['Fire Shot'] = {
-
-	ammo="Animikii Bullet",
-    head="Nyame Helm",
+    head="Null Masque",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Null Loop",
     waist="Null Belt",
-    left_ear="Hecate\'s Earring",
-    right_ear="Friomisi Earring",
-    left_ring="Arvina Ringlet +1",
-    right_ring="Dingir Ring",
-    back={ name="Gunslinger's Cape", augments={'Enmity-5','"Mag.Atk.Bns."+5','"Phantom Roll" ability delay -2',}},
+    left_ear="Cessance Earring",
+    right_ear="Suppanomimi",
+    left_ring="Dingir Ring",
+    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    back="Null Shawl",
 }
 	sets.ja['Water Shot'] = {
-
-	ammo="Animikii Bullet",
-    head="Nyame Helm",
+    head="Null Masque",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Null Loop",
     waist="Null Belt",
-    left_ear="Hecate\'s Earring",
-    right_ear="Friomisi Earring",
-    left_ring="Arvina Ringlet +1",
-    right_ring="Dingir Ring",
-    back={ name="Gunslinger's Cape", augments={'Enmity-5','"Mag.Atk.Bns."+5','"Phantom Roll" ability delay -2',}},
+    left_ear="Cessance Earring",
+    right_ear="Suppanomimi",
+    left_ring="Dingir Ring",
+    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    back="Null Shawl",
 }
 	sets.ja['Thunder Shot'] = {
-
-	ammo="Animikii Bullet",
-    head="Nyame Helm",
+    head="Null Masque",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Null Loop",
     waist="Null Belt",
-    left_ear="Hecate\'s Earring",
-    right_ear="Friomisi Earring",
-    left_ring="Arvina Ringlet +1",
-    right_ring="Dingir Ring",
-    back={ name="Gunslinger's Cape", augments={'Enmity-5','"Mag.Atk.Bns."+5','"Phantom Roll" ability delay -2',}},
+    left_ear="Cessance Earring",
+    right_ear="Suppanomimi",
+    left_ring="Dingir Ring",
+    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    back="Null Shawl",
 }
 	sets.ja['Ice Shot'] = {
-
-	ammo="Animikii Bullet",
-    head="Nyame Helm",
+    head="Null Masque",
     body="Nyame Mail",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Null Loop",
     waist="Null Belt",
-    left_ear="Hecate\'s Earring",
-    right_ear="Friomisi Earring",
-    left_ring="Arvina Ringlet +1",
-    right_ring="Dingir Ring",
-    back={ name="Gunslinger's Cape", augments={'Enmity-5','"Mag.Atk.Bns."+5','"Phantom Roll" ability delay -2',}},
+    left_ear="Cessance Earring",
+    right_ear="Suppanomimi",
+    left_ring="Dingir Ring",
+    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    back="Null Shawl",
 }
 	sets.ja['Light Shot'] = {
-    ammo="Animikii Bullet",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
+    head="Null Masque",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     neck="Null Loop",
     waist="Null Belt",
-    left_ear="Crepuscular Earring",
-    right_ear="Enchntr. Earring",
-    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    right_ring="Crepuscular Ring",
+    left_ear="Cessance Earring",
+    right_ear="Suppanomimi",
+    left_ring="Dingir Ring",
+    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     back="Null Shawl",
 }
 	sets.ja['Dark Shot'] = {
-    ammo="Animikii Bullet",
-    head="Malignance Chapeau",
-    body="Malignance Tabard",
-    hands="Malignance Gloves",
-    legs="Malignance Tights",
-    feet="Malignance Boots",
+    head="Null Masque",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
     neck="Null Loop",
     waist="Null Belt",
-    left_ear="Crepuscular Earring",
-    right_ear="Enchntr. Earring",
-    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-    right_ring="Crepuscular Ring",
+    left_ear="Cessance Earring",
+    right_ear="Suppanomimi",
+    left_ring="Dingir Ring",
+    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
     back="Null Shawl",
 }
 	sets.buff = {} 					-- Leave this empty.
@@ -670,7 +657,7 @@ function get_sets()
     left_ear="Crepuscular Earring",
     right_ear="Suppanomimi",
     left_ring="Crepuscular Ring",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     back="Null Shawl",
 } 
 
@@ -698,7 +685,7 @@ function get_sets()
     left_ear="Eabani Earring",
     right_ear="Suppanomimi",
     left_ring="Epona\'s Ring",
-    right_ring="Defending Ring",
+    right_ring="Murky Ring",
     back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
 	
@@ -743,8 +730,8 @@ function get_sets()
 	waist="Flume Belt",
 	neck="Loricate Torque +1",
 	left_ring="Gelatinous Ring +1",
-	ring_ring="Defending Ring",
-	left_ear="Odnowa Earring +1",
+	ring_ring="Murky Ring",
+	left_ear="Alabaster Earring",
     back={ name="Camulus's Mantle", augments={'Accuracy+20 Attack+20','Weapon skill damage +10%',}},
 	}
 end

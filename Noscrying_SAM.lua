@@ -1,5 +1,6 @@
 texts = require('texts')
 local res = require('resources')
+include('organizer-lib')
 function get_sets()
 	send_command('bind f9 gs c toggle TP set') 
 	send_command('bind !f9 gs c toggle Tank_Mode') 
@@ -10,10 +11,12 @@ function get_sets()
 	send_command('bind ^numpad1 gs c toggle Buff set')
 	send_command('bind !numpad1 gs c toggle Holy Water')
 	send_command('bind !numpad0 gs c toggle Emergency MEVA')
-	send_command('bind !pause input //send Nolyte /Savage Blade')
-	send_command('bind !pageup input //send Kiokura /Savage Blade')	
-	send_command('bind !end input //send Kiokura /LeadenSalute')	
-	send_command('bind !pagedown input //send @others /Savage Blade')
+	send_command('bind !pause input //send @others /Savage Blade')
+	send_command('bind !pageup input //send Nolyte /Savage Blade')	
+	send_command('bind !pagedown input //send Kiokura /Savage Blade')
+	send_command('bind !end input //send Kiokura /LeadenSalute')
+	send_command('bind !delete input //send Kiokura /LastStand')
+
 	
 	Buff_Index = 1	
 	Run_Index = 1
@@ -22,7 +25,7 @@ function get_sets()
 	Sub_Weapons_Index = 1
 
 	sets["WarpRing"] = {
-	left_ring= "Warp Ring"
+	right_ring= "Warp Ring"
 	}
 	sets["DemRing"] = {
 	left_ring= "Dim. Ring (Dem)"
@@ -79,7 +82,7 @@ function get_sets()
     ammo="Aurgelmir Orb",
 	head="Kasuga Kabuto +2",
     body="Kasuga Domaru +2",
-    hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+    hands="Wakido Kote +4",
     legs="Kasuga Haidate +2",
     feet={ name="Ryuo Sune-Ate +1", augments={'STR+12','DEX+12','Accuracy+20',}},
 	neck="Moonbeam Nodowa", 
@@ -87,14 +90,14 @@ function get_sets()
     left_ear="Telos Earring",
     right_ear="Kasuga Earring +1",
 	left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Ephramad's Ring",
     back={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
 	}
 	sets.Tank_Mode.Hybrid = {
     ammo="Aurgelmir Orb",
     head="Kasuga Kabuto +2",
     body="Kasuga Domaru +2",
-    hands="Nyame Gauntlets",
+    hands="Wakido Kote +4",
     legs="Kasuga Haidate +2",
 	feet={ name="Ryuo Sune-Ate +1", augments={'STR+12','DEX+12','Accuracy+20',}},
     --feet="Nyame Sollerets",
@@ -103,7 +106,7 @@ function get_sets()
     left_ear="Telos Earring",
     right_ear="Kasuga Earring +1",
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Ephramad's Ring",
     back="Null Shawl",
 	}
 	sets.Tank_Mode.Subtle_Blow = {
@@ -123,13 +126,13 @@ function get_sets()
 	}
 	sets.Tank_Mode.MEVA = {
     ammo="Staunch Tathlum +1", --, SAM/RUN vs KEI, 4 hit 251TP, Rana - Shoha - Kasha - Fudo = Frag, Light, Light
-    head="Null Masque",
+    head="Kasuga Kabuto +2",
 	--body="Nyame Mail",
 	body="Dagon Breastplate",
-    hands="Nyame Gauntlets",
+    hands="Wakido Kote +4",
     legs="Kasuga Haidate +2",
 	--feet="Kendatsuba Sune-Ate +1",
-    feet="Nyame Sollerets",
+    feet="Wakido Sune-Ate +4",
     neck="Moonbeam Nodowa",
     --waist="Null Belt",
     waist="Carrier's Sash",	
@@ -137,7 +140,7 @@ function get_sets()
     right_ear="Kasuga Earring +1",
     --left_ring="Niqmaddu Ring",
     left_ring="Chirich Ring +1",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back="Null Shawl",
 	
     -- ammo="Staunch Tathlum +1",--, Normal Max MEVA
@@ -151,7 +154,7 @@ function get_sets()
     -- left_ear="Crep. Earring",
     -- right_ear="Kasuga Earring +1",
     -- left_ring="Niqmaddu Ring",
-    -- right_ring="Lehko's Ring",
+    -- right_ring="Chirich Ring +1",
     -- back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}},
 	}
 
@@ -186,7 +189,7 @@ function get_sets()
     left_ear="Cryptic Earring",	--, 3
     right_ear="Telos Earring",
     left_ring="Hizamaru Ring",
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Chirich Ring +1",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
     back={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','System: 1 ID: 640 Val: 2',}},
 	}
 	sets.DD_Mode.DT = {
@@ -224,7 +227,7 @@ function get_sets()
 	}
 	sets.run.Regain =  {
     ammo="Staunch Tathlum +1",
-    head="Null Masque",
+    head="Wakido Kabuto +3",
     body="Adamantite Armor",
     hands="Rao Kote +1",
     legs="Kasuga Haidate +2",
@@ -239,7 +242,7 @@ function get_sets()
 	}
 	sets.run.MEVA = {
     ammo="Vanir Battery",			--, Status Resistance +10, -3DT,
-    head="Null Masque",
+    head="Wakido Kabuto +3",
     body="Adamantite Armor",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
@@ -287,7 +290,7 @@ function get_sets()
 	ammo="Knobkierrie",
     head="Mpaca's Cap",
     --body={ name="Valorous Mail", augments={'Weapon skill damage +4%','STR+13','Attack+5',}},
-    body="Sakonji Domaru +3",
+    body="Sakonji Domaru +4",
     hands="Kasuga Kote +2",
     legs="Wakido Haidate +3",
 	feet="Kasuga Sune-Ate +2",
@@ -295,15 +298,15 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
-    right_ring="Epaminondas's Ring",
+    left_ring="Epaminondas's Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Sonic Thrust']	= {
 	ammo="Knobkierrie",
     head="Mpaca's Cap",
     --body={ name="Valorous Mail", augments={'Weapon skill damage +4%','STR+13','Attack+5',}},
-    body="Sakonji Domaru +3",
+    body="Sakonji Domaru +4",
     hands="Kasuga Kote +2",
     legs="Wakido Haidate +3",
 	feet="Kasuga Sune-Ate +2",
@@ -311,15 +314,15 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
-    right_ring="Epaminondas's Ring",
+    left_ring="Epaminondas's Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Vorpal Thrust']	= {
 	ammo="Knobkierrie",
     head="Mpaca's Cap",
     --body={ name="Valorous Mail", augments={'Weapon skill damage +4%','STR+13','Attack+5',}},
-    body="Sakonji Domaru +3",
+    body="Sakonji Domaru +4",
     hands="Kasuga Kote +2",
     legs="Wakido Haidate +3",
     feet="Mpaca's Boots",
@@ -327,8 +330,8 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
-    right_ring="Epaminondas's Ring",
+    left_ring="Epaminondas's Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Double Thrust']	= {
@@ -343,7 +346,7 @@ function get_sets()
     left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Ephramad's Ring",
     back={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','System: 1 ID: 640 Val: 2',}},
 	}
 	sets.ws['Stardiver']	= {
@@ -358,14 +361,14 @@ function get_sets()
     left_ear={ name="Lugra Earring +1", augments={'Path: A',}},
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",		--, +10 STP, +10% Haste, +10 Crit, +8 Acc
+    right_ring="Ephramad's Ring",
     back={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','System: 1 ID: 640 Val: 2',}},
 	}
 	sets.ws['Tachi: Gekko']	= {
 	ammo="Knobkierrie",
     head="Mpaca's Cap",
     --body={ name="Valorous Mail", augments={'Weapon skill damage +4%','STR+13','Attack+5',}},
-    body="Sakonji Domaru +3",
+    body="Sakonji Domaru +4",
     hands="Kasuga Kote +2",
     legs="Wakido Haidate +3",
 	feet="Kasuga Sune-Ate +2",
@@ -374,16 +377,15 @@ function get_sets()
 	--waist="Orpheus's Sash",
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Niqmaddu Ring",
-    right_ring="Sroda Ring",
-    --right_ring="Weatherspoon Ring +1",
+    left_ring="Epaminondas's Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Tachi: Rana']	= {
 	ammo="Knobkierrie",
     head={ name="Valorous Mask", augments={'AGI+14','Weapon skill damage +5%','Quadruple Attack +1','Mag. Acc.+20 "Mag.Atk.Bns."+20',}},
     --body={ name="Valorous Mail", augments={'Weapon skill damage +4%','STR+13','Attack+5',}},
-    body="Sakonji Domaru +3",
+    body="Sakonji Domaru +4",
     hands="Kasuga Kote +2",
     legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
     feet={ name="Valorous Greaves", augments={'Accuracy+29','Weapon skill damage +4%','STR+13',}},
@@ -391,15 +393,15 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Niqmaddu Ring",
-    right_ring="Epaminondas's Ring",
+    left_ring="Epaminondas's Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Tachi: Fudo']	= {
 	ammo="Knobkierrie",
     head="Mpaca's Cap",
     --body={ name="Valorous Mail", augments={'Weapon skill damage +4%','STR+13','Attack+5',}},
-    body="Sakonji Domaru +3",
+    body="Sakonji Domaru +4",
     hands="Kasuga Kote +2",
     legs="Wakido Haidate +3",
 	feet="Kasuga Sune-Ate +2",
@@ -408,16 +410,15 @@ function get_sets()
 	--waist="Orpheus's Sash",
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Niqmaddu Ring",
-    right_ring="Sroda Ring",
-    --right_ring="Weatherspoon Ring +1",
+    left_ring="Epaminondas's Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Tachi: Kasha']	= {
 	ammo="Knobkierrie",
     head="Mpaca's Cap",
     --body={ name="Valorous Mail", augments={'Weapon skill damage +4%','STR+13','Attack+5',}},
-    body="Sakonji Domaru +3",
+    body="Sakonji Domaru +4",
     hands="Kasuga Kote +2",
     legs="Wakido Haidate +3",
 	feet="Kasuga Sune-Ate +2",
@@ -425,15 +426,14 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Niqmaddu Ring",
-    right_ring="Sroda Ring",
-    --right_ring="Epaminondas's Ring",
+    left_ring="Epaminondas's Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Tachi: Jinpu']	= {
 	ammo="Knobkierrie",
     head={ name="Valorous Mask", augments={'AGI+14','Weapon skill damage +5%','Quadruple Attack +1','Mag. Acc.+20 "Mag.Atk.Bns."+20',}},
-    body="Sakonji Domaru +3",
+    body="Sakonji Domaru +4",
 	-- body="Sacro Breastplate",
     hands="Kasuga Kote +2",
     legs="Wakido Haidate +3",
@@ -449,7 +449,7 @@ function get_sets()
 	sets.ws['Tachi: Koki']	= {
 	ammo="Knobkierrie",
     head={ name="Valorous Mask", augments={'AGI+14','Weapon skill damage +5%','Quadruple Attack +1','Mag. Acc.+20 "Mag.Atk.Bns."+20',}},
-    body="Sakonji Domaru +3",
+    body="Sakonji Domaru +4",
     hands="Kasuga Kote +2",
     legs="Wakido Haidate +3",
     feet="Nyame Sollerets",
@@ -464,7 +464,7 @@ function get_sets()
 	sets.ws['Tachi: Kagero']	= {
 	ammo="Knobkierrie",
     head={ name="Valorous Mask", augments={'AGI+14','Weapon skill damage +5%','Quadruple Attack +1','Mag. Acc.+20 "Mag.Atk.Bns."+20',}},
-    body="Sakonji Domaru +3",
+    body="Sakonji Domaru +4",
     hands="Kasuga Kote +2",
     legs="Wakido Haidate +3",
     feet="Nyame Sollerets",
@@ -472,15 +472,15 @@ function get_sets()
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Niqmaddu Ring",
-    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Ephramad's Ring",
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Tachi: Yukikaze']	= {
 	ammo="Knobkierrie",
     head="Mpaca's Cap",
     --body={ name="Valorous Mail", augments={'Weapon skill damage +4%','STR+13','Attack+5',}},
-    body="Sakonji Domaru +3",
+    body="Sakonji Domaru +4",
     hands="Kasuga Kote +2",
     legs="Wakido Haidate +3",
     feet="Nyame Sollerets",
@@ -488,15 +488,14 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Niqmaddu Ring",
-    right_ring="Sroda Ring",
-    --right_ring="Epaminondas's Ring",
+    left_ring="Epaminondas's Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Tachi: Goten']	= {
 	ammo="Knobkierrie",
     head={ name="Valorous Mask", augments={'AGI+14','Weapon skill damage +5%','Quadruple Attack +1','Mag. Acc.+20 "Mag.Atk.Bns."+20',}},
-    body="Sakonji Domaru +3",
+    body="Sakonji Domaru +4",
     hands="Kasuga Kote +2",
     legs="Wakido Haidate +3",
     feet="Nyame Sollerets",
@@ -504,8 +503,8 @@ function get_sets()
     waist="Orpheus's Sash",
     left_ear="Friomisi Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Niqmaddu Ring",
-    right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+    right_ring="Ephramad's Ring",
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 	sets.ws['Tachi: Ageha']	= {
@@ -527,7 +526,7 @@ function get_sets()
 	ammo="Knobkierrie",
     head="Mpaca's Cap",
     --body={ name="Valorous Mail", augments={'Weapon skill damage +4%','STR+13','Attack+5',}},
-    body="Sakonji Domaru +3",
+    body="Sakonji Domaru +4",
     hands="Kasuga Kote +2",
     legs="Wakido Haidate +3",
 	feet="Kasuga Sune-Ate +2",
@@ -535,9 +534,8 @@ function get_sets()
     waist={ name="Sailfi Belt +1", augments={'Path: A',}},
     left_ear="Thrud Earring",
     right_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
-    left_ring="Niqmaddu Ring",
-    right_ring="Sroda Ring",
-    --right_ring="Epaminondas's Ring",
+    left_ring="Epaminondas's Ring",
+    right_ring="Ephramad's Ring",
     back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
 	}
 
@@ -576,7 +574,7 @@ function get_sets()
 	sets.ws.Norifusa = {
     ammo="Aurgelmir Orb",
     head="Flam. Zucchetto +2",
-    body="Sakonji Domaru +3",
+    body="Sakonji Domaru +4",
     hands={ name="Tatena. Gote +1", augments={'Path: A',}},
     legs="Kasuga Haidate +2",
     feet="Flam. Gambieras +2",
@@ -584,19 +582,19 @@ function get_sets()
     waist={ name="Kentarch Belt +1", augments={'Path: A',}},
     left_ear="Crep. Earring",
     right_ear="Kasuga Earring +1",
-    left_ring="Lehko's Ring",
+    left_ring="Chirich Ring +1",
     right_ring="Chirich Ring +1",
     back={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
 	}
 
 	sets.ja = {} 					-- Leave this empty
 	sets.ja['Meditate'] = set_combine ( sets.Tank_Mode.Hybrid, {
-	head="Myochin Kabuto",
+    head="Wakido Kabuto +3",
     back={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}},
     hands={ name="Sakonji Kote +3", augments={'Enhances "Blade Bash" effect',}},
 	})
 	sets.ja['Warding Circle'] = set_combine ( sets.Tank_Mode.Hybrid, {
-	head="Myochin Kabuto",
+    head="Wakido Kabuto +3",
 	})
 	sets.ja['Sengikori'] = set_combine ( sets.Tank_Mode.Hybrid, {
 	feet="Kasuga Sune-Ate +2",
@@ -718,7 +716,7 @@ function get_sets()
     left_ear="Schere Earring",
     right_ear="Brutal Earring",
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','System: 1 ID: 640 Val: 2',}},
 	})	
 	sets.ja['High Jump'] = set_combine ( sets.Tank_Mode.Hybrid, {
@@ -733,7 +731,7 @@ function get_sets()
     left_ear="Schere Earring",
     right_ear="Brutal Earring",
     left_ring="Niqmaddu Ring",
-    right_ring="Lehko's Ring",
+    right_ring="Chirich Ring +1",
     back={ name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','System: 1 ID: 640 Val: 2',}},
 	})	
 	sets.ja.waltz = {		
@@ -828,7 +826,7 @@ hasso_info = texts.new('${text}', {
         y = 780,
     },
 	bg = {
-		alpha   = 120,   -- 0-255 (0 = transparent, 255 = opaque)
+		alpha   = 150,   -- 0-255 (0 = transparent, 255 = opaque)
 	},	
     text = {
         font = 'Consolas',
@@ -848,7 +846,7 @@ hasso_info:show()
 update_hasso_panel()
 
 remedy_box = texts.new('', {
-    pos = {x = 598, y = 930},
+    pos = {x = 555, y = 930},
     text = {
         font = 'Consolas',
         size = 8,
@@ -865,7 +863,7 @@ remedy_box = texts.new('', {
     }
 })
 panacea_box = texts.new('', {
-    pos = {x = 598, y = 880},
+    pos = {x = 555, y = 880},
     text = {
         font = 'Consolas',
         size = 8,
@@ -882,7 +880,7 @@ panacea_box = texts.new('', {
     }
 })
 holywater_box = texts.new('', {
-    pos = {x = 598, y = 830},
+    pos = {x = 561, y = 830},
     text = {
         font = 'Consolas',
         size = 8,
@@ -899,7 +897,7 @@ holywater_box = texts.new('', {
     }
 })
 vile_box = texts.new('', {
-    pos = {x = 590, y = 965},
+    pos = {x = 550, y = 965},
     text = {
         font = 'Consolas',
         size = 8,
@@ -916,7 +914,7 @@ vile_box = texts.new('', {
     }
 })
 vile1_box = texts.new('', {
-    pos = {x = 572, y = 980},
+    pos = {x = 532, y = 980},
     text = {
         font = 'Consolas',
         size = 8,
@@ -949,24 +947,13 @@ InstantWarp_box = texts.new('', {
 		draggable = false,
     }
 })
-Food_box = texts.new('', {
-    pos = {x = 1080, y = 1088},
-    text = {
-        font = 'Consolas',
-        size = 10,
-        stroke = {width = 2},
-    },
-    flags = {
-        right = false,
-        bottom = false,
-        bold = true,
-		draggable = false,
-    }
-})
-SneakInvisible_box = texts.new('${text}', {
+Item_box = texts.new('${text}', {
     pos = {
-        x = 530,
-        y = 1050,
+        x = 1215,
+        y = 930,
+    },
+    bg = {
+        alpha = 190,
     },
     text = {
         font = 'Consolas',
@@ -982,14 +969,15 @@ SneakInvisible_box = texts.new('${text}', {
         draggable = false,
     }
 })
+
+Item_box:show()
 remedy_box:show()
 panacea_box:show()
 holywater_box:show()
 vile_box:show()
 vile1_box:show()
 InstantWarp_box:show()
-Food_box:show()
-SneakInvisible_box:show()
+
 
 update_item_boxes()
 count_item()
@@ -1051,6 +1039,15 @@ function buff_change(buff,gain)
 	end
     if buff == 'Hasso' then
         update_hasso_panel()
+    end
+    if buff == "doom" then --, Auto equips doom set, cause I'm lazy from killing Shinryu
+        if gain then
+            equip(sets.buff.Holywater)
+             disable('ring1','ring2','neck')
+        else
+            enable('ring1','ring2','neck')
+            status_change(player.status)
+        end
     end
 end
 
@@ -1194,12 +1191,22 @@ function update_item_boxes()
     vile_box:text(('VElix: %d'):format(count_item('Vile Elixir')))
     vile1_box:text(('VElix +1: %d'):format(count_item('Vile Elixir +1')))
     InstantWarp_box:text(('Warp: %d'):format(count_item('Instant Warp')))
-    Food_box:text(('Grape Daifuku: %d'):format(count_item('Grape Daifuku')))
-	SneakInvisible_box:text(
-		('Silent Oil : %d\nPrism Powder: %d'):format(
+	Item_box:text(
+		('Reraise : %d\n' ..
+		'Hi-RR   : %d\n' ..
+		'Insta RR: %d\n' ..
+		'Utsusemi: %d\n' ..
+		'Silent Oil: %d\n' ..
+		'Prism Powder: %d\n' ..
+		'Grape Daifuku: %d'):format(
+			count_item('Reraiser'),
+			count_item('Hi-Reraiser'),
+			count_item('Instant Reraise'),
+			count_item('Shihei'),
 			count_item('Silent Oil'),
-			count_item('Prism Powder')
-		))	
+			count_item('Prism Powder'),
+			count_item('Grape Daifuku')
+		))
 end
 function file_unload() --, Unbinds defined keybinds when changing jobs, can also use "send_command('clearbinds')" to wipe any and all
 send_command('unbind f7')
@@ -1237,6 +1244,5 @@ holywater_box:destroy()
 vile_box:destroy()
 vile1_box:destroy()
 InstantWarp_box:destroy()
-Food_box:destroy()
-SneakInvisible_box:destroy()
+Item_box:destroy()
 end
